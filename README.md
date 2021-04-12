@@ -2,6 +2,12 @@
 
 Archived material from the old community forums. 🕯 4/11 😔
 
+## Contributing
+
+Please contribute any old files or links you have from the old community forums.
+
+Simply open a pull request by uploading files directly to one of the directories.
+
 ## Links
 
 0.3.8 Before it was renamed to 0.3.DL: https://github.com/sa-mp-kr/0.3.8
