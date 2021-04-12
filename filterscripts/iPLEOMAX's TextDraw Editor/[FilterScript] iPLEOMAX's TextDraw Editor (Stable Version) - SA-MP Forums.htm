@@ -1,0 +1,2953 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0046)http://forum.sa-mp.com/showthread.php?t=376758 -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	
+<meta name="generator" content="vBulletin 3.8.6">
+
+<meta name="keywords" content="[FilterScript] iPLEOMAX&#39;s TextDraw Editor (Stable Version), SA-MP, GTA, multiplayer, online, server, pawn, scripting">
+<meta name="description" content="[FilterScript] iPLEOMAX&#39;s TextDraw Editor (Stable Version) Filterscripts">
+
+
+<!-- CSS Stylesheet -->
+<style type="text/css" id="vbulletin_css">
+/**
+* vBulletin 3.8.6 CSS
+* Style: 'SAMPStyle'; Style ID: 2
+*/
+body
+{
+	background: #707170;
+	color: #FFFFFFF;
+	font: bold 10pt arial, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 1px 1px 1px 1px;
+	padding: 1px;
+}
+a:link, body_alink
+{
+	color: #4A627F;
+	text-decoration: none;
+}
+a:visited, body_avisited
+{
+	color: #1A425F;
+	text-decoration: none;
+}
+a:hover, a:active, body_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.page
+{
+	background: #DADADB;
+	color: #000000;
+}
+td, th, p, li
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tborder
+{
+	background: #DFDFDF;
+	color: #000000;
+	border: 1px solid #717171;
+}
+.tcat
+{
+	background: #4F4F4F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tcat a:link, .tcat_alink
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:visited, .tcat_avisited
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:hover, .tcat a:active, .tcat_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.thead
+{
+	background: #3F3F3F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.thead a:link, .thead_alink
+{
+	color: #FFFFFF;
+}
+.thead a:visited, .thead_avisited
+{
+	color: #FFFFFF;
+}
+.thead a:hover, .thead a:active, .thead_ahover
+{
+	color: #E76006;
+}
+.tfoot
+{
+	background: #595959;
+	color: #CDCDCD;
+}
+.tfoot a:link, .tfoot_alink
+{
+	color: #CDCDCD;
+}
+.tfoot a:visited, .tfoot_avisited
+{
+	color: #9D9D9D;
+}
+.tfoot a:hover, .tfoot a:active, .tfoot_ahover
+{
+	color: #E76006;
+}
+.alt1, .alt1Active
+{
+	background: #F6F6F6;
+	color: #000000;
+}
+.alt2, .alt2Active
+{
+	background: #EAEAEB;
+	color: #000000;
+}
+.inlinemod
+{
+	background: #FFFFCC;
+	color: #000000;
+}
+.wysiwyg
+{
+	background: #F5F5F5;
+	color: #000000;
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 5px 10px 10px 10px;
+	padding: 0px;
+}
+.wysiwyg a:link, .wysiwyg_alink
+{
+	color: #22229C;
+}
+.wysiwyg a:visited, .wysiwyg_avisited
+{
+	color: #22229C;
+}
+.wysiwyg a:hover, .wysiwyg a:active, .wysiwyg_ahover
+{
+	color: #E76006;
+}
+textarea, .bginput
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.bginput option, .bginput optgroup
+{
+	font-size: 10pt;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.button
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+select
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+option, optgroup
+{
+	font-size: 11px;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.smallfont
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.time
+{
+	color: #666686;
+}
+.navbar
+{
+	font: 12pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.highlight
+{
+	color: #FF0000;
+	font-weight: bold;
+}
+.fjsel
+{
+	background: #3E5C92;
+	color: #E0E0F6;
+}
+.fjdpth0
+{
+	background: #F7F7F7;
+	color: #000000;
+}
+.panel
+{
+	background: #F5F5F5;
+	color: #000000;
+	padding: 10px;
+	border: 1px;
+}
+.panelsurround
+{
+	background: #F5F5F5;
+	color: #000000;
+}
+legend
+{
+	color: #222222;
+	font: 11px tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.vbmenu_control
+{
+	background: #777777;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	padding: 3px 6px 3px 6px;
+	white-space: nowrap;
+}
+.vbmenu_control a:link, .vbmenu_control_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:visited, .vbmenu_control_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:hover, .vbmenu_control a:active, .vbmenu_control_ahover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+.vbmenu_popup
+{
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #0B198C;
+}
+.vbmenu_option
+{
+	background: #444444;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_option a:link, .vbmenu_option_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:visited, .vbmenu_option_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:hover, .vbmenu_option a:active, .vbmenu_option_ahover
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_hilite
+{
+	background: #F37016;
+	color: #000000;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_hilite a:link, .vbmenu_hilite_alink
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:visited, .vbmenu_hilite_avisited
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:hover, .vbmenu_hilite a:active, .vbmenu_hilite_ahover
+{
+	color: #000000;
+	text-decoration: none;
+}
+/* ***** styling for 'big' usernames on postbit etc. ***** */
+.bigusername { font-size: 14pt; }
+
+/* ***** small padding on 'thead' elements ***** */
+td.thead, th.thead, div.thead { padding: 4px; }
+
+/* ***** basic styles for multi-page nav elements */
+.pagenav a { text-decoration: none; }
+.pagenav td { padding: 2px 4px 2px 4px; }
+
+/* ***** de-emphasized text */
+.shade, a.shade:link, a.shade:visited { color: #777777; text-decoration: none; }
+a.shade:active, a.shade:hover { color: #FF4400; text-decoration: underline; }
+.tcat .shade, .thead .shade, .tfoot .shade { color: #DDDDDD; }
+
+/* ***** define margin and font-size for elements inside panels ***** */
+.fieldset { margin-bottom: 6px; }
+.fieldset, .fieldset td, .fieldset p, .fieldset li { font-size: 11px; }
+</style><style type="text/css"></style>
+<link rel="stylesheet" type="text/css" href="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/vbulletin_important.css">
+
+
+<!-- / CSS Stylesheet -->
+
+<script type="text/javascript" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/connection-min.js"></script>
+<script type="text/javascript">
+<!--
+var SESSIONURL = "";
+var SECURITYTOKEN = "guest";
+var IMGDIR_MISC = "images/misc";
+var vb_disable_ajax = parseInt("0", 10);
+// -->
+</script>
+<script type="text/javascript" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/vbulletin_global.js"></script>
+<script type="text/javascript" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/vbulletin_menu.js"></script>
+
+
+	<link rel="alternate" type="application/rss+xml" title="SA-MP Forums RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2">
+	
+		<link rel="alternate" type="application/rss+xml" title="SA-MP Forums - Filterscripts - RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2&forumids=17">
+	
+<script type="text/javascript" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/ame.js"></script>
+	<title>[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums</title>
+	<script type="text/javascript" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/vbulletin_post_loader.js"></script>
+	<style type="text/css" id="vbulletin_showthread_css">
+	<!--
+	
+	#links div { white-space: nowrap; }
+	#links img { vertical-align: middle; }
+	-->
+	</style>
+</head>
+<body onload="">
+<!-- logo -->
+<a name="top"></a>
+<center><div align="center" style="height: 80px; width: 90%; background: transparent url(http://forum.sa-mp.com/logo_new_back3.png) repeat-x 0px 0px; text-align:center;">
+<table border="0" width="90%" cellpadding="0" cellspacing="0" align="center">
+<tbody><tr>
+	<td align="center"><a href="http://forum.sa-mp.com/index.php"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/logo_forum.gif" border="0" alt="SA-MP Forums" title="SA-MP Forums"></a></td>
+</tr>
+</tbody></table>
+</div></center>
+<!-- /logo -->
+
+<!-- content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+
+
+
+
+<br>
+
+<!-- breadcrumb, login, pm info -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<tbody><tr>
+	<td class="alt1" width="100%">
+		
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr valign="bottom">
+				<td><a href="http://forum.sa-mp.com/showthread.php?t=376758#" onclick="history.back(1); return false;"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/navbits_start.gif" alt="Go Back" border="0" title="Go Back"></a></td>
+				<td>&nbsp;</td>
+				<td width="100%"><span class="navbar"><a href="http://forum.sa-mp.com/index.php" accesskey="1">SA-MP Forums</a></span> 
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=8">SA-MP Scripting and Plugins</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=17">Filterscripts</a></span>
+
+</td>
+			</tr>
+			<tr>
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums.htm"><img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/navbits_finallink_ltr.gif" alt="Reload this Page" border="0" title="Reload this Page"></a> <strong>
+	[<span style="font-weight:bold;font-size:8pt;color:#AD3333;">FilterScript</span>] iPLEOMAX's TextDraw Editor (Stable Version)
+
+</strong></td>
+			</tr>
+			</tbody></table>
+		
+	</td>
+
+	<td class="alt2" nowrap="nowrap" style="padding:0px">
+		<!-- login form -->
+		<form action="http://forum.sa-mp.com/login.php?do=login" method="post" onsubmit="md5hash(vb_login_password, vb_login_md5password, vb_login_md5password_utf, 0)">
+		<script type="text/javascript" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/vbulletin_md5.js"></script>
+		<table cellpadding="0" cellspacing="3" border="0">
+		<tbody><tr>
+			<td class="smallfont" style="white-space: nowrap;"><label for="navbar_username">User Name</label></td>
+			<td><input type="text" class="bginput" style="font-size: 11px" name="vb_login_username" id="navbar_username" size="10" accesskey="u" tabindex="101" value="User Name" onfocus="if (this.value == &#39;User Name&#39;) this.value = &#39;&#39;;"></td>
+			<td class="smallfont" nowrap="nowrap"><label for="cb_cookieuser_navbar"><input type="checkbox" name="cookieuser" value="1" tabindex="103" id="cb_cookieuser_navbar" accesskey="c">Remember Me?</label></td>
+		</tr>
+		<tr>
+			<td class="smallfont"><label for="navbar_password">Password</label></td>
+			<td><input type="password" class="bginput" style="font-size: 11px" name="vb_login_password" id="navbar_password" size="10" tabindex="102"></td>
+			<td><input type="submit" class="button" value="Log in" tabindex="104" title="Enter your username and password in the boxes provided to login, or click the &#39;register&#39; button to create a profile for yourself." accesskey="s"></td>
+		</tr>
+		</tbody></table>
+		<input type="hidden" name="s" value="">
+		<input type="hidden" name="securitytoken" value="guest">
+		<input type="hidden" name="do" value="login">
+		<input type="hidden" name="vb_login_md5password">
+		<input type="hidden" name="vb_login_md5password_utf">
+		</form>
+		<!-- / login form -->
+	</td>
+
+</tr>
+</tbody></table>
+<!-- / breadcrumb, login, pm info -->
+
+<!-- nav buttons bar -->
+<div class="tborder" style="padding:1px; border-top-width:0px">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+	<tbody><tr align="center">
+		
+		
+			<td class="vbmenu_control"><a href="http://forum.sa-mp.com/newacc.php" rel="nofollow">New Account</a></td>
+		
+		
+		
+			<td class="vbmenu_control"><a id="community" href="http://forum.sa-mp.com/showthread.php?t=376758&nojs=1#community" rel="nofollow" accesskey="6" style="cursor: pointer;">Community <img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("community"); </script></td>
+		
+		
+			
+				
+				<td class="vbmenu_control"><a href="http://forum.sa-mp.com/search.php?do=getdaily" accesskey="2">Today's Posts</a></td>
+				
+				<td class="vbmenu_control"><a id="navbar_search" href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow">Search</a> </td>
+			
+			
+		
+		
+		
+		</tr>
+	</tbody></table>
+</div>
+<!-- / nav buttons bar -->
+
+<br>
+
+
+
+
+
+
+<!-- NAVBAR POPUP MENUS -->
+
+	
+	<!-- community link menu -->
+	<div class="vbmenu_popup" id="community_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr><td class="thead">Community Links</td></tr>
+		
+		
+		
+		
+		
+			<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/memberlist.php">Members List</a></td></tr>
+		
+		
+		</tbody></table>
+	</div>
+	<!-- / community link menu -->
+	
+	
+	
+	<!-- header quick search form -->
+	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead">Search Forums</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+				<form action="http://forum.sa-mp.com/search.php?do=process" method="post">
+
+					<input type="hidden" name="do" value="process">
+					<input type="hidden" name="quicksearch" value="1">
+					<input type="hidden" name="childforums" value="1">
+					<input type="hidden" name="exactname" value="1">
+					<input type="hidden" name="s" value="">
+					<input type="hidden" name="securitytoken" value="guest">
+					<div><input type="text" class="bginput" name="query" size="25" tabindex="1001"><input type="submit" class="button" value="Go" tabindex="1004"></div>
+					<div style="margin-top:6px">
+						<label for="rb_nb_sp0"><input type="radio" name="showposts" value="0" id="rb_nb_sp0" tabindex="1002" checked="checked">Show Threads</label>
+						&nbsp;
+						<label for="rb_nb_sp1"><input type="radio" name="showposts" value="1" id="rb_nb_sp1" tabindex="1003">Show Posts</label>
+					</div>
+				</form>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow">Advanced Search</a></td>
+		</tr>
+		
+		</tbody></table>
+	</div>
+	<!-- / header quick search form -->
+	
+	
+	
+<!-- / NAVBAR POPUP MENUS -->
+
+<!-- PAGENAV POPUP -->
+	<div class="vbmenu_popup" id="pagenav_menu" style="display: none; position: absolute; z-index: 50;">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead" nowrap="nowrap">Go to Page...</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="">
+			<form action="http://forum.sa-mp.com/index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4">
+				<input type="button" class="button" id="pagenav_ibtn" value="Go">
+			</form>
+			</td>
+		</tr>
+		</tbody></table>
+	</div>
+<!-- / PAGENAV POPUP -->
+
+
+
+
+
+
+
+
+
+
+<a name="poststop" id="poststop"></a>
+
+<!-- controls above postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tbody><tr valign="bottom">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&noquote=1&p=2112042" rel="nofollow"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tbody><tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 39</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 10 of 389"><strong>1</strong></span></td>
+ <td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=376758&page=2" title="Show results 11 to 20 of 389">2</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=376758&page=3" title="Show results 21 to 30 of 389">3</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=376758&page=11" title="Show results 101 to 110 of 389"><!--+10-->11</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=376758&page=2" title="Next Page - Results 11 to 20 of 389">&gt;</a></td>
+	<td class="alt1" nowrap="nowrap"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=376758&page=39" title="Last Page - Results 381 to 389 of 389">Last <strong>»</strong></a></td>
+	<td class="vbmenu_control" title="" id="pagenav.33" style="cursor: pointer;"> <img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></td>
+</tr>
+</tbody></table>
+</div></td>
+</tr>
+</tbody></table>
+<!-- / controls above postbits -->
+
+<!-- toolbar -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center" style="border-bottom-width:0px">
+<tbody><tr>
+	<td class="tcat" width="100%">
+		<div class="smallfont">
+		
+			<a href="http://forum.sa-mp.com/showthread.php?t=376758&goto=newpost"><img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/firstnew.gif" alt="View First Unread" border="0" title="View First Unread"></a>
+			<a href="http://forum.sa-mp.com/showthread.php?t=376758&goto=newpost">View First Unread</a>
+		
+		&nbsp;
+		</div>
+	</td>
+	<td class="vbmenu_control" id="threadtools" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=376758&nojs=1#goto_threadtools">Thread Tools</a>
+		<script type="text/javascript"> vbmenu_register("threadtools"); </script> <img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+	
+	
+	<td class="vbmenu_control" id="displaymodes" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=376758&nojs=1#goto_displaymodes">Display Modes</a>
+		<script type="text/javascript"> vbmenu_register("displaymodes"); </script> <img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+
+	
+
+</tr>
+</tbody></table>
+<!-- / toolbar -->
+
+
+
+<!-- end content table -->
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- / end content table -->
+
+
+
+
+
+<div id="posts"><!-- post #2112042 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2112042" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2112042" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2112042"><img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			11/09/2012, 03:22 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2112042&postcount=1" target="new" rel="nofollow" id="postcount2112042" name="1"><strong>1</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2112042">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=122705">iPLEOMAX</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2112042", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=122705"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/image.php" width="80" height="80" alt="iPLEOMAX&#39;s Avatar" border="0" title="iPLEOMAX&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Mar 2011</div>
+				<div>Location: Al Ain, UAE. Homeland:&#8194;Bangladesh.</div>
+				
+				
+				
+<div>
+  Posts: 1,311
+</div>
+
+<div>Reputation: 707</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2112042" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/icon1.gif" alt="Post" border="0" title="Post">
+				<strong>iPLEOMAX's TextDraw Editor (Stable Version)</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2112042">
+			
+			<div align="center"><b><font color="Red">NOTE: This tool is only created for scripters who wants to create textdraws for his server.<br>
+If you want players to use this, you are in the wrong place.</font></b><br>
+<br>
+<font size="6"><font color="RoyalBlue"><b><font face="Arial Black">iPLEOMAX's TextDraw Editor</font></b></font></font><br>
+<font size="2"><font color="RoyalBlue">V1.16 (Stable)</font></font><br>
+</div><br>
+<br>
+<b><u>Video:</u></b><br>
+<div style="display: none;" id="ame_noshow_post_1399959104_1">
+        <a href="http://www.youtube.com/watch?v=YA9aHYqFyzE" title="YouTube" target="_blank">YouTube</a>
+</div>
+<div style="display: inline;" id="ame_doshow_post_1399959104_1">
+<div align="left">
+<table class="tborder" cellpadding="6" cellspacing="1" width="780" style="margin:10px 0">
+<thead>
+        <tr>
+                <td class="tcat" colspan="2" style="text-align:center">
+                        <a href="http://www.youtube.com/watch?v=YA9aHYqFyzE" title="YouTube" target="_blank">YouTube</a>
+                </td>
+        </tr>
+</thead>
+<tbody>
+        <tr>
+                <td class="panelsurround" align="left">
+<div class="RDVideoHelper" style="position: absolute; z-index: -1; display: block; width: 0px; height: 0px; left: 6px; top: 6px;"></div><object width="780" height="500">
+<param name="" movie''="" value="http://www.youtube.com/v/YA9aHYqFyzE?fs=1&amp;hd=1">
+<param name="allowFullScreen" value="true">
+<div class="RDVideoHelper" style="position: absolute; z-index: -1; display: block; width: 780px; height: 500px; left: 6px; top: 6px;"></div><embed src="http://www.youtube.com/v/YA9aHYqFyzE&amp;ap=%2526fmt%3D18&amp;fs=1" type="application/x-shockwave-flash" allowfullscreen="true" width="780" height="500" wmode="transparent"></object>
+</td>
+        </tr>
+</tbody>
+</table></div>
+</div><br>
+<b><u>Details:</u></b><ul><li>/itd - Opens up the main textdraw editor menu.</li>
+<li>/itd top - Will set the position of the toolbar to top of screen.</li>
+<li>/itd bottom - Will set the position of the toolbar to bottom of screen. (Default)</li>
+<li>Hotkey 'C': Copy (While you are editing a textdraw)</li>
+<li>Hotkey 'Z': Undo (While you are editing a textdraw)</li>
+<li>Hold 'Left Shift' while editing to move/resize textdraws slowly for precision.</li>
+<li>Hold 'Spacebar' while editing to move/resize textdraws faster.</li>
+<li>Hotkey 'F': Change Font</li>
+<li>Hotkey 'P': Change Position</li>
+<li>Hotkey 'S': Change Size (If you are resizing font, use 'lettersize mode', 'size mode' only works on texture/box size)</li>
+<li>Hotkey 'Y': Change Text</li>
+<li>Hotkey 'L': Change LetterSize</li>
+<li>Hotkey 'Q': Change Color</li>
+<li>Hotkey 'B': Change Background Color</li>
+<li>Hotkey 'U': Toggle Box ON/OFF</li>
+<li>Hotkey 'I': Change Box Color</li>
+<li>Hotkey 'O': Change Outline Size</li>
+<li>Hotkey 'W': Change Shadow Size</li>
+<li>Hotkey 'G': Toggle Global/Player Textdraw</li>
+<li>Hotkey 'A': Toggle Alignment Type</li>
+<li>Hotkey 'K': Toggle Selectability</li>
+<li>Hotkey 'R': Toggle Proportionality</li>
+<li>Hotkey 'M': Textdraw List Dialog</li>
+<li>Hotkey 'N': New Textdraw Dialog</li>
+<li>Key 'Esc': Close current edition, return to menu.</li>
+</ul><br>
+<b><u>Download Tool</u></b><br>
+<a href="http://www.mediafire.com/?1zrcdxaseycesey" target="_blank">iTD</a> (Contains Server, iTD.amx, iTD.dll, msvcr100.dll, PLEO.txd)<br>
+<br>
+<b><u>FAQ(s)</u></b><br>
+<b>Q. I get the "unknown command" error!</b><br>
+A. It might be one of the reasons below:<br>
+- You didn't load the filterscript.<br>
+- You didn't load or add plugin to your server/.cfg.<br>
+- You don't have the sscanf2 plugin loaded.<br>
+<br>
+<b>Q. I get "samp-server.exe is not running on this computer!" error!</b><br>
+A. Two possible solutions: <br>
+- Make sure "samp-server.exe" is running on the same computer where your mouse &amp; keyboards are connected.<br>
+<br>
+- If you use tunneling software like 'Hamachi", .. <br>
+1. Turn it off.<br>
+Or<br>
+2. Download sourcecode "iTD.pwn", open it up. Delete line number 262 and 263, compile and save it.<br>
+ Now, you won't get that warning anymore.<br>
+<br>
+<br>
+<b>Q. Where is the Linux Version?</b><br>
+A. Why would you even need it? The FilterScript is an editor/tool for scripters, not for players!<br>
+<br>
+<b>Q. I see some "iTD: (Error)" messages.</b><br>
+A. Report it on this thread.<br>
+<br>
+<b>Q. It shows the message "Welcome to iPLEOMAX's TextDraw Edtior.." message, but doesn't show up!</b><br>
+A. Have you copied "PLEO.txd" to Rockstar Games/GTA San Andreas/models/txd/?<br>
+<br>
+<b>Q. I still can't get it to work correctly.</b><br>
+A. Make sure of the following things:<br>
+- iTD.amx is located at /filterscripts<br>
+- iTD.dll is located at /plugins<br>
+- sscanf.dll is located at /plugins<br>
+- PLEO.txd is located at Rockstar Games/GTA San Andreas/models/txd/<br>
+<br>
+<b><u>Sourcecode</u></b><br>
+<a href="http://www.mediafire.com/?tvjnm8dc67pqbmo" target="_blank">iTD</a> (contains iTD.pwn and iTD.cpp)<br>
+<br>
+<b><u>Last Updated</u></b><br>
+14/10/2012<br>
+<br>
+<b><u>Changelog</u></b><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">V1.16
+- Removed useless codes.
+- Optimized again.
+
+V1.11 to 1.15
+- Added a feature to see location/size using gametext.
+- Editor toolbar is now recreated every "ShowEditor".
+- Floating values for position, size etc are now upto 5 decimal points instead of 3.
+- Fixed some bugs related to Undo.
+
+V1.1
+- Fixed many major bugs. (Export crash, Out of bound errors, etc).
+
+V1.03
+- Added custom inputs for Position/Size, etc.
+
+V1.02
+- Modified the look of toolbar.
+- Added Ability to change toolbar location on screen (top/bottom).
+- Fixed minor bugs (new line, null textdraws, etc).
+
+V1.01
+- Added HEX input for color editor.
+- Added RGBA input for color editor.
+- Added Premade colors.
+
+V1
+- Completely started from scratch.
+- Edited the plugin natives.
+- Improved script efficiency.</pre>
+</div>License:<br>
+<a href="http://www.mozilla.org/MPL/2.0/" target="_blank">http://www.mozilla.org/MPL/2.0/</a>
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><b>Proud member &amp; developer at CODE5 Gaming (<a href="http://www.cod5samp.com/forum/" target="_blank">cod5samp.com</a>)</b> <br>
+<a href="samp://176.31.104.88:8888" target="_blank">Los Santos: Cops &amp; Robbers</a><br>
+<a href="samp://91.121.153.202:7778" target="_blank">Resurrection</a><br>
+<a href="samp://176.31.104.88:7777" target="_blank">Total War</a><br>
+<br>
+*In case you saw me in any other server, it's probably an impersonator or my fan! <img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/biggrin.png" border="0" alt="" title="Cheesy" class="inlineimg"></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+		<!-- edit note -->
+			<div class="smallfont">
+				<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+				<em>
+					
+						Last edited by iPLEOMAX; 30/01/2013 at <span class="time">02:12 PM</span>.
+					
+					
+				</em>
+			</div>
+		<!-- / edit note -->
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/user_offline.gif" alt="iPLEOMAX is offline" border="0" title="iPLEOMAX is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2112042" rel="nofollow"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2112042 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2112042_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">iPLEOMAX</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=122705">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=122705" rel="nofollow">Send a private message to iPLEOMAX</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.cod5samp.com/">Visit iPLEOMAX's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=122705" rel="nofollow">Find More Posts by iPLEOMAX</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2112042 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2112042 --><!-- post #2112050 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2112050" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2112050" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2112050"><img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			11/09/2012, 03:25 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2112050&postcount=2" target="new" rel="nofollow" id="postcount2112050" name="2"><strong>2</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2112050">
+				
+				Glint
+				
+			</div>
+
+			<div class="smallfont">Guest</div>
+			
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				
+				
+				
+				
+				
+<div>
+  Posts: n/a
+</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2112050" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: iPLEOMAX's TextDraw Editor :: BETA Test Version</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2112050">
+			
+			OMG You actually did it OMG OMG OMG <br>
+<br>
+"I present you the best text editor online"<br>
+<br>
+You don't deserve a rep.<br>
+<br>
+You deserve a Beta tester rank.<br>
+<br>
+really good job man, your hard work worth's it.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2112050" rel="nofollow"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2112050 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2112050_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Glint</td>
+	</tr>
+	
+	
+	
+	
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2112050 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2112050 --><!-- post #2112051 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2112051" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2112051" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2112051"><img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			11/09/2012, 03:26 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2112051&postcount=3" target="new" rel="nofollow" id="postcount2112051" name="3"><strong>3</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2112051">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=114770">Vukilore</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2112051", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=114770"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/image(1).php" width="75" height="80" alt="Vukilore&#39;s Avatar" border="0" title="Vukilore&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Jan 2011</div>
+				
+				
+				
+				
+<div>
+  Posts: 2,995
+</div>
+
+<div>Reputation: 88</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2112051" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re : iPLEOMAX's TextDraw Editor :: BETA Test Version</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2112051">
+			
+			Very, very awesome, as always <img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/biggrin.png" border="0" alt="" title="Cheesy" class="inlineimg"><br>
+Many thanks <img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/wink.png" border="0" alt="" title="Wink" class="inlineimg">
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<i><div align="center">It's not about changing the world, it's about leaving the world the way it means to be..</div></i>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/user_offline.gif" alt="Vukilore is offline" border="0" title="Vukilore is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2112051" rel="nofollow"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2112051 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2112051_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Vukilore</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=114770">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=114770" rel="nofollow">Send a private message to Vukilore</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=114770" rel="nofollow">Find More Posts by Vukilore</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2112051 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2112051 --><!-- post #2112055 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2112055" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2112055" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2112055"><img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			11/09/2012, 03:30 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2112055&postcount=4" target="new" rel="nofollow" id="postcount2112055" name="4"><strong>4</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2112055">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=94881">Ronaldo_raul™</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2112055", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=94881"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/image(2).php" width="80" height="40" alt="Ronaldo_raul™&#39;s Avatar" border="0" title="Ronaldo_raul™&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Jun 2010</div>
+				<div>Location: Gujarat, India.</div>
+				
+				
+				
+<div>
+  Posts: 1,105
+</div>
+
+<div>Reputation: 67</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2112055" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: iPLEOMAX's TextDraw Editor :: BETA Test Version</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2112055">
+			
+			<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				<div>
+					Originally Posted by <strong>Lexi'</strong>
+					<a href="http://forum.sa-mp.com/showthread.php?p=2112050#post2112050" rel="nofollow"><img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/viewpost.gif" border="0" alt="View Post" title="View Post"></a>
+				</div>
+				<div style="font-style:italic"><br>
+"I present you the best text editor online"<br>
+<br>
+You don't deserve a rep.<br>
+<br>
+You deserve a Beta tester rank.<br>
+<br>
+really good job man, your hard work worth's it.</div>
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div>I would really like to quote the above lines.<br>
+<br>
+Really, You're a mozart.<br>
+<br>
+GREAT RELEASE!<br>
+<br>
+EDIT: Suggestion, You can also add sprites. As this forums lacks editors for sprites (Better one maybe <img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/neutral.gif" border="0" alt="" title="undecided" class="inlineimg">).<br>
+<br>
+WAITING FOR THE STABLE VERSION :P<br>
+<br>
+EDIT2:  Plugin doesn't load ? <br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">[21:27:46]  Loading plugin: pleoinput.dll
+[21:27:46]   Failed.
+[21:27:46]  Loaded 4 plugins.</pre>
+</div>
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><font size="3"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=94881" target="_blank">Making interactive websites and powerful ACP/UCP for small amount of fee.</a></font></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/user_offline.gif" alt="Ronaldo_raul™ is offline" border="0" title="Ronaldo_raul™ is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2112055" rel="nofollow"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2112055 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2112055_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Ronaldo_raul™</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=94881">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=94881" rel="nofollow">Send a private message to Ronaldo_raul™</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.mortalgaming.com/">Visit Ronaldo_raul™'s homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=94881" rel="nofollow">Find More Posts by Ronaldo_raul™</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2112055 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2112055 --><!-- post #2112057 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2112057" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2112057" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2112057"><img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			11/09/2012, 03:31 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2112057&postcount=5" target="new" rel="nofollow" id="postcount2112057" name="5"><strong>5</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2112057">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=73170">TheArcher</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2112057", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=73170"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/image(3).php" width="60" height="60" alt="TheArcher&#39;s Avatar" border="0" title="TheArcher&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Dec 2009</div>
+				<div>Location: Home</div>
+				
+				
+				
+<div>
+  Posts: 2,470
+</div>
+
+<div>Reputation: 227</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2112057" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: iPLEOMAX's TextDraw Editor :: BETA Test Version</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2112057">
+			
+			Finnaly is out! Great job...Gonna test it out :O
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><a href="https://github.com/BrianFurious" target="_blank"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/github-icon.png" border="0" alt=""></a></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/user_offline.gif" alt="TheArcher is offline" border="0" title="TheArcher is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2112057" rel="nofollow"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2112057 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2112057_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">TheArcher</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=73170">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=73170" rel="nofollow">Send a private message to TheArcher</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://mauzen.net/">Visit TheArcher's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=73170" rel="nofollow">Find More Posts by TheArcher</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2112057 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2112057 --><!-- post #2112062 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2112062" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2112062" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2112062"><img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			11/09/2012, 03:32 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2112062&postcount=6" target="new" rel="nofollow" id="postcount2112062" name="6"><strong>6</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2112062">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=82218">Killa[DGZ]</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2112062", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Huge Clucker</div>
+			<div class="smallfont"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=82218"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/image(4).php" width="80" height="80" alt="Killa[DGZ]&#39;s Avatar" border="0" title="Killa[DGZ]&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Feb 2010</div>
+				<div>Location: Australia</div>
+				
+				
+				
+<div>
+  Posts: 245
+</div>
+
+<div>Reputation: 45</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2112062" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: iPLEOMAX's TextDraw Editor :: BETA Test Version</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2112062">
+			
+			Wow nice work iPLEO, that looks awesome mate!<br>
+<br>
+I'm off to have a fiddle with it.. Thank You <img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/smile.png" border="0" alt="" title="Smiley" class="inlineimg">
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/user_offline.gif" alt="Killa[DGZ] is offline" border="0" title="Killa[DGZ] is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2112062" rel="nofollow"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2112062 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2112062_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Killa[DGZ]</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=82218">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=82218" rel="nofollow">Send a private message to Killa[DGZ]</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.driftgodz.com/">Visit Killa[DGZ]'s homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=82218" rel="nofollow">Find More Posts by Killa[DGZ]</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2112062 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2112062 --><!-- post #2112074 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2112074" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2112074" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2112074"><img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			11/09/2012, 03:35 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2112074&postcount=7" target="new" rel="nofollow" id="postcount2112074" name="7"><strong>7</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2112074">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=113523">Michael@Belgium</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2112074", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=113523"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/image(5).php" width="60" height="46" alt="Michael@Belgium&#39;s Avatar" border="0" title="Michael@Belgium&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Dec 2010</div>
+				<div>Location: Belgium</div>
+				
+				
+				
+<div>
+  Posts: 2,478
+</div>
+
+<div>Reputation: 815</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2112074" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: iPLEOMAX's TextDraw Editor :: BETA Test Version</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2112074">
+			
+			Why iPLEO, why <img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/smile.png" border="0" alt="" title="Smiley" class="inlineimg">
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<table><tbody><tr><td class="alt2"><ul><li><a href="http://pastebin.com/WethfCNd" target="_blank">Don't click me, except if you love my work.</a></li><li><a href="http://www.avovix.com/showthread.php?tid=4779" target="_blank">Scripting for money</a></li><li><a href="http://exp-gaming.net/services.html" target="_blank">EXP-gaming giving services !</a></li><li><a href="http://www.avovix.com/showthread.php?tid=5249" target="_blank">[MV]_cPanel rescripted for 0.3z ! (none-free version)</a></li><li><b>Farewell [MM]IKKE ... <img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/sad.gif" border="0" alt="" title="Sad" class="inlineimg"></b></li><li>Add me on steam: <a href="http://steamcommunity.com/id/michael_belgium" target="_blank">michael_belgium</a></li></ul></td><td class="alt2"><ul><li><b><font size="4"><a href="http://forum.sa-mp.com/showthread.php?p=2960035" target="_blank">Smash 'n Burn Destruction Derby</a> - IP: <a href="samp://23.226.228.69:7777" target="_blank">23.226.228.69:7777</a></font></b></li></ul><a href="http://snbderby.net/" target="_blank"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/pnc4.png" border="0" alt=""></a></td></tr></tbody></table>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		
+<img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/user_online.gif" alt="Michael@Belgium is online now" border="0" title="Michael@Belgium is online now">
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2112074" rel="nofollow"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2112074 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2112074_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Michael@Belgium</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=113523">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=113523" rel="nofollow">Send a private message to Michael@Belgium</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.exp-gaming.net/">Visit Michael@Belgium's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=113523" rel="nofollow">Find More Posts by Michael@Belgium</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2112074 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2112074 --><!-- post #2112076 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2112076" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2112076" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2112076"><img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			11/09/2012, 03:36 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2112076&postcount=8" target="new" rel="nofollow" id="postcount2112076" name="8"><strong>8</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2112076">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=158660">Lordzy</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2112076", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Mar 2012</div>
+				<div>Location: NetherRealm</div>
+				
+				
+				
+<div>
+  Posts: 2,242
+</div>
+
+<div>Reputation: 730</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2112076" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: iPLEOMAX's TextDraw Editor :: BETA Test Version</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2112076">
+			
+			In one word?<br>
+AWESOME!<br>
+<br>
+==========<br>
+Keep going..hope you're next release will be more Awesome.<br>
+Good Luck.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/user_offline.gif" alt="Lordzy is offline" border="0" title="Lordzy is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2112076" rel="nofollow"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2112076 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2112076_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Lordzy</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=158660">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=158660" rel="nofollow">Send a private message to Lordzy</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="https://www.facebook.com/imnotlaughinglol">Visit Lordzy's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=158660" rel="nofollow">Find More Posts by Lordzy</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2112076 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2112076 --><!-- post #2112077 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2112077" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2112077" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2112077"><img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			11/09/2012, 03:37 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2112077&postcount=9" target="new" rel="nofollow" id="postcount2112077" name="9"><strong>9</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2112077">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=148113">DarkB0y</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2112077", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Huge Clucker</div>
+			<div class="smallfont"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Dec 2011</div>
+				
+				
+				
+				
+<div>
+  Posts: 378
+</div>
+
+<div>Reputation: 36</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2112077" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: iPLEOMAX's TextDraw Editor :: BETA Test Version</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2112077">
+			
+			awesome finally its released ^^ good job
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/afLKwGe.png" border="0" alt=""></div><div align="center"><a href="http://ultra-h.com/" target="_blank">Website</a> | <a href="http://client00.chat.mibbit.com/?channel=%23ultra-host&server=foco.nl.irc.tl" target="_blank">IRC</a> | <a href="http://5.231.67.195/forum/index.php" target="_blank">Forums</a> | <a href="http://ultra-h.com/panel/index.php?act=get&func=request" target="_blank">Request</a> | <a href="http://ultra-h.com/panel/" target="_blank">Control Panel</a></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/user_offline.gif" alt="DarkB0y is offline" border="0" title="DarkB0y is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2112077" rel="nofollow"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2112077 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2112077_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">DarkB0y</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=148113">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=148113" rel="nofollow">Send a private message to DarkB0y</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.ultra-h.com/">Visit DarkB0y's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=148113" rel="nofollow">Find More Posts by DarkB0y</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2112077 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2112077 --><!-- post #2112079 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2112079" style="padding:0px 0px 6px 0px">
+	
+
+
+
+<table id="post2112079" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2112079"><img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			11/09/2012, 03:39 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2112079&postcount=10" target="new" rel="nofollow" id="postcount2112079" name="10"><strong>10</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2112079">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=159322">[LB]BlAcK_DeViL</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2112079", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Huge Clucker</div>
+			<div class="smallfont"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=159322"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/image(6).php" width="80" height="80" alt="[LB]BlAcK_DeViL&#39;s Avatar" border="0" title="[LB]BlAcK_DeViL&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Mar 2012</div>
+				<div>Location: Dubai,United Arab Emirates</div>
+				
+				
+				
+<div>
+  Posts: 218
+</div>
+
+<div>Reputation: 16</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2112079" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: iPLEOMAX's TextDraw Editor :: BETA Test Version</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2112079">
+			
+			Cool One .. Gonna Use it
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<img src="http://r16.cooltext.com/rendered/cooltext772891871.png" border="0" alt="">
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/user_offline.gif" alt="[LB]BlAcK_DeViL is offline" border="0" title="[LB]BlAcK_DeViL is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2112079" rel="nofollow"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2112079 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2112079_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">[LB]BlAcK_DeViL</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=159322">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=159322" rel="nofollow">Send a private message to [LB]BlAcK_DeViL</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=159322" rel="nofollow">Find More Posts by [LB]BlAcK_DeViL</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2112079 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2112079 --><div id="lastpost"></div></div>
+
+<!-- start content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+<!-- / start content table -->
+
+<!-- controls below postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:-3px">
+<tbody><tr valign="top">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&noquote=1&p=2112079" rel="nofollow"><img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	
+		<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tbody><tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 39</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 10 of 389"><strong>1</strong></span></td>
+ <td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=376758&page=2" title="Show results 11 to 20 of 389">2</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=376758&page=3" title="Show results 21 to 30 of 389">3</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=376758&page=11" title="Show results 101 to 110 of 389"><!--+10-->11</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=376758&page=2" title="Next Page - Results 11 to 20 of 389">&gt;</a></td>
+	<td class="alt1" nowrap="nowrap"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=376758&page=39" title="Last Page - Results 381 to 389 of 389">Last <strong>»</strong></a></td>
+	<td class="vbmenu_control" title="" id="pagenav.155" style="cursor: pointer;"> <img src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></td>
+</tr>
+</tbody></table>
+</div>
+		
+		</td>
+	
+</tr>
+</tbody></table>
+<!-- / controls below postbits -->
+
+
+
+
+
+
+
+
+
+
+<!-- lightbox scripts -->
+	<script type="text/javascript" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/vbulletin_lightbox.js"></script>
+	<script type="text/javascript">
+	<!--
+	vBulletin.register_control("vB_Lightbox_Container", "posts", 1);
+	//-->
+	</script>
+<!-- / lightbox scripts -->
+
+
+
+
+
+
+
+
+
+
+<!-- next / previous links -->
+	<br>
+	<div class="smallfont" align="center">
+		<strong>«</strong>
+			<a href="http://forum.sa-mp.com/showthread.php?t=376758&goto=nextoldest" rel="nofollow">Previous Thread</a>
+			|
+			<a href="http://forum.sa-mp.com/showthread.php?t=376758&goto=nextnewest" rel="nofollow">Next Thread</a>
+		<strong>»</strong>
+	</div>
+<!-- / next / previous links -->
+
+
+
+
+
+
+
+<!-- popup menu contents -->
+<br>
+
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="http://forum.sa-mp.com/postings.php?t=376758&pollid=" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/printer.gif" alt="Show Printable Version" title="Show Printable Version"> <a href="http://forum.sa-mp.com/printthread.php?t=376758" accesskey="3" rel="nofollow">Show Printable Version</a></td>
+	</tr>
+	
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/sendtofriend.gif" alt="Email this Page" title="Email this Page"> <a href="http://forum.sa-mp.com/sendmessage.php?do=sendtofriend&t=376758" rel="nofollow">Email this Page</a></td>
+	</tr>
+	
+	
+	
+	
+	</tbody></table>
+</form>
+</div>
+<!-- / thread tools menu -->
+
+<!-- **************************************************** -->
+
+<!-- thread display mode menu -->
+<div class="vbmenu_popup" id="displaymodes_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Display Modes<a name="goto_displaymodes"></a></td>
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option" title="nohilite"><img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/mode_linear.gif" alt="Linear Mode" title="Linear Mode"> <strong>Linear Mode</strong></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/mode_hybrid.gif" alt="Hybrid Mode" title="Hybrid Mode"> <a href="http://forum.sa-mp.com/showthread.php?mode=hybrid&t=376758">Switch to Hybrid Mode</a></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/mode_threaded.gif" alt="Threaded Mode" title="Threaded Mode"> <a href="http://forum.sa-mp.com/showthread.php?p=2112042&mode=threaded#post2112042">Switch to Threaded Mode</a></td>
+	
+	</tr>
+	</tbody></table>
+</div>
+<!-- / thread display mode menu -->
+
+<!-- **************************************************** -->
+
+
+
+<!-- **************************************************** -->
+
+
+
+<!-- / popup menu contents -->
+
+
+<!-- forum rules and admin links -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr valign="bottom">
+	<td width="100%" valign="top">
+		<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="210">
+<thead>
+<tr>
+	<td class="thead">
+		<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=376758#top" onclick="return toggle_collapse(&#39;forumrules&#39;)"><img id="collapseimg_forumrules" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/collapse_thead.gif" alt="" border="0"></a>
+		Posting Rules
+	</td>
+</tr>
+</thead>
+<tbody id="collapseobj_forumrules" style="">
+<tr>
+	<td class="alt1" nowrap="nowrap"><div class="smallfont">
+		
+		<div>You <strong>may not</strong> post new threads</div>
+		<div>You <strong>may not</strong> post replies</div>
+		<div>You <strong>may not</strong> post attachments</div>
+		<div>You <strong>may not</strong> edit your posts</div>
+		<hr>
+		
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode" target="_blank">BB code</a> is <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showsmilies" target="_blank">Smilies</a> are <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode#imgcode" target="_blank">[IMG]</a> code is <strong>On</strong></div>
+		<div>HTML code is <strong>Off</strong></div>
+		<hr>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showrules" target="_blank">Forum Rules</a></div>
+	</div></td>
+</tr>
+</tbody>
+</table>
+	</td>
+	<td class="smallfont" align="right">
+		<table cellpadding="0" cellspacing="0" border="0">
+		
+		<tbody><tr>
+			<td>
+			
+			</td>
+		</tr>
+		</tbody></table>
+	</td>
+</tr>
+</tbody></table>
+<!-- /forum rules and admin links -->
+
+<br>
+
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" width="100%" colspan="5">
+			<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=376758#top" onclick="return toggle_collapse(&#39;similarthreads&#39;)"><img id="collapseimg_similarthreads" src="./[FilterScript] iPLEOMAX's TextDraw Editor (Stable Version) - SA-MP Forums_files/collapse_tcat.gif" alt="" border="0"></a>
+			Similar Threads<a name="similarthreads"></a>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_similarthreads" style="">
+<tr class="thead" align="center">
+	<td class="thead" width="40%">Thread</td>
+	<td class="thead" width="15%" nowrap="nowrap">Thread Starter</td>
+	<td class="thead" width="20%">Forum</td>
+	<td class="thead" width="5%">Replies</td>
+	<td class="thead" width="20%">Last Post</td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont">[<span style="font-weight:bold;font-size:8pt;color:#9A1134;">Plugin</span>] <a href="http://forum.sa-mp.com/showthread.php?t=120356" title="sscanf 2.8.1 
+ 
+Documentation 
+ 
+I have moved all of this documentation to a GitHub wiki: 
+ 
+https://github.com/Y-Less/sscanf/wiki 
+ 
+This keeps it...">sscanf 2.8.1 - Updated 12/03/13: Now supports npcmodes!</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Y_Less</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Plugin Development</span></td>
+	<td class="alt2" align="center"><span class="smallfont">2892</span></td>
+	<td class="alt1" align="right"><span class="smallfont">13/05/2014 <span class="time">08:43 AM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont">[<span style="font-weight:bold;font-size:8pt;color:#AD3333;">FilterScript</span>] <a href="http://forum.sa-mp.com/showthread.php?t=12018" title="Zamaroht&#39;s TextDraw Editor V0.6 
+ 
+__________________________________________________________________________________________________ 
+TextDraw...">[FS] TextDraw editor 0.6 - Multiple textdraw support, for proffesional textdraws</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Zamaroht</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Filterscripts</span></td>
+	<td class="alt2" align="center"><span class="smallfont">369</span></td>
+	<td class="alt1" align="right"><span class="smallfont">20/01/2013 <span class="time">03:46 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont">[<span style="font-weight:bold;font-size:8pt;color:#841594;">Tutorial</span>] <a href="http://forum.sa-mp.com/showthread.php?t=305540" title="Sup, im not sure if there is a tutorial on this, but if there is im wasting my time lol.  
+Map Editor is a program that loads the whole gta world and...">How to use Map editor: 0.3-D version</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">SnG.Scot_MisCuDI</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Tutorials</span></td>
+	<td class="alt2" align="center"><span class="smallfont">50</span></td>
+	<td class="alt1" align="right"><span class="smallfont">17/11/2012 <span class="time">03:57 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=141241" title="The AlexPoison Anticheat v1.5 || Released: v1.6 STABLE 
+ 
+Hi all, i made this anticheat for samp 0.3a. 
+ 
+All kicks and bans of this anticheat be...">[FS/INC] The AlexPoison Anticheat || Current Version: 1.6 STABLE</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">.(Infinite Imagination).</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Filterscripts</span></td>
+	<td class="alt2" align="center"><span class="smallfont">16</span></td>
+	<td class="alt1" align="right"><span class="smallfont">23/09/2010 <span class="time">01:44 AM</span></span></td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+
+<script type="text/javascript">ame_toggle_view({other : 'true',post : 'true',blog : 'true',group : 'true',vm : 'true',sig : 'true'});</script>
+
+<br>
+<div class="smallfont" align="center">All times are GMT. The time now is <span class="time">06:39 PM</span>.</div>
+<br>
+
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- /content area table -->
+
+<form action="http://forum.sa-mp.com/index.php" method="get" style="clear:left">
+
+<table cellpadding="6" cellspacing="0" border="0" width="90%" class="page" align="center">
+<tbody><tr>
+	
+	
+		<td class="tfoot">
+			<select name="langid" onchange="switch_id(this, &#39;lang&#39;)">
+				<optgroup label="Quick Language Chooser">
+					<option value="5" class="">-- (DE) Deutsch</option>
+<option value="1" class="" selected="selected">-- (EN) English</option>
+<option value="3" class="">-- (ES) Español</option>
+<option value="2" class="">-- (FR) Français</option>
+<option value="6" class="">-- (NL) Dutch</option>
+<option value="4" class="">-- (RU) &#1056;&#1091;&#1089;&#1089;&#1082;&#1080;</option>
+
+				</optgroup>
+			</select>
+		</td>
+	
+	<td class="tfoot" align="right" width="100%">
+		<div class="smallfont">
+			<strong>
+				<a href="http://forum.sa-mp.com/sendmessage.php" rel="nofollow" accesskey="9">Contact Us</a> -
+				<a href="http://www.sa-mp.com/">SA-MP</a> -
+				
+				
+				<a href="http://forum.sa-mp.com/archive/index.php">Archive</a> -
+				
+				
+				
+				<a href="http://forum.sa-mp.com/showthread.php?t=376758#top" onclick="self.scrollTo(0, 0); return false;">Top</a>
+			</strong>
+		</div>
+	</td>
+</tr>
+</tbody></table>
+
+<br>
+
+<div align="center">
+	<div class="smallfont" align="center">
+	<!-- Do not remove this copyright notice -->
+	Powered by vBulletin® Version 3.8.6<br>Copyright ©2000 - 2014, Jelsoft Enterprises Ltd.
+	<!-- Do not remove this copyright notice -->
+	</div>
+
+	<div class="smallfont" align="center">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+
+	
+	</div>
+</div>
+
+</form>
+
+
+
+
+<script type="text/javascript">
+<!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//-->
+</script>
+
+<!-- temp -->
+<div style="display:none">
+	<!-- thread rate -->
+	
+		
+	
+	<!-- / thread rate -->
+</div>
+
+
+</body></html>

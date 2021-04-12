@@ -1,0 +1,3475 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0046)http://forum.sa-mp.com/showthread.php?t=407045 -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	
+<meta name="generator" content="vBulletin 3.8.6">
+
+<meta name="keywords" content="[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code, SA-MP, GTA, multiplayer, online, server, pawn, scripting">
+<meta name="description" content="[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code Includes">
+
+
+<!-- CSS Stylesheet -->
+<style type="text/css" id="vbulletin_css">
+/**
+* vBulletin 3.8.6 CSS
+* Style: 'SAMPStyle'; Style ID: 2
+*/
+body
+{
+	background: #707170;
+	color: #FFFFFFF;
+	font: bold 10pt arial, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 1px 1px 1px 1px;
+	padding: 1px;
+}
+a:link, body_alink
+{
+	color: #4A627F;
+	text-decoration: none;
+}
+a:visited, body_avisited
+{
+	color: #1A425F;
+	text-decoration: none;
+}
+a:hover, a:active, body_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.page
+{
+	background: #DADADB;
+	color: #000000;
+}
+td, th, p, li
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tborder
+{
+	background: #DFDFDF;
+	color: #000000;
+	border: 1px solid #717171;
+}
+.tcat
+{
+	background: #4F4F4F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tcat a:link, .tcat_alink
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:visited, .tcat_avisited
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:hover, .tcat a:active, .tcat_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.thead
+{
+	background: #3F3F3F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.thead a:link, .thead_alink
+{
+	color: #FFFFFF;
+}
+.thead a:visited, .thead_avisited
+{
+	color: #FFFFFF;
+}
+.thead a:hover, .thead a:active, .thead_ahover
+{
+	color: #E76006;
+}
+.tfoot
+{
+	background: #595959;
+	color: #CDCDCD;
+}
+.tfoot a:link, .tfoot_alink
+{
+	color: #CDCDCD;
+}
+.tfoot a:visited, .tfoot_avisited
+{
+	color: #9D9D9D;
+}
+.tfoot a:hover, .tfoot a:active, .tfoot_ahover
+{
+	color: #E76006;
+}
+.alt1, .alt1Active
+{
+	background: #F6F6F6;
+	color: #000000;
+}
+.alt2, .alt2Active
+{
+	background: #EAEAEB;
+	color: #000000;
+}
+.inlinemod
+{
+	background: #FFFFCC;
+	color: #000000;
+}
+.wysiwyg
+{
+	background: #F5F5F5;
+	color: #000000;
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 5px 10px 10px 10px;
+	padding: 0px;
+}
+.wysiwyg a:link, .wysiwyg_alink
+{
+	color: #22229C;
+}
+.wysiwyg a:visited, .wysiwyg_avisited
+{
+	color: #22229C;
+}
+.wysiwyg a:hover, .wysiwyg a:active, .wysiwyg_ahover
+{
+	color: #E76006;
+}
+textarea, .bginput
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.bginput option, .bginput optgroup
+{
+	font-size: 10pt;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.button
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+select
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+option, optgroup
+{
+	font-size: 11px;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.smallfont
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.time
+{
+	color: #666686;
+}
+.navbar
+{
+	font: 12pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.highlight
+{
+	color: #FF0000;
+	font-weight: bold;
+}
+.fjsel
+{
+	background: #3E5C92;
+	color: #E0E0F6;
+}
+.fjdpth0
+{
+	background: #F7F7F7;
+	color: #000000;
+}
+.panel
+{
+	background: #F5F5F5;
+	color: #000000;
+	padding: 10px;
+	border: 1px;
+}
+.panelsurround
+{
+	background: #F5F5F5;
+	color: #000000;
+}
+legend
+{
+	color: #222222;
+	font: 11px tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.vbmenu_control
+{
+	background: #777777;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	padding: 3px 6px 3px 6px;
+	white-space: nowrap;
+}
+.vbmenu_control a:link, .vbmenu_control_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:visited, .vbmenu_control_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:hover, .vbmenu_control a:active, .vbmenu_control_ahover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+.vbmenu_popup
+{
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #0B198C;
+}
+.vbmenu_option
+{
+	background: #444444;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_option a:link, .vbmenu_option_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:visited, .vbmenu_option_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:hover, .vbmenu_option a:active, .vbmenu_option_ahover
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_hilite
+{
+	background: #F37016;
+	color: #000000;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_hilite a:link, .vbmenu_hilite_alink
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:visited, .vbmenu_hilite_avisited
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:hover, .vbmenu_hilite a:active, .vbmenu_hilite_ahover
+{
+	color: #000000;
+	text-decoration: none;
+}
+/* ***** styling for 'big' usernames on postbit etc. ***** */
+.bigusername { font-size: 14pt; }
+
+/* ***** small padding on 'thead' elements ***** */
+td.thead, th.thead, div.thead { padding: 4px; }
+
+/* ***** basic styles for multi-page nav elements */
+.pagenav a { text-decoration: none; }
+.pagenav td { padding: 2px 4px 2px 4px; }
+
+/* ***** de-emphasized text */
+.shade, a.shade:link, a.shade:visited { color: #777777; text-decoration: none; }
+a.shade:active, a.shade:hover { color: #FF4400; text-decoration: underline; }
+.tcat .shade, .thead .shade, .tfoot .shade { color: #DDDDDD; }
+
+/* ***** define margin and font-size for elements inside panels ***** */
+.fieldset { margin-bottom: 6px; }
+.fieldset, .fieldset td, .fieldset p, .fieldset li { font-size: 11px; }
+</style>
+<link rel="stylesheet" type="text/css" href="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/vbulletin_important.css">
+
+
+<!-- / CSS Stylesheet -->
+
+<script type="text/javascript" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/connection-min.js"></script>
+<script type="text/javascript">
+<!--
+var SESSIONURL = "";
+var SECURITYTOKEN = "1419861949-a0975caf0dc620ef5a8b091e3dca90f2fd1c71be";
+var IMGDIR_MISC = "images/misc";
+var vb_disable_ajax = parseInt("0", 10);
+// -->
+</script>
+<script type="text/javascript" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/vbulletin_global.js"></script>
+<script type="text/javascript" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/vbulletin_menu.js"></script>
+
+
+	<link rel="alternate" type="application/rss+xml" title="SA-MP Forums RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2">
+	
+		<link rel="alternate" type="application/rss+xml" title="SA-MP Forums - Includes - RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2&forumids=83">
+	
+<script type="text/javascript" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/ame.js"></script><!-- Editor CSS automatically added by functions_editor.php at line 680 -->
+<!-- Editor Styles -->
+<style type="text/css" id="vbulletin_editor_css_dynamic">
+<!--
+@import url("clientscript/vbulletin_editor.css?v=387");
+
+.vBulletin_editor {
+	background: #E1E1E2;
+	padding: 6px;
+}
+.imagebutton {
+	background: #E1E1E2;
+	color: #000000;
+	padding: 1px;
+	border: none;
+}
+.ocolor, .ofont, .osize, .osmilie, .osyscoloar, .smilietitle {
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #FFFFFF;
+}
+.popup_pickbutton {
+	border: 1px solid #FFFFFF;
+}
+.popup_feedback {
+	background: #FFFFFF;
+	color: #000000;
+	border-right: 1px solid #FFFFFF;
+}
+.popupwindow {
+	background: #FFFFFF;
+}
+#fontOut, #sizeOut, .popup_feedback div {
+	background: #FFFFFF;
+	color: #000000;
+}
+.alt_pickbutton {
+	border-left: 1px solid #E1E1E2;
+}
+.popup_feedback input, .popup_feedback div
+{
+	border: 0px solid;
+	padding: 0px 2px 0px 2px;
+	cursor: default;
+	font: 11px tahoma;
+	overflow: hidden;
+}
+-->
+</style>
+<!-- / Editor Styles -->
+	<title>[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums</title>
+	<script type="text/javascript" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/vbulletin_post_loader.js"></script>
+	<style type="text/css" id="vbulletin_showthread_css">
+	<!--
+	
+	#links div { white-space: nowrap; }
+	#links img { vertical-align: middle; }
+	-->
+	</style>
+</head>
+<body onload="">
+<!-- logo -->
+<a name="top"></a>
+<center><div align="center" style="height: 80px; width: 90%; background: transparent url(http://forum.sa-mp.com/logo_new_back3.png) repeat-x 0px 0px; text-align:center;">
+<table border="0" width="90%" cellpadding="0" cellspacing="0" align="center">
+<tbody><tr>
+	<td align="center"><a href="http://forum.sa-mp.com/index.php"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/logo_forum.gif" border="0" alt="SA-MP Forums" title="SA-MP Forums"></a></td>
+</tr>
+</tbody></table>
+</div></center>
+<!-- /logo -->
+
+<!-- content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+
+
+
+
+<br>
+
+<!-- breadcrumb, login, pm info -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<tbody><tr>
+	<td class="alt1" width="100%">
+		
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr valign="bottom">
+				<td><a href="http://forum.sa-mp.com/showthread.php?t=407045#" onclick="history.back(1); return false;"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/navbits_start.gif" alt="Go Back" border="0" title="Go Back"></a></td>
+				<td>&nbsp;</td>
+				<td width="100%"><span class="navbar"><a href="http://forum.sa-mp.com/index.php" accesskey="1">SA-MP Forums</a></span> 
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=8">SA-MP Scripting and Plugins</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=17">Filterscripts</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=83">Includes</a></span>
+
+</td>
+			</tr>
+			<tr>
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums.html"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/navbits_finallink_ltr.gif" alt="Reload this Page" border="0" title="Reload this Page"></a> <strong>
+	[<span style="font-weight:bold;font-size:8pt;color:#2299AA;">Include</span>] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code
+
+</strong></td>
+			</tr>
+			</tbody></table>
+		
+	</td>
+
+	<td class="alt2" nowrap="nowrap">
+	<div class="smallfont">
+		<strong>Welcome, <a href="http://forum.sa-mp.com/member.php?u=234935">VincenzoDrift</a>.</strong><br>
+		You last visited: 29/12/2014 at <span class="time">11:26 AM</span>
+
+		
+			<div><a href="http://forum.sa-mp.com/private.php">Private Messages</a>: Unread 0, Total 0.</div>
+		
+
+		
+	</div>
+	</td>
+
+</tr>
+</tbody></table>
+<!-- / breadcrumb, login, pm info -->
+
+<!-- nav buttons bar -->
+<div class="tborder" style="padding:1px; border-top-width:0px">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+	<tbody><tr align="center">
+		
+			<td class="vbmenu_control"><a href="http://forum.sa-mp.com/usercp.php">User CP</a></td>
+		
+		
+		
+		
+			<td class="vbmenu_control"><a id="community" href="http://forum.sa-mp.com/showthread.php?t=407045&nojs=1#community" rel="nofollow" accesskey="6" style="cursor: pointer;">Community <img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("community"); </script></td>
+		
+		
+			
+				
+				<td class="vbmenu_control"><a href="http://forum.sa-mp.com/search.php?do=getnew" accesskey="2">New Posts</a></td>
+				
+				<td class="vbmenu_control"><a id="navbar_search" href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow" style="cursor: pointer;">Search <img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("navbar_search"); </script></td>
+			
+			
+				<td class="vbmenu_control"><a id="usercptools" href="http://forum.sa-mp.com/showthread.php?t=407045&nojs=1#usercptools" accesskey="3" style="cursor: pointer;">Quick Links <img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("usercptools"); </script></td>
+			
+		
+		
+		
+			<td class="vbmenu_control"><a href="http://forum.sa-mp.com/login.php?do=logout&logouthash=1419861949-a0975caf0dc620ef5a8b091e3dca90f2fd1c71be" onclick="return log_out(&#39;Are you sure you want to log out?&#39;)">Log Out</a></td>
+		
+		</tr>
+	</tbody></table>
+</div>
+<!-- / nav buttons bar -->
+
+<br>
+
+
+
+
+
+
+<!-- NAVBAR POPUP MENUS -->
+
+	
+	<!-- community link menu -->
+	<div class="vbmenu_popup" id="community_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr><td class="thead">Community Links</td></tr>
+		
+		
+		
+		
+			<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=buddylist">Contacts &amp; Friends</a></td></tr>
+		
+		
+			<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/memberlist.php">Members List</a></td></tr>
+		
+		
+		</tbody></table>
+	</div>
+	<!-- / community link menu -->
+	
+	
+	
+	<!-- header quick search form -->
+	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead">Search Forums</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+				<form action="http://forum.sa-mp.com/search.php?do=process" method="post">
+
+					<input type="hidden" name="do" value="process">
+					<input type="hidden" name="quicksearch" value="1">
+					<input type="hidden" name="childforums" value="1">
+					<input type="hidden" name="exactname" value="1">
+					<input type="hidden" name="s" value="">
+					<input type="hidden" name="securitytoken" value="1419861949-a0975caf0dc620ef5a8b091e3dca90f2fd1c71be">
+					<div><input type="text" class="bginput" name="query" size="25" tabindex="1001"><input type="submit" class="button" value="Go" tabindex="1004"></div>
+					<div style="margin-top:6px">
+						<label for="rb_nb_sp0"><input type="radio" name="showposts" value="0" id="rb_nb_sp0" tabindex="1002" checked="checked">Show Threads</label>
+						&nbsp;
+						<label for="rb_nb_sp1"><input type="radio" name="showposts" value="1" id="rb_nb_sp1" tabindex="1003">Show Posts</label>
+					</div>
+				</form>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow">Advanced Search</a></td>
+		</tr>
+		
+		</tbody></table>
+	</div>
+	<!-- / header quick search form -->
+	
+	
+	
+	<!-- user cp tools menu -->
+	<div class="vbmenu_popup" id="usercptools_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+
+		<tbody><tr><td class="thead">Quick Links</td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=getdaily">Today's Posts</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/forumdisplay.php?do=markread&markreadhash=1419861949-a0975caf0dc620ef5a8b091e3dca90f2fd1c71be">Mark Forums Read</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/showthread.php?t=407045#" onclick="window.open(&#39;misc.php?do=buddylist&amp;focus=1&#39;,&#39;buddylist&#39;,&#39;statusbar=no,menubar=no,toolbar=no,scrollbars=yes,resizable=yes,width=250,height=300&#39;); return false;">Open Contacts Popup</a></td></tr>
+		
+		
+
+		<tr><td class="thead"><a href="http://forum.sa-mp.com/usercp.php">User Control Panel</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editsignature">Edit Signature</a></td></tr>
+		<!--<tr><td class="vbmenu_option"><a href="profile.php?do=editavatar">Edit Avatar</a></td></tr>-->
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editprofile">Edit Your Details</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editoptions">Edit Options</a></td></tr>
+		
+
+		<tr><td class="thead">Miscellaneous</td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php" rel="nofollow">Private Messages</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/subscription.php" rel="nofollow">Subscribed Threads</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=234935">Your Profile</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/online.php">Who's Online</a></td></tr>
+		
+
+		</tbody></table>
+	</div>
+	<!-- / user cp tools menu -->
+
+	
+<!-- / NAVBAR POPUP MENUS -->
+
+<!-- PAGENAV POPUP -->
+	<div class="vbmenu_popup" id="pagenav_menu" style="display: none; position: absolute; z-index: 50;">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead" nowrap="nowrap">Go to Page...</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="">
+			<form action="http://forum.sa-mp.com/index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4">
+				<input type="button" class="button" id="pagenav_ibtn" value="Go">
+			</form>
+			</td>
+		</tr>
+		</tbody></table>
+	</div>
+<!-- / PAGENAV POPUP -->
+
+
+
+
+
+
+
+
+
+
+<a name="poststop" id="poststop"></a>
+
+<!-- controls above postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tbody><tr valign="bottom">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&noquote=1&p=2321451" rel="nofollow"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tbody><tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 28</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 10 of 275"><strong>1</strong></span></td>
+ <td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=407045&page=2" title="Show results 11 to 20 of 275">2</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=407045&page=3" title="Show results 21 to 30 of 275">3</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=407045&page=11" title="Show results 101 to 110 of 275"><!--+10-->11</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=407045&page=2" title="Next Page - Results 11 to 20 of 275">&gt;</a></td>
+	<td class="alt1" nowrap="nowrap"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=407045&page=28" title="Last Page - Results 271 to 275 of 275">Last <strong>»</strong></a></td>
+	<td class="vbmenu_control" title="" id="pagenav.43" style="cursor: pointer;"> <img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></td>
+</tr>
+</tbody></table>
+</div></td>
+</tr>
+</tbody></table>
+<!-- / controls above postbits -->
+
+<!-- toolbar -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center" style="border-bottom-width:0px">
+<tbody><tr>
+	<td class="tcat" width="100%">
+		<div class="smallfont">
+		
+		&nbsp;
+		</div>
+	</td>
+	<td class="vbmenu_control" id="threadtools" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=407045&nojs=1#goto_threadtools">Thread Tools</a>
+		<script type="text/javascript"> vbmenu_register("threadtools"); </script> <img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+		<td class="vbmenu_control" id="threadsearch" nowrap="nowrap" style="cursor: pointer;">
+			<a href="http://forum.sa-mp.com/showthread.php?t=407045&nojs=1#goto_threadsearch">Search this Thread</a>
+			<script type="text/javascript"> vbmenu_register("threadsearch"); </script> <img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+		</td>
+	
+	
+		<td class="vbmenu_control" id="threadrating" nowrap="nowrap" style="cursor: pointer;">
+			<a href="http://forum.sa-mp.com/showthread.php?t=407045&nojs=1#goto_threadrating"><span id="threadrating_current">Rating: <img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/rating_5.gif" alt="Thread Rating: 7 votes, 4.57 average." border="0" title="Thread Rating: 7 votes, 4.57 average."></span></a>
+			<script type="text/javascript"> vbmenu_register("threadrating"); </script> <img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+		</td>
+	
+	
+	<td class="vbmenu_control" id="displaymodes" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=407045&nojs=1#goto_displaymodes">Display Modes</a>
+		<script type="text/javascript"> vbmenu_register("displaymodes"); </script> <img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+
+	
+
+</tr>
+</tbody></table>
+<!-- / toolbar -->
+
+
+
+<!-- end content table -->
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- / end content table -->
+
+
+
+
+<script type="text/javascript" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/vbulletin_ajax_reputation.js"></script>
+
+
+<div id="posts"><!-- post #2321451 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2321451" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2321451" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2321451"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			12/01/2013, 04:42 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2321451&postcount=1" target="new" rel="nofollow" id="postcount2321451" name="1"><strong>1</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2321451">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=14916"><span style="color:#0697C7;font-weight: bold;">d0</span></a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2321451", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Beta Tester</div>
+			<div class="smallfont"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/starb.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/starb.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/starb.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/starb.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/starb.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=14916"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/image.php" width="80" height="80" alt="d0&#39;s Avatar" border="0" title="d0&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Oct 2007</div>
+				<div>Location: Germany</div>
+				
+				
+				
+<div>
+  Posts: 827
+</div>
+
+<div>Reputation: 123</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2321451" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/icon1.gif" alt="Post" border="0" title="Post">
+				<strong>[0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2321451">
+			
+			<font size="24"><b>mSelection</b></font><b>(For SA-MP 0.3x and above)<br>
+<br>
+(<font color="red">Translation</font>: <a href="http://gta-sa-mp.de/forum/index.php?page=Thread&threadID=13" target="_blank">German translation/Deutsche Übersetzung</a></b>)<br>
+<br>
+A include which adds the possibility to create Model Preview Menus with only a few lines of code.<br>
+<br>
+<b>Updates</b><br>
+- 1.1 R3<br>
+Fixes Bug with blocking OnPlayerClick(Player)TextDraw<br>
+The selection menu instantly closed in all earlier verions if used/shown in OnDialogResponse<br>
+<br>
+- 1.1 R2<br>
+Fixes bug when pressing ESC<br>
+<br>
+- 1.1<br>
+Fixes bug when pressing ESC<br>
+Adds dynamic per player menus<br>
+Adds "cancel" button to the menus<br>
+<br>
+- 1.0 R3:<br>
+Fixes bug with using ShowModelSelectionMenu in OnPlayerModelSelection<br>
+<br>
+- 1.0 R2:<br>
+Adds possibility to use ShowModelSelectionMenu in OnPlayerModelSelection<br>
+<br>
+<b>Overview</b><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:199px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// for both (static and per player lists)</span><br>HideModelSelectionMenu<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #228822;">//static lists</span><br>LoadModelSelectionMenu<span style="color: #000000;">(</span>f_name<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><br>ShowModelSelectionMenu<span style="color: #000000;">(</span>playerid, ListID, header_text<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, dialogBGcolor <span style="color: #000000;">=</span> 0x4A5A6BBB, previewBGcolor <span style="color: #000000;">=</span> 0x88888899 , tdSelectionColor <span style="color: #000000;">=</span> 0xFFFF00AA<span style="color: #000000;">)</span><br><br><span style="color: #2222BB;">forward</span> OnPlayerModelSelection<span style="color: #000000;">(</span>playerid, response, listid, modelid<span style="color: #000000;">)</span>;<br><span style="color: #228822;">//dynamic per player lists</span><br>ShowModelSelectionMenuEx<span style="color: #000000;">(</span>playerid, items_array<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, item_amount, header_text<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, extraid, <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>Xrot <span style="color: #000000;">=</span> <span style="color: #000000;">0.0</span>, <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>Yrot <span style="color: #000000;">=</span> <span style="color: #000000;">0.0</span>, <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>Zrot <span style="color: #000000;">=</span> <span style="color: #000000;">0.0</span>, <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>mZoom <span style="color: #000000;">=</span> <span style="color: #000000;">1.0</span>, dialogBGcolor <span style="color: #000000;">=</span> 0x4A5A6BBB, previewBGcolor <span style="color: #000000;">=</span> 0x88888899 , tdSelectionColor <span style="color: #000000;">=</span> 0xFFFF00AA<span style="color: #000000;">)</span><br><br><span style="color: #2222BB;">forward</span> OnPlayerModelSelectionEx<span style="color: #000000;">(</span>playerid, response, extraid, modelid<span style="color: #000000;">)</span>;</div></div></pre>
+</div><ul><li><b>LoadModelSlectionMenu(f_name[])</b><br>
+Loads the menu content from a file and returns the listid.<br>
+<ol style="list-style-type: decimal"><li><b>f_name[]</b>: Filename of the list in your scriptfiles folder</li>
+<li><b>returns</b>: ID of the list</li>
+</ol><br>
+<b>File:</b><br>
+Every line looks like: <b>modelID <font color="red">xRot yRot zRot Zoom</font></b> (The red ones are optional and don't have to be added)<br>
+<br>
+<b>Example Infernus ID 411:</b><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">411
+411 180.0
+411 0.0 180.0
+411 0.0 0.0 180.0
+411 0.0 0.0 0.0 1.0</pre>
+</div>All 4 examples are possible and will show an Infernus with different rotations set.<br>
+<br>
+<b>Example all planes:</b> planes.txt<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 194px;
+		text-align: left;
+		overflow: auto">460 16.0 0.0 -55.0
+476 16.0 0.0 -55.0
+511 16.0 0.0 -55.0
+512 16.0 0.0 -55.0
+513 16.0 0.0 -55.0
+519 16.0 0.0 -55.0
+520 16.0 0.0 -55.0
+553 16.0 0.0 -55.0
+577 16.0 0.0 -55.0
+592 16.0 0.0 -55.0
+593 16.0 0.0 -55.0</pre>
+</div><b>Note:</b><br>
+If more models use the same rotation/zoom information then the information will only be saved once to save memory.(For example 100 vehicles with the same rotation will only need one rotation to be saved)<br>
+<br></li>
+<li><b>HideModelSelectionMenu(playerid)</b><br>
+Hide menu for player.<br>
+<ol style="list-style-type: decimal"><li><b>playerid</b>: playerid</li>
+<li><b>returns</b>: nothing</li>
+</ol><br></li>
+<li><b>ShowModelSelectionMenu(playerid, ListID, header_text[], dialogBGcolor = 0x4A5A6BBB, previewBGcolor = 0x88888899 , tdSelectionColor = 0xFFFF00AA)</b><br>
+Show menu for player.<br>
+<ol style="list-style-type: decimal"><li><b>playerid</b>: playerid</li>
+<li><b>ListID</b>: The ID of the list/menu to be shown</li>
+<li><b>header_test[]</b>: heading of the list/menu</li>
+<li><b>dialogBGcolor</b>(optional): Look at the picture below for the color<font color="red"> (*1)</font></li>
+<li><b>previewBGcolor</b>(optional): Look at the picture below for the color<font color="red"> (*2)</font></li>
+<li><b>tdSelectionColor</b>(optional): Look at the picture below for the color<font color="red"> (*3)</font></li>
+<li><b>returns</b>: 1 success, 0 failed</li>
+</ol><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/colorPreview.png" border="0" alt=""><br>
+<br></li>
+<li><b>OnPlayerModelSelection(playerid, response, listid, modelid)</b><br>
+Called when a player selects a model or pressing esc<br>
+<ol style="list-style-type: decimal"><li><b>playerid</b>: playerid</li>
+<li><b>response</b>: 1 = Model selected, 0 = canceled (esc)</li>
+<li><b>listid</b>: The ID of the list</li>
+<li><b>modelid</b>: selected model</li>
+</ol><br></li>
+<li><b>ShowModelSelectionMenuEx(playerid, items_array[], item_amount, header_text[], extraid, Float:Xrot = 0.0, Float:Yrot = 0.0, Float:Zrot = 0.0, Float:mZoom = 1.0, dialogBGcolor = 0x4A5A6BBB, previewBGcolor = 0x88888899 , tdSelectionColor = 0xFFFF00AA)</b><br>
+Show menu for player.<br>
+<ol style="list-style-type: decimal"><li><b>playerid</b>: playerid</li>
+<li><b>items_array[]</b>: Array of items to be shown</li>
+<li><b>item_amount</b>: Amount of items in items_array[] (For example: item_amount = 3 would show items_array[0-2])</li>
+<li><b>header_test[]</b>: heading of the list/menu</li>
+<li><b>extraid</b>: extraid which gets passed to <b>OnPlayerModelSelectionEx</b> after selection</li>
+<li><b>Xrot</b>: X rotation for the previews</li>
+<li><b>Yrot</b>: Y rotation for the previews</li>
+<li><b>Zrot</b>: Z rotation for the previews</li>
+<li><b>mZoom</b>: Zoom for the previews</li>
+<li><b>dialogBGcolor</b>(optional): Look at the picture below for the color<font color="red"> (*1)</font></li>
+<li><b>previewBGcolor</b>(optional): Look at the picture below for the color<font color="red"> (*2)</font></li>
+<li><b>tdSelectionColor</b>(optional): Look at the picture below for the color<font color="red"> (*3)</font></li>
+<li><b>returns</b>: 1 success, 0 failed</li>
+</ol><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/colorPreview.png" border="0" alt=""><br>
+<br></li>
+<li><b>OnPlayerModelSelectionEx(playerid, response, extraid, modelid)</b><br>
+Called when a player selects a model or pressing esc<br>
+<ol style="list-style-type: decimal"><li><b>playerid</b>: playerid</li>
+<li><b>response</b>: 1 = Model selected, 0 = canceled (esc)</li>
+<li><b>extraid</b>: The extraid used in <b>ShowModelSelectionMenuEx</b></li>
+<li><b>modelid</b>: selected model</li>
+</ol></li>
+</ul><br>
+<font size="18"><b>Example Script</b></font><br>
+<br>
+<b>Example #1 Static Lists</b><br>
+Scriptfiles: <a href="http://gta-sa-mp.de/stuff/mSelection/planes.txt" target="_blank">planes.txt</a> - <a href="http://gta-sa-mp.de/stuff/mSelection/skins.txt" target="_blank">skins.txt</a><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:503px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><span style="color: #2222AA;">#include &lt;mSelection&gt;</span><br><br><span style="color: #2222BB;">new</span> planelist <span style="color: #000000;">=</span> mS_INVALID_LISTID;<br><span style="color: #2222BB;">new</span> skinlist <span style="color: #000000;">=</span> mS_INVALID_LISTID;<br><span style="color: #2222BB;">public</span> OnFilterScriptInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; planelist <span style="color: #000000;">=</span> LoadModelSelectionMenu<span style="color: #000000;">(</span><span style="color: #000066;">"planes.txt"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; skinlist <span style="color: #000000;">=</span> LoadModelSelectionMenu<span style="color: #000000;">(</span><span style="color: #000066;">"skins.txt"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerCommandText<span style="color: #000000;">(</span>playerid, cmdtext<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span><span style="color: #222222;">strcmp</span><span style="color: #000000;">(</span>cmdtext, <span style="color: #000066;">"/plane"</span>, true<span style="color: #000000;">)</span> <span style="color: #000000;">==</span> <span style="color: #000000;">0</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; ShowModelSelectionMenu<span style="color: #000000;">(</span>playerid, planelist, <span style="color: #000066;">"-&gt;Planes&lt;-"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span><span style="color: #222222;">strcmp</span><span style="color: #000000;">(</span>cmdtext, <span style="color: #000066;">"/changeskin"</span>, true<span style="color: #000000;">)</span> <span style="color: #000000;">==</span> <span style="color: #000000;">0</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; ShowModelSelectionMenu<span style="color: #000000;">(</span>playerid, skinlist, <span style="color: #000066;">"Select Skin"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">0</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerModelSelection<span style="color: #000000;">(</span>playerid, response, listid, modelid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>listid <span style="color: #000000;">==</span> planelist<span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>response<span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span>playerid, 0xFF0000FF, <span style="color: #000066;">"Plane Spawned"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">new</span> <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>pos<span style="color: #000000;">[</span><span style="color: #000000;">3</span><span style="color: #000000;">]</span>; GetPlayerPos<span style="color: #000000;">(</span>playerid, pos<span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span>, pos<span style="color: #000000;">[</span><span style="color: #000000;">1</span><span style="color: #000000;">]</span>, pos<span style="color: #000000;">[</span><span style="color: #000000;">2</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CreateVehicle<span style="color: #000000;">(</span>modelid, pos<span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span> <span style="color: #000000;">+</span> <span style="color: #000000;">2.5</span>, pos<span style="color: #000000;">[</span><span style="color: #000000;">1</span><span style="color: #000000;">]</span>, pos<span style="color: #000000;">[</span><span style="color: #000000;">2</span><span style="color: #000000;">]</span> <span style="color: #000000;">+</span> <span style="color: #000000;">2.5</span>, <span style="color: #000000;">0.0</span>, <span style="color: #222222;">random</span><span style="color: #000000;">(</span><span style="color: #000000;">128</span><span style="color: #000000;">)</span>, <span style="color: #222222;">random</span><span style="color: #000000;">(</span><span style="color: #000000;">128</span><span style="color: #000000;">)</span>, <span style="color: #000000;">-</span><span style="color: #000000;">1</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">else</span> SendClientMessage<span style="color: #000000;">(</span>playerid, 0xFF0000FF, <span style="color: #000066;">"Canceled plane selection"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>listid <span style="color: #000000;">==</span> skinlist<span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>response<span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span>playerid, 0xFF0000FF, <span style="color: #000066;">"Skin Changed"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SetPlayerSkin<span style="color: #000000;">(</span>playerid, modelid<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">else</span> SendClientMessage<span style="color: #000000;">(</span>playerid, 0xFF0000FF, <span style="color: #000066;">"Canceled skin selection"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div><br>
+<b>Example #2 Dynamic per player lists</b><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:503px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><span style="color: #2222AA;">#include &lt;mSelection&gt;</span><br><br><span style="color: #2222AA;">#define CUSTOM_TRAILER_MENU 1</span><br><br><span style="color: #2222BB;">public</span> OnPlayerCommandText<span style="color: #000000;">(</span>playerid, cmdtext<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span><span style="color: #222222;">strcmp</span><span style="color: #000000;">(</span>cmdtext, <span style="color: #000066;">"/selectVehicleTrailer"</span>, true<span style="color: #000000;">)</span> <span style="color: #000000;">==</span> <span style="color: #000000;">0</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">new</span> cars<span style="color: #000000;">[</span><span style="color: #000000;">15</span><span style="color: #000000;">]</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; cars<span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">435</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; cars<span style="color: #000000;">[</span><span style="color: #000000;">1</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">450</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; cars<span style="color: #000000;">[</span><span style="color: #000000;">2</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">569</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; cars<span style="color: #000000;">[</span><span style="color: #000000;">3</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">570</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; cars<span style="color: #000000;">[</span><span style="color: #000000;">4</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">584</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; cars<span style="color: #000000;">[</span><span style="color: #000000;">5</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">590</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; cars<span style="color: #000000;">[</span><span style="color: #000000;">6</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">591</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; cars<span style="color: #000000;">[</span><span style="color: #000000;">7</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">606</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; cars<span style="color: #000000;">[</span><span style="color: #000000;">8</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">607</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; cars<span style="color: #000000;">[</span><span style="color: #000000;">9</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">608</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; cars<span style="color: #000000;">[</span><span style="color: #000000;">10</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">610</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; cars<span style="color: #000000;">[</span><span style="color: #000000;">11</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">611</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; ShowModelSelectionMenuEx<span style="color: #000000;">(</span>playerid, cars, <span style="color: #000000;">12</span>, <span style="color: #000066;">"Select trailer"</span>, CUSTOM_TRAILER_MENU, <span style="color: #000000;">16.0</span>, <span style="color: #000000;">0.0</span>, <span style="color: #000000;">-</span><span style="color: #000000;">55.0</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">0</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerModelSelectionEx<span style="color: #000000;">(</span>playerid, response, extraid, modelid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>extraid <span style="color: #000000;">==</span> CUSTOM_TRAILER_MENU<span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>response<span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span>playerid, 0xFF0000FF, <span style="color: #000066;">"Trailer Spawned"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">new</span> <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>pos<span style="color: #000000;">[</span><span style="color: #000000;">3</span><span style="color: #000000;">]</span>; GetPlayerPos<span style="color: #000000;">(</span>playerid, pos<span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span>, pos<span style="color: #000000;">[</span><span style="color: #000000;">1</span><span style="color: #000000;">]</span>, pos<span style="color: #000000;">[</span><span style="color: #000000;">2</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; CreateVehicle<span style="color: #000000;">(</span>modelid, pos<span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span> <span style="color: #000000;">+</span> <span style="color: #000000;">2.5</span>, pos<span style="color: #000000;">[</span><span style="color: #000000;">1</span><span style="color: #000000;">]</span>, pos<span style="color: #000000;">[</span><span style="color: #000000;">2</span><span style="color: #000000;">]</span> <span style="color: #000000;">+</span> <span style="color: #000000;">2.5</span>, <span style="color: #000000;">0.0</span>, <span style="color: #222222;">random</span><span style="color: #000000;">(</span><span style="color: #000000;">128</span><span style="color: #000000;">)</span>, <span style="color: #222222;">random</span><span style="color: #000000;">(</span><span style="color: #000000;">128</span><span style="color: #000000;">)</span>, <span style="color: #000000;">-</span><span style="color: #000000;">1</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">else</span> SendClientMessage<span style="color: #000000;">(</span>playerid, 0xFF0000FF, <span style="color: #000066;">"Canceled trailer selection"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div><br>
+<font size="24"><b>Thanks to:</b></font><br>
+Kye: for creating vspawner.pwn<br>
+<br>
+<br>
+<font size="24"><b>Downloads:</b></font><br>
+Include+Example Script+Scriptfiles: View attachments
+		</div>
+		<!-- / message -->
+
+		
+		<!-- attachments -->
+			<div style="padding:6px">
+
+			
+
+			
+
+			
+
+			
+				<fieldset class="fieldset">
+					<legend>Attached Files</legend>
+					<table cellpadding="0" cellspacing="3" border="0">
+					<tbody><tr>
+	<td><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/zip.gif" alt="File Type: zip" width="16" height="16" border="0" style="vertical-align:baseline" title="File Type: zip"></td>
+	<td><a href="http://forum.sa-mp.com/attachment.php?attachmentid=5248&d=1358626151">mSelection1.1R3.zip</a> (7.9 KB, 9122 views)</td>
+</tr>
+					</tbody></table>
+				</fieldset>
+			
+
+			
+
+			</div>
+		<!-- / attachments -->
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><a href="http://www.true-vibe.net/" target="_blank">www.true-vibe.net</a><br>
+<img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/tvgraph.png" border="0" alt=""></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+		<!-- edit note -->
+			<div class="smallfont">
+				<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+				<em>
+					
+						Last edited by d0; 01/02/2013 at <span class="time">11:34 PM</span>.
+					
+					
+				</em>
+			</div>
+		<!-- / edit note -->
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		
+<img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/user_online.gif" alt="d0 is online now" border="0" title="d0 is online now">
+
+		
+			<span id="reputationmenu_2321451"><a href="http://forum.sa-mp.com/reputation.php?p=2321451" rel="nofollow" id="reputation_2321451"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/reputation.png" alt="Add to d0&#39;s Reputation" border="0" title="Add to d0&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2321451")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2321451" rel="nofollow"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321451" rel="nofollow"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321451" rel="nofollow" onclick="return false"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2321451" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321451" rel="nofollow" id="qr_2321451" onclick="return false"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2321451 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2321451_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">d0</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=14916">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=14916" rel="nofollow">Send a private message to d0</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://nsg-page.de/">Visit d0's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=14916" rel="nofollow">Find More Posts by d0</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&userlist=buddy&u=14916">Add d0 to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2321451 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2321451 --><!-- post #2321458 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2321458" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2321458" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2321458"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			12/01/2013, 04:48 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2321458&postcount=2" target="new" rel="nofollow" id="postcount2321458" name="2"><strong>2</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2321458">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=154838">pasha97</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2321458", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Gangsta</div>
+			<div class="smallfont"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=154838"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/image(1).php" width="80" height="57" alt="pasha97&#39;s Avatar" border="0" title="pasha97&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Feb 2012</div>
+				<div>Location: Voronezh,Russia</div>
+				
+				
+				
+<div>
+  Posts: 677
+</div>
+
+<div>Reputation: 60</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2321458" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [0.3X] mSelection 1.0 - Create Model Preview Menus with a few lines of code</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2321458">
+			
+			omg, i even can't express all my feelings!! This is awesome dude! THank you a lot!
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<font size="4"><b><font color="Magenta"><a href="samp://ultrabee.dlinkddns.com:1111" target="_blank"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/Ja1XPrVGx_I.jpg" border="0" alt=""></a></font></b></font>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/user_offline.gif" alt="pasha97 is offline" border="0" title="pasha97 is offline">
+
+
+		
+			<span id="reputationmenu_2321458"><a href="http://forum.sa-mp.com/reputation.php?p=2321458" rel="nofollow" id="reputation_2321458"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/reputation.png" alt="Add to pasha97&#39;s Reputation" border="0" title="Add to pasha97&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2321458")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2321458" rel="nofollow"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321458" rel="nofollow"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321458" rel="nofollow" onclick="return false"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2321458" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321458" rel="nofollow" id="qr_2321458" onclick="return false"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2321458 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2321458_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">pasha97</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=154838">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=154838" rel="nofollow">Send a private message to pasha97</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=154838" rel="nofollow">Find More Posts by pasha97</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&userlist=buddy&u=154838">Add pasha97 to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2321458 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2321458 --><!-- post #2321469 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2321469" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2321469" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2321469"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			12/01/2013, 04:53 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2321469&postcount=3" target="new" rel="nofollow" id="postcount2321469" name="3"><strong>3</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2321469">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=47276">Black Wolf</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2321469", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Gangsta</div>
+			<div class="smallfont"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Mar 2009</div>
+				<div>Location: On the bed with your sister.</div>
+				
+				
+				
+<div>
+  Posts: 528
+</div>
+
+<div>Reputation: 166</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2321469" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [0.3X] mSelection 1.0 - Create Model Preview Menus with a few lines of code</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2321469">
+			
+			Cool man thanks for it <img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/smile.png" border="0" alt="" title="Smiley" class="inlineimg"><br>
+You've maded it alot easier.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				&lt;not allowed&gt;
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/user_offline.gif" alt="Black Wolf is offline" border="0" title="Black Wolf is offline">
+
+
+		
+			<span id="reputationmenu_2321469"><a href="http://forum.sa-mp.com/reputation.php?p=2321469" rel="nofollow" id="reputation_2321469"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/reputation.png" alt="Add to Black Wolf&#39;s Reputation" border="0" title="Add to Black Wolf&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2321469")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2321469" rel="nofollow"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321469" rel="nofollow"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321469" rel="nofollow" onclick="return false"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2321469" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321469" rel="nofollow" id="qr_2321469" onclick="return false"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2321469 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2321469_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Black Wolf</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=47276">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=47276" rel="nofollow">Send a private message to Black Wolf</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=47276" rel="nofollow">Find More Posts by Black Wolf</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&userlist=buddy&u=47276">Add Black Wolf to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2321469 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2321469 --><!-- post #2321527 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2321527" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2321527" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2321527"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			12/01/2013, 05:16 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2321527&postcount=4" target="new" rel="nofollow" id="postcount2321527" name="4"><strong>4</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2321527">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=164201">oOFotherOo</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2321527", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Gangsta</div>
+			<div class="smallfont"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=164201"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/image(2).php" width="80" height="80" alt="oOFotherOo&#39;s Avatar" border="0" title="oOFotherOo&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: May 2012</div>
+				<div>Location: Tokyo</div>
+				
+				
+				
+<div>
+  Posts: 643
+</div>
+
+<div>Reputation: 28</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2321527" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Respuesta: [0.3X] mSelection 1.0 - Create Model Preview Menus with a few lines of code</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2321527">
+			
+			Nice ! Thanks you.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/user_offline.gif" alt="oOFotherOo is offline" border="0" title="oOFotherOo is offline">
+
+
+		
+			<span id="reputationmenu_2321527"><a href="http://forum.sa-mp.com/reputation.php?p=2321527" rel="nofollow" id="reputation_2321527"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/reputation.png" alt="Add to oOFotherOo&#39;s Reputation" border="0" title="Add to oOFotherOo&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2321527")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2321527" rel="nofollow"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321527" rel="nofollow"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321527" rel="nofollow" onclick="return false"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2321527" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321527" rel="nofollow" id="qr_2321527" onclick="return false"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2321527 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2321527_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">oOFotherOo</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=164201">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=164201" rel="nofollow">Send a private message to oOFotherOo</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=164201" rel="nofollow">Find More Posts by oOFotherOo</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&userlist=buddy&u=164201">Add oOFotherOo to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2321527 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2321527 --><!-- post #2321628 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2321628" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2321628" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2321628"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			12/01/2013, 05:47 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2321628&postcount=5" target="new" rel="nofollow" id="postcount2321628" name="5"><strong>5</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2321628">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=100080">Mean</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2321628", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Banned</div>
+			<div class="smallfont"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/pinkdead.gif" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Jul 2010</div>
+				<div>Location: 14th annual lemon party</div>
+				
+				
+				
+<div>
+  Posts: 2,888
+</div>
+
+<div>Reputation: 229</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2321628" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [0.3X] mSelection 1.0 - Create Model Preview Menus with a few lines of code</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2321628">
+			
+			Nice work, will definitely come useful.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/user_offline.gif" alt="Mean is offline" border="0" title="Mean is offline">
+
+
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2321628" rel="nofollow"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321628" rel="nofollow"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321628" rel="nofollow" onclick="return false"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2321628" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321628" rel="nofollow" id="qr_2321628" onclick="return false"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2321628 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2321628_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Mean</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=100080">View Public Profile</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=100080" rel="nofollow">Find More Posts by Mean</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&userlist=buddy&u=100080">Add Mean to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2321628 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2321628 --><!-- post #2321683 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2321683" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2321683" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2321683"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			12/01/2013, 06:09 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2321683&postcount=6" target="new" rel="nofollow" id="postcount2321683" name="6"><strong>6</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2321683">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=154838">pasha97</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2321683", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Gangsta</div>
+			<div class="smallfont"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=154838"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/image(1).php" width="80" height="57" alt="pasha97&#39;s Avatar" border="0" title="pasha97&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Feb 2012</div>
+				<div>Location: Voronezh,Russia</div>
+				
+				
+				
+<div>
+  Posts: 677
+</div>
+
+<div>Reputation: 60</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2321683" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [0.3X] mSelection 1.0 - Create Model Preview Menus with a few lines of code</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2321683">
+			
+			Can you help me, i dont undestand why this doesn't work <br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:503px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>listid <span style="color: #000000;">==</span> mainvlist<span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>response<span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>modelid<span style="color: #000000;">==</span><span style="color: #000000;">519</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ShowModelSelectionMenu<span style="color: #000000;">(</span>playerid, planelist, <span style="color: #000066;">"Planes"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>modelid<span style="color: #000000;">==</span><span style="color: #000000;">487</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ShowModelSelectionMenu<span style="color: #000000;">(</span>playerid, helicopterslist, <span style="color: #000066;">"Helicopters"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>modelid<span style="color: #000000;">==</span><span style="color: #000000;">522</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ShowModelSelectionMenu<span style="color: #000000;">(</span>playerid, bikeslist, <span style="color: #000066;">"Bikes"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>modelid<span style="color: #000000;">==</span><span style="color: #000000;">560</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ShowModelSelectionMenu<span style="color: #000000;">(</span>playerid, carslist, <span style="color: #000066;">"Cars"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>modelid<span style="color: #000000;">==</span><span style="color: #000000;">452</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ShowModelSelectionMenu<span style="color: #000000;">(</span>playerid, boatslist, <span style="color: #000066;">"Boats"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>modelid<span style="color: #000000;">==</span><span style="color: #000000;">19336</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ShowModelSelectionMenu<span style="color: #000000;">(</span>playerid, specialslist, <span style="color: #000066;">"Specials"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>modelid<span style="color: #000000;">==</span><span style="color: #000000;">501</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ShowModelSelectionMenu<span style="color: #000000;">(</span>playerid, rclist, <span style="color: #000066;">"RC vehicles"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span></div></div></pre>
+</div><br>
+every thing is ok, there are all required files in script files, and i used LoadModelSelectionMenu in OnGameModeINnit
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<font size="4"><b><font color="Magenta"><a href="samp://ultrabee.dlinkddns.com:1111" target="_blank"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/Ja1XPrVGx_I.jpg" border="0" alt=""></a></font></b></font>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/user_offline.gif" alt="pasha97 is offline" border="0" title="pasha97 is offline">
+
+
+		
+			<span id="reputationmenu_2321683"><a href="http://forum.sa-mp.com/reputation.php?p=2321683" rel="nofollow" id="reputation_2321683"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/reputation.png" alt="Add to pasha97&#39;s Reputation" border="0" title="Add to pasha97&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2321683")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2321683" rel="nofollow"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321683" rel="nofollow"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321683" rel="nofollow" onclick="return false"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2321683" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321683" rel="nofollow" id="qr_2321683" onclick="return false"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2321683 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2321683_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">pasha97</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=154838">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=154838" rel="nofollow">Send a private message to pasha97</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=154838" rel="nofollow">Find More Posts by pasha97</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&userlist=buddy&u=154838">Add pasha97 to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2321683 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2321683 --><!-- post #2321735 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2321735" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2321735" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2321735"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			12/01/2013, 06:31 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2321735&postcount=7" target="new" rel="nofollow" id="postcount2321735" name="7"><strong>7</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2321735">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=14916"><span style="color:#0697C7;font-weight: bold;">d0</span></a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2321735", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Beta Tester</div>
+			<div class="smallfont"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/starb.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/starb.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/starb.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/starb.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/starb.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=14916"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/image.php" width="80" height="80" alt="d0&#39;s Avatar" border="0" title="d0&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Oct 2007</div>
+				<div>Location: Germany</div>
+				
+				
+				
+<div>
+  Posts: 827
+</div>
+
+<div>Reputation: 123</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2321735" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [0.3X] mSelection 1.0 - Create Model Preview Menus with a few lines of code</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2321735">
+			
+			<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				<div>
+					Originally Posted by <strong>pasha97</strong>
+					<a href="http://forum.sa-mp.com/showthread.php?p=2321683#post2321683" rel="nofollow"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/viewpost.gif" border="0" alt="View Post" title="View Post"></a>
+				</div>
+				<div style="font-style:italic">Can you help me, i dont undestand why this doesn't work <br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:503px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>listid <span style="color: #000000;">==</span> mainvlist<span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>response<span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>modelid<span style="color: #000000;">==</span><span style="color: #000000;">519</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ShowModelSelectionMenu<span style="color: #000000;">(</span>playerid, planelist, <span style="color: #000066;">"Planes"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>modelid<span style="color: #000000;">==</span><span style="color: #000000;">487</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ShowModelSelectionMenu<span style="color: #000000;">(</span>playerid, helicopterslist, <span style="color: #000066;">"Helicopters"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>modelid<span style="color: #000000;">==</span><span style="color: #000000;">522</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ShowModelSelectionMenu<span style="color: #000000;">(</span>playerid, bikeslist, <span style="color: #000066;">"Bikes"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>modelid<span style="color: #000000;">==</span><span style="color: #000000;">560</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ShowModelSelectionMenu<span style="color: #000000;">(</span>playerid, carslist, <span style="color: #000066;">"Cars"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>modelid<span style="color: #000000;">==</span><span style="color: #000000;">452</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ShowModelSelectionMenu<span style="color: #000000;">(</span>playerid, boatslist, <span style="color: #000066;">"Boats"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>modelid<span style="color: #000000;">==</span><span style="color: #000000;">19336</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ShowModelSelectionMenu<span style="color: #000000;">(</span>playerid, specialslist, <span style="color: #000066;">"Specials"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>modelid<span style="color: #000000;">==</span><span style="color: #000000;">501</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ShowModelSelectionMenu<span style="color: #000000;">(</span>playerid, rclist, <span style="color: #000066;">"RC vehicles"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span></div></div></pre>
+</div><br>
+every thing is ok, there are all required files in script files, and i used LoadModelSelectionMenu in OnGameModeINnit</div>
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div>A bug with using ShowModelSelectionMenu inside of OnPlayerModelSelection<br>
+<br>
+Download R2 from the first post to be able to use ShowModelSelectionMenu in OnPlayerModelSelection
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><a href="http://www.true-vibe.net/" target="_blank">www.true-vibe.net</a><br>
+<img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/tvgraph.png" border="0" alt=""></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		
+<img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/user_online.gif" alt="d0 is online now" border="0" title="d0 is online now">
+
+		
+			<span id="reputationmenu_2321735"><a href="http://forum.sa-mp.com/reputation.php?p=2321735" rel="nofollow" id="reputation_2321735"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/reputation.png" alt="Add to d0&#39;s Reputation" border="0" title="Add to d0&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2321735")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2321735" rel="nofollow"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321735" rel="nofollow"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321735" rel="nofollow" onclick="return false"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2321735" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321735" rel="nofollow" id="qr_2321735" onclick="return false"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2321735 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2321735_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">d0</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=14916">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=14916" rel="nofollow">Send a private message to d0</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://nsg-page.de/">Visit d0's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=14916" rel="nofollow">Find More Posts by d0</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&userlist=buddy&u=14916">Add d0 to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2321735 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2321735 --><!-- post #2321750 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2321750" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2321750" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2321750"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			12/01/2013, 06:37 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2321750&postcount=8" target="new" rel="nofollow" id="postcount2321750" name="8"><strong>8</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2321750">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=154838">pasha97</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2321750", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Gangsta</div>
+			<div class="smallfont"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=154838"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/image(1).php" width="80" height="57" alt="pasha97&#39;s Avatar" border="0" title="pasha97&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Feb 2012</div>
+				<div>Location: Voronezh,Russia</div>
+				
+				
+				
+<div>
+  Posts: 677
+</div>
+
+<div>Reputation: 60</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2321750" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [0.3X] mSelection 1.0 - Create Model Preview Menus with a few lines of code</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2321750">
+			
+			<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				<div>
+					Originally Posted by <strong>D0erfler</strong>
+					<a href="http://forum.sa-mp.com/showthread.php?p=2321735#post2321735" rel="nofollow"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/viewpost.gif" border="0" alt="View Post" title="View Post"></a>
+				</div>
+				<div style="font-style:italic">A bug with using ShowModelSelectionMenu inside of OnPlayerModelSelection<br>
+<br>
+Download R2 from the first post to be able to use ShowModelSelectionMenu in OnPlayerModelSelection</div>
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div>thank you! but it doesn't work<img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/confused.png" border="0" alt="" title="Confused" class="inlineimg"> The next selection meny appears for fiew moments and then dissapears again. It sounds like when i click the selection, the next selection menu autimatically cancels.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<font size="4"><b><font color="Magenta"><a href="samp://ultrabee.dlinkddns.com:1111" target="_blank"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/Ja1XPrVGx_I.jpg" border="0" alt=""></a></font></b></font>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/user_offline.gif" alt="pasha97 is offline" border="0" title="pasha97 is offline">
+
+
+		
+			<span id="reputationmenu_2321750"><a href="http://forum.sa-mp.com/reputation.php?p=2321750" rel="nofollow" id="reputation_2321750"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/reputation.png" alt="Add to pasha97&#39;s Reputation" border="0" title="Add to pasha97&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2321750")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2321750" rel="nofollow"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321750" rel="nofollow"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321750" rel="nofollow" onclick="return false"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2321750" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321750" rel="nofollow" id="qr_2321750" onclick="return false"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2321750 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2321750_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">pasha97</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=154838">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=154838" rel="nofollow">Send a private message to pasha97</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=154838" rel="nofollow">Find More Posts by pasha97</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&userlist=buddy&u=154838">Add pasha97 to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2321750 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2321750 --><!-- post #2321810 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2321810" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2321810" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2321810"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			12/01/2013, 06:56 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2321810&postcount=9" target="new" rel="nofollow" id="postcount2321810" name="9"><strong>9</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2321810">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=14916"><span style="color:#0697C7;font-weight: bold;">d0</span></a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2321810", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Beta Tester</div>
+			<div class="smallfont"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/starb.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/starb.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/starb.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/starb.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/starb.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=14916"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/image.php" width="80" height="80" alt="d0&#39;s Avatar" border="0" title="d0&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Oct 2007</div>
+				<div>Location: Germany</div>
+				
+				
+				
+<div>
+  Posts: 827
+</div>
+
+<div>Reputation: 123</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2321810" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [0.3X] mSelection 1.0 - Create Model Preview Menus with a few lines of code</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2321810">
+			
+			<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				<div>
+					Originally Posted by <strong>pasha97</strong>
+					<a href="http://forum.sa-mp.com/showthread.php?p=2321750#post2321750" rel="nofollow"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/viewpost.gif" border="0" alt="View Post" title="View Post"></a>
+				</div>
+				<div style="font-style:italic">thank you! but it doesn't work<img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/confused.png" border="0" alt="" title="Confused" class="inlineimg"> The next selection meny appears for fiew moments and then dissapears again.</div>
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div>Show the whole script please<br>
+<br>
+Edit: I see the problem, CancelSelectTextDraw is called after the first selection and the client takes a while to respond to that function which causes the new menu to get hidden as soon the sa-mp client responses to CancelSelectTextDraw.<br>
+Will add something like a minimum time of having the menu open(~1 second) to fix it.<br>
+<br>
+Check back in a few moments and download R3 <img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/wink.png" border="0" alt="" title="Wink" class="inlineimg"><br>
+<br>
+Edit: It's fixed and tested now, download R3<br>
+and thanks for reporting the problem
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><a href="http://www.true-vibe.net/" target="_blank">www.true-vibe.net</a><br>
+<img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/tvgraph.png" border="0" alt=""></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		
+<img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/user_online.gif" alt="d0 is online now" border="0" title="d0 is online now">
+
+		
+			<span id="reputationmenu_2321810"><a href="http://forum.sa-mp.com/reputation.php?p=2321810" rel="nofollow" id="reputation_2321810"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/reputation.png" alt="Add to d0&#39;s Reputation" border="0" title="Add to d0&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2321810")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2321810" rel="nofollow"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321810" rel="nofollow"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321810" rel="nofollow" onclick="return false"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2321810" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321810" rel="nofollow" id="qr_2321810" onclick="return false"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2321810 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2321810_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">d0</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=14916">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=14916" rel="nofollow">Send a private message to d0</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://nsg-page.de/">Visit d0's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=14916" rel="nofollow">Find More Posts by d0</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&userlist=buddy&u=14916">Add d0 to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2321810 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2321810 --><!-- post #2321879 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2321879" style="padding:0px 0px 6px 0px">
+	
+
+
+
+<table id="post2321879" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2321879"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			12/01/2013, 07:29 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2321879&postcount=10" target="new" rel="nofollow" id="postcount2321879" name="10"><strong>10</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2321879">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=110255">Strawhats</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2321879", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=110255"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/image(3).php" width="67" height="80" alt="Strawhats&#39;s Avatar" border="0" title="Strawhats&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Nov 2010</div>
+				<div>Location: Zaandam (Holland)</div>
+				
+				
+				
+<div>
+  Posts: 1,521
+</div>
+
+<div>Reputation: 274</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2321879" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [0.3X] mSelection 1.0 R2 - Create Model Preview Menus with a few lines of code</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2321879">
+			
+			This looks pretty neat <img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/biggrin.png" border="0" alt="" title="Cheesy" class="inlineimg">,<br>
+but could you perhaps modify the menu so we are able to do the same as CreateMenu? So we can use AddMenuItem?<br>
+This would be super usefull whenever people want to script inventories.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><a href="https://www.youtube.com/watch?v=Fl43h_zkdrA" target="_blank"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/ZU0eOsD.png" border="0" alt=""></a><br>
+<u><font color="GREEN"><font size="4">CONTINUED - <font color="lblue"><a href="https://www.facebook.com/OnePieceForSamp" target="_blank">FACEBOOK</a></font></font></font></u> Interested in playing League of Legends? Register here please: <a href="http://signup.leagueoflegends.com/?ref=51dd5f4fbe424769358419" target="_blank">CLICK ME</a></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/user_offline.gif" alt="Strawhats is offline" border="0" title="Strawhats is offline">
+
+
+		
+			<span id="reputationmenu_2321879"><a href="http://forum.sa-mp.com/reputation.php?p=2321879" rel="nofollow" id="reputation_2321879"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/reputation.png" alt="Add to Strawhats&#39;s Reputation" border="0" title="Add to Strawhats&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2321879")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2321879" rel="nofollow"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321879" rel="nofollow"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321879" rel="nofollow" onclick="return false"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2321879" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2321879" rel="nofollow" id="qr_2321879" onclick="return false"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2321879 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2321879_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Strawhats</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=110255">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=110255" rel="nofollow">Send a private message to Strawhats</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=110255" rel="nofollow">Find More Posts by Strawhats</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&userlist=buddy&u=110255">Add Strawhats to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2321879 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2321879 --><div id="lastpost"></div></div>
+
+<!-- start content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+<!-- / start content table -->
+
+<!-- controls below postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:-3px">
+<tbody><tr valign="top">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&noquote=1&p=2321879" rel="nofollow"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	
+		<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tbody><tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 28</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 10 of 275"><strong>1</strong></span></td>
+ <td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=407045&page=2" title="Show results 11 to 20 of 275">2</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=407045&page=3" title="Show results 21 to 30 of 275">3</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=407045&page=11" title="Show results 101 to 110 of 275"><!--+10-->11</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=407045&page=2" title="Next Page - Results 11 to 20 of 275">&gt;</a></td>
+	<td class="alt1" nowrap="nowrap"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=407045&page=28" title="Last Page - Results 271 to 275 of 275">Last <strong>»</strong></a></td>
+	<td class="vbmenu_control" title="" id="pagenav.175" style="cursor: pointer;"> <img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></td>
+</tr>
+</tbody></table>
+</div>
+		
+		</td>
+	
+</tr>
+</tbody></table>
+<!-- / controls below postbits -->
+
+
+
+
+
+
+
+
+
+
+<!-- lightbox scripts -->
+	<script type="text/javascript" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/vbulletin_lightbox.js"></script>
+	<script type="text/javascript">
+	<!--
+	vBulletin.register_control("vB_Lightbox_Container", "posts", 1);
+	//-->
+	</script>
+<!-- / lightbox scripts -->
+
+
+
+<!-- multiquote scripts -->
+	<script type="text/javascript" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/vbulletin_multi_quote.js"></script>
+	<script type="text/javascript">
+	<!--
+	var mqlimit = 0;
+	//-->
+	</script>
+<!-- / multiquote scripts -->
+
+
+
+<!-- ajax errors table -->
+	<table class="tborder" cellpadding="6" cellspacing="1" border="0" style="display:none; position:absolute" id="ajax_post_errors">
+	<tbody><tr>
+		<td class="thead">
+			<span style="float:right"><input type="button" class="button" value=" X " onclick="vB_QuickEditor.hide_errors()" id="ajax_post_errors_closebtn"></span>
+			vBulletin Message
+		</td>
+	</tr>
+	<tr>
+		<td class="alt2" colspan="2" id="ajax_post_errors_message">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="tfoot" colspan="2" align="center"><a href="http://forum.sa-mp.com/showthread.php?t=407045#" onclick="vB_QuickEditor.abort(); return false;">Cancel Changes</a></td>
+	</tr>
+	</tbody></table>
+<!-- / ajax errors table -->
+
+<!-- scripts for quick reply and quick edit -->
+	<!-- Editor Scripts -->
+<script type="text/javascript" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/vbulletin_textedit.js"></script>
+<script type="text/javascript">
+<!--
+var fontoptions = new Array("Arial", "Arial Black", "Arial Narrow", "Book Antiqua", "Century Gothic", "Comic Sans MS", "Courier New", "Fixedsys", "Franklin Gothic Medium", "Garamond", "Georgia", "Impact", "Lucida Console", "Lucida Sans Unicode", "Microsoft Sans Serif", "Palatino Linotype", "System", "Tahoma", "Times New Roman", "Trebuchet MS", "Verdana");
+var sizeoptions = new Array(1, 2, 3, 4, 5, 6, 7);
+var smilieoptions = {  };
+
+var istyles = { "pi_button_down" : [ "#98B5E2", "#000000", "0px", "1px solid #316AC5" ], "pi_button_hover" : [ "#C1D2EE", "#000000", "0px", "1px solid #316AC5" ], "pi_button_normal" : [ "#E1E1E2", "#000000", "1px", "none" ], "pi_button_selected" : [ "#F1F6F8", "#000000", "0px", "1px solid #316AC5" ], "pi_menu_down" : [ "#98B5E2", "#316AC5", "0px", "1px solid #316AC5" ], "pi_menu_hover" : [ "#C1D2EE", "#316AC5", "0px", "1px solid #316AC5" ], "pi_menu_normal" : [ "#FFFFFF", "#000000", "0px", "1px solid #FFFFFF" ], "pi_popup_down" : [ "#98B5E2", "#000000", "0px", "1px solid #316AC5" ] };
+var ltr = 'left';
+
+var smiliewindow_x = 240;
+var smiliewindow_y = 280;
+
+var ignorequotechars = 1;
+var allowbasicbbcode = true;
+
+// vB Phrases
+vbphrase["wysiwyg_please_wait"]          = "Please wait for the WYSIWYG editor to finish loading...";
+vbphrase["wysiwyg_initialized"]          = "WYSIWYG Editor initialized for %1$s in %2$s seconds.";
+vbphrase["wysiwyg_command_invalid"]      = "This command is invalid or not implemented.";
+vbphrase["moz_must_select_text"]         = "Mozilla requires that you must select some text for this function to work";
+vbphrase["moz_edit_config_file"]         = "You need to edit your Mozilla config file to allow this action.";
+vbphrase["enter_tag_option"]             = "Please enter the option for your %1$s tag:";
+vbphrase["must_select_text_to_use"]      = "You must select some text to use this function.";
+vbphrase["browser_is_safari_no_wysiwyg"] = "The Safari browser does not support WYSIWYG mode.";
+vbphrase["enter_option_x_tag"]           = "Enter the option for the [%1$s] tag:";
+vbphrase["enter_text_to_be_formatted"]   = "Enter the text to be formatted";
+vbphrase["enter_link_text"]              = "Enter the text to be displayed for the link (optional):";
+vbphrase["enter_list_type"]              = "What type of list do you want? Enter '1' for a numbered list, enter 'a' for an alphabetical list, or leave blank for a list with bullet points:";
+vbphrase["enter_list_item"]              = "Enter a list item.\r\nLeave the box empty or press 'Cancel' to complete the list:";
+vbphrase["must_enter_subject"]           = "You must enter a title / subject!";
+vbphrase["message_too_short"]            = "The message you have entered is too short. Please lengthen your message to at least %1$s characters.";
+vbphrase["enter_link_url"]               = "Please enter the URL of your link:";
+vbphrase["enter_image_url"]              = "Please enter the URL of your image:";
+vbphrase["enter_email_link"]             = "Please enter the email address for the link:";
+vbphrase["complete_image_verification"]  = "You did not complete the Image Verification";
+vbphrase["iespell_not_installed"]        = "ieSpell is a spell-checking tool for Internet Explorer.\r\n\r\nIf you would like to download ieSpell, click OK; otherwise click Cancel.\r\n\r\nieSpell can be downloaded from http://www.iespell.com";
+vbphrase["click_quick_reply_icon"]       = "Please click one of the Quick Reply icons in the posts above to activate Quick Reply.";
+vbphrase["insert_all"]                   = "Insert All";
+
+//-->
+</script>
+<!-- / Editor Scripts -->
+	
+<!-- / scripts for quick reply and quick edit -->
+
+
+
+
+<!-- quick reply -->
+	<br>
+	<script type="text/javascript" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/vbulletin_quick_reply.js"></script>
+	<form action="http://forum.sa-mp.com/newreply.php?do=postreply&t=407045" method="post" name="vbform" onsubmit="return qr_prepare_submit(this, 4);" id="qrform">
+	<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+	<thead>
+		<tr>
+			<td class="tcat" colspan="2">
+				<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=407045#top" onclick="return toggle_collapse(&#39;quickreply&#39;);"><img id="collapseimg_quickreply" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/collapse_tcat.gif" alt="" border="0"></a>
+				Quick Reply
+			</td>
+		</tr>
+	</thead>
+	<tbody id="qr_error_tbody" style="display:none">
+	<tr>
+		<td class="thead">The following errors occurred with your submission</td>
+	</tr>
+	<tr>
+		<td class="alt1" id="qr_error_td"></td>
+	</tr>
+	<tr>
+		<td class="tfoot" align="center"><span class="smallfont"><a href="http://forum.sa-mp.com/showthread.php?t=407045#" onclick="return qr_hide_errors()">Okay</a></span></td>
+	</tr>
+	</tbody>
+	<tbody id="collapseobj_quickreply" style="">
+	<tr>
+		<td class="panelsurround" align="center">
+			<div class="panel">
+				<div align="left" style="max-width:800px; width:auto !important; width:800px">
+					<div class="smallfont">Message:</div>
+					<div id="vB_Editor_QR" class="vBulletin_editor">
+		<script type="text/javascript">
+		<!--
+			var threaded_mode = 0;
+			var require_click = 0;
+			var is_last_page = 0; // leave for people with cached JS files
+			var allow_ajax_qr = 0;
+			var ajax_last_post = 1418037257;
+		// -->
+		</script>
+		
+<div id="vB_Editor_QR_controls" class="controlbar">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_removeformat"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/removeformat.gif" width="21" height="20" alt="Remove Text Formatting" title="Remove Text Formatting"></div></td>
+	
+		<td><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_bold"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/bold.gif" width="21" height="20" alt="Bold" title="Bold"></div></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_italic"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/italic.gif" width="21" height="20" alt="Italic" title="Italic"></div></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_underline"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/underline.gif" width="21" height="20" alt="Underline" title="Underline"></div></td>
+	
+	
+		<td><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_popup_forecolor" title="Colors">
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr>
+				<td id="vB_Editor_QR_color_out"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/color.gif" width="21" height="16" alt=""><br><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/clear.gif" id="vB_Editor_QR_color_bar" alt="" style="background-color:black" width="21" height="4"></td>
+				<td class="alt_pickbutton"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/menupop.gif" alt="" width="11" height="16"></td>
+			</tr>
+			</tbody></table>
+		</div></td>
+	
+	
+		<td><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+	
+	
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_createlink"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/createlink.gif" width="21" height="20" alt="Insert Link" title="Insert Link"></div></td>
+	
+	
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_insertimage"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/insertimage.gif" width="21" height="20" alt="Insert Image" title="Insert Image"></div></td>
+	
+	
+		<td><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_wrap0_quote"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/quote.gif" width="21" height="20" alt="Wrap [QUOTE] tags around selected text" title="Wrap [QUOTE] tags around selected text"></div></td>
+	
+	<td width="100%">&nbsp;</td>
+	
+		<td>
+			<div class="imagebutton" id="vB_Editor_QR_cmd_resize_0_99"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/resize_0.gif" width="21" height="9" alt="Decrease Size" title="Decrease Size"></div>
+			<div class="imagebutton" id="vB_Editor_QR_cmd_resize_1_99"><img src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/resize_1.gif" width="21" height="9" alt="Increase Size" title="Increase Size"></div>
+		</td>
+	
+	</tr>
+	</tbody></table>
+</div>
+
+<div class="controlbar" style="padding-right:8px">
+	<fieldset style="border:0px; padding:0px; margin:0px">
+	
+	<textarea name="message" id="vB_Editor_QR_textarea" rows="10" cols="60" style="width: 100%; height: 100px;" tabindex="1" dir="ltr"></textarea>
+	
+	</fieldset>
+	<!--width:800px-->
+</div>
+
+<input type="hidden" name="wysiwyg" id="vB_Editor_QR_mode" value="0">
+<input type="hidden" name="styleid" value="0">
+
+<script type="text/javascript">
+<!--
+vB_Editor['vB_Editor_QR'] = new vB_Text_Editor('vB_Editor_QR', 0, '83', '1');
+var QR_EditorID = 'vB_Editor_QR';
+//-->
+</script>
+	</div>
+
+					<fieldset class="fieldset" style="margin:3px 0px 0px 0px">
+						<legend>Options</legend>
+						<div style="padding:3px">
+							
+								<div style="float:right"><label for="cb_signature"><input type="checkbox" name="signature" value="1" id="cb_signature" tabindex="5" checked="checked">Show your signature</label></div>
+							
+							<label for="qr_quickreply"><input type="checkbox" name="quickreply" value="1" id="qr_quickreply" accesskey="w" tabindex="4" disabled="">Quote message in reply?</label>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+
+			<div style="margin-top:6px">
+				<input type="hidden" name="fromquickreply" value="1">
+				<input type="hidden" name="s" value="">
+				<input type="hidden" name="securitytoken" value="1419861949-a0975caf0dc620ef5a8b091e3dca90f2fd1c71be">
+				<input type="hidden" name="do" value="postreply">
+				<input type="hidden" name="t" value="407045" id="qr_threadid">
+				<input type="hidden" name="p" value="who cares" id="qr_postid">
+				<input type="hidden" name="specifiedpost" value="0" id="qr_specifiedpost">
+				<input type="hidden" name="parseurl" value="1">
+				<input type="hidden" name="loggedinuser" value="234935">
+				<input type="submit" class="button" value="Post Quick Reply" accesskey="s" title="(Alt + S)" name="sbutton" tabindex="2" id="qr_submit" onclick="clickedelm = this.value">
+				<input type="submit" class="button" value="Go Advanced" accesskey="x" title="(Alt + X)" name="preview" tabindex="3" id="qr_preview" onclick="clickedelm = this.value">
+			</div>
+
+			<div align="center" id="qr_posting_msg" style="display:none; margin-top:6px">
+				<img style="vertical-align: middle;" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/progress.gif" alt="Posting Quick Reply - Please Wait" title="Posting Quick Reply - Please Wait">&nbsp;<strong>Posting Quick Reply - Please Wait</strong>
+			</div>
+		</td>
+	</tr>
+	</tbody>
+	</table>
+	</form>
+
+	
+		<!-- Mozilla work around for focusing on QR in WYSIWYG mode -->
+		<div id="qr_scroll"></div>
+	
+
+	<script type="text/javascript">
+	<!--
+		// initialize quick reply
+		qr_init();
+	//-->
+	</script>
+<!-- / quick reply -->
+
+
+
+<!-- next / previous links -->
+	<br>
+	<div class="smallfont" align="center">
+		<strong>«</strong>
+			<a href="http://forum.sa-mp.com/showthread.php?t=407045&goto=nextoldest" rel="nofollow">Previous Thread</a>
+			|
+			<a href="http://forum.sa-mp.com/showthread.php?t=407045&goto=nextnewest" rel="nofollow">Next Thread</a>
+		<strong>»</strong>
+	</div>
+<!-- / next / previous links -->
+
+
+
+
+
+
+
+<!-- popup menu contents -->
+<br>
+
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="http://forum.sa-mp.com/postings.php?t=407045&pollid=" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/printer.gif" alt="Show Printable Version" title="Show Printable Version"> <a href="http://forum.sa-mp.com/printthread.php?t=407045" accesskey="3" rel="nofollow">Show Printable Version</a></td>
+	</tr>
+	
+	
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/subscribe.gif" alt="Subscription" title="Subscription">
+		
+			<a href="http://forum.sa-mp.com/subscription.php?do=addsubscription&t=407045" rel="nofollow">Subscribe to this Thread</a>
+		
+		</td>
+	</tr>
+	
+	
+	
+	</tbody></table>
+</form>
+</div>
+<!-- / thread tools menu -->
+
+<!-- **************************************************** -->
+
+<!-- thread display mode menu -->
+<div class="vbmenu_popup" id="displaymodes_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Display Modes<a name="goto_displaymodes"></a></td>
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option" title="nohilite"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/mode_linear.gif" alt="Linear Mode" title="Linear Mode"> <strong>Linear Mode</strong></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/mode_hybrid.gif" alt="Hybrid Mode" title="Hybrid Mode"> <a href="http://forum.sa-mp.com/showthread.php?mode=hybrid&t=407045">Switch to Hybrid Mode</a></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/mode_threaded.gif" alt="Threaded Mode" title="Threaded Mode"> <a href="http://forum.sa-mp.com/showthread.php?p=2321451&mode=threaded#post2321451">Switch to Threaded Mode</a></td>
+	
+	</tr>
+	</tbody></table>
+</div>
+<!-- / thread display mode menu -->
+
+<!-- **************************************************** -->
+
+
+<!-- thread search menu -->
+<div class="vbmenu_popup" id="threadsearch_menu" style="display:none">
+<form action="http://forum.sa-mp.com/search.php?do=process&searchthreadid=407045" method="post">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Search this Thread<a name="goto_threadsearch"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option" title="nohilite">
+			<input type="hidden" name="s" value="">
+			<input type="hidden" name="securitytoken" value="1419861949-a0975caf0dc620ef5a8b091e3dca90f2fd1c71be">
+			<input type="hidden" name="do" value="process">
+			<input type="hidden" name="searchthreadid" value="407045">
+			<input type="text" class="bginput" name="query" size="25"><input type="submit" class="button" value="Go"><br>
+		</td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?searchthreadid=407045">Advanced Search</a></td>
+	</tr>
+	</tbody></table>
+</form>
+</div>
+<!-- / thread search menu -->
+
+
+<!-- **************************************************** -->
+
+
+	<!-- thread rating menu -->
+	<div class="vbmenu_popup" id="threadrating_menu" style="display:none">
+	<form action="http://forum.sa-mp.com/threadrate.php?t=407045" method="post" id="showthread_threadrate_form">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead">Rate This Thread<a name="goto_threadrating"></a></td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option" title="nohilite" id="threadrating_options">
+
+			<div><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/rating_5.gif" alt="Excellent" title="Excellent"><label for="vote5"><input type="radio" name="vote" id="vote5" value="5">Excellent</label></div>
+			<div><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/rating_4.gif" alt="Good" title="Good"><label for="vote4"><input type="radio" name="vote" id="vote4" value="4">Good</label></div>
+			<div><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/rating_3.gif" alt="Average" title="Average"><label for="vote3"><input type="radio" name="vote" id="vote3" value="3">Average</label></div>
+			<div><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/rating_2.gif" alt="Bad" title="Bad"><label for="vote2"><input type="radio" name="vote" id="vote2" value="2">Bad</label></div>
+			<div><img class="inlineimg" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/rating_1.gif" alt="Terrible" title="Terrible"><label for="vote1"><input type="radio" name="vote" id="vote1" value="1">Terrible</label></div>
+			</td>
+		</tr>
+		<tr id="threadrating_submit">
+			<td class="vbmenu_option" title="nohilite" align="center">
+				<input type="hidden" name="s" value="">
+				<input type="hidden" name="securitytoken" value="1419861949-a0975caf0dc620ef5a8b091e3dca90f2fd1c71be">
+				<input type="hidden" name="t" value="407045">
+				<input type="hidden" name="pp" value="10">
+				<input type="hidden" name="page" value="1">
+				<input type="button" class="button" value="Vote Now">
+			</td>
+		</tr>
+		
+		</tbody></table>
+	</form>
+	</div>
+	<!-- / thread rating menu -->
+
+	<script type="text/javascript" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/vbulletin_ajax_threadrate.js"></script>
+	<script type="text/javascript">
+	<!--
+	vB_AJAX_ThreadRate_Init('showthread_threadrate_form');
+	var threadid = 407045;
+	//-->
+	</script>
+
+
+<!-- / popup menu contents -->
+
+
+<!-- forum rules and admin links -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr valign="bottom">
+	<td width="100%" valign="top">
+		<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="210">
+<thead>
+<tr>
+	<td class="thead">
+		<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=407045#top" onclick="return toggle_collapse(&#39;forumrules&#39;)"><img id="collapseimg_forumrules" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/collapse_thead.gif" alt="" border="0"></a>
+		Posting Rules
+	</td>
+</tr>
+</thead>
+<tbody id="collapseobj_forumrules" style="">
+<tr>
+	<td class="alt1" nowrap="nowrap"><div class="smallfont">
+		
+		<div>You <strong>may</strong> post new threads</div>
+		<div>You <strong>may</strong> post replies</div>
+		<div>You <strong>may</strong> post attachments</div>
+		<div>You <strong>may</strong> edit your posts</div>
+		<hr>
+		
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode" target="_blank">BB code</a> is <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showsmilies" target="_blank">Smilies</a> are <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode#imgcode" target="_blank">[IMG]</a> code is <strong>On</strong></div>
+		<div>HTML code is <strong>Off</strong></div>
+		<hr>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showrules" target="_blank">Forum Rules</a></div>
+	</div></td>
+</tr>
+</tbody>
+</table>
+	</td>
+	<td class="smallfont" align="right">
+		<table cellpadding="0" cellspacing="0" border="0">
+		
+		<tbody><tr>
+			<td>
+			
+			</td>
+		</tr>
+		</tbody></table>
+	</td>
+</tr>
+</tbody></table>
+<!-- /forum rules and admin links -->
+
+<br>
+
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" width="100%" colspan="5">
+			<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=407045#top" onclick="return toggle_collapse(&#39;similarthreads&#39;)"><img id="collapseimg_similarthreads" src="./[Include] [0.3X] mSelection 1.1 R3 - Create Model Preview Menus with a few lines of code - SA-MP Forums_files/collapse_tcat.gif" alt="" border="0"></a>
+			Similar Threads<a name="similarthreads"></a>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_similarthreads" style="">
+<tr class="thead" align="center">
+	<td class="thead" width="40%">Thread</td>
+	<td class="thead" width="15%" nowrap="nowrap">Thread Starter</td>
+	<td class="thead" width="20%">Forum</td>
+	<td class="thead" width="5%">Replies</td>
+	<td class="thead" width="20%">Last Post</td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont">[<span style="font-weight:bold;font-size:8pt;color:#AD3333;">FilterScript</span>] <a href="http://forum.sa-mp.com/showthread.php?t=334736" title="Southclaw&#39;s Texture Workshop 
+ 
+ 
+Here&#39;s a short helper filterscript to aid you in finding the right texture and putting it on the right index! 
+...">Texture Workshop V1.6 - Preview Textures, Find Model Indexes, Save Material Sets!</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">[HLF]Southclaw</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Filterscripts</span></td>
+	<td class="alt2" align="center"><span class="smallfont">85</span></td>
+	<td class="alt1" align="right"><span class="smallfont">02/02/2013 <span class="time">05:17 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=406131" title="Hey! I see that when you use a new function of previewing models in a textdraw, there is a black box around a model! ANd it  doesnt dissapear if you...">IS there any way to hide black box around the model preview?</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">pasha97</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Scripting Help</span></td>
+	<td class="alt2" align="center"><span class="smallfont">2</span></td>
+	<td class="alt1" align="right"><span class="smallfont">09/01/2013 <span class="time">01:26 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=132137" title="Hello, 
+ 
+Im making my own Admin system and the players file is mixed up and kind of confusing, 
+Im using File Functions, And i was wondering how i...">How to create new lines</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Torran</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Help Archive</span></td>
+	<td class="alt2" align="center"><span class="smallfont">3</span></td>
+	<td class="alt1" align="right"><span class="smallfont">06/03/2010 <span class="time">06:58 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=101017" title="how to create menus? 
+i have visited the wiki page on how to create menus, and i did all the things they said to do, but when i complie,so the pawn...">how to create menus?</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">sandisk125</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Help Archive</span></td>
+	<td class="alt2" align="center"><span class="smallfont">2</span></td>
+	<td class="alt1" align="right"><span class="smallfont">08/10/2009 <span class="time">09:45 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=90791" title="how to create an menus? 
+i am sorry, i have seen in samp wiki how to create a menu,but i don&#39;t understand what to do. :roll: 
+so someone can help me...">how to create an menus?</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">sandisk125</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Help Archive</span></td>
+	<td class="alt2" align="center"><span class="smallfont">2</span></td>
+	<td class="alt1" align="right"><span class="smallfont">10/08/2009 <span class="time">04:36 PM</span></span></td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+
+<script type="text/javascript">ame_toggle_view({other : 'true',post : 'true',blog : 'true',group : 'true',vm : 'true',sig : 'true'});</script>
+
+<br>
+<div class="smallfont" align="center">All times are GMT +1. The time now is <span class="time">03:05 PM</span>.</div>
+<br>
+
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- /content area table -->
+
+<form action="http://forum.sa-mp.com/index.php" method="get" style="clear:left">
+
+<table cellpadding="6" cellspacing="0" border="0" width="90%" class="page" align="center">
+<tbody><tr>
+	
+	
+		<td class="tfoot">
+			<select name="langid" onchange="switch_id(this, &#39;lang&#39;)">
+				<optgroup label="Quick Language Chooser">
+					<option value="5" class="">-- (DE) Deutsch</option>
+<option value="1" class="" selected="selected">-- (EN) English</option>
+<option value="3" class="">-- (ES) Español</option>
+<option value="2" class="">-- (FR) Français</option>
+<option value="6" class="">-- (NL) Dutch</option>
+<option value="4" class="">-- (RU) &#1056;&#1091;&#1089;&#1089;&#1082;&#1080;</option>
+
+				</optgroup>
+			</select>
+		</td>
+	
+	<td class="tfoot" align="right" width="100%">
+		<div class="smallfont">
+			<strong>
+				<a href="http://forum.sa-mp.com/sendmessage.php" rel="nofollow" accesskey="9">Contact Us</a> -
+				<a href="http://www.sa-mp.com/">SA-MP</a> -
+				
+				
+				<a href="http://forum.sa-mp.com/archive/index.php">Archive</a> -
+				
+				
+				
+				<a href="http://forum.sa-mp.com/showthread.php?t=407045#top" onclick="self.scrollTo(0, 0); return false;">Top</a>
+			</strong>
+		</div>
+	</td>
+</tr>
+</tbody></table>
+
+<br>
+
+<div align="center">
+	<div class="smallfont" align="center">
+	<!-- Do not remove this copyright notice -->
+	Powered by vBulletin® Version 3.8.6<br>Copyright ©2000 - 2014, Jelsoft Enterprises Ltd.
+	<!-- Do not remove this copyright notice -->
+	</div>
+
+	<div class="smallfont" align="center">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+
+	
+	</div>
+</div>
+
+</form>
+
+
+
+
+<script type="text/javascript">
+<!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//-->
+</script>
+
+<!-- temp -->
+<div style="display:none">
+	<!-- thread rate -->
+	
+		<!-- thread ratings form here -->
+	
+	<!-- / thread rate -->
+</div>
+
+
+</body></html>

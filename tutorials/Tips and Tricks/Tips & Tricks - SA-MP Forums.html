@@ -1,0 +1,3964 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0046)http://forum.sa-mp.com/showthread.php?t=216730 -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	
+<meta name="generator" content="vBulletin 3.8.6">
+
+<meta name="keywords" content=" Tips &amp; Tricks, SA-MP, GTA, multiplayer, online, server, pawn, scripting">
+<meta name="description" content=" Tips &amp; Tricks Discussion">
+
+
+<!-- CSS Stylesheet -->
+<style type="text/css" id="vbulletin_css">
+/**
+* vBulletin 3.8.6 CSS
+* Style: 'SAMPStyle'; Style ID: 2
+*/
+body
+{
+	background: #707170;
+	color: #FFFFFFF;
+	font: bold 10pt arial, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 1px 1px 1px 1px;
+	padding: 1px;
+}
+a:link, body_alink
+{
+	color: #4A627F;
+	text-decoration: none;
+}
+a:visited, body_avisited
+{
+	color: #1A425F;
+	text-decoration: none;
+}
+a:hover, a:active, body_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.page
+{
+	background: #DADADB;
+	color: #000000;
+}
+td, th, p, li
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tborder
+{
+	background: #DFDFDF;
+	color: #000000;
+	border: 1px solid #717171;
+}
+.tcat
+{
+	background: #4F4F4F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tcat a:link, .tcat_alink
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:visited, .tcat_avisited
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:hover, .tcat a:active, .tcat_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.thead
+{
+	background: #3F3F3F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.thead a:link, .thead_alink
+{
+	color: #FFFFFF;
+}
+.thead a:visited, .thead_avisited
+{
+	color: #FFFFFF;
+}
+.thead a:hover, .thead a:active, .thead_ahover
+{
+	color: #E76006;
+}
+.tfoot
+{
+	background: #595959;
+	color: #CDCDCD;
+}
+.tfoot a:link, .tfoot_alink
+{
+	color: #CDCDCD;
+}
+.tfoot a:visited, .tfoot_avisited
+{
+	color: #9D9D9D;
+}
+.tfoot a:hover, .tfoot a:active, .tfoot_ahover
+{
+	color: #E76006;
+}
+.alt1, .alt1Active
+{
+	background: #F6F6F6;
+	color: #000000;
+}
+.alt2, .alt2Active
+{
+	background: #EAEAEB;
+	color: #000000;
+}
+.inlinemod
+{
+	background: #FFFFCC;
+	color: #000000;
+}
+.wysiwyg
+{
+	background: #F5F5F5;
+	color: #000000;
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 5px 10px 10px 10px;
+	padding: 0px;
+}
+.wysiwyg a:link, .wysiwyg_alink
+{
+	color: #22229C;
+}
+.wysiwyg a:visited, .wysiwyg_avisited
+{
+	color: #22229C;
+}
+.wysiwyg a:hover, .wysiwyg a:active, .wysiwyg_ahover
+{
+	color: #E76006;
+}
+textarea, .bginput
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.bginput option, .bginput optgroup
+{
+	font-size: 10pt;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.button
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+select
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+option, optgroup
+{
+	font-size: 11px;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.smallfont
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.time
+{
+	color: #666686;
+}
+.navbar
+{
+	font: 12pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.highlight
+{
+	color: #FF0000;
+	font-weight: bold;
+}
+.fjsel
+{
+	background: #3E5C92;
+	color: #E0E0F6;
+}
+.fjdpth0
+{
+	background: #F7F7F7;
+	color: #000000;
+}
+.panel
+{
+	background: #F5F5F5;
+	color: #000000;
+	padding: 10px;
+	border: 1px;
+}
+.panelsurround
+{
+	background: #F5F5F5;
+	color: #000000;
+}
+legend
+{
+	color: #222222;
+	font: 11px tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.vbmenu_control
+{
+	background: #777777;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	padding: 3px 6px 3px 6px;
+	white-space: nowrap;
+}
+.vbmenu_control a:link, .vbmenu_control_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:visited, .vbmenu_control_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:hover, .vbmenu_control a:active, .vbmenu_control_ahover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+.vbmenu_popup
+{
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #0B198C;
+}
+.vbmenu_option
+{
+	background: #444444;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_option a:link, .vbmenu_option_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:visited, .vbmenu_option_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:hover, .vbmenu_option a:active, .vbmenu_option_ahover
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_hilite
+{
+	background: #F37016;
+	color: #000000;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_hilite a:link, .vbmenu_hilite_alink
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:visited, .vbmenu_hilite_avisited
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:hover, .vbmenu_hilite a:active, .vbmenu_hilite_ahover
+{
+	color: #000000;
+	text-decoration: none;
+}
+/* ***** styling for 'big' usernames on postbit etc. ***** */
+.bigusername { font-size: 14pt; }
+
+/* ***** small padding on 'thead' elements ***** */
+td.thead, th.thead, div.thead { padding: 4px; }
+
+/* ***** basic styles for multi-page nav elements */
+.pagenav a { text-decoration: none; }
+.pagenav td { padding: 2px 4px 2px 4px; }
+
+/* ***** de-emphasized text */
+.shade, a.shade:link, a.shade:visited { color: #777777; text-decoration: none; }
+a.shade:active, a.shade:hover { color: #FF4400; text-decoration: underline; }
+.tcat .shade, .thead .shade, .tfoot .shade { color: #DDDDDD; }
+
+/* ***** define margin and font-size for elements inside panels ***** */
+.fieldset { margin-bottom: 6px; }
+.fieldset, .fieldset td, .fieldset p, .fieldset li { font-size: 11px; }
+</style>
+<link rel="stylesheet" type="text/css" href="./Tips &amp; Tricks - SA-MP Forums_files/vbulletin_important.css">
+
+
+<!-- / CSS Stylesheet -->
+
+<script type="text/javascript" src="./Tips &amp; Tricks - SA-MP Forums_files/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="./Tips &amp; Tricks - SA-MP Forums_files/connection-min.js"></script>
+<script type="text/javascript">
+<!--
+var SESSIONURL = "";
+var SECURITYTOKEN = "1467960816-065f91dfc5c670a9e3bca495dafa78a82812ef67";
+var IMGDIR_MISC = "images/misc";
+var vb_disable_ajax = parseInt("0", 10);
+// -->
+</script>
+<script type="text/javascript" src="./Tips &amp; Tricks - SA-MP Forums_files/vbulletin_global.js"></script>
+<script type="text/javascript" src="./Tips &amp; Tricks - SA-MP Forums_files/vbulletin_menu.js"></script>
+
+
+	<link rel="alternate" type="application/rss+xml" title="SA-MP Forums RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2">
+	
+		<link rel="alternate" type="application/rss+xml" title="SA-MP Forums - Discussion - RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2&amp;forumids=84">
+	
+<!-- Editor CSS automatically added by functions_editor.php at line 680 -->
+<!-- Editor Styles -->
+<style type="text/css" id="vbulletin_editor_css_dynamic">
+<!--
+@import url("clientscript/vbulletin_editor.css?v=387");
+
+.vBulletin_editor {
+	background: #E1E1E2;
+	padding: 6px;
+}
+.imagebutton {
+	background: #E1E1E2;
+	color: #000000;
+	padding: 1px;
+	border: none;
+}
+.ocolor, .ofont, .osize, .osmilie, .osyscoloar, .smilietitle {
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #FFFFFF;
+}
+.popup_pickbutton {
+	border: 1px solid #FFFFFF;
+}
+.popup_feedback {
+	background: #FFFFFF;
+	color: #000000;
+	border-right: 1px solid #FFFFFF;
+}
+.popupwindow {
+	background: #FFFFFF;
+}
+#fontOut, #sizeOut, .popup_feedback div {
+	background: #FFFFFF;
+	color: #000000;
+}
+.alt_pickbutton {
+	border-left: 1px solid #E1E1E2;
+}
+.popup_feedback input, .popup_feedback div
+{
+	border: 0px solid;
+	padding: 0px 2px 0px 2px;
+	cursor: default;
+	font: 11px tahoma;
+	overflow: hidden;
+}
+-->
+</style>
+<!-- / Editor Styles -->
+	<title> Tips &amp; Tricks - SA-MP Forums</title>
+	<script type="text/javascript" src="./Tips &amp; Tricks - SA-MP Forums_files/vbulletin_post_loader.js"></script>
+	<style type="text/css" id="vbulletin_showthread_css">
+	<!--
+	
+	#links div { white-space: nowrap; }
+	#links img { vertical-align: middle; }
+	-->
+	</style>
+</head>
+<body onload="">
+<!-- logo -->
+<a name="top"></a>
+<center><div align="center" style="height: 80px; width: 90%; background: transparent url(http://forum.sa-mp.com/logo_new_back3.png) repeat-x 0px 0px; text-align:center;">
+<table border="0" width="90%" cellpadding="0" cellspacing="0" align="center">
+<tbody><tr>
+	<td align="center"><a href="http://forum.sa-mp.com/index.php"><img src="./Tips &amp; Tricks - SA-MP Forums_files/logo_forum.gif" border="0" alt="SA-MP Forums" title="SA-MP Forums"></a></td>
+</tr>
+</tbody></table>
+</div></center>
+<!-- /logo -->
+
+<!-- content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+
+
+
+
+<br>
+
+<!-- breadcrumb, login, pm info -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<tbody><tr>
+	<td class="alt1" width="100%">
+		
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr valign="bottom">
+				<td><a href="http://forum.sa-mp.com/showthread.php?t=216730#" onclick="history.back(1); return false;"><img src="./Tips &amp; Tricks - SA-MP Forums_files/navbits_start.gif" alt="Go Back" border="0" title="Go Back"></a></td>
+				<td>&nbsp;</td>
+				<td width="100%"><span class="navbar"><a href="http://forum.sa-mp.com/index.php" accesskey="1">SA-MP Forums</a></span> 
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=8">SA-MP Scripting and Plugins</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=12">Scripting Help</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=84">Discussion</a></span>
+
+</td>
+			</tr>
+			<tr>
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="http://forum.sa-mp.com/showthread.php?t=216730"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/navbits_finallink_ltr.gif" alt="Reload this Page" border="0" title="Reload this Page"></a> <strong>
+	 Tips &amp; Tricks
+
+</strong></td>
+			</tr>
+			</tbody></table>
+		
+	</td>
+
+	<td class="alt2" nowrap="nowrap">
+	<div class="smallfont">
+		<strong>Welcome, <a href="http://forum.sa-mp.com/member.php?u=234935">VincenzoDrift</a>.</strong><br>
+		You last visited: 07/07/2016 at <span class="time">09:47 PM</span>
+
+		
+			<div><a href="http://forum.sa-mp.com/private.php">Private Messages</a>: Unread 0, Total 1.</div>
+		
+
+		
+	</div>
+	</td>
+
+</tr>
+</tbody></table>
+<!-- / breadcrumb, login, pm info -->
+
+<!-- nav buttons bar -->
+<div class="tborder" style="padding:1px; border-top-width:0px">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+	<tbody><tr align="center">
+		
+			<td class="vbmenu_control"><a href="http://forum.sa-mp.com/usercp.php">User CP</a></td>
+		
+		
+		
+		
+			<td class="vbmenu_control"><a id="community" href="http://forum.sa-mp.com/showthread.php?t=216730&amp;nojs=1#community" rel="nofollow" accesskey="6" style="cursor: pointer;">Community <img src="./Tips &amp; Tricks - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("community"); </script></td>
+		
+		
+			
+				
+				<td class="vbmenu_control"><a href="http://forum.sa-mp.com/search.php?do=getnew" accesskey="2">New Posts</a></td>
+				
+				<td class="vbmenu_control"><a id="navbar_search" href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow" style="cursor: pointer;">Search <img src="./Tips &amp; Tricks - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("navbar_search"); </script></td>
+			
+			
+				<td class="vbmenu_control"><a id="usercptools" href="http://forum.sa-mp.com/showthread.php?t=216730&amp;nojs=1#usercptools" accesskey="3" style="cursor: pointer;">Quick Links <img src="./Tips &amp; Tricks - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("usercptools"); </script></td>
+			
+		
+		
+		
+			<td class="vbmenu_control"><a href="http://forum.sa-mp.com/login.php?do=logout&amp;logouthash=1467960816-065f91dfc5c670a9e3bca495dafa78a82812ef67" onclick="return log_out(&#39;Are you sure you want to log out?&#39;)">Log Out</a></td>
+		
+		</tr>
+	</tbody></table>
+</div>
+<!-- / nav buttons bar -->
+
+<br>
+
+
+
+
+
+
+<!-- NAVBAR POPUP MENUS -->
+
+	
+	<!-- community link menu -->
+	<div class="vbmenu_popup" id="community_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr><td class="thead">Community Links</td></tr>
+		
+		
+		
+		
+			<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=buddylist">Contacts &amp; Friends</a></td></tr>
+		
+		
+			<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/memberlist.php">Members List</a></td></tr>
+		
+		
+		</tbody></table>
+	</div>
+	<!-- / community link menu -->
+	
+	
+	
+	<!-- header quick search form -->
+	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead">Search Forums</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+				<form action="http://forum.sa-mp.com/search.php?do=process" method="post">
+
+					<input type="hidden" name="do" value="process">
+					<input type="hidden" name="quicksearch" value="1">
+					<input type="hidden" name="childforums" value="1">
+					<input type="hidden" name="exactname" value="1">
+					<input type="hidden" name="s" value="">
+					<input type="hidden" name="securitytoken" value="1467960816-065f91dfc5c670a9e3bca495dafa78a82812ef67">
+					<div><input type="text" class="bginput" name="query" size="25" tabindex="1001"><input type="submit" class="button" value="Go" tabindex="1004"></div>
+					<div style="margin-top:6px">
+						<label for="rb_nb_sp0"><input type="radio" name="showposts" value="0" id="rb_nb_sp0" tabindex="1002" checked="checked">Show Threads</label>
+						&nbsp;
+						<label for="rb_nb_sp1"><input type="radio" name="showposts" value="1" id="rb_nb_sp1" tabindex="1003">Show Posts</label>
+					</div>
+				</form>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow">Advanced Search</a></td>
+		</tr>
+		
+		</tbody></table>
+	</div>
+	<!-- / header quick search form -->
+	
+	
+	
+	<!-- user cp tools menu -->
+	<div class="vbmenu_popup" id="usercptools_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+
+		<tbody><tr><td class="thead">Quick Links</td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=getdaily">Today's Posts</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/forumdisplay.php?do=markread&amp;markreadhash=1467960816-065f91dfc5c670a9e3bca495dafa78a82812ef67">Mark Forums Read</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/showthread.php?t=216730#" onclick="window.open(&#39;misc.php?do=buddylist&amp;focus=1&#39;,&#39;buddylist&#39;,&#39;statusbar=no,menubar=no,toolbar=no,scrollbars=yes,resizable=yes,width=250,height=300&#39;); return false;">Open Contacts Popup</a></td></tr>
+		
+		
+
+		<tr><td class="thead"><a href="http://forum.sa-mp.com/usercp.php">User Control Panel</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editsignature">Edit Signature</a></td></tr>
+		<!--<tr><td class="vbmenu_option"><a href="profile.php?do=editavatar">Edit Avatar</a></td></tr>-->
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editprofile">Edit Your Details</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editoptions">Edit Options</a></td></tr>
+		
+
+		<tr><td class="thead">Miscellaneous</td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php" rel="nofollow">Private Messages</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/subscription.php" rel="nofollow">Subscribed Threads</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=234935">Your Profile</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/online.php">Who's Online</a></td></tr>
+		
+
+		</tbody></table>
+	</div>
+	<!-- / user cp tools menu -->
+
+	
+<!-- / NAVBAR POPUP MENUS -->
+
+<!-- PAGENAV POPUP -->
+	<div class="vbmenu_popup" id="pagenav_menu" style="display: none; position: absolute; z-index: 50;">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead" nowrap="nowrap">Go to Page...</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="">
+			<form action="http://forum.sa-mp.com/index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4">
+				<input type="button" class="button" id="pagenav_ibtn" value="Go">
+			</form>
+			</td>
+		</tr>
+		</tbody></table>
+	</div>
+<!-- / PAGENAV POPUP -->
+
+
+
+
+
+
+
+
+
+
+<a name="poststop" id="poststop"></a>
+
+<!-- controls above postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tbody><tr valign="bottom">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;noquote=1&amp;p=1037822" rel="nofollow"><img src="./Tips &amp; Tricks - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tbody><tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 22</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 10 of 219"><strong>1</strong></span></td>
+ <td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=216730&amp;page=2" title="Show results 11 to 20 of 219">2</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=216730&amp;page=3" title="Show results 21 to 30 of 219">3</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=216730&amp;page=11" title="Show results 101 to 110 of 219"><!--+10-->11</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=216730&amp;page=2" title="Next Page - Results 11 to 20 of 219">&gt;</a></td>
+	<td class="alt1" nowrap="nowrap"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=216730&amp;page=22" title="Last Page - Results 211 to 219 of 219">Last <strong>»</strong></a></td>
+	<td class="vbmenu_control" title="" id="pagenav.43" style="cursor: pointer;"> <img src="./Tips &amp; Tricks - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></td>
+</tr>
+</tbody></table>
+</div></td>
+</tr>
+</tbody></table>
+<!-- / controls above postbits -->
+
+<!-- toolbar -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center" style="border-bottom-width:0px">
+<tbody><tr>
+	<td class="tcat" width="100%">
+		<div class="smallfont">
+		
+		&nbsp;
+		</div>
+	</td>
+	<td class="vbmenu_control" id="threadtools" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=216730&amp;nojs=1#goto_threadtools">Thread Tools</a>
+		<script type="text/javascript"> vbmenu_register("threadtools"); </script> <img src="./Tips &amp; Tricks - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+		<td class="vbmenu_control" id="threadsearch" nowrap="nowrap" style="cursor: pointer;">
+			<a href="http://forum.sa-mp.com/showthread.php?t=216730&amp;nojs=1#goto_threadsearch">Search this Thread</a>
+			<script type="text/javascript"> vbmenu_register("threadsearch"); </script> <img src="./Tips &amp; Tricks - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+		</td>
+	
+	
+		<td class="vbmenu_control" id="threadrating" nowrap="nowrap" style="cursor: pointer;">
+			<a href="http://forum.sa-mp.com/showthread.php?t=216730&amp;nojs=1#goto_threadrating"><span id="threadrating_current">Rating: <img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/rating_5.gif" alt="Thread Rating: 7 votes, 5.00 average." border="0" title="Thread Rating: 7 votes, 5.00 average."></span></a>
+			<script type="text/javascript"> vbmenu_register("threadrating"); </script> <img src="./Tips &amp; Tricks - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+		</td>
+	
+	
+	<td class="vbmenu_control" id="displaymodes" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=216730&amp;nojs=1#goto_displaymodes">Display Modes</a>
+		<script type="text/javascript"> vbmenu_register("displaymodes"); </script> <img src="./Tips &amp; Tricks - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+
+	
+
+</tr>
+</tbody></table>
+<!-- / toolbar -->
+
+
+
+<!-- end content table -->
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- / end content table -->
+
+
+
+
+<script type="text/javascript" src="./Tips &amp; Tricks - SA-MP Forums_files/vbulletin_ajax_reputation.js"></script>
+
+
+<div id="posts"><!-- post #1037822 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit1037822" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post1037822" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post1037822"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			26/01/2011, 10:48 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=1037822&amp;postcount=1" target="new" rel="nofollow" id="postcount1037822" name="1"><strong>1</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_1037822">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=23640">Slice</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_1037822", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Mar 2008</div>
+				<div>Location: Sweden</div>
+				
+				
+				
+<div>
+  Posts: 1,881
+</div>
+
+<div>Reputation: 1513</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_1037822" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/icon2.gif" alt="Spray" border="0" title="Spray">
+				<strong>Tips &amp; Tricks</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_1037822">
+			
+			hey,<br>
+I thought I'd share a couple things that I use/find useful a lot when it comes to SA-MP scripting.<br>
+<br>
+I'll probably add a bunch of stuff to this topic. If you have anything to contribute, let me know!<br>
+<br>
+Current topics I'll be discussing:<ul><li>The ternary operator</li>
+<li>Simple int -&gt; bool conversion</li>
+<li>Fastest string loop</li>
+<li>Fastest plain player-loop</li>
+<li>Short functions</li>
+<li>Multiple actions in one statement</li>
+<li>Running code just after a function finishes</li>
+<li>Getting rid of stupid tag warnings</li>
+<li>"Char-arrays"</li>
+<li>Split up numeric literals</li>
+<li>Bit-flags in enums (advanced)</li>
+<li>Using logical operators for tiny if-statements (advanced)</li>
+<li>Efficient memory management with <font face="Courier New"><font color="Navy"><b>stock const</b></font></font> (advanced)</li>
+</ul><br>
+<font size="7">The ternary operator</font><blockquote>The ternary operator is an operator that takes 3 arguments; if the first argument is true then the argument right next to it will be used, if not then the last argument will be used.<br>
+<br>
+The structure of the operator is this:<br>
+<b>condition ? true : false</b><br>
+<br>
+Here are a couple of examples:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">if ( a == b )
+	c = d;
+else
+	c = e;</pre>
+</div>With the ternary operator:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">c = ( a == b ) ? d : e;
+//   if-^   then-^   ^-else</pre>
+</div>A couple examples:<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 450px;
+		text-align: left;
+		overflow: auto">SetPlayerColor( playerid, ( Team[ playerid ] == TEAM_ONE ) ? COLOR_RED : COLOR_BLUE );
+// Set the color to red if the player is in TEAM_ONE, otherwise set it to blue.
+
+GivePlayerWeapon( playerid, ( IsMadnessEnabled() ) ? WEAPON_MINIGUN : WEAPON_FLOWER, 5000 );
+// If IsMadnessEnabled is true, give the player a minigun!
+
+public OnPlayerSpawn( playerid )
+{
+	SetPlayerHealth( playerid, ( IsSuddenDeathEnabled() ) ? 1.0 : 100.0 );
+	
+	if ( ( IsPlayerAdmin( playerid ) ) ? SetPlayerPos( playerid, AdminSpawnX, AdminSpawnY, AdminSpawnZ ) : SetPlayerPos( playerid, PlayerSpawnX, PlayerSpawnY, PlayerSpawnZ ) ){}
+	// I have to wrap this inside an if statement to avoid getting a warning from the PAWN compiler!
+}
+
+file = fopen( ( useSpecialFile ) ? ("special_file.txt") : ("normal_file.txt") );
+// Strings need parentheses around them or the PAWN compiler will generate an error.
+
+// You can also use ternary operators inside ternary operators!
+file = fopen( ( useFile == 1 ) ? ("file1.txt") : ( ( useFile == 2 ) ? ("file2.txt") : ( ( useFile == 3 ) ? ("file3.txt") : ("file0.txt") ) ) );
+
+// ..let's break that down
+	new File:file = fopen(
+		( useFile == 1 ) ? ("file1.txt")
+			: ( ( useFile == 2 ) ? ("file2.txt")
+				: ( ( useFile == 3 ) ? ("file3.txt")
+					: ("file0.txt") ) )
+	);</pre>
+</div></blockquote><font size="7">Simple int -&gt; bool conversion</font><blockquote>Sometimes you end up having to convert an int to a bool, the proper way to do that would be:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">new myInt = 50;
+new bool:myBool = !!myInt;</pre>
+</div><br>
+This will make myBool become 0 if myInt equals 0, otherwise 1.</blockquote><font size="7">Fastest string loop</font><blockquote>This is, by my experience, the fastest way to loop through a string.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">for ( new i, l = strlen( string ); i != l; i++ )
+{
+	// ..
+}</pre>
+</div></blockquote><font size="7">Fastest plain player-loop</font><blockquote>Note that foreach is faster than this - that's why the heading says plain player-loop.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 130px;
+		text-align: left;
+		overflow: auto">for ( new slots = GetMaxPlayers( ), i; i &lt; slots; i++ )
+{
+	if ( !IsPlayerConnected( i ) )
+		continue;
+	
+	// code for connected players
+}</pre>
+</div></blockquote><font size="7">Short functions</font><blockquote>If your function has only one statement - you can declare them like this:<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">stock SomeFunction( someInput )
+	return someArray[ someInput / 2 ];</pre>
+</div></blockquote><font size="7">Multiple actions in one statement</font><blockquote>Statements in programming are what you'd call instructions - in PAWN these statements are all separated by the semicolon ( ; ). Sometimes you want to fit code on only one line for some reason, here's how you do that:<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 274px;
+		text-align: left;
+		overflow: auto">stock KickEx( playerid, reason[] )
+	SendClientMessage( playerid, 0xC00000FF, "You got kicked!! Reason:" ), SendClientMessage( playerid, 0xC00000FF, reason ), Kick( playerid );
+// Sends the two client messages then kicks the player.
+
+stock DoStuff( playerid )
+	return DoFirstThing( playerid ), DoSecondThing( playerid ), DoThirdThing( playerid ), DoLastThing( playerid );
+// DoStuff will return what DoLastThing returns.
+
+public OnPlayerRequestSpawn( playerid )
+{
+	if ( !IsPlayerLoggedIn( playerid ) )
+		return SendClientMessage( playerid, 0xC00000FF, "You're not logged in!" ), 0;
+	// Send the client message and return 0
+	
+	return 1;
+}</pre>
+</div></blockquote><font size="7">Running code just after a function finishes</font><blockquote>This really isn't anything special, but I just thought I'd mention it as I haven't seen a lot of people do this.<br>
+I simply set a timer on 0 ms with no repeat somewhere and that function will be called almost right after the current function finished.<br>
+<br>
+<font size="5">Why?</font><br>
+Sometimes you want to run code right after the current function finishes, here's a short example of a really handy function:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">stock DBResult:db_query_ex( DB:db, query[ ], bool:storeResult = true )
+{
+	new DBResult:dbrResult = db_query( db, query );
+	
+	if ( dbrResult )
+	{
+		if ( storeResult )
+			SetTimerEx( "db_query_ex_free", 0, false, "i", _:dbrResult );
+		else
+			db_free_result( dbrResult );
+	}
+	
+	return dbrResult;
+}
+
+forward db_query_ex_free( DBResult:dbrResult );
+public  db_query_ex_free( DBResult:dbrResult )
+	db_free_result( dbrResult );
+
+// EXAMPLE:
+
+public OnFilterScriptInit( )
+{
+	new DB:db, DBResult:dbrResult, buffer[ 16 ];
+	
+	db = db_open( "test.db" );
+	
+	dbrResult = db_query_ex( db, "SELECT 50" );
+	
+	db_get_field( dbrResult, 0, buffer, sizeof( buffer ) - 1 );
+	
+	print( buffer );
+	
+	// Even if the script would get some sort of error and abort running the current function,
+	// the result will still get freed so you won't have a memory leak!
+}</pre>
+</div><br>
+Using IsPlayerAdmin inside OnRconLoginAttempt doesn't work - the admin-status is set after that function executes. Example:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">new
+	bool:g_IsRconAdmin[ MAX_PLAYERS ]
+;
+
+public OnPlayerConnect( playerid )
+	g_IsRconAdmin[ playerid ] = false;
+
+public OnRconLoginAttempt( ip[ ], password[ ], success ) // IsPlayerAdmin returns false if you check it inside this function. :(
+	SetTimer( "CheckNewRconAdmins", 0, false );
+
+forward CheckNewRconAdmins( );
+public  CheckNewRconAdmins( )
+{
+	for ( new slots = GetMaxPlayers( ), playerid; playerid &lt; slots; playerid++ )
+	{
+		if ( !g_IsRconAdmin[ playerid ] &amp;&amp; IsPlayerAdmin( playerid ) )
+		{
+			// IsPlayerAdmin always returns false for unconnected players so we can save some performance by only calling that function.
+			
+			OnPlayerRconLogIn( playerid );
+			
+			break;
+			// There should be at most new admin each function call, so we can break out of the loop now.
+		}
+	}
+}
+
+OnPlayerRconLogIn( playerid )
+{
+	SendClientMessage( playerid, 0x0000C0FF, "Welcome, Mr. Rcon!" );
+}</pre>
+</div><br>
+Here's a part of a post by Y_Less explaining how he uses this:<br>
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				<div>
+					Originally Posted by <strong>Y_Less</strong>
+					<a href="http://forum.sa-mp.com/showthread.php?p=1039388#post1039388" rel="nofollow"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/viewpost.gif" border="0" alt="View Post" title="View Post"></a>
+				</div>
+				<div style="font-style:italic">I find this useful to apply a large set of operations at once.  If you look in the YSI library YSI_td.own it can dynamically update textdraws, so you can move them about the screen or change the colour etc.  If you have code which looks like this:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">TD_Colour(td, 0xFF0000AA);
+TD_SetShadow(td, 3);
+TD_Font(td, 2);</pre>
+</div><br>
+That will change the textdraw for anyone looking at it to a red style 2 TD with a shadow, however because of the way the system used to work that would have redrawn the textdraw three times when it doesn't need to.  The old method of fixing this was an extra parameter:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">TD_Colour(td, 0xFF0000AA, false);
+TD_SetShadow(td, 3, false);
+TD_Font(td, 2);</pre>
+</div><br>
+So only the last update in a set would change the appearance, the new system however uses a timer in much the same way as you just described.  All the functions contain this (or something similar):<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">if (YSI_g_sTimer[td] == -1)
+{
+    YSI_g_sTimer[td] = SetTimerEx("TD_Delay", 0, 0, "i", td);
+}</pre>
+</div><br>
+That way the "TD_Delay" function is always called after the last current update is applied, without knowing a user's code in advance.</div>
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div></blockquote><font size="7">Getting rid of stupid tag warnings</font><blockquote>When putting Text3Ds, DBResults, and stuff inside functions such as printf, format, SetTimerEx, CallLocalFunction, CallRemoteFunction you might notice you're getting a tag warning.<br>
+You're not doing anything wrong!<br>
+What you do to get rid of them is you clear the tag - clearing the tag is done by putting an underscore as a tag.<br>
+Example:<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">new Text3D:t3dTest = Create3DTextLabel( .. ), Text:txTest = TextDrawCreate( .. );
+
+printf( "DEBUG: %d, %d", _:t3dTest, _:txTest );</pre>
+</div></blockquote><font size="7">"Char-arrays"</font><blockquote>PAWN has a feature for accessing single bytes in arrays, intended for use with packed strings. Most SA-MP natives doesn't cover packed strings, though. <img src="./Tips &amp; Tricks - SA-MP Forums_files/sad.gif" border="0" alt="" title="Sad" class="inlineimg"><br>
+You can, however, utilize these arrays a lot for memory optimization. A normal array can store values between -2,147,483,648 and 2,147,483,647; you don't always need that capacity, do you?<br>
+With packed strings you can store values between 0-255 (yes, no negative values; -1 will wrap to 255). When you know you don't need negative values and won't ever exceed 255, why not save some memory?<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">new bool:g_IsPlayerSomething[ MAX_PLAYERS ]; // 500 cells * 4 bytes per cell = 2000 bytes!
+new bool:g_IsPlayerSomething[ MAX_PLAYERS char ]; // 500 bytes = .. 500 bytes!</pre>
+</div><br>
+If you use "char arrays" instead of normal ones where needed 50 times <b>you'll save 75,000 bytes (~73 kb)</b>.<br>
+<br>
+<font size="3"><b><font color="#c00000">Note!</font></b></font><br>
+When accessing these arrays, <u>you need to use curly brackets (aka braces)</u> as opposed to the normal square brackets.<br>
+Example:<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 242px;
+		text-align: left;
+		overflow: auto">public OnPlayerConnect( playerid )
+{
+	g_IsPlayerSomething{ playerid } = false;
+//	                   ^          ^
+}
+
+public OnPlayerSpawn( playerid )
+{
+//	                        v          v
+	if ( g_IsPlayerSomething{ playerid } )
+	{
+		// ..
+	}
+}</pre>
+</div></blockquote><font size="7">Split up numeric literals</font><blockquote><br>
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				<div>
+					Originally Posted by <strong>Y_Less</strong>
+					<a href="http://forum.sa-mp.com/showthread.php?p=1954585#post1954585" rel="nofollow"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/viewpost.gif" border="0" alt="View Post" title="View Post"></a>
+				</div>
+				<div style="font-style:italic">A very small thing I found out the other day, you can split up long numeric literals in a similar way to how you do in maths.  Normal writing:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">345,234,148</pre>
+</div>Here "," is used as a thousands separator (sometimes "." I believe, but PAWN uses that for decimal).  You can also do this in PAWN using "'" instead:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">345'234'148</pre>
+</div><br>
+And you can split HEX numbers up every 4, or binary numbers every 8:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">0x12FD'39C5
+0b00000000'11111111'01010101</pre>
+</div><br>
+As you can see, the highlighter doesn't like this.</div>
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div><br>
+</blockquote><font size="7">Bit-flags in enums</font><blockquote><br>
+Did you know that you can store 32 true/false values in one single variable? Not only do you save space, but you also get less clutter in your code.<br>
+<br>
+You don't have to understand how the binary numeral system works; however, I recommend it. You can read more about it in <a href="http://forum.sa-mp.com/showthread.php?t=177523" target="_blank">this topic</a>, if you're interested.<br>
+<br>
+If you have, say, 100 true/false (bool) per-player variables you would use 195 KB of space. However, if you were to use 4 arrays with bit flags, only 8 KB of space would be used. The outcome would be <u>exactly the same</u>, but <b>you would save 187 KB</b> of space!<br>
+<br>
+Here's an example also containing macros to simplify the usage.<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">// Usage for all macros: BitFlag_X(variable, flag)
+#define BitFlag_Get(%0,%1)            ((%0) &amp; (%1))   // Returns zero (false) if the flag isn't set.
+#define BitFlag_On(%0,%1)             ((%0) |= (%1))  // Turn on a flag.
+#define BitFlag_Off(%0,%1)            ((%0) &amp;= ~(%1)) // Turn off a flag.
+#define BitFlag_Toggle(%0,%1)         ((%0) ^= (%1))  // Toggle a flag (swap true/false).
+
+enum PlayerFlags:(&lt;&lt;= 1) {
+	// It's important that you don't forget to put "= 1" on the first flag. If you don't, all flags will be 0.
+	
+	PLAYER_IS_LOGGED_IN = 1,   // 0b00000000000000000000000000000001
+	PLAYER_HAS_GANG,           // 0b00000000000000000000000000000010
+	PLAYER_CAN_BUY_PROPERTIES, // 0b00000000000000000000000000000100
+	PLAYER_BLABLA_1,           // 0b00000000000000000000000000001000
+	PLAYER_BLABLA_2,           // 0b00000000000000000000000000010000
+	PLAYER_BLABLA_3,           // 0b00000000000000000000000000100000
+	PLAYER_BLABLA_4,           // 0b00000000000000000000000001000000
+	PLAYER_BLABLA_5,           // 0b00000000000000000000000010000000
+	PLAYER_BLABLA_6,           // 0b00000000000000000000000100000000
+	PLAYER_BLABLA_7,           // 0b00000000000000000000001000000000
+	PLAYER_BLABLA_8,           // 0b00000000000000000000010000000000
+	PLAYER_BLABLA_9,           // 0b00000000000000000000100000000000
+	PLAYER_BLABLA_10,          // 0b00000000000000000001000000000000
+	PLAYER_BLABLA_11,          // 0b00000000000000000010000000000000
+	PLAYER_BLABLA_12,          // 0b00000000000000000100000000000000
+	PLAYER_BLABLA_13,          // 0b00000000000000001000000000000000
+	PLAYER_BLABLA_14,          // 0b00000000000000010000000000000000
+	PLAYER_BLABLA_15,          // 0b00000000000000100000000000000000
+	PLAYER_BLABLA_16,          // 0b00000000000001000000000000000000
+	PLAYER_BLABLA_17,          // 0b00000000000010000000000000000000
+	PLAYER_BLABLA_18,          // 0b00000000000100000000000000000000
+	PLAYER_BLABLA_19,          // 0b00000000001000000000000000000000
+	PLAYER_BLABLA_20,          // 0b00000000010000000000000000000000
+	PLAYER_BLABLA_21,          // 0b00000000100000000000000000000000
+	PLAYER_BLABLA_22           // 0b00000001000000000000000000000000
+};
+
+new
+	// Create an array with the same tag as the enum
+	PlayerFlags:g_PlayerFlags[MAX_PLAYERS]
+;
+
+public OnPlayerConnect(playerid) {
+	// 0 - All flags are off (false). You must include the tag to prevent a warning.
+	g_PlayerFlags[playerid] = PlayerFlags:0;
+}
+
+public OnPlayerLogIn(playerid) {
+	BitFlag_On(g_PlayerFlags[playerid], PLAYER_IS_LOGGED_IN);
+	
+//	Without macros:
+//	g_PlayerFlags[playerid] |= PLAYER_IS_LOGGED_IN;
+}
+
+public OnPlayerJoinGang(playerid) {
+	BitFlag_On(g_PlayerFlags[playerid], PLAYER_HAS_GANG);
+	
+//	Without macros:
+//	g_PlayerFlags[playerid] |= PLAYER_HAS_GANG;
+}
+
+public OnPlayerLeaveGang(playerid) {
+	BitFlag_Off(g_PlayerFlags[playerid], PLAYER_HAS_GANG);
+	
+//	Without macros:
+//	g_PlayerFlags[playerid] &amp;= ~PLAYER_HAS_GANG;
+}
+
+public OnPlayerUpdate(playerid) {
+	// DoSomething every-other player update.
+	
+	BitFlag_Toggle(g_PlayerFlags[playerid], PLAYER_BLABLA_19);
+	
+	if (BitFlag_Get(g_PlayerFlags[playerid], PLAYER_BLABLA_19)) {
+		DoSomething();
+	}
+	
+//	Without macros:
+//	g_PlayerFlags[playerid] ^= PLAYER_BLABLA_19;
+//	
+//	if (g_PlayerFlags[playerid] &amp; PLAYER_BLABLA_19) {
+//		DoSomething();
+//	}
+}</pre>
+</div></blockquote><font size="7">Using logical operators for tiny if-statements</font><blockquote><br>
+You can use logical operators as if-statements, but do it all inside one single statement!<br>
+<br>
+For example, I wrote a fixed version of valstr and I did it like this without thinking too much about it:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 178px;
+		text-align: left;
+		overflow: auto">stock FIXES_valstr(dest[], value, bool:pack = false)
+{
+    static const cellmin_value[] = !"-2147483648";
+
+    if (value == cellmin)
+        pack &amp;&amp; strpack(dest, cellmin_value, 12) || strunpack(dest, cellmin_value, 12);
+    else
+        format(dest, 12, "%d", value), pack &amp;&amp; strpack(dest, dest, 12);
+    // Notice the comma after format? See the section "Multiple actions in one statement" in this topic.
+}</pre>
+</div><br>
+As you can see, there are logical operators (&amp;&amp; and ||) just out in the open.<br>
+<br>
+The code above, <b>without</b> this little trick, would look something like this:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 274px;
+		text-align: left;
+		overflow: auto">stock FIXES_valstr(dest[], value, bool:pack = false)
+{
+    static const cellmin_value[] = !"-2147483648";
+
+    if (value == cellmin) {
+        if (pack)
+			strpack(dest, cellmin_value, 12)
+		else
+			strunpack(dest, cellmin_value, 12);
+    } else {
+        format(dest, 12, "%d", value);
+		
+ 		if (pack)
+			strpack(dest, dest, 12);
+	}
+}</pre>
+</div><br>
+A few examples:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">a &amp;&amp; b();              // if a, run b.
+a &amp;&amp; b() || c();       // if a, run b. otherwise, run c.
+a || b();              // if not a, run b.
+a &amp;&amp; b() || c &amp;&amp; d();  // if a, run b. otherwise, if c, run d.
+a &amp;&amp; b() &amp;&amp; c();       // if a, run b. if b isn't false, run c.</pre>
+</div></blockquote><font size="7">Efficient memory management with <font face="Courier New"><font color="Navy"><b>stock const</b></font></font></font><blockquote><br>
+Written by Y_Less.<br>
+<br>
+"stock const".<br>
+<br>
+This is something I discovered a while ago, but forgot to ever write up:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 130px;
+		text-align: left;
+		overflow: auto">#include &lt;a_samp&gt;
+
+main()
+{
+	print("hi");
+	print("hi");
+}</pre>
+</div><br>
+If we compile this with "-a" we get:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 482px;
+		text-align: left;
+		overflow: auto">CODE <font color="DarkOrange">0</font>	<font color="Green">; 0</font>
+<font color="Green">;program exit point</font>
+	halt <font color="DarkOrange">0</font>
+
+	proc	<font color="Green">; main</font>
+	<font color="Green">; line 4</font>
+	<font color="Green">; line 5</font>
+	<b>push.c <font color="DarkOrange">0</font></b>
+	<font color="Green">;$par</font>
+	push.c <font color="DarkOrange">4</font>
+	sysreq.c <font color="DarkOrange">0</font>	<font color="Green">; print</font>
+	stack <font color="DarkOrange">8</font>
+	<font color="Green">;$exp</font>
+	<font color="Green">; line 6</font>
+	<b>push.c <font color="DarkOrange">c</font></b>
+	<font color="Green">;$par</font>
+	push.c <font color="DarkOrange">4</font>
+	sysreq.c <font color="DarkOrange">0</font>	<font color="Green">; print</font>
+	stack <font color="DarkOrange">8</font>
+	<font color="Green">;$exp</font>
+	zero.pri
+	retn
+
+
+DATA <font color="DarkOrange">0</font>	<font color="Green">; 0</font>
+dump <font color="DarkOrange">68 69 0 68 69 0</font> 
+
+STKSIZE <font color="DarkOrange">1000</font></pre>
+</div>I have highlighted two lines in bold.  The first pushes the number "0", the second pushes the number "12" ("c").  "print", for it's first (and only) parameter, takes the address of a string to print.  All string literals are converted to data and stored in global memory (I won't go in to the details of the true implications of this, but sufficed to say you change them).  "dump" is the current global memory for this tiny program:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">dump <font color="DarkOrange">68 69 0 68 69 0</font></pre>
+</div>If we convert those numbers to ascii we suddenly see:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">dump <font color="DarkOrange">'h' 'i' '\0' 'h' 'i' '\0'</font></pre>
+</div>I.e. our two "hi" strings - two copies of the same string isn't very efficient though, so let's improve this by explicitly managing the memory:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 178px;
+		text-align: left;
+		overflow: auto">#include &lt;a_samp&gt;
+
+stock const
+	C_HI[3] = "hi";
+
+main()
+{
+	print(C_HI);
+	print(C_HI);
+}</pre>
+</div><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">CODE <font color="DarkOrange">0</font>	<font color="Green">; 0</font>
+<font color="Green">;program exit point</font>
+	halt <font color="DarkOrange">0</font>
+
+
+DATA <font color="DarkOrange">0</font>	<font color="Green">; 0</font>
+dump <font color="DarkOrange">68 69 0</font> 
+
+	proc	<font color="Green">; main</font>
+	<font color="Green">; line 7</font>
+	<font color="Green">; line 8</font>
+	<b>push.c <font color="DarkOrange">0</font></b>
+	<font color="Green">;$par</font>
+	push.c <font color="DarkOrange">4</font>
+	sysreq.c <font color="DarkOrange">0</font>	<font color="Green">; print</font>
+	stack <font color="DarkOrange">8</font>
+	<font color="Green">;$exp</font>
+	<font color="Green">; line 9</font>
+	<b>push.c <font color="DarkOrange">0</font></b>
+	<font color="Green">;$par</font>
+	push.c <font color="DarkOrange">4</font>
+	sysreq.c <font color="DarkOrange">0</font>	<font color="Green">; print</font>
+	stack <font color="DarkOrange">8</font>
+	<font color="Green">;$exp</font>
+	zero.pri
+	retn
+
+
+STKSIZE <font color="DarkOrange">1000</font></pre>
+</div>The location of "dump" has changed, but that's not important - a large program will have many "dump" statements spread throughout its code, all combined in the final stages of compilation.  The important things to look at are the contents of "dump" and the two highlighted lines.<br>
+<br>
+Despite the fact that we are using a variable, this is still EXACTLY as efficient code-wise as the original version because we are still using constant strings.  However, the memory requirements for storing the two strings has halved, with both instances pointing to the same memory.<br>
+<br>
+You can also use "new const" or "static stock const", but "stock const" is probably best for this code to avoid warnings and dupilcation of the memory we are trying not to duplicate.<br>
+<br>
+Your assembly output will probably look different if you are not using "-d0".<br>
+</blockquote>
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+		<!-- edit note -->
+			<div class="smallfont">
+				<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+				<em>
+					
+						Last edited by Slice; 29/06/2012 at <span class="time">07:03 PM</span>.
+					
+					
+				</em>
+			</div>
+		<!-- / edit note -->
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/user_offline.gif" alt="Slice is offline" border="0" title="Slice is offline">
+
+
+		
+			<span id="reputationmenu_1037822"><a href="http://forum.sa-mp.com/reputation.php?p=1037822" rel="nofollow" id="reputation_1037822"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/reputation.png" alt="Add to Slice&#39;s Reputation" border="0" title="Add to Slice&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("1037822")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=1037822" rel="nofollow"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1037822" rel="nofollow"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1037822" rel="nofollow" onclick="return false"><img src="./Tips &amp; Tricks - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_1037822" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1037822" rel="nofollow" id="qr_1037822" onclick="return false"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 1037822 popup menu -->
+<div class="vbmenu_popup" id="postmenu_1037822_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Slice</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=23640">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=23640" rel="nofollow">Send a private message to Slice</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="https://github.com/oscar-broman/">Visit Slice's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=23640" rel="nofollow">Find More Posts by Slice</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=23640">Add Slice to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 1037822 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #1037822 --><!-- post #1037833 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit1037833" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post1037833" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post1037833"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			26/01/2011, 11:07 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=1037833&amp;postcount=2" target="new" rel="nofollow" id="postcount1037833" name="2"><strong>2</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_1037833">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=25989">s0nic</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_1037833", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Big Clucker</div>
+			<div class="smallfont"><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=25989"><img src="./Tips &amp; Tricks - SA-MP Forums_files/image.php" width="80" height="80" alt="s0nic&#39;s Avatar" border="0" title="s0nic&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Apr 2008</div>
+				<div>Location: Lennox, CA</div>
+				
+				
+				
+<div>
+  Posts: 174
+</div>
+
+<div>Reputation: 5</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_1037833" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Tips &amp; Tricks</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_1037833">
+			
+			Thanks for posting..<br>
+I had personally forgotten about some of these, just learned a few more, and knew a few as well.<br>
+Great post nonetheless.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><img src="./Tips &amp; Tricks - SA-MP Forums_files/Compiling3.png" border="0" alt=""></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/user_offline.gif" alt="s0nic is offline" border="0" title="s0nic is offline">
+
+
+		
+			<span id="reputationmenu_1037833"><a href="http://forum.sa-mp.com/reputation.php?p=1037833" rel="nofollow" id="reputation_1037833"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/reputation.png" alt="Add to s0nic&#39;s Reputation" border="0" title="Add to s0nic&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("1037833")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=1037833" rel="nofollow"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1037833" rel="nofollow"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1037833" rel="nofollow" onclick="return false"><img src="./Tips &amp; Tricks - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_1037833" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1037833" rel="nofollow" id="qr_1037833" onclick="return false"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 1037833 popup menu -->
+<div class="vbmenu_popup" id="postmenu_1037833_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">s0nic</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=25989">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=25989" rel="nofollow">Send a private message to s0nic</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=25989" rel="nofollow">Find More Posts by s0nic</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=25989">Add s0nic to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 1037833 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #1037833 --><!-- post #1037852 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit1037852" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post1037852" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post1037852"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			26/01/2011, 11:31 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=1037852&amp;postcount=3" target="new" rel="nofollow" id="postcount1037852" name="3"><strong>3</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_1037852">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=55467">Retardedwolf</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_1037852", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=55467"><img src="./Tips &amp; Tricks - SA-MP Forums_files/image(1).php" width="50" height="80" alt="Retardedwolf&#39;s Avatar" border="0" title="Retardedwolf&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Jun 2009</div>
+				
+				
+				
+				
+<div>
+  Posts: 1,581
+</div>
+
+<div>Reputation: 60</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_1037852" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Tips &amp; Tricks</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_1037852">
+			
+			Thank you for the ternary and IntBool examples.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/user_offline.gif" alt="Retardedwolf is offline" border="0" title="Retardedwolf is offline">
+
+
+		
+			<span id="reputationmenu_1037852"><a href="http://forum.sa-mp.com/reputation.php?p=1037852" rel="nofollow" id="reputation_1037852"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/reputation.png" alt="Add to Retardedwolf&#39;s Reputation" border="0" title="Add to Retardedwolf&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("1037852")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=1037852" rel="nofollow"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1037852" rel="nofollow"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1037852" rel="nofollow" onclick="return false"><img src="./Tips &amp; Tricks - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_1037852" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1037852" rel="nofollow" id="qr_1037852" onclick="return false"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 1037852 popup menu -->
+<div class="vbmenu_popup" id="postmenu_1037852_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Retardedwolf</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=55467">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=55467" rel="nofollow">Send a private message to Retardedwolf</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=55467" rel="nofollow">Find More Posts by Retardedwolf</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=55467">Add Retardedwolf to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 1037852 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #1037852 --><!-- post #1037862 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit1037862" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post1037862" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post1037862"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			26/01/2011, 11:43 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=1037862&amp;postcount=4" target="new" rel="nofollow" id="postcount1037862" name="4"><strong>4</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_1037862">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=50597">cessil</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_1037862", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=50597"><img src="./Tips &amp; Tricks - SA-MP Forums_files/image(2).php" width="80" height="80" alt="cessil&#39;s Avatar" border="0" title="cessil&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Apr 2009</div>
+				
+				
+				
+				
+<div>
+  Posts: 2,749
+</div>
+
+<div>Reputation: 286</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_1037862" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Tips &amp; Tricks</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_1037862">
+			
+			thanks for these!
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<a href="http://csgo-stats.com/cessil/" target="_blank"><img src="./Tips &amp; Tricks - SA-MP Forums_files/image" border="0" alt=""></a><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=220089" target="_blank">[UPDATED 02/9/2013]AntiCheat Tips 'n' Tricks Click Me!</a>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/user_offline.gif" alt="cessil is offline" border="0" title="cessil is offline">
+
+
+		
+			<span id="reputationmenu_1037862"><a href="http://forum.sa-mp.com/reputation.php?p=1037862" rel="nofollow" id="reputation_1037862"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/reputation.png" alt="Add to cessil&#39;s Reputation" border="0" title="Add to cessil&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("1037862")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=1037862" rel="nofollow"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1037862" rel="nofollow"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1037862" rel="nofollow" onclick="return false"><img src="./Tips &amp; Tricks - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_1037862" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1037862" rel="nofollow" id="qr_1037862" onclick="return false"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 1037862 popup menu -->
+<div class="vbmenu_popup" id="postmenu_1037862_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">cessil</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=50597">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=50597" rel="nofollow">Send a private message to cessil</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=50597" rel="nofollow">Find More Posts by cessil</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=50597">Add cessil to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 1037862 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #1037862 --><!-- post #1037953 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit1037953" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post1037953" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post1037953"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			26/01/2011, 01:18 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=1037953&amp;postcount=5" target="new" rel="nofollow" id="postcount1037953" name="5"><strong>5</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_1037953">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=101056">SkizzoTrick</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_1037953", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=101056"><img src="./Tips &amp; Tricks - SA-MP Forums_files/image(3).php" width="60" height="80" alt="SkizzoTrick&#39;s Avatar" border="0" title="SkizzoTrick&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Aug 2010</div>
+				<div>Location: Romania</div>
+				
+				
+				
+<div>
+  Posts: 1,872
+</div>
+
+<div>Reputation: 37</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_1037953" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Tips &amp; Tricks</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_1037953">
+			
+			Wow,nice tut xD
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><b><font size="5">Free accounts for XBOX Live, PS, Steam and others!</font></b></div><a href="http://getyourfreeaccount.com/" target="_blank">https://getyourfreeaccount.com</a>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/user_offline.gif" alt="SkizzoTrick is offline" border="0" title="SkizzoTrick is offline">
+
+
+		
+			<span id="reputationmenu_1037953"><a href="http://forum.sa-mp.com/reputation.php?p=1037953" rel="nofollow" id="reputation_1037953"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/reputation.png" alt="Add to SkizzoTrick&#39;s Reputation" border="0" title="Add to SkizzoTrick&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("1037953")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=1037953" rel="nofollow"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1037953" rel="nofollow"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1037953" rel="nofollow" onclick="return false"><img src="./Tips &amp; Tricks - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_1037953" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1037953" rel="nofollow" id="qr_1037953" onclick="return false"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 1037953 popup menu -->
+<div class="vbmenu_popup" id="postmenu_1037953_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">SkizzoTrick</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=101056">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=101056" rel="nofollow">Send a private message to SkizzoTrick</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=101056" rel="nofollow">Find More Posts by SkizzoTrick</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=101056">Add SkizzoTrick to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 1037953 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #1037953 --><!-- post #1038093 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit1038093" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post1038093" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post1038093"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			26/01/2011, 02:50 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=1038093&amp;postcount=6" target="new" rel="nofollow" id="postcount1038093" name="6"><strong>6</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_1038093">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=13347">Vince</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_1038093", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Godfather</div>
+			<div class="smallfont"><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=13347"><img src="./Tips &amp; Tricks - SA-MP Forums_files/image(4).php" width="80" height="80" alt="Vince&#39;s Avatar" border="0" title="Vince&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Sep 2007</div>
+				<div>Location: Belgium</div>
+				
+				
+				
+<div>
+  Posts: 9,566
+</div>
+
+<div>Reputation: 2253</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_1038093" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Tips &amp; Tricks</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_1038093">
+			
+			The ternary operator is called the triadic operator on the wiki. <br>
+I don't know what its real name is, but I've been using it for quite a while and it's very useful.<br>
+<br>
+Also, something I have been doing lately is using packed arrays for player vars. <br>
+These are 1/4th of the size of a regular array and work just as good.<br>
+<br>
+Example:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 210px;
+		text-align: left;
+		overflow: auto">new
+    SomePlayerVar[MAX_PLAYERS char];
+
+// This will create an array with 125 cells, instead of 500
+// To use:
+
+SomePlayerVar{playerid} = 1;
+
+if(SomePlayerVar{playerid})
+{
+    // do stuff
+}</pre>
+</div><br>
+The only downside: You can't store a value greater than 254 (defined as charmax) in it, but it's great if you only need to store true (1) or false (0) or something.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><br>
+[<b><font color="Purple">Tutorial</font></b>] Database normalization: <a href="http://forum.sa-mp.com/showthread.php?t=420363" target="_blank"><b><font color="Purple">Vehicle components</font></b></a> - <a href="http://forum.sa-mp.com/showthread.php?t=505081" target="_blank"><b><font color="Purple">Weapon data</font></b></a> - <a href="http://forum.sa-mp.com/showthread.php?t=585996" target="_blank"><b><font color="Purple">GeoIP and rangebans</font></b></a>- <a href="http://forum.sa-mp.com/showthread.php?t=609888" target="_blank"><b><font color="Purple">Association tables</font></b></a><br>
+</div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/user_offline.gif" alt="Vince is offline" border="0" title="Vince is offline">
+
+
+		
+			<span id="reputationmenu_1038093"><a href="http://forum.sa-mp.com/reputation.php?p=1038093" rel="nofollow" id="reputation_1038093"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/reputation.png" alt="Add to Vince&#39;s Reputation" border="0" title="Add to Vince&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("1038093")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=1038093" rel="nofollow"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1038093" rel="nofollow"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1038093" rel="nofollow" onclick="return false"><img src="./Tips &amp; Tricks - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_1038093" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1038093" rel="nofollow" id="qr_1038093" onclick="return false"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 1038093 popup menu -->
+<div class="vbmenu_popup" id="postmenu_1038093_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Vince</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=13347">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=13347" rel="nofollow">Send a private message to Vince</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=13347" rel="nofollow">Find More Posts by Vince</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=13347">Add Vince to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 1038093 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #1038093 --><!-- post #1038108 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit1038108" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post1038108" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post1038108"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			26/01/2011, 03:03 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=1038108&amp;postcount=7" target="new" rel="nofollow" id="postcount1038108" name="7"><strong>7</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_1038108">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=70717">Kwarde</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_1038108", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=70717"><img src="./Tips &amp; Tricks - SA-MP Forums_files/image(5).php" width="80" height="64" alt="Kwarde&#39;s Avatar" border="0" title="Kwarde&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Nov 2009</div>
+				<div>Location: The Netherlands</div>
+				
+				
+				
+<div>
+  Posts: 3,922
+</div>
+
+<div>Reputation: 1544</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_1038108" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Tips &amp; Tricks</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_1038108">
+			
+			It's nice/usefull blabla. Thanks. I think I can use the things that I didn't use yet :')
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/user_offline.gif" alt="Kwarde is offline" border="0" title="Kwarde is offline">
+
+
+		
+			<span id="reputationmenu_1038108"><a href="http://forum.sa-mp.com/reputation.php?p=1038108" rel="nofollow" id="reputation_1038108"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/reputation.png" alt="Add to Kwarde&#39;s Reputation" border="0" title="Add to Kwarde&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("1038108")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=1038108" rel="nofollow"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1038108" rel="nofollow"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1038108" rel="nofollow" onclick="return false"><img src="./Tips &amp; Tricks - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_1038108" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1038108" rel="nofollow" id="qr_1038108" onclick="return false"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 1038108 popup menu -->
+<div class="vbmenu_popup" id="postmenu_1038108_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Kwarde</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=70717">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=70717" rel="nofollow">Send a private message to Kwarde</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.rl-rp.com/">Visit Kwarde's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=70717" rel="nofollow">Find More Posts by Kwarde</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=70717">Add Kwarde to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 1038108 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #1038108 --><!-- post #1038122 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit1038122" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post1038122" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post1038122"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			26/01/2011, 03:12 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=1038122&amp;postcount=8" target="new" rel="nofollow" id="postcount1038122" name="8"><strong>8</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_1038122">
+				
+				[03]Garsino
+				
+			</div>
+
+			<div class="smallfont">Guest</div>
+			
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				
+				
+				
+				
+				
+<div>
+  Posts: n/a
+</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_1038122" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Tips &amp; Tricks</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_1038122">
+			
+			Thank you for your contribution, Slice! Hopefully most of this stuff will come in handy for me.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=1038122" rel="nofollow"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1038122" rel="nofollow"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1038122" rel="nofollow" onclick="return false"><img src="./Tips &amp; Tricks - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_1038122" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1038122" rel="nofollow" id="qr_1038122" onclick="return false"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 1038122 popup menu -->
+<div class="vbmenu_popup" id="postmenu_1038122_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">[03]Garsino</td>
+	</tr>
+	
+	
+	
+	
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 1038122 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #1038122 --><!-- post #1038170 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit1038170" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post1038170" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post1038170"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			26/01/2011, 03:48 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=1038170&amp;postcount=9" target="new" rel="nofollow" id="postcount1038170" name="9"><strong>9</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_1038170">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=23640">Slice</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_1038170", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Mar 2008</div>
+				<div>Location: Sweden</div>
+				
+				
+				
+<div>
+  Posts: 1,881
+</div>
+
+<div>Reputation: 1513</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_1038170" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Tips &amp; Tricks</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_1038170">
+			
+			@Vince: In maths ternary/triadic relations are the same things. I don't often see the operator referred to as a triadic operator very often, however.<br>
+Covering the packed strings sounds like a good idea, I use those all the time for bit flags and small values. I'll see what I can come up with. The max value is 255, actually (0 - FF).<br>
+<br>
+<b>Edit</b>: Added a section on this at the bottom.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/user_offline.gif" alt="Slice is offline" border="0" title="Slice is offline">
+
+
+		
+			<span id="reputationmenu_1038170"><a href="http://forum.sa-mp.com/reputation.php?p=1038170" rel="nofollow" id="reputation_1038170"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/reputation.png" alt="Add to Slice&#39;s Reputation" border="0" title="Add to Slice&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("1038170")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=1038170" rel="nofollow"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1038170" rel="nofollow"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1038170" rel="nofollow" onclick="return false"><img src="./Tips &amp; Tricks - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_1038170" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1038170" rel="nofollow" id="qr_1038170" onclick="return false"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 1038170 popup menu -->
+<div class="vbmenu_popup" id="postmenu_1038170_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Slice</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=23640">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=23640" rel="nofollow">Send a private message to Slice</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="https://github.com/oscar-broman/">Visit Slice's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=23640" rel="nofollow">Find More Posts by Slice</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=23640">Add Slice to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 1038170 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #1038170 --><!-- post #1038180 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit1038180" style="padding:0px 0px 6px 0px">
+	
+
+
+
+<table id="post1038180" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post1038180"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			26/01/2011, 03:59 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=1038180&amp;postcount=10" target="new" rel="nofollow" id="postcount1038180" name="10"><strong>10</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_1038180">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=24958">Sergei</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_1038180", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""><img src="./Tips &amp; Tricks - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=24958"><img src="./Tips &amp; Tricks - SA-MP Forums_files/image(6).php" width="80" height="80" alt="Sergei&#39;s Avatar" border="0" title="Sergei&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Mar 2008</div>
+				<div>Location: Slovenia</div>
+				
+				
+				
+<div>
+  Posts: 2,939
+</div>
+
+<div>Reputation: 228</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_1038180" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Tips &amp; Tricks</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_1038180">
+			
+			Very useful!
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				Watch out, scouts everywhere!
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/user_offline.gif" alt="Sergei is offline" border="0" title="Sergei is offline">
+
+
+		
+			<span id="reputationmenu_1038180"><a href="http://forum.sa-mp.com/reputation.php?p=1038180" rel="nofollow" id="reputation_1038180"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/reputation.png" alt="Add to Sergei&#39;s Reputation" border="0" title="Add to Sergei&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("1038180")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=1038180" rel="nofollow"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1038180" rel="nofollow"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1038180" rel="nofollow" onclick="return false"><img src="./Tips &amp; Tricks - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_1038180" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=1038180" rel="nofollow" id="qr_1038180" onclick="return false"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 1038180 popup menu -->
+<div class="vbmenu_popup" id="postmenu_1038180_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Sergei</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=24958">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=24958" rel="nofollow">Send a private message to Sergei</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=24958" rel="nofollow">Find More Posts by Sergei</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=24958">Add Sergei to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 1038180 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #1038180 --><div id="lastpost"></div></div>
+
+<!-- start content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+<!-- / start content table -->
+
+<!-- controls below postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:-3px">
+<tbody><tr valign="top">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;noquote=1&amp;p=1038180" rel="nofollow"><img src="./Tips &amp; Tricks - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	
+		<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tbody><tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 22</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 10 of 219"><strong>1</strong></span></td>
+ <td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=216730&amp;page=2" title="Show results 11 to 20 of 219">2</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=216730&amp;page=3" title="Show results 21 to 30 of 219">3</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=216730&amp;page=11" title="Show results 101 to 110 of 219"><!--+10-->11</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=216730&amp;page=2" title="Next Page - Results 11 to 20 of 219">&gt;</a></td>
+	<td class="alt1" nowrap="nowrap"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=216730&amp;page=22" title="Last Page - Results 211 to 219 of 219">Last <strong>»</strong></a></td>
+	<td class="vbmenu_control" title="" id="pagenav.169" style="cursor: pointer;"> <img src="./Tips &amp; Tricks - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></td>
+</tr>
+</tbody></table>
+</div>
+		
+		</td>
+	
+</tr>
+</tbody></table>
+<!-- / controls below postbits -->
+
+
+
+
+
+
+
+
+
+
+<!-- lightbox scripts -->
+	<script type="text/javascript" src="./Tips &amp; Tricks - SA-MP Forums_files/vbulletin_lightbox.js"></script>
+	<script type="text/javascript">
+	<!--
+	vBulletin.register_control("vB_Lightbox_Container", "posts", 1);
+	//-->
+	</script>
+<!-- / lightbox scripts -->
+
+
+
+<!-- multiquote scripts -->
+	<script type="text/javascript" src="./Tips &amp; Tricks - SA-MP Forums_files/vbulletin_multi_quote.js"></script>
+	<script type="text/javascript">
+	<!--
+	var mqlimit = 0;
+	//-->
+	</script>
+<!-- / multiquote scripts -->
+
+
+
+<!-- ajax errors table -->
+	<table class="tborder" cellpadding="6" cellspacing="1" border="0" style="display:none; position:absolute" id="ajax_post_errors">
+	<tbody><tr>
+		<td class="thead">
+			<span style="float:right"><input type="button" class="button" value=" X " onclick="vB_QuickEditor.hide_errors()" id="ajax_post_errors_closebtn"></span>
+			vBulletin Message
+		</td>
+	</tr>
+	<tr>
+		<td class="alt2" colspan="2" id="ajax_post_errors_message">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="tfoot" colspan="2" align="center"><a href="http://forum.sa-mp.com/showthread.php?t=216730#" onclick="vB_QuickEditor.abort(); return false;">Cancel Changes</a></td>
+	</tr>
+	</tbody></table>
+<!-- / ajax errors table -->
+
+<!-- scripts for quick reply and quick edit -->
+	<!-- Editor Scripts -->
+<script type="text/javascript" src="./Tips &amp; Tricks - SA-MP Forums_files/vbulletin_textedit.js"></script>
+<script type="text/javascript">
+<!--
+var fontoptions = new Array("Arial", "Arial Black", "Arial Narrow", "Book Antiqua", "Century Gothic", "Comic Sans MS", "Courier New", "Fixedsys", "Franklin Gothic Medium", "Garamond", "Georgia", "Impact", "Lucida Console", "Lucida Sans Unicode", "Microsoft Sans Serif", "Palatino Linotype", "System", "Tahoma", "Times New Roman", "Trebuchet MS", "Verdana");
+var sizeoptions = new Array(1, 2, 3, 4, 5, 6, 7);
+var smilieoptions = {  };
+
+var istyles = { "pi_button_down" : [ "#98B5E2", "#000000", "0px", "1px solid #316AC5" ], "pi_button_hover" : [ "#C1D2EE", "#000000", "0px", "1px solid #316AC5" ], "pi_button_normal" : [ "#E1E1E2", "#000000", "1px", "none" ], "pi_button_selected" : [ "#F1F6F8", "#000000", "0px", "1px solid #316AC5" ], "pi_menu_down" : [ "#98B5E2", "#316AC5", "0px", "1px solid #316AC5" ], "pi_menu_hover" : [ "#C1D2EE", "#316AC5", "0px", "1px solid #316AC5" ], "pi_menu_normal" : [ "#FFFFFF", "#000000", "0px", "1px solid #FFFFFF" ], "pi_popup_down" : [ "#98B5E2", "#000000", "0px", "1px solid #316AC5" ] };
+var ltr = 'left';
+
+var smiliewindow_x = 240;
+var smiliewindow_y = 280;
+
+var ignorequotechars = 1;
+var allowbasicbbcode = true;
+
+// vB Phrases
+vbphrase["wysiwyg_please_wait"]          = "Please wait for the WYSIWYG editor to finish loading...";
+vbphrase["wysiwyg_initialized"]          = "WYSIWYG Editor initialized for %1$s in %2$s seconds.";
+vbphrase["wysiwyg_command_invalid"]      = "This command is invalid or not implemented.";
+vbphrase["moz_must_select_text"]         = "Mozilla requires that you must select some text for this function to work";
+vbphrase["moz_edit_config_file"]         = "You need to edit your Mozilla config file to allow this action.";
+vbphrase["enter_tag_option"]             = "Please enter the option for your %1$s tag:";
+vbphrase["must_select_text_to_use"]      = "You must select some text to use this function.";
+vbphrase["browser_is_safari_no_wysiwyg"] = "The Safari browser does not support WYSIWYG mode.";
+vbphrase["enter_option_x_tag"]           = "Enter the option for the [%1$s] tag:";
+vbphrase["enter_text_to_be_formatted"]   = "Enter the text to be formatted";
+vbphrase["enter_link_text"]              = "Enter the text to be displayed for the link (optional):";
+vbphrase["enter_list_type"]              = "What type of list do you want? Enter '1' for a numbered list, enter 'a' for an alphabetical list, or leave blank for a list with bullet points:";
+vbphrase["enter_list_item"]              = "Enter a list item.\r\nLeave the box empty or press 'Cancel' to complete the list:";
+vbphrase["must_enter_subject"]           = "You must enter a title / subject!";
+vbphrase["message_too_short"]            = "The message you have entered is too short. Please lengthen your message to at least %1$s characters.";
+vbphrase["enter_link_url"]               = "Please enter the URL of your link:";
+vbphrase["enter_image_url"]              = "Please enter the URL of your image:";
+vbphrase["enter_email_link"]             = "Please enter the email address for the link:";
+vbphrase["complete_image_verification"]  = "You did not complete the Image Verification";
+vbphrase["iespell_not_installed"]        = "ieSpell is a spell-checking tool for Internet Explorer.\r\n\r\nIf you would like to download ieSpell, click OK; otherwise click Cancel.\r\n\r\nieSpell can be downloaded from http://www.iespell.com";
+vbphrase["click_quick_reply_icon"]       = "Please click one of the Quick Reply icons in the posts above to activate Quick Reply.";
+vbphrase["insert_all"]                   = "Insert All";
+
+//-->
+</script>
+<!-- / Editor Scripts -->
+	
+<!-- / scripts for quick reply and quick edit -->
+
+
+
+
+<!-- quick reply -->
+	<br>
+	<script type="text/javascript" src="./Tips &amp; Tricks - SA-MP Forums_files/vbulletin_quick_reply.js"></script>
+	<form action="http://forum.sa-mp.com/newreply.php?do=postreply&amp;t=216730" method="post" name="vbform" onsubmit="return qr_prepare_submit(this, 4);" id="qrform">
+	<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+	<thead>
+		<tr>
+			<td class="tcat" colspan="2">
+				<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=216730#top" onclick="return toggle_collapse(&#39;quickreply&#39;);"><img id="collapseimg_quickreply" src="./Tips &amp; Tricks - SA-MP Forums_files/collapse_tcat.gif" alt="" border="0"></a>
+				Quick Reply
+			</td>
+		</tr>
+	</thead>
+	<tbody id="qr_error_tbody" style="display:none">
+	<tr>
+		<td class="thead">The following errors occurred with your submission</td>
+	</tr>
+	<tr>
+		<td class="alt1" id="qr_error_td"></td>
+	</tr>
+	<tr>
+		<td class="tfoot" align="center"><span class="smallfont"><a href="http://forum.sa-mp.com/showthread.php?t=216730#" onclick="return qr_hide_errors()">Okay</a></span></td>
+	</tr>
+	</tbody>
+	<tbody id="collapseobj_quickreply" style="">
+	<tr>
+		<td class="panelsurround" align="center">
+			<div class="panel">
+				<div align="left" style="max-width:800px; width:auto !important; width:800px">
+					<div class="smallfont">Message:</div>
+					<div id="vB_Editor_QR" class="vBulletin_editor">
+		<script type="text/javascript">
+		<!--
+			var threaded_mode = 0;
+			var require_click = 0;
+			var is_last_page = 0; // leave for people with cached JS files
+			var allow_ajax_qr = 0;
+			var ajax_last_post = 1463824755;
+		// -->
+		</script>
+		
+<div id="vB_Editor_QR_controls" class="controlbar">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_removeformat"><img src="./Tips &amp; Tricks - SA-MP Forums_files/removeformat.gif" width="21" height="20" alt="Remove Text Formatting" title="Remove Text Formatting"></div></td>
+	
+		<td><img src="./Tips &amp; Tricks - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_bold"><img src="./Tips &amp; Tricks - SA-MP Forums_files/bold.gif" width="21" height="20" alt="Bold" title="Bold"></div></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_italic"><img src="./Tips &amp; Tricks - SA-MP Forums_files/italic.gif" width="21" height="20" alt="Italic" title="Italic"></div></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_underline"><img src="./Tips &amp; Tricks - SA-MP Forums_files/underline.gif" width="21" height="20" alt="Underline" title="Underline"></div></td>
+	
+	
+		<td><img src="./Tips &amp; Tricks - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_popup_forecolor" title="Colors">
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr>
+				<td id="vB_Editor_QR_color_out"><img src="./Tips &amp; Tricks - SA-MP Forums_files/color.gif" width="21" height="16" alt=""><br><img src="./Tips &amp; Tricks - SA-MP Forums_files/clear.gif" id="vB_Editor_QR_color_bar" alt="" style="background-color:black" width="21" height="4"></td>
+				<td class="alt_pickbutton"><img src="./Tips &amp; Tricks - SA-MP Forums_files/menupop.gif" alt="" width="11" height="16"></td>
+			</tr>
+			</tbody></table>
+		</div></td>
+	
+	
+		<td><img src="./Tips &amp; Tricks - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+	
+	
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_createlink"><img src="./Tips &amp; Tricks - SA-MP Forums_files/createlink.gif" width="21" height="20" alt="Insert Link" title="Insert Link"></div></td>
+	
+	
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_insertimage"><img src="./Tips &amp; Tricks - SA-MP Forums_files/insertimage.gif" width="21" height="20" alt="Insert Image" title="Insert Image"></div></td>
+	
+	
+		<td><img src="./Tips &amp; Tricks - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_wrap0_quote"><img src="./Tips &amp; Tricks - SA-MP Forums_files/quote.gif" width="21" height="20" alt="Wrap [QUOTE] tags around selected text" title="Wrap [QUOTE] tags around selected text"></div></td>
+	
+	<td width="100%">&nbsp;</td>
+	
+		<td>
+			<div class="imagebutton" id="vB_Editor_QR_cmd_resize_0_99"><img src="./Tips &amp; Tricks - SA-MP Forums_files/resize_0.gif" width="21" height="9" alt="Decrease Size" title="Decrease Size"></div>
+			<div class="imagebutton" id="vB_Editor_QR_cmd_resize_1_99"><img src="./Tips &amp; Tricks - SA-MP Forums_files/resize_1.gif" width="21" height="9" alt="Increase Size" title="Increase Size"></div>
+		</td>
+	
+	</tr>
+	</tbody></table>
+</div>
+
+<div class="controlbar" style="padding-right:8px">
+	<fieldset style="border:0px; padding:0px; margin:0px">
+	
+	<textarea name="message" id="vB_Editor_QR_textarea" rows="10" cols="60" style="width:100%; height:100px" tabindex="1" dir="ltr"></textarea>
+	
+	</fieldset>
+	<!--width:800px-->
+</div>
+
+<input type="hidden" name="wysiwyg" id="vB_Editor_QR_mode" value="0">
+<input type="hidden" name="styleid" value="0">
+
+<script type="text/javascript">
+<!--
+vB_Editor['vB_Editor_QR'] = new vB_Text_Editor('vB_Editor_QR', 0, '84', '1');
+var QR_EditorID = 'vB_Editor_QR';
+//-->
+</script>
+	</div>
+
+					<fieldset class="fieldset" style="margin:3px 0px 0px 0px">
+						<legend>Options</legend>
+						<div style="padding:3px">
+							
+								<div style="float:right"><label for="cb_signature"><input type="checkbox" name="signature" value="1" id="cb_signature" tabindex="5" checked="checked">Show your signature</label></div>
+							
+							<label for="qr_quickreply"><input type="checkbox" name="quickreply" value="1" id="qr_quickreply" accesskey="w" tabindex="4" disabled="">Quote message in reply?</label>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+
+			<div style="margin-top:6px">
+				<input type="hidden" name="fromquickreply" value="1">
+				<input type="hidden" name="s" value="">
+				<input type="hidden" name="securitytoken" value="1467960816-065f91dfc5c670a9e3bca495dafa78a82812ef67">
+				<input type="hidden" name="do" value="postreply">
+				<input type="hidden" name="t" value="216730" id="qr_threadid">
+				<input type="hidden" name="p" value="who cares" id="qr_postid">
+				<input type="hidden" name="specifiedpost" value="0" id="qr_specifiedpost">
+				<input type="hidden" name="parseurl" value="1">
+				<input type="hidden" name="loggedinuser" value="234935">
+				<input type="submit" class="button" value="Post Quick Reply" accesskey="s" title="(Alt + S)" name="sbutton" tabindex="2" id="qr_submit" onclick="clickedelm = this.value">
+				<input type="submit" class="button" value="Go Advanced" accesskey="x" title="(Alt + X)" name="preview" tabindex="3" id="qr_preview" onclick="clickedelm = this.value">
+			</div>
+
+			<div align="center" id="qr_posting_msg" style="display:none; margin-top:6px">
+				<img style="vertical-align: middle;" src="./Tips &amp; Tricks - SA-MP Forums_files/progress.gif" alt="Posting Quick Reply - Please Wait" title="Posting Quick Reply - Please Wait">&nbsp;<strong>Posting Quick Reply - Please Wait</strong>
+			</div>
+		</td>
+	</tr>
+	</tbody>
+	</table>
+	</form>
+
+	
+		<!-- Mozilla work around for focusing on QR in WYSIWYG mode -->
+		<div id="qr_scroll"></div>
+	
+
+	<script type="text/javascript">
+	<!--
+		// initialize quick reply
+		qr_init();
+	//-->
+	</script>
+<!-- / quick reply -->
+
+
+
+<!-- next / previous links -->
+	<br>
+	<div class="smallfont" align="center">
+		<strong>«</strong>
+			<a href="http://forum.sa-mp.com/showthread.php?t=216730&amp;goto=nextoldest" rel="nofollow">Previous Thread</a>
+			|
+			<a href="http://forum.sa-mp.com/showthread.php?t=216730&amp;goto=nextnewest" rel="nofollow">Next Thread</a>
+		<strong>»</strong>
+	</div>
+<!-- / next / previous links -->
+
+
+
+
+
+
+
+<!-- popup menu contents -->
+<br>
+
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="http://forum.sa-mp.com/postings.php?t=216730&amp;pollid=" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/printer.gif" alt="Show Printable Version" title="Show Printable Version"> <a href="http://forum.sa-mp.com/printthread.php?t=216730" accesskey="3" rel="nofollow">Show Printable Version</a></td>
+	</tr>
+	
+	
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/subscribe.gif" alt="Subscription" title="Subscription">
+		
+			<a href="http://forum.sa-mp.com/subscription.php?do=addsubscription&amp;t=216730" rel="nofollow">Subscribe to this Thread</a>
+		
+		</td>
+	</tr>
+	
+	
+	
+	</tbody></table>
+</form>
+</div>
+<!-- / thread tools menu -->
+
+<!-- **************************************************** -->
+
+<!-- thread display mode menu -->
+<div class="vbmenu_popup" id="displaymodes_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Display Modes<a name="goto_displaymodes"></a></td>
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option" title="nohilite"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/mode_linear.gif" alt="Linear Mode" title="Linear Mode"> <strong>Linear Mode</strong></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/mode_hybrid.gif" alt="Hybrid Mode" title="Hybrid Mode"> <a href="http://forum.sa-mp.com/showthread.php?mode=hybrid&amp;t=216730">Switch to Hybrid Mode</a></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/mode_threaded.gif" alt="Threaded Mode" title="Threaded Mode"> <a href="http://forum.sa-mp.com/showthread.php?p=1037822&amp;mode=threaded#post1037822">Switch to Threaded Mode</a></td>
+	
+	</tr>
+	</tbody></table>
+</div>
+<!-- / thread display mode menu -->
+
+<!-- **************************************************** -->
+
+
+<!-- thread search menu -->
+<div class="vbmenu_popup" id="threadsearch_menu" style="display:none">
+<form action="http://forum.sa-mp.com/search.php?do=process&amp;searchthreadid=216730" method="post">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Search this Thread<a name="goto_threadsearch"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option" title="nohilite">
+			<input type="hidden" name="s" value="">
+			<input type="hidden" name="securitytoken" value="1467960816-065f91dfc5c670a9e3bca495dafa78a82812ef67">
+			<input type="hidden" name="do" value="process">
+			<input type="hidden" name="searchthreadid" value="216730">
+			<input type="text" class="bginput" name="query" size="25"><input type="submit" class="button" value="Go"><br>
+		</td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?searchthreadid=216730">Advanced Search</a></td>
+	</tr>
+	</tbody></table>
+</form>
+</div>
+<!-- / thread search menu -->
+
+
+<!-- **************************************************** -->
+
+
+	<!-- thread rating menu -->
+	<div class="vbmenu_popup" id="threadrating_menu" style="display:none">
+	<form action="http://forum.sa-mp.com/threadrate.php?t=216730" method="post" id="showthread_threadrate_form">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead">Rate This Thread<a name="goto_threadrating"></a></td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option" title="nohilite" id="threadrating_options">
+
+			<div><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/rating_5.gif" alt="Excellent" title="Excellent"><label for="vote5"><input type="radio" name="vote" id="vote5" value="5">Excellent</label></div>
+			<div><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/rating_4.gif" alt="Good" title="Good"><label for="vote4"><input type="radio" name="vote" id="vote4" value="4">Good</label></div>
+			<div><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/rating_3.gif" alt="Average" title="Average"><label for="vote3"><input type="radio" name="vote" id="vote3" value="3">Average</label></div>
+			<div><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/rating_2.gif" alt="Bad" title="Bad"><label for="vote2"><input type="radio" name="vote" id="vote2" value="2">Bad</label></div>
+			<div><img class="inlineimg" src="./Tips &amp; Tricks - SA-MP Forums_files/rating_1.gif" alt="Terrible" title="Terrible"><label for="vote1"><input type="radio" name="vote" id="vote1" value="1">Terrible</label></div>
+			</td>
+		</tr>
+		<tr id="threadrating_submit">
+			<td class="vbmenu_option" title="nohilite" align="center">
+				<input type="hidden" name="s" value="">
+				<input type="hidden" name="securitytoken" value="1467960816-065f91dfc5c670a9e3bca495dafa78a82812ef67">
+				<input type="hidden" name="t" value="216730">
+				<input type="hidden" name="pp" value="10">
+				<input type="hidden" name="page" value="1">
+				<input type="button" class="button" value="Vote Now">
+			</td>
+		</tr>
+		
+		</tbody></table>
+	</form>
+	</div>
+	<!-- / thread rating menu -->
+
+	<script type="text/javascript" src="./Tips &amp; Tricks - SA-MP Forums_files/vbulletin_ajax_threadrate.js"></script>
+	<script type="text/javascript">
+	<!--
+	vB_AJAX_ThreadRate_Init('showthread_threadrate_form');
+	var threadid = 216730;
+	//-->
+	</script>
+
+
+<!-- / popup menu contents -->
+
+
+<!-- forum rules and admin links -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr valign="bottom">
+	<td width="100%" valign="top">
+		<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="210">
+<thead>
+<tr>
+	<td class="thead">
+		<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=216730#top" onclick="return toggle_collapse(&#39;forumrules&#39;)"><img id="collapseimg_forumrules" src="./Tips &amp; Tricks - SA-MP Forums_files/collapse_thead.gif" alt="" border="0"></a>
+		Posting Rules
+	</td>
+</tr>
+</thead>
+<tbody id="collapseobj_forumrules" style="">
+<tr>
+	<td class="alt1" nowrap="nowrap"><div class="smallfont">
+		
+		<div>You <strong>may</strong> post new threads</div>
+		<div>You <strong>may</strong> post replies</div>
+		<div>You <strong>may</strong> post attachments</div>
+		<div>You <strong>may</strong> edit your posts</div>
+		<hr>
+		
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode" target="_blank">BB code</a> is <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showsmilies" target="_blank">Smilies</a> are <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode#imgcode" target="_blank">[IMG]</a> code is <strong>On</strong></div>
+		<div>HTML code is <strong>Off</strong></div>
+		<hr>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showrules" target="_blank">Forum Rules</a></div>
+	</div></td>
+</tr>
+</tbody>
+</table>
+	</td>
+	<td class="smallfont" align="right">
+		<table cellpadding="0" cellspacing="0" border="0">
+		
+		<tbody><tr>
+			<td>
+			
+			</td>
+		</tr>
+		</tbody></table>
+	</td>
+</tr>
+</tbody></table>
+<!-- /forum rules and admin links -->
+
+<br>
+
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" width="100%" colspan="5">
+			<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=216730#top" onclick="return toggle_collapse(&#39;similarthreads&#39;)"><img id="collapseimg_similarthreads" src="./Tips &amp; Tricks - SA-MP Forums_files/collapse_tcat.gif" alt="" border="0"></a>
+			Similar Threads<a name="similarthreads"></a>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_similarthreads" style="">
+<tr class="thead" align="center">
+	<td class="thead" width="40%">Thread</td>
+	<td class="thead" width="15%" nowrap="nowrap">Thread Starter</td>
+	<td class="thead" width="20%">Forum</td>
+	<td class="thead" width="5%">Replies</td>
+	<td class="thead" width="20%">Last Post</td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=400781" title="-DELETE">Needs Scripting Tips!</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">KomplettMaster</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">General</span></td>
+	<td class="alt2" align="center"><span class="smallfont">12</span></td>
+	<td class="alt1" align="right"><span class="smallfont">26/12/2012 <span class="time">06:04 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont">[<span style="font-weight:bold;font-size:8pt;color:#841594;">Tutorial</span>] <a href="http://forum.sa-mp.com/showthread.php?t=338373" title="Infinity&#39;s Tutorials 
+Tips and Tricks regarding &#39;logical thinking&#39; 
+ 
+ 
+Who am I?/What is my goal? 
+(Skip this part to get to the actual tutorial) 
+...">[InfiniTuts - Tutorials for beginners] Tips and Tricks regarding 'logical thinking' - Making your own script</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Infinity</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Tutorials</span></td>
+	<td class="alt2" align="center"><span class="smallfont">6</span></td>
+	<td class="alt1" align="right"><span class="smallfont">30/04/2012 <span class="time">01:34 AM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=78891" title="Hi,i&#39;me new here and i made my first stunting video .. 
+Tricks with NRG-500 by D12">Motor Tricks by D12</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">D12Mr</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Screenshots and Videos</span></td>
+	<td class="alt2" align="center"><span class="smallfont">6</span></td>
+	<td class="alt1" align="right"><span class="smallfont">24/05/2009 <span class="time">08:04 PM</span></span></td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+
+
+
+<br>
+<div class="smallfont" align="center">All times are GMT +2. The time now is <span class="time">08:53 AM</span>.</div>
+<br>
+
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- /content area table -->
+
+<form action="http://forum.sa-mp.com/index.php" method="get" style="clear:left">
+
+<table cellpadding="6" cellspacing="0" border="0" width="90%" class="page" align="center">
+<tbody><tr>
+	
+	
+		<td class="tfoot">
+			<select name="langid" onchange="switch_id(this, &#39;lang&#39;)">
+				<optgroup label="Quick Language Chooser">
+					<option value="1" class="" selected="selected">-- (EN) English</option>
+<option value="3" class="">-- (ES) Español</option>
+<option value="4" class="">-- (RU) &#1056;&#1091;&#1089;&#1089;&#1082;&#1080;</option>
+
+				</optgroup>
+			</select>
+		</td>
+	
+	<td class="tfoot" align="right" width="100%">
+		<div class="smallfont">
+			<strong>
+				<a href="http://forum.sa-mp.com/sendmessage.php" rel="nofollow" accesskey="9">Contact Us</a> -
+				<a href="http://www.sa-mp.com/">SA-MP</a> -
+				
+				
+				<a href="http://forum.sa-mp.com/archive/index.php">Archive</a> -
+				
+				
+				
+				<a href="http://forum.sa-mp.com/showthread.php?t=216730#top" onclick="self.scrollTo(0, 0); return false;">Top</a>
+			</strong>
+		</div>
+	</td>
+</tr>
+</tbody></table>
+
+<br>
+
+<div align="center">
+	<div class="smallfont" align="center">
+	<!-- Do not remove this copyright notice -->
+	Powered by vBulletin® Version 3.8.6<br>Copyright ©2000 - 2016, Jelsoft Enterprises Ltd.
+	<!-- Do not remove this copyright notice -->
+	</div>
+
+	<div class="smallfont" align="center">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+
+	
+	</div>
+</div>
+
+</form>
+
+
+
+
+<script type="text/javascript">
+<!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//-->
+</script>
+
+<!-- temp -->
+<div style="display:none">
+	<!-- thread rate -->
+	
+		<!-- thread ratings form here -->
+	
+	<!-- / thread rate -->
+</div>
+
+
+</body></html>

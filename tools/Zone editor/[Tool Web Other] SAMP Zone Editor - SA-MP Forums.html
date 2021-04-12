@@ -1,0 +1,2867 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0046)http://forum.sa-mp.com/showthread.php?t=467190 -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	
+<meta name="generator" content="vBulletin 3.8.6">
+
+<meta name="keywords" content="[Tool/Web/Other] SAMP Zone Editor, SA-MP, GTA, multiplayer, online, server, pawn, scripting">
+<meta name="description" content="[Tool/Web/Other] SAMP Zone Editor Tools and Files">
+
+
+<!-- CSS Stylesheet -->
+<style type="text/css" id="vbulletin_css">
+/**
+* vBulletin 3.8.6 CSS
+* Style: 'SAMPStyle'; Style ID: 2
+*/
+body
+{
+	background: #707170;
+	color: #FFFFFFF;
+	font: bold 10pt arial, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 1px 1px 1px 1px;
+	padding: 1px;
+}
+a:link, body_alink
+{
+	color: #4A627F;
+	text-decoration: none;
+}
+a:visited, body_avisited
+{
+	color: #1A425F;
+	text-decoration: none;
+}
+a:hover, a:active, body_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.page
+{
+	background: #DADADB;
+	color: #000000;
+}
+td, th, p, li
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tborder
+{
+	background: #DFDFDF;
+	color: #000000;
+	border: 1px solid #717171;
+}
+.tcat
+{
+	background: #4F4F4F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tcat a:link, .tcat_alink
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:visited, .tcat_avisited
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:hover, .tcat a:active, .tcat_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.thead
+{
+	background: #3F3F3F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.thead a:link, .thead_alink
+{
+	color: #FFFFFF;
+}
+.thead a:visited, .thead_avisited
+{
+	color: #FFFFFF;
+}
+.thead a:hover, .thead a:active, .thead_ahover
+{
+	color: #E76006;
+}
+.tfoot
+{
+	background: #595959;
+	color: #CDCDCD;
+}
+.tfoot a:link, .tfoot_alink
+{
+	color: #CDCDCD;
+}
+.tfoot a:visited, .tfoot_avisited
+{
+	color: #9D9D9D;
+}
+.tfoot a:hover, .tfoot a:active, .tfoot_ahover
+{
+	color: #E76006;
+}
+.alt1, .alt1Active
+{
+	background: #F6F6F6;
+	color: #000000;
+}
+.alt2, .alt2Active
+{
+	background: #EAEAEB;
+	color: #000000;
+}
+.inlinemod
+{
+	background: #FFFFCC;
+	color: #000000;
+}
+.wysiwyg
+{
+	background: #F5F5F5;
+	color: #000000;
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 5px 10px 10px 10px;
+	padding: 0px;
+}
+.wysiwyg a:link, .wysiwyg_alink
+{
+	color: #22229C;
+}
+.wysiwyg a:visited, .wysiwyg_avisited
+{
+	color: #22229C;
+}
+.wysiwyg a:hover, .wysiwyg a:active, .wysiwyg_ahover
+{
+	color: #E76006;
+}
+textarea, .bginput
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.bginput option, .bginput optgroup
+{
+	font-size: 10pt;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.button
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+select
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+option, optgroup
+{
+	font-size: 11px;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.smallfont
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.time
+{
+	color: #666686;
+}
+.navbar
+{
+	font: 12pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.highlight
+{
+	color: #FF0000;
+	font-weight: bold;
+}
+.fjsel
+{
+	background: #3E5C92;
+	color: #E0E0F6;
+}
+.fjdpth0
+{
+	background: #F7F7F7;
+	color: #000000;
+}
+.panel
+{
+	background: #F5F5F5;
+	color: #000000;
+	padding: 10px;
+	border: 1px;
+}
+.panelsurround
+{
+	background: #F5F5F5;
+	color: #000000;
+}
+legend
+{
+	color: #222222;
+	font: 11px tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.vbmenu_control
+{
+	background: #777777;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	padding: 3px 6px 3px 6px;
+	white-space: nowrap;
+}
+.vbmenu_control a:link, .vbmenu_control_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:visited, .vbmenu_control_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:hover, .vbmenu_control a:active, .vbmenu_control_ahover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+.vbmenu_popup
+{
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #0B198C;
+}
+.vbmenu_option
+{
+	background: #444444;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_option a:link, .vbmenu_option_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:visited, .vbmenu_option_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:hover, .vbmenu_option a:active, .vbmenu_option_ahover
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_hilite
+{
+	background: #F37016;
+	color: #000000;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_hilite a:link, .vbmenu_hilite_alink
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:visited, .vbmenu_hilite_avisited
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:hover, .vbmenu_hilite a:active, .vbmenu_hilite_ahover
+{
+	color: #000000;
+	text-decoration: none;
+}
+/* ***** styling for 'big' usernames on postbit etc. ***** */
+.bigusername { font-size: 14pt; }
+
+/* ***** small padding on 'thead' elements ***** */
+td.thead, th.thead, div.thead { padding: 4px; }
+
+/* ***** basic styles for multi-page nav elements */
+.pagenav a { text-decoration: none; }
+.pagenav td { padding: 2px 4px 2px 4px; }
+
+/* ***** de-emphasized text */
+.shade, a.shade:link, a.shade:visited { color: #777777; text-decoration: none; }
+a.shade:active, a.shade:hover { color: #FF4400; text-decoration: underline; }
+.tcat .shade, .thead .shade, .tfoot .shade { color: #DDDDDD; }
+
+/* ***** define margin and font-size for elements inside panels ***** */
+.fieldset { margin-bottom: 6px; }
+.fieldset, .fieldset td, .fieldset p, .fieldset li { font-size: 11px; }
+</style>
+<link rel="stylesheet" type="text/css" href="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/vbulletin_important.css">
+
+
+<!-- / CSS Stylesheet -->
+
+<script type="text/javascript" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/connection-min.js"></script>
+<script type="text/javascript">
+<!--
+var SESSIONURL = "";
+var SECURITYTOKEN = "guest";
+var IMGDIR_MISC = "images/misc";
+var vb_disable_ajax = parseInt("0", 10);
+// -->
+</script>
+<script type="text/javascript" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/vbulletin_global.js"></script>
+<script type="text/javascript" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/vbulletin_menu.js"></script>
+
+
+	<link rel="alternate" type="application/rss+xml" title="SA-MP Forums RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2">
+	
+		<link rel="alternate" type="application/rss+xml" title="SA-MP Forums - Tools and Files - RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2&forumids=82">
+	
+<script type="text/javascript" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/ame.js"></script>
+	<title>[Tool/Web/Other] SAMP Zone Editor - SA-MP Forums</title>
+	<script type="text/javascript" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/vbulletin_post_loader.js"></script>
+	<style type="text/css" id="vbulletin_showthread_css">
+	<!--
+	
+	#links div { white-space: nowrap; }
+	#links img { vertical-align: middle; }
+	-->
+	</style>
+</head>
+<body onload="">
+<!-- logo -->
+<a name="top"></a>
+<center><div align="center" style="height: 80px; width: 90%; background: transparent url(http://forum.sa-mp.com/logo_new_back3.png) repeat-x 0px 0px; text-align:center;">
+<table border="0" width="90%" cellpadding="0" cellspacing="0" align="center">
+<tbody><tr>
+	<td align="center"><a href="http://forum.sa-mp.com/index.php"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/logo_forum.gif" border="0" alt="SA-MP Forums" title="SA-MP Forums"></a></td>
+</tr>
+</tbody></table>
+</div></center>
+<!-- /logo -->
+
+<!-- content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+
+
+
+
+<br>
+
+<!-- breadcrumb, login, pm info -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<tbody><tr>
+	<td class="alt1" width="100%">
+		
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr valign="bottom">
+				<td><a href="http://forum.sa-mp.com/showthread.php?t=467190#" onclick="history.back(1); return false;"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/navbits_start.gif" alt="Go Back" border="0" title="Go Back"></a></td>
+				<td>&nbsp;</td>
+				<td width="100%"><span class="navbar"><a href="http://forum.sa-mp.com/index.php" accesskey="1">SA-MP Forums</a></span> 
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=8">SA-MP Scripting and Plugins</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=17">Filterscripts</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=82">Tools and Files</a></span>
+
+</td>
+			</tr>
+			<tr>
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/[Tool Web Other] SAMP Zone Editor - SA-MP Forums.html"><img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/navbits_finallink_ltr.gif" alt="Reload this Page" border="0" title="Reload this Page"></a> <strong>
+	[<span style="font-weight:bold;font-size:8pt;color:#5A0054;">Tool/Web/Other</span>] SAMP Zone Editor
+
+</strong></td>
+			</tr>
+			</tbody></table>
+		
+	</td>
+
+	<td class="alt2" nowrap="nowrap" style="padding:0px">
+		<!-- login form -->
+		<form action="http://forum.sa-mp.com/login.php?do=login" method="post" onsubmit="md5hash(vb_login_password, vb_login_md5password, vb_login_md5password_utf, 0)">
+		<script type="text/javascript" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/vbulletin_md5.js"></script>
+		<table cellpadding="0" cellspacing="3" border="0">
+		<tbody><tr>
+			<td class="smallfont" style="white-space: nowrap;"><label for="navbar_username">User Name</label></td>
+			<td><input type="text" class="bginput" style="font-size: 11px" name="vb_login_username" id="navbar_username" size="10" accesskey="u" tabindex="101" value="User Name" onfocus="if (this.value == &#39;User Name&#39;) this.value = &#39;&#39;;"></td>
+			<td class="smallfont" nowrap="nowrap"><label for="cb_cookieuser_navbar"><input type="checkbox" name="cookieuser" value="1" tabindex="103" id="cb_cookieuser_navbar" accesskey="c">Remember Me?</label></td>
+		</tr>
+		<tr>
+			<td class="smallfont"><label for="navbar_password">Password</label></td>
+			<td><input type="password" class="bginput" style="font-size: 11px" name="vb_login_password" id="navbar_password" size="10" tabindex="102"></td>
+			<td><input type="submit" class="button" value="Log in" tabindex="104" title="Enter your username and password in the boxes provided to login, or click the &#39;register&#39; button to create a profile for yourself." accesskey="s"></td>
+		</tr>
+		</tbody></table>
+		<input type="hidden" name="s" value="">
+		<input type="hidden" name="securitytoken" value="guest">
+		<input type="hidden" name="do" value="login">
+		<input type="hidden" name="vb_login_md5password">
+		<input type="hidden" name="vb_login_md5password_utf">
+		</form>
+		<!-- / login form -->
+	</td>
+
+</tr>
+</tbody></table>
+<!-- / breadcrumb, login, pm info -->
+
+<!-- nav buttons bar -->
+<div class="tborder" style="padding:1px; border-top-width:0px">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+	<tbody><tr align="center">
+		
+		
+			<td class="vbmenu_control"><a href="http://forum.sa-mp.com/newacc.php" rel="nofollow">New Account</a></td>
+		
+		
+		
+			<td class="vbmenu_control"><a id="community" href="http://forum.sa-mp.com/showthread.php?t=467190&nojs=1#community" rel="nofollow" accesskey="6" style="cursor: pointer;">Community <img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("community"); </script></td>
+		
+		
+			
+				
+				<td class="vbmenu_control"><a href="http://forum.sa-mp.com/search.php?do=getdaily" accesskey="2">Today's Posts</a></td>
+				
+				<td class="vbmenu_control"><a id="navbar_search" href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow">Search</a> </td>
+			
+			
+		
+		
+		
+		</tr>
+	</tbody></table>
+</div>
+<!-- / nav buttons bar -->
+
+<br>
+
+
+
+
+
+
+<!-- NAVBAR POPUP MENUS -->
+
+	
+	<!-- community link menu -->
+	<div class="vbmenu_popup" id="community_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr><td class="thead">Community Links</td></tr>
+		
+		
+		
+		
+		
+			<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/memberlist.php">Members List</a></td></tr>
+		
+		
+		</tbody></table>
+	</div>
+	<!-- / community link menu -->
+	
+	
+	
+	<!-- header quick search form -->
+	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead">Search Forums</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+				<form action="http://forum.sa-mp.com/search.php?do=process" method="post">
+
+					<input type="hidden" name="do" value="process">
+					<input type="hidden" name="quicksearch" value="1">
+					<input type="hidden" name="childforums" value="1">
+					<input type="hidden" name="exactname" value="1">
+					<input type="hidden" name="s" value="">
+					<input type="hidden" name="securitytoken" value="guest">
+					<div><input type="text" class="bginput" name="query" size="25" tabindex="1001"><input type="submit" class="button" value="Go" tabindex="1004"></div>
+					<div style="margin-top:6px">
+						<label for="rb_nb_sp0"><input type="radio" name="showposts" value="0" id="rb_nb_sp0" tabindex="1002" checked="checked">Show Threads</label>
+						&nbsp;
+						<label for="rb_nb_sp1"><input type="radio" name="showposts" value="1" id="rb_nb_sp1" tabindex="1003">Show Posts</label>
+					</div>
+				</form>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow">Advanced Search</a></td>
+		</tr>
+		
+		</tbody></table>
+	</div>
+	<!-- / header quick search form -->
+	
+	
+	
+<!-- / NAVBAR POPUP MENUS -->
+
+<!-- PAGENAV POPUP -->
+	<div class="vbmenu_popup" id="pagenav_menu" style="display: none; position: absolute; z-index: 50;">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead" nowrap="nowrap">Go to Page...</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="">
+			<form action="http://forum.sa-mp.com/index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4">
+				<input type="button" class="button" id="pagenav_ibtn" value="Go">
+			</form>
+			</td>
+		</tr>
+		</tbody></table>
+	</div>
+<!-- / PAGENAV POPUP -->
+
+
+
+
+
+
+
+
+
+
+<a name="poststop" id="poststop"></a>
+
+<!-- controls above postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tbody><tr valign="bottom">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&noquote=1&p=2720144" rel="nofollow"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tbody><tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 7</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 10 of 68"><strong>1</strong></span></td>
+ <td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=467190&page=2" title="Show results 11 to 20 of 68">2</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=467190&page=3" title="Show results 21 to 30 of 68">3</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=467190&page=2" title="Next Page - Results 11 to 20 of 68">&gt;</a></td>
+	<td class="alt1" nowrap="nowrap"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=467190&page=7" title="Last Page - Results 61 to 68 of 68">Last <strong>»</strong></a></td>
+	<td class="vbmenu_control" title="" id="pagenav.32" style="cursor: pointer;"> <img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></td>
+</tr>
+</tbody></table>
+</div></td>
+</tr>
+</tbody></table>
+<!-- / controls above postbits -->
+
+<!-- toolbar -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center" style="border-bottom-width:0px">
+<tbody><tr>
+	<td class="tcat" width="100%">
+		<div class="smallfont">
+		
+			<a href="http://forum.sa-mp.com/showthread.php?t=467190&goto=newpost"><img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/firstnew.gif" alt="View First Unread" border="0" title="View First Unread"></a>
+			<a href="http://forum.sa-mp.com/showthread.php?t=467190&goto=newpost">View First Unread</a>
+		
+		&nbsp;
+		</div>
+	</td>
+	<td class="vbmenu_control" id="threadtools" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=467190&nojs=1#goto_threadtools">Thread Tools</a>
+		<script type="text/javascript"> vbmenu_register("threadtools"); </script> <img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+	
+	
+	<td class="vbmenu_control" id="displaymodes" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=467190&nojs=1#goto_displaymodes">Display Modes</a>
+		<script type="text/javascript"> vbmenu_register("displaymodes"); </script> <img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+
+	
+
+</tr>
+</tbody></table>
+<!-- / toolbar -->
+
+
+
+<!-- end content table -->
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- / end content table -->
+
+
+
+
+
+<div id="posts"><!-- post #2720144 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2720144" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2720144" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2720144"><img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			01/10/2013, 09:03 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2720144&postcount=1" target="new" rel="nofollow" id="postcount2720144" name="1"><strong>1</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2720144">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=148186">Grimrandomer</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2720144", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Big Clucker</div>
+			<div class="smallfont"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=148186"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/image.php" width="80" height="80" alt="Grimrandomer&#39;s Avatar" border="0" title="Grimrandomer&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Dec 2011</div>
+				
+				
+				
+				
+<div>
+  Posts: 122
+</div>
+
+<div>Reputation: 43</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2720144" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/icon1.gif" alt="Post" border="0" title="Post">
+				<strong>SAMP Zone Editor</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2720144">
+			
+			While working with Incognito's streamer (<a href="http://forum.sa-mp.com/showthread.php?t=102865" target="_blank">http://forum.sa-mp.com/showthread.php?t=102865</a>) I wanted an easy way to make "Zones" on the map with the CreateDynamicPolygon and made a little tool to make it simple.<br>
+<br>
+Latest Version: 1.0.0.5 (14/12/2013)<br>
+<br>
+<a href="http://qsimg.co.uk/456ff7" target="_blank"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/0a593c" border="0" alt=""></a><br>
+<br>
+<a href="http://qsimg.co.uk/ca89ad" target="_blank"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/1969ea" border="0" alt=""></a><br>
+Edit: I'm using my own image up-loader for the above images, If they look broken, clear your web browser cache!<br>
+<br>
+How To:<br>
+You can create a zone by clicking the top "Add" button, the zones you have created will be in the top list, to select a zone, click it in the list.<br>
+When you have a selected zone, you can remove it with the top "Remove" button.<br>
+<br>
+You can change the position of a zone by selecting it and using the Up and Down arrows<br>
+<br>
+When you have a zone selected, you can double click on the map to add a point, or click the lower "Add" button to add where the center of the red cross it.<br>
+<br>
+A path wont form until their is 3 points in the zone.<br>
+<br>
+All points in the zone will be in the bottom list, double click one to center the map on it, or select and then click the lower remove button to remove it.<br>
+<br>
+As the zone is a closed path, it will be created in order of the points in the list, if you want to add a new point in the middle of the list, select a point, and when you add a new one, it will be added <b>after</b> the selected point.<br>
+<br>
+To move around the map, simply click and drag, or enter co-ordinates in the boxes at the top right for X and Y respectively<br>
+<br>
+There is also a simple export button under File -&gt; Export that can export either lists of points, or a simple filter script.<br>
+<br>
+<a href="http://qsimg.co.uk/5c7c92" target="_blank"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/e81f8f" border="0" alt=""></a><br>
+<br>
+(Hint, the filter-script wont compile if you have any non alphanumeric zone names, or zone names over 64 characters long)<br>
+(Hint, the filter-script requires the streamer mentioned at the top of the post)<br>
+(Hint, the filter-script is untested with dynamic circles)<br>
+<br>
+Tip:<br>
+As the program now draws the map in "tiles", you should see improved performance, also, to avoid long start up times, tiles are generated as needed, so when you zoom in/out in parts of the map you have not already generated there may be a slight pause. The total tiles generated can be found under the FPS in the top left corner.<br>
+<br>
+As this is not fully tested, I'm unsure how robust it is against crashing, so i advise saving regularly to avoid file losses. <br>
+<br>
+Change-log:<br>
+<br>
+Version 1.0.0.5<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">Now supports Dynamic Rectangles</pre>
+</div>Version 1.0.0.4<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">Now has simple zoom in/out</pre>
+</div>Version 1.0.0.3<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">Now works with Dynamic Circle's</pre>
+</div>Download:<br>
+<br>
+Version 1.0.0.5 <a href="http://www.solidfiles.com/d/6b51c56796/" target="_blank">Solidfiles</a> or <a href="https://www.dropbox.com/s/ci2u561vqec6u1s/SAMP%20Zone%20Editor.exe" target="_blank">Dropbox</a><br>
+<br>
+Version 1.0.0.4 <a href="http://www.solidfiles.com/d/6f8a9aea51/" target="_blank">Solidfiles</a> or <a href="https://www.dropbox.com/s/nj4rwuriwoqtogp/SAMP%20Zone%20Editor.exe" target="_blank">Dropbox</a><br>
+Version 1.0.0.3 <a href="http://www.solidfiles.com/d/d260d61184/" target="_blank">Solidfiles</a> or <a href="https://www.dropbox.com/s/r831ld9weim668t/SAMP%20Zone%20Editor.exe" target="_blank">Dropbox</a><br>
+Version 1.0.0.2 <a href="http://www.solidfiles.com/d/50c9831ea1/" target="_blank">Solidfiles</a> or <a href="https://www.dropbox.com/s/s037qdt9o8abdya/SAMP%20Zone%20Editor.exe" target="_blank">Dropbox</a><br>
+Version 1.0.0.1 <a href="http://www.solidfiles.com/d/880a5b4a66/" target="_blank">Solidfiles</a><br>
+<br>
+Source code / Version History can be found here:<br>
+<a href="https://bitbucket.org/Grimrandomer/samp-zone-editor" target="_blank">https://bitbucket.org/Grimrandomer/samp-zone-editor</a><br>
+<br>
+<br>
+Any comments or questions please ask <img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/biggrin.png" border="0" alt="" title="Cheesy" class="inlineimg">
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><a href="http://www.lv-cnr.com/" target="_blank"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/sign_forum.png" border="0" alt=""></a><br>
+<br>
+<a href="ts3server://ts3.lv-cnr.com" target="_blank">ts3.lv-cnr.com</a> - <a href="http://www.lv-cnr.com/" target="_blank">www.lv-cnr.com</a> - <a href="samp://samp.lv-cnr.com:7777" target="_blank">samp.lv-cnr.com</a></div><div align="center"><br>
+[<font color="#5A0054">Tool</font>] <a href="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/[Tool Web Other] SAMP Zone Editor - SA-MP Forums.html" target="_blank">SA-MP Zone Editor</a> / [<font color="#29A">Include</font>] <a href="http://forum.sa-mp.com/showthread.php?t=493603" target="_blank">gCasino - Scripted Casino's</a><br>
+</div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+		<!-- edit note -->
+			<div class="smallfont">
+				<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+				<em>
+					
+						Last edited by Grimrandomer; 29/01/2014 at <span class="time">02:03 PM</span>.
+					
+					
+						Reason: Version 1.0.0.5
+					
+				</em>
+			</div>
+		<!-- / edit note -->
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/user_offline.gif" alt="Grimrandomer is offline" border="0" title="Grimrandomer is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2720144" rel="nofollow"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2720144 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2720144_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Grimrandomer</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=148186">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=148186" rel="nofollow">Send a private message to Grimrandomer</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=148186" rel="nofollow">Find More Posts by Grimrandomer</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2720144 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2720144 --><!-- post #2720155 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2720155" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2720155" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2720155"><img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			01/10/2013, 09:08 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2720155&postcount=2" target="new" rel="nofollow" id="postcount2720155" name="2"><strong>2</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2720155">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=140884">m99t</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2720155", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Little Clucker</div>
+			<div class="smallfont"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Oct 2011</div>
+				
+				
+				
+				
+<div>
+  Posts: 4
+</div>
+
+<div>Reputation: -4</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2720155" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: SAMP Zone Editor</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2720155">
+			
+			Very nice, useful tool!
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/user_offline.gif" alt="m99t is offline" border="0" title="m99t is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2720155" rel="nofollow"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2720155 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2720155_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">m99t</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=140884">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=140884" rel="nofollow">Send a private message to m99t</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=140884" rel="nofollow">Find More Posts by m99t</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2720155 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2720155 --><!-- post #2720156 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2720156" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2720156" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2720156"><img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			01/10/2013, 09:10 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2720156&postcount=3" target="new" rel="nofollow" id="postcount2720156" name="3"><strong>3</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2720156">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=97817">ikey07</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2720156", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=97817"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/image(1).php" width="80" height="80" alt="ikey07&#39;s Avatar" border="0" title="ikey07&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Jul 2010</div>
+				<div>Location: Latvia,Riga</div>
+				
+				
+				
+<div>
+  Posts: 1,111
+</div>
+
+<div>Reputation: 128</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2720156" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: SAMP Zone Editor</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2720156">
+			
+			I smell it useful.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><br>
+<a href="http://ikey07.com/" target="_blank"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/logo.png" border="0" alt=""><br>
+<b>Vehicle mods for SAMP</b></a><br>
+<a href="http://c-roleplay.com/" target="_blank"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/178.32.50.144.7777.5.png" border="0" alt=""></a></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/user_offline.gif" alt="ikey07 is offline" border="0" title="ikey07 is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2720156" rel="nofollow"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2720156 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2720156_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">ikey07</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=97817">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=97817" rel="nofollow">Send a private message to ikey07</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://ikey07.com/">Visit ikey07's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=97817" rel="nofollow">Find More Posts by ikey07</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2720156 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2720156 --><!-- post #2720179 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2720179" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2720179" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2720179"><img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			01/10/2013, 09:27 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2720179&postcount=4" target="new" rel="nofollow" id="postcount2720179" name="4"><strong>4</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2720179">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=150974">DaRealShazz</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2720179", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Big Clucker</div>
+			<div class="smallfont"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=150974"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/image(2).php" width="80" height="80" alt="DaRealShazz&#39;s Avatar" border="0" title="DaRealShazz&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Jan 2012</div>
+				
+				
+				
+				
+<div>
+  Posts: 187
+</div>
+
+<div>Reputation: 55</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2720179" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: SAMP Zone Editor</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2720179">
+			
+			Definitely useful for making zones. Good work!
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/user_offline.gif" alt="DaRealShazz is offline" border="0" title="DaRealShazz is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2720179" rel="nofollow"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2720179 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2720179_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">DaRealShazz</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=150974">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=150974" rel="nofollow">Send a private message to DaRealShazz</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=150974" rel="nofollow">Find More Posts by DaRealShazz</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2720179 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2720179 --><!-- post #2720312 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2720312" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2720312" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2720312"><img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			01/10/2013, 11:35 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2720312&postcount=5" target="new" rel="nofollow" id="postcount2720312" name="5"><strong>5</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2720312">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=175134">Team_PRO</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2720312", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=175134"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/image(3).php" width="80" height="71" alt="Team_PRO&#39;s Avatar" border="0" title="Team_PRO&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Aug 2012</div>
+				<div>Location: Laguna, Philippines</div>
+				
+				
+				
+<div>
+  Posts: 1,692
+</div>
+
+<div>Reputation: 80</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2720312" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: SAMP Zone Editor</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2720312">
+			
+			nice will try
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><b>I no longer help and/or accept in Script Releated Issue. (<font color="DarkRed">PM's and Script Request help From Skype or any Other Instant Messenger will be Ignored!</font>)</b><br>
+<br>
+<img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/4h9rnp.jpg" border="0" alt=""><b> <font color="Navy">Loading Photo Please Wait...</font></b><br>
+<br>
+<b>I Support Rudy_'s project "GTA PropHunt"</b></div><br>
+<div align="center"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/2hfj94w.jpg" border="0" alt=""></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/user_offline.gif" alt="Team_PRO is offline" border="0" title="Team_PRO is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2720312" rel="nofollow"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2720312 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2720312_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Team_PRO</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=175134">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=175134" rel="nofollow">Send a private message to Team_PRO</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="https://github.com/TeamPROPH">Visit Team_PRO's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=175134" rel="nofollow">Find More Posts by Team_PRO</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2720312 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2720312 --><!-- post #2720438 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2720438" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2720438" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2720438"><img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			02/10/2013, 01:47 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2720438&postcount=6" target="new" rel="nofollow" id="postcount2720438" name="6"><strong>6</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2720438">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=170757">Rafael_Zambrano</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2720438", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Huge Clucker</div>
+			<div class="smallfont"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=170757"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/image(4).php" width="53" height="80" alt="Rafael_Zambrano&#39;s Avatar" border="0" title="Rafael_Zambrano&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Jun 2012</div>
+				<div>Location: Moon !, from Italy  Trust yourself.</div>
+				
+				
+				
+<div>
+  Posts: 289
+</div>
+
+<div>Reputation: 16</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2720438" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Respuesta: SAMP Zone Editor</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2720438">
+			
+			really?<br>
+this si amazing ! nice one <img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/biggrin.png" border="0" alt="" title="Cheesy" class="inlineimg"> !<br>
+well done guy +rep
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<b><font size="5"><font face="Comic Sans MS"><div align="center">Just Tryin' to get it right </div></font></font></b>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/user_offline.gif" alt="Rafael_Zambrano is offline" border="0" title="Rafael_Zambrano is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2720438" rel="nofollow"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2720438 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2720438_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Rafael_Zambrano</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=170757">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=170757" rel="nofollow">Send a private message to Rafael_Zambrano</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=170757" rel="nofollow">Find More Posts by Rafael_Zambrano</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2720438 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2720438 --><!-- post #2720469 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2720469" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2720469" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2720469"><img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			02/10/2013, 02:37 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2720469&postcount=7" target="new" rel="nofollow" id="postcount2720469" name="7"><strong>7</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2720469">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=203784">xganyx</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2720469", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Gangsta</div>
+			<div class="smallfont"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=203784"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/image(5).php" width="80" height="35" alt="xganyx&#39;s Avatar" border="0" title="xganyx&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: May 2013</div>
+				
+				
+				
+				
+<div>
+  Posts: 690
+</div>
+
+<div>Reputation: 7</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2720469" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: SAMP Zone Editor</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2720469">
+			
+			wtf?<br>
+Awesome! nice one <img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/biggrin.png" border="0" alt="" title="Cheesy" class="inlineimg">!!<br>
+Rep+
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 130px;
+		text-align: left;
+		overflow: auto">[<font color="Red"><b>FilterScript</b></font>]<a href="http://forum.sa-mp.com/showthread.php?t=450717" target="_blank"><b>Super Power</b></a>
+[<font color="Red"><b>Filterscript</b></font>]<a href="http://forum.sa-mp.com/showthread.php?t=451186" target="_blank"><b>Money Drop FilterScript</b></a>
+[<font color="Red"><b>Filterscript</b></font>]<a href="http://forum.sa-mp.com/showthread.php?t=459876" target="_blank"><b>WazzUp's Admin System</b></a>
+[<font color="Red"><b>Filterscript</b></font>]<a href="http://forum.sa-mp.com/showthread.php?t=460815" target="_blank"><b>[MFA] WazzUp's Music For Admin And Players</b></a>
+[<font color="Red"><b>Filterscript</b></font>]<a href="http://forum.sa-mp.com/showthread.php?t=464523" target="_blank"><b>WazzUp's Dynamic House System</b></a>
+[<font color="DeepSkyBlue"><b>Include</b></font>]<a href="http://forum.sa-mp.com/showthread.php?p=2739815" target="_blank"><b>Extra.inc (Hooked version)</b></a>
+[<font color="Lime"><b>Gamemode</b></font>]<a href="http://forum.sa-mp.com/showthread.php?t=465000" target="_blank"><b>The FunGamming Stunt Freeroam</b></a></pre>
+</div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/user_offline.gif" alt="xganyx is offline" border="0" title="xganyx is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2720469" rel="nofollow"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2720469 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2720469_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">xganyx</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=203784">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=203784" rel="nofollow">Send a private message to xganyx</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=203784" rel="nofollow">Find More Posts by xganyx</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2720469 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2720469 --><!-- post #2720478 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2720478" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2720478" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2720478"><img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			02/10/2013, 02:54 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2720478&postcount=8" target="new" rel="nofollow" id="postcount2720478" name="8"><strong>8</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2720478">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=135587">Willian_Luigi</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2720478", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=135587"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/image(6).php" width="63" height="80" alt="Willian_Luigi&#39;s Avatar" border="0" title="Willian_Luigi&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Aug 2011</div>
+				
+				
+				
+				
+<div>
+  Posts: 2,991
+</div>
+
+<div>Reputation: 486</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2720478" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: SAMP Zone Editor</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2720478">
+			
+			Very interesting, +rep
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/user_offline.gif" alt="Willian_Luigi is offline" border="0" title="Willian_Luigi is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2720478" rel="nofollow"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2720478 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2720478_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Willian_Luigi</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=135587">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=135587" rel="nofollow">Send a private message to Willian_Luigi</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=135587" rel="nofollow">Find More Posts by Willian_Luigi</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2720478 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2720478 --><!-- post #2720605 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2720605" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2720605" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2720605"><img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			02/10/2013, 05:16 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2720605&postcount=9" target="new" rel="nofollow" id="postcount2720605" name="9"><strong>9</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2720605">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=145658">AnGeL_KRAMER</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2720605", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Big Clucker</div>
+			<div class="smallfont"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=145658"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/image(7).php" width="80" height="80" alt="AnGeL_KRAMER&#39;s Avatar" border="0" title="AnGeL_KRAMER&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Nov 2011</div>
+				
+				
+				
+				
+<div>
+  Posts: 111
+</div>
+
+<div>Reputation: 8</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2720605" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: SAMP Zone Editor</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2720605">
+			
+			NICE!
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/user_offline.gif" alt="AnGeL_KRAMER is offline" border="0" title="AnGeL_KRAMER is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2720605" rel="nofollow"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2720605 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2720605_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">AnGeL_KRAMER</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=145658">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=145658" rel="nofollow">Send a private message to AnGeL_KRAMER</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=145658" rel="nofollow">Find More Posts by AnGeL_KRAMER</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2720605 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2720605 --><!-- post #2720616 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2720616" style="padding:0px 0px 6px 0px">
+	
+
+
+
+<table id="post2720616" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2720616"><img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			02/10/2013, 05:39 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2720616&postcount=10" target="new" rel="nofollow" id="postcount2720616" name="10"><strong>10</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2720616">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=114385">OTACON</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2720616", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=114385"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/image(8).php" width="80" height="80" alt="OTACON&#39;s Avatar" border="0" title="OTACON&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Dec 2010</div>
+				<div>Location: bolivia</div>
+				
+				
+				
+<div>
+  Posts: 3,984
+</div>
+
+<div>Reputation: 319</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2720616" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Respuesta: SAMP Zone Editor</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2720616">
+			
+			<b><font color="DarkOrchid"><font size="5"><br>
+exe file and not the source code...<img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/mad.png" border="0" alt="" title="angry" class="inlineimg"><br>
+source code?...</font></font></b>
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<i><font size="2"><font color="Red"><div align="center">your signature has been removed by an administrator.</div></font></font></i><font color="Silver">________________________________________</font><br>
+<i><font size="1">Last edited by <a href="http://forum.sa-mp.com/member.php?u=114385" target="_blank">Kalcor</a>; 12-Oct-2014 at <font color="Gray">10:34</font> Reason: you are god!.</font></i>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/user_offline.gif" alt="OTACON is offline" border="0" title="OTACON is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2720616" rel="nofollow"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2720616 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2720616_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">OTACON</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=114385">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=114385" rel="nofollow">Send a private message to OTACON</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.gamerol.net/">Visit OTACON's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=114385" rel="nofollow">Find More Posts by OTACON</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2720616 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2720616 --><div id="lastpost"></div></div>
+
+<!-- start content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+<!-- / start content table -->
+
+<!-- controls below postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:-3px">
+<tbody><tr valign="top">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&noquote=1&p=2720616" rel="nofollow"><img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	
+		<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tbody><tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 7</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 10 of 68"><strong>1</strong></span></td>
+ <td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=467190&page=2" title="Show results 11 to 20 of 68">2</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=467190&page=3" title="Show results 21 to 30 of 68">3</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=467190&page=2" title="Next Page - Results 11 to 20 of 68">&gt;</a></td>
+	<td class="alt1" nowrap="nowrap"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=467190&page=7" title="Last Page - Results 61 to 68 of 68">Last <strong>»</strong></a></td>
+	<td class="vbmenu_control" title="" id="pagenav.147" style="cursor: pointer;"> <img src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></td>
+</tr>
+</tbody></table>
+</div>
+		
+		</td>
+	
+</tr>
+</tbody></table>
+<!-- / controls below postbits -->
+
+
+
+
+
+
+
+
+
+
+<!-- lightbox scripts -->
+	<script type="text/javascript" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/vbulletin_lightbox.js"></script>
+	<script type="text/javascript">
+	<!--
+	vBulletin.register_control("vB_Lightbox_Container", "posts", 1);
+	//-->
+	</script>
+<!-- / lightbox scripts -->
+
+
+
+
+
+
+
+
+
+
+<!-- next / previous links -->
+	<br>
+	<div class="smallfont" align="center">
+		<strong>«</strong>
+			<a href="http://forum.sa-mp.com/showthread.php?t=467190&goto=nextoldest" rel="nofollow">Previous Thread</a>
+			|
+			<a href="http://forum.sa-mp.com/showthread.php?t=467190&goto=nextnewest" rel="nofollow">Next Thread</a>
+		<strong>»</strong>
+	</div>
+<!-- / next / previous links -->
+
+
+
+
+
+
+
+<!-- popup menu contents -->
+<br>
+
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="http://forum.sa-mp.com/postings.php?t=467190&pollid=" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/printer.gif" alt="Show Printable Version" title="Show Printable Version"> <a href="http://forum.sa-mp.com/printthread.php?t=467190" accesskey="3" rel="nofollow">Show Printable Version</a></td>
+	</tr>
+	
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/sendtofriend.gif" alt="Email this Page" title="Email this Page"> <a href="http://forum.sa-mp.com/sendmessage.php?do=sendtofriend&t=467190" rel="nofollow">Email this Page</a></td>
+	</tr>
+	
+	
+	
+	
+	</tbody></table>
+</form>
+</div>
+<!-- / thread tools menu -->
+
+<!-- **************************************************** -->
+
+<!-- thread display mode menu -->
+<div class="vbmenu_popup" id="displaymodes_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Display Modes<a name="goto_displaymodes"></a></td>
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option" title="nohilite"><img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/mode_linear.gif" alt="Linear Mode" title="Linear Mode"> <strong>Linear Mode</strong></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/mode_hybrid.gif" alt="Hybrid Mode" title="Hybrid Mode"> <a href="http://forum.sa-mp.com/showthread.php?mode=hybrid&t=467190">Switch to Hybrid Mode</a></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/mode_threaded.gif" alt="Threaded Mode" title="Threaded Mode"> <a href="http://forum.sa-mp.com/showthread.php?p=2720144&mode=threaded#post2720144">Switch to Threaded Mode</a></td>
+	
+	</tr>
+	</tbody></table>
+</div>
+<!-- / thread display mode menu -->
+
+<!-- **************************************************** -->
+
+
+
+<!-- **************************************************** -->
+
+
+
+<!-- / popup menu contents -->
+
+
+<!-- forum rules and admin links -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr valign="bottom">
+	<td width="100%" valign="top">
+		<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="210">
+<thead>
+<tr>
+	<td class="thead">
+		<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=467190#top" onclick="return toggle_collapse(&#39;forumrules&#39;)"><img id="collapseimg_forumrules" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/collapse_thead.gif" alt="" border="0"></a>
+		Posting Rules
+	</td>
+</tr>
+</thead>
+<tbody id="collapseobj_forumrules" style="">
+<tr>
+	<td class="alt1" nowrap="nowrap"><div class="smallfont">
+		
+		<div>You <strong>may not</strong> post new threads</div>
+		<div>You <strong>may not</strong> post replies</div>
+		<div>You <strong>may not</strong> post attachments</div>
+		<div>You <strong>may not</strong> edit your posts</div>
+		<hr>
+		
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode" target="_blank">BB code</a> is <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showsmilies" target="_blank">Smilies</a> are <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode#imgcode" target="_blank">[IMG]</a> code is <strong>On</strong></div>
+		<div>HTML code is <strong>Off</strong></div>
+		<hr>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showrules" target="_blank">Forum Rules</a></div>
+	</div></td>
+</tr>
+</tbody>
+</table>
+	</td>
+	<td class="smallfont" align="right">
+		<table cellpadding="0" cellspacing="0" border="0">
+		
+		<tbody><tr>
+			<td>
+			
+			</td>
+		</tr>
+		</tbody></table>
+	</td>
+</tr>
+</tbody></table>
+<!-- /forum rules and admin links -->
+
+<br>
+
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" width="100%" colspan="5">
+			<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=467190#top" onclick="return toggle_collapse(&#39;similarthreads&#39;)"><img id="collapseimg_similarthreads" src="./[Tool Web Other] SAMP Zone Editor - SA-MP Forums_files/collapse_tcat.gif" alt="" border="0"></a>
+			Similar Threads<a name="similarthreads"></a>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_similarthreads" style="">
+<tr class="thead" align="center">
+	<td class="thead" width="40%">Thread</td>
+	<td class="thead" width="15%" nowrap="nowrap">Thread Starter</td>
+	<td class="thead" width="20%">Forum</td>
+	<td class="thead" width="5%">Replies</td>
+	<td class="thead" width="20%">Last Post</td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont">[<span style="font-weight:bold;font-size:8pt;color:#AD3333;">FilterScript</span>] <a href="http://forum.sa-mp.com/showthread.php?t=311553" title="GANG ZONE EDITOR 
+To be said the 2nd or maybe even 1st most accurate gang zone creator. 
+ 
+Why did you create this? 
+ 
+Hi all, presenting you my new...">Gang Zone Editor 1.0</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Lorenc_</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Filterscripts</span></td>
+	<td class="alt2" align="center"><span class="smallfont">44</span></td>
+	<td class="alt1" align="right"><span class="smallfont">21/04/2014 <span class="time">10:51 AM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont">[<span style="font-weight:bold;font-size:8pt;color:#2299AA;">Ajuda</span>] <a href="http://forum.sa-mp.com/showthread.php?t=437706" title="Gente eu escolhi um capacete ai queria saber como faço para o capacete ficar na cabeça do player já girei ele para ficar na cabeça do player 
+...">Samp map editor !!!!!!</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Pietrotm2013</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Português/Portuguese</span></td>
+	<td class="alt2" align="center"><span class="smallfont">0</span></td>
+	<td class="alt1" align="right"><span class="smallfont">16/05/2013 <span class="time">10:23 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=413420" title="Ik ben bezig een gebied te mappen voor een server.  
+En ik wou dus een soort wapenkamer maken met weapon models. 
+Maar alle weapon models in SAMP...">SAMP Editor</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Facerafter</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Nederlands/Dutch</span></td>
+	<td class="alt2" align="center"><span class="smallfont">2</span></td>
+	<td class="alt1" align="right"><span class="smallfont">05/02/2013 <span class="time">12:06 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont">[<span style="font-weight:bold;font-size:8pt;color:#846611;">Map</span>] <a href="http://forum.sa-mp.com/showthread.php?t=397020" title="This is my first real map in samp editor so dont expect this one to be a good one. But anyway here it is. Xmas tree with some other objects 
+...">First map in samp editor</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Sweboy</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Maps</span></td>
+	<td class="alt2" align="center"><span class="smallfont">1</span></td>
+	<td class="alt1" align="right"><span class="smallfont">02/12/2012 <span class="time">11:28 PM</span></span></td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+
+<script type="text/javascript">ame_toggle_view({other : 'true',post : 'true',blog : 'true',group : 'true',vm : 'true',sig : 'true'});</script>
+
+<br>
+<div class="smallfont" align="center">All times are GMT. The time now is <span class="time">12:29 PM</span>.</div>
+<br>
+
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- /content area table -->
+
+<form action="http://forum.sa-mp.com/index.php" method="get" style="clear:left">
+
+<table cellpadding="6" cellspacing="0" border="0" width="90%" class="page" align="center">
+<tbody><tr>
+	
+	
+		<td class="tfoot">
+			<select name="langid" onchange="switch_id(this, &#39;lang&#39;)">
+				<optgroup label="Quick Language Chooser">
+					<option value="5" class="">-- (DE) Deutsch</option>
+<option value="1" class="" selected="selected">-- (EN) English</option>
+<option value="3" class="">-- (ES) Español</option>
+<option value="2" class="">-- (FR) Français</option>
+<option value="6" class="">-- (NL) Dutch</option>
+<option value="4" class="">-- (RU) &#1056;&#1091;&#1089;&#1089;&#1082;&#1080;</option>
+
+				</optgroup>
+			</select>
+		</td>
+	
+	<td class="tfoot" align="right" width="100%">
+		<div class="smallfont">
+			<strong>
+				<a href="http://forum.sa-mp.com/sendmessage.php" rel="nofollow" accesskey="9">Contact Us</a> -
+				<a href="http://www.sa-mp.com/">SA-MP</a> -
+				
+				
+				<a href="http://forum.sa-mp.com/archive/index.php">Archive</a> -
+				
+				
+				
+				<a href="http://forum.sa-mp.com/showthread.php?t=467190#top" onclick="self.scrollTo(0, 0); return false;">Top</a>
+			</strong>
+		</div>
+	</td>
+</tr>
+</tbody></table>
+
+<br>
+
+<div align="center">
+	<div class="smallfont" align="center">
+	<!-- Do not remove this copyright notice -->
+	Powered by vBulletin® Version 3.8.6<br>Copyright ©2000 - 2014, Jelsoft Enterprises Ltd.
+	<!-- Do not remove this copyright notice -->
+	</div>
+
+	<div class="smallfont" align="center">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+
+	
+	</div>
+</div>
+
+</form>
+
+
+
+
+<script type="text/javascript">
+<!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//-->
+</script>
+
+<!-- temp -->
+<div style="display:none">
+	<!-- thread rate -->
+	
+		
+	
+	<!-- / thread rate -->
+</div>
+
+
+</body></html>

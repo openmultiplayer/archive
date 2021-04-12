@@ -1,0 +1,3814 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0047)http://forum.sa-mp.com/showthread.php?p=2927819 -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	
+<meta name="generator" content="vBulletin 3.8.6">
+
+<meta name="keywords" content="[FilterScript] Advanced Inventory/Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta], SA-MP, GTA, multiplayer, online, server, pawn, scripting">
+<meta name="description" content="[FilterScript] Advanced Inventory/Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] Filterscripts">
+
+
+<!-- CSS Stylesheet -->
+<style type="text/css" id="vbulletin_css">
+/**
+* vBulletin 3.8.6 CSS
+* Style: 'SAMPStyle'; Style ID: 2
+*/
+body
+{
+	background: #707170;
+	color: #FFFFFFF;
+	font: bold 10pt arial, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 1px 1px 1px 1px;
+	padding: 1px;
+}
+a:link, body_alink
+{
+	color: #4A627F;
+	text-decoration: none;
+}
+a:visited, body_avisited
+{
+	color: #1A425F;
+	text-decoration: none;
+}
+a:hover, a:active, body_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.page
+{
+	background: #DADADB;
+	color: #000000;
+}
+td, th, p, li
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tborder
+{
+	background: #DFDFDF;
+	color: #000000;
+	border: 1px solid #717171;
+}
+.tcat
+{
+	background: #4F4F4F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tcat a:link, .tcat_alink
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:visited, .tcat_avisited
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:hover, .tcat a:active, .tcat_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.thead
+{
+	background: #3F3F3F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.thead a:link, .thead_alink
+{
+	color: #FFFFFF;
+}
+.thead a:visited, .thead_avisited
+{
+	color: #FFFFFF;
+}
+.thead a:hover, .thead a:active, .thead_ahover
+{
+	color: #E76006;
+}
+.tfoot
+{
+	background: #595959;
+	color: #CDCDCD;
+}
+.tfoot a:link, .tfoot_alink
+{
+	color: #CDCDCD;
+}
+.tfoot a:visited, .tfoot_avisited
+{
+	color: #9D9D9D;
+}
+.tfoot a:hover, .tfoot a:active, .tfoot_ahover
+{
+	color: #E76006;
+}
+.alt1, .alt1Active
+{
+	background: #F6F6F6;
+	color: #000000;
+}
+.alt2, .alt2Active
+{
+	background: #EAEAEB;
+	color: #000000;
+}
+.inlinemod
+{
+	background: #FFFFCC;
+	color: #000000;
+}
+.wysiwyg
+{
+	background: #F5F5F5;
+	color: #000000;
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 5px 10px 10px 10px;
+	padding: 0px;
+}
+.wysiwyg a:link, .wysiwyg_alink
+{
+	color: #22229C;
+}
+.wysiwyg a:visited, .wysiwyg_avisited
+{
+	color: #22229C;
+}
+.wysiwyg a:hover, .wysiwyg a:active, .wysiwyg_ahover
+{
+	color: #E76006;
+}
+textarea, .bginput
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.bginput option, .bginput optgroup
+{
+	font-size: 10pt;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.button
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+select
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+option, optgroup
+{
+	font-size: 11px;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.smallfont
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.time
+{
+	color: #666686;
+}
+.navbar
+{
+	font: 12pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.highlight
+{
+	color: #FF0000;
+	font-weight: bold;
+}
+.fjsel
+{
+	background: #3E5C92;
+	color: #E0E0F6;
+}
+.fjdpth0
+{
+	background: #F7F7F7;
+	color: #000000;
+}
+.panel
+{
+	background: #F5F5F5;
+	color: #000000;
+	padding: 10px;
+	border: 1px;
+}
+.panelsurround
+{
+	background: #F5F5F5;
+	color: #000000;
+}
+legend
+{
+	color: #222222;
+	font: 11px tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.vbmenu_control
+{
+	background: #777777;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	padding: 3px 6px 3px 6px;
+	white-space: nowrap;
+}
+.vbmenu_control a:link, .vbmenu_control_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:visited, .vbmenu_control_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:hover, .vbmenu_control a:active, .vbmenu_control_ahover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+.vbmenu_popup
+{
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #0B198C;
+}
+.vbmenu_option
+{
+	background: #444444;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_option a:link, .vbmenu_option_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:visited, .vbmenu_option_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:hover, .vbmenu_option a:active, .vbmenu_option_ahover
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_hilite
+{
+	background: #F37016;
+	color: #000000;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_hilite a:link, .vbmenu_hilite_alink
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:visited, .vbmenu_hilite_avisited
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:hover, .vbmenu_hilite a:active, .vbmenu_hilite_ahover
+{
+	color: #000000;
+	text-decoration: none;
+}
+/* ***** styling for 'big' usernames on postbit etc. ***** */
+.bigusername { font-size: 14pt; }
+
+/* ***** small padding on 'thead' elements ***** */
+td.thead, th.thead, div.thead { padding: 4px; }
+
+/* ***** basic styles for multi-page nav elements */
+.pagenav a { text-decoration: none; }
+.pagenav td { padding: 2px 4px 2px 4px; }
+
+/* ***** de-emphasized text */
+.shade, a.shade:link, a.shade:visited { color: #777777; text-decoration: none; }
+a.shade:active, a.shade:hover { color: #FF4400; text-decoration: underline; }
+.tcat .shade, .thead .shade, .tfoot .shade { color: #DDDDDD; }
+
+/* ***** define margin and font-size for elements inside panels ***** */
+.fieldset { margin-bottom: 6px; }
+.fieldset, .fieldset td, .fieldset p, .fieldset li { font-size: 11px; }
+</style>
+<link rel="stylesheet" type="text/css" href="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/vbulletin_important.css">
+
+
+<!-- / CSS Stylesheet -->
+
+<script type="text/javascript" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/yahoo-dom-event.js"></script><style type="text/css"></style>
+<script type="text/javascript" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/connection-min.js"></script>
+<script type="text/javascript">
+<!--
+var SESSIONURL = "";
+var SECURITYTOKEN = "guest";
+var IMGDIR_MISC = "images/misc";
+var vb_disable_ajax = parseInt("0", 10);
+// -->
+</script>
+<script type="text/javascript" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/vbulletin_global.js"></script>
+<script type="text/javascript" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/vbulletin_menu.js"></script>
+
+
+	<link rel="alternate" type="application/rss+xml" title="SA-MP Forums RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2">
+	
+		<link rel="alternate" type="application/rss+xml" title="SA-MP Forums - Filterscripts - RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2&amp;forumids=17">
+	
+<script type="text/javascript" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/ame.js"></script>
+	<title>[FilterScript] Advanced Inventory/Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums</title>
+	<script type="text/javascript" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/vbulletin_post_loader.js"></script>
+	<style type="text/css" id="vbulletin_showthread_css">
+	<!--
+	
+	#links div { white-space: nowrap; }
+	#links img { vertical-align: middle; }
+	-->
+	</style>
+</head>
+<body onload="if (document.body.scrollIntoView &amp;&amp; (window.location.href.indexOf(&#39;#&#39;) == -1 || window.location.href.indexOf(&#39;#post&#39;) &gt; -1)) { fetch_object(&#39;currentPost&#39;).scrollIntoView(true); }">
+<!-- logo -->
+<a name="top"></a>
+<center><div align="center" style="height: 80px; width: 90%; background: transparent url(http://forum.sa-mp.com/logo_new_back3.png) repeat-x 0px 0px; text-align:center;">
+<table border="0" width="90%" cellpadding="0" cellspacing="0" align="center">
+<tbody><tr>
+	<td align="center"><a href="http://forum.sa-mp.com/index.php"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/logo_forum.gif" border="0" alt="SA-MP Forums" title="SA-MP Forums"></a></td>
+</tr>
+</tbody></table>
+</div></center>
+<!-- /logo -->
+
+<!-- content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+
+
+
+
+<br>
+
+<!-- breadcrumb, login, pm info -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<tbody><tr>
+	<td class="alt1" width="100%">
+		
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr valign="bottom">
+				<td><a href="http://forum.sa-mp.com/showthread.php?p=2927819#" onclick="history.back(1); return false;"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/navbits_start.gif" alt="Go Back" border="0" title="Go Back"></a></td>
+				<td>&nbsp;</td>
+				<td width="100%"><span class="navbar"><a href="http://forum.sa-mp.com/index.php" accesskey="1">SA-MP Forums</a></span> 
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=8">SA-MP Scripting and Plugins</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=17">Filterscripts</a></span>
+
+</td>
+			</tr>
+			<tr>
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums.html"><img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/navbits_finallink_ltr.gif" alt="Reload this Page" border="0" title="Reload this Page"></a> <strong>
+	[<span style="font-weight:bold;font-size:8pt;color:#AD3333;">FilterScript</span>] Advanced Inventory/Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta]
+
+</strong></td>
+			</tr>
+			</tbody></table>
+		
+	</td>
+
+	<td class="alt2" nowrap="nowrap" style="padding:0px">
+		<!-- login form -->
+		<form action="http://forum.sa-mp.com/login.php?do=login" method="post" onsubmit="md5hash(vb_login_password, vb_login_md5password, vb_login_md5password_utf, 0)">
+		<script type="text/javascript" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/vbulletin_md5.js"></script>
+		<table cellpadding="0" cellspacing="3" border="0">
+		<tbody><tr>
+			<td class="smallfont" style="white-space: nowrap;"><label for="navbar_username">User Name</label></td>
+			<td><input type="text" class="bginput" style="font-size: 11px" name="vb_login_username" id="navbar_username" size="10" accesskey="u" tabindex="101" value="User Name" onfocus="if (this.value == &#39;User Name&#39;) this.value = &#39;&#39;;"></td>
+			<td class="smallfont" nowrap="nowrap"><label for="cb_cookieuser_navbar"><input type="checkbox" name="cookieuser" value="1" tabindex="103" id="cb_cookieuser_navbar" accesskey="c">Remember Me?</label></td>
+		</tr>
+		<tr>
+			<td class="smallfont"><label for="navbar_password">Password</label></td>
+			<td><input type="password" class="bginput" style="font-size: 11px" name="vb_login_password" id="navbar_password" size="10" tabindex="102"></td>
+			<td><input type="submit" class="button" value="Log in" tabindex="104" title="Enter your username and password in the boxes provided to login, or click the &#39;register&#39; button to create a profile for yourself." accesskey="s"></td>
+		</tr>
+		</tbody></table>
+		<input type="hidden" name="s" value="">
+		<input type="hidden" name="securitytoken" value="guest">
+		<input type="hidden" name="do" value="login">
+		<input type="hidden" name="vb_login_md5password">
+		<input type="hidden" name="vb_login_md5password_utf">
+		</form>
+		<!-- / login form -->
+	</td>
+
+</tr>
+</tbody></table>
+<!-- / breadcrumb, login, pm info -->
+
+<!-- nav buttons bar -->
+<div class="tborder" style="padding:1px; border-top-width:0px">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+	<tbody><tr align="center">
+		
+		
+			<td class="vbmenu_control"><a href="http://forum.sa-mp.com/newacc.php" rel="nofollow">New Account</a></td>
+		
+		
+		
+			<td class="vbmenu_control"><a id="community" href="http://forum.sa-mp.com/showthread.php?p=2927819&amp;nojs=1#community" rel="nofollow" accesskey="6" style="cursor: pointer;">Community <img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("community"); </script></td>
+		
+		
+			
+				
+				<td class="vbmenu_control"><a href="http://forum.sa-mp.com/search.php?do=getdaily" accesskey="2">Today's Posts</a></td>
+				
+				<td class="vbmenu_control"><a id="navbar_search" href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow">Search</a> </td>
+			
+			
+		
+		
+		
+		</tr>
+	</tbody></table>
+</div>
+<!-- / nav buttons bar -->
+
+<br>
+
+
+
+
+
+
+<!-- NAVBAR POPUP MENUS -->
+
+	
+	<!-- community link menu -->
+	<div class="vbmenu_popup" id="community_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr><td class="thead">Community Links</td></tr>
+		
+		
+		
+		
+		
+			<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/memberlist.php">Members List</a></td></tr>
+		
+		
+		</tbody></table>
+	</div>
+	<!-- / community link menu -->
+	
+	
+	
+	<!-- header quick search form -->
+	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead">Search Forums</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+				<form action="http://forum.sa-mp.com/search.php?do=process" method="post">
+
+					<input type="hidden" name="do" value="process">
+					<input type="hidden" name="quicksearch" value="1">
+					<input type="hidden" name="childforums" value="1">
+					<input type="hidden" name="exactname" value="1">
+					<input type="hidden" name="s" value="">
+					<input type="hidden" name="securitytoken" value="guest">
+					<div><input type="text" class="bginput" name="query" size="25" tabindex="1001"><input type="submit" class="button" value="Go" tabindex="1004"></div>
+					<div style="margin-top:6px">
+						<label for="rb_nb_sp0"><input type="radio" name="showposts" value="0" id="rb_nb_sp0" tabindex="1002" checked="checked">Show Threads</label>
+						&nbsp;
+						<label for="rb_nb_sp1"><input type="radio" name="showposts" value="1" id="rb_nb_sp1" tabindex="1003">Show Posts</label>
+					</div>
+				</form>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow">Advanced Search</a></td>
+		</tr>
+		
+		</tbody></table>
+	</div>
+	<!-- / header quick search form -->
+	
+	
+	
+<!-- / NAVBAR POPUP MENUS -->
+
+<!-- PAGENAV POPUP -->
+	<div class="vbmenu_popup" id="pagenav_menu" style="display: none; position: absolute; z-index: 50;">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead" nowrap="nowrap">Go to Page...</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="">
+			<form action="http://forum.sa-mp.com/index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4">
+				<input type="button" class="button" id="pagenav_ibtn" value="Go">
+			</form>
+			</td>
+		</tr>
+		</tbody></table>
+	</div>
+<!-- / PAGENAV POPUP -->
+
+
+
+
+
+
+
+
+
+
+<a name="poststop" id="poststop"></a>
+
+<!-- controls above postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tbody><tr valign="bottom">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;noquote=1&amp;p=2927819" rel="nofollow"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tbody><tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 7</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 10 of 61"><strong>1</strong></span></td>
+ <td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=496929&amp;page=2" title="Show results 11 to 20 of 61">2</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=496929&amp;page=3" title="Show results 21 to 30 of 61">3</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=496929&amp;page=2" title="Next Page - Results 11 to 20 of 61">&gt;</a></td>
+	<td class="alt1" nowrap="nowrap"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=496929&amp;page=7" title="Last Page - Results 61 to 61 of 61">Last <strong>»</strong></a></td>
+	<td class="vbmenu_control" title="" id="pagenav.32" style="cursor: pointer;"> <img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></td>
+</tr>
+</tbody></table>
+</div></td>
+</tr>
+</tbody></table>
+<!-- / controls above postbits -->
+
+<!-- toolbar -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center" style="border-bottom-width:0px">
+<tbody><tr>
+	<td class="tcat" width="100%">
+		<div class="smallfont">
+		
+		&nbsp;
+		</div>
+	</td>
+	<td class="vbmenu_control" id="threadtools" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?p=2927819&amp;nojs=1#goto_threadtools">Thread Tools</a>
+		<script type="text/javascript"> vbmenu_register("threadtools"); </script> <img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+	
+	
+	<td class="vbmenu_control" id="displaymodes" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?p=2927819&amp;nojs=1#goto_displaymodes">Display Modes</a>
+		<script type="text/javascript"> vbmenu_register("displaymodes"); </script> <img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+
+	
+
+</tr>
+</tbody></table>
+<!-- / toolbar -->
+
+
+
+<!-- end content table -->
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- / end content table -->
+
+
+
+
+
+<div id="posts"><!-- post #2927819 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2927819" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2927819" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px" id="currentPost">
+			<!-- status icon and date -->
+			<a name="post2927819"><img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			24/02/2014, 02:51 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2927819&amp;postcount=1" target="new" rel="nofollow" id="postcount2927819" name="1"><strong>1</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2927819">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=39166">CuervO</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2927819", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=39166"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/image.php" width="80" height="71" alt="CuervO&#39;s Avatar" border="0" title="CuervO&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Oct 2008</div>
+				
+				
+				
+				
+<div>
+  Posts: 1,200
+</div>
+
+<div>Reputation: 187</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2927819" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Advanced Inventory/Object Management Script (New Version!) [SQL;Dynamic]</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2927819">
+			
+			<b><font size="5">INTRODUCTION</font></b><br>
+<br>
+As seen in DayZ Standalone! Fully working inventory &amp; object management Script. With complete dynamic features and now easier to edit! Get yourself one while they are fresh!<br>
+<br>
+Featuring a complete GUI and (sort of) easy manipulation in game, pretty much everything is intuitive.<br>
+<br>
+<u><b>Powered by</b></u><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=91354" target="_blank">ZCMD 0.3.1</a><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=56564" target="_blank">MYSQL R39-3</a><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=102865" target="_blank">Streamer 2.7.5.2</a><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=120356" target="_blank">Sscanf 2.8.1</a><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=262796" target="_blank">Crashdetect</a><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=343172" target="_blank">SortArray</a><br>
+... And numerous snippets from members of the community (Credited in the script)<br>
+<br>
+<br>
+<b><font size="5">DATABASE STRUCTURE</font></b><br>
+<br>
+The complete database structure and explanation:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">actions (ActionID, UsesType, ActionName)
+
+ActionID: Internal SQL ID (Primary Key) (INT)
+UsesType: The type that the action will be attached to. (INT)
+ActionName: The name of the action itself. (VARCHAR)
+
+
+objectinventory (InventoryID, PlayerObjectID, InsideIDs)
+
+InventoryID: Internal SQL ID (Primary Key) (INT)
+PlayerObjectID: The ID of the player object that the inventory belongs to. (INT)
+InsideIDs: The ids objects inside of the inventory, separated by commas. (VARCHAR)
+
+
+objects (ID, Name, Size, UsesType, UsesSlot, SlotsInside, Weight, MaxUses, Display, DisplayColor, DisplayOffsets, OnHandOffsets, OnBodyOffsets, ObjectScales, SpecialFlag_1, SpecialFlag_2, SpecialFlag_3)
+
+ID: Internal SQL ID (Primary Key) (INT)
+Name: Name of the base object (VARCHAR)
+Size: Size (slots it takes) (INT)
+UsesType: ID of the type it uses (INT)
+UsesSlot: ID of the slot it uses (INT)
+SlotsInside: Amount of slots it haves inside (INT)
+Weight: Unused, for scrapped weight (FLOAT)
+MaxUses: Total amount of uses (INT)
+Display: Object ID to use as dropped object / portraits (INT)
+DisplayColor: Color of the object (INT)
+DisplayOffsets: RX,RY,RZ and Zoom of the portrait (INT)
+OnHandOffsets: X, Y, Z, RX, RY, RZ of the object while on hands (VARCHAR)
+OnBodyOffsets: boneid, X, Y, Z, RX, RY, RZ of the object while on body (VARCHAR)
+ObjectScales: X, Y, Z that the object will use as scale for both OnHand and OnBody (VARCHAR)
+SpecialFlag_1: Special flag value 1 (INT)
+SpecialFlag_2: Special flag value 2 (INT)
+SpecialFlag_3: Special flag value 2 (INT)
+
+
+playerinventories (PlayerName, ...)
+
+PlayerName: name of the player attached to the inventory (VARCHAR)
+&lt;number&gt;: ID of the slot, these are dynamic columns and are created/removed by altering the slots.
+
+
+playerobjects (PlayerID, PlayerName, BaseObjectID, CurrentUses, Position, Status, Condition, WorldX, WorldY, WorldZ, P_SpecialFlag_1, P_SpecialFlag_2)
+
+PlayerID: Internal SQL ID (Primary Key) (INT)
+PlayerName: Name of the owner if applies (VARCHAR)
+BaseObjectID: ID of the base object it uses (INT)
+CurrentUses: Current amount of uses it has if applies (INT)
+Position: Current position inside of a object/as a container (INT)
+Status: Current Status -&gt; 1: Is a player owned container  2: Is inside any container   3: Is dropped    4: To be deleted next script reload.   5: Dropped object on hand.  (INT)
+Condition: Unused, default 100. (INT)
+WorldX: Position X inside of world. (FLOAT)
+WorldY: Position Y inside of world. (FLOAT)
+WorldZ: Position Z inside of world (FLOAT)
+P_SpecialFlag_1: Player Special flag value 1 (INT)
+P_SpecialFlag_2: Player Special flag value 2 (INT)
+
+
+slots (SlotID, SlotName, MaxObjects)
+
+SlotID: Internal SQL ID (Primary Key) (INT)
+SlotName: Name of the slot (VARCHAR)
+MaxObjects: Max amount of objects to allow in that slot as containers (INT)
+
+
+types (TypeID, TypeName)
+
+TypeID: Internal SQL ID (Primary Key) (INT)
+TypeName: Name of the Type (VARCHAR)</pre>
+</div><b>Notes</b><br>
+- What are special flags? These are used as optional fields which serve a porpuse for the script. These values could have pretty much their own column, but creating columns for each type of object that you want to implement would take a lot of space and make a big cluster of data; instead, you use the special flags to give objects optional values, and script their functionality based upon them. For example, 'SpecialFlag_1', for objects that have a weapon type (2, 12), it  represents the GTA SA weapon id of the weapon itself, and 'SpecialFlag_2' determines the caliber of the weapon, which is determined at 'SpecialFlag_1' for bullet &amp; magazines type of objects (6, 7).<br>
+<br>
+- 'playerinventories' is a dynamic table which gets altered in the game itself when you create or remove a object slot. For each slot you add, a new column appears with a name of the ID of the slot, and this is used to keep track of the player inventories as in how many objects inside that slot the player has.<br>
+<br>
+<br>
+<b><font size="5">SCRIPT ARCHITECTURE</font></b><br>
+<br>
+In the previous version, the whole architecture was based off the SQL, and every time you needed a variable or a configuration of an object you would have to access the SQL, if you didn't have the value stored in a limited memory (the objects that were displayed). <br>
+On the new version, the architecture was completely rewritten, moving everything to the memory. The SQL is accessed very few times and everything is stored into the memory, which allows more clean, faster and effective manipulation and usage of the data.<br>
+Not only the whole script architecture was rewritten, as in completely all the callbacks and functions modified, but having access to the whole object information in the memory allowed me to make more flexible functions and defenitely easier to read and modify functions.<br>
+<br>
+<br>
+Before we begin, here a glossary:<br>
+<br>
+PLAYER OBJECT: Actual in game object, which can be owned by a player or not.<br>
+BASE OBJECT: The object template that all the player objects use<br>
+<br>
+SOURCE: The source is the ID of the container an object is inside if applies<br>
+DESTINATION: The destination is the ID of the container that an object is getting moved to if applies<br>
+<br>
+SELECTED OBJECT: ID of the object that the player has selected<br>
+SECOND OBJECT: ID of the object that the player has clicked with a selected object<br>
+<br>
+<br>
+<br>
+<br>
+This is a list of the new enumerators and attached variables:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">enum PlayerObjectInfo
+{
+	BaseID,
+	PlayerID,
+ 	OwnerName[24],
+	CurrentUses,
+	Position,
+	Status,
+	Condition,
+	Float:WorldX,
+	Float:WorldY,
+	Float:WorldZ,
+	P_SpecialFlag_1,
+	P_SpecialFlag_2,
+	InventoryID,
+	Inventory[64],
+	GameObject,
+	AreaID,
+	IsNear[PLAYERS]
+}
+new ObjectInfo[MAX_PLAYER_OBJECTS][PlayerObjectInfo];
+new LastObjectInfoIndexUsed, TotalLoadedPlayerObjects;
+// Stores player object data into the memory
+
+enum eObjectData
+{
+	ID,
+	Name[32],
+	Size,
+	UsesType,
+	SlotsInside,
+	UsesSlot,
+	MaxUses,
+	Float:Weight,
+	Display,
+	DisplayColor,
+	Float:DisplayOffsets[4],
+	Float:OnHandOffsets[6],
+	Float:OnBodyOffsets[7],
+	Float:ObjectScales[3],
+	SpecialFlag_1,
+	SpecialFlag_2,
+	SpecialFlag_3
+}
+new ObjectData[MAX_BASE_OBJECTS][eObjectData];
+new LastObjectDataIndexUsed, TotalLoadedBaseObjects;
+// Stores each object individual information
+
+
+enum eSlotData
+{
+	SlotID,
+	SlotName[32],
+ 	MaxObjects
+}
+new SlotData[MAX_SLOTS][eSlotData];
+new LastSlotDataIndexUsed, TotalLoadedSlots;
+// Stores each object individual information
+
+enum PlayerVariables
+{
+	ContainersInPages[13], //MAX_CONTAINERS_LIMIT / MAX_CONTAINERS_PER_PAGE rounded up
+	DroppedContainersInPages[13], //MAX_CONTAINERS_LIMIT / MAX_CONTAINERS_PER_PAGE rounded up
+	ContainerStoredInSlot[MAX_CONTAINERS_PER_PAGE+1], //+1 for the onhand inventory
+	DroppedContainerStoredInSlot[MAX_CONTAINERS_PER_PAGE],
+	ActionStored[MAX_OBJECT_ACTIONS],
+	ObjectInAction,
+	ObjectInActionGlobal,
+	ObjectInActionSource,
+	CurrentListTotal,
+	CurrentListPerPage,
+	CurrentListPage,
+	CurrentListTotalPages,
+	CurrentListStorage[MAX_LIST_ITEMS],
+	InventoryOpen,
+	ContainersListingPage,
+	DroppedContainersListingPage,
+	ContainersListingMin,
+	DroppedContainersListingMin,
+	SelectedObjectID,
+	SelectedContainerID,
+	SelectedObjectSourceID,
+	SelectedObjectGlobal,
+	EdittingObjectID,
+	EdittingActionID,
+    	EdittingSlotID,
+	EdittingTypeID,
+	EdittingListItem,
+	OnHandObjectID,
+	OnHandTypeID,
+	OnHandWeaponID,
+	OnHandAmmoObjectID,
+	OnHandMagObjectID,
+	OnHandSourceID,
+	OnHandSourcePosition,
+	ObjectStoredInIndex[10],
+	ActionSwapStep,
+	HasInvalidAmmo,
+	WearingArmor,
+	Float:DisplayingModelRotation,
+	LastClickedObjectTick,
+	LastClickedObjectID,
+	OverridePosition,
+	MemorySlot[2],
+	Float:SelectedObjectHeaderY[MAX_CONTAINERS_PER_PAGE],
+	HideTooltipTimerID,
+	PlayerSlots[MAX_SLOTS]
+}
+new PlayerVar[PLAYERS][PlayerVariables];
+
+
+enum eTypeInfo
+{
+	TypeID, //ID in database
+	TypeName[32] //Name of the type itself
+}
+new TypeData[MAX_OBJECT_TYPES][eTypeInfo];
+new LastTypeDataIndexUsed, TotalLoadedTypes;
+
+enum eActionInfo
+{
+	ActionID, //ID in database
+	TypeIDAttached, //ID of the type that the action goes with
+	ActionName[32] //Name of the action itself
+}
+new ActionData[MAX_TOTAL_ACTIONS][eActionInfo];
+new LastActionDataIndexUsed, TotalLoadedActions;
+
+
+enum eGlobalInfo
+{
+	ScriptLoaded
+}
+new GlobalData[eGlobalInfo];</pre>
+</div>When I reworked the architecture, I assigned the variables index to their corresponding object id, (Object ID 13 would be stored at ObjectData[13][eObjectData]), however I realized that IDs get skipped a LOT in the database (as objects are created and removed very frequentely), so I reworked it for a third time and the objects were stored on indexes independent to their ID (Object ID 13 could be ObjectData[7][eObjectData])<br>
+<br>
+Below I will list every single function included in the script and it's explanation:<br>
+<br>
+<b>Internal Functions</b><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">- GetPlayerObjectMemory(PlayerObjectID)
+Returns the memory index (for ObjectInfo) where the PlayerObjectID is stored.
+
+- GetObjectDataMemory(BaseObjectID)
+Returns the memory index (for ObjectData) where the Object Base ID is stored.
+
+- GetPlayerObjectDataMemory(PlayerObjectID)
+Returns the memory index (for ObjectData) where the PlayerObjectID is stored
+
+- GetActionDataMemory(fActionID)
+- GetSlotDataMemory(fSlotID)
+- GetTypeDataMemory(fTypeID)
+Returns the memory index where any of those is stored (for ActionData, SlotData and TypeData respectively)
+
+- GetObjectBaseID(PlayerObjectID)
+Returns the player object base ID
+
+- ConnectMySQL();
+Initializes the connection to the SQL server.
+
+- LoadObjectData(); 
+Called automatically when the script initializes the connection with the SQL server.
+
+- LoadPlayerObjects();
+Called after object data is loaded.
+
+- LoadActionsAndTypesData();
+Called after player objects are loaded.
+
+- LoadTypesData()
+Called after actions are loaded.
+
+- LoadSlotsData();
+Called after types are loaded.
+
+- CheckIfPlayerHasInventory(playerid);
+Checks if the playerid has an inventory in the database, if not, create it.
+
+- OnPlayerInventoryCreated(playerid);
+Called when the inventory is created.
+
+- LoadPlayerInventory(playerid)
+Called after inventory creation/player login.
+
+- OnNewPlayerObjectAdded(Float:fX,Float:fY,Float:fZ, SpawnUses, BaseObjectID)
+Called after a new player object is created using SpawnObject
+
+Float:fX, Float:fY, Float:fZ: Coordinates to spawn the object at.
+BaseObjectID: The base object ID that the new player object will use
+SpawnUses: Amount of uses to spawn the object with
+
+- DeleteBaseObject(BaseObjectID)
+Removes BaseObjectID from the game and the database.
+
+- HideOnHandObjectInventory(playerid)
+Hides the inventory of your on hand object
+
+- LoadPlayerNearContainers(playerid)
+Loads all the containers that the player is near and lists them under "Near objects"
+
+- LoadNearObjectInventory(playerid, ContainerObjectID, memslot)
+Loads all the objects inside the corresponding dropped Container Object ID
+
+memslot: Memory index where the container is stored at ObjectStoredInDroppedContainer[][][memslot]
+
+
+- LoadPlayerContainers(playerid)
+Loads all the containers owned by the player and lists them under "Your objects"
+
+- LoadObjectInventory(playerid, ContainerObjectID, memslot)
+Loads all the objects inside the corresponding player Container Object ID
+
+memslot: Memory index where the container is stored at ObjectStoredInContainer[][][memslot]
+
+
+- LoadOnHandObjectInventory(playerid, ObjectID)
+Loads the first seven objects inside your Hand object
+
+- OnObjectInsideChecked(ObjectID)
+Called when removing an object, internal check to remove it from all inventories.
+
+- CheckBulletLimit(playerid, BulletObject, BulletSource, BulletSourceType, Dest)
+This callback is called when moving a bullet object type inside of a weapon or a magazine, checks if the bullet has to split to fit the new weapon or mag, and if it does, create a new object at Dest with the new splitted bullet.
+
+playerid: Player effecting the callback.
+BulletObject: the ID of the Player Object of the Bullet
+BulletSource: the ID of the container that contains the bullet
+BulletSourceType: Type ID of the container that contains the bullet
+Dest: the destination of the BulletObject
+
+- CreateNewSplittedObject(playerid, ObjectDataID, Dest, DestType, fUses, Owner[])
+Called after CheckBulletLimit detects that the bullet needs to be split and actually inserts the new object into the database.
+
+ObjectDataID: the base object that the new bullet will use
+DestType: the type ID of the destination container
+fUses: amount of uses to create the object with
+Owner: the new owner of the object
+
+- InsertObjectInventory(playerid, Type, Dest, DestType, ObjectDataID, fUses)
+Called after CreateNewSplittedBullet inserts the new object into the database, this sets up the object in the memory
+
+- OnObjectSplitted(playerid, Type, Dest, DestType, Object)
+Called after all the previous steps are completed, which moves the object into it's new destination.
+
+
+- UpdateObjectLastPosition(playerid, object)
+Called when the player adds a container to his inventory, to set the object on the last position available.
+
+
+- RefreshObjectInventoryForNear(ObjectID, Exclude = INVALID_PLAYER_ID)
+Refreshes the NearObjects of all players but the Excluded that are near the ObjectID 
+
+- RemoveObjectFromNearPlayers(ObjectID)
+Removes the object from Near Objects from players that are Near that object.
+
+
+- DestroyNearInventoryObjects(playerid)
+Deletes all the Near objects text draws
+
+- DestroyActions(playerid)
+Destroys all the actions text draws
+
+- DestroyInventoryObjects(playerid)
+Destroys all the player containers text draws
+
+
+- CreateInventory(playerid)
+- DestroyInventory(playerid)
+- ShowInventoryBase(playerid)
+- HideInventoryBase(playerid)
+Manipulates the inventory base text draws.
+
+
+- TDTip(playerid, tip[], time = 6000)
+- TDInfo(playerid, info[], time = 6000)
+- TDAdmin(playerid, message[], time = 6000)
+- TDWarning(playerid, warning[], time = 6000)
+- Usage(playerid, error[], time = 6000)
+- TDError(playerid, error[], time = 6000)
+- TDOther(playerid, error[], time = 6000)
+Send a message to the player in the form of a textdraw.
+
+- SendTDMessage(playerid, type, fstring[], {Float, _}:...)
+Sends a formatted TD message of the type that you input
+
+TYPE_ERROR  	1
+TYPE_INFO   	2
+TYPE_ADMIN  	3
+TYPE_WARNING    4
+TYPE_USAGE      5
+TYPE_TIP        6
+TYPE_OTHER      999
+
+
+- GeneralTxtHide(playerid)
+- CreatePlayerTextdraws(playerid)
+- DestroyPlayerTextdraws(playerid)
+Manipulates all the general player text draws
+
+
+- RenderMessage(top, color, const text[])
+- RenderMessageToAll(color, const text[])
+Sends a rendered message to the player/to all.
+
+- RenderFormattedMessage(playerid, color, fstring[], {Float, _}:...)
+Sends a formatted rendered message to the player (to all if INVALID_PLAYER_ID)
+
+
+- GetWeaponSlot(weaponid)
+Returns the slot of the weapon</pre>
+</div><br>
+<b>Player Object Manipulation Functions &amp; Callbacks</b><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">- DropObject(playerid, PlayerObjectID, PlayerObjectType, SourceContainer)
+This function is to be used when you want to drop an object from a player. This removes all special flags, unrender all the player containers, removes the object from it's source, updates the player inventories, etcetera.
+
+playerid: The player that effects the action.
+PlayerObjectID: The Object ID to drop.
+PlayerObjectType: Type ID of the player object.
+SourceContainer: The source of the Player Object.
+
+
+- DropObjectOnPosition(playerid, PlayerObjectID, Float:fX, Float:fY, Float:fZ)
+Drops the PlayerObjectID on the selected position (fX, fY, fZ)
+
+playerid: player that has dropped the object, -1 if not applies.
+
+- SpawnObject(Float:fX,Float:fY,Float:fZ, BaseObjectID, SpawnUses)
+Creates a new player object.
+
+- SetObjectUses(playerid, ObjectID, iUses)
+Set the Current Uses of the ObjectID
+
+- RemoveObjectFromDatabase(ObjectID, bool:inventoryerase)
+Removes completely a Player object from the database, erases inventory if true and removes it from any inventory it contains that object, also resets the special flags of all the objects that use the deleted object ID.
+
+- PutObjectInFirstEmptySlotPla(playerid, Object, SourceContainer = 0, Exclude = 0, bool:Drop = true)
+Puts the object in the first player container that can hold the object
+
+playerid: The player which will own the object
+Object: the actual player object ID
+SourceContainer: The container that contains the Object
+Exclude: Exclude a certain container to search in
+Drop: If true, it will drop the object if it wont find a space, if false, it will just return 0
+
+- PutObjectInFirstEmptySlotCont(playerid, Object, SourceContainer, DestinationContainer, bool:Drop = true)
+Puts the object in the first empty slot inside a certain container
+
+DestionationContainer: the container where to put the Object
+
+
+- MoveObjectToObject(playerid, pos, PlayerObjectID, PlayerObjectType, SourceContainer, SourceType, DestinationContainer, DestinationType, NewOwner, OldOwner[24])
+The main callback to move a object to another object
+
+playerid: playerid that called the function, INVALID_PLAYER_ID if none
+pos: The position where to move the object at. If pos = -1, it will attempt to move the object to the first empty slot inside the DestinationContainer, if it has no room, it then searches for any other container, and if it still has no room, it will drop the object to the ground. If pos = -2, it will attempt to put the object wherever it fits in DestinationContainer, and if it doesn't, do not allow the move at all.
+PlayerObjectID: the ID of the player object to move
+PlayerObjectType: the Type ID of the PlayerObjectID
+SourceContainer: The source container of PlayerObjectID
+SourceType: Type ID of the source container
+DestinationContainer: The player id of the container to move the object to
+DestinationType:  Type ID of the destination container
+NewOwner: Player ID of the new owner
+OldOwner: Name of the old owner
+
+- OnObjectMovedAttempt(playerid, PlayerObjectID, PlayerObjectType, SourceContainer, SourceType, DestinationContainer, DestinationType, NewOwner)
+This is called at the start of MoveObjectToObject, if this returns 0, it stops the MoveObjectToObject, use this callback to check for conditions when moving objects.
+
+- OnServerObjectMoved(playerid, PlayerObjectID, PlayerObjectType, SourceContainer, SourceType, DestinationContainer, DestinationType, NewOwner)
+This is called at the end of MoveObjectToObject, use this callback to set all the SpecialFlags and variables needed, as if this was called, the move was successful.
+
+
+- InternalSwapObject(playerid, ObjectsSource, SelectedObject, SecondObject, SelectedObjectType, SecondObjectType, SecondObjectSourceType, SelectedObjectSourceType, SelectedObjectPosition, SecondObjectPosition, mem)
+This function is to be used when swapping objects that are in the same containers (hence the internal), as it simply only swaps the positions.
+
+playerid: Player that effected the Swap
+ObjectSource: Source of the Selected Object
+SelectedObject: The object that the player has selected (Also First Object, or Object)
+SecondObject: The object the player clicked on
+SelectedObjectType: The type of the selected object
+SecondObjectType: the type of the second object
+SecondObjectSourceType: the type ID of the source of the second object
+SelectedObjectSourceType: the Type ID of the source of the selected object
+SelectedObjectPosition: The position of the first (selected) object
+SecondObjectPosition: The position of the second object
+mem: Memory slot of where the SecondObjectContainer is stored at (this is normally the third variable of GlobalObjectsSlots and ObjectStoredInDroppedContainer, etc.)
+
+- SwapObjectWithObject(playerid, SelectedObjectSource, SecondObjectSource, SelectedObject, SecondObject, SelectedObjectType, SecondObjectType, SecondObjectSourceType, SelectedObjectSourceType, SelectedObjectPosition, SecondObjectPosition, mem)
+This function shares the parameters with it's Internal sister; this is to be used when the objects being swapped are in different containers.
+
+- OnObjectSwapAttempt(playerid, SelectedObjectSource, SecondObjectSource, SelectedObject, SecondObject, SelectedObjectType, SecondObjectType, SecondObjectSourceType, SelectedObjectSourceType)
+This is a callback, this is caleld at the start of both Swap functions, if returned 0, it will stop the swap, use this to check for conditions.
+IMPORTANT: this is also the source of the scripted actions; if you want to create special actions (actions that pop up when you click an object with another object, such as the bullets ones) THIS IS THE PLACE, you will find already done examples inside of this callback.
+
+- OnObjectSwapped(playerid, SelectedObjectSource, SecondObjectSource, SelectedObject, SecondObject, SelectedObjectType, SecondObjectType, SecondObjectSourceType, SelectedObjectSourceType)
+This callback is called at the end of both swapping functions, use this to set all the variables as if this was called the swap was successfull.
+
+
+- AddObjectToObject(playerid, object, dest)
+Adds an object to the dest inventory
+
+dest: The ID of the destination of the object.
+
+- RemoveObjectFromObject(playerid, object, source)
+Removes an object from the source inventory
+
+source: The ID of the source of the object.
+
+
+- OnPlayerClickAction(playerid, ObjectID, fActionID, fActionName[], ObjectType, ActionObjectUses, aTotalUses, Flag1, Flag2, Flag3, objectsource, SpFlag1, SpFlag2, mem1, mem2)
+This callback is called when the player clicks an option from the action menu.
+
+playerid: player that clicked the action.
+ObjectID: ID of the object that the action was clicked on.
+fActionID: ID of the action clicked.
+fActionName: Name of the action clicked.
+ObjectType: Type of the Object that the action was clicked on.
+ActionObjectUses: Current uses of the object that was clicked on.
+aTotalUses: Total uses of the object that was clicked on.
+Flag1, Flag2, Flag3: SpecialFlags of the base object of the ObjectID
+objectsource: Source of the ObjectID
+SpFlag1, SpFlag2: Player special flags of the ObjectID
+mem1: position of the Object
+mem2: Position of the container in the memory.
+
+
+- SplitAmmo(playerid, ObjectID, newammo, oldammo, ObjectSource)
+Function to split an object (used for ammo)
+
+playerid: Player effecting the action
+ObjectID: The player ObjectID to split
+newammo: Amount of uses that the new splitted object will have
+oldammo: Amount of uses that the ObjectID will have left
+ObjectSource: source of the ObjectID
+
+- CheckForBulletCombining(playerid, destobject, destuses, desttotaluses, source, source_source, destcaliber)
+Function to check for combining bullets
+
+destobject: The Object that will get combined with the player's selected object
+destuses: Uses of the player's SelectedObject
+desttotaluses: Uses of the player's SelectedObject
+source: The player's selected object ID
+source_source: Source of the player's selected object ID
+destcaliber: The caliber (Stored in Special Flags) of the destobject
+
+
+- OnPlayerPutObjectInHand(playerid, object, object_type)
+Called when the player puts any object on his hand
+
+object: ID of the player object
+object_type: Type of the player Object.
+
+- OnPlayerPutWeaponOnHand(playerid, WeaponObjectID, TypeOfWeapon)
+Called inside of OnPlayerPutObjectInHand, when it detects that the object that was put in the player's hand was a weapon.
+
+- OnPlayerRemoveWeaponFromHand(playerid)
+Called when the player removes a weapon from his hand.
+
+- CheckOnHandWeaponAmmo(playerid)
+Function used to check the player's current ammo inside of the weapon, and set all the corresponding values (remove the weapon if empty, etc.)
+
+
+- OnObjectDropped(playerid, object, Float:fX, Float:fY, Float:fZ)
+Called when an object is dropped.
+
+
+- OnPlayerRequestActionList(playerid, PlayerObjectID, memoryslotused, PlayerObjectType, Container, bool:Global)
+Called when the player double clicks an object, or when the player clicks an object with another object and there is an scripted action to happen.
+
+PlayerObjectID: the ID of the objec that the player clicked.
+memoryslotused: Position of textdraw of the PlayerObjectID (the textdraw index).
+PlayerObjectType: Type ID of the player object.
+Container: ID of the container that was clicked if applies.
+Global: whether the object is global or not.</pre>
+</div><br>
+<b>Extra player functions &amp; callbacks</b><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 178px;
+		text-align: left;
+		overflow: auto">- UnrenderPlayerContainer(playerid, ObjectID)
+- RenderPlayerContainer(playerid, ObjectID)
+
+Renders/unrenders the player object ID as Attached Object on the body.
+
+
+- OnPlayerEquipContainer(playerid, ObjectID)
+- OnPlayerUnEquipContainer(playerid, ObjectID)
+
+Called when the player equips/unequips a container inside it's inventory.</pre>
+</div><b>Data Manipulation</b><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 386px;
+		text-align: left;
+		overflow: auto">- CountObjectsInInventory(ObjectID)
+Returns amount of objects inside the inventory of the inputted Object Player ID
+
+- CountPlayerContainers(playerid)
+Returns amount of containers a plyer owns
+
+- GetPlayerContainers(playerid)
+Returns containers of a player as a string, IDs separated by commas.
+
+- IsContainerSlotFree(Container, Slot)
+Returns 1 if the Slot on the Container is free, 0 if it isn't
+
+- CountEmptySlotsAfterPosition(Container, fPosition)
+Returns amount of empty slots inside of Container after fPosition
+
+- FindFirstEmptySlotInContainer(Container, start = 0)
+Returns the first empty slot in the Container, starting from any position
+
+- CheckIfObjectFitsInObject(ObjectToCheck, InsideOfObject, NewPosition)
+Returns 1 if the ObjectToCheck fits inside of InsideOfObject beginning from NewPosition
+
+- CheckIfObjectFitsInPlaceOf(ObjectToCheck, SecondObject, SecondObjectContainer)
+Returns 1 if the ObjectToCheck fits in place of the SecondObject that is inside SecondObjectContainer</pre>
+</div><br>
+<b>In Game Object Related Functions</b><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 114px;
+		text-align: left;
+		overflow: auto">- SetObjectColors(GTAObjectID, PlayerObjectID, ObjectBaseID = -1)
+Recolors an object dropped if it's not a GTA SA weapon
+
+GTAObjectID: The SAMP object ID
+PlayerObjectID: The ID of the player object
+ObjectBaseID: The Base Object ID of the player object</pre>
+</div><b>Administration Related Functions</b><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">- ListActions(playerid, ItemsPerPage, Page)
+Creates a dialog listing all the actions
+
+- ListTypes(playerid, ItemsPerPage, Page)
+Creates a dialog listing all types
+
+- ListSlots(playerid, ItemsPerPage, Page)
+Creates a dialog listing all slots
+
+- ListObjects(playerid, ItemsPerPage, Page)
+Creates a dialog listing all objects
+
+playerid: player to show the dialog
+ItemsPerPage: how many items in one page
+Page: page to display
+
+- EditActions(playerid, fActionID)
+Brings up the action editing panel for that Action ID.
+
+- OnPlayerCreateAction(playerid)
+Called when a new action is created, the ID is the cache_insert_id
+
+- DeleteAction(fActionID)
+Deletes the fActionID from the memory and the database.
+
+- OnPlayerCreateType(playerid)
+Called when a new type is created, the ID is the cache_insert_id
+
+- DeleteType(iTypeID)
+Deletes the iTypeID from the memory and the database.
+
+- EditType(playerid, ifTypeID)
+Brings up the action editing panel for that Type ID.
+
+- PlayerEditSlot(playerid, fSlotID)
+Brings up the action editing panel for that Slot ID.
+
+- OnPlayerCreateSlot(playerid)
+Called when a new slot is created, the ID is the cache_insert_id
+
+- DeleteSlot(fSlotID)
+Deletes the slot from the memory and the database.
+
+- OnPlayerCreateBaseObject(playerid, Duplicate)
+Called when the player creates a new object via /newobject
+
+Duplicate: if the new object should be a duplicate of a currently existing base object. (0 for none)
+
+- PlayerEditBaseObject(playerid, BaseObjectID)
+Brings up the action editing panel for that Object ID.</pre>
+</div><font size="4">Limits &amp; Definitions</font><br>
+<br>
+MAX_PLAYER_OBJECTS: 32768 - Max amount of player objects that can be loaded into the memory from the database (affects heavily the .amx size)<br>
+MAX_BASE_OBJECTS: 2048 - Max amount of base objects that can be loaded into the memory from the database<br>
+MAX_OBJECT_TYPES: 150 - Max amount of types that can be loaded into the memory from the database<br>
+MAX_TOTAL_ACTIONS: 150 - Max amount of actions that can be loaded into the memory from the database<br>
+MAX_SLOTS: 50 - Max amount of slots that can be loaded into the memory from the database<br>
+MAX_OBJECT_ACTIONS: 3 - Max actions that can be listed in an object when double clicked<br>
+MAX_CARRY_OBJECTS: 40 - Max inventory slots for a single object<br>
+MAX_LIST_ITEMS: 20 - Max items that can be listed in one list<br>
+<br>
+MAX_CONTAINERS_PER_PAGE: 4 - Max amount of containers that can be displayed at once (separated for global and player containers)<br>
+MAX_CONTAINERS_LIMIT: 50 - Max amount of containers to be loaded in the memory at once (separated for global and player containers)<br>
+<br>
+INVALID_SLOT_ID             MAX_SLOTS-1<br>
+INVALID_BASEOBJECT_ID       MAX_BASE_OBJECTS-1<br>
+INVALID_PLAYEROBJECT_ID     MAX_PLAYER_OBJECTS-1<br>
+INVALID_ACTION_ID           MAX_OBJECT_ACTIONS-1<br>
+INVALID_TYPE_ID     		MAX_OBJECT_TYPES-1<br>
+<br>
+<br>
+<font size="4">Non Listed Variables</font><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 306px;
+		text-align: left;
+		overflow: auto">	/*These are all player textdraws, since most use More than two dimensions I can't list them in PlayerVar*/
+new PlayerText:Inv[PLAYERS][24],
+    PlayerText:GeneralTxt[PLAYERS][2],
+    PlayerText:InventoryObjectsHead[PLAYERS][5][MAX_CONTAINERS_PER_PAGE],
+    PlayerText:InventoryObjectsSlots[PLAYERS][MAX_CARRY_OBJECTS][MAX_CONTAINERS_PER_PAGE+1], //+1 is the onhand inventory
+    PlayerText:InventoryObjectsAmount[PLAYERS][MAX_CARRY_OBJECTS][MAX_CONTAINERS_PER_PAGE],
+    PlayerText:GlobalObjectsHead[PLAYERS][5][MAX_CONTAINERS_PER_PAGE],
+    PlayerText:GlobalObjectsSlots[PLAYERS][MAX_CARRY_OBJECTS][MAX_CONTAINERS_PER_PAGE],
+    PlayerText:GlobalObjectsAmount[PLAYERS][MAX_CARRY_OBJECTS][MAX_CONTAINERS_PER_PAGE],
+
+    PlayerText:ActionMenu[PLAYERS][5];
+
+	/*This can't go into PlayerVar because of the three dimensions*/
+new ObjectStoredInContainer[PLAYERS][MAX_CARRY_OBJECTS][MAX_CONTAINERS_PER_PAGE+1], //+1 is the onhand inventory
+	ObjectStoredInDroppedContainer[PLAYERS][MAX_CARRY_OBJECTS][MAX_CONTAINERS_PER_PAGE];
+	
+    
+new dbHandle, query[128], medquery[256], bigquery[512], nname[24], msg[144];</pre>
+</div><br>
+<br>
+<font size="5"><b>USAGE</b></font><br>
+<br>
+<font size="4"><b>GAMEWISE</b></font><br>
+- Press <b>KEY_CTRL_BACK</b> Default '<b>H</b>' to open the inventory (or type /inventory)<br>
+- Select an object by clicking it's portrait.<br>
+- You can move around the object by selecting it and clicking on any slot.<br>
+- Swap objects by clicking another object with a selected object.<br>
+- Open action menu by double clicking any (player) object.<br>
+- Swap containers by clicking a container with another container.<br>
+- Drop any object by clicking the Near Objects box with a selected object.<br>
+- Equip a container by double clicking a dropped container or by clicking your player image with a selected object. (If the object uses slots, it will check if the slot is not occupied by another object, if it is, it will attempt to add the object inside any container)<br>
+- Pickup any object by double clicking it, moving it into your player image or moving it directly into one of your objects.<br>
+- You can put objects in your hands by clicking the 'Hands' Box with a selected object.<br>
+- You can manipulate the on hand inventory the same way you do with the rest of the inventory (except actions).<br>
+- Some objects might not allow to be swapped right away as they might have more than one action with the object you have selected.<br>
+- You can also move an object to a container by clicking the actual container header box with the object you want to put inside of it.<br>
+- Equipping a container will move it to the last position, you can move the container around by swapping it with other containers.<br>
+- The script automatically calculates how many lines of containers will be displayed taking in account the size of the containers theyselves. If by counting the lines (Header plus amount of objects/7 or 6, depending which type of container) the object goes below a set Y coordinate, it will stop listing objects and will pass the last object (the one that exceeded the limit Y) to the next page. That's why, if you have two backpacks with 35 slots (6 lines each), they will be separated into two pages, because the second backpack will exceed the defined Y; while if you have one backpack, and two M4s, only one M4 will go to the next page as the first one wont exceed the defined Y. It is all depending how you place your containers. Max amount of containers is 4 per page (was 3).<br>
+<br>
+<font size="4"><b>SCRIPTWISE</b></font><br>
+- Lots of scripted actions already added. If you wish to add your actions you will need to create the action first (a command in game), after the action is created it will be ready for use, you can script an action by using the OnPlayerClickAction callback, you can help yourself with OnObjectSwapAttempt if you wish to create special interactions between objects.<br>
+<br>
+<font color="Red"><b>WARNING:</b> Most of the actually scripted functions will get broken if you delete the types. If you edit an action or a type, make sure to edit the script on wherever the edited type/actions are used!!</font><br>
+<br>
+- Scripted actions work mainly by the Type ID attached and the Action itself. Special interactions have negative types ids attached so you can control them via the script. If you change an object type and remove it's weapon status, it will no longer function as weapon; if you remove the weapon type all together the script will no longer recognize weapons as the script works heavily by the types and actions ids.<br>
+<br>
+- Use the callbacks OnObjectSwapAttempt, OnObjectMovedAttempt to prevent an object from being moved or swapped if it doesn't fit your needs, and use the callbacks OnObjectSwapped, OnServerObjectMoved to apply new variables (for example, SpecialFlags).<br>
+<br>
+- The magic happens at OnPlayerClickPlayerTextDraw, most of the core functions are called from there. I tried to make the variables names as clear as possible, but doing something wrong in there might screw the whole script up.<br>
+<br>
+- Scripted Actions can be as easy as a few lines (Eat Food, Eat All Food) or as hard as several hundred lines (Weapon system all together). You could try to modify the script and add fuel powered object (objects that require fuel just like weapons require bullets) by using the already scripted weapon system.<br>
+<br>
+- Special Flags are really usefull tools that allow lots of flexibility for the script.<br>
+<br>
+- Status 4 on objects flags them for deletion after the server starts, this is useful to create temporary objects (looting system).<br>
+<br>
+- As already explained, MoveObjectToObject pos parameter offers a lot of flexibility, as -1 will attempt to add the object to the destination container, and if it doesn't fit, into any other container, and if it still doesn't fit, it will drop the object; -2 will attempt to add the object to any slot in the destination container, and if it doesn't fit, prevent the move.<br>
+<br>
+<font size="4">Administration Commands (RCON ADMIN)</font><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">• /objects
+- Lists and brings up the object edition menu
+
+• /newobject
+- Creates an object and inserts you into it's edition mode
+
+• /remobject &lt;id or part of name&gt;
+- Removes a global object from the DB and the memory.
+
+• /spawnobject &lt;ID or part of name&gt;
+- Spawns a persistent object in front of the admin.
+
+• /actions
+- Brings up the action editing menu.
+
+• /newaction
+- Creates a new action and puts you in edit mode.
+
+• /remaction &lt;ID or part of name&gt;
+- Removes an action from the DB and the memory
+
+• /types
+- Brings up the types editing menu
+
+• /newtype
+- Creates a new type and puts you in it's edition mode
+
+• /remtype &lt;ID or part of name&gt;
+- removes a type from the Database and the memory
+
+• /slots
+- Brings up a list with all the current slots
+
+• /newslot
+- Creates a new slot and puts you into it's edit mode.
+
+• /remslot &lt;ID or part of name&gt;
+- Removes a slot from the database and the memory</pre>
+</div>You can use all those commands to modify the in game aspect, you will still need to script actions yourself after you added them in the script (OnPlayerClickAction)<br>
+<br>
+<font size="4">Scripted Actions</font><br>
+At the moment there are several scripted functions included in:<br>
+<br>
+- Swap, Add Into (Attached Type -1): This is an internal action used for bullets interaction with magazines or ammo boxes<br>
+- Eat Food, Eat All Food (Attached Type 5): Allows you to eat an item labeled as food (type 5) and consume one or all of the uses, giving you a health value defined in the SpecialFlag_1 of the object base.<br>
+- Empty Magazine (Attached Type 6): Empties the magazine and adds the content inside of it into the container the magazine currently is.<br>
+- Split (Attached Type 7): Splits the bullet stack into two.<br>
+- Check Ammo (Attached Type 6): Checks how many bullets are inside the magazine<br>
+- Combine, Swap (Attached Type -2): Scripted actions for interactions between bullets.<br>
+- Empty Gun, Empty Bolt Gun (Attached Types 2 &amp; 12): Same as empty magazine but for weapons<br>
+- Check Magazine, Check Chamber (Attached Types 2 &amp; 12): Same as check ammo but for weapons<br>
+- Swap Container, Add Into Container (Attached Types -3): Internal function for containers to allow them to be swaped or add into interactions.<br>
+<br>
+<font size="4">Slots</font><br>
+Slots are a new feature in the rework that limits the amount of containers you can have. A container is assigned a slot, and then the script keeps track of how many objects of a slot you have equiped. If you reach the Max Objects defined on the slots table, the script wont let you add that object as a container (and will instead try to add it inside your containers).<br>
+<br>
+Swapping option between dropped containers and your containers (new feature) is only given if the objects have the same slot.<br>
+<br>
+The player inventory data is kept in playerinventories database, which featuers a dynamic structure. For each new slot you create with /newslot, a new column is added to the playerinventory data, with the ID of the slot, this way, when the player equips a container, it saves it on the slot column that the container uses. (Columns are also deleted when you remove a slot)<br>
+<br>
+<font size="4">Weapon System</font><br>
+Along with the whole core functions, I also added a fully working weapon script that works exactly like (except the weapon attachments) the DayZ SA weapons. You can put a weapon on your hand, but it wont fire unless it haves ammo or a mag with ammo of it's correspondient caliber.<br>
+<br>
+This was the main thing that made me create the SpecialFlags architecture. When I was creating the weapon system, I realized I needed several fields of data to make the system work, as in, what was the GTA weapon ID of the object when I put it on my hand with ammo? What kind of bullets can it take? How many bullets can it take? What kind of mag can it take?..<br>
+Making a column for each field needed would be pretty bad and would look like a cluster when there could be 10 weapons-or-so and 500 other objects with different functions, and then those objects would need custom fields, this is when I came up with the SpecialFlags, which are field of data that can hold an integer, and you can assign that integer to whatever you want in the script, in essence:<br>
+<br>
+SpecialFlag_1, for weapons (Type 2 &amp; 12) determines the GTA SA weapon id to give;<br>
+SpecialFlag_2, for weapons (Type 2 &amp; 12) determines the caliber id of the ammo/mags it would take;<br>
+SpecialFlag_3, for bolt weapons (Type 12) determines the chamber size;<br>
+SpecialFlag_1, for magazines and bullets (Type 6,7) determines the caliber id of them;<br>
+SpecialFlag_2, for magazines (Type 6) determines the amount of bullets it can take inside.<br>
+<br>
+On the same way, P_SpecialFlags are player object special flags that work in the same way, but are individual to each player object, in essence:<br>
+<br>
+P_SpecialFlag_1, for weapons (Type 2 &amp; 12), stores the Player Object ID of the mag or the bullet that is inside it's chamber;<br>
+P_SpecialFlag_1, for mags (Type 6), stores the Player Object ID of the bullet that's inside of it;<br>
+P_SpecialFlag_1, for bullets (Type 7), also stores the Player Object ID of the mag it is inside of;<br>
+<br>
+This way, you can mold your object system any way you want, another example is on the Food items, where SpecialFlag_1 stores the amount of HP it will restore with each use.<br>
+<br>
+Having explained that now what's left is pretty easy: You can dynamically create an object in game. You can assign that object the weapon type, and assign it any SpecialFlags; You can also create another object and assign them the bullet type, also assigning it any SpecialFlags; Finally, combining both, you can make a whole new weapon with any kind of ammo in a few seconds. You could create an AK-74 which doesn't use 7.62x51mm, but 7.62x39mm, instead of the AK-47, or along the AK-47. You could also create a custom damage system based off this, as the AK47 would have more damage (51mm) than the AK74 (39mm).<br>
+<br>
+<font size="5"><b>MEDIA</b></font><br>
+<br>
+<div style="display: none;" id="ame_noshow_post_1449696672_1">
+        <a href="http://www.youtube.com/watch?v=bWz4KgubkmI" title="YouTube" target="_blank">YouTube</a>
+</div>
+<div style="display: inline;" id="ame_doshow_post_1449696672_1">
+<div align="left">
+<table class="tborder" cellpadding="6" cellspacing="1" width="780" style="margin:10px 0">
+<thead>
+        <tr>
+                <td class="tcat" colspan="2" style="text-align:center">
+                        <a href="http://www.youtube.com/watch?v=bWz4KgubkmI" title="YouTube" target="_blank">YouTube</a>
+                </td>
+        </tr>
+</thead>
+<tbody>
+        <tr>
+                <td class="panelsurround" align="left">
+<object width="780" height="500">
+<param name="" movie''="" value="http://www.youtube.com/v/bWz4KgubkmI?fs=1&amp;hd=1">
+<param name="allowFullScreen" value="true">
+<embed src="http://www.youtube.com/v/bWz4KgubkmI&amp;ap=%2526fmt%3D18&amp;fs=1" type="application/x-shockwave-flash" allowfullscreen="true" width="780" height="500" wmode="transparent"></object>
+</td>
+        </tr>
+</tbody>
+</table></div>
+</div><br>
+<font size="5"><b>INSTALLATION &amp; DOWNLOAD</b></font><br>
+<br>
+Database infrastructure and details at lines 9-11<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">#define MYSQL_HOST  "localhost"
+#define MYSQL_USER  "root"
+#define MYSQL_UPASS ""
+#define MYSQL_DB    "inventory"</pre>
+</div>It is also recommended to change the following variables if you want<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 226px;
+		text-align: left;
+		overflow: auto">#define PLAYERS 			200     //Max players, affects really heavily the .amx size.
+
+#define 	MAX_PLAYER_OBJECTS  		32768   //Max amount of player objects that can be loaded into the memory from the database (affects heavily the .amx size)
+#define 	MAX_BASE_OBJECTS  			2048    //Max amount of base objects that can be loaded into the memory from the database
+#define 	MAX_OBJECT_TYPES    		150     //Max amount of types that can be loaded into the memory from the database
+#define 	MAX_TOTAL_ACTIONS   		150     //Max amount of actions that can be loaded into the memory from the database
+#define     MAX_SLOTS                   50      //Max amount of slots that can be loaded into the memory from the database
+#define 	MAX_OBJECT_ACTIONS  		3       //Max actions that can be listed in an object when double clicked
+#define 	MAX_CARRY_OBJECTS   		40      //Max inventory slots for a single object
+#define 	MAX_LIST_ITEMS      		20      //Max items that can be listed in one list
+
+#define     MAX_CONTAINERS_PER_PAGE    	4       //Max amount of containers that can be displayed at once (both for global and player containers)
+#define     MAX_CONTAINERS_LIMIT        50      //Max amount of containers to be loaded in the memory at once (both for global and player containers)</pre>
+</div>The following includes are used:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 130px;
+		text-align: left;
+		overflow: auto">#include &lt;a_samp&gt;
+#include &lt;a_mysql&gt;
+#include &lt;zcmd&gt;
+#include &lt;sscanf2&gt;
+#include &lt;streamer&gt;
+#include &lt;crashdetect&gt;
+#include &lt;SortArray&gt;</pre>
+</div><b>Download</b><br>
+<a href="https://github.com/LouisKeyl/Inventory-Script--SAMP-" target="_blank"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/github.png" border="0" alt=""> GitHub Repository, includes .SQL file with SQL structure</a><br>
+<br>
+<br>
+<b>Special Mentions</b><br>
+Slice for his SortArray.<br>
+Pottus for being Pottus.<br>
+Y_Less because I have to learn how to use foreach.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<a href="http://tinyurl.com/qxvna78" target="_blank"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/pdpu4qe" border="0" alt=""></a>&#8196;&#12288;&#8196; - <b>Team Fortress 2 [<font color="SeaGreen">Gamemode</font>]</b> [SQL] [Whirlpool] [Streamer] [Sscanf] [ZCMD]<br>
+<a href="http://tinyurl.com/pclpls5" target="_blank"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/pdpu4qe" border="0" alt=""></a> <a href="http://pastebin.com/JytrfBkt" target="_blank"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/60nBAlb.png" border="0" alt=""></a> - <b>Live map object editor [<font color="DarkRed">Filterscript</font>]</b>  [DINI] [Streamer] [Sscanf] [ZCMD]<br>
+<a href="http://tinyurl.com/nhpf8nq" target="_blank"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/pdpu4qe" border="0" alt=""></a> <a href="http://tinyurl.com/pk9as49" target="_blank"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/nfxrrrz" border="0" alt=""></a> - <b>Inventory &amp; Object System [<font color="DarkRed">Filterscript</font>]</b> [SQL] [Streamer] [Sscanf] [ZCMD]<br>
+<br>
+<a href="http://pastebin.com/aQHnpA4Z" target="_blank"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/60nBAlb.png" border="0" alt=""></a> - <b>RenderMessage(toAll) [<font color="MediumTurquoise">Snippet</font>]</b>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+		<!-- edit note -->
+			<div class="smallfont">
+				<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+				<em>
+					
+						Last edited by CuervO; 20/03/2015 at <span class="time">12:36 PM</span>.
+					
+					
+				</em>
+			</div>
+		<!-- / edit note -->
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/user_offline.gif" alt="CuervO is offline" border="0" title="CuervO is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2927819" rel="nofollow"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2927819 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2927819_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">CuervO</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=39166">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=39166" rel="nofollow">Send a private message to CuervO</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=39166" rel="nofollow">Find More Posts by CuervO</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2927819 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2927819 --><!-- post #2927824 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2927824" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2927824" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2927824"><img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			24/02/2014, 02:56 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2927824&amp;postcount=2" target="new" rel="nofollow" id="postcount2927824" name="2"><strong>2</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2927824">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=156937">DarkZeroX</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2927824", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Banned</div>
+			<div class="smallfont"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/pinkdead.gif" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Mar 2012</div>
+				
+				
+				
+				
+<div>
+  Posts: 4,446
+</div>
+
+<div>Reputation: 93</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2927824" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Advanced Inventory/Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta]</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2927824">
+			
+			screen?
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/user_offline.gif" alt="DarkZeroX is offline" border="0" title="DarkZeroX is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2927824" rel="nofollow"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2927824 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2927824_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">DarkZeroX</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=156937">View Public Profile</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=156937" rel="nofollow">Find More Posts by DarkZeroX</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2927824 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2927824 --><!-- post #2927826 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2927826" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2927826" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2927826"><img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			24/02/2014, 02:58 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2927826&amp;postcount=3" target="new" rel="nofollow" id="postcount2927826" name="3"><strong>3</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2927826">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=39166">CuervO</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2927826", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=39166"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/image.php" width="80" height="71" alt="CuervO&#39;s Avatar" border="0" title="CuervO&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Oct 2008</div>
+				
+				
+				
+				
+<div>
+  Posts: 1,200
+</div>
+
+<div>Reputation: 187</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2927826" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Respuesta: Advanced Inventory/Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta]</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2927826">
+			
+			While the latest ones are being uploaded feel free to check the previous stage ones:<br>
+<br>
+<a href="http://forum.sa-mp.com/showthread.php?t=495512" target="_blank">http://forum.sa-mp.com/showthread.php?t=495512</a><br>
+<br>
+(Warning: big pictures ahead)<br>
+<br>
+EDIT: Uploaded them on main post <img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/smile.png" border="0" alt="" title="Smiley" class="inlineimg">
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<a href="http://tinyurl.com/qxvna78" target="_blank"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/pdpu4qe" border="0" alt=""></a>&#8196;&#12288;&#8196; - <b>Team Fortress 2 [<font color="SeaGreen">Gamemode</font>]</b> [SQL] [Whirlpool] [Streamer] [Sscanf] [ZCMD]<br>
+<a href="http://tinyurl.com/pclpls5" target="_blank"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/pdpu4qe" border="0" alt=""></a> <a href="http://pastebin.com/JytrfBkt" target="_blank"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/60nBAlb.png" border="0" alt=""></a> - <b>Live map object editor [<font color="DarkRed">Filterscript</font>]</b>  [DINI] [Streamer] [Sscanf] [ZCMD]<br>
+<a href="http://tinyurl.com/nhpf8nq" target="_blank"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/pdpu4qe" border="0" alt=""></a> <a href="http://tinyurl.com/pk9as49" target="_blank"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/nfxrrrz" border="0" alt=""></a> - <b>Inventory &amp; Object System [<font color="DarkRed">Filterscript</font>]</b> [SQL] [Streamer] [Sscanf] [ZCMD]<br>
+<br>
+<a href="http://pastebin.com/aQHnpA4Z" target="_blank"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/60nBAlb.png" border="0" alt=""></a> - <b>RenderMessage(toAll) [<font color="MediumTurquoise">Snippet</font>]</b>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/user_offline.gif" alt="CuervO is offline" border="0" title="CuervO is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2927826" rel="nofollow"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2927826 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2927826_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">CuervO</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=39166">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=39166" rel="nofollow">Send a private message to CuervO</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=39166" rel="nofollow">Find More Posts by CuervO</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2927826 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2927826 --><!-- post #2927835 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2927835" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2927835" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2927835"><img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			24/02/2014, 03:06 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2927835&amp;postcount=4" target="new" rel="nofollow" id="postcount2927835" name="4"><strong>4</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2927835">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=222022">anou1</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2927835", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Dec 2013</div>
+				<div>Location: To infinity... and beyond</div>
+				
+				
+				
+<div>
+  Posts: 1,302
+</div>
+
+<div>Reputation: 31</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2927835" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re : Advanced Inventory/Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta]</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2927835">
+			
+			I saw the pictures this week and it looks that it something very good.<br>
+<br>
+Have you a server with this already implemented to see it ?
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/user_offline.gif" alt="anou1 is offline" border="0" title="anou1 is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2927835" rel="nofollow"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2927835 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2927835_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">anou1</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=222022">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=222022" rel="nofollow">Send a private message to anou1</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=222022" rel="nofollow">Find More Posts by anou1</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2927835 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2927835 --><!-- post #2927849 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2927849" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2927849" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2927849"><img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			24/02/2014, 03:19 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2927849&amp;postcount=5" target="new" rel="nofollow" id="postcount2927849" name="5"><strong>5</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2927849">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=161816">DoKAtemar</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2927849", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Little Clucker</div>
+			<div class="smallfont"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Apr 2012</div>
+				
+				
+				
+				
+<div>
+  Posts: 18
+</div>
+
+<div>Reputation: 0</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2927849" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Advanced Inventory/Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta]</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2927849">
+			
+			Good job. Very good job. Can u add another link for downloading? I have some problems with your links
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/user_offline.gif" alt="DoKAtemar is offline" border="0" title="DoKAtemar is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2927849" rel="nofollow"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2927849 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2927849_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">DoKAtemar</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=161816">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=161816" rel="nofollow">Send a private message to DoKAtemar</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=161816" rel="nofollow">Find More Posts by DoKAtemar</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2927849 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2927849 --><!-- post #2927855 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2927855" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2927855" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2927855"><img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			24/02/2014, 03:22 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2927855&amp;postcount=6" target="new" rel="nofollow" id="postcount2927855" name="6"><strong>6</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2927855">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=156937">DarkZeroX</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2927855", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Banned</div>
+			<div class="smallfont"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/pinkdead.gif" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Mar 2012</div>
+				
+				
+				
+				
+<div>
+  Posts: 4,446
+</div>
+
+<div>Reputation: 93</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2927855" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Advanced Inventory/Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta]</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2927855">
+			
+			GG +4
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/user_offline.gif" alt="DarkZeroX is offline" border="0" title="DarkZeroX is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2927855" rel="nofollow"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2927855 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2927855_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">DarkZeroX</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=156937">View Public Profile</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=156937" rel="nofollow">Find More Posts by DarkZeroX</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2927855 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2927855 --><!-- post #2927857 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2927857" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2927857" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2927857"><img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			24/02/2014, 03:23 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2927857&amp;postcount=7" target="new" rel="nofollow" id="postcount2927857" name="7"><strong>7</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2927857">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=39166">CuervO</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2927857", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=39166"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/image.php" width="80" height="71" alt="CuervO&#39;s Avatar" border="0" title="CuervO&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Oct 2008</div>
+				
+				
+				
+				
+<div>
+  Posts: 1,200
+</div>
+
+<div>Reputation: 187</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2927857" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Respuesta: Re: Advanced Inventory/Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta]</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2927857">
+			
+			<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				<div>
+					Originally Posted by <strong>DoKAtemar</strong>
+					<a href="http://forum.sa-mp.com/showthread.php?p=2927849#post2927849" rel="nofollow"><img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/viewpost.gif" border="0" alt="View Post" title="View Post"></a>
+				</div>
+				<div style="font-style:italic">Good job. Very good job. Can u add another link for downloading? I have some problems with your links</div>
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div>Sure, pastebin added.<br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				<div>
+					Originally Posted by <strong>DarkZeroX</strong>
+					<a href="http://forum.sa-mp.com/showthread.php?p=2927855#post2927855" rel="nofollow"><img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/viewpost.gif" border="0" alt="View Post" title="View Post"></a>
+				</div>
+				<div style="font-style:italic">GG +4</div>
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div>Thanks.<br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				<div>
+					Originally Posted by <strong>anou1</strong>
+					<a href="http://forum.sa-mp.com/showthread.php?p=2927835#post2927835" rel="nofollow"><img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/viewpost.gif" border="0" alt="View Post" title="View Post"></a>
+				</div>
+				<div style="font-style:italic">I saw the pictures this week and it looks that it something very good.<br>
+<br>
+Have you a server with this already implemented to see it ?</div>
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div>No, i've got no server. Sorry.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<a href="http://tinyurl.com/qxvna78" target="_blank"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/pdpu4qe" border="0" alt=""></a>&#8196;&#12288;&#8196; - <b>Team Fortress 2 [<font color="SeaGreen">Gamemode</font>]</b> [SQL] [Whirlpool] [Streamer] [Sscanf] [ZCMD]<br>
+<a href="http://tinyurl.com/pclpls5" target="_blank"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/pdpu4qe" border="0" alt=""></a> <a href="http://pastebin.com/JytrfBkt" target="_blank"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/60nBAlb.png" border="0" alt=""></a> - <b>Live map object editor [<font color="DarkRed">Filterscript</font>]</b>  [DINI] [Streamer] [Sscanf] [ZCMD]<br>
+<a href="http://tinyurl.com/nhpf8nq" target="_blank"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/pdpu4qe" border="0" alt=""></a> <a href="http://tinyurl.com/pk9as49" target="_blank"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/nfxrrrz" border="0" alt=""></a> - <b>Inventory &amp; Object System [<font color="DarkRed">Filterscript</font>]</b> [SQL] [Streamer] [Sscanf] [ZCMD]<br>
+<br>
+<a href="http://pastebin.com/aQHnpA4Z" target="_blank"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/60nBAlb.png" border="0" alt=""></a> - <b>RenderMessage(toAll) [<font color="MediumTurquoise">Snippet</font>]</b>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/user_offline.gif" alt="CuervO is offline" border="0" title="CuervO is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2927857" rel="nofollow"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2927857 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2927857_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">CuervO</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=39166">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=39166" rel="nofollow">Send a private message to CuervO</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=39166" rel="nofollow">Find More Posts by CuervO</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2927857 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2927857 --><!-- post #2927878 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2927878" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2927878" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2927878"><img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			24/02/2014, 03:42 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2927878&amp;postcount=8" target="new" rel="nofollow" id="postcount2927878" name="8"><strong>8</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2927878">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=184410">PT</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2927878", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Godfather</div>
+			<div class="smallfont"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=184410"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/image(1).php" width="80" height="80" alt="PT&#39;s Avatar" border="0" title="PT&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Nov 2012</div>
+				<div>Location: Portugal</div>
+				
+				
+				
+<div>
+  Posts: 6,543
+</div>
+
+<div>Reputation: 675</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2927878" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Advanced Inventory/Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta]</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2927878">
+			
+			this is very cool man, nice work.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/user_offline.gif" alt="PT is offline" border="0" title="PT is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2927878" rel="nofollow"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2927878 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2927878_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">PT</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=184410">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=184410" rel="nofollow">Send a private message to PT</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=184410" rel="nofollow">Find More Posts by PT</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2927878 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2927878 --><!-- post #2927896 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2927896" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2927896" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2927896"><img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			24/02/2014, 04:00 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2927896&amp;postcount=9" target="new" rel="nofollow" id="postcount2927896" name="9"><strong>9</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2927896">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=212502">iBots</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2927896", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Huge Clucker</div>
+			<div class="smallfont"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Aug 2013</div>
+				
+				
+				
+				
+<div>
+  Posts: 465
+</div>
+
+<div>Reputation: 7</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2927896" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Advanced Inventory/Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta]</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2927896">
+			
+			cant you convert it into Zcmd or strcmp?<br>
+nice by the way
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/user_offline.gif" alt="iBots is offline" border="0" title="iBots is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2927896" rel="nofollow"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2927896 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2927896_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">iBots</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=212502">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=212502" rel="nofollow">Send a private message to iBots</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=212502" rel="nofollow">Find More Posts by iBots</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2927896 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2927896 --><!-- post #2927900 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2927900" style="padding:0px 0px 6px 0px">
+	
+
+
+
+<table id="post2927900" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2927900"><img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			24/02/2014, 04:00 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2927900&amp;postcount=10" target="new" rel="nofollow" id="postcount2927900" name="10"><strong>10</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2927900">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=169807">Pottus</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2927900", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=169807"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/image(2).php" width="80" height="76" alt="Pottus&#39;s Avatar" border="0" title="Pottus&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Jun 2012</div>
+				
+				
+				
+				
+<div>
+  Posts: 4,816
+</div>
+
+<div>Reputation: 1035</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2927900" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Advanced Inventory/Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta]</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2927900">
+			
+			Good effort but there is some serious design dynamic flaws that makes this an absolute nightmare for anyone to try and customize their implementation.<br>
+<br>
+I'll give you some examples.<br>
+<br>
+- Lots of variables that SHOULD be in enums<br>
+- Too much code in a single script<br>
+- Use of PVars is a huge no-no<br>
+- No need to delete playertextdraws when a player disconnects this happens automatically<br>
+- This should be a include not a filterscript how is anyone to effectively implement this into a gamemode? Using CallRemoteFunction() and/or PVars is a terrible idea<br>
+- No OnPlayerClickTextDraw() so the menu will stay up if you press escape (very annoying), how about when the player dies? Doesn't close either. How about if the player gets shot? That should close the inventory immediately so they can fight<br>
+<br>
+It's a good effort but from my view if I wanted I try and use this there is simply too many problems with this code right now to even give it a try.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><a href="http://www.game-state.com/46.105.43.212:1420/" target="_blank"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/n-560x95_FFFFFF_FFFFFF_000000_000000.png" border="0" alt=""></a><br>
+</div><div align="center"><a href="samp://46.105.43.212:1420" target="_blank"><font color="Lime"><b>Click Here To Play 420DayZ</b></font></a></div><a href="http://forum.sa-mp.com/showthread.php?t=582490" target="_blank"><font color="DarkOrchid"><b>Texture Studio (Texture your maps today!) - New developer (Crayder!)</b></font></a><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=586068" target="_blank"><font color="YellowGreen"><b>Colandreas (Server sided collision plugin) - Maintained by Crayder</b></font></a><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=415397" target="_blank"><font color="MediumTurquoise"><b>All GTA SA Object Array</b></font></a><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=434123" target="_blank"><font color="SeaGreen"><b>Cathedral Of The Damned (Hellish map)</b></font></a><br>
+<a href="http://www.ulclan.com/" target="_blank"><font size="4">uL Clan</font></a><br>
+<font size="5"><font color="SeaGreen">Retired from SA-MP scene <img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/sad.gif" border="0" alt="" title="Sad" class="inlineimg"></font></font>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/user_offline.gif" alt="Pottus is offline" border="0" title="Pottus is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2927900" rel="nofollow"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2927900 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2927900_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Pottus</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=169807">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=169807" rel="nofollow">Send a private message to Pottus</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=169807" rel="nofollow">Find More Posts by Pottus</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2927900 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2927900 --><div id="lastpost"></div></div>
+
+<!-- start content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+<!-- / start content table -->
+
+<!-- controls below postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:-3px">
+<tbody><tr valign="top">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;noquote=1&amp;p=2927900" rel="nofollow"><img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	
+		<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tbody><tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 7</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 10 of 61"><strong>1</strong></span></td>
+ <td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=496929&amp;page=2" title="Show results 11 to 20 of 61">2</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=496929&amp;page=3" title="Show results 21 to 30 of 61">3</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=496929&amp;page=2" title="Next Page - Results 11 to 20 of 61">&gt;</a></td>
+	<td class="alt1" nowrap="nowrap"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=496929&amp;page=7" title="Last Page - Results 61 to 61 of 61">Last <strong>»</strong></a></td>
+	<td class="vbmenu_control" title="" id="pagenav.147" style="cursor: pointer;"> <img src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></td>
+</tr>
+</tbody></table>
+</div>
+		
+		</td>
+	
+</tr>
+</tbody></table>
+<!-- / controls below postbits -->
+
+
+
+
+
+
+
+
+
+
+<!-- lightbox scripts -->
+	<script type="text/javascript" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/vbulletin_lightbox.js"></script>
+	<script type="text/javascript">
+	<!--
+	vBulletin.register_control("vB_Lightbox_Container", "posts", 1);
+	//-->
+	</script>
+<!-- / lightbox scripts -->
+
+
+
+
+
+
+
+
+
+
+<!-- next / previous links -->
+	<br>
+	<div class="smallfont" align="center">
+		<strong>«</strong>
+			<a href="http://forum.sa-mp.com/showthread.php?t=496929&amp;goto=nextoldest" rel="nofollow">Previous Thread</a>
+			|
+			<a href="http://forum.sa-mp.com/showthread.php?t=496929&amp;goto=nextnewest" rel="nofollow">Next Thread</a>
+		<strong>»</strong>
+	</div>
+<!-- / next / previous links -->
+
+
+
+
+
+
+
+<!-- popup menu contents -->
+<br>
+
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="http://forum.sa-mp.com/postings.php?t=496929&amp;pollid=" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/printer.gif" alt="Show Printable Version" title="Show Printable Version"> <a href="http://forum.sa-mp.com/printthread.php?t=496929" accesskey="3" rel="nofollow">Show Printable Version</a></td>
+	</tr>
+	
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/sendtofriend.gif" alt="Email this Page" title="Email this Page"> <a href="http://forum.sa-mp.com/sendmessage.php?do=sendtofriend&amp;t=496929" rel="nofollow">Email this Page</a></td>
+	</tr>
+	
+	
+	
+	
+	</tbody></table>
+</form>
+</div>
+<!-- / thread tools menu -->
+
+<!-- **************************************************** -->
+
+<!-- thread display mode menu -->
+<div class="vbmenu_popup" id="displaymodes_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Display Modes<a name="goto_displaymodes"></a></td>
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option" title="nohilite"><img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/mode_linear.gif" alt="Linear Mode" title="Linear Mode"> <strong>Linear Mode</strong></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/mode_hybrid.gif" alt="Hybrid Mode" title="Hybrid Mode"> <a href="http://forum.sa-mp.com/showthread.php?mode=hybrid&amp;t=496929">Switch to Hybrid Mode</a></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/mode_threaded.gif" alt="Threaded Mode" title="Threaded Mode"> <a href="http://forum.sa-mp.com/showthread.php?p=2927819&amp;mode=threaded#post2927819">Switch to Threaded Mode</a></td>
+	
+	</tr>
+	</tbody></table>
+</div>
+<!-- / thread display mode menu -->
+
+<!-- **************************************************** -->
+
+
+
+<!-- **************************************************** -->
+
+
+
+<!-- / popup menu contents -->
+
+
+<!-- forum rules and admin links -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr valign="bottom">
+	<td width="100%" valign="top">
+		<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="210">
+<thead>
+<tr>
+	<td class="thead">
+		<a style="float:right" href="http://forum.sa-mp.com/showthread.php?p=2927819#top" onclick="return toggle_collapse(&#39;forumrules&#39;)"><img id="collapseimg_forumrules" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/collapse_thead.gif" alt="" border="0"></a>
+		Posting Rules
+	</td>
+</tr>
+</thead>
+<tbody id="collapseobj_forumrules" style="">
+<tr>
+	<td class="alt1" nowrap="nowrap"><div class="smallfont">
+		
+		<div>You <strong>may not</strong> post new threads</div>
+		<div>You <strong>may not</strong> post replies</div>
+		<div>You <strong>may not</strong> post attachments</div>
+		<div>You <strong>may not</strong> edit your posts</div>
+		<hr>
+		
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode" target="_blank">BB code</a> is <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showsmilies" target="_blank">Smilies</a> are <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode#imgcode" target="_blank">[IMG]</a> code is <strong>On</strong></div>
+		<div>HTML code is <strong>Off</strong></div>
+		<hr>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showrules" target="_blank">Forum Rules</a></div>
+	</div></td>
+</tr>
+</tbody>
+</table>
+	</td>
+	<td class="smallfont" align="right">
+		<table cellpadding="0" cellspacing="0" border="0">
+		
+		<tbody><tr>
+			<td>
+			
+			</td>
+		</tr>
+		</tbody></table>
+	</td>
+</tr>
+</tbody></table>
+<!-- /forum rules and admin links -->
+
+<br>
+
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" width="100%" colspan="5">
+			<a style="float:right" href="http://forum.sa-mp.com/showthread.php?p=2927819#top" onclick="return toggle_collapse(&#39;similarthreads&#39;)"><img id="collapseimg_similarthreads" src="./[FilterScript] Advanced Inventory_Object Managament Script (DayZ Themed) [SQL;Dynamic;Beta] - SA-MP Forums_files/collapse_tcat.gif" alt="" border="0"></a>
+			Similar Threads<a name="similarthreads"></a>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_similarthreads" style="">
+<tr class="thead" align="center">
+	<td class="thead" width="40%">Thread</td>
+	<td class="thead" width="15%" nowrap="nowrap">Thread Starter</td>
+	<td class="thead" width="20%">Forum</td>
+	<td class="thead" width="5%">Replies</td>
+	<td class="thead" width="20%">Last Post</td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=495512" title="DOWNLOAD BY CLICKING HERE - Includes (also) Ammo splitting &amp; combining; chamber size for weapons and more! 
+ 
+ 
+I&#39;ve got a very early version builded...">DayZ SA Inventory System (Big Pictures warning)</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">CuervO</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Screenshots and Videos</span></td>
+	<td class="alt2" align="center"><span class="smallfont">48</span></td>
+	<td class="alt1" align="right"><span class="smallfont">08/03/2014 <span class="time">12:50 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=489918" title="Whats up guys i wanted to show you a quick video I made about a system that was supposed to be implemented in the DayZ Survival Instinct server which...">[DayZ]Inventory, Weapons, Weapon Customization, Items</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">$Marco$</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Screenshots and Videos</span></td>
+	<td class="alt2" align="center"><span class="smallfont">8</span></td>
+	<td class="alt1" align="right"><span class="smallfont">24/01/2014 <span class="time">08:21 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont">[<span style="font-weight:bold;font-size:8pt;color:#AD3333;">FilterScript</span>] <a href="http://forum.sa-mp.com/showthread.php?t=428057" title="Hello dear users! 
+ 
+I would like to present to you the dynamic system of inventory 
+Created 60 slots, 47 of them - under the gun 
+To add new items -...">Dynamic Inventory System</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Seregamil1</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Filterscripts</span></td>
+	<td class="alt2" align="center"><span class="smallfont">7</span></td>
+	<td class="alt1" align="right"><span class="smallfont">19/04/2013 <span class="time">10:04 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont">[<span style="font-weight:bold;font-size:8pt;color:#AD3333;">FilterScript</span>] <a href="http://forum.sa-mp.com/showthread.php?t=428054" title="Äîáðûé äåíü óâàæàåìûå ïîëüçîâàòåëè! 
+ 
+Õî÷ó ïðåäñòàâèòü âàøåìó âíèìàíèþ äèíàìè÷åñêóþ ñèñòåìó èíâåíòàðÿ 
+ 
+Ïîä âñ¸ ñîçäàíî 60 ñëîòîâ, èç íèõ 47 - ïîä...">Dynamic Inventory System</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Seregamil1</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">&#1056;&#1077;&#1083;&#1080;&#1079;&#1099;/Releases</span></td>
+	<td class="alt2" align="center"><span class="smallfont">0</span></td>
+	<td class="alt1" align="right"><span class="smallfont">04/04/2013 <span class="time">12:19 PM</span></span></td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+
+<script type="text/javascript">ame_toggle_view({other : 'true',post : 'true',blog : 'true',group : 'true',vm : 'true',sig : 'true'});</script>
+
+<br>
+<div class="smallfont" align="center">All times are GMT. The time now is <span class="time">09:31 PM</span>.</div>
+<br>
+
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- /content area table -->
+
+<form action="http://forum.sa-mp.com/index.php" method="get" style="clear:left">
+
+<table cellpadding="6" cellspacing="0" border="0" width="90%" class="page" align="center">
+<tbody><tr>
+	
+	
+		<td class="tfoot">
+			<select name="langid" onchange="switch_id(this, &#39;lang&#39;)">
+				<optgroup label="Quick Language Chooser">
+					<option value="1" class="" selected="selected">-- (EN) English</option>
+<option value="3" class="">-- (ES) Español</option>
+<option value="4" class="">-- (RU) &#1056;&#1091;&#1089;&#1089;&#1082;&#1080;</option>
+
+				</optgroup>
+			</select>
+		</td>
+	
+	<td class="tfoot" align="right" width="100%">
+		<div class="smallfont">
+			<strong>
+				<a href="http://forum.sa-mp.com/sendmessage.php" rel="nofollow" accesskey="9">Contact Us</a> -
+				<a href="http://www.sa-mp.com/">SA-MP</a> -
+				
+				
+				<a href="http://forum.sa-mp.com/archive/index.php">Archive</a> -
+				
+				
+				
+				<a href="http://forum.sa-mp.com/showthread.php?p=2927819#top" onclick="self.scrollTo(0, 0); return false;">Top</a>
+			</strong>
+		</div>
+	</td>
+</tr>
+</tbody></table>
+
+<br>
+
+<div align="center">
+	<div class="smallfont" align="center">
+	<!-- Do not remove this copyright notice -->
+	Powered by vBulletin® Version 3.8.6<br>Copyright ©2000 - 2015, Jelsoft Enterprises Ltd.
+	<!-- Do not remove this copyright notice -->
+	</div>
+
+	<div class="smallfont" align="center">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+
+	
+	</div>
+</div>
+
+</form>
+
+
+
+
+<script type="text/javascript">
+<!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//-->
+</script>
+
+<!-- temp -->
+<div style="display:none">
+	<!-- thread rate -->
+	
+		
+	
+	<!-- / thread rate -->
+</div>
+
+
+</body></html>

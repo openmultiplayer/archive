@@ -1,0 +1,2983 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0046)http://forum.sa-mp.com/showthread.php?t=438678 -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	
+<meta name="generator" content="vBulletin 3.8.6">
+
+<meta name="keywords" content="[Include] Extended Vehicle Information, SA-MP, GTA, multiplayer, online, server, pawn, scripting">
+<meta name="description" content="[Include] Extended Vehicle Information Includes">
+
+
+<!-- CSS Stylesheet -->
+<style type="text/css" id="vbulletin_css">
+/**
+* vBulletin 3.8.6 CSS
+* Style: 'SAMPStyle'; Style ID: 2
+*/
+body
+{
+	background: #707170;
+	color: #FFFFFFF;
+	font: bold 10pt arial, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 1px 1px 1px 1px;
+	padding: 1px;
+}
+a:link, body_alink
+{
+	color: #4A627F;
+	text-decoration: none;
+}
+a:visited, body_avisited
+{
+	color: #1A425F;
+	text-decoration: none;
+}
+a:hover, a:active, body_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.page
+{
+	background: #DADADB;
+	color: #000000;
+}
+td, th, p, li
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tborder
+{
+	background: #DFDFDF;
+	color: #000000;
+	border: 1px solid #717171;
+}
+.tcat
+{
+	background: #4F4F4F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tcat a:link, .tcat_alink
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:visited, .tcat_avisited
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:hover, .tcat a:active, .tcat_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.thead
+{
+	background: #3F3F3F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.thead a:link, .thead_alink
+{
+	color: #FFFFFF;
+}
+.thead a:visited, .thead_avisited
+{
+	color: #FFFFFF;
+}
+.thead a:hover, .thead a:active, .thead_ahover
+{
+	color: #E76006;
+}
+.tfoot
+{
+	background: #595959;
+	color: #CDCDCD;
+}
+.tfoot a:link, .tfoot_alink
+{
+	color: #CDCDCD;
+}
+.tfoot a:visited, .tfoot_avisited
+{
+	color: #9D9D9D;
+}
+.tfoot a:hover, .tfoot a:active, .tfoot_ahover
+{
+	color: #E76006;
+}
+.alt1, .alt1Active
+{
+	background: #F6F6F6;
+	color: #000000;
+}
+.alt2, .alt2Active
+{
+	background: #EAEAEB;
+	color: #000000;
+}
+.inlinemod
+{
+	background: #FFFFCC;
+	color: #000000;
+}
+.wysiwyg
+{
+	background: #F5F5F5;
+	color: #000000;
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 5px 10px 10px 10px;
+	padding: 0px;
+}
+.wysiwyg a:link, .wysiwyg_alink
+{
+	color: #22229C;
+}
+.wysiwyg a:visited, .wysiwyg_avisited
+{
+	color: #22229C;
+}
+.wysiwyg a:hover, .wysiwyg a:active, .wysiwyg_ahover
+{
+	color: #E76006;
+}
+textarea, .bginput
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.bginput option, .bginput optgroup
+{
+	font-size: 10pt;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.button
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+select
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+option, optgroup
+{
+	font-size: 11px;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.smallfont
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.time
+{
+	color: #666686;
+}
+.navbar
+{
+	font: 12pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.highlight
+{
+	color: #FF0000;
+	font-weight: bold;
+}
+.fjsel
+{
+	background: #3E5C92;
+	color: #E0E0F6;
+}
+.fjdpth0
+{
+	background: #F7F7F7;
+	color: #000000;
+}
+.panel
+{
+	background: #F5F5F5;
+	color: #000000;
+	padding: 10px;
+	border: 1px;
+}
+.panelsurround
+{
+	background: #F5F5F5;
+	color: #000000;
+}
+legend
+{
+	color: #222222;
+	font: 11px tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.vbmenu_control
+{
+	background: #777777;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	padding: 3px 6px 3px 6px;
+	white-space: nowrap;
+}
+.vbmenu_control a:link, .vbmenu_control_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:visited, .vbmenu_control_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:hover, .vbmenu_control a:active, .vbmenu_control_ahover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+.vbmenu_popup
+{
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #0B198C;
+}
+.vbmenu_option
+{
+	background: #444444;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_option a:link, .vbmenu_option_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:visited, .vbmenu_option_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:hover, .vbmenu_option a:active, .vbmenu_option_ahover
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_hilite
+{
+	background: #F37016;
+	color: #000000;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_hilite a:link, .vbmenu_hilite_alink
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:visited, .vbmenu_hilite_avisited
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:hover, .vbmenu_hilite a:active, .vbmenu_hilite_ahover
+{
+	color: #000000;
+	text-decoration: none;
+}
+/* ***** styling for 'big' usernames on postbit etc. ***** */
+.bigusername { font-size: 14pt; }
+
+/* ***** small padding on 'thead' elements ***** */
+td.thead, th.thead, div.thead { padding: 4px; }
+
+/* ***** basic styles for multi-page nav elements */
+.pagenav a { text-decoration: none; }
+.pagenav td { padding: 2px 4px 2px 4px; }
+
+/* ***** de-emphasized text */
+.shade, a.shade:link, a.shade:visited { color: #777777; text-decoration: none; }
+a.shade:active, a.shade:hover { color: #FF4400; text-decoration: underline; }
+.tcat .shade, .thead .shade, .tfoot .shade { color: #DDDDDD; }
+
+/* ***** define margin and font-size for elements inside panels ***** */
+.fieldset { margin-bottom: 6px; }
+.fieldset, .fieldset td, .fieldset p, .fieldset li { font-size: 11px; }
+</style>
+<link rel="stylesheet" type="text/css" href="./[Include] Extended Vehicle Information - SA-MP Forums_files/vbulletin_important.css">
+
+
+<!-- / CSS Stylesheet -->
+
+<script type="text/javascript" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/yahoo-dom-event.js"></script><style type="text/css"></style>
+<script type="text/javascript" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/connection-min.js"></script>
+<script type="text/javascript">
+<!--
+var SESSIONURL = "";
+var SECURITYTOKEN = "guest";
+var IMGDIR_MISC = "images/misc";
+var vb_disable_ajax = parseInt("0", 10);
+// -->
+</script>
+<script type="text/javascript" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/vbulletin_global.js"></script>
+<script type="text/javascript" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/vbulletin_menu.js"></script>
+
+
+	<link rel="alternate" type="application/rss+xml" title="SA-MP Forums RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2">
+	
+		<link rel="alternate" type="application/rss+xml" title="SA-MP Forums - Includes - RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2&forumids=83">
+	
+<script type="text/javascript" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/ame.js"></script>
+	<title>[Include] Extended Vehicle Information - SA-MP Forums</title>
+	<script type="text/javascript" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/vbulletin_post_loader.js"></script>
+	<style type="text/css" id="vbulletin_showthread_css">
+	<!--
+	
+	#links div { white-space: nowrap; }
+	#links img { vertical-align: middle; }
+	-->
+	</style>
+</head>
+<body onload="">
+<!-- logo -->
+<a name="top"></a>
+<center><div align="center" style="height: 80px; width: 90%; background: transparent url(http://forum.sa-mp.com/logo_new_back3.png) repeat-x 0px 0px; text-align:center;">
+<table border="0" width="90%" cellpadding="0" cellspacing="0" align="center">
+<tbody><tr>
+	<td align="center"><a href="http://forum.sa-mp.com/index.php"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/logo_forum.gif" border="0" alt="SA-MP Forums" title="SA-MP Forums"></a></td>
+</tr>
+</tbody></table>
+</div></center>
+<!-- /logo -->
+
+<!-- content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+
+
+
+
+<br>
+
+<!-- breadcrumb, login, pm info -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<tbody><tr>
+	<td class="alt1" width="100%">
+		
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr valign="bottom">
+				<td><a href="http://forum.sa-mp.com/showthread.php?t=438678#" onclick="history.back(1); return false;"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/navbits_start.gif" alt="Go Back" border="0" title="Go Back"></a></td>
+				<td>&nbsp;</td>
+				<td width="100%"><span class="navbar"><a href="http://forum.sa-mp.com/index.php" accesskey="1">SA-MP Forums</a></span> 
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=8">SA-MP Scripting and Plugins</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=17">Filterscripts</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=83">Includes</a></span>
+
+</td>
+			</tr>
+			<tr>
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="./[Include] Extended Vehicle Information - SA-MP Forums_files/[Include] Extended Vehicle Information - SA-MP Forums.html"><img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/navbits_finallink_ltr.gif" alt="Reload this Page" border="0" title="Reload this Page"></a> <strong>
+	[<span style="font-weight:bold;font-size:8pt;color:#2299AA;">Include</span>] Extended Vehicle Information
+
+</strong></td>
+			</tr>
+			</tbody></table>
+		
+	</td>
+
+	<td class="alt2" nowrap="nowrap" style="padding:0px">
+		<!-- login form -->
+		<form action="http://forum.sa-mp.com/login.php?do=login" method="post" onsubmit="md5hash(vb_login_password, vb_login_md5password, vb_login_md5password_utf, 0)">
+		<script type="text/javascript" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/vbulletin_md5.js"></script>
+		<table cellpadding="0" cellspacing="3" border="0">
+		<tbody><tr>
+			<td class="smallfont" style="white-space: nowrap;"><label for="navbar_username">User Name</label></td>
+			<td><input type="text" class="bginput" style="font-size: 11px" name="vb_login_username" id="navbar_username" size="10" accesskey="u" tabindex="101" value="User Name" onfocus="if (this.value == &#39;User Name&#39;) this.value = &#39;&#39;;"></td>
+			<td class="smallfont" nowrap="nowrap"><label for="cb_cookieuser_navbar"><input type="checkbox" name="cookieuser" value="1" tabindex="103" id="cb_cookieuser_navbar" accesskey="c">Remember Me?</label></td>
+		</tr>
+		<tr>
+			<td class="smallfont"><label for="navbar_password">Password</label></td>
+			<td><input type="password" class="bginput" style="font-size: 11px" name="vb_login_password" id="navbar_password" size="10" tabindex="102"></td>
+			<td><input type="submit" class="button" value="Log in" tabindex="104" title="Enter your username and password in the boxes provided to login, or click the &#39;register&#39; button to create a profile for yourself." accesskey="s"></td>
+		</tr>
+		</tbody></table>
+		<input type="hidden" name="s" value="">
+		<input type="hidden" name="securitytoken" value="guest">
+		<input type="hidden" name="do" value="login">
+		<input type="hidden" name="vb_login_md5password">
+		<input type="hidden" name="vb_login_md5password_utf">
+		</form>
+		<!-- / login form -->
+	</td>
+
+</tr>
+</tbody></table>
+<!-- / breadcrumb, login, pm info -->
+
+<!-- nav buttons bar -->
+<div class="tborder" style="padding:1px; border-top-width:0px">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+	<tbody><tr align="center">
+		
+		
+			<td class="vbmenu_control"><a href="http://forum.sa-mp.com/newacc.php" rel="nofollow">New Account</a></td>
+		
+		
+		
+			<td class="vbmenu_control"><a id="community" href="http://forum.sa-mp.com/showthread.php?t=438678&nojs=1#community" rel="nofollow" accesskey="6" style="cursor: pointer;">Community <img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("community"); </script></td>
+		
+		
+			
+				
+				<td class="vbmenu_control"><a href="http://forum.sa-mp.com/search.php?do=getdaily" accesskey="2">Today's Posts</a></td>
+				
+				<td class="vbmenu_control"><a id="navbar_search" href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow">Search</a> </td>
+			
+			
+		
+		
+		
+		</tr>
+	</tbody></table>
+</div>
+<!-- / nav buttons bar -->
+
+<br>
+
+
+
+
+
+
+<!-- NAVBAR POPUP MENUS -->
+
+	
+	<!-- community link menu -->
+	<div class="vbmenu_popup" id="community_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr><td class="thead">Community Links</td></tr>
+		
+		
+		
+		
+		
+			<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/memberlist.php">Members List</a></td></tr>
+		
+		
+		</tbody></table>
+	</div>
+	<!-- / community link menu -->
+	
+	
+	
+	<!-- header quick search form -->
+	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead">Search Forums</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+				<form action="http://forum.sa-mp.com/search.php?do=process" method="post">
+
+					<input type="hidden" name="do" value="process">
+					<input type="hidden" name="quicksearch" value="1">
+					<input type="hidden" name="childforums" value="1">
+					<input type="hidden" name="exactname" value="1">
+					<input type="hidden" name="s" value="">
+					<input type="hidden" name="securitytoken" value="guest">
+					<div><input type="text" class="bginput" name="query" size="25" tabindex="1001"><input type="submit" class="button" value="Go" tabindex="1004"></div>
+					<div style="margin-top:6px">
+						<label for="rb_nb_sp0"><input type="radio" name="showposts" value="0" id="rb_nb_sp0" tabindex="1002" checked="checked">Show Threads</label>
+						&nbsp;
+						<label for="rb_nb_sp1"><input type="radio" name="showposts" value="1" id="rb_nb_sp1" tabindex="1003">Show Posts</label>
+					</div>
+				</form>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow">Advanced Search</a></td>
+		</tr>
+		
+		</tbody></table>
+	</div>
+	<!-- / header quick search form -->
+	
+	
+	
+<!-- / NAVBAR POPUP MENUS -->
+
+<!-- PAGENAV POPUP -->
+	<div class="vbmenu_popup" id="pagenav_menu" style="display: none; position: absolute; z-index: 50;">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead" nowrap="nowrap">Go to Page...</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="">
+			<form action="http://forum.sa-mp.com/index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4">
+				<input type="button" class="button" id="pagenav_ibtn" value="Go">
+			</form>
+			</td>
+		</tr>
+		</tbody></table>
+	</div>
+<!-- / PAGENAV POPUP -->
+
+
+
+
+
+
+
+
+
+
+<a name="poststop" id="poststop"></a>
+
+<!-- controls above postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tbody><tr valign="bottom">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&noquote=1&p=2535780" rel="nofollow"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tbody><tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 3</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 10 of 22"><strong>1</strong></span></td>
+ <td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=438678&page=2" title="Show results 11 to 20 of 22">2</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=438678&page=3" title="Show results 21 to 22 of 22">3</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=438678&page=2" title="Next Page - Results 11 to 20 of 22">&gt;</a></td>
+	
+	<td class="vbmenu_control" title="" id="pagenav.31" style="cursor: pointer;"> <img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></td>
+</tr>
+</tbody></table>
+</div></td>
+</tr>
+</tbody></table>
+<!-- / controls above postbits -->
+
+<!-- toolbar -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center" style="border-bottom-width:0px">
+<tbody><tr>
+	<td class="tcat" width="100%">
+		<div class="smallfont">
+		
+		&nbsp;
+		</div>
+	</td>
+	<td class="vbmenu_control" id="threadtools" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=438678&nojs=1#goto_threadtools">Thread Tools</a>
+		<script type="text/javascript"> vbmenu_register("threadtools"); </script> <img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+	
+	
+	<td class="vbmenu_control" id="displaymodes" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=438678&nojs=1#goto_displaymodes">Display Modes</a>
+		<script type="text/javascript"> vbmenu_register("displaymodes"); </script> <img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+
+	
+
+</tr>
+</tbody></table>
+<!-- / toolbar -->
+
+
+
+<!-- end content table -->
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- / end content table -->
+
+
+
+
+
+<div id="posts"><!-- post #2535780 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2535780" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2535780" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2535780"><img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			21/05/2013, 02:13 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2535780&postcount=1" target="new" rel="nofollow" id="postcount2535780" name="1"><strong>1</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2535780">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=13347">Vince</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2535780", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Godfather</div>
+			<div class="smallfont"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=13347"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/image.php" width="80" height="80" alt="Vince&#39;s Avatar" border="0" title="Vince&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Sep 2007</div>
+				<div>Location: Belgium</div>
+				
+				
+				
+<div>
+  Posts: 8,835
+</div>
+
+<div>Reputation: 2147</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2535780" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Extended Vehicle Information</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2535780">
+			
+			<div align="center"><font size="5"><font face="Century Gothic"><font color="Orange">Extended Vehicle Information (EVI)</font></font></font><br>
+<font size="3"><font color="DimGray">Version 1.0</font></font></div><br>
+This script allows you to retrieve all vehicle related information. All information that is present in the handling.cfg data file has been converted - with the necessary difficulty - into an SQLite database. You are now able to retrieve a vehicle's top speed, its mass, its cost, its gears, its acceleration and much, much more. <br>
+<br>
+Even more interesting is that you can also read a vehicle's model and handling flags. Apart from being able to tell its type, you can also tell if a vehicle is a low rider or a street racer, you can tell if the vehicle has a normal exhaust, double exhausts or no exhausts at all. There are 60 flags that you can check! <br>
+<br>
+Please note: all values use the metric system. This is how they appear in the data file. It is not my choice (although I prefer metric over imperial any time).<br>
+Note 2: No input escaping is done whatsoever! I tried to implement it, but crashdetect went mad and everything broke. Then again, these functions aren't meant to be used with end user input.<br>
+<br>
+<br>
+<font size="4"><font face="Century Gothic"><font color="Orange"><u>Example Usage</u></font></font></font><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 386px;
+		text-align: left;
+		overflow: auto">new vehicle_cost = GetVehicleModelInfoAsInt(411, "nMonetaryValue"); // infernus
+printf("model 411 costs $%d", vehicle_cost);
+
+new Float:vehicle_weight = GetVehicleModelInfoAsFloat(402, "fMass"); // buffalo
+printf("model 402 weighs %f kilograms", vehicle_weight);
+
+if(GetVehicleModelFlag(425, MFLAG_IS_HELI)) // hunter
+{
+	printf("model 425 is a helicopter");
+}
+else
+{
+	printf("model 425 is not a helicopter");
+}
+
+if(GetVehicleHandlingFlag(567, HFLAG_LOW_RIDER)) // savanna
+{
+	printf("model 567 is a lowrider");
+}
+else
+{
+	printf("model 567 is not a lowrider");
+}</pre>
+</div><br>
+<font size="4"><font face="Century Gothic"><font color="Orange"><u>Installation Instructions</u></font></font></font><br>
+<br>
+Download the zip file from <a href="http://www.solidfiles.com/d/ef2c4eee9e/" target="_blank"><u>HERE</u></a> or <a href="http://www.venturas-cnr.com/download/evi.zip" target="_blank"><u>HERE</u></a>. Extract the contents in your server directory. All files should automatically go to their respective directories. If that doesn't work: manually place <i>handling.db</i> into the /scriptfiles folder and <i>evi.inc</i> into the /pawno/include folder.<br>
+<br>
+Use this in any script in which you'd like to use these functions:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">#include &lt;evi&gt;</pre>
+</div><br>
+<br>
+<font size="4"><font face="Century Gothic"><font color="Orange"><u>Technical Information</u></font></font></font><br>
+<br>
+To be used with <b>GetVehicleModelInfoAsInt</b> and <b>GetVehicleModelInfoAsFloat</b>. DriveType and EngineType should also be retrieved with the integer function. However, they return characters. These can be validated as follows:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if(GetVehicleModelInfoAsInt(400, "TransmissionData_nEngineType") == 'P') { /* ... */ }</pre>
+</div><div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">	&gt; UNITS &lt;
+	---------
+	Vehicle identifier 14 characters max
+	Dimensions in metres
+	Mass in Kg
+	Velocity in Km/h
+	Acceleration/deceleration in ms-2
+	Multipliers x1.0 is default
+	Angles in degrees
+	Levels :- (L)ow, (M)edium, (H)igh
+	Buoyancy = percent submerged (&gt; 100% vehicle sinks)
+	Engine type :- (P)etrol, (D)iesel, (E)lectric
+	Engine drive :- (F)ront, (R)ear, (4)-wheel drive
+	
+	&gt; FIELD DESCRIPTIONS &lt;
+	----------------------
+	[id] int  NOT NULL,
+	[name] VARCHAR(14)  NOT NULL,
+	[fMass] float  NOT NULL,
+	[fTurnMass] float  NOT NULL,
+	[fDragMult] float  NOT NULL,
+	[fCentreOfMass_x] float  NOT NULL,
+	[fCentreOfMass_y] float  NOT NULL,
+	[fCentreOfMass_z] float  NOT NULL,
+	[nPercentSubmerged] int  NOT NULL,
+	[fTractionMultiplier] float  NOT NULL,
+	[fTractionLoss] float  NOT NULL,
+	[fTractionBias] float  NOT NULL,
+	[TransmissionData_nNumberOfGears] int  NOT NULL,
+	[TransmissionData_fMaxVelocity] float  NOT NULL,
+	[TransmissionData_fEngineAcceleration] float  NOT NULL,
+	[TransmissionData_fEngineInertia] float  NOT NULL,
+	[TransmissionData_nDriveType] VARCHAR(2)  NOT NULL,
+	[TransmissionData_nEngineType] VARCHAR(2)  NOT NULL,
+	[fBrakeDeceleration] float  NOT NULL,
+	[fBrakeBias] float  NOT NULL,
+	[bABS] boolean  NOT NULL,
+	[fSteeringLock] float  NOT NULL,
+	[fSuspensionForceLevel] float  NOT NULL,
+	[fSuspensionDampingLevel] float  NOT NULL,
+	[fSuspensionHighSpdComDamp] float  NOT NULL,
+	[fSuspensionUpperLimit] float  NOT NULL,
+	[fSuspensionLowerLimit] float  NOT NULL,
+	[fSuspensionBias] float  NOT NULL,
+	[fSuspensionMult] float  NOT NULL,
+	[fSeatOffsetDistance] float  NOT NULL,
+	[fCollisionDamageMultiplier] float  NOT NULL,
+	[nMonetaryValue] int  NOT NULL,
+	[nModelFlags] int  NOT NULL,
+	[nHandlingFlags] int  NOT NULL,
+	[nFrontLights] int  NOT NULL,
+	[nRearLights] int  NOT NULL,
+	[nVehicleAnimGroup] int  NOT NULL</pre>
+</div><br>
+To be used with <b>GetVehicleModelFlag</b>.<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">enum modelFlags (&lt;&lt;= 1)
+{
+	MFLAG_IS_VAN = 1,
+	MFLAG_IS_BUS,
+	MFLAG_IS_LOW,
+	MFLAG_IS_BIG,
+	MFLAG_REVERSE_BONNET,
+	MFLAG_HANGING_BOOT,
+	MFLAG_TAILGATE_BOOT,
+	MFLAG_NOSWING_BOOT,
+	MFLAG_NO_DOORS,
+	MFLAG_TANDEM_SEATS,
+	MFLAG_SIT_IN_BOAT,
+	MFLAG_CONVERTIBLE,
+	MFLAG_NO_EXHAUST,
+	MFLAG_DOUBLE_EXHAUST,
+	MFLAG_NO1FPS_LOOK_BEHIND,
+	MFLAG_FORCE_DOOR_CHECK,
+	MFLAG_AXLE_F_NOTILT,
+	MFLAG_AXLE_F_SOLID,
+	MFLAG_AXLE_F_MCPHERSON,
+	MFLAG_AXLE_F_REVERSE,
+	MFLAG_AXLE_R_NOTILT,
+	MFLAG_AXLE_R_SOLID,
+	MFLAG_AXLE_R_MCPHERSON,
+	MFLAG_AXLE_R_REVERSE,
+	MFLAG_IS_BIKE,
+	MFLAG_IS_HELI,
+	MFLAG_IS_PLANE,
+	MFLAG_IS_BOAT,
+	MFLAG_BOUNCE_PANELS,
+	MFLAG_DOUBLE_RWHEELS,
+	MFLAG_FORCE_GROUND_CLEARANCE,
+	MFLAG_IS_HATCHBACK
+};</pre>
+</div><br>
+To be used with <b>GetVehicleHandlingFlag</b>.<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">enum handlingFlags (&lt;&lt;= 1)
+{
+	HFLAG_1G_BOOST = 1,
+	HFLAG_2G_BOOST,
+	HFLAG_NPC_ANTI_ROLL,
+	HFLAG_NPC_NEUTRAL_HANDL,
+	HFLAG_NO_HANDBRAKE,
+	HFLAG_STEER_REARWHEELS,
+	HFLAG_HB_REARWHEEL_STEER,
+	HFLAG_ALT_STEER_OPT,
+	HFLAG_WHEEL_F_NARROW2,
+	HFLAG_WHEEL_F_NARROW,
+	HFLAG_WHEEL_F_WIDE,
+	HFLAG_WHEEL_F_WIDE2,
+	HFLAG_WHEEL_R_NARROW2,
+	HFLAG_WHEEL_R_NARROW,
+	HFLAG_WHEEL_R_WIDE,
+	HFLAG_WHEEL_R_WIDE2,
+	HFLAG_HYDRAULIC_GEOM,
+	HFLAG_HYDRAULIC_INST,
+	HFLAG_HYDRAULIC_NONE,
+	HFLAG_NOS_INST,
+	HFLAG_OFFROAD_ABILITY,
+	HFLAG_OFFROAD_ABILITY2,
+	HFLAG_HALOGEN_LIGHTS,
+	HFLAG_PROC_REARWHEEL_1ST,
+	HFLAG_USE_MAXSP_LIMIT,
+	HFLAG_LOW_RIDER,
+	HFLAG_STREET_RACER,
+	HFLAG_UNUSED_FLAG, // Unused in data files. Required for continuity. Do not remove.
+	HFLAG_SWINGING_CHASSIS
+}</pre>
+</div>
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><i><font color="DimGray">Excuse my sometimes rude or cynical replies. One's personality is hard to change.</font></i><br>
+<br>
+[<b><font color="Purple">Tutorial</font></b>] Database normalization: <a href="http://forum.sa-mp.com/showthread.php?t=420363" target="_blank"><b><font color="Purple">Part 1</font></b></a> - <a href="http://forum.sa-mp.com/showthread.php?t=505081" target="_blank"><b><font color="Purple">Part 2</font></b></a> - <a href="http://forum.sa-mp.com/showthread.php?t=585996" target="_blank"><b><font color="Purple">Part 3</font></b></a></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/user_offline.gif" alt="Vince is offline" border="0" title="Vince is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2535780" rel="nofollow"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2535780 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2535780_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Vince</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=13347">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=13347" rel="nofollow">Send a private message to Vince</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=13347" rel="nofollow">Find More Posts by Vince</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2535780 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2535780 --><!-- post #2535783 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2535783" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2535783" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2535783"><img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			21/05/2013, 02:15 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2535783&postcount=2" target="new" rel="nofollow" id="postcount2535783" name="2"><strong>2</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2535783">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=47313">KyleSmith</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2535783", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=47313"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/image(1).php" width="77" height="80" alt="KyleSmith&#39;s Avatar" border="0" title="KyleSmith&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Mar 2009</div>
+				<div>Location: United Kingdom</div>
+				
+				
+				
+<div>
+  Posts: 2,261
+</div>
+
+<div>Reputation: 271</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2535783" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Extended Vehicle Information</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2535783">
+			
+			perfect.<br>
+<br>
+Was waiting for another one of your releases or tutorials!
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<font face="Verdana"><font size="1"><b><div align="center">"Don’t mind the men behind the curtain." - The Wizard Of Oz</div></b></font></font>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/user_offline.gif" alt="KyleSmith is offline" border="0" title="KyleSmith is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2535783" rel="nofollow"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2535783 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2535783_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">KyleSmith</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=47313">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=47313" rel="nofollow">Send a private message to KyleSmith</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.copsandrobbersrpg.com/">Visit KyleSmith's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=47313" rel="nofollow">Find More Posts by KyleSmith</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2535783 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2535783 --><!-- post #2535905 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2535905" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2535905" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2535905"><img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			21/05/2013, 03:41 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2535905&postcount=3" target="new" rel="nofollow" id="postcount2535905" name="3"><strong>3</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2535905">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=136710">RajatPawar</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2535905", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=136710"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/image(2).php" width="74" height="80" alt="RajatPawar&#39;s Avatar" border="0" title="RajatPawar&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Aug 2011</div>
+				<div>Location: &#12541;&#3900;&#3720;&#1604;&#860;&#3720;&#3901;&#65417;</div>
+				
+				
+				
+<div>
+  Posts: 2,334
+</div>
+
+<div>Reputation: 309</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2535905" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Extended Vehicle Information</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2535905">
+			
+			Huge, a lot of work, really nice. Personally, I hate working with SQLite. However, you said costs - what kind of vehicle costs? If you mean the 'money' cost, shouldn't that be dependent on personal opinion? Or is it another kind of 'cost'?
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/user_offline.gif" alt="RajatPawar is offline" border="0" title="RajatPawar is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2535905" rel="nofollow"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2535905 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2535905_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">RajatPawar</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=136710">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=136710" rel="nofollow">Send a private message to RajatPawar</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=136710" rel="nofollow">Find More Posts by RajatPawar</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2535905 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2535905 --><!-- post #2535914 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2535914" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2535914" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2535914"><img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			21/05/2013, 03:47 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2535914&postcount=4" target="new" rel="nofollow" id="postcount2535914" name="4"><strong>4</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2535914">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=145974">Littlehelper</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2535914", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Gangsta</div>
+			<div class="smallfont"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=145974"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/image(3).php" width="80" height="80" alt="Littlehelper&#39;s Avatar" border="0" title="Littlehelper&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Nov 2011</div>
+				<div>Location: 420</div>
+				
+				
+				
+<div>
+  Posts: 990
+</div>
+
+<div>Reputation: 178</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2535914" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Extended Vehicle Information</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2535914">
+			
+			Very nice!
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<a href="https://www.youtube.com/user/drifterboyy123" target="_blank">YouTube channel</a><br>
+<br>
+<a href="http://b851t.science/" target="_blank">Answer to all your questions</a>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/user_offline.gif" alt="Littlehelper is offline" border="0" title="Littlehelper is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2535914" rel="nofollow"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2535914 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2535914_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Littlehelper</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=145974">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=145974" rel="nofollow">Send a private message to Littlehelper</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=145974" rel="nofollow">Find More Posts by Littlehelper</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2535914 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2535914 --><!-- post #2535922 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2535922" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2535922" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2535922"><img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			21/05/2013, 03:52 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2535922&postcount=5" target="new" rel="nofollow" id="postcount2535922" name="5"><strong>5</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2535922">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=180384">DaRk_RaiN</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2535922", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=180384"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/image(4).php" width="80" height="80" alt="DaRk_RaiN&#39;s Avatar" border="0" title="DaRk_RaiN&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Sep 2012</div>
+				
+				
+				
+				
+<div>
+  Posts: 998
+</div>
+
+<div>Reputation: 205</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2535922" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Extended Vehicle Information</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2535922">
+			
+			I love it, good job!
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/user_offline.gif" alt="DaRk_RaiN is offline" border="0" title="DaRk_RaiN is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2535922" rel="nofollow"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2535922 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2535922_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">DaRk_RaiN</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=180384">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=180384" rel="nofollow">Send a private message to DaRk_RaiN</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=180384" rel="nofollow">Find More Posts by DaRk_RaiN</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2535922 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2535922 --><!-- post #2535928 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2535928" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2535928" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2535928"><img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			21/05/2013, 03:56 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2535928&postcount=6" target="new" rel="nofollow" id="postcount2535928" name="6"><strong>6</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2535928">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=13347">Vince</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2535928", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Godfather</div>
+			<div class="smallfont"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=13347"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/image.php" width="80" height="80" alt="Vince&#39;s Avatar" border="0" title="Vince&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Sep 2007</div>
+				<div>Location: Belgium</div>
+				
+				
+				
+<div>
+  Posts: 8,835
+</div>
+
+<div>Reputation: 2147</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2535928" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Extended Vehicle Information</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2535928">
+			
+			<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				<div>
+					Originally Posted by <strong>Rajat_Pawar</strong>
+					<a href="http://forum.sa-mp.com/showthread.php?p=2535905#post2535905" rel="nofollow"><img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/viewpost.gif" border="0" alt="View Post" title="View Post"></a>
+				</div>
+				<div style="font-style:italic">Huge, a lot of work, really nice. Personally, I hate working with SQLite. However, you said costs - what kind of vehicle costs? If you mean the 'money' cost, shouldn't that be dependent on personal opinion? Or is it another kind of 'cost'?</div>
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div>Those are the prices that the game uses internally for the export mission in single player. They were in that file so I figured I might as well add them.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><i><font color="DimGray">Excuse my sometimes rude or cynical replies. One's personality is hard to change.</font></i><br>
+<br>
+[<b><font color="Purple">Tutorial</font></b>] Database normalization: <a href="http://forum.sa-mp.com/showthread.php?t=420363" target="_blank"><b><font color="Purple">Part 1</font></b></a> - <a href="http://forum.sa-mp.com/showthread.php?t=505081" target="_blank"><b><font color="Purple">Part 2</font></b></a> - <a href="http://forum.sa-mp.com/showthread.php?t=585996" target="_blank"><b><font color="Purple">Part 3</font></b></a></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/user_offline.gif" alt="Vince is offline" border="0" title="Vince is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2535928" rel="nofollow"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2535928 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2535928_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Vince</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=13347">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=13347" rel="nofollow">Send a private message to Vince</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=13347" rel="nofollow">Find More Posts by Vince</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2535928 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2535928 --><!-- post #2536193 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2536193" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2536193" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2536193"><img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			21/05/2013, 07:27 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2536193&postcount=7" target="new" rel="nofollow" id="postcount2536193" name="7"><strong>7</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2536193">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=182346">Kreatyve</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2536193", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Big Clucker</div>
+			<div class="smallfont"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=182346"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/image(5).php" width="80" height="60" alt="Kreatyve&#39;s Avatar" border="0" title="Kreatyve&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Oct 2012</div>
+				
+				
+				
+				
+<div>
+  Posts: 117
+</div>
+
+<div>Reputation: 26</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2536193" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Extended Vehicle Information</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2536193">
+			
+			Useful, thank you very much =]
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/user_offline.gif" alt="Kreatyve is offline" border="0" title="Kreatyve is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2536193" rel="nofollow"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2536193 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2536193_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Kreatyve</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=182346">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=182346" rel="nofollow">Send a private message to Kreatyve</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=182346" rel="nofollow">Find More Posts by Kreatyve</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2536193 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2536193 --><!-- post #2536210 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2536210" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2536210" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2536210"><img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			21/05/2013, 07:53 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2536210&postcount=8" target="new" rel="nofollow" id="postcount2536210" name="8"><strong>8</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2536210">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=115788">MP2</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2536210", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Godfather</div>
+			<div class="smallfont"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=115788"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/image(6).php" width="80" height="73" alt="MP2&#39;s Avatar" border="0" title="MP2&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Jan 2011</div>
+				<div>Location: England</div>
+				
+				
+				
+<div>
+  Posts: 6,455
+</div>
+
+<div>Reputation: 951</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2536210" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Extended Vehicle Information</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2536210">
+			
+			Not sure how most of this is beneficial tbh. When would one need the handling information of a vehicle? The only data I can see a partial use for is the monetary values (the value of the vehicles) - though they aren't great ($95,000 for an Infernus and $45,000 for a Hydra..?).<br>
+<br>
+Good work all the same.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<a href="http://goo.gl/EXLb9" target="_blank">&gt;&gt; Click here to see my releases.</a><br>
+<br>
+Please do not PM me requesting help. Here you have a forum with 11,000+ active users - why are you limiting your help to one person?
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/user_offline.gif" alt="MP2 is offline" border="0" title="MP2 is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2536210" rel="nofollow"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2536210 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2536210_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">MP2</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=115788">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=115788" rel="nofollow">Send a private message to MP2</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=115788" rel="nofollow">Find More Posts by MP2</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2536210 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2536210 --><!-- post #2536230 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2536230" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2536230" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2536230"><img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			21/05/2013, 08:05 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2536230&postcount=9" target="new" rel="nofollow" id="postcount2536230" name="9"><strong>9</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2536230">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=186475">RedCrossER</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2536230", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Huge Clucker</div>
+			<div class="smallfont"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Nov 2012</div>
+				
+				
+				
+				
+<div>
+  Posts: 294
+</div>
+
+<div>Reputation: 8</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2536230" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Extended Vehicle Information</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2536230">
+			
+			woah Perfect , Good Include...
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><a href="samp://server.gtcnr.com:7777" target="_blank">Connect here</a></div><div align="center"><b><a href="http://www.gtcnr.com/" target="_blank">Grand Theft Cops And Robbers</a></b><br>
+</div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/user_offline.gif" alt="RedCrossER is offline" border="0" title="RedCrossER is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2536230" rel="nofollow"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2536230 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2536230_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">RedCrossER</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=186475">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=186475" rel="nofollow">Send a private message to RedCrossER</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=186475" rel="nofollow">Find More Posts by RedCrossER</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2536230 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2536230 --><!-- post #2536316 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2536316" style="padding:0px 0px 6px 0px">
+	
+
+
+
+<table id="post2536316" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2536316"><img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			21/05/2013, 09:21 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2536316&postcount=10" target="new" rel="nofollow" id="postcount2536316" name="10"><strong>10</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2536316">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=181260">Bicentric</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2536316", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Big Clucker</div>
+			
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Sep 2012</div>
+				
+				
+				
+				
+<div>
+  Posts: 148
+</div>
+
+<div>Reputation: 36</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2536316" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Extended Vehicle Information</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2536316">
+			
+			Wow! This is perfect Vince, I can see many uses for this. Thank you such much for such a useful release! Rep++
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/user_offline.gif" alt="Bicentric is offline" border="0" title="Bicentric is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2536316" rel="nofollow"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2536316 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2536316_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Bicentric</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=181260">View Public Profile</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=181260" rel="nofollow">Find More Posts by Bicentric</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2536316 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2536316 --><div id="lastpost"></div></div>
+
+<!-- start content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+<!-- / start content table -->
+
+<!-- controls below postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:-3px">
+<tbody><tr valign="top">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&noquote=1&p=2536316" rel="nofollow"><img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	
+		<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tbody><tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 3</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 10 of 22"><strong>1</strong></span></td>
+ <td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=438678&page=2" title="Show results 11 to 20 of 22">2</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=438678&page=3" title="Show results 21 to 22 of 22">3</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=438678&page=2" title="Next Page - Results 11 to 20 of 22">&gt;</a></td>
+	
+	<td class="vbmenu_control" title="" id="pagenav.143" style="cursor: pointer;"> <img src="./[Include] Extended Vehicle Information - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></td>
+</tr>
+</tbody></table>
+</div>
+		
+		</td>
+	
+</tr>
+</tbody></table>
+<!-- / controls below postbits -->
+
+
+
+
+
+
+
+
+
+
+<!-- lightbox scripts -->
+	<script type="text/javascript" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/vbulletin_lightbox.js"></script>
+	<script type="text/javascript">
+	<!--
+	vBulletin.register_control("vB_Lightbox_Container", "posts", 1);
+	//-->
+	</script>
+<!-- / lightbox scripts -->
+
+
+
+
+
+
+
+
+
+
+<!-- next / previous links -->
+	<br>
+	<div class="smallfont" align="center">
+		<strong>«</strong>
+			<a href="http://forum.sa-mp.com/showthread.php?t=438678&goto=nextoldest" rel="nofollow">Previous Thread</a>
+			|
+			<a href="http://forum.sa-mp.com/showthread.php?t=438678&goto=nextnewest" rel="nofollow">Next Thread</a>
+		<strong>»</strong>
+	</div>
+<!-- / next / previous links -->
+
+
+
+
+
+
+
+<!-- popup menu contents -->
+<br>
+
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="http://forum.sa-mp.com/postings.php?t=438678&pollid=" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/printer.gif" alt="Show Printable Version" title="Show Printable Version"> <a href="http://forum.sa-mp.com/printthread.php?t=438678" accesskey="3" rel="nofollow">Show Printable Version</a></td>
+	</tr>
+	
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/sendtofriend.gif" alt="Email this Page" title="Email this Page"> <a href="http://forum.sa-mp.com/sendmessage.php?do=sendtofriend&t=438678" rel="nofollow">Email this Page</a></td>
+	</tr>
+	
+	
+	
+	
+	</tbody></table>
+</form>
+</div>
+<!-- / thread tools menu -->
+
+<!-- **************************************************** -->
+
+<!-- thread display mode menu -->
+<div class="vbmenu_popup" id="displaymodes_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Display Modes<a name="goto_displaymodes"></a></td>
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option" title="nohilite"><img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/mode_linear.gif" alt="Linear Mode" title="Linear Mode"> <strong>Linear Mode</strong></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/mode_hybrid.gif" alt="Hybrid Mode" title="Hybrid Mode"> <a href="http://forum.sa-mp.com/showthread.php?mode=hybrid&t=438678">Switch to Hybrid Mode</a></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/mode_threaded.gif" alt="Threaded Mode" title="Threaded Mode"> <a href="http://forum.sa-mp.com/showthread.php?p=2535780&mode=threaded#post2535780">Switch to Threaded Mode</a></td>
+	
+	</tr>
+	</tbody></table>
+</div>
+<!-- / thread display mode menu -->
+
+<!-- **************************************************** -->
+
+
+
+<!-- **************************************************** -->
+
+
+
+<!-- / popup menu contents -->
+
+
+<!-- forum rules and admin links -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr valign="bottom">
+	<td width="100%" valign="top">
+		<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="210">
+<thead>
+<tr>
+	<td class="thead">
+		<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=438678#top" onclick="return toggle_collapse(&#39;forumrules&#39;)"><img id="collapseimg_forumrules" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/collapse_thead.gif" alt="" border="0"></a>
+		Posting Rules
+	</td>
+</tr>
+</thead>
+<tbody id="collapseobj_forumrules" style="">
+<tr>
+	<td class="alt1" nowrap="nowrap"><div class="smallfont">
+		
+		<div>You <strong>may not</strong> post new threads</div>
+		<div>You <strong>may not</strong> post replies</div>
+		<div>You <strong>may not</strong> post attachments</div>
+		<div>You <strong>may not</strong> edit your posts</div>
+		<hr>
+		
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode" target="_blank">BB code</a> is <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showsmilies" target="_blank">Smilies</a> are <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode#imgcode" target="_blank">[IMG]</a> code is <strong>On</strong></div>
+		<div>HTML code is <strong>Off</strong></div>
+		<hr>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showrules" target="_blank">Forum Rules</a></div>
+	</div></td>
+</tr>
+</tbody>
+</table>
+	</td>
+	<td class="smallfont" align="right">
+		<table cellpadding="0" cellspacing="0" border="0">
+		
+		<tbody><tr>
+			<td>
+			
+			</td>
+		</tr>
+		</tbody></table>
+	</td>
+</tr>
+</tbody></table>
+<!-- /forum rules and admin links -->
+
+<br>
+
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" width="100%" colspan="5">
+			<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=438678#top" onclick="return toggle_collapse(&#39;similarthreads&#39;)"><img id="collapseimg_similarthreads" src="./[Include] Extended Vehicle Information - SA-MP Forums_files/collapse_tcat.gif" alt="" border="0"></a>
+			Similar Threads<a name="similarthreads"></a>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_similarthreads" style="">
+<tr class="thead" align="center">
+	<td class="thead" width="40%">Thread</td>
+	<td class="thead" width="15%" nowrap="nowrap">Thread Starter</td>
+	<td class="thead" width="20%">Forum</td>
+	<td class="thead" width="5%">Replies</td>
+	<td class="thead" width="20%">Last Post</td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont">[<span style="font-weight:bold;font-size:8pt;color:#2299AA;">Include</span>] <a href="http://forum.sa-mp.com/showthread.php?t=432342" title="FCNPC Extended Functions 
+ 
+A very simple set of functions thus far to extend some of FCNPC&#39;s functionality, the plugin is still early in development...">FCNPC Extended Functions</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Pottus</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Includes</span></td>
+	<td class="alt2" align="center"><span class="smallfont">3</span></td>
+	<td class="alt1" align="right"><span class="smallfont">27/05/2014 <span class="time">03:37 AM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=345556" title="Hi everyone! 
+ 
+So I saw this thread and I was like &quot;wait.. that guy had the same idea..&quot;. No offence to him, his script is good. But I&#39;ve been...">Debug Textdraws for Player, Vehicle and Server Information and more!</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Basssiiie</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Screenshots and Videos</span></td>
+	<td class="alt2" align="center"><span class="smallfont">8</span></td>
+	<td class="alt1" align="right"><span class="smallfont">30/03/2013 <span class="time">08:46 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=366470" title="So month ago Bioware somehow finally fixed the ending of Mass effect 3. 
+I played the hole game to experience the game and ending again. 
+And I need...">Mass Effect 3 (Extended Cut)</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">toXioneer</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Everything and Nothing</span></td>
+	<td class="alt2" align="center"><span class="smallfont">2</span></td>
+	<td class="alt1" align="right"><span class="smallfont">07/08/2012 <span class="time">08:59 AM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont">[<span style="font-weight:bold;font-size:8pt;color:#846611;">Map</span>] <a href="http://forum.sa-mp.com/showthread.php?t=259787" title="________________________________________ 
+Extended Fort Carson 
+_______________________________________ 
+ 
+More Housing 
+Added small fuel station...">Extended Fort Carson [RP]</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Namaco</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Maps</span></td>
+	<td class="alt2" align="center"><span class="smallfont">21</span></td>
+	<td class="alt1" align="right"><span class="smallfont">14/06/2011 <span class="time">10:02 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=232986" title="Hello. I wanted to ask some questions. 
+I want  to attach the object to vehicle and i have some questions. 
+1) Can i only create object only with...">Attaching objects to vehicle [need information]</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">BuLLeT[LTU]</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Help Archive</span></td>
+	<td class="alt2" align="center"><span class="smallfont">5</span></td>
+	<td class="alt1" align="right"><span class="smallfont">01/03/2011 <span class="time">12:52 PM</span></span></td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+
+<script type="text/javascript">ame_toggle_view({other : 'true',post : 'true',blog : 'true',group : 'true',vm : 'true',sig : 'true'});</script>
+
+<br>
+<div class="smallfont" align="center">All times are GMT. The time now is <span class="time">11:09 AM</span>.</div>
+<br>
+
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- /content area table -->
+
+<form action="http://forum.sa-mp.com/index.php" method="get" style="clear:left">
+
+<table cellpadding="6" cellspacing="0" border="0" width="90%" class="page" align="center">
+<tbody><tr>
+	
+	
+		<td class="tfoot">
+			<select name="langid" onchange="switch_id(this, &#39;lang&#39;)">
+				<optgroup label="Quick Language Chooser">
+					<option value="1" class="" selected="selected">-- (EN) English</option>
+<option value="3" class="">-- (ES) Español</option>
+<option value="4" class="">-- (RU) &#1056;&#1091;&#1089;&#1089;&#1082;&#1080;</option>
+
+				</optgroup>
+			</select>
+		</td>
+	
+	<td class="tfoot" align="right" width="100%">
+		<div class="smallfont">
+			<strong>
+				<a href="http://forum.sa-mp.com/sendmessage.php" rel="nofollow" accesskey="9">Contact Us</a> -
+				<a href="http://www.sa-mp.com/">SA-MP</a> -
+				
+				
+				<a href="http://forum.sa-mp.com/archive/index.php">Archive</a> -
+				
+				
+				
+				<a href="http://forum.sa-mp.com/showthread.php?t=438678#top" onclick="self.scrollTo(0, 0); return false;">Top</a>
+			</strong>
+		</div>
+	</td>
+</tr>
+</tbody></table>
+
+<br>
+
+<div align="center">
+	<div class="smallfont" align="center">
+	<!-- Do not remove this copyright notice -->
+	Powered by vBulletin® Version 3.8.6<br>Copyright ©2000 - 2015, Jelsoft Enterprises Ltd.
+	<!-- Do not remove this copyright notice -->
+	</div>
+
+	<div class="smallfont" align="center">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+
+	
+	</div>
+</div>
+
+</form>
+
+
+
+
+<script type="text/javascript">
+<!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//-->
+</script>
+
+<!-- temp -->
+<div style="display:none">
+	<!-- thread rate -->
+	
+		
+	
+	<!-- / thread rate -->
+</div>
+
+
+</body></html>

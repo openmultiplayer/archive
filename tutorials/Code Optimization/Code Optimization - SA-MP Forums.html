@@ -1,0 +1,4819 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0046)http://forum.sa-mp.com/showthread.php?t=583472 -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	
+<meta name="generator" content="vBulletin 3.8.6">
+
+<meta name="keywords" content=" Code Optimization, SA-MP, GTA, multiplayer, online, server, pawn, scripting">
+<meta name="description" content=" Code Optimization Discussion">
+
+
+<!-- CSS Stylesheet -->
+<style type="text/css" id="vbulletin_css">
+/**
+* vBulletin 3.8.6 CSS
+* Style: 'SAMPStyle'; Style ID: 2
+*/
+body
+{
+	background: #707170;
+	color: #FFFFFFF;
+	font: bold 10pt arial, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 1px 1px 1px 1px;
+	padding: 1px;
+}
+a:link, body_alink
+{
+	color: #4A627F;
+	text-decoration: none;
+}
+a:visited, body_avisited
+{
+	color: #1A425F;
+	text-decoration: none;
+}
+a:hover, a:active, body_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.page
+{
+	background: #DADADB;
+	color: #000000;
+}
+td, th, p, li
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tborder
+{
+	background: #DFDFDF;
+	color: #000000;
+	border: 1px solid #717171;
+}
+.tcat
+{
+	background: #4F4F4F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tcat a:link, .tcat_alink
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:visited, .tcat_avisited
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:hover, .tcat a:active, .tcat_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.thead
+{
+	background: #3F3F3F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.thead a:link, .thead_alink
+{
+	color: #FFFFFF;
+}
+.thead a:visited, .thead_avisited
+{
+	color: #FFFFFF;
+}
+.thead a:hover, .thead a:active, .thead_ahover
+{
+	color: #E76006;
+}
+.tfoot
+{
+	background: #595959;
+	color: #CDCDCD;
+}
+.tfoot a:link, .tfoot_alink
+{
+	color: #CDCDCD;
+}
+.tfoot a:visited, .tfoot_avisited
+{
+	color: #9D9D9D;
+}
+.tfoot a:hover, .tfoot a:active, .tfoot_ahover
+{
+	color: #E76006;
+}
+.alt1, .alt1Active
+{
+	background: #F6F6F6;
+	color: #000000;
+}
+.alt2, .alt2Active
+{
+	background: #EAEAEB;
+	color: #000000;
+}
+.inlinemod
+{
+	background: #FFFFCC;
+	color: #000000;
+}
+.wysiwyg
+{
+	background: #F5F5F5;
+	color: #000000;
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 5px 10px 10px 10px;
+	padding: 0px;
+}
+.wysiwyg a:link, .wysiwyg_alink
+{
+	color: #22229C;
+}
+.wysiwyg a:visited, .wysiwyg_avisited
+{
+	color: #22229C;
+}
+.wysiwyg a:hover, .wysiwyg a:active, .wysiwyg_ahover
+{
+	color: #E76006;
+}
+textarea, .bginput
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.bginput option, .bginput optgroup
+{
+	font-size: 10pt;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.button
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+select
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+option, optgroup
+{
+	font-size: 11px;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.smallfont
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.time
+{
+	color: #666686;
+}
+.navbar
+{
+	font: 12pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.highlight
+{
+	color: #FF0000;
+	font-weight: bold;
+}
+.fjsel
+{
+	background: #3E5C92;
+	color: #E0E0F6;
+}
+.fjdpth0
+{
+	background: #F7F7F7;
+	color: #000000;
+}
+.panel
+{
+	background: #F5F5F5;
+	color: #000000;
+	padding: 10px;
+	border: 1px;
+}
+.panelsurround
+{
+	background: #F5F5F5;
+	color: #000000;
+}
+legend
+{
+	color: #222222;
+	font: 11px tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.vbmenu_control
+{
+	background: #777777;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	padding: 3px 6px 3px 6px;
+	white-space: nowrap;
+}
+.vbmenu_control a:link, .vbmenu_control_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:visited, .vbmenu_control_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:hover, .vbmenu_control a:active, .vbmenu_control_ahover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+.vbmenu_popup
+{
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #0B198C;
+}
+.vbmenu_option
+{
+	background: #444444;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_option a:link, .vbmenu_option_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:visited, .vbmenu_option_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:hover, .vbmenu_option a:active, .vbmenu_option_ahover
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_hilite
+{
+	background: #F37016;
+	color: #000000;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_hilite a:link, .vbmenu_hilite_alink
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:visited, .vbmenu_hilite_avisited
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:hover, .vbmenu_hilite a:active, .vbmenu_hilite_ahover
+{
+	color: #000000;
+	text-decoration: none;
+}
+/* ***** styling for 'big' usernames on postbit etc. ***** */
+.bigusername { font-size: 14pt; }
+
+/* ***** small padding on 'thead' elements ***** */
+td.thead, th.thead, div.thead { padding: 4px; }
+
+/* ***** basic styles for multi-page nav elements */
+.pagenav a { text-decoration: none; }
+.pagenav td { padding: 2px 4px 2px 4px; }
+
+/* ***** de-emphasized text */
+.shade, a.shade:link, a.shade:visited { color: #777777; text-decoration: none; }
+a.shade:active, a.shade:hover { color: #FF4400; text-decoration: underline; }
+.tcat .shade, .thead .shade, .tfoot .shade { color: #DDDDDD; }
+
+/* ***** define margin and font-size for elements inside panels ***** */
+.fieldset { margin-bottom: 6px; }
+.fieldset, .fieldset td, .fieldset p, .fieldset li { font-size: 11px; }
+</style>
+<link rel="stylesheet" type="text/css" href="./Code Optimization - SA-MP Forums_files/vbulletin_important.css">
+
+
+<!-- / CSS Stylesheet -->
+
+<script type="text/javascript" src="./Code Optimization - SA-MP Forums_files/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="./Code Optimization - SA-MP Forums_files/connection-min.js"></script>
+<script type="text/javascript">
+<!--
+var SESSIONURL = "";
+var SECURITYTOKEN = "1467961003-d19138b68e5147ac7922d370eb47628664d8adbc";
+var IMGDIR_MISC = "images/misc";
+var vb_disable_ajax = parseInt("0", 10);
+// -->
+</script>
+<script type="text/javascript" src="./Code Optimization - SA-MP Forums_files/vbulletin_global.js"></script>
+<script type="text/javascript" src="./Code Optimization - SA-MP Forums_files/vbulletin_menu.js"></script>
+
+
+	<link rel="alternate" type="application/rss+xml" title="SA-MP Forums RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2">
+	
+		<link rel="alternate" type="application/rss+xml" title="SA-MP Forums - Discussion - RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2&amp;forumids=84">
+	
+<!-- Editor CSS automatically added by functions_editor.php at line 680 -->
+<!-- Editor Styles -->
+<style type="text/css" id="vbulletin_editor_css_dynamic">
+<!--
+@import url("clientscript/vbulletin_editor.css?v=387");
+
+.vBulletin_editor {
+	background: #E1E1E2;
+	padding: 6px;
+}
+.imagebutton {
+	background: #E1E1E2;
+	color: #000000;
+	padding: 1px;
+	border: none;
+}
+.ocolor, .ofont, .osize, .osmilie, .osyscoloar, .smilietitle {
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #FFFFFF;
+}
+.popup_pickbutton {
+	border: 1px solid #FFFFFF;
+}
+.popup_feedback {
+	background: #FFFFFF;
+	color: #000000;
+	border-right: 1px solid #FFFFFF;
+}
+.popupwindow {
+	background: #FFFFFF;
+}
+#fontOut, #sizeOut, .popup_feedback div {
+	background: #FFFFFF;
+	color: #000000;
+}
+.alt_pickbutton {
+	border-left: 1px solid #E1E1E2;
+}
+.popup_feedback input, .popup_feedback div
+{
+	border: 0px solid;
+	padding: 0px 2px 0px 2px;
+	cursor: default;
+	font: 11px tahoma;
+	overflow: hidden;
+}
+-->
+</style>
+<!-- / Editor Styles -->
+	<title> Code Optimization - SA-MP Forums</title>
+	<script type="text/javascript" src="./Code Optimization - SA-MP Forums_files/vbulletin_post_loader.js"></script>
+	<style type="text/css" id="vbulletin_showthread_css">
+	<!--
+	
+	#links div { white-space: nowrap; }
+	#links img { vertical-align: middle; }
+	-->
+	</style>
+</head>
+<body onload="">
+<!-- logo -->
+<a name="top"></a>
+<center><div align="center" style="height: 80px; width: 90%; background: transparent url(http://forum.sa-mp.com/logo_new_back3.png) repeat-x 0px 0px; text-align:center;">
+<table border="0" width="90%" cellpadding="0" cellspacing="0" align="center">
+<tbody><tr>
+	<td align="center"><a href="http://forum.sa-mp.com/index.php"><img src="./Code Optimization - SA-MP Forums_files/logo_forum.gif" border="0" alt="SA-MP Forums" title="SA-MP Forums"></a></td>
+</tr>
+</tbody></table>
+</div></center>
+<!-- /logo -->
+
+<!-- content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+
+
+
+
+<br>
+
+<!-- breadcrumb, login, pm info -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<tbody><tr>
+	<td class="alt1" width="100%">
+		
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr valign="bottom">
+				<td><a href="http://forum.sa-mp.com/showthread.php?t=583472#" onclick="history.back(1); return false;"><img src="./Code Optimization - SA-MP Forums_files/navbits_start.gif" alt="Go Back" border="0" title="Go Back"></a></td>
+				<td>&nbsp;</td>
+				<td width="100%"><span class="navbar"><a href="http://forum.sa-mp.com/index.php" accesskey="1">SA-MP Forums</a></span> 
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=8">SA-MP Scripting and Plugins</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=12">Scripting Help</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=84">Discussion</a></span>
+
+</td>
+			</tr>
+			<tr>
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="http://forum.sa-mp.com/showthread.php?t=583472"><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/navbits_finallink_ltr.gif" alt="Reload this Page" border="0" title="Reload this Page"></a> <strong>
+	 Code Optimization
+
+</strong></td>
+			</tr>
+			</tbody></table>
+		
+	</td>
+
+	<td class="alt2" nowrap="nowrap">
+	<div class="smallfont">
+		<strong>Welcome, <a href="http://forum.sa-mp.com/member.php?u=234935">VincenzoDrift</a>.</strong><br>
+		You last visited: 07/07/2016 at <span class="time">09:47 PM</span>
+
+		
+			<div><a href="http://forum.sa-mp.com/private.php">Private Messages</a>: Unread 0, Total 1.</div>
+		
+
+		
+	</div>
+	</td>
+
+</tr>
+</tbody></table>
+<!-- / breadcrumb, login, pm info -->
+
+<!-- nav buttons bar -->
+<div class="tborder" style="padding:1px; border-top-width:0px">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+	<tbody><tr align="center">
+		
+			<td class="vbmenu_control"><a href="http://forum.sa-mp.com/usercp.php">User CP</a></td>
+		
+		
+		
+		
+			<td class="vbmenu_control"><a id="community" href="http://forum.sa-mp.com/showthread.php?t=583472&amp;nojs=1#community" rel="nofollow" accesskey="6" style="cursor: pointer;">Community <img src="./Code Optimization - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("community"); </script></td>
+		
+		
+			
+				
+				<td class="vbmenu_control"><a href="http://forum.sa-mp.com/search.php?do=getnew" accesskey="2">New Posts</a></td>
+				
+				<td class="vbmenu_control"><a id="navbar_search" href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow" style="cursor: pointer;">Search <img src="./Code Optimization - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("navbar_search"); </script></td>
+			
+			
+				<td class="vbmenu_control"><a id="usercptools" href="http://forum.sa-mp.com/showthread.php?t=583472&amp;nojs=1#usercptools" accesskey="3" style="cursor: pointer;">Quick Links <img src="./Code Optimization - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("usercptools"); </script></td>
+			
+		
+		
+		
+			<td class="vbmenu_control"><a href="http://forum.sa-mp.com/login.php?do=logout&amp;logouthash=1467961003-d19138b68e5147ac7922d370eb47628664d8adbc" onclick="return log_out(&#39;Are you sure you want to log out?&#39;)">Log Out</a></td>
+		
+		</tr>
+	</tbody></table>
+</div>
+<!-- / nav buttons bar -->
+
+<br>
+
+
+
+
+
+
+<!-- NAVBAR POPUP MENUS -->
+
+	
+	<!-- community link menu -->
+	<div class="vbmenu_popup" id="community_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr><td class="thead">Community Links</td></tr>
+		
+		
+		
+		
+			<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=buddylist">Contacts &amp; Friends</a></td></tr>
+		
+		
+			<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/memberlist.php">Members List</a></td></tr>
+		
+		
+		</tbody></table>
+	</div>
+	<!-- / community link menu -->
+	
+	
+	
+	<!-- header quick search form -->
+	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead">Search Forums</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+				<form action="http://forum.sa-mp.com/search.php?do=process" method="post">
+
+					<input type="hidden" name="do" value="process">
+					<input type="hidden" name="quicksearch" value="1">
+					<input type="hidden" name="childforums" value="1">
+					<input type="hidden" name="exactname" value="1">
+					<input type="hidden" name="s" value="">
+					<input type="hidden" name="securitytoken" value="1467961003-d19138b68e5147ac7922d370eb47628664d8adbc">
+					<div><input type="text" class="bginput" name="query" size="25" tabindex="1001"><input type="submit" class="button" value="Go" tabindex="1004"></div>
+					<div style="margin-top:6px">
+						<label for="rb_nb_sp0"><input type="radio" name="showposts" value="0" id="rb_nb_sp0" tabindex="1002" checked="checked">Show Threads</label>
+						&nbsp;
+						<label for="rb_nb_sp1"><input type="radio" name="showposts" value="1" id="rb_nb_sp1" tabindex="1003">Show Posts</label>
+					</div>
+				</form>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow">Advanced Search</a></td>
+		</tr>
+		
+		</tbody></table>
+	</div>
+	<!-- / header quick search form -->
+	
+	
+	
+	<!-- user cp tools menu -->
+	<div class="vbmenu_popup" id="usercptools_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+
+		<tbody><tr><td class="thead">Quick Links</td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=getdaily">Today's Posts</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/forumdisplay.php?do=markread&amp;markreadhash=1467961003-d19138b68e5147ac7922d370eb47628664d8adbc">Mark Forums Read</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/showthread.php?t=583472#" onclick="window.open(&#39;misc.php?do=buddylist&amp;focus=1&#39;,&#39;buddylist&#39;,&#39;statusbar=no,menubar=no,toolbar=no,scrollbars=yes,resizable=yes,width=250,height=300&#39;); return false;">Open Contacts Popup</a></td></tr>
+		
+		
+
+		<tr><td class="thead"><a href="http://forum.sa-mp.com/usercp.php">User Control Panel</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editsignature">Edit Signature</a></td></tr>
+		<!--<tr><td class="vbmenu_option"><a href="profile.php?do=editavatar">Edit Avatar</a></td></tr>-->
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editprofile">Edit Your Details</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editoptions">Edit Options</a></td></tr>
+		
+
+		<tr><td class="thead">Miscellaneous</td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php" rel="nofollow">Private Messages</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/subscription.php" rel="nofollow">Subscribed Threads</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=234935">Your Profile</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/online.php">Who's Online</a></td></tr>
+		
+
+		</tbody></table>
+	</div>
+	<!-- / user cp tools menu -->
+
+	
+<!-- / NAVBAR POPUP MENUS -->
+
+<!-- PAGENAV POPUP -->
+	<div class="vbmenu_popup" id="pagenav_menu" style="display:none">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead" nowrap="nowrap">Go to Page...</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+			<form action="http://forum.sa-mp.com/index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4">
+				<input type="button" class="button" id="pagenav_ibtn" value="Go">
+			</form>
+			</td>
+		</tr>
+		</tbody></table>
+	</div>
+<!-- / PAGENAV POPUP -->
+
+
+
+
+
+
+
+
+
+
+<a name="poststop" id="poststop"></a>
+
+<!-- controls above postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tbody><tr valign="bottom">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;noquote=1&amp;p=3535522" rel="nofollow"><img src="./Code Optimization - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	
+</tr>
+</tbody></table>
+<!-- / controls above postbits -->
+
+<!-- toolbar -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center" style="border-bottom-width:0px">
+<tbody><tr>
+	<td class="tcat" width="100%">
+		<div class="smallfont">
+		
+		&nbsp;
+		</div>
+	</td>
+	<td class="vbmenu_control" id="threadtools" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=583472&amp;nojs=1#goto_threadtools">Thread Tools</a>
+		<script type="text/javascript"> vbmenu_register("threadtools"); </script> <img src="./Code Optimization - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+		<td class="vbmenu_control" id="threadsearch" nowrap="nowrap" style="cursor: pointer;">
+			<a href="http://forum.sa-mp.com/showthread.php?t=583472&amp;nojs=1#goto_threadsearch">Search this Thread</a>
+			<script type="text/javascript"> vbmenu_register("threadsearch"); </script> <img src="./Code Optimization - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+		</td>
+	
+	
+		<td class="vbmenu_control" id="threadrating" nowrap="nowrap" style="cursor: pointer;">
+			<a href="http://forum.sa-mp.com/showthread.php?t=583472&amp;nojs=1#goto_threadrating"><span id="threadrating_current">Rate Thread</span></a>
+			<script type="text/javascript"> vbmenu_register("threadrating"); </script> <img src="./Code Optimization - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+		</td>
+	
+	
+	<td class="vbmenu_control" id="displaymodes" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=583472&amp;nojs=1#goto_displaymodes">Display Modes</a>
+		<script type="text/javascript"> vbmenu_register("displaymodes"); </script> <img src="./Code Optimization - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+
+	
+
+</tr>
+</tbody></table>
+<!-- / toolbar -->
+
+
+
+<!-- end content table -->
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- / end content table -->
+
+
+
+
+<script type="text/javascript" src="./Code Optimization - SA-MP Forums_files/vbulletin_ajax_reputation.js"></script>
+
+
+<div id="posts"><!-- post #3535522 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3535522" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3535522" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3535522"><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			28/07/2015, 08:09 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3535522&amp;postcount=1" target="new" rel="nofollow" id="postcount3535522" name="1"><strong>1</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3535522">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=250673">hamzajaved780</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3535522", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Big Clucker</div>
+			<div class="smallfont"><img src="./Code Optimization - SA-MP Forums_files/star.png" alt="" border=""><img src="./Code Optimization - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=250673"><img src="./Code Optimization - SA-MP Forums_files/image.php" width="80" height="80" alt="hamzajaved780&#39;s Avatar" border="0" title="hamzajaved780&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Jan 2015</div>
+				<div>Location: Karachi</div>
+				
+				
+				
+<div>
+  Posts: 181
+</div>
+
+<div>Reputation: 14</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3535522" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Code Optimization</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3535522">
+			
+			<b>THIS THREAD IS WRITTEN BY Y_LESS AND I TAKE NO CREDIT FOR IT. I JUST WANT TO REVIVE IT AS IT CAN HELP A LOT OF SCRIPTERS.</b><br>
+<br>
+<font color="red"><b><u><font color="green"><font size="7"><div align="center">Code optimisation</div></font></font></u></b></font><br>
+<br>
+<font color="red"><b><u><font color="green">Contents</font></u></b></font><ul><li><u>Contents</u></li>
+<li><u>Introduction</u></li>
+<li><u>String optimisation</u></li>
+<li><u>Testing</u><ul><li><u>foreach</u></li>
+</ul></li>
+<li><u>Minor optimisations</u><ul><li><u>IEEE numbers</u></li>
+<li><u>Rearranging</u></li>
+<li><u>Data rearrangements</u></li>
+<li><u>Know the language</u></li>
+<li><u>Distance checks</u></li>
+<li><u>Speed order</u></li>
+<li><u>Know your values</u></li>
+<li><u>Return values</u></li>
+<li><u>Small snippets</u><ul><li><u>Equivalence</u></li>
+<li><u>Empty strings</u></li>
+<li><u>Copying strings</u></li>
+</ul></li>
+</ul></li>
+<li><u>Assumptions</u><ul><li><u>Introduction</u></li>
+<li><u>Solutions</u><ul><li><u>Ignore it</u></li>
+<li><u>Make modifications easy</u></li>
+<li><u>Code defensively</u></li>
+</ul></li>
+<li><u>Important</u></li>
+</ul></li>
+<li><u>Memory reduction</u><ul><li><u>All vehicles</u></li>
+<li><u>All attributes</u></li>
+<li><u>More that 32 values</u></li>
+<li><u>Excess dimensions</u></li>
+</ul></li>
+<li><u>CPU vs Memory</u></li>
+<li><u>Lists</u><ul><li><u>Types</u></li>
+<li><u>Mixed lists</u></li>
+<li><u>Code</u></li>
+</ul></li>
+<li><u>Binary trees</u><ul><li><u>Example</u></li>
+<li><u>Balanced and unbalanced</u></li>
+<li><u>Modification</u><ul><li><u>Addition</u></li>
+<li><u>Deletion</u></li>
+</ul></li>
+</ul></li>
+</ul><font color="red"><b><u><font color="green">Introduction</font></u></b></font><br>
+<br>
+These are just some techniques for making your code faster that I have picked up up on the way. Please note that I in no way pretend to be an authority on this subject, these are just what I know, others may know other methods, in which case please do share them as even if no-one else cares I would be interested in knowing them. Note also that many of these techniques apply to languages beside PAWN (the last one I wrote was accused of being stupid because PAWN does not have dynamic memory allocation (personally I think that's a good thing but there we go)), however a lot of other languages may incorporate bits of these into the compiler to do in-line optimisation.<br>
+<br>
+This does not promise to make your code good, just hopefully better. Also note that some bits are fairly complex, it's aimed as a more advanced tutorial, so it does make some assumptions about knowledge in some areas.<br>
+<br>
+<font color="red"><b><u><font color="green">String optimisation</font></u></b></font><br>
+<br>
+For those of you who haven't read the thread on better string usage, it's here:<br>
+<br>
+<a href="http://forum.sa-mp.com/showthread.php?p=3535516" target="_blank"><u>Why you shouldn't make your strings 256 cells big</u></a><br>
+<br>
+<font color="red"><b><u><font color="green">Testing</font></u></b></font><br>
+<br>
+Firstly I'm going to explain my testing procedure. If I have two pieces of code which do the same thing but in different ways and I want to know which is faster I clock them:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 402px;
+		text-align: left;
+		overflow: auto">#define CODE_1 printf("%d", 42);
+#define CODE_2 new str[4]; format(str, sizeof (str), "%d", 42); print(str);
+#define ITERATIONS (10000)
+
+Test()
+{
+    new
+        t0,
+        t1,
+        t2,
+        i;
+    t0 = GetTickCount();
+    for (i = 0; i &lt; ITERATIONS; i++)
+    {
+        CODE_1
+    }
+    t1 = GetTickCount();
+    for (i = 0; i &lt; ITERATIONS; i++)
+    {
+        CODE_2
+    }
+    t2 = GetTickCount();
+    printf("Time 1: %04d, time 2: %04d", t1 - t0, t2 - t1);
+}</pre>
+</div>Clearly both the pieces of code will display the number "42" in the server console, however they both do it in different ways. Hopefully no-one will need to run this code to know which method will be faster, but it's a good simple example of testing to see which of two equivalent pieces of code is faster. The ITERATIONS loop is important, in all likelihood both of these pieces of code will take less than a millisecond each, so both will report their time taken as zero. Also, if you only do it once threading becomes a major issue, if one version is interrupted by the OS it can report itself as taking substantially longer when in fact it's faster. If both are done lots and lots of times then interrupts will hopefully negate each other and each loop will take more than one millisecond. The layout of the code is also important, all the variables are declared first to move their overhead outside of the loop (their execution time is so small it likely won't affect the outcome anyway, but just for consistency it's good).<br>
+<br>
+It's also sometimes good to wrap the Test function in another loop, especially if the results are very close, to verify the results. Execution times can vary slightly due to threads, this is visible if you run multiple tests in the form of maybe a few milliseconds variation on each time. If you run close results repeatedly then you can check than one is consistently faster rather than faster just the once, as that may have been a fluke and 90% of the time the other is faster, just not that one time.<br>
+<br>
+Sometimes you may need more advanced test code, e.g. to test more than two equivalents, this is fairly easy to expand:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">#define CODE_1 printf("%d", 42);
+#define CODE_2 new str[4]; format(str, sizeof (str), "%d", 42); print(str);
+#define CODE_3 print("42");
+#define ITERATIONS (10000)
+
+Test()
+{
+    new
+        t0,
+        t1,
+        t2,
+        t3,
+        i;
+    t0 = GetTickCount();
+    for (i = 0; i &lt; ITERATIONS; i++)
+    {
+        CODE_1
+    }
+    t1 = GetTickCount();
+    for (i = 0; i &lt; ITERATIONS; i++)
+    {
+        CODE_2
+    }
+    t2 = GetTickCount();
+    for (i = 0; i &lt; ITERATIONS; i++)
+    {
+        CODE_3
+    }
+    t3 = GetTickCount();
+    printf("Time 1: %04d, time 2: %04d, time 3: %04d", t1 - t0, t2 - t1, t3 - t2);
+}</pre>
+</div>Etcetera...<ul><li><font color="red"><b><u><font color="green">foreach</font></u></b></font></li>
+</ul>I recently clocked my foreach function against the default for/IsPlayerConnected (IPC) code. foreach uses a linked list of players so when you loop it ONLY loops through connected players, compared to IPC code which loops through ALL players and checks if they're connected. I knew that on a large server with not many players it was faster, but I wasn't sure about more full servers, so I clocked it. I didn't have 200 players to test with but I know that IsPlayerConnected takes pretty much the same time to run whether it returns true or false (it basically just returns a variable in the server which could be either), so this wasn't a problem as for a given number of players IPC would run at a constant speed regardless of whether they were on or not. foreach runs very differently depending on how many players are connected, taking next to no time with no players and a lot longer for a full server, I just wanted to know if this longest execution time was longer than the constant time IPC ran at. I actually wanted to profile it at all player counts, this meant faking player connections in foreach, which wasn't hard as it's my code and you just call a connect function. The test code for this ended up looking like:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">#define FAKE_MAX 200
+#define SKIP 0
+Iter_Create(P2, FAKE_MAX);
+*
+TestFunc()
+{
+    new
+        fep = 0,
+        fet = 0,
+        fip = 0,
+        fit = 0,
+        i = 0;
+    while (i &lt; SKIP)
+    {
+        Itter_Add(P2, i++);
+    }
+    while (i &lt;= FAKE_MAX)
+    {
+        new
+            t0,
+            t1,
+            t2,
+            j;
+        t0 = GetTickCount();
+        for (j = 0; j &lt; 10000; j++)
+        {
+            for (new playerid = 0; playerid &lt; FAKE_MAX; playerid++)
+            {
+                if (IsPlayerConnected(playerid))
+                {
+                    / Do something
+                }
+            }
+        }
+        t1 = GetTickCount();
+        for (j = 0; j &lt; 10000; j++)
+        {
+            foreach(P2, playerid)
+            {
+                / Do something
+            }
+        }
+        t2 = GetTickCount();
+        printf("Players: %04d, for: %04d, foreach: %04d", i, t1 - t0, t2 - t1);
+        fit = fit + t1 - t0;
+        fet = fet + t2 - t1;
+        fip += FAKE_MAX;
+        fep += i;
+        if (i &lt; FAKE_MAX)
+        {
+            Itter_Add(P2, i);
+        }
+        i++;
+    }
+    printf("for ms/p: %04d, foreach ms/p: %04d", (fit   100) / fip, (fet   100) / fep);
+}</pre>
+</div>This ran the code 201 times, one for each player count (0-200) (with both foreach and IPC it doesn't matter WHICH players are connected in terms of speed). It also allowed me to fake more players, e.g. to test how this code would run on a 0.3 server with 500 players, IPC is actually slightly faster if the player you're testing doesn't exist, and it was STILL slower, so that was fairly conclusive. The one test I didn't run was:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 290px;
+		text-align: left;
+		overflow: auto">t0 = GetTickCount();
+        for (j = 0; j &lt; 10000; j++)
+        {
+            for (new playerid = 0; playerid &lt; FAKE_MAX; playerid++)
+            {
+                Kick(playerid);
+            }
+        }
+        t1 = GetTickCount();
+        for (j = 0; j &lt; 10000; j++)
+        {
+            foreach(P2, playerid)
+            {
+                Kick(playerid);
+            }
+        }
+        t2 = GetTickCount();</pre>
+</div>Kick, and in fact all player functions, has an internal IsPlayerConnected check, so if you're only running one function in a loop it's more efficient to NOT call IsPlayerConnected and just call the function direct. If the player is connected you've saved a function call, if they're not connected you've not lost anything as the only code that's been executed is the same as if you called IsPlayerConnected. Unfortunately this example may affect the speed of foreach at high player counts as you will be using the foreach code AND the IPC code in the same loop. If you did:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 338px;
+		text-align: left;
+		overflow: auto">t0 = GetTickCount();
+        for (j = 0; j &lt; 10000; j++)
+        {
+            for (new playerid = 0; playerid &lt; FAKE_MAX; playerid++)
+            {
+                if (IsPlayerConnected(playerid))
+                {
+                    Kick(playerid);
+                }
+            }
+        }
+        t1 = GetTickCount();
+        for (j = 0; j &lt; 10000; j++)
+        {
+            foreach(P2, playerid)
+            {
+                Kick(playerid);
+            }
+        }
+        t2 = GetTickCount();</pre>
+</div>Then foreach would be faster, but that's not the most efficient way of doing it in the first instance.<br>
+<br>
+I have actually looked into modifying a compiler so you can do something like:<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">eqiv{{for (new playerid = 0; playerid &lt; FAKE_MAX; playerid++){if (IsPlayerConnected(playerid)){Kick(playerid);}}}{foreach(P2, playerid){Kick(playerid);}}}</pre>
+</div>Which will compile and optimise both versions of the code, then accurately clock both based on generated code and known OpCode clock cycles to see which is faster. However there are all sorts of problems involved regarding test sets and I've not done it yet so it's really a moot point (truthfully there's a number of improvements I'd like to make to various language compilers, I've just not yet).<br>
+<br>
+<font color="red"><b><u><font color="green">Minor optimisations</font></u></b></font><ul><li><font color="red"><b><u><font color="green">IEEE numbers</font></u></b></font></li>
+</ul>There is a float representation for positive and negative infinity, and one for invalid numbers. I've seen people try all sorts of representations for large or invalid float numbers, take these examples:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">if (!IsPlayerConnected(playerid))
+{
+    return -1.0;
+}
+return GetDistance(playerid);</pre>
+</div>pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 338px;
+		text-align: left;
+		overflow: auto">new
+    bool:first = true,
+    Float:distance = 0.0;
+foreach (Player, playerid)
+{
+    if (first)
+    {
+        first = false;
+        distance = GetDistance(playerid);
+    }
+    else
+    {
+        new
+            Float:temp = GetDistance(playerid);
+        if (temp &lt; distance)
+        {
+            distance = temp;
+        }
+    }
+}</pre>
+</div>The first code could do anything, with a distance of -1.0 meaning the player isn't connected, so retuning an invalid distance. The second code finds the closet player to something (exact details aren't important). The second piece of code can be optimised by choosing a very large start number instead of the "first" variable:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 194px;
+		text-align: left;
+		overflow: auto">new
+    Float:distance = 100000.0;
+foreach (Player, playerid)
+{
+    new
+        Float:temp = GetDistance(playerid);
+    if (temp &lt; distance)
+    {
+        distance = temp;
+    }
+}</pre>
+</div>But that misses the rare case when a player is over 100000 units away (note that in actual fact you would use squared values here, as detailed <u>below</u>, but this is for example only). Both of these examples have well defined solutions:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">#define FLOAT_INFINITY   (Float:0x7F800000)
+#define FLOAT_NEG_INFINITY (Float:0xFF800000)
+#define FLOAT_NAN     (Float:0xFFFFFFFF)</pre>
+</div>This would make the code above:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 194px;
+		text-align: left;
+		overflow: auto">new
+    Float:distance = FLOAT_INFINITY;
+foreach (Player, playerid)
+{
+    new
+        Float:temp = GetDistance(playerid);
+    if (temp &lt; distance)
+    {
+        distance = temp;
+    }
+}</pre>
+</div>pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">if (!IsPlayerConnected(playerid))
+{
+    return FLOAT_NAN;
+}
+return GetDistance(playerid);</pre>
+</div>"NaN" is a very special number - comparing it to any other number (including itself) will return false. To check for NaN you would do:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">stock IsNaN(number)
+{
+    return !(number &lt;= 0 || number &gt; 0);
+}</pre>
+</div>That function returns false if the number passed is less than, equal to, or greater than 0 - all numbers, including + and - infinity, match those criteria - NaN DOESN'T because it's not a number, so doesn't have a value. Using these values guarantee (they're defined in the IEEE floating point number spec) that you will never use numbers which could be confused with real values. Due to the unique properties of NaN this very odd looking code should also work:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">stock IsNaN(number)
+{
+    return (number != number);
+}</pre>
+</div>DO NOT TRY:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if (number == FLOAT_NAN)</pre>
+</div>That code will fail because, as previously mentioned, NaN is not equal even to itself.<br>
+<br>
+Let's look at this when you want the distance to see if they're in range of something:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">if (DistanceWithConnectionCheck(playerid) &lt; 100.0)
+{
+    / They're in range and connected
+}</pre>
+</div>Returning infinity will mean the check fails, as will returning NaN (it's not less than, greater than or equal to 10) - compare this to the extra code you need here to check for "-1.0":<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 194px;
+		text-align: left;
+		overflow: auto">new
+    Float:distance = DistanceWithConnectionCheck(playerid);
+if (distance == -1.0)
+{
+    / They're not connected
+}
+else if (distance &lt; 100.0)
+{
+    / They're in range and connected
+    / -1.0 is less than 100, so we need to check for that specially
+}</pre>
+</div>See the YSI object streamer for a real usage.<ul><li><font color="red"><b><u><font color="green">Rearranging</font></u></b></font></li>
+</ul>The compiler can do constant maths, this means if you do:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">printf("%d", 4 + 5);</pre>
+</div>The compiler will do:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">printf("%d", 9);</pre>
+</div>It won't bother putting in code to do the maths as there's no point - it'll always be the same result. Often a simple formula rearrangement can help your code:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">new
+    var = (4 + somevar) - 11;</pre>
+</div>That will compile to do two bits of maths, first to add 4 to a number, then to subtract 11 from the result (some compilers may actually be able to optimise this in the way I'm about to describe, but it's a simple example). If you rearrange this sum you get:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">new
+    var = somevar + (4 - 11);</pre>
+</div>The compiler can very quickly optimise this to:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">new
+    var = somevar - 7;</pre>
+</div>A more complex example with no compiler optimisations:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">new
+    gLastTime[MAX_PLAYERS];
+*
+#define EXPIRY 1000</pre>
+</div>pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 162px;
+		text-align: left;
+		overflow: auto">new
+    time = GetTickCount();
+foreach (Player, playerid)
+{
+    if (time - gLastTime[playerid] &gt; EXPIRY)
+    {
+        SendClientMessage(playerid, 0xFF0000AA, "Your time expired");
+    }
+}</pre>
+</div>That's a basic example which detects when a certain time has passed since a player last did something. No options for optimisation there you may think, and you may be right, but it's always better to try. The equation here is:<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">time - gLastTime[playerid] &gt; EXPIRY</pre>
+</div>=, ==, &gt;= etc can all be rearranged in the same way, so the above equation is the same as:<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">time &gt; EXPIRY + gLastTime[playerid]</pre>
+</div>More importantly, it is also the same as:<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">time - EXPIRY &gt; gLastTime[playerid]</pre>
+</div>Why is this important? In terms of the loop "time - EXPIRY" is now a constant as neither change in the loop. This means you can do:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 162px;
+		text-align: left;
+		overflow: auto">new
+    time = GetTickCount() - EXPIRY;
+foreach (Player, playerid)
+{
+    if (time &gt; gLastTime[playerid])
+    {
+        SendClientMessage(playerid, 0xFF0000AA, "Your time expired");
+    }
+}</pre>
+</div>You have just cut out up to 200 repeated subtractions with basically no effort. The more constant, or pseudo-constant, elements you can get in a sum the better, especially when you're doing lots of them. If you were only checking one player I'd be tempted to put everything, including the GetTickCount() call, in the if statement, but not if you're doing it multiple times.<ul><li><font color="red"><b><u><font color="green">Data rearrangements</font></u></b></font></li>
+</ul>Another thing to consider is how your data is laid out and how you want to access it. Take the following data for example:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">#define MAX_OWNDED_VEHICLES 10
+
+new gVehicleOwner[MAX_OWNDED_VEHICLES] = {0, 2, 4, 6, 8, 10, 12, 14, 16, 18};</pre>
+</div>Here you have 10 vehicles, each with a player who owns them (assume for this example one player can only own up to one vehicle). If you want to find out who owns a vehicle you can simply do:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">printf("The owner of vehicle %d is %d", vehicleid, gVehicleOwner[vehicleid]);</pre>
+</div>But what if you want to find out which vehicle a player owns? For that you would need to do something like:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 210px;
+		text-align: left;
+		overflow: auto">new i = 0;
+while (i &lt; MAX_OWNDED_VEHICLES)
+{
+    if (gVehicleOwner[i] == playerid)
+    {
+        printf("Player %d owns vehicle %d", playerid, i);
+        break;
+    }
+    i++;
+}
+if (i == MAX_OWNDED_VEHICLES)
+    printf("Player %d does not own a vehicle", playerid);</pre>
+</div>Now lets look at it a different way round:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">#define MAX_PLAYERS 20
+
+new gPlayerVehicle[MAX_PLAYERS] = {0, -1, 1, -1, 2, -1, 3, -1, 4, -1, 5, -1, 6, -1, 7, -1, 8, -1, 9, -1};</pre>
+</div>Now if you want to find out which vehicle a player owns it's just a simple array lookup, but if you want to see who owns a vehicle it's a loop. The question you need to consider here is which do you want to know more? If you don't care who owns a given vehicle but do care which vehicle someone owns then use the second layout, and vice-versa the first. If you use both a lot you may actually want to consider mirroring the data in two different arrays. This is a trade-off between speed and memory, and is a VERY common trade-off you find people dealing with. Personally I think speed is more important than memory in modern 32 and 64 bit processors so would use two arrays, but you may disagree given the multiple gigahertz that they run at so would use one array and a loop.<br>
+<br>
+Let's look at a far more clean-cut example that was actually in a topic I read recently. This example is VERY cut down, I'm only using 10 models here:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">new
+    gCars[] = {400, 403, 404, 406, 408, 409},
+    gHeavyVehicles[] = {400, 402, 408},
+    gBoats[] = {401, 407},
+    gFireEngines[] = {402, 405};</pre>
+</div>If you want to know if a model is a car you need to loop through "gCar" till you find that model or you reach the end. On the other hand with this code it's very easy to tell what model a car at a given position is, but this means nothing as is data you are unlikely to ever want to know. So the question is; why is it easy to get data you don't want and hard to get data you do want? That makes no sense at all... We know that for a given model we want to know if it's a car, so we need to change the code to use the model as the array index (offsetting by 400), same as we did above to find what vehicle a player owns:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">new
+    gIsACar[] = {1, 0, 0, 1, 1, 0, 1, 0, 1, 1},
+    gIsAHeavyVehicle[] = {1, 0, 1, 0, 0, 0, 0, 0, 1, 0},
+    gIsABoat[] = {0, 1, 0, 0, 0, 0, 0, 1, 0, 0},
+    gIsAFireEngine[] = {0, 0, 1, 0, 0, 1, 0, 0, 0, 0};</pre>
+</div>Now if you want to find out if a model is a car or not you simply do:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if (gIsACar[model - 400])</pre>
+</div>Isn't that SO much simpler and faster than a loop?<br>
+<br>
+Using an entire cell to store a boolean value (1 or 0) is also very inefficient, but we'll cover that later.<ul><li><font color="red"><b><u><font color="green">Know the language</font></u></b></font></li>
+</ul>And I mean WELL. As someone reminded me the other day (I had commented on it on IRC) a little while ago I found out that:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if (2 &lt;= a &lt;= 4)</pre>
+</div>Works in PAWN (it doesn't in C), I had thought it was like in C, so had been doing:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if (2 &lt;= a &amp;&amp; a &lt;= 4)</pre>
+</div>Not a vast improvement, but most of these aren't, it's the combined and repeated effect that's important.<br>
+<br>
+If, for example, you didn't know about the "&amp;" operator and you wanted to test if the second bit of a number was set you would need to do something like:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if ((a &lt;&lt; 30) &gt;&gt;&gt; 31)</pre>
+</div>or:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if ((a % 4) &gt;&gt;&gt; 1)</pre>
+</div>Both those pieces of code would ensure that only one bit of a number was set, and would do what you wanted, but it's far better to know about "&amp;":<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if (a &amp; 2)</pre>
+</div>It's clearly faster (shifts aren't too bad, but MOD is VERY slow, out of the other two versions always go for the first if you have to go for one of them), it's also a lot more obvious what you're trying to do. If you don't know what it does - go read pawn-lang.pdf.<br>
+<br>
+This is clearly a very basic example but there are many many other examples. People tend to baulk when I tell them to read pawn-lang.pdf then wonder why I seem to know more about PAWN than they do, 2 + 2 = ... There's a reason I have it bookmarked, and it's not so I can quickly copy the link to post for people (although it is handy for that too).<br>
+<br>
+As my example at the start of this section shows, there's always something new for you to learn, no matter how much you may already know. I can think of two huge parts of PAWN that I don't know at all and the fact that I don't know of any other areas just means I don't know them yet, it doesn't mean they don't exist (it's hard to know what you don't know).<ul><li><font color="red"><b><u><font color="green">Distance checks</font></u></b></font></li>
+</ul>0.3 now supports distance checks automatically, just use:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">IsPlayerInRangeOfPoint(playerid, Float:range, Float:x, Float:y, Float:z);</pre>
+</div>This is a very common thing for people do, and a very common thing for people to do wrong. Example:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">if (PlayerDistanceToPoint(playerid, 10.0, 20.0, 2.0) &lt;= 5.0)
+{
+    / They're near 10.0, 20.0, 2.0 - do something
+}</pre>
+</div>That code will work, will trigger when the player is in 5.0 units of a point, but getting the distance to a point is very slow. The equation to get the distance between two points (x1, y1, z1 and x2, y2, z2) is:<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">(((x1 - x2) ^ 2) + ((y1 - y2) ^ 2) + ((z1 - z2) ^ 2)) ^ 0.5</pre>
+</div>"^" in this case means power, not XOR, "^ 0.5" is square root (trust me - try it on a calculator). The most common implementation of this is:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">floatsqroot(floatadd(floatadd(floatpower(floatsub(x1, x2), 2), floatpower(floatsub(y1, y2), 2)), floatpower(floatsub(z1, z2), 2)));</pre>
+</div>Don't ask me why whoever originally wrote it didn't bother using standard operators, I have no idea, but simplified this code is:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">floatsqroot(floatpower(x1 - x2, 2) + floatpower(y1 - y2, 2) + floatpower(z1 - z2, 2));</pre>
+</div>Now, the first thing to note is that the code to raise something to a generic power is complicated, it doesn't optimise for simple ones like 2 it just uses the basic algorithm. We know that something to the power 2 is just that thing multiplied by itself (or you should do). 3^2 is the same as 3*3, 57^2 is the same as 57*57 etc. Multiplication is much simpler that power, so the code becomes:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">floatsqroot(((x1 - x2)   (x1 - x2)) + ((y1 - y2)   (y1 - y2)) + ((z1 - z2)   (z1 - z2)));</pre>
+</div>You could remove some brackets, but there's no point, this is just as fast as the reduced bracket version and more explicit. There is now more code here, but it's much faster. Now the quest for optimisation gets more interesting. We do each of the subtractions twice, you could export these to variables to only do them once, but then you've got additional variable writes which may not offset the gain in speed:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">x1 -= x2;
+y1 -= y2;
+z1 -= z2;
+floatsqroot((x1   x1) + (y1   y1) + (z1   z1));</pre>
+</div>We now have our nice efficient code for getting someone's distance from something, but there's still one major problem - all the optimisations done so far are nothing compared to floatsqroot, that is an insanely inefficient function (well, it's not inefficient, it's actually very efficient, but that doesn't make it fast because it's so complicated). Believe it or not most of the time you don't actually need to know exactly how far from the point someone is, just whether they're near the point or not. Now you should have read the part on <u>rearranging</u> (if not, go read it again), so let's apply that here:<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">((x   x) + (y   y) + (z   z)) ^ 0.5 &lt;= 5.0</pre>
+</div>You can rearrange inequalities in exactly the same way as regular equations:<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">((x   x) + (y   y) + (z   z)) ^ 0.5 &lt;= 5.0(x   x) + (y   y) + (z   z) &lt;= 5.0 ^ 2(x   x) + (y   y) + (z   z) &lt;= 5.0   5.0</pre>
+</div>Anyone familiar with maths should be able to vouch for that very simple rearrangement. We know how to quickly square something (as I just told you), and we know that square-rooting is very slow, so that's a vast improvement:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">if (PlayerDistanceToPointSquared(playerid, 10.0, 20.0, 2.0) &lt;= 5.0   5.0)
+{
+    / They're near 10.0, 20.0, 2.0 - do something
+}</pre>
+</div>Or:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">if (IsPlayerInRangeOfPoint(playerid, 5.0, 10.0, 20.0, 2.0))
+{
+    / They're near 10.0, 20.0, 2.0 - do something
+}</pre>
+</div>pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 210px;
+		text-align: left;
+		overflow: auto">stock IsPlayerInRangeOfPoint(playerid, Float:range, Float:x, Float:y, Float:z)
+{
+    new
+        Float:px,
+        Float:py,
+        Float:pz;
+    GetPlayerPos(playerid, px, py, pz);
+    px -= x;
+    py -= y;
+    pz -= z;
+    return ((px   px) + (py   py) + (pz   pz)) &lt; (range   range);
+}</pre>
+</div>You can write your own code of course, but for reasons I can't go into I STRONGLY suggest you use that function name and parameter order.<br>
+<br>
+Update:<br>
+<br>
+I've found the original timing analysis I did on this area and the results are not what some people would expect. I compared a whole load of different distance analysis functions, including less accurate ones people use for speed, for example:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 178px;
+		text-align: left;
+		overflow: auto">Type1(Float:x1, Float:y1, Float:z1, Float:x2, Float:y2, Float:z2, Float:dist)
+{
+    x1 = (x1 &gt; x2) ? x1 - x2 : x2 - x1;
+    if (x1 &gt; dist) return false;
+    y1 = (y1 &gt; y2) ? y1 - y2 : y2 - y1;
+    if (y1 &gt; dist) return false;
+    z1 = (z1 &gt; z2) ? z1 - z2 : z2 - z1;
+    if (z1 &gt; dist) return false;
+    return true;
+}</pre>
+</div>The results were that even these "faster" implementations were slower than the implementation outlined above, AND less accurate.<br>
+<br>
+The results I got were:<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">1703 1781 1594 1641 2265 1782 2281 1891</pre>
+</div>1703 is the time for the "faster" version, 1594 was the time for my version. Conclusion - don't try to optimise distance checks by making them worse - the originals are both faster and more accurate.<br>
+<br>
+Note that running the linked code will produce <b>9</b> values due to a bug - just ignore the last value (a fatal mistake I made).<br>
+<br>
+My analysis code can be found <a href="http://web.archive.orgweb20141030014915http//forum.sa-mp.com/web/20141030014915/http://y-less.pastebin.ca/1299061" target="_blank"><u>here</u></a>.<ul><li><font color="red"><b><u><font color="green">Speed order</font></u></b></font></li>
+</ul>Different language features take different times to execute, in general the order is (from fastest to slowest):<ul><li>Nothing</li>
+<li>Constants</li>
+<li>Variables</li>
+<li>Arrays</li>
+<li>Native functions</li>
+<li>Custom functions</li>
+<li>Remote functions</li>
+</ul>So for example:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">for (new i = 0; i &lt; MAX_PLAYERS; i++)</pre>
+</div>Is faster than:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">for (new i = 0, j = GetMaxPlayers(); i &lt; j; i++)</pre>
+</div>As the main part of the loop in the first uses a constant, whereas the main part in the second uses a variable (the overhead of a single function call in a loop is negligible compared to the repeated check). This second version is itself faster than:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">for (new i = 0; i &lt; GetMaxPlayers(); i++)</pre>
+</div>As this third version uses a repeated function call rather than a variable or constant.<br>
+<br>
+I'm not sure where control structures fit in to the list, for example I'm not sure which of these is faster:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 114px;
+		text-align: left;
+		overflow: auto">new var = a ? 0 : 1;
+printf("%d", var);
+printf("%d", var);
+printf("%d", var);
+printf("%d", var);
+printf("%d", var);</pre>
+</div>pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">printf("%d", a ? 0 : 1);
+printf("%d", a ? 0 : 1);
+printf("%d", a ? 0 : 1);
+printf("%d", a ? 0 : 1);
+printf("%d", a ? 0 : 1);</pre>
+</div>I suspect the first, unless you only have one print, in which case definitely the second, but again there are for more complex examples where it's less clear. This requires clocking but I've not done it yet (and there are loads of control structures, so I just apply my general rule (see below) to these).<br>
+<br>
+So why is "nothing" in the list? Consider the following two bits of code:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">new var = random(10);
+printf("%d", var);</pre>
+</div>pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">printf("%d", random(10));</pre>
+</div>Clearly the second is faster as there's no intermediary step. In actual fact most compilers will optimise out the variable but not all do.<br>
+<br>
+Where the line starts getting blurry is with repeated calls. For example, which of these is faster:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">new var = gArr[10];
+printf("%d %d", var, var);</pre>
+</div>pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">printf("%d %d", gArr[10], gArr[10]);</pre>
+</div>The first one has one array access, one variable write and two variable reads, the second has two array accesses. Truthfully I'm not sure which is faster but I have a general rule:<br>
+<br>
+More than one function call - save it in a variable, more than two array reads save it in a variable, so for the above code I would probably use the second version, however a three element print would require three array accesses, which is more than two, thus I would use an intermediary variable:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">new var = gArr[10];
+printf("%d %d %d", var, var, var);</pre>
+</div>And I never call the same function more than once when I don't have to (especially as this can have unintended results if the function has changing returns or side effects).<ul><li><font color="red"><b><u><font color="green">Know your values</font></u></b></font></li>
+</ul>Another common bit of code (I'm sure most of you will recognise it) is this:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">if (killerid == INVALID_PLAYER_ID)
+    SendDeathMessage(INVALID_PLAYER_ID, playerid, reason);
+else
+    SendDeathMessage(killerid, playerid, reason);</pre>
+</div>Lets look at another example of similar code to try make it more obvious what exactly this is doing and why it's stupid:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">if (var == 1)
+    printf("%d", 1);
+else
+    printf("%d", var);</pre>
+</div>If var is one this prints '1', if var isn't one this prints the value of var, either way the value of var gets printed, so what does the if do? This can just as easily be written:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">printf("%d", var);</pre>
+</div>For the same reason, this does the same as the code above:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">SendDeathMessage(killerid, playerid, reason);</pre>
+</div>The original code comes from the 0.2 version of LVDM, but in there other things were done too, making the check not pointless, but people took this, removed the other bits and didn't think about what the code was actually now doing. It doesn't matter if killerid isn't valid as as shown above INVALID_PLAYER_ID is a perfectly acceptable input to SendDeathMessage.<ul><li><font color="red"><b><u><font color="green">Return values</font></u></b></font></li>
+</ul>Contrary to what the wiki says, many function's return values are important as they indicate whether a (native) function succeeded or not. This can be utilised as we know from before that variables are faster than function calls, and doing things once is faster that doing things twice. An example:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 130px;
+		text-align: left;
+		overflow: auto">new Float:health;
+for (new i = 0; i &lt; MAX_PLAYERS: i++)
+    if (IsPlayerConnected(i))
+    {
+        GetPlayerHealth(i, health);
+        SetPlayerHealth(i, health + 10.0);
+    }</pre>
+</div>Pretty self explanatory and typical code, but if we understand error returns this can be optimised. Due to bugs in 0.1 all player and vehicle functions now have checks to make sure the thing you’re operating on actually exists, so if you did GetPlayerHealth on a player that didn’t exist the function would fail and the health variable would have the same value as before. More importantly pretty much all functions without an important return value return 0 on failure and 1 on success. Internally the player connection check in GetPlayerHealth is more or less identical to the one in IsPlayerConnected, so we’re checking if a player is connected twice. If they’re not connected GetPlayerHealth will end instantly, so instead of the above code we can do:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">new Float:health;
+for (new i = 0; i &lt; MAX_PLAYERS: i++)
+    if (GetPlayerHealth(i, health))
+        SetPlayerHealth(i, health + 10.0);</pre>
+</div>This is no slower for players not connected and faster for players who are, so worst case you get no improvement, best case loads.<br>
+<br>
+This can also be applied to other functions, even if they have return values:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">if (IsPlayerInAnyVehicle(playerid))
+{
+    new vehicleid = GetPlayerVehicleID(playerid);
+    SetVehiclePos(vehicleid, 0.0, 0.0, 10.0);
+}</pre>
+</div>Again, an example of very common code, but again we need to ask what do these functions actually return? GetPlayerVehicleID returns the ID of the vehicle the player is in, and if they’re not in a vehicle it returns 0 (as this is an invalid vehicle ID). So, if we’re going to get the ID of the vehicle they’re in and this knows if they’re in a vehicle or not and can tell you, why check if they’re in one?<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">new vehicleid = GetPlayerVehicleID(playerid);
+if (vehicleid)
+    SetVehiclePos(vehicleid, 0.0, 0.0, 10.0);</pre>
+</div>Now, instead of two function calls you only have one and you check the return of that one is valid (i.e. not 0).<br>
+<br>
+One other aspect of return values is how long they exist for. If you set a variable in an if statement (which, if you’re not careful, will give an unintended assignment warning) the value you just set is still in the if statement, so if you did:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">new
+    a = 1,
+    b = 0;
+if ((b = a))</pre>
+</div>(Note the double brackets to avoid the unintended assignment warning)<br>
+<br>
+Then "a" would be assigned to "b", so "b" would be 1, and that 1 would still be active in the if effectively as the return of the assignment, so this if is true, however:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">new
+    a = 0,
+    b = 1;
+if ((b = a))</pre>
+</div>After this code "b" will be 0, as "a" has successfully been assigned to "b", but as the result of this assignment is 0, the if fails. Just to illustrate this, figure this code out (re-read the part on strings if you need to):<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">stock strcpy(dest[], src[])
+{
+    new i = 0;
+    while ((dest[i] = src[i])) i++;
+}</pre>
+</div>This also means you can do:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">new vehicleid;
+for (new i = 0; i &lt; MAX_PLAYERS: i++)
+    if ((vehicleid = GetPlayerVehicleID(i)))
+        SetVehiclePos(vehicleid, 0.0, 0.0, 10.0);</pre>
+</div>Example of a player name check implementation in PAWN using this:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 146px;
+		text-align: left;
+		overflow: auto">NameCheck(name[])
+{
+    new
+        i,
+        ch;
+    while ((ch = name[i++]) &amp;&amp; ((ch == ']') || (ch == '[') || (ch == '_') || ('0' &lt;= ch &lt;= '9') || ((ch |= 0x20) &amp;&amp; ('a' &lt;= ch &lt;= 'z')))) {}
+    return !ch;
+}</pre>
+</div>This function will return true if the name is OK (i.e. all 0-9, a-z, A-Z, [, ] or _) and false if not. The (ch |= 0x20) is another little trick to convert a character to lower case, whatever it's previous case, based on the fact that in ASCII upper and lower case characters are exactly 0x20 apart (A = 0x40, a = 0x60).<ul><li><font color="red"><b><u><font color="green">Small snippets</font></u></b></font></li>
+</ul><ul><li><u>Equivalence</u></li>
+</ul>Multiple things can mean the same thing, for example:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if (string[1] == 65)</pre>
+</div>Is the same as:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if (string[1] == 0x41)</pre>
+</div>Is the same as:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if (string[1] == 0b01000001)</pre>
+</div>Is the same as:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if (string[1] == 'A')</pre>
+</div>Although they all mean the same thing and thus won't get any speed improvements the last one is more obvious as to what you're trying to do (check if a character is 'A'). However in other circumstances one of the other two may be more appropriate, i.e. you want to see if something is 65, and the fact that that's the same as 'A' is merely coincidence.<br>
+<br>
+This can be taken a bit further with zero:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if (string[1] == 0)</pre>
+</div>Is the same as:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if (string[1] == 0x00)</pre>
+</div>Is the same as:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if (string[1] == ((27 + 3) / 5) - 6)</pre>
+</div>Is the same as:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if (string[1] == 0b00000000)</pre>
+</div>Is the same as:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if (string[1] == '\0')</pre>
+</div>Is the same as:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if (string[1] == false)</pre>
+</div>Is the same as:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if (string[1] != true)</pre>
+</div>Is the same as:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if (string[1] == 0.0)</pre>
+</div>Is the same as:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if (!string[1])</pre>
+</div>In fact that can be taken a lot further (floatround_round, radian, SPECIAL_ACTION_NONE, seek_start, io_read and PLAYER_STATE_NONE are all also 0).<ul><li><u>Empty strings</u></li>
+</ul>The standard way of checking if a string is empty is:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">if (strlen(string) == 0)
+{
+    / The string is empty because it's length is 0
+}</pre>
+</div>This clearly does check if a string is empty, and is fast if the string is empty, but is slower if the string isn't empty. The way strlen works is by looping through the string until it finds the end (which, as you should know from the other topic on strings, is denoted by a NULL character), once the end is hit the length is returned, so if the string isn't empty it will take a while to find the end.<br>
+<br>
+As we know that the end of a string is denoted by a NULL character all we need to do to see if a string is empty is to see if the first character is the end of the string or not:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">if (string[0] == '\0')
+{
+    / The string is empty because it's first character is the end
+}</pre>
+</div>This can be further improved:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">if (!string[0])
+{
+    / The string is empty because it's first character doesn't exist
+}</pre>
+</div>The only place this doesn't apply is in strings passed by CallRemoteFunction and CallLocalFunction. Due to the way the PAWN VM works these strings MUST NOT have 0 length, so empty strings are passed as "\1\0" (i.e. character 1 (SOH), character 0 (NULL)). To check for this do:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">if (string[0] == '\1' &amp;&amp; string[1] == '\0')
+{
+    / The string is empty because it's specially marked as empty
+}</pre>
+</div>Or, using isnull from YSI:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">#define isnull(%1) \
+    ((!(%1[0])) || (((%1[0]) == '\1') &amp;&amp; (!(%1[1]))))</pre>
+</div>pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">if (isnull(string))
+{
+    / The string is empty because isnull said so
+}</pre>
+</div><a href="http://web.archive.orgweb20141030014915http//forum.sa-mp.com/web/20141030014915/http://forum.sa-mp.com/index.php?topic=79810.msg525891#msg525891" target="_blank"><u>Credit to Simon for the suggestion.</u></a><ul><li><u>Copying strings</u></li>
+</ul>A lot of people tend to copy strings like this:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">format(dest, sizeof (dest), "%s", src);</pre>
+</div>This is one of the worst ways to do it!I did timings on six different methods of copying strings, in all cases "b" is the destination and "a" is the source."strcpy" is a hand written PAWN function to copy strings:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 210px;
+		text-align: left;
+		overflow: auto">strmid(b, a, 0, strlen(a), sizeof (b));
+
+format(b, sizeof (b), "%s", a);
+
+b[0] = '\0';
+strcat(b, a, sizeof (b));
+
+memcpy(b, a, 0, strlen(a)   4 + 4, sizeof (b)); / Length in bytes, not cells.
+
+strcpy(b, a);
+
+b = a;</pre>
+</div>Note that "b = a;" is the standard PAWN array copy and only works for arrays known at compile time to be the same size, or with a larger desination.Unfortunately I ran a range of tests and they do not point to a single best function.What they DO do is show quite clearly that both the hand coded PAWN version and format are very slow at copying strings:<br>
+<br>
+For short strings in small arrays, "b = a;" is fastest when applicable, strcat with prior NULL termination (important) is second.<br>
+<br>
+For short strings in large arrays, strcat is fastest.<br>
+<br>
+For longer strings in longer arrays, "b = a;" is again fastest, with memcpy second.<br>
+<br>
+For huge arrays "b = a;" seems to be fastest.<br>
+<br>
+Where possible use standard array assignment, however this is not always possible, for example when a string of unknown size is passed to a function.In these cases I would suggest using strcat (if you're interested, note the bizzare syntax):<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">#define strcpy(%0,%1,%2) \
+    strcat((%0[0] = '\0', %0), %1, %2)</pre>
+</div>Use:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">strcpy(dest, src, sizeof (dest));</pre>
+</div>Credit to Simon for the suggestion.<br>
+<br>
+<font color="red"><b><u><font color="green">Assumptions</font></u></b></font><ul><li><font color="red"><b><u><font color="green">Introduction</font></u></b></font></li>
+</ul><u>The bottom line is don't make assumptions!</u><br>
+<br>
+Assumptions are saying you know what something always is just because it's often that. Example:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 354px;
+		text-align: left;
+		overflow: auto">public OnGameModeInit()
+{
+    AddPlayerClass(167, 0.0, 0.0, 5.0, 0.0, 0, 0, 0, 0, 0, 0); / Clucking Bell employee
+    AddPlayerClass(179, 0.0, 0.0, 5.0, 0.0, 0, 0, 0, 0, 0, 0); / Ammunation employee
+}
+
+public OnPlayerRequestClass(playerid, classid)
+{
+    switch (classid)
+    {
+        case 0:
+        {
+            GameTextForPlayer(playerid, "Clucking Bell", 5000, 3);
+        }
+        case 1:
+        {
+            GameTextForPlayer(playerid, "Ammunation", 5000, 3);
+        }
+    }
+    return 1;
+}</pre>
+</div>That's probably very familiar looking code to almost every one of you - setting up your mode's skins and doing things based on the selected one (I've omitted setting cameras here as it's irrelevant to the point). On your own private server this may be fine, you know there's only two skins, you know what order they're added in, and you know they'll never be modified - fine. But if you're going to release a mode this is VERY risky. A few problems which can arise:<ul><li>A person using your mode also has filterscripts which add skins. This will throw off your class values.</li>
+<li>A person using your mode decides they want to add skins and add them to the start of the list. This again throws off your class values.</li>
+<li>A SA:MP version change alters the way IDs are assigned. Entirely altering your class IDs.</li>
+</ul>I'm sure there are more but those are the basics. The problem here is that you're using constants and assuming that they'll never change, either through mode modification or through AddPlayerClass not returning what you expect. There are a few solutions to this problem.<ul><li><font color="red"><b><u><font color="green">Solutions</font></u></b></font></li>
+</ul><ul><li><u>Ignore it</u></li>
+</ul>If people want to use your mode differently to how you intended, that's their own problem and they can modify the code accordingly. I'm sure everyone here has experience with people asking why, when they add new vehicles to GF, do all the other house and job cars mess up. This is because GF, which was coded for a single server with the intention of not being modified, made assumptions about what cars there were.<br>
+<br>
+This is clearly not a solution at all.<ul><li><u>Make modifications easy</u></li>
+</ul>The second solution, which balances efficiency and modification, is to make the assumptions, but to minimise their usage. You may have commands which rely on the chose skin, in which case you may have code like:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">dcmd_chicken(playerid, params[])
+{
+    if (gClass[playerid] != 0) return SendClientMessage(playerid, 0xFF0000AA, "Sorry, you're not a Clucking Bell employee");
+    ...
+}</pre>
+</div>Your assumption that the Clucking Bell class is class 0 is now in your mode twice - once in OnPlayerRequestClass and once in dcmd_chicken. Assuming your mode is more than 20 lines long you could end up with this appearing hundreds of times, making modification a nightmare as you have to ensure you get every instance. The simplest way to get round this is use a define (or an enum):<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">#define CLUCKING_BELL_CLASS (0)
+#define AMMUNATION_CLASS (1)
+
+public OnGameModeInit()
+{
+    AddPlayerClass(167, 0.0, 0.0, 5.0, 0.0, 0, 0, 0, 0, 0, 0); / Clucking Bell employee
+    AddPlayerClass(179, 0.0, 0.0, 5.0, 0.0, 0, 0, 0, 0, 0, 0); / Ammunation employee
+}
+
+public OnPlayerRequestClass(playerid, classid)
+{
+    switch (classid)
+    {
+        case CLUCKING_BELL_CLASS:
+        {
+            GameTextForPlayer(playerid, "Clucking Bell", 5000, 3);
+        }
+        case AMMUNATION_CLASS:
+        {
+            GameTextForPlayer(playerid, "Ammunation", 5000, 3);
+        }
+    }
+    return 1;
+}
+
+dcmd_chicken(playerid, params[])
+{
+    if (gClass[playerid] != CLUCKING_BELL_CLASS) return SendClientMessage(playerid, 0xFF0000AA, "Sorry, you're not a Clucking Bell employee");
+    ...
+}</pre>
+</div>Now when you add a new skin to the beginning of the list, or when you run a filterscript with it's own skins, you need only modify one part of your mode to reflect this change. However this can still cause problems if you can't guarantee that a return will always be constant.<ul><li><u>Code defensively</u></li>
+</ul>The only way to guarantee that you'll never run into problems is to not make any assumptions at all. Save return values and use those known saves, don't try to guess what it might be:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 466px;
+		text-align: left;
+		overflow: auto">new
+    gCluckingBellSkin = -1,
+    gAmmunationSkin = -1;
+
+public OnGameModeInit()
+{
+    gCluckingBellSkin = AddPlayerClass(167, 0.0, 0.0, 5.0, 0.0, 0, 0, 0, 0, 0, 0); / Clucking Bell employee
+    gAmmunationSkin = AddPlayerClass(179, 0.0, 0.0, 5.0, 0.0, 0, 0, 0, 0, 0, 0); / Ammunation employee
+}
+
+public OnPlayerRequestClass(playerid, classid)
+{
+    if (classid == gCluckingBellSkin)
+    {
+        GameTextForPlayer(playerid, "Clucking Bell", 5000, 3);
+    }
+    else if (classid == gAmmunationSkin)
+    {
+        GameTextForPlayer(playerid, "Ammunation", 5000, 3);
+    }
+    return 1;
+}
+
+dcmd_chicken(playerid, params[])
+{
+    if (gClass[playerid] != gCluckingBellSkin) return SendClientMessage(playerid, 0xFF0000AA, "Sorry, you're not a Clucking Bell employee");
+    ...
+}</pre>
+</div>It now doesn't matter what the return values may or may not be because there's no way they'll change between being saved and used.<ul><li><font color="red"><b><u><font color="green">Important</font></u></b></font></li>
+</ul>There are times when assumptions are OK, as I said if you know your mode won't be released and you know you yourself won't modify it, or are willing to accept all the extra work involved in modifying it, then go for it. But don't be surprised when, some time down the line, everything breaks because you missed something.<br>
+<br>
+<font color="red"><b><u><font color="green">Memory reduction</font></u></b></font><br>
+<br>
+Recall this code from earlier:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">new
+    gIsACar[] = {1, 0, 0, 1, 1, 0, 1, 0, 1, 1},
+    gIsAHeavyVehicle[] = {1, 0, 1, 0, 0, 0, 0, 0, 1, 0},
+    gIsABoat[] = {0, 1, 0, 0, 0, 0, 0, 1, 0, 0},
+    gIsAFireEngine[] = {0, 0, 1, 0, 0, 1, 0, 0, 0, 0};</pre>
+</div>In PAWN all variables are 32bits big, that means they can store up to 4294967296, this code is only storing 0 or 1 - you can do that in a single bit. There are ten vehicles, each with four pieces of information (ignoring mutually exclusive information like IsACar/IsABoat for now), that's only 40 pieces of binary information (i.e. 40 true/falses), at 32bits per cell that's two cells worth of data stored in 40 cells (5 bytes of data (bound to 8 bytes) stored in 160 bytes - a 32fold increase and VAST waste). There are a few ways to easily reduce this use (although none listed here will attain full compression). The first is to mark all vehicles with an attribute in a single variable, the second is to mark all vehicle attributes in a single variable.<ul><li><font color="red"><b><u><font color="green">All vehicles</font></u></b></font></li>
+</ul>Each vehicle is either something or it isn't; for this example they're either a car or they're not. There are also 10 vehicles, this means there are 10 bits of binary data which we'll be storing in a single variable, that's still a waste of 22 bits, but that's better than 310, and up to 32 vehicles will reduce waste, not increase it.<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">Bit: 0 1 2 3 4 5 6 78910 ...31Val: 1 2 4 8 16 32 64 128 256 512 1024 ... 21474836481/0: 1 0 0 1 1 0 1011x ...x</pre>
+</div>x means we don't care about the value of these bits as they don't represent vehicles (we could even in theory stick another bit of information in these wasted bits, but won't for now). Assuming all the other bits are 0 then this number is "857", unfortunately this doesn't mean a lot looking at it in decimal, so we need to read it in binary.<br>
+<br>
+Let's say we want to find out if vehicle model 403 is a car. Firstly we subtract 400 to get the number in range then we need to test the fourth bit (0, 1, 2, <b>3</b>). The fourth bit has a value of eight, so we need to test whether the number 857 has the eight bit set, this is done using bitwise AND:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">if (857 &amp; 8)
+{
+    / Bit is set, the vehicle is a car
+}</pre>
+</div>Or, using our array (which is now just a variable as we've reduced it to 1 cell):<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">if (gIsACar &amp; 8)
+{
+    / Bit is set, the vehicle is a car
+}</pre>
+</div>That's great, but currently this will produce code like:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 130px;
+		text-align: left;
+		overflow: auto">switch (model - 400)
+{
+case 0: if (gIsACar &amp; 1) ...
+case 1: if (gIsACar &amp; 2) ...
+case 2: if (gIsACar &amp; 4) ...
+case 3: if (gIsACar &amp; 8) ...
+case 4: if (gIsACar &amp; 16) ...</pre>
+</div>Which is pointless as if you were going to go to that trouble you could just do:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 146px;
+		text-align: left;
+		overflow: auto">switch (model - 400)
+{
+    case 0: return true;
+    case 1: return false;
+    case 2: return false;
+    case 3: return true;
+    case 4: return true;
+}</pre>
+</div>We need some way to generate the bit from the model. 1 is 2^0 (where ^ is "to the power of", not XOR), 2 is 2^1, 4 is 2^2 and 8 is 2^3, so 8, the bit we want, is 2^3, where 3 is 403-400:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 130px;
+		text-align: left;
+		overflow: auto">new
+    bit = 1;
+model -= 400;
+for (new i = 0; i &lt; model; i++)
+{
+    bit *= 2;
+}</pre>
+</div>That will get the correct result, but there's a far simpler way of doing two to the power of n, the left shift operator:<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">8 = 1 &lt;&lt; 3</pre>
+</div>So now we can just do:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">if (gIsACar &amp; (1 &lt;&lt; (model - 400)))
+{
+    return true;
+}
+return false;</pre>
+</div>Better than that, if checks a boolean which when true we return true and when false we return false, so we can skip the check entirely:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">stock IsACar(model)
+{
+    return gIsACar &amp; (1 &lt;&lt; (model - 400));
+}</pre>
+</div>That's now such a small function you could just make it a define:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">#define IsACar(%0) \
+    (gIsACar &amp; (1 &lt;&lt; ((%0) - 400)))</pre>
+</div><ul><li><font color="red"><b><u><font color="green">All attributes</font></u></b></font></li>
+</ul>Every vehicle has a mark for if they're a car, a mark for if they're a boat, a mark for if they're a fire engine and a mark for if they're heavy. This is 4 bits of information per vehicle, and as we've just shown you can store multiple pieces of information in a single cell using bits, where each bit is a single true/false and we can access those bits individually. So what if, instead of using each bit for a different vehicle, we used each bit for a different attribute; so if bit 0 is set it's a car, if bit 1 is set it's a boat, bit 2 is heavy and bit 3 is fire engine? Let's look at an example:<br>
+<br>
+Model 402 is a heavy fire engine, it's not a car or boat. So we have bits 2 and 3 set, that's 4 and 8, 4 + 8 (technically 4 | <img src="./Code Optimization - SA-MP Forums_files/cool.gif" border="0" alt="" title="Cool" class="inlineimg"> is 12, so we have:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">new gModel402 = 12;</pre>
+</div>Now we want to check if it's a boat, that's bit 2, or the number 2:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">return gModel402 &amp; 2;</pre>
+</div>This will return false (if it's true it will return TWO, not ONE, as many people incorrectly check for).<br>
+<br>
+This can be turned into an array of attributes for all models:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">new gModels[] = {x, x, 12, x, x, x, x, x, x, x};</pre>
+</div>(x means unknown other)<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">return gModels[model - 400] &amp; 2;</pre>
+</div>There is no way to simplify the 2, you would simply have functions like:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 146px;
+		text-align: left;
+		overflow: auto">#define IsACar(%0) \
+    (gModels[(%0) - 400] &amp; 1)
+
+#define IsABoat(%0) \
+    (gModels[(%0) - 400] &amp; 2)
+
+#define IsAHeavy(%0) \
+    (gModels[(%0) - 400] &amp; 4)</pre>
+</div>This can't be optimised any more, but it can be made more readable and more easily editable. If I told you that one model was type 10, you would probably have to look at the above lists to see that it was a fire boat, but if I told you that one was a heavy car then you would instantly know what it was. So let's do that instead:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 450px;
+		text-align: left;
+		overflow: auto">#define MODEL_CAR *(1)
+#define MODEL_BOAT (2)
+#define MODEL_HEAVY (4)
+#define MODEL_FIRE (8)
+
+new gModels[] =
+    {
+        x,
+        x,
+        MODEL_HEAVY | MODEL_FIRE,
+        x,
+        x,
+        x,
+        x,
+        x,
+        x,
+        x
+    };
+
+#define IsACar(%0) \
+    (gModels[(%0) - 400] &amp; MODEL_CAR)
+
+#define IsABoat(%0) \
+    (gModels[(%0) - 400] &amp; MODEL_BOAT)
+
+#define IsAHeavy(%0) \
+    (gModels[(%0) - 400] &amp; MODEL_HEAVY)</pre>
+</div>You can now instantly tell what a vehicle is from it's array entry, but there's an even better way of doing this. I'm not going to go into too much detail on this as it's explained in pawn-lang.pdf but you can do:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 130px;
+		text-align: left;
+		overflow: auto">enum (&lt;&lt;= 1)
+{
+    MODEL_CAR = 1,
+    MODEL_BOAT,
+    MODEL_HEAVY,
+    MODEL_FIRE
+}</pre>
+</div>The rest of the code is exactly the same but this is less typing and means you can add something between MODEL_CAR and MODEL_BOAT without needing to update any values.<ul><li><font color="red"><b><u><font color="green">More that 32 values</font></u></b></font></li>
+</ul>What happens when you have more than 32 values that you want to store? In this case you need an array indexed by how many times over 32 the value is. So 1 would be cell 0 (as it's not over 32), bit 2, 32 would be 1,0 and 66 would be 2,3. There is code for the simplification of this in YSI in the form of YSI_bit. In this case your code would look something like:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 290px;
+		text-align: left;
+		overflow: auto">enum e_MODELS
+{
+    MODEL_CAR,
+    MODEL_BOAT,
+    MODEL_HEAVY,
+    MODEL_FIRE,
+    ...
+    MODEL_SOMETHING
+}
+
+new Bit:gModels[410 - 400][Bit_Bits(e_MODELS)];
+
+#define IsACar(%0) \
+    (Bit_Get(gModels[(%0) - 400], MODEL_CAR))
+
+#define IsSomething(%0) \
+    (Bit_Get(gModels[(%0) - 400], MODEL_SOMETHING))</pre>
+</div>The latest code for this (I rewrote it while doing this tutorial as it made me revisit my own code) can be found <a href="http://web.archive.orgweb20141030014915http//forum.sa-mp.com/web/20141030014915/http://y-less.pastebin.ca/1274940" target="_blank"><u>here</u></a>.<ul><li><font color="red"><b><u><font color="green">Excess dimensions</font></u></b></font></li>
+</ul>I don't know why people do this, I'm pretty sure they copy it from one of the more common modes, but that doesn't make it right and I don't know why it was done this way in the first place. If you have an array of values, don't waste dimensions. Example:<br>
+<br>
+I have an array of 10 values, let's for the sake of argument call them weapon prices. So we have 10 weapons, each with a price, and we want to store them in an array. Each weapon has an ID, from 0 to 9, so to get that weapon's price you need to access that index in the array:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 242px;
+		text-align: left;
+		overflow: auto">new
+    gPrices[10] = / 10 weapons, thus 10 prices
+    {
+        1000,
+        2000,
+        5000,
+        2000,
+        10000,
+        500,
+        3000,
+        2000,
+        100,
+        750
+    };</pre>
+</div>pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">new
+    weaponPrice = gPrices[5];</pre>
+</div>That's all you need - it's BASIC array access, and yet for some reason people insist on doing the following:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 242px;
+		text-align: left;
+		overflow: auto">new
+    gPrices[10][1] = / 10 weapons, thus 10 prices
+    {
+        {1000},
+        {2000},
+        {5000},
+        {2000},
+        {10000},
+        {500},
+        {3000},
+        {2000},
+        {100},
+        {750}
+    };</pre>
+</div>pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">new
+    weaponPrice = gPrices[5][0];</pre>
+</div>What purpose does the extra dimension serve? None at all! If you had two prices per weapon then yes - you would need the extra dimension, but you don't so you don't - just don't do it, simple as! It's a waste of time - it's slower and a waste of space - it's bigger.<br>
+<br>
+<font color="red"><b><u><font color="green">CPU vs Memory</font></u></b></font><br>
+<br>
+This is such a common factor in writing code that it deserves a special mention. In almost everything you have a choice of how to do something, usually one way will be fast but use a lot of memory and the other will be slow but use very little memory. For example in the foreach example above the foreach code is faster, but uses a big array, IPC is slower but uses next to no memory as it has nothing to store. In all these cases you just have to make the decision based on circumstances.The previous section on memory reduction listed all sorts of ways to use less memory but they all used extra code to do it, making them slower than the original huge arrays. However in this case the reduction was so great (an approximately thirty-two fold reduction in memory use) that it more than offset the minor speed decrease (as stated above also bitwise operators are very fast).<br>
+<br>
+There is, however, a third option - complexity.<br>
+<br>
+In the foreach/IPC example foreach had the greater speed and IPC has the better memory footprint, but it's possible to combine the best of both worlds by writing more complex code. More complex code generally handles more situations explicitly, meaning you don't have to write generic code to handle all possibilities. In the player loop example this would manifest itself as something like:<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 322px;
+		text-align: left;
+		overflow: auto">if (IsPlayerConnected(0))
+{
+    / Do something
+}
+if (IsPlayerConnected(1))
+{
+    / Do something
+}
+if (IsPlayerConnected(2))
+{
+    / Do something
+}
+
+...
+
+if (IsPlayerConnected(199))
+{
+    / Do something
+}</pre>
+</div>Clearly this is very inefficient looking code and very hard to maintain, but you've got rid of the loop and variable, making the code faster and giving it a 0 cell memory footprint. From the table we also know that constants (0, 1 etc) are faster than variables (i).. I've not clocked this version so I don't know which is faster for large numbers of players (there's no contest at low numbers) between it and foreach, but it is definitely faster than an IPC loop. Clearly this example is still better with more memory usage but there are circumstances where it may not be.<br>
+<br>
+<font color="red"><b><u><font color="green">Lists</font></u></b></font><br>
+<br>
+This and the next setion are basically ripped straight from <a href="http://web.archive.orgweb20141030014915http//forum.sa-mp.com/web/20141030014915/http://wiki.sa-mp.com/wiki/Advanced_Structures" target="_blank"><u>the wiki</u></a> as I wrote it there in the first place.<br>
+<br>
+Lists are a very useful type of structure, they're basically an array where the next piece or relevant data is pointed to by the last piece.<br>
+<br>
+Example:<br>
+<br>
+Say you have the following array:<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">3, 1, 64, 2, 4, 786, 2, 9</pre>
+</div>If you wanted to sort the array you would end up with:<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">1, 2, 2, 3, 4, 9, 64, 786</pre>
+</div>If however you wanted to leave the data in the original order but still know the numbers in order for some reason (it's just an example), you have a problem, how are you meant to have numbers in two orders at once? This would be a good use of lists. To construct a list from this data you would need to make the array into a 2d array, where the second dimension was 2 cells big, one containing the original number, the other containing the index of the next largest number. You would also need a separate variable to hold the index of the lowest number, so your new array would look like:<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">start = 13, 1, 64, 2, 4, 786, 2, 94, 3, 5, 6, 7, -1, 0, 2</pre>
+</div>The next index associated with 786 is -1, this is an invalid array index and indicates the end of the list, i.e. there are no more numbers. The two 2's could obviously be either way round, the first one in the array is the first on in the list too as it's the more likely one to be encountered first.<br>
+<br>
+The other advantage of this method of sorting the numbers is adding more numbers is a lot faster. If you wanted to add another number 3 to the sorted array you would need to first shift at least 4 numbers one slot to the right to make space, not terrible here but very slow in larger arrays. With the list version you could just append the 3 to the end of the array and modify a single value in the list;<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">start = 13, 1, 64, 2, 4, 786, 2, 9, 38, 3, 5, 6, 7, -1, 0, 2, 4^ modify this value^ next highest slot</pre>
+</div>None of the other numbers have moved so none of the other indexes need updating, just make the next lowest number point to the new number and make the new number point the number the next lowest used to be pointing to. Removing a value is even easier:<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">start = 13, 1, 64, X, 4, 786, 2, 9, 38, 6, 5, 6, 7, -1, 0, 2, 4^ Changed to jump over the removed value</pre>
+</div>Here the first 2 has been removed and the number which pointed to that number (the 1) has been updated to point to the number the removed number was pointing to. In this example neither the removed number's pointer nor number have been removed, but you cannot possibly get to that slot following the list so it doesn't matter, it is effectively removed.<ul><li><font color="red"><b><u><font color="green">Types</font></u></b></font></li>
+</ul>The lists in the examples above were just basic single lists, you can also have double lists where every value points to the next value and the last value, these tend to have a pointer to the end of the list too to go backwards (e.g. to get the numbers in descending order):<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">start = 1end = 5value: 3, 1, 64, 2, 4, 786, 2, 9, 3next: 8, 3, 5, 6, 7, -1, 0, 2, 4last: 6, -1, 7, 1, 8, 2,3, 4, 0</pre>
+</div>You have to be careful with these, especially when you have more than one of any value, that the last pointer points to the number who's next pointer goes straight back again, e.g this is wrong:<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">2, 3, 31, 2, -1-1, 2, 0</pre>
+</div>The 2's next pointer points to the 3 in slot one, but that 3's last pointer doesn't go back to the two, both lists are in order on their own (as the two threes can be either way round) but together they are wrong, the correct version would be:<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">2, 3, 31, 2, -1-1, 0, 1</pre>
+</div>Both of those lists start and end on the end two numbers, the back list in the wrong example started on the middle number.<br>
+<br>
+The other type of list is the looping one where the last value points back to the first. The obvious advantage to this is that you can get to any value from any other value without knowing in advance whether the target is before or after the start point, you just need to be careful not to get into an infinite loop as there's no explicit -1 end point. These lists do still have start points. You can also do double looping lists where you have a next and last list, both of which loop round:<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">start = 1end = 53, 1, 64, 2, 4, 786, 2, 9, 38, 3, 5, 6, 7, 1,0, 2, 46, 5, 7, 1, 8, 2,3, 4, 0</pre>
+</div><ul><li><font color="red"><b><u><font color="green">Mixed lists</font></u></b></font></li>
+</ul>Mixed lists are arrays containing multiple lists at once. An example could be an array of values, sorted by a list, with another list linking all unused slots so you know where you can add a new value. Example (X means unused (free) slot):<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">sortedStart = 3unusedStart = 1value: 34, X, X, 6, 34, 46, X, 54, 23, 25, X, 75, X, 45sort: 4,8, 13, 7,11, 9, 0,-1,5free:2, 6,10,12,-1</pre>
+</div>Obviously the two lists never interact so both can use the same slot for their next value:<br>
+<br>
+Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">sortedStart = 3unusedStart = 1value: 34, X, X, 6, 34, 46, X, 54, 23, 25, X, 75, X, 45next: 4, 2, 6, 8, 13, 7, 10, 11, 9, 0, 12, -1, -1, 5</pre>
+</div><ul><li><font color="red"><b><u><font color="green">Code</font></u></b></font></li>
+</ul>Before you start the code you need to decide what sort of list is best suited for your application, this is entirely based on application can't easily be covered here. All these examples are mixed lists, one list for the required values, one for unused slots.<br>
+<br>
+This example shows how to write code for a list sorted numerically ascending.<br>
+<br>
+pawn Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">#define NUMBER_OF_VALUES (10)
+
+enum E_DATA_LIST
+{
+    E_DATA_LIST_VALUE,
+    E_DATA_LIST_NEXT
+}
+
+new
+    gListData[NUMBER_OF_VALUES][E_DATA_LIST],
+    gUnusedStart = 0,
+    gListStart = -1; / Starts off with no list
+
+/ This function initializes the list
+List_Setup()
+{
+    new
+        i;
+    size--;
+    for (i = 0; i &lt; size; i++)
+    {
+        / To start with all slots are unused
+        gListData[i][E_DATA_LIST_NEXT] = i + 1;
+    }
+    / End the list
+    gListData[size][E_DATA_LIST_NEXT] = -1;
+}
+
+/ This function adds a value to the list (using basic sorting)
+List_Add(value)
+{
+    / Check there are free slots in the array
+    if (gUnusedStart == -1) return -1;
+    new
+        pointer = gListStart,
+        last = -1
+        slot = gUnusedStart;
+    / Add the value to the array
+    gListData[slot][E_DATA_LIST_VALUE] = value;
+    / Update the empty list
+    gUnusedStart = gListData[slot][E_DATA_LIST_NEXT];
+    / Loop through the list till we get to bigger/same size number
+    while (pointer != -1 &amp;&amp; gListData[pointer][E_DATA_LIST_VALUE] &lt; value)
+    {
+        / Save the position of the last value
+        last = pointer
+        / Move on to the next slot
+        pointer = gListData[pointer][E_DATA_LIST_NEXT];
+    }
+    / If we got here we ran out of values or reached a larger one
+    / Check if we checked any numbers
+    if (last == -1)
+    {
+        / The first number was bigger or there is no list
+        / Either way add the new value to the start of the list
+        gListData[slot][E_DATA_LIST_NEXT] = gListStart;
+        gListStart = slot;
+    }
+    else
+    {
+        / Place the new value in the list
+        gListData[slot][E_DATA_LIST_NEXT] = pointer;
+        gListData[last][E_DATA_LIST_NEXT] = slot;
+    }
+    return slot;
+}
+
+/ This function removes a value from a given slot in the array (returned by List_Add)
+List_Remove(slot)
+{
+    / Is this a valid slot
+    if (slot &lt; 0 || slot &gt;= NUMBER_OF_VALUES) return 0;
+    / First find the slot before
+    new
+        pointer = gListStart,
+        last = -1;
+    while (pointer != -1 &amp;&amp; pointer != slot)
+    {
+        last = pointer;
+        pointer = gListData[pointer][E_LIST_DATA_NEXT];
+    }
+    / Did we find the slot in the list
+    if (pointer == -1) return 0;
+    if (last == -1)
+    {
+        / The value is the first in the list
+        / Skip over this slot in the list
+        gListStart = gListData[slot][E_LIST_DATA_NEXT];
+    }
+    else
+    {
+        / The value is in the list
+        / Skip over this slot in the list
+        gListData[last][E_LIST_DATA_NEXT] = gListData[slot][E_LIST_DATA_NEXT];
+    }
+    / Add this slot to the unused list
+    / The unused list isn't in any order so this doesn't matter
+    gListData[slot][E_LIST_DATA_NEXT] = gUnusedStart;
+    gUnusedStart = slot;
+    return 1;
+}</pre>
+</div><font color="red"><b><u><font color="green">Binary trees</font></u></b></font><br>
+<br>
+Binary trees are a very fast method of searching for data in an array by using a very special list system. The most well known binary tree is probably the 20 questions game, with just 20 yes/no questions you can have over 1048576 items. A binary tree, as it's name implies, is a type of tree, similar to a family tree, where every item has 0, 1 or 2 children. They are not used for ordering data like a list but sorting data for very efficient searching. Basically you start with an item somewhere near the middle of the ordered list of objects (e.g. the middle number in a sorted array) and compare that to the value you want to find. If it's the same you've found your item, if it's greater you move to the item to the right (not immediately to the right, the item to the right of the middle item would be the item at the three quarter mark), if it's less you move left, then repeat the process.<ul><li><font color="red"><b><u><font color="green">Example</font></u></b></font></li>
+</ul>Code:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">1 2 5 6 7 9 12 14 17 19 23 25 28 33 38</pre>
+</div>You have the preceding ordered array and you want to find what slot the number 7 is in (if it's in at all), in this example it's probably more efficient to just loop straight through the array to find it but that's not the point, that method increases in time linearly with the size of the array, a binary search time increases linearly as the array increases exponentially in size. I.e. an array 128 big will take twice as long to search straight through as an array 64 big, but a binary search 128 big will only take one check more than a binary search 64 big, not a lot at all.<br>
+<br>
+If we construct a binary tree from the data above we get:<br>
+<br>
+<img src="./Code Optimization - SA-MP Forums_files/Binarytree.GIF" border="0" alt=""><br>
+<br>
+If you read left to right, ignoring the vertical aspect you can see that the numbers are in order. Now we can try find the 7.<br>
+<br>
+The start number is 14, 7 is less than 14 so we go to the slot pointed to by the left branch of 14. This brings us to 6, 7 is bigger than 6 so we go right to 9, then left again to 7. This method took 4 comparisons to find the number (including the final check to confirm that we are on 7), using a straight search would have taken 5.<br>
+<br>
+Lets say there is no 7, we would end up with this binary tree:<br>
+<br>
+<img src="./Code Optimization - SA-MP Forums_files/Binarytree-7-less.GIF" border="0" alt=""><br>
+<br>
+This, unlike the example above, has a single child number (the 9), as well as 2 and 0 child numbers. You only get a perfect tree when there are (2^n)-1 numbers (0, 1, 3, 7, 15, 31 ...), any other numbers will give a not quite full tree. In this case when we get to the 9, where the 7 will be, we'll find there is no left branch, meaning the 7 doesn't exist (it cannot possibly be anywhere else in the tree, think about it), so we return -1 for invalid slot.<ul><li><font color="red"><b><u><font color="green">Balanced and unbalanced</font></u></b></font></li>
+</ul>The trees in the examples above are called balanced binary trees, this means as near as possible all the branches are the same length (obviously in the second there aren't enough numbers for this to be the case but it's as near as possible). Constructing balanced trees is not easy, the generally accepted method of constructing almost balanced trees is putting the numbers in in a random order, this may mean you end up with something like this:<br>
+<br>
+<img src="./Code Optimization - SA-MP Forums_files/Binarytree-uneven.GIF" border="0" alt=""><br>
+<br>
+Obviously this tree is still valid but the right side is much larger than the left, however finding 25 still only takes 7 comparisons in this compared to 12 in the straight list. Also, as long as you start with a fairly middle number the random insertion method should produced a fairly balanced tree. The worst possible thing you can do is put the numbers in in order as then there will be no left branches at all (or right branches if done the other way), however even in this worst case the binary tree will take no longer to search than the straight list.<ul><li><font color="red"><b><u><font color="green">Modification</font></u></b></font></li>
+</ul><ul><li><u>Addition</u></li>
+</ul>Adding a value to a binary tree is relatively easy, you just follow the tree through, using the value you want to add as a reference untill you reach an empty branch and add the number there. E.g. if you wanted to add the number 15 to our original balanced tree it would end up on the left branch of the 17. If we wanted to add the number 8 to the second balanced tree (the one without the 7) it would end up in the 7's old slot on the left of the 9.<ul><li><u>Deletion</u></li>
+</ul>Deleting a number from a binary tree can be hard or it can be easy. If the number is at the end of a branch (e.g. 1, 5, 7, 12 etc in the original tree) you simply remove them. If a number only has one child (e.g. the 9 in the second example) you simply move that child (e.g. the 12) up into their position (so 6's children would be 2 and 12 in the new second example with 9 removed). Deletion only gets interesting when a node has two children. There are at least four ways of doing this:<br>
+<br>
+The first method is the simplest computationally. Basically you choose one of the branches (left or right, assume right for this explanation) and replace the node you've removed with the first node of that branch (i.e. the right child of the node you've removed). You then go left through than new branch till you reach the end and place the left branch there. E.g. if you removed the 14 from the original example you would end up with 25 taking it's place at the top of the tree and 6 attached to the left branch of 17. This method is fast but ends up with very unbalanced trees very quickly.<br>
+<br>
+The second method is to get all the numbers which are children of the node you just removed and rebuild a new binary tree from them, then put the top of that tree into the node you've just removed. This keeps the tree fairly well balanced but is obviously slower.<br>
+<br>
+The third method is to combine the two methods above and rebuild the tree in-line, this is more complex to code but keeps the tree balanced and is faster than the second method (though no-where near as fast as the first).<br>
+<br>
+The final method listed here is to simply set a flag on a value saying it's not used any more, this is even faster than the first method and maintains the structure but means you can't re-use slots unless you can find a value to replace it with later.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><a href="samp://samp.wgaming.ga:7777" target="_blank"><img src="./Code Optimization - SA-MP Forums_files/signature.php" border="0" alt=""></a></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/user_offline.gif" alt="hamzajaved780 is offline" border="0" title="hamzajaved780 is offline">
+
+
+		
+			<span id="reputationmenu_3535522"><a href="http://forum.sa-mp.com/reputation.php?p=3535522" rel="nofollow" id="reputation_3535522"><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/reputation.png" alt="Add to hamzajaved780&#39;s Reputation" border="0" title="Add to hamzajaved780&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3535522")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3535522" rel="nofollow"><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3535522" rel="nofollow"><img src="./Code Optimization - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3535522" rel="nofollow" onclick="return false"><img src="./Code Optimization - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3535522" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3535522" rel="nofollow" id="qr_3535522" onclick="return false"><img src="./Code Optimization - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3535522 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3535522_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">hamzajaved780</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=250673">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=250673" rel="nofollow">Send a private message to hamzajaved780</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=250673" rel="nofollow">Find More Posts by hamzajaved780</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=250673">Add hamzajaved780 to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3535522 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3535522 --><!-- post #3535532 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3535532" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3535532" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3535532"><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			28/07/2015, 08:15 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3535532&amp;postcount=2" target="new" rel="nofollow" id="postcount3535532" name="2"><strong>2</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3535532">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=257976">Overhaul</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3535532", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Big Clucker</div>
+			<div class="smallfont"><img src="./Code Optimization - SA-MP Forums_files/star.png" alt="" border=""><img src="./Code Optimization - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: May 2015</div>
+				
+				
+				
+				
+<div>
+  Posts: 95
+</div>
+
+<div>Reputation: 60</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3535532" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Code Optimization</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3535532">
+			
+			This has already been posted: <a href="http://forum.sa-mp.com/showthread.php?p=3517039" target="_blank">http://forum.sa-mp.com/showthread.php?p=3517039</a>
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><br>
+<b><font size="2">My work</font></b><br>
+<img src="./Code Optimization - SA-MP Forums_files/13574411.png" border="0" alt=""></div><br>
+[<font color="#841594">Tutorial</font>]<a href="http://forum.sa-mp.com/showthread.php?t=574714" target="_blank">[UPDATED 19/05/2015]MySQL Registration System [Threaded Queries + Whirlpool]</a>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/user_offline.gif" alt="Overhaul is offline" border="0" title="Overhaul is offline">
+
+
+		
+			<span id="reputationmenu_3535532"><a href="http://forum.sa-mp.com/reputation.php?p=3535532" rel="nofollow" id="reputation_3535532"><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/reputation.png" alt="Add to Overhaul&#39;s Reputation" border="0" title="Add to Overhaul&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3535532")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3535532" rel="nofollow"><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3535532" rel="nofollow"><img src="./Code Optimization - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3535532" rel="nofollow" onclick="return false"><img src="./Code Optimization - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3535532" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3535532" rel="nofollow" id="qr_3535532" onclick="return false"><img src="./Code Optimization - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3535532 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3535532_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Overhaul</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=257976">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=257976" rel="nofollow">Send a private message to Overhaul</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=257976" rel="nofollow">Find More Posts by Overhaul</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=257976">Add Overhaul to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3535532 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3535532 --><!-- post #3535957 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3535957" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3535957" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3535957"><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			29/07/2015, 03:39 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3535957&amp;postcount=3" target="new" rel="nofollow" id="postcount3535957" name="3"><strong>3</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3535957">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=261971">jamesmith12</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3535957", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Huge Clucker</div>
+			<div class="smallfont"><img src="./Code Optimization - SA-MP Forums_files/star.png" alt="" border=""><img src="./Code Optimization - SA-MP Forums_files/star.png" alt="" border=""><img src="./Code Optimization - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=261971"><img src="./Code Optimization - SA-MP Forums_files/image(1).php" width="80" height="80" alt="jamesmith12&#39;s Avatar" border="0" title="jamesmith12&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Jul 2015</div>
+				<div>Location: The Philippines</div>
+				
+				
+				
+<div>
+  Posts: 303
+</div>
+
+<div>Reputation: 25</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3535957" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Code Optimization</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3535957">
+			
+			nice tutorial
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				im sorry about before...
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/user_offline.gif" alt="jamesmith12 is offline" border="0" title="jamesmith12 is offline">
+
+
+		
+			<span id="reputationmenu_3535957"><a href="http://forum.sa-mp.com/reputation.php?p=3535957" rel="nofollow" id="reputation_3535957"><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/reputation.png" alt="Add to jamesmith12&#39;s Reputation" border="0" title="Add to jamesmith12&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3535957")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3535957" rel="nofollow"><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3535957" rel="nofollow"><img src="./Code Optimization - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3535957" rel="nofollow" onclick="return false"><img src="./Code Optimization - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3535957" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3535957" rel="nofollow" id="qr_3535957" onclick="return false"><img src="./Code Optimization - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3535957 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3535957_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">jamesmith12</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=261971">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=261971" rel="nofollow">Send a private message to jamesmith12</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=261971" rel="nofollow">Find More Posts by jamesmith12</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=261971">Add jamesmith12 to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3535957 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3535957 --><!-- post #3535999 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3535999" style="padding:0px 0px 6px 0px">
+	
+
+
+
+<table id="post3535999" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3535999"><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			29/07/2015, 04:53 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3535999&amp;postcount=4" target="new" rel="nofollow" id="postcount3535999" name="4"><strong>4</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3535999">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=222108">Abagail</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3535999", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./Code Optimization - SA-MP Forums_files/star.png" alt="" border=""><img src="./Code Optimization - SA-MP Forums_files/star.png" alt="" border=""><img src="./Code Optimization - SA-MP Forums_files/star.png" alt="" border=""><img src="./Code Optimization - SA-MP Forums_files/star.png" alt="" border=""><img src="./Code Optimization - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Dec 2013</div>
+				<div>Location: GetPlayerPos(playerid, pos);                          Scripter/Mapper.</div>
+				
+				
+				
+<div>
+  Posts: 3,218
+</div>
+
+<div>Reputation: 368</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3535999" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Code Optimization</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3535999">
+			
+			This has already been posted, mate. You need to search for it before posting these things, also this isn't even the right section!
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><br>
+Have I in someway helped you? Feel free to donate:<br>
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=X8N9CCLBFM22G" target="_blank"><img src="./Code Optimization - SA-MP Forums_files/btn_donateCC_LG.gif" border="0" alt=""></a><br>
+<br>
+<b>Object Viewer:</b><br>
+<a href="http://forum.sa-mp.com/showthread.php?p=3364893" target="_blank">http://forum.sa-mp.com/showthread.php?p=3364893</a><br>
+<br>
+<b>Actors Tutorial</b><br>
+<a href="http://forum.sa-mp.com/showthread.php?p=3445806#post3445806" target="_blank">http://forum.sa-mp.com/showthread.ph...06#post3445806</a><br>
+</div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/user_offline.gif" alt="Abagail is offline" border="0" title="Abagail is offline">
+
+
+		
+			<span id="reputationmenu_3535999"><a href="http://forum.sa-mp.com/reputation.php?p=3535999" rel="nofollow" id="reputation_3535999"><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/reputation.png" alt="Add to Abagail&#39;s Reputation" border="0" title="Add to Abagail&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3535999")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3535999" rel="nofollow"><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3535999" rel="nofollow"><img src="./Code Optimization - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3535999" rel="nofollow" onclick="return false"><img src="./Code Optimization - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3535999" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3535999" rel="nofollow" id="qr_3535999" onclick="return false"><img src="./Code Optimization - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3535999 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3535999_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Abagail</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=222108">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=222108" rel="nofollow">Send a private message to Abagail</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=222108" rel="nofollow">Find More Posts by Abagail</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=222108">Add Abagail to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3535999 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3535999 --><div id="lastpost"></div></div>
+
+<!-- start content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+<!-- / start content table -->
+
+<!-- controls below postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:-3px">
+<tbody><tr valign="top">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;noquote=1&amp;p=3535999" rel="nofollow"><img src="./Code Optimization - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	
+</tr>
+</tbody></table>
+<!-- / controls below postbits -->
+
+
+
+
+
+
+
+
+
+
+<!-- lightbox scripts -->
+	<script type="text/javascript" src="./Code Optimization - SA-MP Forums_files/vbulletin_lightbox.js"></script>
+	<script type="text/javascript">
+	<!--
+	vBulletin.register_control("vB_Lightbox_Container", "posts", 1);
+	//-->
+	</script>
+<!-- / lightbox scripts -->
+
+
+
+<!-- multiquote scripts -->
+	<script type="text/javascript" src="./Code Optimization - SA-MP Forums_files/vbulletin_multi_quote.js"></script>
+	<script type="text/javascript">
+	<!--
+	var mqlimit = 0;
+	//-->
+	</script>
+<!-- / multiquote scripts -->
+
+
+
+<!-- ajax errors table -->
+	<table class="tborder" cellpadding="6" cellspacing="1" border="0" style="display:none; position:absolute" id="ajax_post_errors">
+	<tbody><tr>
+		<td class="thead">
+			<span style="float:right"><input type="button" class="button" value=" X " onclick="vB_QuickEditor.hide_errors()" id="ajax_post_errors_closebtn"></span>
+			vBulletin Message
+		</td>
+	</tr>
+	<tr>
+		<td class="alt2" colspan="2" id="ajax_post_errors_message">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="tfoot" colspan="2" align="center"><a href="http://forum.sa-mp.com/showthread.php?t=583472#" onclick="vB_QuickEditor.abort(); return false;">Cancel Changes</a></td>
+	</tr>
+	</tbody></table>
+<!-- / ajax errors table -->
+
+<!-- scripts for quick reply and quick edit -->
+	<!-- Editor Scripts -->
+<script type="text/javascript" src="./Code Optimization - SA-MP Forums_files/vbulletin_textedit.js"></script>
+<script type="text/javascript">
+<!--
+var fontoptions = new Array("Arial", "Arial Black", "Arial Narrow", "Book Antiqua", "Century Gothic", "Comic Sans MS", "Courier New", "Fixedsys", "Franklin Gothic Medium", "Garamond", "Georgia", "Impact", "Lucida Console", "Lucida Sans Unicode", "Microsoft Sans Serif", "Palatino Linotype", "System", "Tahoma", "Times New Roman", "Trebuchet MS", "Verdana");
+var sizeoptions = new Array(1, 2, 3, 4, 5, 6, 7);
+var smilieoptions = {  };
+
+var istyles = { "pi_button_down" : [ "#98B5E2", "#000000", "0px", "1px solid #316AC5" ], "pi_button_hover" : [ "#C1D2EE", "#000000", "0px", "1px solid #316AC5" ], "pi_button_normal" : [ "#E1E1E2", "#000000", "1px", "none" ], "pi_button_selected" : [ "#F1F6F8", "#000000", "0px", "1px solid #316AC5" ], "pi_menu_down" : [ "#98B5E2", "#316AC5", "0px", "1px solid #316AC5" ], "pi_menu_hover" : [ "#C1D2EE", "#316AC5", "0px", "1px solid #316AC5" ], "pi_menu_normal" : [ "#FFFFFF", "#000000", "0px", "1px solid #FFFFFF" ], "pi_popup_down" : [ "#98B5E2", "#000000", "0px", "1px solid #316AC5" ] };
+var ltr = 'left';
+
+var smiliewindow_x = 240;
+var smiliewindow_y = 280;
+
+var ignorequotechars = 1;
+var allowbasicbbcode = true;
+
+// vB Phrases
+vbphrase["wysiwyg_please_wait"]          = "Please wait for the WYSIWYG editor to finish loading...";
+vbphrase["wysiwyg_initialized"]          = "WYSIWYG Editor initialized for %1$s in %2$s seconds.";
+vbphrase["wysiwyg_command_invalid"]      = "This command is invalid or not implemented.";
+vbphrase["moz_must_select_text"]         = "Mozilla requires that you must select some text for this function to work";
+vbphrase["moz_edit_config_file"]         = "You need to edit your Mozilla config file to allow this action.";
+vbphrase["enter_tag_option"]             = "Please enter the option for your %1$s tag:";
+vbphrase["must_select_text_to_use"]      = "You must select some text to use this function.";
+vbphrase["browser_is_safari_no_wysiwyg"] = "The Safari browser does not support WYSIWYG mode.";
+vbphrase["enter_option_x_tag"]           = "Enter the option for the [%1$s] tag:";
+vbphrase["enter_text_to_be_formatted"]   = "Enter the text to be formatted";
+vbphrase["enter_link_text"]              = "Enter the text to be displayed for the link (optional):";
+vbphrase["enter_list_type"]              = "What type of list do you want? Enter '1' for a numbered list, enter 'a' for an alphabetical list, or leave blank for a list with bullet points:";
+vbphrase["enter_list_item"]              = "Enter a list item.\r\nLeave the box empty or press 'Cancel' to complete the list:";
+vbphrase["must_enter_subject"]           = "You must enter a title / subject!";
+vbphrase["message_too_short"]            = "The message you have entered is too short. Please lengthen your message to at least %1$s characters.";
+vbphrase["enter_link_url"]               = "Please enter the URL of your link:";
+vbphrase["enter_image_url"]              = "Please enter the URL of your image:";
+vbphrase["enter_email_link"]             = "Please enter the email address for the link:";
+vbphrase["complete_image_verification"]  = "You did not complete the Image Verification";
+vbphrase["iespell_not_installed"]        = "ieSpell is a spell-checking tool for Internet Explorer.\r\n\r\nIf you would like to download ieSpell, click OK; otherwise click Cancel.\r\n\r\nieSpell can be downloaded from http://www.iespell.com";
+vbphrase["click_quick_reply_icon"]       = "Please click one of the Quick Reply icons in the posts above to activate Quick Reply.";
+vbphrase["insert_all"]                   = "Insert All";
+
+//-->
+</script>
+<!-- / Editor Scripts -->
+	
+<!-- / scripts for quick reply and quick edit -->
+
+
+
+
+<!-- quick reply -->
+	<br>
+	<script type="text/javascript" src="./Code Optimization - SA-MP Forums_files/vbulletin_quick_reply.js"></script>
+	<form action="http://forum.sa-mp.com/newreply.php?do=postreply&amp;t=583472" method="post" name="vbform" onsubmit="return qr_prepare_submit(this, 4);" id="qrform">
+	<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+	<thead>
+		<tr>
+			<td class="tcat" colspan="2">
+				<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=583472#top" onclick="return toggle_collapse(&#39;quickreply&#39;);"><img id="collapseimg_quickreply" src="./Code Optimization - SA-MP Forums_files/collapse_tcat.gif" alt="" border="0"></a>
+				Quick Reply
+			</td>
+		</tr>
+	</thead>
+	<tbody id="qr_error_tbody" style="display:none">
+	<tr>
+		<td class="thead">The following errors occurred with your submission</td>
+	</tr>
+	<tr>
+		<td class="alt1" id="qr_error_td"></td>
+	</tr>
+	<tr>
+		<td class="tfoot" align="center"><span class="smallfont"><a href="http://forum.sa-mp.com/showthread.php?t=583472#" onclick="return qr_hide_errors()">Okay</a></span></td>
+	</tr>
+	</tbody>
+	<tbody id="collapseobj_quickreply" style="">
+	<tr>
+		<td class="panelsurround" align="center">
+			<div class="panel">
+				<div align="left" style="max-width:800px; width:auto !important; width:800px">
+					<div class="smallfont">Message:</div>
+					<div id="vB_Editor_QR" class="vBulletin_editor">
+		<script type="text/javascript">
+		<!--
+			var threaded_mode = 0;
+			var require_click = 0;
+			var is_last_page = 1; // leave for people with cached JS files
+			var allow_ajax_qr = 1;
+			var ajax_last_post = 1438138410;
+		// -->
+		</script>
+		
+<div id="vB_Editor_QR_controls" class="controlbar">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_removeformat"><img src="./Code Optimization - SA-MP Forums_files/removeformat.gif" width="21" height="20" alt="Remove Text Formatting" title="Remove Text Formatting"></div></td>
+	
+		<td><img src="./Code Optimization - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_bold"><img src="./Code Optimization - SA-MP Forums_files/bold.gif" width="21" height="20" alt="Bold" title="Bold"></div></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_italic"><img src="./Code Optimization - SA-MP Forums_files/italic.gif" width="21" height="20" alt="Italic" title="Italic"></div></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_underline"><img src="./Code Optimization - SA-MP Forums_files/underline.gif" width="21" height="20" alt="Underline" title="Underline"></div></td>
+	
+	
+		<td><img src="./Code Optimization - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_popup_forecolor" title="Colors">
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr>
+				<td id="vB_Editor_QR_color_out"><img src="./Code Optimization - SA-MP Forums_files/color.gif" width="21" height="16" alt=""><br><img src="./Code Optimization - SA-MP Forums_files/clear.gif" id="vB_Editor_QR_color_bar" alt="" style="background-color:black" width="21" height="4"></td>
+				<td class="alt_pickbutton"><img src="./Code Optimization - SA-MP Forums_files/menupop.gif" alt="" width="11" height="16"></td>
+			</tr>
+			</tbody></table>
+		</div></td>
+	
+	
+		<td><img src="./Code Optimization - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+	
+	
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_createlink"><img src="./Code Optimization - SA-MP Forums_files/createlink.gif" width="21" height="20" alt="Insert Link" title="Insert Link"></div></td>
+	
+	
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_insertimage"><img src="./Code Optimization - SA-MP Forums_files/insertimage.gif" width="21" height="20" alt="Insert Image" title="Insert Image"></div></td>
+	
+	
+		<td><img src="./Code Optimization - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_wrap0_quote"><img src="./Code Optimization - SA-MP Forums_files/quote.gif" width="21" height="20" alt="Wrap [QUOTE] tags around selected text" title="Wrap [QUOTE] tags around selected text"></div></td>
+	
+	<td width="100%">&nbsp;</td>
+	
+		<td>
+			<div class="imagebutton" id="vB_Editor_QR_cmd_resize_0_99"><img src="./Code Optimization - SA-MP Forums_files/resize_0.gif" width="21" height="9" alt="Decrease Size" title="Decrease Size"></div>
+			<div class="imagebutton" id="vB_Editor_QR_cmd_resize_1_99"><img src="./Code Optimization - SA-MP Forums_files/resize_1.gif" width="21" height="9" alt="Increase Size" title="Increase Size"></div>
+		</td>
+	
+	</tr>
+	</tbody></table>
+</div>
+
+<div class="controlbar" style="padding-right:8px">
+	<fieldset style="border:0px; padding:0px; margin:0px">
+	
+	<textarea name="message" id="vB_Editor_QR_textarea" rows="10" cols="60" style="width:100%; height:100px" tabindex="1" dir="ltr"></textarea>
+	
+	</fieldset>
+	<!--width:800px-->
+</div>
+
+<input type="hidden" name="wysiwyg" id="vB_Editor_QR_mode" value="0">
+<input type="hidden" name="styleid" value="0">
+
+<script type="text/javascript">
+<!--
+vB_Editor['vB_Editor_QR'] = new vB_Text_Editor('vB_Editor_QR', 0, '84', '1');
+var QR_EditorID = 'vB_Editor_QR';
+//-->
+</script>
+	</div>
+
+					<fieldset class="fieldset" style="margin:3px 0px 0px 0px">
+						<legend>Options</legend>
+						<div style="padding:3px">
+							
+								<div style="float:right"><label for="cb_signature"><input type="checkbox" name="signature" value="1" id="cb_signature" tabindex="5" checked="checked">Show your signature</label></div>
+							
+							<label for="qr_quickreply"><input type="checkbox" name="quickreply" value="1" id="qr_quickreply" accesskey="w" tabindex="4" disabled="">Quote message in reply?</label>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+
+			<div style="margin-top:6px">
+				<input type="hidden" name="fromquickreply" value="1">
+				<input type="hidden" name="s" value="">
+				<input type="hidden" name="securitytoken" value="1467961003-d19138b68e5147ac7922d370eb47628664d8adbc">
+				<input type="hidden" name="do" value="postreply">
+				<input type="hidden" name="t" value="583472" id="qr_threadid">
+				<input type="hidden" name="p" value="who cares" id="qr_postid">
+				<input type="hidden" name="specifiedpost" value="0" id="qr_specifiedpost">
+				<input type="hidden" name="parseurl" value="1">
+				<input type="hidden" name="loggedinuser" value="234935">
+				<input type="submit" class="button" value="Post Quick Reply" accesskey="s" title="(Alt + S)" name="sbutton" tabindex="2" id="qr_submit" onclick="clickedelm = this.value">
+				<input type="submit" class="button" value="Go Advanced" accesskey="x" title="(Alt + X)" name="preview" tabindex="3" id="qr_preview" onclick="clickedelm = this.value">
+			</div>
+
+			<div align="center" id="qr_posting_msg" style="display:none; margin-top:6px">
+				<img style="vertical-align: middle;" src="./Code Optimization - SA-MP Forums_files/progress.gif" alt="Posting Quick Reply - Please Wait" title="Posting Quick Reply - Please Wait">&nbsp;<strong>Posting Quick Reply - Please Wait</strong>
+			</div>
+		</td>
+	</tr>
+	</tbody>
+	</table>
+	</form>
+
+	
+		<!-- Mozilla work around for focusing on QR in WYSIWYG mode -->
+		<div id="qr_scroll"></div>
+	
+
+	<script type="text/javascript">
+	<!--
+		// initialize quick reply
+		qr_init();
+	//-->
+	</script>
+<!-- / quick reply -->
+
+
+
+<!-- next / previous links -->
+	<br>
+	<div class="smallfont" align="center">
+		<strong>�</strong>
+			<a href="http://forum.sa-mp.com/showthread.php?t=583472&amp;goto=nextoldest" rel="nofollow">Previous Thread</a>
+			|
+			<a href="http://forum.sa-mp.com/showthread.php?t=583472&amp;goto=nextnewest" rel="nofollow">Next Thread</a>
+		<strong>�</strong>
+	</div>
+<!-- / next / previous links -->
+
+
+
+
+
+
+
+<!-- popup menu contents -->
+<br>
+
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="http://forum.sa-mp.com/postings.php?t=583472&amp;pollid=" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/printer.gif" alt="Show Printable Version" title="Show Printable Version"> <a href="http://forum.sa-mp.com/printthread.php?t=583472" accesskey="3" rel="nofollow">Show Printable Version</a></td>
+	</tr>
+	
+	
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/subscribe.gif" alt="Subscription" title="Subscription">
+		
+			<a href="http://forum.sa-mp.com/subscription.php?do=addsubscription&amp;t=583472" rel="nofollow">Subscribe to this Thread</a>
+		
+		</td>
+	</tr>
+	
+	
+	
+	</tbody></table>
+</form>
+</div>
+<!-- / thread tools menu -->
+
+<!-- **************************************************** -->
+
+<!-- thread display mode menu -->
+<div class="vbmenu_popup" id="displaymodes_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Display Modes<a name="goto_displaymodes"></a></td>
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option" title="nohilite"><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/mode_linear.gif" alt="Linear Mode" title="Linear Mode"> <strong>Linear Mode</strong></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/mode_hybrid.gif" alt="Hybrid Mode" title="Hybrid Mode"> <a href="http://forum.sa-mp.com/showthread.php?mode=hybrid&amp;t=583472">Switch to Hybrid Mode</a></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/mode_threaded.gif" alt="Threaded Mode" title="Threaded Mode"> <a href="http://forum.sa-mp.com/showthread.php?p=3535522&amp;mode=threaded#post3535522">Switch to Threaded Mode</a></td>
+	
+	</tr>
+	</tbody></table>
+</div>
+<!-- / thread display mode menu -->
+
+<!-- **************************************************** -->
+
+
+<!-- thread search menu -->
+<div class="vbmenu_popup" id="threadsearch_menu" style="display:none">
+<form action="http://forum.sa-mp.com/search.php?do=process&amp;searchthreadid=583472" method="post">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Search this Thread<a name="goto_threadsearch"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option" title="nohilite">
+			<input type="hidden" name="s" value="">
+			<input type="hidden" name="securitytoken" value="1467961003-d19138b68e5147ac7922d370eb47628664d8adbc">
+			<input type="hidden" name="do" value="process">
+			<input type="hidden" name="searchthreadid" value="583472">
+			<input type="text" class="bginput" name="query" size="25"><input type="submit" class="button" value="Go"><br>
+		</td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?searchthreadid=583472">Advanced Search</a></td>
+	</tr>
+	</tbody></table>
+</form>
+</div>
+<!-- / thread search menu -->
+
+
+<!-- **************************************************** -->
+
+
+	<!-- thread rating menu -->
+	<div class="vbmenu_popup" id="threadrating_menu" style="display:none">
+	<form action="http://forum.sa-mp.com/threadrate.php?t=583472" method="post" id="showthread_threadrate_form">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead">Rate This Thread<a name="goto_threadrating"></a></td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option" title="nohilite" id="threadrating_options">
+
+			<div><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/rating_5.gif" alt="Excellent" title="Excellent"><label for="vote5"><input type="radio" name="vote" id="vote5" value="5">Excellent</label></div>
+			<div><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/rating_4.gif" alt="Good" title="Good"><label for="vote4"><input type="radio" name="vote" id="vote4" value="4">Good</label></div>
+			<div><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/rating_3.gif" alt="Average" title="Average"><label for="vote3"><input type="radio" name="vote" id="vote3" value="3">Average</label></div>
+			<div><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/rating_2.gif" alt="Bad" title="Bad"><label for="vote2"><input type="radio" name="vote" id="vote2" value="2">Bad</label></div>
+			<div><img class="inlineimg" src="./Code Optimization - SA-MP Forums_files/rating_1.gif" alt="Terrible" title="Terrible"><label for="vote1"><input type="radio" name="vote" id="vote1" value="1">Terrible</label></div>
+			</td>
+		</tr>
+		<tr id="threadrating_submit">
+			<td class="vbmenu_option" title="nohilite" align="center">
+				<input type="hidden" name="s" value="">
+				<input type="hidden" name="securitytoken" value="1467961003-d19138b68e5147ac7922d370eb47628664d8adbc">
+				<input type="hidden" name="t" value="583472">
+				<input type="hidden" name="pp" value="10">
+				<input type="hidden" name="page" value="1">
+				<input type="button" class="button" value="Vote Now">
+			</td>
+		</tr>
+		
+		</tbody></table>
+	</form>
+	</div>
+	<!-- / thread rating menu -->
+
+	<script type="text/javascript" src="./Code Optimization - SA-MP Forums_files/vbulletin_ajax_threadrate.js"></script>
+	<script type="text/javascript">
+	<!--
+	vB_AJAX_ThreadRate_Init('showthread_threadrate_form');
+	var threadid = 583472;
+	//-->
+	</script>
+
+
+<!-- / popup menu contents -->
+
+
+<!-- forum rules and admin links -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr valign="bottom">
+	<td width="100%" valign="top">
+		<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="210">
+<thead>
+<tr>
+	<td class="thead">
+		<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=583472#top" onclick="return toggle_collapse(&#39;forumrules&#39;)"><img id="collapseimg_forumrules" src="./Code Optimization - SA-MP Forums_files/collapse_thead.gif" alt="" border="0"></a>
+		Posting Rules
+	</td>
+</tr>
+</thead>
+<tbody id="collapseobj_forumrules" style="">
+<tr>
+	<td class="alt1" nowrap="nowrap"><div class="smallfont">
+		
+		<div>You <strong>may</strong> post new threads</div>
+		<div>You <strong>may</strong> post replies</div>
+		<div>You <strong>may</strong> post attachments</div>
+		<div>You <strong>may</strong> edit your posts</div>
+		<hr>
+		
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode" target="_blank">BB code</a> is <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showsmilies" target="_blank">Smilies</a> are <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode#imgcode" target="_blank">[IMG]</a> code is <strong>On</strong></div>
+		<div>HTML code is <strong>Off</strong></div>
+		<hr>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showrules" target="_blank">Forum Rules</a></div>
+	</div></td>
+</tr>
+</tbody>
+</table>
+	</td>
+	<td class="smallfont" align="right">
+		<table cellpadding="0" cellspacing="0" border="0">
+		
+		<tbody><tr>
+			<td>
+			
+			</td>
+		</tr>
+		</tbody></table>
+	</td>
+</tr>
+</tbody></table>
+<!-- /forum rules and admin links -->
+
+<br>
+
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" width="100%" colspan="5">
+			<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=583472#top" onclick="return toggle_collapse(&#39;similarthreads&#39;)"><img id="collapseimg_similarthreads" src="./Code Optimization - SA-MP Forums_files/collapse_tcat.gif" alt="" border="0"></a>
+			Similar Threads<a name="similarthreads"></a>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_similarthreads" style="">
+<tr class="thead" align="center">
+	<td class="thead" width="40%">Thread</td>
+	<td class="thead" width="15%" nowrap="nowrap">Thread Starter</td>
+	<td class="thead" width="20%">Forum</td>
+	<td class="thead" width="5%">Replies</td>
+	<td class="thead" width="20%">Last Post</td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=437418" title="Title is some things I tried to search, I found nothing on housekeeping ( Maybe I am using the wrong word? I spend a lot of time with Java lately ),...">Optimization/Code housekeeping and Manageability/Readability</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Hoborific</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Scripting Help</span></td>
+	<td class="alt2" align="center"><span class="smallfont">3</span></td>
+	<td class="alt1" align="right"><span class="smallfont">15/05/2013 <span class="time">06:55 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=399330" title="Hi! I&#39;ve recently made a /ban command with the parameters &quot;time&quot; and &quot;period&quot;. Times is an integer, and period is either &quot;minutes&quot;, &quot;hours&quot;, &quot;days&quot;,...">Optimization of code based on dates</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">LarzI</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Scripting Help</span></td>
+	<td class="alt2" align="center"><span class="smallfont">13</span></td>
+	<td class="alt1" align="right"><span class="smallfont">14/12/2012 <span class="time">03:04 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=364947" title="Okay, I&#39;m making a SII/MYSQL based saving + admin system and I&#39;m optimizing the code now. 
+ 
+So, I want to know some stuff: 
+ 
+What is the difference...">Code optimization questions</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Gangs_Rocks</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Scripting Help</span></td>
+	<td class="alt2" align="center"><span class="smallfont">3</span></td>
+	<td class="alt1" align="right"><span class="smallfont">01/08/2012 <span class="time">02:57 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=356580" title="Hello guys , i am helping a friend of mine with scripting and stuff 
+But the old scripter made it the script messy and unoptimized 
+Example: 
+ 
+if()...">Code Optimization</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">CoDeZ</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Scripting Help</span></td>
+	<td class="alt2" align="center"><span class="smallfont">11</span></td>
+	<td class="alt1" align="right"><span class="smallfont">04/07/2012 <span class="time">01:53 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=126226" title="Any way to optimize this code?  
+ 
+ 
+public OnPlayerUpdate(playerid) 
+{ 
+	if(GetPlayerWeapon(playerid) == WEAPON_MINIGUN) 
+	{ 
+   ...">Code optimization</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">robanswe</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Help Archive</span></td>
+	<td class="alt2" align="center"><span class="smallfont">5</span></td>
+	<td class="alt1" align="right"><span class="smallfont">07/02/2010 <span class="time">06:25 PM</span></span></td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+
+
+
+<br>
+<div class="smallfont" align="center">All times are GMT +2. The time now is <span class="time">08:56 AM</span>.</div>
+<br>
+
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- /content area table -->
+
+<form action="http://forum.sa-mp.com/index.php" method="get" style="clear:left">
+
+<table cellpadding="6" cellspacing="0" border="0" width="90%" class="page" align="center">
+<tbody><tr>
+	
+	
+		<td class="tfoot">
+			<select name="langid" onchange="switch_id(this, &#39;lang&#39;)">
+				<optgroup label="Quick Language Chooser">
+					<option value="1" class="" selected="selected">-- (EN) English</option>
+<option value="3" class="">-- (ES) Espa�ol</option>
+<option value="4" class="">-- (RU) &#1056;&#1091;&#1089;&#1089;&#1082;&#1080;</option>
+
+				</optgroup>
+			</select>
+		</td>
+	
+	<td class="tfoot" align="right" width="100%">
+		<div class="smallfont">
+			<strong>
+				<a href="http://forum.sa-mp.com/sendmessage.php" rel="nofollow" accesskey="9">Contact Us</a> -
+				<a href="http://www.sa-mp.com/">SA-MP</a> -
+				
+				
+				<a href="http://forum.sa-mp.com/archive/index.php">Archive</a> -
+				
+				
+				
+				<a href="http://forum.sa-mp.com/showthread.php?t=583472#top" onclick="self.scrollTo(0, 0); return false;">Top</a>
+			</strong>
+		</div>
+	</td>
+</tr>
+</tbody></table>
+
+<br>
+
+<div align="center">
+	<div class="smallfont" align="center">
+	<!-- Do not remove this copyright notice -->
+	Powered by vBulletin� Version 3.8.6<br>Copyright �2000 - 2016, Jelsoft Enterprises Ltd.
+	<!-- Do not remove this copyright notice -->
+	</div>
+
+	<div class="smallfont" align="center">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+
+	
+	</div>
+</div>
+
+</form>
+
+
+
+
+<script type="text/javascript">
+<!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//-->
+</script>
+
+<!-- temp -->
+<div style="display:none">
+	<!-- thread rate -->
+	
+		<!-- thread ratings form here -->
+	
+	<!-- / thread rate -->
+</div>
+
+
+</body></html>

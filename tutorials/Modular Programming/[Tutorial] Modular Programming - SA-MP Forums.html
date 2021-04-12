@@ -1,0 +1,3570 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0046)http://forum.sa-mp.com/showthread.php?t=597338 -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	
+<meta name="generator" content="vBulletin 3.8.6">
+
+<meta name="keywords" content="[Tutorial] Modular Programming, SA-MP, GTA, multiplayer, online, server, pawn, scripting">
+<meta name="description" content="[Tutorial] Modular Programming Tutorials">
+
+
+<!-- CSS Stylesheet -->
+<style type="text/css" id="vbulletin_css">
+/**
+* vBulletin 3.8.6 CSS
+* Style: 'SAMPStyle'; Style ID: 2
+*/
+body
+{
+	background: #707170;
+	color: #FFFFFFF;
+	font: bold 10pt arial, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 1px 1px 1px 1px;
+	padding: 1px;
+}
+a:link, body_alink
+{
+	color: #4A627F;
+	text-decoration: none;
+}
+a:visited, body_avisited
+{
+	color: #1A425F;
+	text-decoration: none;
+}
+a:hover, a:active, body_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.page
+{
+	background: #DADADB;
+	color: #000000;
+}
+td, th, p, li
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tborder
+{
+	background: #DFDFDF;
+	color: #000000;
+	border: 1px solid #717171;
+}
+.tcat
+{
+	background: #4F4F4F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tcat a:link, .tcat_alink
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:visited, .tcat_avisited
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:hover, .tcat a:active, .tcat_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.thead
+{
+	background: #3F3F3F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.thead a:link, .thead_alink
+{
+	color: #FFFFFF;
+}
+.thead a:visited, .thead_avisited
+{
+	color: #FFFFFF;
+}
+.thead a:hover, .thead a:active, .thead_ahover
+{
+	color: #E76006;
+}
+.tfoot
+{
+	background: #595959;
+	color: #CDCDCD;
+}
+.tfoot a:link, .tfoot_alink
+{
+	color: #CDCDCD;
+}
+.tfoot a:visited, .tfoot_avisited
+{
+	color: #9D9D9D;
+}
+.tfoot a:hover, .tfoot a:active, .tfoot_ahover
+{
+	color: #E76006;
+}
+.alt1, .alt1Active
+{
+	background: #F6F6F6;
+	color: #000000;
+}
+.alt2, .alt2Active
+{
+	background: #EAEAEB;
+	color: #000000;
+}
+.inlinemod
+{
+	background: #FFFFCC;
+	color: #000000;
+}
+.wysiwyg
+{
+	background: #F5F5F5;
+	color: #000000;
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 5px 10px 10px 10px;
+	padding: 0px;
+}
+.wysiwyg a:link, .wysiwyg_alink
+{
+	color: #22229C;
+}
+.wysiwyg a:visited, .wysiwyg_avisited
+{
+	color: #22229C;
+}
+.wysiwyg a:hover, .wysiwyg a:active, .wysiwyg_ahover
+{
+	color: #E76006;
+}
+textarea, .bginput
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.bginput option, .bginput optgroup
+{
+	font-size: 10pt;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.button
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+select
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+option, optgroup
+{
+	font-size: 11px;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.smallfont
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.time
+{
+	color: #666686;
+}
+.navbar
+{
+	font: 12pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.highlight
+{
+	color: #FF0000;
+	font-weight: bold;
+}
+.fjsel
+{
+	background: #3E5C92;
+	color: #E0E0F6;
+}
+.fjdpth0
+{
+	background: #F7F7F7;
+	color: #000000;
+}
+.panel
+{
+	background: #F5F5F5;
+	color: #000000;
+	padding: 10px;
+	border: 1px;
+}
+.panelsurround
+{
+	background: #F5F5F5;
+	color: #000000;
+}
+legend
+{
+	color: #222222;
+	font: 11px tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.vbmenu_control
+{
+	background: #777777;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	padding: 3px 6px 3px 6px;
+	white-space: nowrap;
+}
+.vbmenu_control a:link, .vbmenu_control_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:visited, .vbmenu_control_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:hover, .vbmenu_control a:active, .vbmenu_control_ahover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+.vbmenu_popup
+{
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #0B198C;
+}
+.vbmenu_option
+{
+	background: #444444;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_option a:link, .vbmenu_option_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:visited, .vbmenu_option_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:hover, .vbmenu_option a:active, .vbmenu_option_ahover
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_hilite
+{
+	background: #F37016;
+	color: #000000;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_hilite a:link, .vbmenu_hilite_alink
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:visited, .vbmenu_hilite_avisited
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:hover, .vbmenu_hilite a:active, .vbmenu_hilite_ahover
+{
+	color: #000000;
+	text-decoration: none;
+}
+/* ***** styling for 'big' usernames on postbit etc. ***** */
+.bigusername { font-size: 14pt; }
+
+/* ***** small padding on 'thead' elements ***** */
+td.thead, th.thead, div.thead { padding: 4px; }
+
+/* ***** basic styles for multi-page nav elements */
+.pagenav a { text-decoration: none; }
+.pagenav td { padding: 2px 4px 2px 4px; }
+
+/* ***** de-emphasized text */
+.shade, a.shade:link, a.shade:visited { color: #777777; text-decoration: none; }
+a.shade:active, a.shade:hover { color: #FF4400; text-decoration: underline; }
+.tcat .shade, .thead .shade, .tfoot .shade { color: #DDDDDD; }
+
+/* ***** define margin and font-size for elements inside panels ***** */
+.fieldset { margin-bottom: 6px; }
+.fieldset, .fieldset td, .fieldset p, .fieldset li { font-size: 11px; }
+</style>
+<link rel="stylesheet" type="text/css" href="./[Tutorial] Modular Programming - SA-MP Forums_files/vbulletin_important.css">
+
+
+<!-- / CSS Stylesheet -->
+
+<script type="text/javascript" src="./[Tutorial] Modular Programming - SA-MP Forums_files/yahoo-dom-event.js"></script><style type="text/css"></style>
+<script type="text/javascript" src="./[Tutorial] Modular Programming - SA-MP Forums_files/connection-min.js"></script>
+<script type="text/javascript">
+<!--
+var SESSIONURL = "";
+var SECURITYTOKEN = "1451495601-2ac53ded4380c9e65aa9d5493a4a8939b6eed3aa";
+var IMGDIR_MISC = "images/misc";
+var vb_disable_ajax = parseInt("0", 10);
+// -->
+</script>
+<script type="text/javascript" src="./[Tutorial] Modular Programming - SA-MP Forums_files/vbulletin_global.js"></script>
+<script type="text/javascript" src="./[Tutorial] Modular Programming - SA-MP Forums_files/vbulletin_menu.js"></script>
+
+
+	<link rel="alternate" type="application/rss+xml" title="SA-MP Forums RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2">
+	
+		<link rel="alternate" type="application/rss+xml" title="SA-MP Forums - Tutorials - RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2&amp;forumids=70">
+	
+<script type="text/javascript" src="./[Tutorial] Modular Programming - SA-MP Forums_files/ame.js"></script><!-- Editor CSS automatically added by functions_editor.php at line 680 -->
+<!-- Editor Styles -->
+<style type="text/css" id="vbulletin_editor_css_dynamic">
+<!--
+@import url("clientscript/vbulletin_editor.css?v=387");
+
+.vBulletin_editor {
+	background: #E1E1E2;
+	padding: 6px;
+}
+.imagebutton {
+	background: #E1E1E2;
+	color: #000000;
+	padding: 1px;
+	border: none;
+}
+.ocolor, .ofont, .osize, .osmilie, .osyscoloar, .smilietitle {
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #FFFFFF;
+}
+.popup_pickbutton {
+	border: 1px solid #FFFFFF;
+}
+.popup_feedback {
+	background: #FFFFFF;
+	color: #000000;
+	border-right: 1px solid #FFFFFF;
+}
+.popupwindow {
+	background: #FFFFFF;
+}
+#fontOut, #sizeOut, .popup_feedback div {
+	background: #FFFFFF;
+	color: #000000;
+}
+.alt_pickbutton {
+	border-left: 1px solid #E1E1E2;
+}
+.popup_feedback input, .popup_feedback div
+{
+	border: 0px solid;
+	padding: 0px 2px 0px 2px;
+	cursor: default;
+	font: 11px tahoma;
+	overflow: hidden;
+}
+-->
+</style>
+<!-- / Editor Styles -->
+	<title>[Tutorial] Modular Programming - SA-MP Forums</title>
+	<script type="text/javascript" src="./[Tutorial] Modular Programming - SA-MP Forums_files/vbulletin_post_loader.js"></script>
+	<style type="text/css" id="vbulletin_showthread_css">
+	<!--
+	
+	#links div { white-space: nowrap; }
+	#links img { vertical-align: middle; }
+	-->
+	</style>
+</head>
+<body onload="">
+<!-- logo -->
+<a name="top"></a>
+<center><div align="center" style="height: 80px; width: 90%; background: transparent url(http://forum.sa-mp.com/logo_new_back3.png) repeat-x 0px 0px; text-align:center;">
+<table border="0" width="90%" cellpadding="0" cellspacing="0" align="center">
+<tbody><tr>
+	<td align="center"><a href="http://forum.sa-mp.com/index.php"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/logo_forum.gif" border="0" alt="SA-MP Forums" title="SA-MP Forums"></a></td>
+</tr>
+</tbody></table>
+</div></center>
+<!-- /logo -->
+
+<!-- content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+
+
+
+
+<br>
+
+<!-- breadcrumb, login, pm info -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<tbody><tr>
+	<td class="alt1" width="100%">
+		
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr valign="bottom">
+				<td><a href="http://forum.sa-mp.com/showthread.php?t=597338#" onclick="history.back(1); return false;"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/navbits_start.gif" alt="Go Back" border="0" title="Go Back"></a></td>
+				<td>&nbsp;</td>
+				<td width="100%"><span class="navbar"><a href="http://forum.sa-mp.com/index.php" accesskey="1">SA-MP Forums</a></span> 
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=8">SA-MP Scripting and Plugins</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=12">Scripting Help</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=70">Tutorials</a></span>
+
+</td>
+			</tr>
+			<tr>
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="./[Tutorial] Modular Programming - SA-MP Forums_files/[Tutorial] Modular Programming - SA-MP Forums.html"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/navbits_finallink_ltr.gif" alt="Reload this Page" border="0" title="Reload this Page"></a> <strong>
+	[<span style="font-weight:bold;font-size:8pt;color:#841594;">Tutorial</span>] Modular Programming
+
+</strong></td>
+			</tr>
+			</tbody></table>
+		
+	</td>
+
+	<td class="alt2" nowrap="nowrap">
+	<div class="smallfont">
+		<strong>Welcome, <a href="http://forum.sa-mp.com/member.php?u=234935">VincenzoDrift</a>.</strong><br>
+		You last visited: 30/12/2015 at <span class="time">02:41 PM</span>
+
+		
+			<div><a href="http://forum.sa-mp.com/private.php">Private Messages</a>: Unread 0, Total 0.</div>
+		
+
+		
+	</div>
+	</td>
+
+</tr>
+</tbody></table>
+<!-- / breadcrumb, login, pm info -->
+
+<!-- nav buttons bar -->
+<div class="tborder" style="padding:1px; border-top-width:0px">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+	<tbody><tr align="center">
+		
+			<td class="vbmenu_control"><a href="http://forum.sa-mp.com/usercp.php">User CP</a></td>
+		
+		
+		
+		
+			<td class="vbmenu_control"><a id="community" href="http://forum.sa-mp.com/showthread.php?t=597338&amp;nojs=1#community" rel="nofollow" accesskey="6" style="cursor: pointer;">Community <img src="./[Tutorial] Modular Programming - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("community"); </script></td>
+		
+		
+			
+				
+				<td class="vbmenu_control"><a href="http://forum.sa-mp.com/search.php?do=getnew" accesskey="2">New Posts</a></td>
+				
+				<td class="vbmenu_control"><a id="navbar_search" href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow" style="cursor: pointer;">Search <img src="./[Tutorial] Modular Programming - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("navbar_search"); </script></td>
+			
+			
+				<td class="vbmenu_control"><a id="usercptools" href="http://forum.sa-mp.com/showthread.php?t=597338&amp;nojs=1#usercptools" accesskey="3" style="cursor: pointer;">Quick Links <img src="./[Tutorial] Modular Programming - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("usercptools"); </script></td>
+			
+		
+		
+		
+			<td class="vbmenu_control"><a href="http://forum.sa-mp.com/login.php?do=logout&amp;logouthash=1451495601-2ac53ded4380c9e65aa9d5493a4a8939b6eed3aa" onclick="return log_out(&#39;Are you sure you want to log out?&#39;)">Log Out</a></td>
+		
+		</tr>
+	</tbody></table>
+</div>
+<!-- / nav buttons bar -->
+
+<br>
+
+
+
+
+
+
+<!-- NAVBAR POPUP MENUS -->
+
+	
+	<!-- community link menu -->
+	<div class="vbmenu_popup" id="community_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr><td class="thead">Community Links</td></tr>
+		
+		
+		
+		
+			<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=buddylist">Contacts &amp; Friends</a></td></tr>
+		
+		
+			<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/memberlist.php">Members List</a></td></tr>
+		
+		
+		</tbody></table>
+	</div>
+	<!-- / community link menu -->
+	
+	
+	
+	<!-- header quick search form -->
+	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead">Search Forums</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+				<form action="http://forum.sa-mp.com/search.php?do=process" method="post">
+
+					<input type="hidden" name="do" value="process">
+					<input type="hidden" name="quicksearch" value="1">
+					<input type="hidden" name="childforums" value="1">
+					<input type="hidden" name="exactname" value="1">
+					<input type="hidden" name="s" value="">
+					<input type="hidden" name="securitytoken" value="1451495601-2ac53ded4380c9e65aa9d5493a4a8939b6eed3aa">
+					<div><input type="text" class="bginput" name="query" size="25" tabindex="1001"><input type="submit" class="button" value="Go" tabindex="1004"></div>
+					<div style="margin-top:6px">
+						<label for="rb_nb_sp0"><input type="radio" name="showposts" value="0" id="rb_nb_sp0" tabindex="1002" checked="checked">Show Threads</label>
+						&nbsp;
+						<label for="rb_nb_sp1"><input type="radio" name="showposts" value="1" id="rb_nb_sp1" tabindex="1003">Show Posts</label>
+					</div>
+				</form>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow">Advanced Search</a></td>
+		</tr>
+		
+		</tbody></table>
+	</div>
+	<!-- / header quick search form -->
+	
+	
+	
+	<!-- user cp tools menu -->
+	<div class="vbmenu_popup" id="usercptools_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+
+		<tbody><tr><td class="thead">Quick Links</td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=getdaily">Today's Posts</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/forumdisplay.php?do=markread&amp;markreadhash=1451495601-2ac53ded4380c9e65aa9d5493a4a8939b6eed3aa">Mark Forums Read</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/showthread.php?t=597338#" onclick="window.open(&#39;misc.php?do=buddylist&amp;focus=1&#39;,&#39;buddylist&#39;,&#39;statusbar=no,menubar=no,toolbar=no,scrollbars=yes,resizable=yes,width=250,height=300&#39;); return false;">Open Contacts Popup</a></td></tr>
+		
+		
+
+		<tr><td class="thead"><a href="http://forum.sa-mp.com/usercp.php">User Control Panel</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editsignature">Edit Signature</a></td></tr>
+		<!--<tr><td class="vbmenu_option"><a href="profile.php?do=editavatar">Edit Avatar</a></td></tr>-->
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editprofile">Edit Your Details</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editoptions">Edit Options</a></td></tr>
+		
+
+		<tr><td class="thead">Miscellaneous</td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php" rel="nofollow">Private Messages</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/subscription.php" rel="nofollow">Subscribed Threads</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=234935">Your Profile</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/online.php">Who's Online</a></td></tr>
+		
+
+		</tbody></table>
+	</div>
+	<!-- / user cp tools menu -->
+
+	
+<!-- / NAVBAR POPUP MENUS -->
+
+<!-- PAGENAV POPUP -->
+	<div class="vbmenu_popup" id="pagenav_menu" style="display:none">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead" nowrap="nowrap">Go to Page...</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+			<form action="http://forum.sa-mp.com/index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4">
+				<input type="button" class="button" id="pagenav_ibtn" value="Go">
+			</form>
+			</td>
+		</tr>
+		</tbody></table>
+	</div>
+<!-- / PAGENAV POPUP -->
+
+
+
+
+
+
+
+
+
+
+<a name="poststop" id="poststop"></a>
+
+<!-- controls above postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tbody><tr valign="bottom">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;noquote=1&amp;p=3633767" rel="nofollow"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	
+</tr>
+</tbody></table>
+<!-- / controls above postbits -->
+
+<!-- toolbar -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center" style="border-bottom-width:0px">
+<tbody><tr>
+	<td class="tcat" width="100%">
+		<div class="smallfont">
+		
+			<a href="http://forum.sa-mp.com/showthread.php?t=597338#post3634009"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/firstnew.gif" alt="View First Unread" border="0" title="View First Unread"></a>
+			<a href="http://forum.sa-mp.com/showthread.php?t=597338#post3634009">View First Unread</a>
+		
+		&nbsp;
+		</div>
+	</td>
+	<td class="vbmenu_control" id="threadtools" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=597338&amp;nojs=1#goto_threadtools">Thread Tools</a>
+		<script type="text/javascript"> vbmenu_register("threadtools"); </script> <img src="./[Tutorial] Modular Programming - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+		<td class="vbmenu_control" id="threadsearch" nowrap="nowrap" style="cursor: pointer;">
+			<a href="http://forum.sa-mp.com/showthread.php?t=597338&amp;nojs=1#goto_threadsearch">Search this Thread</a>
+			<script type="text/javascript"> vbmenu_register("threadsearch"); </script> <img src="./[Tutorial] Modular Programming - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+		</td>
+	
+	
+		<td class="vbmenu_control" id="threadrating" nowrap="nowrap" style="cursor: pointer;">
+			<a href="http://forum.sa-mp.com/showthread.php?t=597338&amp;nojs=1#goto_threadrating"><span id="threadrating_current">Rating: <img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/rating_4.gif" alt="Thread Rating: 3 votes, 3.67 average." border="0" title="Thread Rating: 3 votes, 3.67 average."></span></a>
+			<script type="text/javascript"> vbmenu_register("threadrating"); </script> <img src="./[Tutorial] Modular Programming - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+		</td>
+	
+	
+	<td class="vbmenu_control" id="displaymodes" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=597338&amp;nojs=1#goto_displaymodes">Display Modes</a>
+		<script type="text/javascript"> vbmenu_register("displaymodes"); </script> <img src="./[Tutorial] Modular Programming - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+
+	
+
+</tr>
+</tbody></table>
+<!-- / toolbar -->
+
+
+
+<!-- end content table -->
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- / end content table -->
+
+
+
+
+<script type="text/javascript" src="./[Tutorial] Modular Programming - SA-MP Forums_files/vbulletin_ajax_reputation.js"></script>
+
+
+<div id="posts"><!-- post #3633767 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3633767" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3633767" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3633767"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			29/12/2015, 10:23 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3633767&amp;postcount=1" target="new" rel="nofollow" id="postcount3633767" name="1"><strong>1</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3633767">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=104729">patrickgtr</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3633767", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Little Clucker</div>
+			<div class="smallfont"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=104729"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/image.php" width="80" height="80" alt="patrickgtr&#39;s Avatar" border="0" title="patrickgtr&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Sep 2010</div>
+				<div>Location: United Kingdom</div>
+				
+				
+				
+<div>
+  Posts: 16
+</div>
+
+<div>Reputation: 18</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3633767" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Modular Programming</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3633767">
+			
+			<font size="4"><font color="Green"><b>What is modular programming?</b></font></font><br>
+Modular programming is a process of breaking down a code depending on its category to make the code reusable  for future projects <i>(avoid re-inventing the wheel)</i> as well as making the code easier to read and track down mistakes. Modular programming comes handy if you are writing big projects, there's no point of modularizing your code if it doesn't consists of <b>5,000</b> lines as this can be done in one file but once again I am not your boss therefore this could be done on short codes but I see no point of doing so (personal opinion).<br>
+<br>
+<div align="center"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/voRKoD5.png" border="0" alt=""></div><br>
+<font size="4"><font color="Green"><b>Advantages</b></font></font><ul><li>Code reusability - This makes your life easier, if you're creating a new project that has similar needs your module can come handy and be re-used in this situation and saves you time! <i>(wasting time on creating the code again from scratch)</i>.</li>
+<li>Code readability - Modular programming can make your code much easier to read with few lines in each modules!</li>
+<li>Ease of debugging and modifying - A modularized code are generally easier to debug than a code that has been done in <b>ONE</b> file. <i>Why is it easier to debug?</i> - Codes are isolated in a module and once a faulty code has been identified, fixing can be very easy. Modifying can come handy if a module has to be used once again! simple modification can be done and the module can be re-used again!</li>
+<li>Multiple developers - If you are working as a team, each developer can work on a different module and this leads to faster development!<ul><li>Each developer can use their expertise to work on a module! Maths, GUI, commands, arrays, checkpoints, etc...</li>
+</ul></li>
+</ul><font size="4"><font color="Green"><b>Disadvantages</b></font></font><ul><li>Variable names - each variable name should have a <b>unique</b> name or else it can cause <i>warning 219: local variable "variable_name" shadows a variable at a preceding level</i><ul><li>A fix for this is use <b>static</b> to declare the variable as a local variable yet you still need to use a non-generic variable name to avoid conflicts with other modules and released includes.</li>
+<li>Another fix if a variable is declared locally, you can create a function if it needs to be used throughout the code.</li>
+</ul></li>
+<li>Proper documentation - If you are working as a team, modules should be documented thoroughly for other developers to understand the code as well. (This also goes to codes that are going to be released in forums)</li>
+<li>Hooking a function that is required to be re-used - This can be repetitive and hook should have a <b>unique</b> prefix. Writing the directives can be repetitive but this is why <b>COPY</b> and <b>PASTE</b> exists. Other solution is using <b>y_hooks</b> and including it every <b>module</b>. For y_hooks example see first 2 examples.</li>
+</ul><br>
+<font size="4"><font color="Green"><b>Examples</b></font></font><ul><li><a href="https://github.com/pds2k12/San-Fierro-Cops-and-Robbers/blob/master/main.pwn" target="_blank">San Fierro Cops and Robbers</a> by me</li>
+<li><a href="https://github.com/Southclaw/ScavengeSurvive/blob/master/gamemodes/ScavengeSurvive.pwn" target="_blank">Scavenge and Survive</a> by Southclaw</li>
+<li><a href="https://github.com/Pottus/Texture-Studio/blob/master/filterscripts/tstudio.pwn" target="_blank">Texture Studio</a> by Pottus</li>
+</ul><br>
+<font size="4"><font color="Green"><b>Editor that supports multi-tasking</b></font></font><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=174046" target="_blank">Notepad++ for PAWN</a> - Slice<br>
+<a href="http://forum.sa-mp.com/showthread.php?t=511195" target="_blank">Sublime Text for PAWN</a> - Southclaw<br>
+<a href="http://forum.sa-mp.com/showthread.php?t=549547" target="_blank">Atom for PAWN</a> - Kaperstone<br>
+<br>
+<b>NOTE</b><br>
+You have to plan how you want to lay your code out or else it will be a disaster and you will be lost.<br>
+<br>
+<br>
+<font size="4"><font color="Green"><b>Layout</b></font></font><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 226px;
+		text-align: left;
+		overflow: auto">- gamemodes 
+	- main.pwn
+		- utils
+			- colour.pwn
+			- math.pwn
+			- string.pwn
+		- core
+			- player
+				- core.pwn
+				- account.pwn
+			- server
+				- core.pwn
+				- vehicles.pwn</pre>
+</div><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 274px;
+		text-align: left;
+		overflow: auto">#include &lt;a_samp&gt;
+
+//Modules
+
+//Utils
+#include "utils/colour.pwn"
+#include "utils/math.pwn"
+#include "utils/string.pwn"
+
+//Player
+#include "core/player/core.pwn"
+#include "core/player/account.pwn"
+
+//Server 
+#include "core/server/core.pwn"
+#include "core/server/vehicles.pwn"</pre>
+</div><br>
+<b>OR</b><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 226px;
+		text-align: left;
+		overflow: auto">- includes 
+	- main.pwn
+		- utils
+			- colour.pwn
+			- math.inc
+			- string.inc
+		- core
+			- player
+				- core.inc
+				- account.inc
+			- server
+				- core.inc
+				- vehicles.inc</pre>
+</div><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 242px;
+		text-align: left;
+		overflow: auto">#include &lt;a_samp&gt;
+
+//Utils
+#include &lt;utils/color&gt;
+#include &lt;utils/math&gt;
+#include &lt;utils/string&gt;
+
+//Player
+#include &lt;core/player/core&gt;
+#include &lt;core/player/account&gt;
+
+//Server
+#include &lt;core/server/core&gt;
+#include &lt;core/server/vehicles&gt;</pre>
+</div><br>
+<br>
+<font size="4"><font color="Green"><b>How does it work together?</b></font></font><br>
+<br>
+Include is a directive that binds the contents of the module/second file together and insert it into the original file although the <b>IDE</b> doesn't read it this way but the compiler reads it like the code is in one-file.<br>
+<br>
+<b>enums.pwn</b><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 146px;
+		text-align: left;
+		overflow: auto">enum E_PLAYER_DATA {
+	plyUsername[MAX_PLAYER_NAME],
+	plyPassword[65],
+	plyKills,
+	plyDeaths
+}
+
+new plyData[MAX_PLAYERS][E_PLAYER_DATA];</pre>
+</div><br>
+<b>main.pwn</b><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 386px;
+		text-align: left;
+		overflow: auto">#include &lt;a_samp&gt;
+
+#include "core/player/enums.pwn"
+
+new 
+	resetPData[E_PLAYER_DATA];
+
+public OnPlayerConnect(playerid) {
+	plyData[playerid] = resetPData; //sets all the value to 0.
+
+	//Load everything here.
+
+	return 1;
+}
+
+public OnPlayerDisconnect(playerid, reason) {
+	
+	//save everything here.
+
+	plyData[playerid] = resetPData; //sets all the value to 0.
+	return 1;
+}</pre>
+</div><br>
+<b>What actually happens</b><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">#include &lt;a_samp&gt;
+
+//this is enums.pwn
+enum E_PLAYER_DATA {
+	plyUsername[MAX_PLAYER_NAME],
+	plyPassword[65],
+	plyKills,
+	plyDeaths
+}
+
+new plyData[MAX_PLAYERS][E_PLAYER_DATA];
+
+new 
+	resetPData[E_PLAYER_DATA];
+
+public OnPlayerConnect(playerid) {
+	plyData[playerid] = resetPData; //sets all the value to 0.
+
+	//Load everything here.
+
+	return 1;
+}
+
+public OnPlayerDisconnect(playerid, reason) {
+	
+	//save everything here.
+
+	plyData[playerid] = resetPData; //sets all the value to 0.
+	return 1;
+}</pre>
+</div><br>
+<font size="4"><font color="Green"><b>How does hooking work?</b></font></font><br>
+The modules should be done in a sequence in order for it to function properly. For example you are trying to open a database in <b>main.pwn</b> and you want to create a table of <b>accounts</b> in <b>accounts.pwn</b> to be able to do that. You <br>
+have to hook OnGameModeInit before every module and y_hooks (<i>if you're using y_hooks</i>). Example shown below.<br>
+<br>
+<b>main.pwn</b><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">#include &lt;a_samp&gt;
+
+/* - 
+	How it happens behind the console
+	--------------------------------------
+	* OnGameModeInitEx - first
+		* hooks of OnGameModeInit - second
+	--------------------------------------
+	"OnGameModeInitEx" will be called first to avoid crashes and confusion within the hooks.
+	Everything that you have to do regarding OnGameModeInit
+	You have to place them in "OnGameModeInitEx" to make sure other hooks will not mess up on start up.
+*/
+
+public OnGameModeInit()
+{
+
+	OnGameModeInitEx();
+
+	#if defined main_OnGameModeInit
+		return main_OnGameModeInit();
+	#else
+		return 1;
+	#endif
+}
+#if defined _ALS_OnGameModeInit
+	#undef OnGameModeInit
+#else
+	#define _ALS_OnGameModeInit
+#endif
+ 
+#define OnGameModeInit main_OnGameModeInit
+#if defined main_OnGameModeInit
+	forward main_OnGameModeInit();
+#endif
+
+#include &lt;YSI\y_hooks&gt; //The y_hooks hook of OnGameModeInit will be called after the hook in main.pwn is called.
+ 
+OnGameModeInitEx()
+{
+	db_open("server.db");
+}
+
+//We don't need to hook this because OnGameModeExit() hooks will be called first therefore the main OnGameModeExit() will be called last and this is what we need.
+public OnGameModeExit()
+{
+	db_close(DB:0);
+	return 1;
+}</pre>
+</div><br>
+<br>
+<font size="4"><font color="Green"><b>What happens behind?</b></font></font><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 258px;
+		text-align: left;
+		overflow: auto">- hook of OnGameModeInit() calling OnGameModeInitEx() in main.pwn - This will be called first all the time!
+- hook of OnGameModeInit() in different modules.
+	- The hooks are called depending on the suquence of the module.
+
+	For example
+	- main.pwn 
+	- players.pwn 
+	- servers.pwn
+	- checkpoints.pwn 
+
+	- OnGameModeInit() hook will be called first in main.pwn 
+	- OnGameModeInit() hook will be called second in players after main.pwn
+	- OnGameModeInit() hook will be called third in servers after players.pwn 
+	- OnGameModeInit() hook will be called fourth in checkpoints after servers.pwn</pre>
+</div>
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+		<!-- edit note -->
+			<div class="smallfont">
+				<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+				<em>
+					
+						Last edited by patrickgtr; 30/12/2015 at <span class="time">03:14 PM</span>.
+					
+					
+				</em>
+			</div>
+		<!-- / edit note -->
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/user_offline.gif" alt="patrickgtr is offline" border="0" title="patrickgtr is offline">
+
+
+		
+			<span id="reputationmenu_3633767"><a href="http://forum.sa-mp.com/reputation.php?p=3633767" rel="nofollow" id="reputation_3633767"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/reputation.png" alt="Add to patrickgtr&#39;s Reputation" border="0" title="Add to patrickgtr&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3633767")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3633767" rel="nofollow"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3633767" rel="nofollow"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3633767" rel="nofollow" onclick="return false"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3633767" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3633767" rel="nofollow" id="qr_3633767" onclick="return false"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3633767 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3633767_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">patrickgtr</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=104729">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=104729" rel="nofollow">Send a private message to patrickgtr</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=104729" rel="nofollow">Find More Posts by patrickgtr</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=104729">Add patrickgtr to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3633767 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3633767 --><!-- post #3633769 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3633769" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3633769" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3633769"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			29/12/2015, 10:27 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3633769&amp;postcount=2" target="new" rel="nofollow" id="postcount3633769" name="2"><strong>2</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3633769">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=156516">CrazyChoco</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3633769", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Gangsta</div>
+			<div class="smallfont"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Feb 2012</div>
+				<div>Location: *&#8729;*&#8729;*&#8729;Denmark*&#8729;*&#8729;*&#8729; Status: Scripter</div>
+				
+				
+				
+<div>
+  Posts: 942
+</div>
+
+<div>Reputation: 34</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3633769" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Modular Programming</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3633769">
+			
+			This is good. It would suit anyone who is considering the programming industry.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				Starting Los Santos Life Cops and Robbers. Stay tuned it's gonna be epic.
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/user_offline.gif" alt="CrazyChoco is offline" border="0" title="CrazyChoco is offline">
+
+
+		
+			<span id="reputationmenu_3633769"><a href="http://forum.sa-mp.com/reputation.php?p=3633769" rel="nofollow" id="reputation_3633769"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/reputation.png" alt="Add to CrazyChoco&#39;s Reputation" border="0" title="Add to CrazyChoco&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3633769")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3633769" rel="nofollow"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3633769" rel="nofollow"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3633769" rel="nofollow" onclick="return false"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3633769" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3633769" rel="nofollow" id="qr_3633769" onclick="return false"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3633769 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3633769_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">CrazyChoco</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=156516">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=156516" rel="nofollow">Send a private message to CrazyChoco</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=156516" rel="nofollow">Find More Posts by CrazyChoco</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=156516">Add CrazyChoco to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3633769 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3633769 --><!-- post #3633781 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3633781" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3633781" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3633781"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			29/12/2015, 11:03 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3633781&amp;postcount=3" target="new" rel="nofollow" id="postcount3633781" name="3"><strong>3</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3633781">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=111937">Sasino97</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3633781", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=111937"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/image(1).php" width="80" height="80" alt="Sasino97&#39;s Avatar" border="0" title="Sasino97&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Dec 2010</div>
+				<div>Location: Italia</div>
+				
+				
+				
+<div>
+  Posts: 1,360
+</div>
+
+<div>Reputation: 77</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3633781" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Modular Programming</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3633781">
+			
+			Good tutorial<br>
+It would be a nice thing if people started to modular program, there are lots of good sà-mp scripters who still don't understand the advantage of dividing their project into modules, ànd thry publish huge gamemodes with 20000 lines of code
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<font size="5"><b><font color="navy">S</font></b></font>cripter<br>
+I'm an experienced PAWN scripter, looking for small paid jobs. <br>
+PM me for details.<br>
+<br>
+<font size="5"><b><font color="Navy">C</font></b></font>urrently Working On:<ul><li><b>Sasinosoft Roleplay: Los Angeles</b><br></li>
+<li><font color="Red"><font size="4"><b>Sasinosoft Houses 3</b></font></font> - New Dynamic House &amp; Business System</li>
+</ul>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/user_offline.gif" alt="Sasino97 is offline" border="0" title="Sasino97 is offline">
+
+
+		
+			<span id="reputationmenu_3633781"><a href="http://forum.sa-mp.com/reputation.php?p=3633781" rel="nofollow" id="reputation_3633781"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/reputation.png" alt="Add to Sasino97&#39;s Reputation" border="0" title="Add to Sasino97&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3633781")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3633781" rel="nofollow"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3633781" rel="nofollow"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3633781" rel="nofollow" onclick="return false"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3633781" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3633781" rel="nofollow" id="qr_3633781" onclick="return false"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3633781 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3633781_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Sasino97</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=111937">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=111937" rel="nofollow">Send a private message to Sasino97</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=111937" rel="nofollow">Find More Posts by Sasino97</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=111937">Add Sasino97 to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3633781 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3633781 --><!-- post #3633785 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3633785" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3633785" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3633785"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			29/12/2015, 11:17 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3633785&amp;postcount=4" target="new" rel="nofollow" id="postcount3633785" name="4"><strong>4</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3633785">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=169807">Pottus</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3633785", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=169807"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/image(2).php" width="80" height="76" alt="Pottus&#39;s Avatar" border="0" title="Pottus&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Jun 2012</div>
+				
+				
+				
+				
+<div>
+  Posts: 4,834
+</div>
+
+<div>Reputation: 1035</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3633785" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Modular Programming</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3633785">
+			
+			This only explains the concept not the implementation 1-star from me because people will get to the end then ask "okay what do I do now?" it's like you left out 75 percent of the tutorial. It's a great start nice and neat but needs some effort to be useful.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><a href="http://www.game-state.com/46.105.43.212:1420/" target="_blank"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/n-560x95_FFFFFF_FFFFFF_000000_000000.png" border="0" alt=""></a><br>
+</div><div align="center"><a href="samp://46.105.43.212:1420" target="_blank"><font color="Lime"><b>Click Here To Play 420DayZ</b></font></a></div><a href="http://forum.sa-mp.com/showthread.php?t=582490" target="_blank"><font color="DarkOrchid"><b>Texture Studio (Texture your maps today!) - New developer (Crayder!)</b></font></a><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=586068" target="_blank"><font color="YellowGreen"><b>Colandreas (Server sided collision plugin) - Maintained by Crayder</b></font></a><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=415397" target="_blank"><font color="MediumTurquoise"><b>All GTA SA Object Array</b></font></a><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=434123" target="_blank"><font color="SeaGreen"><b>Cathedral Of The Damned (Hellish map)</b></font></a><br>
+<a href="http://www.ulclan.com/" target="_blank"><font size="4">uL Clan</font></a><br>
+<font size="5"><font color="SeaGreen">Retired from SA-MP scene <img src="./[Tutorial] Modular Programming - SA-MP Forums_files/sad.gif" border="0" alt="" title="Sad" class="inlineimg"></font></font>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		
+<img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/user_online.gif" alt="Pottus is online now" border="0" title="Pottus is online now">
+
+		
+			<span id="reputationmenu_3633785"><a href="http://forum.sa-mp.com/reputation.php?p=3633785" rel="nofollow" id="reputation_3633785"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/reputation.png" alt="Add to Pottus&#39;s Reputation" border="0" title="Add to Pottus&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3633785")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3633785" rel="nofollow"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3633785" rel="nofollow"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3633785" rel="nofollow" onclick="return false"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3633785" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3633785" rel="nofollow" id="qr_3633785" onclick="return false"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3633785 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3633785_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Pottus</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=169807">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=169807" rel="nofollow">Send a private message to Pottus</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=169807" rel="nofollow">Find More Posts by Pottus</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=169807">Add Pottus to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3633785 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3633785 --><!-- post #3633786 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3633786" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3633786" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3633786"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			29/12/2015, 11:28 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3633786&amp;postcount=5" target="new" rel="nofollow" id="postcount3633786" name="5"><strong>5</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3633786">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=218386">Day_</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3633786", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Gangsta</div>
+			<div class="smallfont"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=218386"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/image(3).php" width="62" height="80" alt="Day_&#39;s Avatar" border="0" title="Day_&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Nov 2013</div>
+				
+				
+				
+				
+<div>
+  Posts: 716
+</div>
+
+<div>Reputation: 73</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3633786" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Modular Programming</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3633786">
+			
+			<a href="https://github.com/oscar-broman/PAWN-Boilerplate" target="_blank">PBP</a> compiler by Slice, is a very good tool for this.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				<div align="center"><br>
+[<font color="MediumTurquoise">Include</font>] <a href="http://forum.sa-mp.com/showthread.php?t=565833" target="_blank">PVars Extra funções</a><br>
+[<font color="MediumTurquoise">Include</font>] <a href="http://forum.sa-mp.com/showthread.php?t=571546" target="_blank">HAChange 1.0 PT</a><br>
+[<font color="MediumTurquoise">Include</font>] <a href="http://forum.sa-mp.com/showthread.php?t=571584" target="_blank">HAChange 1.0 EN</a><br>
+<a href="http://forum.sa-mp.com/showthread.php?p=3552408" target="_blank">[<font color="#CC2EFA">Tutorial</font>] Manual DOF2</a><br>
+</div>
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		
+<img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/user_online.gif" alt="Day_ is online now" border="0" title="Day_ is online now">
+
+		
+			<span id="reputationmenu_3633786"><a href="http://forum.sa-mp.com/reputation.php?p=3633786" rel="nofollow" id="reputation_3633786"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/reputation.png" alt="Add to Day_&#39;s Reputation" border="0" title="Add to Day_&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3633786")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3633786" rel="nofollow"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3633786" rel="nofollow"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3633786" rel="nofollow" onclick="return false"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3633786" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3633786" rel="nofollow" id="qr_3633786" onclick="return false"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3633786 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3633786_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Day_</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=218386">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=218386" rel="nofollow">Send a private message to Day_</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=218386" rel="nofollow">Find More Posts by Day_</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=218386">Add Day_ to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3633786 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3633786 --><!-- post #3633933 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3633933" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3633933" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3633933"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			30/12/2015, 11:13 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3633933&amp;postcount=6" target="new" rel="nofollow" id="postcount3633933" name="6"><strong>6</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3633933">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=234935">VincenzoDrift</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3633933", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Little Clucker</div>
+			<div class="smallfont"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=234935"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/image(4).php" width="80" height="60" alt="VincenzoDrift&#39;s Avatar" border="0" title="VincenzoDrift&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Jun 2014</div>
+				
+				
+				
+				
+<div>
+  Posts: 21
+</div>
+
+<div>Reputation: 0</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3633933" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Modular Programming</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3633933">
+			
+			Good tutorial +rep
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><b><font face="Arial Black">If I helped you +rep <img src="./[Tutorial] Modular Programming - SA-MP Forums_files/reputation.png" border="0" alt=""> me if you want <img src="./[Tutorial] Modular Programming - SA-MP Forums_files/razz.gif" border="0" alt="" title="Tongue" class="inlineimg"></font></b></div><br>
+<div align="center">Sorry for my bad english <img src="./[Tutorial] Modular Programming - SA-MP Forums_files/biggrin.png" border="0" alt="" title="Cheesy" class="inlineimg"></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		
+<img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/user_online.gif" alt="VincenzoDrift is online now" border="0" title="VincenzoDrift is online now">
+
+		
+			<span id="reputationmenu_3633933"><a href="http://forum.sa-mp.com/reputation.php?p=3633933" rel="nofollow" id="reputation_3633933"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/reputation.png" alt="Add to VincenzoDrift&#39;s Reputation" border="0" title="Add to VincenzoDrift&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3633933")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3633933" rel="nofollow"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+			<img style="display: none" id="progress_3633933" src="./[Tutorial] Modular Programming - SA-MP Forums_files/progress.gif" alt="">
+			<a href="http://forum.sa-mp.com/editpost.php?do=editpost&amp;p=3633933" name="vB::QuickEdit::3633933"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/edit.png" alt="Edit/Delete Message" border="0" title="Edit/Delete Message"></a>
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3633933" rel="nofollow"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3633933" rel="nofollow" onclick="return false"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3633933" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3633933" rel="nofollow" id="qr_3633933" onclick="return false"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3633933 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3633933_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">VincenzoDrift</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=234935">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=234935" rel="nofollow">Send a private message to VincenzoDrift</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=234935" rel="nofollow">Find More Posts by VincenzoDrift</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=234935">Add VincenzoDrift to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3633933 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3633933 --><!-- post #3634009 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3634009" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3634009" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3634009"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/post_new.gif" alt="Unread" border="0" title="Unread"></a>
+			30/12/2015, 03:15 PM
+			<a name="newpost"></a>
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3634009&amp;postcount=7" target="new" rel="nofollow" id="postcount3634009" name="7"><strong>7</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3634009">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=104729">patrickgtr</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3634009", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Little Clucker</div>
+			<div class="smallfont"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=104729"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/image.php" width="80" height="80" alt="patrickgtr&#39;s Avatar" border="0" title="patrickgtr&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Sep 2010</div>
+				<div>Location: United Kingdom</div>
+				
+				
+				
+<div>
+  Posts: 16
+</div>
+
+<div>Reputation: 18</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3634009" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Modular Programming</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3634009">
+			
+			Updated, explained how the modules binds together and how the hooking works in-order depending on <b>module</b> order.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/user_offline.gif" alt="patrickgtr is offline" border="0" title="patrickgtr is offline">
+
+
+		
+			<span id="reputationmenu_3634009"><a href="http://forum.sa-mp.com/reputation.php?p=3634009" rel="nofollow" id="reputation_3634009"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/reputation.png" alt="Add to patrickgtr&#39;s Reputation" border="0" title="Add to patrickgtr&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3634009")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3634009" rel="nofollow"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3634009" rel="nofollow"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3634009" rel="nofollow" onclick="return false"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3634009" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3634009" rel="nofollow" id="qr_3634009" onclick="return false"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3634009 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3634009_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">patrickgtr</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=104729">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=104729" rel="nofollow">Send a private message to patrickgtr</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=104729" rel="nofollow">Find More Posts by patrickgtr</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=104729">Add patrickgtr to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3634009 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3634009 --><!-- post #3634012 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3634012" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3634012" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3634012"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/post_new.gif" alt="Unread" border="0" title="Unread"></a>
+			30/12/2015, 03:22 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3634012&amp;postcount=8" target="new" rel="nofollow" id="postcount3634012" name="8"><strong>8</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3634012">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=61301">[XST]O_x</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3634012", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=61301"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/image(5).php" width="80" height="80" alt="[XST]O_x&#39;s Avatar" border="0" title="[XST]O_x&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Aug 2009</div>
+				
+				
+				
+				
+<div>
+  Posts: 2,059
+</div>
+
+<div>Reputation: 88</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3634012" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Modular Programming</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3634012">
+			
+			This is great. I've been trying to understand how to break down a gamemode into several filterscripts instead of one large, 20k+ lines script. Thank you very much.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		
+<img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/user_online.gif" alt="[XST]O_x is online now" border="0" title="[XST]O_x is online now">
+
+		
+			<span id="reputationmenu_3634012"><a href="http://forum.sa-mp.com/reputation.php?p=3634012" rel="nofollow" id="reputation_3634012"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/reputation.png" alt="Add to [XST]O_x&#39;s Reputation" border="0" title="Add to [XST]O_x&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3634012")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3634012" rel="nofollow"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3634012" rel="nofollow"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3634012" rel="nofollow" onclick="return false"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3634012" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3634012" rel="nofollow" id="qr_3634012" onclick="return false"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3634012 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3634012_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">[XST]O_x</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=61301">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=61301" rel="nofollow">Send a private message to [XST]O_x</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=61301" rel="nofollow">Find More Posts by [XST]O_x</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=61301">Add [XST]O_x to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3634012 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3634012 --><!-- post #3634014 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3634014" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3634014" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3634014"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/post_new.gif" alt="Unread" border="0" title="Unread"></a>
+			30/12/2015, 03:32 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3634014&amp;postcount=9" target="new" rel="nofollow" id="postcount3634014" name="9"><strong>9</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3634014">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=181563">PrO.GameR</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3634014", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Huge Clucker</div>
+			<div class="smallfont"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=181563"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/image(6).php" width="59" height="80" alt="PrO.GameR&#39;s Avatar" border="0" title="PrO.GameR&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Oct 2012</div>
+				<div>Location: Dunno, hell maybe ?</div>
+				
+				
+				
+<div>
+  Posts: 248
+</div>
+
+<div>Reputation: 26</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3634014" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Modular Programming</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3634014">
+			
+			Okay this was actually really great, but I tried it and well ... obviously failed xD<br>
+I got an error not recognizing my main enum (PlayerI), If I move my enums to an include file it will be solved right ? <br>
+Oh and another question, is it better if I break down my enums into different modules or should I just put them all in one big file called header ? (because either way I should include all headers first right ?)
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><font face="Trebuchet MS"><i>Using words "Dynamic, unique and scratch" won't make your server seem cool, tell us something real in advertisements !</i></font></div><font face="Courier New"><br>
+If you need help, don't bump your thread, provide more information about your problem.</font>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		
+<img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/user_online.gif" alt="PrO.GameR is online now" border="0" title="PrO.GameR is online now">
+
+		
+			<span id="reputationmenu_3634014"><a href="http://forum.sa-mp.com/reputation.php?p=3634014" rel="nofollow" id="reputation_3634014"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/reputation.png" alt="Add to PrO.GameR&#39;s Reputation" border="0" title="Add to PrO.GameR&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3634014")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3634014" rel="nofollow"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3634014" rel="nofollow"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3634014" rel="nofollow" onclick="return false"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3634014" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3634014" rel="nofollow" id="qr_3634014" onclick="return false"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3634014 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3634014_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">PrO.GameR</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=181563">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=181563" rel="nofollow">Send a private message to PrO.GameR</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=181563" rel="nofollow">Find More Posts by PrO.GameR</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=181563">Add PrO.GameR to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3634014 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3634014 --><!-- post #3634054 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3634054" style="padding:0px 0px 6px 0px">
+	
+
+
+
+<table id="post3634054" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3634054"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/post_new.gif" alt="Unread" border="0" title="Unread"></a>
+			30/12/2015, 04:47 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3634054&amp;postcount=10" target="new" rel="nofollow" id="postcount3634054" name="10"><strong>10</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3634054">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=104729">patrickgtr</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3634054", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Little Clucker</div>
+			<div class="smallfont"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=104729"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/image.php" width="80" height="80" alt="patrickgtr&#39;s Avatar" border="0" title="patrickgtr&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Sep 2010</div>
+				<div>Location: United Kingdom</div>
+				
+				
+				
+<div>
+  Posts: 16
+</div>
+
+<div>Reputation: 18</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3634054" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Modular Programming</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3634054">
+			
+			<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				<div>
+					Originally Posted by <strong>PrO.GameR</strong>
+					<a href="http://forum.sa-mp.com/showthread.php?p=3634014#post3634014" rel="nofollow"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/viewpost.gif" border="0" alt="View Post" title="View Post"></a>
+				</div>
+				<div style="font-style:italic">Okay this was actually really great, but I tried it and well ... obviously failed xD<br>
+I got an error not recognizing my main enum (PlayerI), If I move my enums to an include file it will be solved right ? <br>
+Oh and another question, is it better if I break down my enums into different modules or should I just put them all in one big file called header ? (because either way I should include all headers first right ?)</div>
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div>As I said your modules should be in order and its your choice, your the coder and you choose the layout that's more comfortable to you.<br>
+<br>
+For example<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 146px;
+		text-align: left;
+		overflow: auto">- declarations 
+- macros
+- functions
+
+- server
+
+- player</pre>
+</div>
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/user_offline.gif" alt="patrickgtr is offline" border="0" title="patrickgtr is offline">
+
+
+		
+			<span id="reputationmenu_3634054"><a href="http://forum.sa-mp.com/reputation.php?p=3634054" rel="nofollow" id="reputation_3634054"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/reputation.png" alt="Add to patrickgtr&#39;s Reputation" border="0" title="Add to patrickgtr&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3634054")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3634054" rel="nofollow"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3634054" rel="nofollow"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3634054" rel="nofollow" onclick="return false"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3634054" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3634054" rel="nofollow" id="qr_3634054" onclick="return false"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3634054 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3634054_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">patrickgtr</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=104729">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=104729" rel="nofollow">Send a private message to patrickgtr</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=104729" rel="nofollow">Find More Posts by patrickgtr</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=104729">Add patrickgtr to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3634054 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3634054 --><div id="lastpost"></div></div>
+
+<!-- start content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+<!-- / start content table -->
+
+<!-- controls below postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:-3px">
+<tbody><tr valign="top">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;noquote=1&amp;p=3634054" rel="nofollow"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	
+</tr>
+</tbody></table>
+<!-- / controls below postbits -->
+
+
+
+
+
+
+
+
+
+
+<!-- lightbox scripts -->
+	<script type="text/javascript" src="./[Tutorial] Modular Programming - SA-MP Forums_files/vbulletin_lightbox.js"></script>
+	<script type="text/javascript">
+	<!--
+	vBulletin.register_control("vB_Lightbox_Container", "posts", 1);
+	//-->
+	</script>
+<!-- / lightbox scripts -->
+
+
+
+<!-- multiquote scripts -->
+	<script type="text/javascript" src="./[Tutorial] Modular Programming - SA-MP Forums_files/vbulletin_multi_quote.js"></script>
+	<script type="text/javascript">
+	<!--
+	var mqlimit = 0;
+	//-->
+	</script>
+<!-- / multiquote scripts -->
+
+
+
+<!-- ajax errors table -->
+	<table class="tborder" cellpadding="6" cellspacing="1" border="0" style="display:none; position:absolute" id="ajax_post_errors">
+	<tbody><tr>
+		<td class="thead">
+			<span style="float:right"><input type="button" class="button" value=" X " onclick="vB_QuickEditor.hide_errors()" id="ajax_post_errors_closebtn"></span>
+			vBulletin Message
+		</td>
+	</tr>
+	<tr>
+		<td class="alt2" colspan="2" id="ajax_post_errors_message">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="tfoot" colspan="2" align="center"><a href="http://forum.sa-mp.com/showthread.php?t=597338#" onclick="vB_QuickEditor.abort(); return false;">Cancel Changes</a></td>
+	</tr>
+	</tbody></table>
+<!-- / ajax errors table -->
+
+<!-- scripts for quick reply and quick edit -->
+	<!-- Editor Scripts -->
+<script type="text/javascript" src="./[Tutorial] Modular Programming - SA-MP Forums_files/vbulletin_textedit.js"></script>
+<script type="text/javascript">
+<!--
+var fontoptions = new Array("Arial", "Arial Black", "Arial Narrow", "Book Antiqua", "Century Gothic", "Comic Sans MS", "Courier New", "Fixedsys", "Franklin Gothic Medium", "Garamond", "Georgia", "Impact", "Lucida Console", "Lucida Sans Unicode", "Microsoft Sans Serif", "Palatino Linotype", "System", "Tahoma", "Times New Roman", "Trebuchet MS", "Verdana");
+var sizeoptions = new Array(1, 2, 3, 4, 5, 6, 7);
+var smilieoptions = {  };
+
+var istyles = { "pi_button_down" : [ "#98B5E2", "#000000", "0px", "1px solid #316AC5" ], "pi_button_hover" : [ "#C1D2EE", "#000000", "0px", "1px solid #316AC5" ], "pi_button_normal" : [ "#E1E1E2", "#000000", "1px", "none" ], "pi_button_selected" : [ "#F1F6F8", "#000000", "0px", "1px solid #316AC5" ], "pi_menu_down" : [ "#98B5E2", "#316AC5", "0px", "1px solid #316AC5" ], "pi_menu_hover" : [ "#C1D2EE", "#316AC5", "0px", "1px solid #316AC5" ], "pi_menu_normal" : [ "#FFFFFF", "#000000", "0px", "1px solid #FFFFFF" ], "pi_popup_down" : [ "#98B5E2", "#000000", "0px", "1px solid #316AC5" ] };
+var ltr = 'left';
+
+var smiliewindow_x = 240;
+var smiliewindow_y = 280;
+
+var ignorequotechars = 1;
+var allowbasicbbcode = true;
+
+// vB Phrases
+vbphrase["wysiwyg_please_wait"]          = "Please wait for the WYSIWYG editor to finish loading...";
+vbphrase["wysiwyg_initialized"]          = "WYSIWYG Editor initialized for %1$s in %2$s seconds.";
+vbphrase["wysiwyg_command_invalid"]      = "This command is invalid or not implemented.";
+vbphrase["moz_must_select_text"]         = "Mozilla requires that you must select some text for this function to work";
+vbphrase["moz_edit_config_file"]         = "You need to edit your Mozilla config file to allow this action.";
+vbphrase["enter_tag_option"]             = "Please enter the option for your %1$s tag:";
+vbphrase["must_select_text_to_use"]      = "You must select some text to use this function.";
+vbphrase["browser_is_safari_no_wysiwyg"] = "The Safari browser does not support WYSIWYG mode.";
+vbphrase["enter_option_x_tag"]           = "Enter the option for the [%1$s] tag:";
+vbphrase["enter_text_to_be_formatted"]   = "Enter the text to be formatted";
+vbphrase["enter_link_text"]              = "Enter the text to be displayed for the link (optional):";
+vbphrase["enter_list_type"]              = "What type of list do you want? Enter '1' for a numbered list, enter 'a' for an alphabetical list, or leave blank for a list with bullet points:";
+vbphrase["enter_list_item"]              = "Enter a list item.\r\nLeave the box empty or press 'Cancel' to complete the list:";
+vbphrase["must_enter_subject"]           = "You must enter a title / subject!";
+vbphrase["message_too_short"]            = "The message you have entered is too short. Please lengthen your message to at least %1$s characters.";
+vbphrase["enter_link_url"]               = "Please enter the URL of your link:";
+vbphrase["enter_image_url"]              = "Please enter the URL of your image:";
+vbphrase["enter_email_link"]             = "Please enter the email address for the link:";
+vbphrase["complete_image_verification"]  = "You did not complete the Image Verification";
+vbphrase["iespell_not_installed"]        = "ieSpell is a spell-checking tool for Internet Explorer.\r\n\r\nIf you would like to download ieSpell, click OK; otherwise click Cancel.\r\n\r\nieSpell can be downloaded from http://www.iespell.com";
+vbphrase["click_quick_reply_icon"]       = "Please click one of the Quick Reply icons in the posts above to activate Quick Reply.";
+vbphrase["insert_all"]                   = "Insert All";
+
+//-->
+</script>
+<!-- / Editor Scripts -->
+	
+<!-- / scripts for quick reply and quick edit -->
+
+
+
+
+<!-- quick reply -->
+	<br>
+	<script type="text/javascript" src="./[Tutorial] Modular Programming - SA-MP Forums_files/vbulletin_quick_reply.js"></script>
+	<form action="http://forum.sa-mp.com/newreply.php?do=postreply&amp;t=597338" method="post" name="vbform" onsubmit="return qr_prepare_submit(this, 4);" id="qrform">
+	<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+	<thead>
+		<tr>
+			<td class="tcat" colspan="2">
+				<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=597338#top" onclick="return toggle_collapse(&#39;quickreply&#39;);"><img id="collapseimg_quickreply" src="./[Tutorial] Modular Programming - SA-MP Forums_files/collapse_tcat.gif" alt="" border="0"></a>
+				Quick Reply
+			</td>
+		</tr>
+	</thead>
+	<tbody id="qr_error_tbody" style="display:none">
+	<tr>
+		<td class="thead">The following errors occurred with your submission</td>
+	</tr>
+	<tr>
+		<td class="alt1" id="qr_error_td"></td>
+	</tr>
+	<tr>
+		<td class="tfoot" align="center"><span class="smallfont"><a href="http://forum.sa-mp.com/showthread.php?t=597338#" onclick="return qr_hide_errors()">Okay</a></span></td>
+	</tr>
+	</tbody>
+	<tbody id="collapseobj_quickreply" style="">
+	<tr>
+		<td class="panelsurround" align="center">
+			<div class="panel">
+				<div align="left" style="max-width:800px; width:auto !important; width:800px">
+					<div class="smallfont">Message:</div>
+					<div id="vB_Editor_QR" class="vBulletin_editor">
+		<script type="text/javascript">
+		<!--
+			var threaded_mode = 0;
+			var require_click = 0;
+			var is_last_page = 1; // leave for people with cached JS files
+			var allow_ajax_qr = 1;
+			var ajax_last_post = 1451490425;
+		// -->
+		</script>
+		
+<div id="vB_Editor_QR_controls" class="controlbar">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_removeformat"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/removeformat.gif" width="21" height="20" alt="Remove Text Formatting" title="Remove Text Formatting"></div></td>
+	
+		<td><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_bold"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/bold.gif" width="21" height="20" alt="Bold" title="Bold"></div></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_italic"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/italic.gif" width="21" height="20" alt="Italic" title="Italic"></div></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_underline"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/underline.gif" width="21" height="20" alt="Underline" title="Underline"></div></td>
+	
+	
+		<td><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_popup_forecolor" title="Colors">
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr>
+				<td id="vB_Editor_QR_color_out"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/color.gif" width="21" height="16" alt=""><br><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/clear.gif" id="vB_Editor_QR_color_bar" alt="" style="background-color:black" width="21" height="4"></td>
+				<td class="alt_pickbutton"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/menupop.gif" alt="" width="11" height="16"></td>
+			</tr>
+			</tbody></table>
+		</div></td>
+	
+	
+		<td><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+	
+	
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_createlink"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/createlink.gif" width="21" height="20" alt="Insert Link" title="Insert Link"></div></td>
+	
+	
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_insertimage"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/insertimage.gif" width="21" height="20" alt="Insert Image" title="Insert Image"></div></td>
+	
+	
+		<td><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_wrap0_quote"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/quote.gif" width="21" height="20" alt="Wrap [QUOTE] tags around selected text" title="Wrap [QUOTE] tags around selected text"></div></td>
+	
+	<td width="100%">&nbsp;</td>
+	
+		<td>
+			<div class="imagebutton" id="vB_Editor_QR_cmd_resize_0_99"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/resize_0.gif" width="21" height="9" alt="Decrease Size" title="Decrease Size"></div>
+			<div class="imagebutton" id="vB_Editor_QR_cmd_resize_1_99"><img src="./[Tutorial] Modular Programming - SA-MP Forums_files/resize_1.gif" width="21" height="9" alt="Increase Size" title="Increase Size"></div>
+		</td>
+	
+	</tr>
+	</tbody></table>
+</div>
+
+<div class="controlbar" style="padding-right:8px">
+	<fieldset style="border:0px; padding:0px; margin:0px">
+	
+	<textarea name="message" id="vB_Editor_QR_textarea" rows="10" cols="60" style="width:100%; height:100px" tabindex="1" dir="ltr"></textarea>
+	
+	</fieldset>
+	<!--width:800px-->
+</div>
+
+<input type="hidden" name="wysiwyg" id="vB_Editor_QR_mode" value="0">
+<input type="hidden" name="styleid" value="0">
+
+<script type="text/javascript">
+<!--
+vB_Editor['vB_Editor_QR'] = new vB_Text_Editor('vB_Editor_QR', 0, '70', '1');
+var QR_EditorID = 'vB_Editor_QR';
+//-->
+</script>
+	</div>
+
+					<fieldset class="fieldset" style="margin:3px 0px 0px 0px">
+						<legend>Options</legend>
+						<div style="padding:3px">
+							
+								<div style="float:right"><label for="cb_signature"><input type="checkbox" name="signature" value="1" id="cb_signature" tabindex="5" checked="checked">Show your signature</label></div>
+							
+							<label for="qr_quickreply"><input type="checkbox" name="quickreply" value="1" id="qr_quickreply" accesskey="w" tabindex="4" disabled="">Quote message in reply?</label>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+
+			<div style="margin-top:6px">
+				<input type="hidden" name="fromquickreply" value="1">
+				<input type="hidden" name="s" value="">
+				<input type="hidden" name="securitytoken" value="1451495601-2ac53ded4380c9e65aa9d5493a4a8939b6eed3aa">
+				<input type="hidden" name="do" value="postreply">
+				<input type="hidden" name="t" value="597338" id="qr_threadid">
+				<input type="hidden" name="p" value="who cares" id="qr_postid">
+				<input type="hidden" name="specifiedpost" value="0" id="qr_specifiedpost">
+				<input type="hidden" name="parseurl" value="1">
+				<input type="hidden" name="loggedinuser" value="234935">
+				<input type="submit" class="button" value="Post Quick Reply" accesskey="s" title="(Alt + S)" name="sbutton" tabindex="2" id="qr_submit" onclick="clickedelm = this.value">
+				<input type="submit" class="button" value="Go Advanced" accesskey="x" title="(Alt + X)" name="preview" tabindex="3" id="qr_preview" onclick="clickedelm = this.value">
+			</div>
+
+			<div align="center" id="qr_posting_msg" style="display:none; margin-top:6px">
+				<img style="vertical-align: middle;" src="./[Tutorial] Modular Programming - SA-MP Forums_files/progress.gif" alt="Posting Quick Reply - Please Wait" title="Posting Quick Reply - Please Wait">&nbsp;<strong>Posting Quick Reply - Please Wait</strong>
+			</div>
+		</td>
+	</tr>
+	</tbody>
+	</table>
+	</form>
+
+	
+		<!-- Mozilla work around for focusing on QR in WYSIWYG mode -->
+		<div id="qr_scroll"></div>
+	
+
+	<script type="text/javascript">
+	<!--
+		// initialize quick reply
+		qr_init();
+	//-->
+	</script>
+<!-- / quick reply -->
+
+
+
+<!-- next / previous links -->
+	<br>
+	<div class="smallfont" align="center">
+		<strong>«</strong>
+			<a href="http://forum.sa-mp.com/showthread.php?t=597338&amp;goto=nextoldest" rel="nofollow">Previous Thread</a>
+			|
+			<a href="http://forum.sa-mp.com/showthread.php?t=597338&amp;goto=nextnewest" rel="nofollow">Next Thread</a>
+		<strong>»</strong>
+	</div>
+<!-- / next / previous links -->
+
+
+
+
+
+
+
+<!-- popup menu contents -->
+<br>
+
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="http://forum.sa-mp.com/postings.php?t=597338&amp;pollid=" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/printer.gif" alt="Show Printable Version" title="Show Printable Version"> <a href="http://forum.sa-mp.com/printthread.php?t=597338" accesskey="3" rel="nofollow">Show Printable Version</a></td>
+	</tr>
+	
+	
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/subscribe.gif" alt="Subscription" title="Subscription">
+		
+			<a href="http://forum.sa-mp.com/subscription.php?do=addsubscription&amp;t=597338" rel="nofollow">Subscribe to this Thread</a>
+		
+		</td>
+	</tr>
+	
+	
+	
+	</tbody></table>
+</form>
+</div>
+<!-- / thread tools menu -->
+
+<!-- **************************************************** -->
+
+<!-- thread display mode menu -->
+<div class="vbmenu_popup" id="displaymodes_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Display Modes<a name="goto_displaymodes"></a></td>
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option" title="nohilite"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/mode_linear.gif" alt="Linear Mode" title="Linear Mode"> <strong>Linear Mode</strong></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/mode_hybrid.gif" alt="Hybrid Mode" title="Hybrid Mode"> <a href="http://forum.sa-mp.com/showthread.php?mode=hybrid&amp;t=597338">Switch to Hybrid Mode</a></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/mode_threaded.gif" alt="Threaded Mode" title="Threaded Mode"> <a href="http://forum.sa-mp.com/showthread.php?p=3633767&amp;mode=threaded#post3633767">Switch to Threaded Mode</a></td>
+	
+	</tr>
+	</tbody></table>
+</div>
+<!-- / thread display mode menu -->
+
+<!-- **************************************************** -->
+
+
+<!-- thread search menu -->
+<div class="vbmenu_popup" id="threadsearch_menu" style="display:none">
+<form action="http://forum.sa-mp.com/search.php?do=process&amp;searchthreadid=597338" method="post">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Search this Thread<a name="goto_threadsearch"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option" title="nohilite">
+			<input type="hidden" name="s" value="">
+			<input type="hidden" name="securitytoken" value="1451495601-2ac53ded4380c9e65aa9d5493a4a8939b6eed3aa">
+			<input type="hidden" name="do" value="process">
+			<input type="hidden" name="searchthreadid" value="597338">
+			<input type="text" class="bginput" name="query" size="25"><input type="submit" class="button" value="Go"><br>
+		</td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?searchthreadid=597338">Advanced Search</a></td>
+	</tr>
+	</tbody></table>
+</form>
+</div>
+<!-- / thread search menu -->
+
+
+<!-- **************************************************** -->
+
+
+	<!-- thread rating menu -->
+	<div class="vbmenu_popup" id="threadrating_menu" style="display:none">
+	<form action="http://forum.sa-mp.com/threadrate.php?t=597338" method="post" id="showthread_threadrate_form">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead">Rate This Thread<a name="goto_threadrating"></a></td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option" title="nohilite" id="threadrating_options">
+
+			<div><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/rating_5.gif" alt="Excellent" title="Excellent"><label for="vote5"><input type="radio" name="vote" id="vote5" value="5">Excellent</label></div>
+			<div><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/rating_4.gif" alt="Good" title="Good"><label for="vote4"><input type="radio" name="vote" id="vote4" value="4">Good</label></div>
+			<div><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/rating_3.gif" alt="Average" title="Average"><label for="vote3"><input type="radio" name="vote" id="vote3" value="3">Average</label></div>
+			<div><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/rating_2.gif" alt="Bad" title="Bad"><label for="vote2"><input type="radio" name="vote" id="vote2" value="2">Bad</label></div>
+			<div><img class="inlineimg" src="./[Tutorial] Modular Programming - SA-MP Forums_files/rating_1.gif" alt="Terrible" title="Terrible"><label for="vote1"><input type="radio" name="vote" id="vote1" value="1">Terrible</label></div>
+			</td>
+		</tr>
+		<tr id="threadrating_submit">
+			<td class="vbmenu_option" title="nohilite" align="center">
+				<input type="hidden" name="s" value="">
+				<input type="hidden" name="securitytoken" value="1451495601-2ac53ded4380c9e65aa9d5493a4a8939b6eed3aa">
+				<input type="hidden" name="t" value="597338">
+				<input type="hidden" name="pp" value="10">
+				<input type="hidden" name="page" value="1">
+				<input type="button" class="button" value="Vote Now">
+			</td>
+		</tr>
+		
+		</tbody></table>
+	</form>
+	</div>
+	<!-- / thread rating menu -->
+
+	<script type="text/javascript" src="./[Tutorial] Modular Programming - SA-MP Forums_files/vbulletin_ajax_threadrate.js"></script>
+	<script type="text/javascript">
+	<!--
+	vB_AJAX_ThreadRate_Init('showthread_threadrate_form');
+	var threadid = 597338;
+	//-->
+	</script>
+
+
+<!-- / popup menu contents -->
+
+
+<!-- forum rules and admin links -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr valign="bottom">
+	<td width="100%" valign="top">
+		<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="210">
+<thead>
+<tr>
+	<td class="thead">
+		<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=597338#top" onclick="return toggle_collapse(&#39;forumrules&#39;)"><img id="collapseimg_forumrules" src="./[Tutorial] Modular Programming - SA-MP Forums_files/collapse_thead.gif" alt="" border="0"></a>
+		Posting Rules
+	</td>
+</tr>
+</thead>
+<tbody id="collapseobj_forumrules" style="">
+<tr>
+	<td class="alt1" nowrap="nowrap"><div class="smallfont">
+		
+		<div>You <strong>may</strong> post new threads</div>
+		<div>You <strong>may</strong> post replies</div>
+		<div>You <strong>may</strong> post attachments</div>
+		<div>You <strong>may</strong> edit your posts</div>
+		<hr>
+		
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode" target="_blank">BB code</a> is <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showsmilies" target="_blank">Smilies</a> are <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode#imgcode" target="_blank">[IMG]</a> code is <strong>On</strong></div>
+		<div>HTML code is <strong>Off</strong></div>
+		<hr>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showrules" target="_blank">Forum Rules</a></div>
+	</div></td>
+</tr>
+</tbody>
+</table>
+	</td>
+	<td class="smallfont" align="right">
+		<table cellpadding="0" cellspacing="0" border="0">
+		
+		<tbody><tr>
+			<td>
+			
+			</td>
+		</tr>
+		</tbody></table>
+	</td>
+</tr>
+</tbody></table>
+<!-- /forum rules and admin links -->
+
+<br>
+
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" width="100%" colspan="5">
+			<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=597338#top" onclick="return toggle_collapse(&#39;similarthreads&#39;)"><img id="collapseimg_similarthreads" src="./[Tutorial] Modular Programming - SA-MP Forums_files/collapse_tcat.gif" alt="" border="0"></a>
+			Similar Threads<a name="similarthreads"></a>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_similarthreads" style="">
+<tr class="thead" align="center">
+	<td class="thead" width="40%">Thread</td>
+	<td class="thead" width="15%" nowrap="nowrap">Thread Starter</td>
+	<td class="thead" width="20%">Forum</td>
+	<td class="thead" width="5%">Replies</td>
+	<td class="thead" width="20%">Last Post</td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont">[<span style="font-weight:bold;font-size:8pt;color:#2299AA;">Ajuda</span>] <a href="http://forum.sa-mp.com/showthread.php?t=587472" title="Estou fazendo umas coisas utilizando programação modular, e tenho uma duvida, é possivel fazer isso? 
+ 
+modular1.pwn 
+ 
+#define um 1 
+ 
+...">Programação modular</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">SepZ</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Português/Portuguese</span></td>
+	<td class="alt2" align="center"><span class="smallfont">3</span></td>
+	<td class="alt1" align="right"><span class="smallfont">31/08/2015 <span class="time">04:14 AM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont">[<span style="font-weight:bold;font-size:8pt;color:#2299AA;">Ajuda</span>] <a href="http://forum.sa-mp.com/showthread.php?t=584699" title="Galera estou com ums Problemas aqui nessa parte de Script Modular, estou fazendo assim : 
+ 
+Pra chamar a include.. segue o exemplo.. 
+ 
+ 
+#include...">Script Modular</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Holl</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Português/Portuguese</span></td>
+	<td class="alt2" align="center"><span class="smallfont">9</span></td>
+	<td class="alt1" align="right"><span class="smallfont">11/08/2015 <span class="time">08:06 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=455934" title="I&#39;m starting a new gamemode, so I want to make it a modular gamemode (divided in files) to keep it organized. Though, I also have a problem; only the...">Modular scripting</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Marricio</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Scripting Help</span></td>
+	<td class="alt2" align="center"><span class="smallfont">0</span></td>
+	<td class="alt1" align="right"><span class="smallfont">03/08/2013 <span class="time">10:28 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=376956" title="Hello dear Sa:Mp scripters, 
+ 
+I love modular programming and i&#39;d love to make Pawn modular-scripts for Sa:Mp but i have never found any Pawn IDE...">[Help] Pawn IDE for modular programming</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Yuripe</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Scripting Help</span></td>
+	<td class="alt2" align="center"><span class="smallfont">5</span></td>
+	<td class="alt1" align="right"><span class="smallfont">12/09/2012 <span class="time">04:18 PM</span></span></td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+
+<script type="text/javascript">ame_toggle_view({other : 'true',post : 'true',blog : 'true',group : 'true',vm : 'true',sig : 'true'});</script>
+
+<br>
+<div class="smallfont" align="center">All times are GMT +1. The time now is <span class="time">06:13 PM</span>.</div>
+<br>
+
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- /content area table -->
+
+<form action="http://forum.sa-mp.com/index.php" method="get" style="clear:left">
+
+<table cellpadding="6" cellspacing="0" border="0" width="90%" class="page" align="center">
+<tbody><tr>
+	
+	
+		<td class="tfoot">
+			<select name="langid" onchange="switch_id(this, &#39;lang&#39;)">
+				<optgroup label="Quick Language Chooser">
+					<option value="1" class="" selected="selected">-- (EN) English</option>
+<option value="3" class="">-- (ES) Español</option>
+<option value="4" class="">-- (RU) &#1056;&#1091;&#1089;&#1089;&#1082;&#1080;</option>
+
+				</optgroup>
+			</select>
+		</td>
+	
+	<td class="tfoot" align="right" width="100%">
+		<div class="smallfont">
+			<strong>
+				<a href="http://forum.sa-mp.com/sendmessage.php" rel="nofollow" accesskey="9">Contact Us</a> -
+				<a href="http://www.sa-mp.com/">SA-MP</a> -
+				
+				
+				<a href="http://forum.sa-mp.com/archive/index.php">Archive</a> -
+				
+				
+				
+				<a href="http://forum.sa-mp.com/showthread.php?t=597338#top" onclick="self.scrollTo(0, 0); return false;">Top</a>
+			</strong>
+		</div>
+	</td>
+</tr>
+</tbody></table>
+
+<br>
+
+<div align="center">
+	<div class="smallfont" align="center">
+	<!-- Do not remove this copyright notice -->
+	Powered by vBulletin® Version 3.8.6<br>Copyright ©2000 - 2015, Jelsoft Enterprises Ltd.
+	<!-- Do not remove this copyright notice -->
+	</div>
+
+	<div class="smallfont" align="center">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+
+	
+	</div>
+</div>
+
+</form>
+
+
+
+
+<script type="text/javascript">
+<!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//-->
+</script>
+
+<!-- temp -->
+<div style="display:none">
+	<!-- thread rate -->
+	
+		<!-- thread ratings form here -->
+	
+	<!-- / thread rate -->
+</div>
+
+
+</body></html>

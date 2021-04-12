@@ -1,0 +1,3412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0046)http://forum.sa-mp.com/showthread.php?t=585996 -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	
+<meta name="generator" content="vBulletin 3.8.6">
+
+<meta name="keywords" content="[Tutorial] GeoIP and handling rangebans with MySQL, SA-MP, GTA, multiplayer, online, server, pawn, scripting">
+<meta name="description" content="[Tutorial] GeoIP and handling rangebans with MySQL Tutorials">
+
+
+<!-- CSS Stylesheet -->
+<style type="text/css" id="vbulletin_css">
+/**
+* vBulletin 3.8.6 CSS
+* Style: 'SAMPStyle'; Style ID: 2
+*/
+body
+{
+	background: #707170;
+	color: #FFFFFFF;
+	font: bold 10pt arial, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 1px 1px 1px 1px;
+	padding: 1px;
+}
+a:link, body_alink
+{
+	color: #4A627F;
+	text-decoration: none;
+}
+a:visited, body_avisited
+{
+	color: #1A425F;
+	text-decoration: none;
+}
+a:hover, a:active, body_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.page
+{
+	background: #DADADB;
+	color: #000000;
+}
+td, th, p, li
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tborder
+{
+	background: #DFDFDF;
+	color: #000000;
+	border: 1px solid #717171;
+}
+.tcat
+{
+	background: #4F4F4F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tcat a:link, .tcat_alink
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:visited, .tcat_avisited
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:hover, .tcat a:active, .tcat_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.thead
+{
+	background: #3F3F3F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.thead a:link, .thead_alink
+{
+	color: #FFFFFF;
+}
+.thead a:visited, .thead_avisited
+{
+	color: #FFFFFF;
+}
+.thead a:hover, .thead a:active, .thead_ahover
+{
+	color: #E76006;
+}
+.tfoot
+{
+	background: #595959;
+	color: #CDCDCD;
+}
+.tfoot a:link, .tfoot_alink
+{
+	color: #CDCDCD;
+}
+.tfoot a:visited, .tfoot_avisited
+{
+	color: #9D9D9D;
+}
+.tfoot a:hover, .tfoot a:active, .tfoot_ahover
+{
+	color: #E76006;
+}
+.alt1, .alt1Active
+{
+	background: #F6F6F6;
+	color: #000000;
+}
+.alt2, .alt2Active
+{
+	background: #EAEAEB;
+	color: #000000;
+}
+.inlinemod
+{
+	background: #FFFFCC;
+	color: #000000;
+}
+.wysiwyg
+{
+	background: #F5F5F5;
+	color: #000000;
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 5px 10px 10px 10px;
+	padding: 0px;
+}
+.wysiwyg a:link, .wysiwyg_alink
+{
+	color: #22229C;
+}
+.wysiwyg a:visited, .wysiwyg_avisited
+{
+	color: #22229C;
+}
+.wysiwyg a:hover, .wysiwyg a:active, .wysiwyg_ahover
+{
+	color: #E76006;
+}
+textarea, .bginput
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.bginput option, .bginput optgroup
+{
+	font-size: 10pt;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.button
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+select
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+option, optgroup
+{
+	font-size: 11px;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.smallfont
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.time
+{
+	color: #666686;
+}
+.navbar
+{
+	font: 12pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.highlight
+{
+	color: #FF0000;
+	font-weight: bold;
+}
+.fjsel
+{
+	background: #3E5C92;
+	color: #E0E0F6;
+}
+.fjdpth0
+{
+	background: #F7F7F7;
+	color: #000000;
+}
+.panel
+{
+	background: #F5F5F5;
+	color: #000000;
+	padding: 10px;
+	border: 1px;
+}
+.panelsurround
+{
+	background: #F5F5F5;
+	color: #000000;
+}
+legend
+{
+	color: #222222;
+	font: 11px tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.vbmenu_control
+{
+	background: #777777;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	padding: 3px 6px 3px 6px;
+	white-space: nowrap;
+}
+.vbmenu_control a:link, .vbmenu_control_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:visited, .vbmenu_control_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:hover, .vbmenu_control a:active, .vbmenu_control_ahover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+.vbmenu_popup
+{
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #0B198C;
+}
+.vbmenu_option
+{
+	background: #444444;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_option a:link, .vbmenu_option_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:visited, .vbmenu_option_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:hover, .vbmenu_option a:active, .vbmenu_option_ahover
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_hilite
+{
+	background: #F37016;
+	color: #000000;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_hilite a:link, .vbmenu_hilite_alink
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:visited, .vbmenu_hilite_avisited
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:hover, .vbmenu_hilite a:active, .vbmenu_hilite_ahover
+{
+	color: #000000;
+	text-decoration: none;
+}
+/* ***** styling for 'big' usernames on postbit etc. ***** */
+.bigusername { font-size: 14pt; }
+
+/* ***** small padding on 'thead' elements ***** */
+td.thead, th.thead, div.thead { padding: 4px; }
+
+/* ***** basic styles for multi-page nav elements */
+.pagenav a { text-decoration: none; }
+.pagenav td { padding: 2px 4px 2px 4px; }
+
+/* ***** de-emphasized text */
+.shade, a.shade:link, a.shade:visited { color: #777777; text-decoration: none; }
+a.shade:active, a.shade:hover { color: #FF4400; text-decoration: underline; }
+.tcat .shade, .thead .shade, .tfoot .shade { color: #DDDDDD; }
+
+/* ***** define margin and font-size for elements inside panels ***** */
+.fieldset { margin-bottom: 6px; }
+.fieldset, .fieldset td, .fieldset p, .fieldset li { font-size: 11px; }
+</style>
+<link rel="stylesheet" type="text/css" href="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/vbulletin_important.css">
+
+
+<!-- / CSS Stylesheet -->
+
+<script type="text/javascript" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/yahoo-dom-event.js"></script><style type="text/css"></style>
+<script type="text/javascript" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/connection-min.js"></script>
+<script type="text/javascript">
+<!--
+var SESSIONURL = "";
+var SECURITYTOKEN = "1451589103-5bd357fe45a85cba69d68539644428808ea097ca";
+var IMGDIR_MISC = "images/misc";
+var vb_disable_ajax = parseInt("0", 10);
+// -->
+</script>
+<script type="text/javascript" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/vbulletin_global.js"></script>
+<script type="text/javascript" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/vbulletin_menu.js"></script>
+
+
+	<link rel="alternate" type="application/rss+xml" title="SA-MP Forums RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2">
+	
+		<link rel="alternate" type="application/rss+xml" title="SA-MP Forums - Tutorials - RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2&amp;forumids=70">
+	
+<script type="text/javascript" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/ame.js"></script><!-- Editor CSS automatically added by functions_editor.php at line 680 -->
+<!-- Editor Styles -->
+<style type="text/css" id="vbulletin_editor_css_dynamic">
+<!--
+@import url("clientscript/vbulletin_editor.css?v=387");
+
+.vBulletin_editor {
+	background: #E1E1E2;
+	padding: 6px;
+}
+.imagebutton {
+	background: #E1E1E2;
+	color: #000000;
+	padding: 1px;
+	border: none;
+}
+.ocolor, .ofont, .osize, .osmilie, .osyscoloar, .smilietitle {
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #FFFFFF;
+}
+.popup_pickbutton {
+	border: 1px solid #FFFFFF;
+}
+.popup_feedback {
+	background: #FFFFFF;
+	color: #000000;
+	border-right: 1px solid #FFFFFF;
+}
+.popupwindow {
+	background: #FFFFFF;
+}
+#fontOut, #sizeOut, .popup_feedback div {
+	background: #FFFFFF;
+	color: #000000;
+}
+.alt_pickbutton {
+	border-left: 1px solid #E1E1E2;
+}
+.popup_feedback input, .popup_feedback div
+{
+	border: 0px solid;
+	padding: 0px 2px 0px 2px;
+	cursor: default;
+	font: 11px tahoma;
+	overflow: hidden;
+}
+-->
+</style>
+<!-- / Editor Styles -->
+	<title>[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums</title>
+	<script type="text/javascript" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/vbulletin_post_loader.js"></script>
+	<style type="text/css" id="vbulletin_showthread_css">
+	<!--
+	
+	#links div { white-space: nowrap; }
+	#links img { vertical-align: middle; }
+	-->
+	</style>
+</head>
+<body onload="">
+<!-- logo -->
+<a name="top"></a>
+<center><div align="center" style="height: 80px; width: 90%; background: transparent url(http://forum.sa-mp.com/logo_new_back3.png) repeat-x 0px 0px; text-align:center;">
+<table border="0" width="90%" cellpadding="0" cellspacing="0" align="center">
+<tbody><tr>
+	<td align="center"><a href="http://forum.sa-mp.com/index.php"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/logo_forum.gif" border="0" alt="SA-MP Forums" title="SA-MP Forums"></a></td>
+</tr>
+</tbody></table>
+</div></center>
+<!-- /logo -->
+
+<!-- content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+
+
+
+
+<br>
+
+<!-- breadcrumb, login, pm info -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<tbody><tr>
+	<td class="alt1" width="100%">
+		
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr valign="bottom">
+				<td><a href="http://forum.sa-mp.com/showthread.php?t=585996#" onclick="history.back(1); return false;"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/navbits_start.gif" alt="Go Back" border="0" title="Go Back"></a></td>
+				<td>&nbsp;</td>
+				<td width="100%"><span class="navbar"><a href="http://forum.sa-mp.com/index.php" accesskey="1">SA-MP Forums</a></span> 
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=8">SA-MP Scripting and Plugins</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=12">Scripting Help</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=70">Tutorials</a></span>
+
+</td>
+			</tr>
+			<tr>
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums.html"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/navbits_finallink_ltr.gif" alt="Reload this Page" border="0" title="Reload this Page"></a> <strong>
+	[<span style="font-weight:bold;font-size:8pt;color:#841594;">Tutorial</span>] GeoIP and handling rangebans with MySQL
+
+</strong></td>
+			</tr>
+			</tbody></table>
+		
+	</td>
+
+	<td class="alt2" nowrap="nowrap">
+	<div class="smallfont">
+		<strong>Welcome, <a href="http://forum.sa-mp.com/member.php?u=234935">VincenzoDrift</a>.</strong><br>
+		You last visited: 31/12/2015 at <span class="time">07:04 PM</span>
+
+		
+			<div><a href="http://forum.sa-mp.com/private.php">Private Messages</a>: Unread 0, Total 0.</div>
+		
+
+		
+	</div>
+	</td>
+
+</tr>
+</tbody></table>
+<!-- / breadcrumb, login, pm info -->
+
+<!-- nav buttons bar -->
+<div class="tborder" style="padding:1px; border-top-width:0px">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+	<tbody><tr align="center">
+		
+			<td class="vbmenu_control"><a href="http://forum.sa-mp.com/usercp.php">User CP</a></td>
+		
+		
+		
+		
+			<td class="vbmenu_control"><a id="community" href="http://forum.sa-mp.com/showthread.php?t=585996&amp;nojs=1#community" rel="nofollow" accesskey="6" style="cursor: pointer;">Community <img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("community"); </script></td>
+		
+		
+			
+				
+				<td class="vbmenu_control"><a href="http://forum.sa-mp.com/search.php?do=getnew" accesskey="2">New Posts</a></td>
+				
+				<td class="vbmenu_control"><a id="navbar_search" href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow" style="cursor: pointer;">Search <img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("navbar_search"); </script></td>
+			
+			
+				<td class="vbmenu_control"><a id="usercptools" href="http://forum.sa-mp.com/showthread.php?t=585996&amp;nojs=1#usercptools" accesskey="3" style="cursor: pointer;">Quick Links <img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("usercptools"); </script></td>
+			
+		
+		
+		
+			<td class="vbmenu_control"><a href="http://forum.sa-mp.com/login.php?do=logout&amp;logouthash=1451589103-5bd357fe45a85cba69d68539644428808ea097ca" onclick="return log_out(&#39;Are you sure you want to log out?&#39;)">Log Out</a></td>
+		
+		</tr>
+	</tbody></table>
+</div>
+<!-- / nav buttons bar -->
+
+<br>
+
+
+
+
+
+
+<!-- NAVBAR POPUP MENUS -->
+
+	
+	<!-- community link menu -->
+	<div class="vbmenu_popup" id="community_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr><td class="thead">Community Links</td></tr>
+		
+		
+		
+		
+			<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=buddylist">Contacts &amp; Friends</a></td></tr>
+		
+		
+			<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/memberlist.php">Members List</a></td></tr>
+		
+		
+		</tbody></table>
+	</div>
+	<!-- / community link menu -->
+	
+	
+	
+	<!-- header quick search form -->
+	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead">Search Forums</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+				<form action="http://forum.sa-mp.com/search.php?do=process" method="post">
+
+					<input type="hidden" name="do" value="process">
+					<input type="hidden" name="quicksearch" value="1">
+					<input type="hidden" name="childforums" value="1">
+					<input type="hidden" name="exactname" value="1">
+					<input type="hidden" name="s" value="">
+					<input type="hidden" name="securitytoken" value="1451589103-5bd357fe45a85cba69d68539644428808ea097ca">
+					<div><input type="text" class="bginput" name="query" size="25" tabindex="1001"><input type="submit" class="button" value="Go" tabindex="1004"></div>
+					<div style="margin-top:6px">
+						<label for="rb_nb_sp0"><input type="radio" name="showposts" value="0" id="rb_nb_sp0" tabindex="1002" checked="checked">Show Threads</label>
+						&nbsp;
+						<label for="rb_nb_sp1"><input type="radio" name="showposts" value="1" id="rb_nb_sp1" tabindex="1003">Show Posts</label>
+					</div>
+				</form>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow">Advanced Search</a></td>
+		</tr>
+		
+		</tbody></table>
+	</div>
+	<!-- / header quick search form -->
+	
+	
+	
+	<!-- user cp tools menu -->
+	<div class="vbmenu_popup" id="usercptools_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+
+		<tbody><tr><td class="thead">Quick Links</td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=getdaily">Today's Posts</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/forumdisplay.php?do=markread&amp;markreadhash=1451589103-5bd357fe45a85cba69d68539644428808ea097ca">Mark Forums Read</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/showthread.php?t=585996#" onclick="window.open(&#39;misc.php?do=buddylist&amp;focus=1&#39;,&#39;buddylist&#39;,&#39;statusbar=no,menubar=no,toolbar=no,scrollbars=yes,resizable=yes,width=250,height=300&#39;); return false;">Open Contacts Popup</a></td></tr>
+		
+		
+
+		<tr><td class="thead"><a href="http://forum.sa-mp.com/usercp.php">User Control Panel</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editsignature">Edit Signature</a></td></tr>
+		<!--<tr><td class="vbmenu_option"><a href="profile.php?do=editavatar">Edit Avatar</a></td></tr>-->
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editprofile">Edit Your Details</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editoptions">Edit Options</a></td></tr>
+		
+
+		<tr><td class="thead">Miscellaneous</td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php" rel="nofollow">Private Messages</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/subscription.php" rel="nofollow">Subscribed Threads</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=234935">Your Profile</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/online.php">Who's Online</a></td></tr>
+		
+
+		</tbody></table>
+	</div>
+	<!-- / user cp tools menu -->
+
+	
+<!-- / NAVBAR POPUP MENUS -->
+
+<!-- PAGENAV POPUP -->
+	<div class="vbmenu_popup" id="pagenav_menu" style="display: none; position: absolute; z-index: 50;">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead" nowrap="nowrap">Go to Page...</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="">
+			<form action="http://forum.sa-mp.com/index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4">
+				<input type="button" class="button" id="pagenav_ibtn" value="Go">
+			</form>
+			</td>
+		</tr>
+		</tbody></table>
+	</div>
+<!-- / PAGENAV POPUP -->
+
+
+
+
+
+
+
+
+
+
+<a name="poststop" id="poststop"></a>
+
+<!-- controls above postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tbody><tr valign="bottom">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;noquote=1&amp;p=3553859" rel="nofollow"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tbody><tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 2</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 10 of 18"><strong>1</strong></span></td>
+ <td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=585996&amp;page=2" title="Show results 11 to 18 of 18">2</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=585996&amp;page=2" title="Next Page - Results 11 to 18 of 18">&gt;</a></td>
+	
+	<td class="vbmenu_control" title="" id="pagenav.40" style="cursor: pointer;"> <img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></td>
+</tr>
+</tbody></table>
+</div></td>
+</tr>
+</tbody></table>
+<!-- / controls above postbits -->
+
+<!-- toolbar -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center" style="border-bottom-width:0px">
+<tbody><tr>
+	<td class="tcat" width="100%">
+		<div class="smallfont">
+		
+		&nbsp;
+		</div>
+	</td>
+	<td class="vbmenu_control" id="threadtools" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=585996&amp;nojs=1#goto_threadtools">Thread Tools</a>
+		<script type="text/javascript"> vbmenu_register("threadtools"); </script> <img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+		<td class="vbmenu_control" id="threadsearch" nowrap="nowrap" style="cursor: pointer;">
+			<a href="http://forum.sa-mp.com/showthread.php?t=585996&amp;nojs=1#goto_threadsearch">Search this Thread</a>
+			<script type="text/javascript"> vbmenu_register("threadsearch"); </script> <img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+		</td>
+	
+	
+		<td class="vbmenu_control" id="threadrating" nowrap="nowrap" style="cursor: pointer;">
+			<a href="http://forum.sa-mp.com/showthread.php?t=585996&amp;nojs=1#goto_threadrating"><span id="threadrating_current">Rating: <img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/rating_5.gif" alt="Thread Rating: 2 votes, 5.00 average." border="0" title="Thread Rating: 2 votes, 5.00 average."></span></a>
+			<script type="text/javascript"> vbmenu_register("threadrating"); </script> <img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+		</td>
+	
+	
+	<td class="vbmenu_control" id="displaymodes" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=585996&amp;nojs=1#goto_displaymodes">Display Modes</a>
+		<script type="text/javascript"> vbmenu_register("displaymodes"); </script> <img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+
+	
+
+</tr>
+</tbody></table>
+<!-- / toolbar -->
+
+
+
+<!-- end content table -->
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- / end content table -->
+
+
+
+
+<script type="text/javascript" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/vbulletin_ajax_reputation.js"></script>
+
+
+<div id="posts"><!-- post #3553859 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3553859" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3553859" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3553859"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			18/08/2015, 02:29 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3553859&amp;postcount=1" target="new" rel="nofollow" id="postcount3553859" name="1"><strong>1</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3553859">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=13347">Vince</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3553859", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Godfather</div>
+			<div class="smallfont"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=13347"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/image.php" width="80" height="80" alt="Vince&#39;s Avatar" border="0" title="Vince&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Sep 2007</div>
+				<div>Location: Belgium</div>
+				
+				
+				
+<div>
+  Posts: 8,890
+</div>
+
+<div>Reputation: 2152</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3553859" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>GeoIP and handling rangebans with MySQL</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3553859">
+			
+			This tutorial will explain how you can set up a GeoIP system without relying on external services that usually involve HTTP(). The only drawback to this method is that you will periodically (every few months or so) need to update the IP data to be, well, up-to-date. <br>
+<br>
+<b>Warning:</b> Advanced. I don't recommend you attempting this if you're just starting with Pawn and/or MySQL. It gets really technical at some points.<br>
+<br>
+This system can also be used, however, to easily instate range bans that use CIDR ranges. Most systems that I have seen so far store the IP address in its human readable string representation (e.g. 127.0.0.1) which kind of limits the ways you can instate bans. You can ban 127.0.0.* which will ban 127.0.0.0 through 127.0.0.255 or you can ban 127.0.*.* which will ban 127.0.0.0 through 127.0.255.255. But what if a particular ISP has been assigned (for example) 127.0.248.0 through 127.0.255.255? Oops. How are we going to bans this range? 127.0.248.* is not enough and 127.0.*.* is way too much. This is even more prevalent with ranges that extend past the x.x.*.* boundary. For example, a range in Australia ranges from 1.40.0.0 through 1.44.255.255. You can't possibly ban 1.*.*.* because that would also include ranges from many different countries in Asia.<br>
+<br>
+<b><u>Preparing the data</u></b><br>
+For this system we will use the <a href="http://dev.maxmind.com/geoip/legacy/geolite/" target="_blank">MaxMind Legacy GeoLite database</a>. Download the CSV/zip for GeoLite country and unpack it somewhere. We are going to prepare this file for insertion into MySQL. Use a text editor that has proper support for regular expressions such as Notepad++ or Sublime. You really don't want to prepare this file by hand, trust me. <img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/wink.png" border="0" alt="" title="Wink" class="inlineimg"> Note for Notepad++ users: close any other open documents and then restart Notepad++ before you start the next part, I have experienced glitchy behavior and even an access violation crash.<br>
+<br>
+Now open the CSV file in the text editor. You will notice that it is more than 106 <i>thousand</i> lines long. This is the reason you don't want to do this by hand. Open the search and replace window, which is usually the most easily accessed by pressing CTRL-H. Make sure that the option to use a regular expression is enabled. In the Find box type (or copy):<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">"[\.\d]+","[\.\d]+","(\d+)","(\d+)","(.+)",".+"</pre>
+</div>and in the replace box type (or copy):<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">\($1, $2, '$3'\),</pre>
+</div>Once you have done that, click Replace All. <b>Warning</b>: because of the size of the file this may take <b>several minutes</b> and it may <b>look like the application hangs or crashes</b>. <b>This is normal</b>. Don't do anything in the application while it's busy replacing or you might risk actually crashing the application. <br>
+<br>
+Once the replacing is done you should end up with something like this:<br>
+<br>
+<img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/PMiMy6L.png" border="0" alt=""><br>
+<br>
+We have now extracted the numerical IP addresses (more on that further down) and the ISO country codes and parsed them into an SQL query (or rather, soon to be query). You can find more information on regular expression on the Internet. Now the only thing we need to do is complete our query. First replace the trailing comma at the end of the file with a semicolon. Then scroll to the top (or press CTRL-Home) and write at the top of the file:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">PHP Code:</div>
+	<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">
+		<code style="white-space:nowrap">
+			<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB">INSERT&nbsp;INTO&nbsp;list_ipv4&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">range_start</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">range_end</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">country_code</span><span style="color: #007700">)&nbsp;</span><span style="color: #0000BB">VALUES&nbsp;
+<br></span>
+</span>
+</code><!-- php buffer end -->
+		</code>
+	</div>
+</div>Save the file with a .sql extension anywhere you can find it. We will use this later. <br>
+<br>
+<b><u>Preparing the tables</u></b><br>
+We will first need to prepare two new tables. The first one we will call list_countries and it will evidently store a list of all the <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">ISO two letter country codes</a> and their names. In the interest of saving time, I have already prepared this. The SQL script can be found here: <a href="http://pastebin.com/YFCZ7Tzq" target="_blank">http://pastebin.com/YFCZ7Tzq</a>. Run it against your database.<br>
+<br>
+The second one we will call list_ipv4 and it will of course store the list of IP ranges we prepared. Create the table:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">PHP Code:</div>
+	<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 210px;
+		text-align: left;
+		overflow: auto">
+		<code style="white-space:nowrap">
+			<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB">CREATE&nbsp;TABLE&nbsp;list_ipv4&nbsp;</span><span style="color: #007700">(
+<br>&nbsp;&nbsp;</span><span style="color: #0000BB">range_start&nbsp;INT&nbsp;UNSIGNED&nbsp;NOT&nbsp;NULL</span><span style="color: #007700">,
+<br>&nbsp;&nbsp;</span><span style="color: #0000BB">range_end&nbsp;INT&nbsp;UNSIGNED&nbsp;NOT&nbsp;NULL</span><span style="color: #007700">,
+<br>&nbsp;&nbsp;</span><span style="color: #0000BB">country_code&nbsp;CHAR</span><span style="color: #007700">(</span><span style="color: #0000BB">2</span><span style="color: #007700">)&nbsp;</span><span style="color: #0000BB">NOT&nbsp;NULL</span><span style="color: #007700">,
+<br>&nbsp;&nbsp;</span><span style="color: #0000BB">banned&nbsp;INT&nbsp;UNSIGNED&nbsp;NOT&nbsp;NULL&nbsp;</span><span style="color: #007700">DEFAULT&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,
+<br>&nbsp;&nbsp;</span><span style="color: #0000BB">PRIMARY&nbsp;KEY&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">range_start</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">range_end</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">country_code</span><span style="color: #007700">),
+<br>&nbsp;&nbsp;</span><span style="color: #0000BB">CONSTRAINT&nbsp;fk_ipv4_countrycode
+<br>&nbsp;&nbsp;&nbsp;&nbsp;FOREIGN&nbsp;KEY&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">country_code</span><span style="color: #007700">)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">REFERENCES&nbsp;list_countries&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">country_code</span><span style="color: #007700">)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ON&nbsp;DELETE&nbsp;RESTRICT
+<br>&nbsp;&nbsp;&nbsp;&nbsp;ON&nbsp;UPDATE&nbsp;RESTRICT
+<br></span><span style="color: #007700">);&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+		</code>
+	</div>
+</div><b><u>Importing the data</u></b><br>
+Now for importing the main bulk of our data, use the file we prepared earlier. Importing it may be tricky, given its size. You may not be able to use phpMyAdmin due to the size restriction on file uploads. Importing with the command line is probably the fastest, but this can be quite daunting and if you don't feel comfortable doing that then you may use another client such as MySQL Workbench (and the latter one may be your only choice if you're on shared host, because you don't have CLI access). For importing with the command line you can follow this video tutorial of mine (with my awesome voice <img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/wink.png" border="0" alt="" title="Wink" class="inlineimg">): <a href="https://youtu.be/wCydBvnP5as?t=1m11s" target="_blank">https://youtu.be/wCydBvnP5as?t=1m11s</a> (skip the create database part)<br>
+<br>
+<b><u>Usage</u></b><br>
+Once you have done all this, we can finally start actually using it. One thing I have mentioned, and which is also visible in the screenshot, is numerical IP addresses. Why numerical? First: because it is faster. Any RDBMS is much faster with numbers than it is with strings. Secondly, it allows allows you to use the BETWEEN keyword (example below). You can convert from string representation (as returned by GetPlayerIp) to numerical representation by using the inbuilt INET_ATON() function, and you can convert from the numerical representation to the string representation by using the also inbuilt INET_NTOA() function. (<a href="https://dev.mysql.com/doc/refman/5.0/en/miscellaneous-functions.html#function_inet-aton" target="_blank">https://dev.mysql.com/doc/refman/5.0...tion_inet-aton</a>)<br>
+<br>
+This is a simple snippet from my own code that shows a connecting player's IP address and country to all online admins:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">PHP Code:</div>
+	<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 178px;
+		text-align: left;
+		overflow: auto">
+		<code style="white-space:nowrap">
+			<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnPlayerConnect</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">GetPlayerName</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">gPlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pName</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">MAX_PLAYER_NAME</span><span style="color: #007700">);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">GetPlayerIp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">gPlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pIP</span><span style="color: #007700">]&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;</span><span style="color: #0000BB">16</span><span style="color: #007700">);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqlquery</span><span style="color: #007700">[</span><span style="color: #0000BB">160</span><span style="color: #007700">];
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mysql_format</span><span style="color: #007700">(</span><span style="color: #0000BB">db</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqlquery</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">mysqlquery</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;c.country_name&nbsp;FROM&nbsp;list_ipv4&nbsp;i&nbsp;JOIN&nbsp;list_countries&nbsp;c&nbsp;ON&nbsp;i.country_code&nbsp;=&nbsp;c.country_code&nbsp;WHERE&nbsp;INET_ATON('%e')&nbsp;BETWEEN&nbsp;range_start&nbsp;AND&nbsp;range_end;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">gPlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pIP</span><span style="color: #007700">]);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mysql_tquery</span><span style="color: #007700">(</span><span style="color: #0000BB">db</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqlquery</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"GetCountryName"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"d"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);
+<br>
+<br>}&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+		</code>
+	</div>
+</div><div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">PHP Code:</div>
+	<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 226px;
+		text-align: left;
+		overflow: auto">
+		<code style="white-space:nowrap">
+			<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">GetCountryName</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;</span><span style="color: #0000BB">country</span><span style="color: #007700">[</span><span style="color: #0000BB">44</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">"Unknown"</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">cache_get_row_count</span><span style="color: #007700">(</span><span style="color: #0000BB">db</span><span style="color: #007700">))
+<br>&nbsp;&nbsp;&nbsp;&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cache_get_row</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">country</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">db</span><span style="color: #007700">);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;</span><span style="color: #0000BB">msg</span><span style="color: #007700">[</span><span style="color: #0000BB">144</span><span style="color: #007700">];
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">msg</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">msg</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"Join:&nbsp;%s&nbsp;(%d)&nbsp;[%s&nbsp;/&nbsp;%s]&nbsp;[%d&nbsp;/&nbsp;%d]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">gPlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pName</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">gPlayerInfo</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">][</span><span style="color: #0000BB">pIP</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">country</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Iter_Count</span><span style="color: #007700">(</span><span style="color: #0000BB">Player</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">MAX_PLAYERS</span><span style="color: #007700">);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">SendAdminMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">COLOR_GRAY</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">msg</span><span style="color: #007700">);
+<br>}&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+		</code>
+	</div>
+</div>That will show something similar to: <i>Join: Vince0789 (3) [127.0.0.1 / Belgium] [5 / 100]</i><br>
+<br>
+<b><u>Banning</u></b><br>
+You may have noticed that I have purposefully added a "banned" column to the list_ipv4 table. Initially all values in that column are 0, which means no range is banned. If you set that value to 1 (or a Unix timestamp if you're interested in the time the ban was set) you can mark that range as being banned. You can then fetch the 'banned' value when a player connects (using a similar system as outlined above), and boot him out if the value is anything other than 0. It may be a good idea to mark all A1 (anonymous proxy) ranges as banned to begin with.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><i><font color="DimGray">Excuse my sometimes rude or cynical replies. One's personality is hard to change.</font></i><br>
+<br>
+[<b><font color="Purple">Tutorial</font></b>] Database normalization: <a href="http://forum.sa-mp.com/showthread.php?t=420363" target="_blank"><b><font color="Purple">Part 1</font></b></a> - <a href="http://forum.sa-mp.com/showthread.php?t=505081" target="_blank"><b><font color="Purple">Part 2</font></b></a> - <a href="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums.html" target="_blank"><b><font color="Purple">Part 3</font></b></a></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/user_offline.gif" alt="Vince is offline" border="0" title="Vince is offline">
+
+
+		
+			<span id="reputationmenu_3553859"><a href="http://forum.sa-mp.com/reputation.php?p=3553859" rel="nofollow" id="reputation_3553859"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/reputation.png" alt="Add to Vince&#39;s Reputation" border="0" title="Add to Vince&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3553859")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3553859" rel="nofollow"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3553859" rel="nofollow"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3553859" rel="nofollow" onclick="return false"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3553859" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3553859" rel="nofollow" id="qr_3553859" onclick="return false"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3553859 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3553859_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Vince</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=13347">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=13347" rel="nofollow">Send a private message to Vince</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=13347" rel="nofollow">Find More Posts by Vince</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=13347">Add Vince to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3553859 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3553859 --><!-- post #3553913 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3553913" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3553913" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3553913"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			18/08/2015, 03:52 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3553913&amp;postcount=2" target="new" rel="nofollow" id="postcount3553913" name="2"><strong>2</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3553913">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=222108">Abagail</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3553913", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Dec 2013</div>
+				<div>Location: GetPlayerPos(playerid, pos);                          Scripter/Mapper.</div>
+				
+				
+				
+<div>
+  Posts: 3,106
+</div>
+
+<div>Reputation: 347</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3553913" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: GeoIP and handling rangebans with MySQL</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3553913">
+			
+			Neat tutorial - you never fail to properly write a tutorial.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><br>
+<b>Object Viewer:</b><br>
+<a href="http://forum.sa-mp.com/showthread.php?p=3364893" target="_blank">http://forum.sa-mp.com/showthread.php?p=3364893</a><br>
+<br>
+<b>Actors Tutorial</b><br>
+<a href="http://forum.sa-mp.com/showthread.php?p=3445806#post3445806" target="_blank">http://forum.sa-mp.com/showthread.ph...06#post3445806</a><br>
+</div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/user_offline.gif" alt="Abagail is offline" border="0" title="Abagail is offline">
+
+
+		
+			<span id="reputationmenu_3553913"><a href="http://forum.sa-mp.com/reputation.php?p=3553913" rel="nofollow" id="reputation_3553913"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/reputation.png" alt="Add to Abagail&#39;s Reputation" border="0" title="Add to Abagail&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3553913")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3553913" rel="nofollow"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3553913" rel="nofollow"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3553913" rel="nofollow" onclick="return false"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3553913" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3553913" rel="nofollow" id="qr_3553913" onclick="return false"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3553913 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3553913_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Abagail</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=222108">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=222108" rel="nofollow">Send a private message to Abagail</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=222108" rel="nofollow">Find More Posts by Abagail</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=222108">Add Abagail to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3553913 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3553913 --><!-- post #3553934 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3553934" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3553934" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3553934"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			18/08/2015, 04:17 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3553934&amp;postcount=3" target="new" rel="nofollow" id="postcount3553934" name="3"><strong>3</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3553934">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=212473">Wizzard2H</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3553934", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Gangsta</div>
+			<div class="smallfont"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=212473"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/image(1).php" width="80" height="63" alt="Wizzard2H&#39;s Avatar" border="0" title="Wizzard2H&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Aug 2013</div>
+				<div>Location: win10/pentest/wiz.py</div>
+				
+				
+				
+<div>
+  Posts: 791
+</div>
+
+<div>Reputation: 135</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3553934" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: GeoIP and handling rangebans with MySQL</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3553934">
+			
+			A.W.E.S.O.M.E thanks for this awesome tutorial and greatly detailed
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		
+<img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/user_online.gif" alt="Wizzard2H is online now" border="0" title="Wizzard2H is online now">
+
+		
+			<span id="reputationmenu_3553934"><a href="http://forum.sa-mp.com/reputation.php?p=3553934" rel="nofollow" id="reputation_3553934"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/reputation.png" alt="Add to Wizzard2H&#39;s Reputation" border="0" title="Add to Wizzard2H&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3553934")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3553934" rel="nofollow"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3553934" rel="nofollow"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3553934" rel="nofollow" onclick="return false"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3553934" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3553934" rel="nofollow" id="qr_3553934" onclick="return false"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3553934 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3553934_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Wizzard2H</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=212473">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=212473" rel="nofollow">Send a private message to Wizzard2H</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=212473" rel="nofollow">Find More Posts by Wizzard2H</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=212473">Add Wizzard2H to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3553934 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3553934 --><!-- post #3554435 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3554435" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3554435" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3554435"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			19/08/2015, 05:31 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3554435&amp;postcount=4" target="new" rel="nofollow" id="postcount3554435" name="4"><strong>4</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3554435">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=164082">ThePhenix</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3554435", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Gangsta</div>
+			<div class="smallfont"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=164082"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/image(2).php" width="79" height="80" alt="ThePhenix&#39;s Avatar" border="0" title="ThePhenix&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: May 2012</div>
+				
+				
+				
+				
+<div>
+  Posts: 765
+</div>
+
+<div>Reputation: 104</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3554435" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: GeoIP and handling rangebans with MySQL</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3554435">
+			
+			Wow, that's amazing, I've always wanted to find a proper way to make a system like this.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/user_offline.gif" alt="ThePhenix is offline" border="0" title="ThePhenix is offline">
+
+
+		
+			<span id="reputationmenu_3554435"><a href="http://forum.sa-mp.com/reputation.php?p=3554435" rel="nofollow" id="reputation_3554435"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/reputation.png" alt="Add to ThePhenix&#39;s Reputation" border="0" title="Add to ThePhenix&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3554435")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3554435" rel="nofollow"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3554435" rel="nofollow"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3554435" rel="nofollow" onclick="return false"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3554435" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3554435" rel="nofollow" id="qr_3554435" onclick="return false"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3554435 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3554435_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">ThePhenix</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=164082">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=164082" rel="nofollow">Send a private message to ThePhenix</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=164082" rel="nofollow">Find More Posts by ThePhenix</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=164082">Add ThePhenix to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3554435 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3554435 --><!-- post #3554525 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3554525" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3554525" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3554525"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			19/08/2015, 10:59 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3554525&amp;postcount=5" target="new" rel="nofollow" id="postcount3554525" name="5"><strong>5</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3554525">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=211253">JeaSon</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3554525", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Gangsta</div>
+			<div class="smallfont"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=211253"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/image(3).php" width="80" height="80" alt="JeaSon&#39;s Avatar" border="0" title="JeaSon&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Aug 2013</div>
+				<div>Location: Future</div>
+				
+				
+				
+<div>
+  Posts: 545
+</div>
+
+<div>Reputation: 73</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3554525" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: GeoIP and handling rangebans with MySQL</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3554525">
+			
+			Awesome Vince
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<table><tbody><tr><td class="alt2">Currently Scripting</td><td class="alt2"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/jkga3c.png" border="0" alt=""></td></tr></tbody></table>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/user_offline.gif" alt="JeaSon is offline" border="0" title="JeaSon is offline">
+
+
+		
+			<span id="reputationmenu_3554525"><a href="http://forum.sa-mp.com/reputation.php?p=3554525" rel="nofollow" id="reputation_3554525"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/reputation.png" alt="Add to JeaSon&#39;s Reputation" border="0" title="Add to JeaSon&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3554525")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3554525" rel="nofollow"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3554525" rel="nofollow"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3554525" rel="nofollow" onclick="return false"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3554525" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3554525" rel="nofollow" id="qr_3554525" onclick="return false"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3554525 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3554525_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">JeaSon</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=211253">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=211253" rel="nofollow">Send a private message to JeaSon</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=211253" rel="nofollow">Find More Posts by JeaSon</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=211253">Add JeaSon to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3554525 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3554525 --><!-- post #3554528 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3554528" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3554528" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3554528"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			19/08/2015, 11:04 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3554528&amp;postcount=6" target="new" rel="nofollow" id="postcount3554528" name="6"><strong>6</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3554528">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=244733">Glossy42O</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3554528", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Oct 2014</div>
+				
+				
+				
+				
+<div>
+  Posts: 1,818
+</div>
+
+<div>Reputation: 218</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3554528" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: GeoIP and handling rangebans with MySQL</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3554528">
+			
+			Awesome ! <br>
+<br>
+hehe, i thought ur voice would be deeper xD.<br>
+<br>
+i subscribed c:
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/user_offline.gif" alt="Glossy42O is offline" border="0" title="Glossy42O is offline">
+
+
+		
+			<span id="reputationmenu_3554528"><a href="http://forum.sa-mp.com/reputation.php?p=3554528" rel="nofollow" id="reputation_3554528"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/reputation.png" alt="Add to Glossy42O&#39;s Reputation" border="0" title="Add to Glossy42O&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3554528")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3554528" rel="nofollow"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3554528" rel="nofollow"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3554528" rel="nofollow" onclick="return false"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3554528" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3554528" rel="nofollow" id="qr_3554528" onclick="return false"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3554528 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3554528_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Glossy42O</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=244733">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=244733" rel="nofollow">Send a private message to Glossy42O</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=244733" rel="nofollow">Find More Posts by Glossy42O</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=244733">Add Glossy42O to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3554528 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3554528 --><!-- post #3555313 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3555313" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3555313" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3555313"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			20/08/2015, 12:29 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3555313&amp;postcount=7" target="new" rel="nofollow" id="postcount3555313" name="7"><strong>7</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3555313">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=211253">JeaSon</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3555313", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Gangsta</div>
+			<div class="smallfont"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=211253"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/image(3).php" width="80" height="80" alt="JeaSon&#39;s Avatar" border="0" title="JeaSon&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Aug 2013</div>
+				<div>Location: Future</div>
+				
+				
+				
+<div>
+  Posts: 545
+</div>
+
+<div>Reputation: 73</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3555313" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: GeoIP and handling rangebans with MySQL</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3555313">
+			
+			Is there any way to upload that size of data in Database vince ? in localhost or on host ?? i always get mysql server connection gone away
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<table><tbody><tr><td class="alt2">Currently Scripting</td><td class="alt2"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/jkga3c.png" border="0" alt=""></td></tr></tbody></table>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/user_offline.gif" alt="JeaSon is offline" border="0" title="JeaSon is offline">
+
+
+		
+			<span id="reputationmenu_3555313"><a href="http://forum.sa-mp.com/reputation.php?p=3555313" rel="nofollow" id="reputation_3555313"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/reputation.png" alt="Add to JeaSon&#39;s Reputation" border="0" title="Add to JeaSon&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3555313")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3555313" rel="nofollow"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3555313" rel="nofollow"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3555313" rel="nofollow" onclick="return false"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3555313" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3555313" rel="nofollow" id="qr_3555313" onclick="return false"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3555313 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3555313_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">JeaSon</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=211253">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=211253" rel="nofollow">Send a private message to JeaSon</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=211253" rel="nofollow">Find More Posts by JeaSon</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=211253">Add JeaSon to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3555313 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3555313 --><!-- post #3555868 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3555868" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3555868" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3555868"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			21/08/2015, 01:14 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3555868&amp;postcount=8" target="new" rel="nofollow" id="postcount3555868" name="8"><strong>8</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3555868">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=90884">Kar</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3555868", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: May 2010</div>
+				<div>Location: Black Asylum</div>
+				
+				
+				
+<div>
+  Posts: 3,130
+</div>
+
+<div>Reputation: 369</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3555868" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: GeoIP and handling rangebans with MySQL</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3555868">
+			
+			Oh. It keeps tricking me into thinking that the data is inserted when it's not.<br>
+<br>
+<a href="http://prntscr.com/876gzo" target="_blank">http://prntscr.com/876gzo</a><br>
+<br>
+<a href="http://prntscr.com/876h6s" target="_blank">http://prntscr.com/876h6s</a><br>
+<br>
+Heh. I'll deal with that.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><br>
+<ul><li>Are you prepared to get your wish? Twisted Metal SA-MP &lt;3! Join the IRC Channel for cookies: #tm on irc.tl - @tmsamp_dev<br>
+<br>
+server.lvcnr.net:8000 | <a href="samp://server.lvcnr.net:8000" target="_blank">samp://server.lvcnr.net:8000</a><br>
+</li>
+</ul><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/4ePfS95.png" border="0" alt=""><br>
+server.lvcnr.net:7777 | <a href="samp://server.lvcnr.net:7777" target="_blank">samp://server.lvcnr.net:7777</a><br>
+<a href="http://www.lvcnr.net/" target="_blank">www.lvcnr.net</a> | <a href="https://twitter.com/kcnrdev" target="_blank">@kcnrdev</a><br>
+IRC (irc.tl): #lvcnr</div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+		<!-- edit note -->
+			<div class="smallfont">
+				<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+				<em>
+					
+						Last edited by Kar; 21/08/2015 at <span class="time">11:53 AM</span>.
+					
+					
+				</em>
+			</div>
+		<!-- / edit note -->
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/user_offline.gif" alt="Kar is offline" border="0" title="Kar is offline">
+
+
+		
+			<span id="reputationmenu_3555868"><a href="http://forum.sa-mp.com/reputation.php?p=3555868" rel="nofollow" id="reputation_3555868"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/reputation.png" alt="Add to Kar&#39;s Reputation" border="0" title="Add to Kar&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3555868")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3555868" rel="nofollow"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3555868" rel="nofollow"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3555868" rel="nofollow" onclick="return false"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3555868" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3555868" rel="nofollow" id="qr_3555868" onclick="return false"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3555868 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3555868_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Kar</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=90884">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=90884" rel="nofollow">Send a private message to Kar</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.lvcnr.net/">Visit Kar's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=90884" rel="nofollow">Find More Posts by Kar</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=90884">Add Kar to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3555868 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3555868 --><!-- post #3556002 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3556002" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post3556002" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3556002"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			21/08/2015, 08:04 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3556002&amp;postcount=9" target="new" rel="nofollow" id="postcount3556002" name="9"><strong>9</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3556002">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=13347">Vince</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3556002", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Godfather</div>
+			<div class="smallfont"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=13347"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/image.php" width="80" height="80" alt="Vince&#39;s Avatar" border="0" title="Vince&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Sep 2007</div>
+				<div>Location: Belgium</div>
+				
+				
+				
+<div>
+  Posts: 8,890
+</div>
+
+<div>Reputation: 2152</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3556002" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: GeoIP and handling rangebans with MySQL</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3556002">
+			
+			Works fine for me:<br>
+<img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/32e7861497.png" border="0" alt=""><br>
+Perhaps you did something wrong importing?
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><i><font color="DimGray">Excuse my sometimes rude or cynical replies. One's personality is hard to change.</font></i><br>
+<br>
+[<b><font color="Purple">Tutorial</font></b>] Database normalization: <a href="http://forum.sa-mp.com/showthread.php?t=420363" target="_blank"><b><font color="Purple">Part 1</font></b></a> - <a href="http://forum.sa-mp.com/showthread.php?t=505081" target="_blank"><b><font color="Purple">Part 2</font></b></a> - <a href="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums.html" target="_blank"><b><font color="Purple">Part 3</font></b></a></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/user_offline.gif" alt="Vince is offline" border="0" title="Vince is offline">
+
+
+		
+			<span id="reputationmenu_3556002"><a href="http://forum.sa-mp.com/reputation.php?p=3556002" rel="nofollow" id="reputation_3556002"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/reputation.png" alt="Add to Vince&#39;s Reputation" border="0" title="Add to Vince&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3556002")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3556002" rel="nofollow"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3556002" rel="nofollow"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3556002" rel="nofollow" onclick="return false"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3556002" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3556002" rel="nofollow" id="qr_3556002" onclick="return false"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3556002 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3556002_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Vince</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=13347">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=13347" rel="nofollow">Send a private message to Vince</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=13347" rel="nofollow">Find More Posts by Vince</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=13347">Add Vince to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3556002 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3556002 --><!-- post #3556662 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit3556662" style="padding:0px 0px 6px 0px">
+	
+
+
+
+<table id="post3556662" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post3556662"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			21/08/2015, 08:56 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=3556662&amp;postcount=10" target="new" rel="nofollow" id="postcount3556662" name="10"><strong>10</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_3556662">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=47313">KyleSmith</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_3556662", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=47313"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/image(4).php" width="77" height="80" alt="KyleSmith&#39;s Avatar" border="0" title="KyleSmith&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Mar 2009</div>
+				<div>Location: United Kingdom</div>
+				
+				
+				
+<div>
+  Posts: 2,266
+</div>
+
+<div>Reputation: 271</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_3556662" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: GeoIP and handling rangebans with MySQL</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_3556662">
+			
+			<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				<div>
+					Originally Posted by <strong>Vince</strong>
+					<a href="http://forum.sa-mp.com/showthread.php?p=3556002#post3556002" rel="nofollow"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/viewpost.gif" border="0" alt="View Post" title="View Post"></a>
+				</div>
+				<div style="font-style:italic">Works fine for me:<br>
+<img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/32e7861497.png" border="0" alt=""><br>
+Perhaps you did something wrong importing?</div>
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div>Works fine for me too, the only issue I came across I had to increase the max packet size when executing the queries. Also, maybe you should suggest how often we update the database.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/user_offline.gif" alt="KyleSmith is offline" border="0" title="KyleSmith is offline">
+
+
+		
+			<span id="reputationmenu_3556662"><a href="http://forum.sa-mp.com/reputation.php?p=3556662" rel="nofollow" id="reputation_3556662"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/reputation.png" alt="Add to KyleSmith&#39;s Reputation" border="0" title="Add to KyleSmith&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("3556662")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=3556662" rel="nofollow"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3556662" rel="nofollow"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3556662" rel="nofollow" onclick="return false"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_3556662" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=3556662" rel="nofollow" id="qr_3556662" onclick="return false"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 3556662 popup menu -->
+<div class="vbmenu_popup" id="postmenu_3556662_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">KyleSmith</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=47313">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=47313" rel="nofollow">Send a private message to KyleSmith</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.copsandrobbersrpg.com/">Visit KyleSmith's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=47313" rel="nofollow">Find More Posts by KyleSmith</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=47313">Add KyleSmith to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 3556662 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #3556662 --><div id="lastpost"></div></div>
+
+<!-- start content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+<!-- / start content table -->
+
+<!-- controls below postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:-3px">
+<tbody><tr valign="top">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;noquote=1&amp;p=3556662" rel="nofollow"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	
+		<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tbody><tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 2</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 10 of 18"><strong>1</strong></span></td>
+ <td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=585996&amp;page=2" title="Show results 11 to 18 of 18">2</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=585996&amp;page=2" title="Next Page - Results 11 to 18 of 18">&gt;</a></td>
+	
+	<td class="vbmenu_control" title="" id="pagenav.169" style="cursor: pointer;"> <img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></td>
+</tr>
+</tbody></table>
+</div>
+		
+		</td>
+	
+</tr>
+</tbody></table>
+<!-- / controls below postbits -->
+
+
+
+
+
+
+
+
+
+
+<!-- lightbox scripts -->
+	<script type="text/javascript" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/vbulletin_lightbox.js"></script>
+	<script type="text/javascript">
+	<!--
+	vBulletin.register_control("vB_Lightbox_Container", "posts", 1);
+	//-->
+	</script>
+<!-- / lightbox scripts -->
+
+
+
+<!-- multiquote scripts -->
+	<script type="text/javascript" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/vbulletin_multi_quote.js"></script>
+	<script type="text/javascript">
+	<!--
+	var mqlimit = 0;
+	//-->
+	</script>
+<!-- / multiquote scripts -->
+
+
+
+<!-- ajax errors table -->
+	<table class="tborder" cellpadding="6" cellspacing="1" border="0" style="display:none; position:absolute" id="ajax_post_errors">
+	<tbody><tr>
+		<td class="thead">
+			<span style="float:right"><input type="button" class="button" value=" X " onclick="vB_QuickEditor.hide_errors()" id="ajax_post_errors_closebtn"></span>
+			vBulletin Message
+		</td>
+	</tr>
+	<tr>
+		<td class="alt2" colspan="2" id="ajax_post_errors_message">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="tfoot" colspan="2" align="center"><a href="http://forum.sa-mp.com/showthread.php?t=585996#" onclick="vB_QuickEditor.abort(); return false;">Cancel Changes</a></td>
+	</tr>
+	</tbody></table>
+<!-- / ajax errors table -->
+
+<!-- scripts for quick reply and quick edit -->
+	<!-- Editor Scripts -->
+<script type="text/javascript" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/vbulletin_textedit.js"></script>
+<script type="text/javascript">
+<!--
+var fontoptions = new Array("Arial", "Arial Black", "Arial Narrow", "Book Antiqua", "Century Gothic", "Comic Sans MS", "Courier New", "Fixedsys", "Franklin Gothic Medium", "Garamond", "Georgia", "Impact", "Lucida Console", "Lucida Sans Unicode", "Microsoft Sans Serif", "Palatino Linotype", "System", "Tahoma", "Times New Roman", "Trebuchet MS", "Verdana");
+var sizeoptions = new Array(1, 2, 3, 4, 5, 6, 7);
+var smilieoptions = {  };
+
+var istyles = { "pi_button_down" : [ "#98B5E2", "#000000", "0px", "1px solid #316AC5" ], "pi_button_hover" : [ "#C1D2EE", "#000000", "0px", "1px solid #316AC5" ], "pi_button_normal" : [ "#E1E1E2", "#000000", "1px", "none" ], "pi_button_selected" : [ "#F1F6F8", "#000000", "0px", "1px solid #316AC5" ], "pi_menu_down" : [ "#98B5E2", "#316AC5", "0px", "1px solid #316AC5" ], "pi_menu_hover" : [ "#C1D2EE", "#316AC5", "0px", "1px solid #316AC5" ], "pi_menu_normal" : [ "#FFFFFF", "#000000", "0px", "1px solid #FFFFFF" ], "pi_popup_down" : [ "#98B5E2", "#000000", "0px", "1px solid #316AC5" ] };
+var ltr = 'left';
+
+var smiliewindow_x = 240;
+var smiliewindow_y = 280;
+
+var ignorequotechars = 1;
+var allowbasicbbcode = true;
+
+// vB Phrases
+vbphrase["wysiwyg_please_wait"]          = "Please wait for the WYSIWYG editor to finish loading...";
+vbphrase["wysiwyg_initialized"]          = "WYSIWYG Editor initialized for %1$s in %2$s seconds.";
+vbphrase["wysiwyg_command_invalid"]      = "This command is invalid or not implemented.";
+vbphrase["moz_must_select_text"]         = "Mozilla requires that you must select some text for this function to work";
+vbphrase["moz_edit_config_file"]         = "You need to edit your Mozilla config file to allow this action.";
+vbphrase["enter_tag_option"]             = "Please enter the option for your %1$s tag:";
+vbphrase["must_select_text_to_use"]      = "You must select some text to use this function.";
+vbphrase["browser_is_safari_no_wysiwyg"] = "The Safari browser does not support WYSIWYG mode.";
+vbphrase["enter_option_x_tag"]           = "Enter the option for the [%1$s] tag:";
+vbphrase["enter_text_to_be_formatted"]   = "Enter the text to be formatted";
+vbphrase["enter_link_text"]              = "Enter the text to be displayed for the link (optional):";
+vbphrase["enter_list_type"]              = "What type of list do you want? Enter '1' for a numbered list, enter 'a' for an alphabetical list, or leave blank for a list with bullet points:";
+vbphrase["enter_list_item"]              = "Enter a list item.\r\nLeave the box empty or press 'Cancel' to complete the list:";
+vbphrase["must_enter_subject"]           = "You must enter a title / subject!";
+vbphrase["message_too_short"]            = "The message you have entered is too short. Please lengthen your message to at least %1$s characters.";
+vbphrase["enter_link_url"]               = "Please enter the URL of your link:";
+vbphrase["enter_image_url"]              = "Please enter the URL of your image:";
+vbphrase["enter_email_link"]             = "Please enter the email address for the link:";
+vbphrase["complete_image_verification"]  = "You did not complete the Image Verification";
+vbphrase["iespell_not_installed"]        = "ieSpell is a spell-checking tool for Internet Explorer.\r\n\r\nIf you would like to download ieSpell, click OK; otherwise click Cancel.\r\n\r\nieSpell can be downloaded from http://www.iespell.com";
+vbphrase["click_quick_reply_icon"]       = "Please click one of the Quick Reply icons in the posts above to activate Quick Reply.";
+vbphrase["insert_all"]                   = "Insert All";
+
+//-->
+</script>
+<!-- / Editor Scripts -->
+	
+<!-- / scripts for quick reply and quick edit -->
+
+
+
+
+<!-- quick reply -->
+	<br>
+	<script type="text/javascript" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/vbulletin_quick_reply.js"></script>
+	<form action="http://forum.sa-mp.com/newreply.php?do=postreply&amp;t=585996" method="post" name="vbform" onsubmit="return qr_prepare_submit(this, 4);" id="qrform">
+	<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+	<thead>
+		<tr>
+			<td class="tcat" colspan="2">
+				<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=585996#top" onclick="return toggle_collapse(&#39;quickreply&#39;);"><img id="collapseimg_quickreply" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/collapse_tcat.gif" alt="" border="0"></a>
+				Quick Reply
+			</td>
+		</tr>
+	</thead>
+	<tbody id="qr_error_tbody" style="display:none">
+	<tr>
+		<td class="thead">The following errors occurred with your submission</td>
+	</tr>
+	<tr>
+		<td class="alt1" id="qr_error_td"></td>
+	</tr>
+	<tr>
+		<td class="tfoot" align="center"><span class="smallfont"><a href="http://forum.sa-mp.com/showthread.php?t=585996#" onclick="return qr_hide_errors()">Okay</a></span></td>
+	</tr>
+	</tbody>
+	<tbody id="collapseobj_quickreply" style="">
+	<tr>
+		<td class="panelsurround" align="center">
+			<div class="panel">
+				<div align="left" style="max-width:800px; width:auto !important; width:800px">
+					<div class="smallfont">Message:</div>
+					<div id="vB_Editor_QR" class="vBulletin_editor">
+		<script type="text/javascript">
+		<!--
+			var threaded_mode = 0;
+			var require_click = 0;
+			var is_last_page = 0; // leave for people with cached JS files
+			var allow_ajax_qr = 0;
+			var ajax_last_post = 1440328240;
+		// -->
+		</script>
+		
+<div id="vB_Editor_QR_controls" class="controlbar">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_removeformat"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/removeformat.gif" width="21" height="20" alt="Remove Text Formatting" title="Remove Text Formatting"></div></td>
+	
+		<td><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_bold"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/bold.gif" width="21" height="20" alt="Bold" title="Bold"></div></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_italic"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/italic.gif" width="21" height="20" alt="Italic" title="Italic"></div></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_underline"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/underline.gif" width="21" height="20" alt="Underline" title="Underline"></div></td>
+	
+	
+		<td><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_popup_forecolor" title="Colors">
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr>
+				<td id="vB_Editor_QR_color_out"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/color.gif" width="21" height="16" alt=""><br><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/clear.gif" id="vB_Editor_QR_color_bar" alt="" style="background-color:black" width="21" height="4"></td>
+				<td class="alt_pickbutton"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/menupop.gif" alt="" width="11" height="16"></td>
+			</tr>
+			</tbody></table>
+		</div></td>
+	
+	
+		<td><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+	
+	
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_createlink"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/createlink.gif" width="21" height="20" alt="Insert Link" title="Insert Link"></div></td>
+	
+	
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_insertimage"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/insertimage.gif" width="21" height="20" alt="Insert Image" title="Insert Image"></div></td>
+	
+	
+		<td><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_wrap0_quote"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/quote.gif" width="21" height="20" alt="Wrap [QUOTE] tags around selected text" title="Wrap [QUOTE] tags around selected text"></div></td>
+	
+	<td width="100%">&nbsp;</td>
+	
+		<td>
+			<div class="imagebutton" id="vB_Editor_QR_cmd_resize_0_99"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/resize_0.gif" width="21" height="9" alt="Decrease Size" title="Decrease Size"></div>
+			<div class="imagebutton" id="vB_Editor_QR_cmd_resize_1_99"><img src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/resize_1.gif" width="21" height="9" alt="Increase Size" title="Increase Size"></div>
+		</td>
+	
+	</tr>
+	</tbody></table>
+</div>
+
+<div class="controlbar" style="padding-right:8px">
+	<fieldset style="border:0px; padding:0px; margin:0px">
+	
+	<textarea name="message" id="vB_Editor_QR_textarea" rows="10" cols="60" style="width:100%; height:100px" tabindex="1" dir="ltr"></textarea>
+	
+	</fieldset>
+	<!--width:800px-->
+</div>
+
+<input type="hidden" name="wysiwyg" id="vB_Editor_QR_mode" value="0">
+<input type="hidden" name="styleid" value="0">
+
+<script type="text/javascript">
+<!--
+vB_Editor['vB_Editor_QR'] = new vB_Text_Editor('vB_Editor_QR', 0, '70', '1');
+var QR_EditorID = 'vB_Editor_QR';
+//-->
+</script>
+	</div>
+
+					<fieldset class="fieldset" style="margin:3px 0px 0px 0px">
+						<legend>Options</legend>
+						<div style="padding:3px">
+							
+								<div style="float:right"><label for="cb_signature"><input type="checkbox" name="signature" value="1" id="cb_signature" tabindex="5" checked="checked">Show your signature</label></div>
+							
+							<label for="qr_quickreply"><input type="checkbox" name="quickreply" value="1" id="qr_quickreply" accesskey="w" tabindex="4" disabled="">Quote message in reply?</label>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+
+			<div style="margin-top:6px">
+				<input type="hidden" name="fromquickreply" value="1">
+				<input type="hidden" name="s" value="">
+				<input type="hidden" name="securitytoken" value="1451589103-5bd357fe45a85cba69d68539644428808ea097ca">
+				<input type="hidden" name="do" value="postreply">
+				<input type="hidden" name="t" value="585996" id="qr_threadid">
+				<input type="hidden" name="p" value="who cares" id="qr_postid">
+				<input type="hidden" name="specifiedpost" value="0" id="qr_specifiedpost">
+				<input type="hidden" name="parseurl" value="1">
+				<input type="hidden" name="loggedinuser" value="234935">
+				<input type="submit" class="button" value="Post Quick Reply" accesskey="s" title="(Alt + S)" name="sbutton" tabindex="2" id="qr_submit" onclick="clickedelm = this.value">
+				<input type="submit" class="button" value="Go Advanced" accesskey="x" title="(Alt + X)" name="preview" tabindex="3" id="qr_preview" onclick="clickedelm = this.value">
+			</div>
+
+			<div align="center" id="qr_posting_msg" style="display:none; margin-top:6px">
+				<img style="vertical-align: middle;" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/progress.gif" alt="Posting Quick Reply - Please Wait" title="Posting Quick Reply - Please Wait">&nbsp;<strong>Posting Quick Reply - Please Wait</strong>
+			</div>
+		</td>
+	</tr>
+	</tbody>
+	</table>
+	</form>
+
+	
+		<!-- Mozilla work around for focusing on QR in WYSIWYG mode -->
+		<div id="qr_scroll"></div>
+	
+
+	<script type="text/javascript">
+	<!--
+		// initialize quick reply
+		qr_init();
+	//-->
+	</script>
+<!-- / quick reply -->
+
+
+
+<!-- next / previous links -->
+	<br>
+	<div class="smallfont" align="center">
+		<strong>«</strong>
+			<a href="http://forum.sa-mp.com/showthread.php?t=585996&amp;goto=nextoldest" rel="nofollow">Previous Thread</a>
+			|
+			<a href="http://forum.sa-mp.com/showthread.php?t=585996&amp;goto=nextnewest" rel="nofollow">Next Thread</a>
+		<strong>»</strong>
+	</div>
+<!-- / next / previous links -->
+
+
+
+
+
+
+
+<!-- popup menu contents -->
+<br>
+
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="http://forum.sa-mp.com/postings.php?t=585996&amp;pollid=" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/printer.gif" alt="Show Printable Version" title="Show Printable Version"> <a href="http://forum.sa-mp.com/printthread.php?t=585996" accesskey="3" rel="nofollow">Show Printable Version</a></td>
+	</tr>
+	
+	
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/subscribe.gif" alt="Subscription" title="Subscription">
+		
+			<a href="http://forum.sa-mp.com/subscription.php?do=addsubscription&amp;t=585996" rel="nofollow">Subscribe to this Thread</a>
+		
+		</td>
+	</tr>
+	
+	
+	
+	</tbody></table>
+</form>
+</div>
+<!-- / thread tools menu -->
+
+<!-- **************************************************** -->
+
+<!-- thread display mode menu -->
+<div class="vbmenu_popup" id="displaymodes_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Display Modes<a name="goto_displaymodes"></a></td>
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option" title="nohilite"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/mode_linear.gif" alt="Linear Mode" title="Linear Mode"> <strong>Linear Mode</strong></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/mode_hybrid.gif" alt="Hybrid Mode" title="Hybrid Mode"> <a href="http://forum.sa-mp.com/showthread.php?mode=hybrid&amp;t=585996">Switch to Hybrid Mode</a></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/mode_threaded.gif" alt="Threaded Mode" title="Threaded Mode"> <a href="http://forum.sa-mp.com/showthread.php?p=3553859&amp;mode=threaded#post3553859">Switch to Threaded Mode</a></td>
+	
+	</tr>
+	</tbody></table>
+</div>
+<!-- / thread display mode menu -->
+
+<!-- **************************************************** -->
+
+
+<!-- thread search menu -->
+<div class="vbmenu_popup" id="threadsearch_menu" style="display:none">
+<form action="http://forum.sa-mp.com/search.php?do=process&amp;searchthreadid=585996" method="post">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Search this Thread<a name="goto_threadsearch"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option" title="nohilite">
+			<input type="hidden" name="s" value="">
+			<input type="hidden" name="securitytoken" value="1451589103-5bd357fe45a85cba69d68539644428808ea097ca">
+			<input type="hidden" name="do" value="process">
+			<input type="hidden" name="searchthreadid" value="585996">
+			<input type="text" class="bginput" name="query" size="25"><input type="submit" class="button" value="Go"><br>
+		</td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?searchthreadid=585996">Advanced Search</a></td>
+	</tr>
+	</tbody></table>
+</form>
+</div>
+<!-- / thread search menu -->
+
+
+<!-- **************************************************** -->
+
+
+	<!-- thread rating menu -->
+	<div class="vbmenu_popup" id="threadrating_menu" style="display:none">
+	<form action="http://forum.sa-mp.com/threadrate.php?t=585996" method="post" id="showthread_threadrate_form">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead">Rate This Thread<a name="goto_threadrating"></a></td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option" title="nohilite" id="threadrating_options">
+
+			<div><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/rating_5.gif" alt="Excellent" title="Excellent"><label for="vote5"><input type="radio" name="vote" id="vote5" value="5">Excellent</label></div>
+			<div><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/rating_4.gif" alt="Good" title="Good"><label for="vote4"><input type="radio" name="vote" id="vote4" value="4">Good</label></div>
+			<div><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/rating_3.gif" alt="Average" title="Average"><label for="vote3"><input type="radio" name="vote" id="vote3" value="3">Average</label></div>
+			<div><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/rating_2.gif" alt="Bad" title="Bad"><label for="vote2"><input type="radio" name="vote" id="vote2" value="2">Bad</label></div>
+			<div><img class="inlineimg" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/rating_1.gif" alt="Terrible" title="Terrible"><label for="vote1"><input type="radio" name="vote" id="vote1" value="1">Terrible</label></div>
+			</td>
+		</tr>
+		<tr id="threadrating_submit">
+			<td class="vbmenu_option" title="nohilite" align="center">
+				<input type="hidden" name="s" value="">
+				<input type="hidden" name="securitytoken" value="1451589103-5bd357fe45a85cba69d68539644428808ea097ca">
+				<input type="hidden" name="t" value="585996">
+				<input type="hidden" name="pp" value="10">
+				<input type="hidden" name="page" value="1">
+				<input type="button" class="button" value="Vote Now">
+			</td>
+		</tr>
+		
+		</tbody></table>
+	</form>
+	</div>
+	<!-- / thread rating menu -->
+
+	<script type="text/javascript" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/vbulletin_ajax_threadrate.js"></script>
+	<script type="text/javascript">
+	<!--
+	vB_AJAX_ThreadRate_Init('showthread_threadrate_form');
+	var threadid = 585996;
+	//-->
+	</script>
+
+
+<!-- / popup menu contents -->
+
+
+<!-- forum rules and admin links -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr valign="bottom">
+	<td width="100%" valign="top">
+		<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="210">
+<thead>
+<tr>
+	<td class="thead">
+		<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=585996#top" onclick="return toggle_collapse(&#39;forumrules&#39;)"><img id="collapseimg_forumrules" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/collapse_thead.gif" alt="" border="0"></a>
+		Posting Rules
+	</td>
+</tr>
+</thead>
+<tbody id="collapseobj_forumrules" style="">
+<tr>
+	<td class="alt1" nowrap="nowrap"><div class="smallfont">
+		
+		<div>You <strong>may</strong> post new threads</div>
+		<div>You <strong>may</strong> post replies</div>
+		<div>You <strong>may</strong> post attachments</div>
+		<div>You <strong>may</strong> edit your posts</div>
+		<hr>
+		
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode" target="_blank">BB code</a> is <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showsmilies" target="_blank">Smilies</a> are <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode#imgcode" target="_blank">[IMG]</a> code is <strong>On</strong></div>
+		<div>HTML code is <strong>Off</strong></div>
+		<hr>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showrules" target="_blank">Forum Rules</a></div>
+	</div></td>
+</tr>
+</tbody>
+</table>
+	</td>
+	<td class="smallfont" align="right">
+		<table cellpadding="0" cellspacing="0" border="0">
+		
+		<tbody><tr>
+			<td>
+			
+			</td>
+		</tr>
+		</tbody></table>
+	</td>
+</tr>
+</tbody></table>
+<!-- /forum rules and admin links -->
+
+<br>
+
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" width="100%" colspan="5">
+			<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=585996#top" onclick="return toggle_collapse(&#39;similarthreads&#39;)"><img id="collapseimg_similarthreads" src="./[Tutorial] GeoIP and handling rangebans with MySQL - SA-MP Forums_files/collapse_tcat.gif" alt="" border="0"></a>
+			Similar Threads<a name="similarthreads"></a>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_similarthreads" style="">
+<tr class="thead" align="center">
+	<td class="thead" width="40%">Thread</td>
+	<td class="thead" width="15%" nowrap="nowrap">Thread Starter</td>
+	<td class="thead" width="20%">Forum</td>
+	<td class="thead" width="5%">Replies</td>
+	<td class="thead" width="20%">Last Post</td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=495289" title="Hello,  
+I have Geoip include in my gamemode, it does give the ip of players, but not the location, It says : Unknown. 
+I don&#39;t have the plugin of...">GEOip</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Golimad</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Scripting Help</span></td>
+	<td class="alt2" align="center"><span class="smallfont">2</span></td>
+	<td class="alt1" align="right"><span class="smallfont">16/02/2014 <span class="time">07:13 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont">[<span style="font-weight:bold;font-size:8pt;color:#841594;">Pedido</span>] <a href="http://forum.sa-mp.com/showthread.php?t=490978" title="Galera to com um GM aqui GF mais pede a include geoip onde eu acho essa include &#39;-&#39;">Geoip.inc</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">LeandroCQC</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Português/Portuguese</span></td>
+	<td class="alt2" align="center"><span class="smallfont">6</span></td>
+	<td class="alt1" align="right"><span class="smallfont">28/01/2014 <span class="time">11:04 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=319644" title="Hey guys, On my Volt-host account, I tried loading my Gamemode, but it doesn&#39;t load geoip.so, I think I got the updated one, I&#39;m not too sure. But it...">geoip help</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">F9</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Server Support</span></td>
+	<td class="alt2" align="center"><span class="smallfont">7</span></td>
+	<td class="alt1" align="right"><span class="smallfont">20/02/2012 <span class="time">08:57 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=319575" title="Does anyone have geoip.so the latest version, My Volt-host don&#39;t seem to load it. thanks.">geoip.so help</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">F9</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Scripting Help</span></td>
+	<td class="alt2" align="center"><span class="smallfont">2</span></td>
+	<td class="alt1" align="right"><span class="smallfont">19/02/2012 <span class="time">08:21 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=71084" title="Hello 
+ 
+I&#39;ve made an SQLite ban system that stores banned IP&#39;s in the database instead of samp.ban file (which works) 
+However, I were wondering if...">Rangebans in pawn</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Ez</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Help Archive</span></td>
+	<td class="alt2" align="center"><span class="smallfont">2</span></td>
+	<td class="alt1" align="right"><span class="smallfont">29/03/2009 <span class="time">09:02 PM</span></span></td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+
+<script type="text/javascript">ame_toggle_view({other : 'true',post : 'true',blog : 'true',group : 'true',vm : 'true',sig : 'true'});</script>
+
+<br>
+<div class="smallfont" align="center">All times are GMT +1. The time now is <span class="time">08:11 PM</span>.</div>
+<br>
+
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- /content area table -->
+
+<form action="http://forum.sa-mp.com/index.php" method="get" style="clear:left">
+
+<table cellpadding="6" cellspacing="0" border="0" width="90%" class="page" align="center">
+<tbody><tr>
+	
+	
+		<td class="tfoot">
+			<select name="langid" onchange="switch_id(this, &#39;lang&#39;)">
+				<optgroup label="Quick Language Chooser">
+					<option value="1" class="" selected="selected">-- (EN) English</option>
+<option value="3" class="">-- (ES) Español</option>
+<option value="4" class="">-- (RU) &#1056;&#1091;&#1089;&#1089;&#1082;&#1080;</option>
+
+				</optgroup>
+			</select>
+		</td>
+	
+	<td class="tfoot" align="right" width="100%">
+		<div class="smallfont">
+			<strong>
+				<a href="http://forum.sa-mp.com/sendmessage.php" rel="nofollow" accesskey="9">Contact Us</a> -
+				<a href="http://www.sa-mp.com/">SA-MP</a> -
+				
+				
+				<a href="http://forum.sa-mp.com/archive/index.php">Archive</a> -
+				
+				
+				
+				<a href="http://forum.sa-mp.com/showthread.php?t=585996#top" onclick="self.scrollTo(0, 0); return false;">Top</a>
+			</strong>
+		</div>
+	</td>
+</tr>
+</tbody></table>
+
+<br>
+
+<div align="center">
+	<div class="smallfont" align="center">
+	<!-- Do not remove this copyright notice -->
+	Powered by vBulletin® Version 3.8.6<br>Copyright ©2000 - 2015, Jelsoft Enterprises Ltd.
+	<!-- Do not remove this copyright notice -->
+	</div>
+
+	<div class="smallfont" align="center">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+
+	
+	</div>
+</div>
+
+</form>
+
+
+
+
+<script type="text/javascript">
+<!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//-->
+</script>
+
+<!-- temp -->
+<div style="display:none">
+	<!-- thread rate -->
+	
+		<!-- thread ratings form here -->
+	
+	<!-- / thread rate -->
+</div>
+
+
+</body></html>

@@ -1,0 +1,3369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0046)http://forum.sa-mp.com/showthread.php?t=420363 -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	
+<meta name="generator" content="vBulletin 3.8.6">
+
+<meta name="keywords" content="[Tutorial] [MySQL] Table structure and foreign keys, SA-MP, GTA, multiplayer, online, server, pawn, scripting">
+<meta name="description" content="[Tutorial] [MySQL] Table structure and foreign keys Tutorials">
+
+
+<!-- CSS Stylesheet -->
+<style type="text/css" id="vbulletin_css">
+/**
+* vBulletin 3.8.6 CSS
+* Style: 'SAMPStyle'; Style ID: 2
+*/
+body
+{
+	background: #707170;
+	color: #FFFFFFF;
+	font: bold 10pt arial, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 1px 1px 1px 1px;
+	padding: 1px;
+}
+a:link, body_alink
+{
+	color: #4A627F;
+	text-decoration: none;
+}
+a:visited, body_avisited
+{
+	color: #1A425F;
+	text-decoration: none;
+}
+a:hover, a:active, body_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.page
+{
+	background: #DADADB;
+	color: #000000;
+}
+td, th, p, li
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tborder
+{
+	background: #DFDFDF;
+	color: #000000;
+	border: 1px solid #717171;
+}
+.tcat
+{
+	background: #4F4F4F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tcat a:link, .tcat_alink
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:visited, .tcat_avisited
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:hover, .tcat a:active, .tcat_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.thead
+{
+	background: #3F3F3F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.thead a:link, .thead_alink
+{
+	color: #FFFFFF;
+}
+.thead a:visited, .thead_avisited
+{
+	color: #FFFFFF;
+}
+.thead a:hover, .thead a:active, .thead_ahover
+{
+	color: #E76006;
+}
+.tfoot
+{
+	background: #595959;
+	color: #CDCDCD;
+}
+.tfoot a:link, .tfoot_alink
+{
+	color: #CDCDCD;
+}
+.tfoot a:visited, .tfoot_avisited
+{
+	color: #9D9D9D;
+}
+.tfoot a:hover, .tfoot a:active, .tfoot_ahover
+{
+	color: #E76006;
+}
+.alt1, .alt1Active
+{
+	background: #F6F6F6;
+	color: #000000;
+}
+.alt2, .alt2Active
+{
+	background: #EAEAEB;
+	color: #000000;
+}
+.inlinemod
+{
+	background: #FFFFCC;
+	color: #000000;
+}
+.wysiwyg
+{
+	background: #F5F5F5;
+	color: #000000;
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 5px 10px 10px 10px;
+	padding: 0px;
+}
+.wysiwyg a:link, .wysiwyg_alink
+{
+	color: #22229C;
+}
+.wysiwyg a:visited, .wysiwyg_avisited
+{
+	color: #22229C;
+}
+.wysiwyg a:hover, .wysiwyg a:active, .wysiwyg_ahover
+{
+	color: #E76006;
+}
+textarea, .bginput
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.bginput option, .bginput optgroup
+{
+	font-size: 10pt;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.button
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+select
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+option, optgroup
+{
+	font-size: 11px;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.smallfont
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.time
+{
+	color: #666686;
+}
+.navbar
+{
+	font: 12pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.highlight
+{
+	color: #FF0000;
+	font-weight: bold;
+}
+.fjsel
+{
+	background: #3E5C92;
+	color: #E0E0F6;
+}
+.fjdpth0
+{
+	background: #F7F7F7;
+	color: #000000;
+}
+.panel
+{
+	background: #F5F5F5;
+	color: #000000;
+	padding: 10px;
+	border: 1px;
+}
+.panelsurround
+{
+	background: #F5F5F5;
+	color: #000000;
+}
+legend
+{
+	color: #222222;
+	font: 11px tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.vbmenu_control
+{
+	background: #777777;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	padding: 3px 6px 3px 6px;
+	white-space: nowrap;
+}
+.vbmenu_control a:link, .vbmenu_control_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:visited, .vbmenu_control_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:hover, .vbmenu_control a:active, .vbmenu_control_ahover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+.vbmenu_popup
+{
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #0B198C;
+}
+.vbmenu_option
+{
+	background: #444444;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_option a:link, .vbmenu_option_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:visited, .vbmenu_option_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:hover, .vbmenu_option a:active, .vbmenu_option_ahover
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_hilite
+{
+	background: #F37016;
+	color: #000000;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_hilite a:link, .vbmenu_hilite_alink
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:visited, .vbmenu_hilite_avisited
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:hover, .vbmenu_hilite a:active, .vbmenu_hilite_ahover
+{
+	color: #000000;
+	text-decoration: none;
+}
+/* ***** styling for 'big' usernames on postbit etc. ***** */
+.bigusername { font-size: 14pt; }
+
+/* ***** small padding on 'thead' elements ***** */
+td.thead, th.thead, div.thead { padding: 4px; }
+
+/* ***** basic styles for multi-page nav elements */
+.pagenav a { text-decoration: none; }
+.pagenav td { padding: 2px 4px 2px 4px; }
+
+/* ***** de-emphasized text */
+.shade, a.shade:link, a.shade:visited { color: #777777; text-decoration: none; }
+a.shade:active, a.shade:hover { color: #FF4400; text-decoration: underline; }
+.tcat .shade, .thead .shade, .tfoot .shade { color: #DDDDDD; }
+
+/* ***** define margin and font-size for elements inside panels ***** */
+.fieldset { margin-bottom: 6px; }
+.fieldset, .fieldset td, .fieldset p, .fieldset li { font-size: 11px; }
+</style>
+<link rel="stylesheet" type="text/css" href="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/vbulletin_important.css">
+
+
+<!-- / CSS Stylesheet -->
+
+<script type="text/javascript" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/yahoo-dom-event.js"></script><style type="text/css"></style>
+<script type="text/javascript" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/connection-min.js"></script>
+<script type="text/javascript">
+<!--
+var SESSIONURL = "";
+var SECURITYTOKEN = "1451585078-33807a1d231892dfb4e1753a752658b91d8a9da1";
+var IMGDIR_MISC = "images/misc";
+var vb_disable_ajax = parseInt("0", 10);
+// -->
+</script>
+<script type="text/javascript" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/vbulletin_global.js"></script>
+<script type="text/javascript" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/vbulletin_menu.js"></script>
+
+
+	<link rel="alternate" type="application/rss+xml" title="SA-MP Forums RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2">
+	
+		<link rel="alternate" type="application/rss+xml" title="SA-MP Forums - Tutorials - RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2&amp;forumids=70">
+	
+<script type="text/javascript" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/ame.js"></script><!-- Editor CSS automatically added by functions_editor.php at line 680 -->
+<!-- Editor Styles -->
+<style type="text/css" id="vbulletin_editor_css_dynamic">
+<!--
+@import url("clientscript/vbulletin_editor.css?v=387");
+
+.vBulletin_editor {
+	background: #E1E1E2;
+	padding: 6px;
+}
+.imagebutton {
+	background: #E1E1E2;
+	color: #000000;
+	padding: 1px;
+	border: none;
+}
+.ocolor, .ofont, .osize, .osmilie, .osyscoloar, .smilietitle {
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #FFFFFF;
+}
+.popup_pickbutton {
+	border: 1px solid #FFFFFF;
+}
+.popup_feedback {
+	background: #FFFFFF;
+	color: #000000;
+	border-right: 1px solid #FFFFFF;
+}
+.popupwindow {
+	background: #FFFFFF;
+}
+#fontOut, #sizeOut, .popup_feedback div {
+	background: #FFFFFF;
+	color: #000000;
+}
+.alt_pickbutton {
+	border-left: 1px solid #E1E1E2;
+}
+.popup_feedback input, .popup_feedback div
+{
+	border: 0px solid;
+	padding: 0px 2px 0px 2px;
+	cursor: default;
+	font: 11px tahoma;
+	overflow: hidden;
+}
+-->
+</style>
+<!-- / Editor Styles -->
+	<title>[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums</title>
+	<script type="text/javascript" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/vbulletin_post_loader.js"></script>
+	<style type="text/css" id="vbulletin_showthread_css">
+	<!--
+	
+	#links div { white-space: nowrap; }
+	#links img { vertical-align: middle; }
+	-->
+	</style>
+</head>
+<body onload="">
+<!-- logo -->
+<a name="top"></a>
+<center><div align="center" style="height: 80px; width: 90%; background: transparent url(http://forum.sa-mp.com/logo_new_back3.png) repeat-x 0px 0px; text-align:center;">
+<table border="0" width="90%" cellpadding="0" cellspacing="0" align="center">
+<tbody><tr>
+	<td align="center"><a href="http://forum.sa-mp.com/index.php"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/logo_forum.gif" border="0" alt="SA-MP Forums" title="SA-MP Forums"></a></td>
+</tr>
+</tbody></table>
+</div></center>
+<!-- /logo -->
+
+<!-- content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+
+
+
+
+<br>
+
+<!-- breadcrumb, login, pm info -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<tbody><tr>
+	<td class="alt1" width="100%">
+		
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr valign="bottom">
+				<td><a href="http://forum.sa-mp.com/showthread.php?t=420363#" onclick="history.back(1); return false;"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/navbits_start.gif" alt="Go Back" border="0" title="Go Back"></a></td>
+				<td>&nbsp;</td>
+				<td width="100%"><span class="navbar"><a href="http://forum.sa-mp.com/index.php" accesskey="1">SA-MP Forums</a></span> 
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=8">SA-MP Scripting and Plugins</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=12">Scripting Help</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=70">Tutorials</a></span>
+
+</td>
+			</tr>
+			<tr>
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums.html"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/navbits_finallink_ltr.gif" alt="Reload this Page" border="0" title="Reload this Page"></a> <strong>
+	[<span style="font-weight:bold;font-size:8pt;color:#841594;">Tutorial</span>] [MySQL] Table structure and foreign keys
+
+</strong></td>
+			</tr>
+			</tbody></table>
+		
+	</td>
+
+	<td class="alt2" nowrap="nowrap">
+	<div class="smallfont">
+		<strong>Welcome, <a href="http://forum.sa-mp.com/member.php?u=234935">VincenzoDrift</a>.</strong><br>
+		You last visited: 31/12/2015 at <span class="time">02:27 PM</span>
+
+		
+			<div><a href="http://forum.sa-mp.com/private.php">Private Messages</a>: Unread 0, Total 0.</div>
+		
+
+		
+	</div>
+	</td>
+
+</tr>
+</tbody></table>
+<!-- / breadcrumb, login, pm info -->
+
+<!-- nav buttons bar -->
+<div class="tborder" style="padding:1px; border-top-width:0px">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+	<tbody><tr align="center">
+		
+			<td class="vbmenu_control"><a href="http://forum.sa-mp.com/usercp.php">User CP</a></td>
+		
+		
+		
+		
+			<td class="vbmenu_control"><a id="community" href="http://forum.sa-mp.com/showthread.php?t=420363&amp;nojs=1#community" rel="nofollow" accesskey="6" style="cursor: pointer;">Community <img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("community"); </script></td>
+		
+		
+			
+				
+				<td class="vbmenu_control"><a href="http://forum.sa-mp.com/search.php?do=getnew" accesskey="2">New Posts</a></td>
+				
+				<td class="vbmenu_control"><a id="navbar_search" href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow" style="cursor: pointer;">Search <img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("navbar_search"); </script></td>
+			
+			
+				<td class="vbmenu_control"><a id="usercptools" href="http://forum.sa-mp.com/showthread.php?t=420363&amp;nojs=1#usercptools" accesskey="3" style="cursor: pointer;">Quick Links <img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("usercptools"); </script></td>
+			
+		
+		
+		
+			<td class="vbmenu_control"><a href="http://forum.sa-mp.com/login.php?do=logout&amp;logouthash=1451585078-33807a1d231892dfb4e1753a752658b91d8a9da1" onclick="return log_out(&#39;Are you sure you want to log out?&#39;)">Log Out</a></td>
+		
+		</tr>
+	</tbody></table>
+</div>
+<!-- / nav buttons bar -->
+
+<br>
+
+
+
+
+
+
+<!-- NAVBAR POPUP MENUS -->
+
+	
+	<!-- community link menu -->
+	<div class="vbmenu_popup" id="community_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr><td class="thead">Community Links</td></tr>
+		
+		
+		
+		
+			<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=buddylist">Contacts &amp; Friends</a></td></tr>
+		
+		
+			<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/memberlist.php">Members List</a></td></tr>
+		
+		
+		</tbody></table>
+	</div>
+	<!-- / community link menu -->
+	
+	
+	
+	<!-- header quick search form -->
+	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead">Search Forums</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+				<form action="http://forum.sa-mp.com/search.php?do=process" method="post">
+
+					<input type="hidden" name="do" value="process">
+					<input type="hidden" name="quicksearch" value="1">
+					<input type="hidden" name="childforums" value="1">
+					<input type="hidden" name="exactname" value="1">
+					<input type="hidden" name="s" value="">
+					<input type="hidden" name="securitytoken" value="1451585078-33807a1d231892dfb4e1753a752658b91d8a9da1">
+					<div><input type="text" class="bginput" name="query" size="25" tabindex="1001"><input type="submit" class="button" value="Go" tabindex="1004"></div>
+					<div style="margin-top:6px">
+						<label for="rb_nb_sp0"><input type="radio" name="showposts" value="0" id="rb_nb_sp0" tabindex="1002" checked="checked">Show Threads</label>
+						&nbsp;
+						<label for="rb_nb_sp1"><input type="radio" name="showposts" value="1" id="rb_nb_sp1" tabindex="1003">Show Posts</label>
+					</div>
+				</form>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow">Advanced Search</a></td>
+		</tr>
+		
+		</tbody></table>
+	</div>
+	<!-- / header quick search form -->
+	
+	
+	
+	<!-- user cp tools menu -->
+	<div class="vbmenu_popup" id="usercptools_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+
+		<tbody><tr><td class="thead">Quick Links</td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=getdaily">Today's Posts</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/forumdisplay.php?do=markread&amp;markreadhash=1451585078-33807a1d231892dfb4e1753a752658b91d8a9da1">Mark Forums Read</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/showthread.php?t=420363#" onclick="window.open(&#39;misc.php?do=buddylist&amp;focus=1&#39;,&#39;buddylist&#39;,&#39;statusbar=no,menubar=no,toolbar=no,scrollbars=yes,resizable=yes,width=250,height=300&#39;); return false;">Open Contacts Popup</a></td></tr>
+		
+		
+
+		<tr><td class="thead"><a href="http://forum.sa-mp.com/usercp.php">User Control Panel</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editsignature">Edit Signature</a></td></tr>
+		<!--<tr><td class="vbmenu_option"><a href="profile.php?do=editavatar">Edit Avatar</a></td></tr>-->
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editprofile">Edit Your Details</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editoptions">Edit Options</a></td></tr>
+		
+
+		<tr><td class="thead">Miscellaneous</td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php" rel="nofollow">Private Messages</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/subscription.php" rel="nofollow">Subscribed Threads</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=234935">Your Profile</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/online.php">Who's Online</a></td></tr>
+		
+
+		</tbody></table>
+	</div>
+	<!-- / user cp tools menu -->
+
+	
+<!-- / NAVBAR POPUP MENUS -->
+
+<!-- PAGENAV POPUP -->
+	<div class="vbmenu_popup" id="pagenav_menu" style="display: none; position: absolute; z-index: 50;">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead" nowrap="nowrap">Go to Page...</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="">
+			<form action="http://forum.sa-mp.com/index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4">
+				<input type="button" class="button" id="pagenav_ibtn" value="Go">
+			</form>
+			</td>
+		</tr>
+		</tbody></table>
+	</div>
+<!-- / PAGENAV POPUP -->
+
+
+
+
+
+
+
+
+
+
+<a name="poststop" id="poststop"></a>
+
+<!-- controls above postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tbody><tr valign="bottom">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;noquote=1&amp;p=2412206" rel="nofollow"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tbody><tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 3</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 10 of 29"><strong>1</strong></span></td>
+ <td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=420363&amp;page=2" title="Show results 11 to 20 of 29">2</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=420363&amp;page=3" title="Show results 21 to 29 of 29">3</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=420363&amp;page=2" title="Next Page - Results 11 to 20 of 29">&gt;</a></td>
+	
+	<td class="vbmenu_control" title="" id="pagenav.41" style="cursor: pointer;"> <img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></td>
+</tr>
+</tbody></table>
+</div></td>
+</tr>
+</tbody></table>
+<!-- / controls above postbits -->
+
+<!-- toolbar -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center" style="border-bottom-width:0px">
+<tbody><tr>
+	<td class="tcat" width="100%">
+		<div class="smallfont">
+		
+		&nbsp;
+		</div>
+	</td>
+	<td class="vbmenu_control" id="threadtools" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=420363&amp;nojs=1#goto_threadtools">Thread Tools</a>
+		<script type="text/javascript"> vbmenu_register("threadtools"); </script> <img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+		<td class="vbmenu_control" id="threadsearch" nowrap="nowrap" style="cursor: pointer;">
+			<a href="http://forum.sa-mp.com/showthread.php?t=420363&amp;nojs=1#goto_threadsearch">Search this Thread</a>
+			<script type="text/javascript"> vbmenu_register("threadsearch"); </script> <img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+		</td>
+	
+	
+		<td class="vbmenu_control" id="threadrating" nowrap="nowrap" style="cursor: pointer;">
+			<a href="http://forum.sa-mp.com/showthread.php?t=420363&amp;nojs=1#goto_threadrating"><span id="threadrating_current">Rating: <img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/rating_4.gif" alt="Thread Rating: 4 votes, 4.00 average." border="0" title="Thread Rating: 4 votes, 4.00 average."></span></a>
+			<script type="text/javascript"> vbmenu_register("threadrating"); </script> <img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+		</td>
+	
+	
+	<td class="vbmenu_control" id="displaymodes" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=420363&amp;nojs=1#goto_displaymodes">Display Modes</a>
+		<script type="text/javascript"> vbmenu_register("displaymodes"); </script> <img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+
+	
+
+</tr>
+</tbody></table>
+<!-- / toolbar -->
+
+
+
+<!-- end content table -->
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- / end content table -->
+
+
+
+
+<script type="text/javascript" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/vbulletin_ajax_reputation.js"></script>
+
+
+<div id="posts"><!-- post #2412206 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2412206" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2412206" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2412206"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			04/03/2013, 07:19 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2412206&amp;postcount=1" target="new" rel="nofollow" id="postcount2412206" name="1"><strong>1</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2412206">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=13347">Vince</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2412206", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Godfather</div>
+			<div class="smallfont"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=13347"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/image.php" width="80" height="80" alt="Vince&#39;s Avatar" border="0" title="Vince&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Sep 2007</div>
+				<div>Location: Belgium</div>
+				
+				
+				
+<div>
+  Posts: 8,890
+</div>
+
+<div>Reputation: 2152</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2412206" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>[MySQL] Table structure and foreign keys</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2412206">
+			
+			<font color="DimGray"><u><font color="Orange"><font size="5"><b>MySQL Table designs and foreign keys</b></font></font></u></font><br>
+<br>
+<font color="DimGray"><u><font color="Orange"><font size="4">Introduction</font></font></u></font><br>
+So apparently many people want to use MySQL, but they have no idea on how to properly design a table structure. MySQL is an RDB. Relational Database. With the emphasis on that first word. Make relations! Too many people try to make a large gamemode with one, or maybe two tables. No!<br>
+<br>
+<font color="DarkRed">Note: This tutorial assumes that you are familiar with database terminology. Words like database, record, field, table, key, etc .. should not appear foreign to you.<br>
+Note 2: Your database must be running on the <b>InnoDB</b> engine. Foreign keys do not work with MyISAM.</font><br>
+<br>
+<font color="DimGray"><u><font color="Orange"><font size="4">More rows, less fields</font></font></u></font><br>
+Generally speaking, if you need to add a number to a field name then you're doing it wrong. Creating fields for something like color1, color2 for car colors is fine. Doing something like carmod1, carmod2, ... carmod13 is not. At any moment a vehicle may have 1 to 13 mods applied, but it will always have only 2 colors.<br>
+<br>
+<font color="DimGray"><u><font color="Orange"><font size="4">More tables</font></font></u></font><br>
+This is where relations come in. To optimize the example I just showed you, we will need two tables. The main table - we will call this the parent table - will store the vehicle's main information like spawnpos, modelid and so on. The second table - the child table - only contains the carmods, in addition to a reference to the parent table.<br>
+<br>
+<font color="DimGray"><font color="Orange"><font size="3">Parent table structure</font></font></font><br>
+Table name: vehicle_info<br>
+Structure:<br>
+<div align="center"><br>
+<table>	<tbody><tr>		<td class="alt2"><b>Field name</b></td>		<td class="alt2">r_id</td>		<td class="alt2">modelid</td>		<td class="alt2">spawnx</td>		<td class="alt2">spawny</td>		<td class="alt2">spawnz</td>		<td class="alt2">spawna</td>		<td class="alt2">col1</td>		<td class="alt2">col2</td>	</tr>	<tr>		<td class="alt2"><b>Field type</b></td>		<td class="alt2">int(11)</td>		<td class="alt2">smallint(3)</td>		<td class="alt2">float</td>		<td class="alt2">float</td>		<td class="alt2">float</td>		<td class="alt2">float</td>		<td class="alt2">tinyint(3)</td>		<td class="alt2">tinyint(3)</td>	</tr>	<tr>		<td class="alt2"><b>Attributes</b></td>		<td class="alt2">			<ul><li>unsigned</li><li>not null</li><li>auto_increment</li><li>primary_key			</li></ul>		</td>		<td class="alt2">			<ul><li>unsigned</li><li>not null			</li></ul>		</td>		<td class="alt2"><ul><li>not null</li></ul></td>		<td class="alt2"><ul><li>not null</li></ul></td>		<td class="alt2"><ul><li>not null</li></ul></td>		<td class="alt2"><ul><li>not null</li></ul></td>		<td class="alt2">			<ul><li>unsigned</li><li>not null			</li></ul>		</td>		<td class="alt2">			<ul><li>unsigned</li><li>not null			</li></ul>		</td>	</tr></tbody></table></div><br>
+You will notice that I'm not using the generic integer type. Using smaller types saves space in the long run. An unsigned tinyint can save values between 0 and 255, which is just enough for the amount of carcolors there are.<br>
+<br>
+<font color="DimGray"><font color="Orange"><font size="3">Child table structure</font></font></font><br>
+Table name: vehicle_mods<br>
+Structure:<br>
+<div align="center"><br>
+<table>	<tbody><tr>		<td class="alt2"><b>Field name</b></td>		<td class="alt2">r_id</td>		<td class="alt2">mod_model</td>	</tr>		<tr>		<td class="alt2"><b>Field type</b></td>		<td class="alt2">int(11)</td>		<td class="alt2">smallint(5)</td>	</tr>		<tr>		<td class="alt2"><b>Attributes</b></td>		<td class="alt2">			<ul><li>unsigned</li><li>primary key			</li></ul>		</td>		<td class="alt2">			<ul><li>unsigned</li><li>primary key			</li></ul>		</td>	</tr></tbody></table></div><br>
+You see that this design is much more compact as we now only need 2 fields instead of 13. When a mod is added to a vehicle a row is inserted into the table. Similarly, when a mod is deleted from the vehicle, the corresponding row is deleted from the table.<br>
+<br>
+Since each row is unique (a vehicle can't have the same mod applied twice) we will use both fields as the primary key. This will prevent duplicate entires.<br>
+<br>
+<font color="DimGray"><u><font color="Orange"><font size="4">Creating relations</font></font></u></font><br>
+Now, up to creating the relation between the tables. If a vehicle is deleted then we don't want orphaned rows in the child table (that is: referencing a vehicle that doesn't exist in the parent table). The most obvious way would be to send a query to delete these rows, right? Wrong. MySQL can automatically delete (or update) these rows when the referenced row in the parent table is deleted (or updated).<br>
+<br>
+The child table always references the parent table, so that makes up for this query:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">PHP Code:</div>
+	<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">
+		<code style="white-space:nowrap">
+			<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB">ALTER&nbsp;TABLE&nbsp;vehicle_mods&nbsp;
+<br>ADD&nbsp;FOREIGN&nbsp;KEY&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">r_id</span><span style="color: #007700">)&nbsp;
+<br></span><span style="color: #0000BB">REFERENCES&nbsp;vehicle_info&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">r_id</span><span style="color: #007700">)&nbsp;
+<br></span><span style="color: #0000BB">ON&nbsp;UPDATE&nbsp;CASCADE&nbsp;
+<br>ON&nbsp;DELETE&nbsp;CASCADE&nbsp;
+<br></span>
+</span>
+</code><!-- php buffer end -->
+		</code>
+	</div>
+</div>The relation may also be added directly when the table is created by using REFERENCES ... after the field declaration. The type and attributes of the fields that are being linked must be exactly the same, otherwise it won't work. There also may not be any data in the table that would conflict with the creation of the key.<br>
+<br>
+There are four types of clauses you can use for ON DELETE and ON UPDATE:<ul><li>RESTRICT:  Trying to delete or update a referenced key in the parent table will fail as long as there are still records in the child table that are linking to the key in the parent table. This is the default.</li>
+<li>NO ACTION: Same as restrict</li>
+<li>CASCADE: If the referenced key is updated or deleted in the parent table then the change will be reflected to the child table. Best option, usually.</li>
+<li>SET NULL: If the referenced key is updated or deleted in the parent table then the engine will set the referee keys to NULL. This requires that the field accepts NULL values. Not very useful.</li>
+</ul><br>
+Be VERY careful with ON DELETE CASCADE, though. For example, if you're linking a user to a house: if the user is deleted then the house is also deleted. Most likely not what you want.<br>
+<br>
+<font color="DimGray"><u><font color="Orange"><font size="4">Verification</font></font></u></font><br>
+To verify that stuff works, put some data in both tables. Start with the parent table. Use the r_id that you just obtained - by means of auto_increment - to insert stuff into the child table. Now delete the row in the parent table. If all went well, the corresponding row in the child table should have vanished.<br>
+<br>
+<font color="DimGray"><u><font color="Orange"><font size="4">Lastly ...</font></font></u></font><br>
+Ironically, although this tutorial is about database design, the design of this thread leaves much to be desired. Please let me know if you have any questions, or additions.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><i><font color="DimGray">Excuse my sometimes rude or cynical replies. One's personality is hard to change.</font></i><br>
+<br>
+[<b><font color="Purple">Tutorial</font></b>] Database normalization: <a href="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums.html" target="_blank"><b><font color="Purple">Part 1</font></b></a> - <a href="http://forum.sa-mp.com/showthread.php?t=505081" target="_blank"><b><font color="Purple">Part 2</font></b></a> - <a href="http://forum.sa-mp.com/showthread.php?t=585996" target="_blank"><b><font color="Purple">Part 3</font></b></a></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+		<!-- edit note -->
+			<div class="smallfont">
+				<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+				<em>
+					
+						Last edited by Vince; 20/11/2015 at <span class="time">08:05 PM</span>.
+					
+					
+						Reason: Update: index -&gt; primary key
+					
+				</em>
+			</div>
+		<!-- / edit note -->
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/user_offline.gif" alt="Vince is offline" border="0" title="Vince is offline">
+
+
+		
+			<span id="reputationmenu_2412206"><a href="http://forum.sa-mp.com/reputation.php?p=2412206" rel="nofollow" id="reputation_2412206"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/reputation.png" alt="Add to Vince&#39;s Reputation" border="0" title="Add to Vince&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2412206")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2412206" rel="nofollow"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2412206" rel="nofollow"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2412206" rel="nofollow" onclick="return false"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2412206" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2412206" rel="nofollow" id="qr_2412206" onclick="return false"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2412206 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2412206_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Vince</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=13347">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=13347" rel="nofollow">Send a private message to Vince</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=13347" rel="nofollow">Find More Posts by Vince</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=13347">Add Vince to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2412206 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2412206 --><!-- post #2412233 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2412233" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2412233" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2412233"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			04/03/2013, 07:35 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2412233&amp;postcount=2" target="new" rel="nofollow" id="postcount2412233" name="2"><strong>2</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2412233">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=55934">Misiur</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2412233", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=55934"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/image(1).php" width="80" height="60" alt="Misiur&#39;s Avatar" border="0" title="Misiur&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Jul 2009</div>
+				<div>Location: Poland</div>
+				
+				
+				
+<div>
+  Posts: 1,981
+</div>
+
+<div>Reputation: 345</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2412233" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [MySQL] Table structure and foreign keys</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2412233">
+			
+			Good tutorial. SERIAL alias is nice for ids (however it uses bigint, so your is better for most cases). One thing though: NO ACTION - it really means same thing as restrict?<br>
+<br>
+#sidenote:<br>
+Example of fetching related data in single query (all mods for vehicle at specific spawnpoint)<br>
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				SELECT t0.mod_model FROM `vehicle_mods` t0 LEFT JOIN `vehicle_info` t1 ON t1.r_id = t0.r_id<br>
+WHERE t1.spawnx = %.2f AND t1.spawny = %.2f AND t1.spawnz = %.2f
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div>Load vehicle models and check optionally if the vehicle has mod with id 512351<br>
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				SELECT vi.r_id, vi.modelid, vm.mod_model FROM `vehicle_info` vi LEFT JOIN `vehicle_mods` vm ON vm.r_id = vi.r_id AND vm.mod_model = 512351
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div>Yup - no where clause, or it won't return vehicle data. If there isn't mod with id 512351, then the vm.mod_model will return null.<br>
+<br>
+Moar info to be found via google.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<b>All YSI threads on this forum were originally written by Y_Less</b><br>
+<br>
+<a href="http://misiur.github.io/" target="_blank">My tech blog - upcoming pawn tutorials: MySQL handling, YSI (y_commands, y_inline, y_malloc, y_stringhash and much more)</a><br>
+<a href="http://misiur.github.io/2015/03/07/y_iterate-aka-foreach-what-is-it-and-how-to-use-it/" target="_blank">y_iterate - how to use it for your benefit</a><br>
+<a href="http://misiur.github.io/2015/03/13/y_iterate-y_hooks-y_utils-and-best-coding-practices-case-study/" target="_blank">Improving your gamemode step by step</a><br>
+<a href="http://misiur.github.io/2015/03/23/y_groups-making-factions-in-sa-mp-has-never-been-easier/" target="_blank">Power of sscanf and y_groups combined</a><br>
+<a href="http://misiur.github.io/2015/04/23/y_lesss-decision/" target="_blank">Latest article: Y_Less</a>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/user_offline.gif" alt="Misiur is offline" border="0" title="Misiur is offline">
+
+
+		
+			<span id="reputationmenu_2412233"><a href="http://forum.sa-mp.com/reputation.php?p=2412233" rel="nofollow" id="reputation_2412233"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/reputation.png" alt="Add to Misiur&#39;s Reputation" border="0" title="Add to Misiur&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2412233")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2412233" rel="nofollow"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2412233" rel="nofollow"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2412233" rel="nofollow" onclick="return false"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2412233" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2412233" rel="nofollow" id="qr_2412233" onclick="return false"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2412233 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2412233_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Misiur</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=55934">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=55934" rel="nofollow">Send a private message to Misiur</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=55934" rel="nofollow">Find More Posts by Misiur</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=55934">Add Misiur to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2412233 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2412233 --><!-- post #2412293 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2412293" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2412293" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2412293"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			04/03/2013, 08:00 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2412293&amp;postcount=3" target="new" rel="nofollow" id="postcount2412293" name="3"><strong>3</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2412293">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=47313">KyleSmith</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2412293", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=47313"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/image(2).php" width="77" height="80" alt="KyleSmith&#39;s Avatar" border="0" title="KyleSmith&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Mar 2009</div>
+				<div>Location: United Kingdom</div>
+				
+				
+				
+<div>
+  Posts: 2,266
+</div>
+
+<div>Reputation: 271</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2412293" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [MySQL] Table structure and foreign keys</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2412293">
+			
+			Nice, I was hoping you would make this for foreign keys...<br>
+<br>
+Edit: I was hoping that you would do the tutorial based on 2 tables such as one for `users` and one for `playerweapons` which are two tables...
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/user_offline.gif" alt="KyleSmith is offline" border="0" title="KyleSmith is offline">
+
+
+		
+			<span id="reputationmenu_2412293"><a href="http://forum.sa-mp.com/reputation.php?p=2412293" rel="nofollow" id="reputation_2412293"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/reputation.png" alt="Add to KyleSmith&#39;s Reputation" border="0" title="Add to KyleSmith&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2412293")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2412293" rel="nofollow"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2412293" rel="nofollow"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2412293" rel="nofollow" onclick="return false"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2412293" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2412293" rel="nofollow" id="qr_2412293" onclick="return false"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2412293 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2412293_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">KyleSmith</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=47313">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=47313" rel="nofollow">Send a private message to KyleSmith</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.copsandrobbersrpg.com/">Visit KyleSmith's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=47313" rel="nofollow">Find More Posts by KyleSmith</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=47313">Add KyleSmith to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2412293 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2412293 --><!-- post #2412430 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2412430" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2412430" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2412430"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			04/03/2013, 09:26 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2412430&amp;postcount=4" target="new" rel="nofollow" id="postcount2412430" name="4"><strong>4</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2412430">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=80385">RealCop228</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2412430", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Godfather</div>
+			<div class="smallfont"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Feb 2010</div>
+				<div>Location: Springboro, OH</div>
+				
+				
+				
+<div>
+  Posts: 8,179
+</div>
+
+<div>Reputation: 684</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2412430" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [MySQL] Table structure and foreign keys</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2412430">
+			
+			Finally someone who understands the REAL uses of MySQL!<br>
+<br>
+Nice tutorial, Vince!
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/user_offline.gif" alt="RealCop228 is offline" border="0" title="RealCop228 is offline">
+
+
+		
+			<span id="reputationmenu_2412430"><a href="http://forum.sa-mp.com/reputation.php?p=2412430" rel="nofollow" id="reputation_2412430"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/reputation.png" alt="Add to RealCop228&#39;s Reputation" border="0" title="Add to RealCop228&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2412430")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2412430" rel="nofollow"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2412430" rel="nofollow"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2412430" rel="nofollow" onclick="return false"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2412430" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2412430" rel="nofollow" id="qr_2412430" onclick="return false"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2412430 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2412430_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">RealCop228</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=80385">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=80385" rel="nofollow">Send a private message to RealCop228</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://infinitumgaming.com/forum">Visit RealCop228's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=80385" rel="nofollow">Find More Posts by RealCop228</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=80385">Add RealCop228 to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2412430 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2412430 --><!-- post #2413824 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2413824" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2413824" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2413824"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			05/03/2013, 09:00 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2413824&amp;postcount=5" target="new" rel="nofollow" id="postcount2413824" name="5"><strong>5</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2413824">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=63576">nGen.SoNNy</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2413824", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Gangsta</div>
+			<div class="smallfont"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=63576"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/image(3).php" width="80" height="80" alt="nGen.SoNNy&#39;s Avatar" border="0" title="nGen.SoNNy&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Sep 2009</div>
+				<div>Location: Vaslui, Romania</div>
+				
+				
+				
+<div>
+  Posts: 941
+</div>
+
+<div>Reputation: 61</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2413824" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [MySQL] Table structure and foreign keys</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2413824">
+			
+			Really nice job and I like verry much that thing with the child table xD. I learned about things like this at school but only in microsoft office <img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/smile.png" border="0" alt="" title="Smiley" class="inlineimg">)
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><a href="http://forum.rse-samp.com/" target="_blank"><b>Forums</b></a><b> | <a href="http://rse-samp.com/" target="_blank">Home</a> | <a href="https://www.youtube.com/user/StuntEvolutionSAMP" target="_blank">YouTube</a></b></div><div align="center"><table><tbody><tr><td class="alt2"><b>If i've helped you, please click <a href="http://forum.sa-mp.com/reputation.php?p=1619983" target="_blank"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/reputation.png" border="0" alt=""></a></b></td></tr></tbody></table><a href="http://fixedroleplay.com/" target="_blank"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/saved_resource" border="0" alt=""></a></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/user_offline.gif" alt="nGen.SoNNy is offline" border="0" title="nGen.SoNNy is offline">
+
+
+		
+			<span id="reputationmenu_2413824"><a href="http://forum.sa-mp.com/reputation.php?p=2413824" rel="nofollow" id="reputation_2413824"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/reputation.png" alt="Add to nGen.SoNNy&#39;s Reputation" border="0" title="Add to nGen.SoNNy&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2413824")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2413824" rel="nofollow"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2413824" rel="nofollow"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2413824" rel="nofollow" onclick="return false"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2413824" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2413824" rel="nofollow" id="qr_2413824" onclick="return false"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2413824 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2413824_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">nGen.SoNNy</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=63576">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=63576" rel="nofollow">Send a private message to nGen.SoNNy</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://sa-mp.com/">Visit nGen.SoNNy's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=63576" rel="nofollow">Find More Posts by nGen.SoNNy</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=63576">Add nGen.SoNNy to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2413824 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2413824 --><!-- post #2414602 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2414602" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2414602" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2414602"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			06/03/2013, 02:48 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2414602&amp;postcount=6" target="new" rel="nofollow" id="postcount2414602" name="6"><strong>6</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2414602">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=114165">Stylock</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2414602", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Huge Clucker</div>
+			<div class="smallfont"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=114165"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/image(4).php" width="80" height="80" alt="Stylock&#39;s Avatar" border="0" title="Stylock&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Dec 2010</div>
+				
+				
+				
+				
+<div>
+  Posts: 325
+</div>
+
+<div>Reputation: 137</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2414602" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [MySQL] Table structure and foreign keys</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2414602">
+			
+			One of the best MySQL tuts around, but I think it's missing a few essential things: <ul><li>relationship types</li>
+<li>foreign key indexing</li>
+<li>clustered index</li>
+</ul>I've been taught that every table should have a clustered index, especially when foreign keys are involved. A useful quote: <br>
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				<div>
+					Originally Posted by <strong>Brad McGehee</strong>
+					
+				</div>
+				<div style="font-style:italic">As a rule of thumb, every table should have a clustered index. Generally, but not always, the clustered index should be on a column that monotonically increases–such as an identity column, or some other column where the value is increasing–and is unique. In many cases, the primary key is the ideal column for a clustered index.<br>
+<a href="http://www.sql-server-performance.com/2007/clustered-indexes/" target="_blank">http://www.sql-server-performance.co...tered-indexes/</a></div>
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div>Also, If anyone's interested, there's a visual database design tool called MySQL Workbench, which is perfect for designing relational databases.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/user_offline.gif" alt="Stylock is offline" border="0" title="Stylock is offline">
+
+
+		
+			<span id="reputationmenu_2414602"><a href="http://forum.sa-mp.com/reputation.php?p=2414602" rel="nofollow" id="reputation_2414602"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/reputation.png" alt="Add to Stylock&#39;s Reputation" border="0" title="Add to Stylock&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2414602")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2414602" rel="nofollow"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2414602" rel="nofollow"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2414602" rel="nofollow" onclick="return false"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2414602" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2414602" rel="nofollow" id="qr_2414602" onclick="return false"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2414602 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2414602_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Stylock</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=114165">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=114165" rel="nofollow">Send a private message to Stylock</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=114165" rel="nofollow">Find More Posts by Stylock</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=114165">Add Stylock to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2414602 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2414602 --><!-- post #2414625 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2414625" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2414625" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2414625"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			06/03/2013, 03:05 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2414625&amp;postcount=7" target="new" rel="nofollow" id="postcount2414625" name="7"><strong>7</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2414625">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=103048">Sinner</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2414625", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Gangsta</div>
+			<div class="smallfont"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=103048"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/image(5).php" width="80" height="75" alt="Sinner&#39;s Avatar" border="0" title="Sinner&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Aug 2010</div>
+				<div>Location: On This Mortal Coil</div>
+				
+				
+				
+<div>
+  Posts: 830
+</div>
+
+<div>Reputation: 289</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2414625" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [MySQL] Table structure and foreign keys</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2414625">
+			
+			<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				<div>
+					Originally Posted by <strong>YJIET</strong>
+					<a href="http://forum.sa-mp.com/showthread.php?p=2414602#post2414602" rel="nofollow"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/viewpost.gif" border="0" alt="View Post" title="View Post"></a>
+				</div>
+				<div style="font-style:italic">One of the best MySQL tuts around, but I think it's missing a few essential things: <ul><li>relationship types</li>
+<li>foreign key indexing</li>
+<li>clustered index</li>
+</ul>I've been taught that every table should have a clustered index, especially when foreign keys are involved. A useful quote: <br>
+<br>
+Also, If anyone's interested, there's a visual database design tool called MySQL Workbench, which is perfect for designing relational databases.</div>
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div>I'm pretty sure indexed are added automatically by most database systems. I'm entirely sure for MySQL and Postgresql. You make a fair point, they do make a huge difference.<br>
+<br>
+@OP<br>
+<br>
+You should tell something about the good practices when creating queries. Things people should avoid (like using IN, SET operators, explicit joins, LIMIT, etc...) + why you should avoid subqueries (they are always slower) and things people should definately use or atleast attempt to use (like JOINs and GROUP BY). If a query is properly built up it can be executed 100x faster.<br>
+<br>
+My course material explained it really well, unfortunately it's in dutch. I found this though: <a href="http://docs.oracle.com/cd/B10501_01/server.920/a96533/sql_1016.htm#28529" target="_blank">http://docs.oracle.com/cd/B10501_01/...1016.htm#28529</a>
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><font face="Tahoma">Please use the <a href="http://forum.sa-mp.com/search.php" target="_blank">search</a> feature before asking a question. </font></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/user_offline.gif" alt="Sinner is offline" border="0" title="Sinner is offline">
+
+
+		
+			<span id="reputationmenu_2414625"><a href="http://forum.sa-mp.com/reputation.php?p=2414625" rel="nofollow" id="reputation_2414625"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/reputation.png" alt="Add to Sinner&#39;s Reputation" border="0" title="Add to Sinner&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2414625")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2414625" rel="nofollow"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2414625" rel="nofollow"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2414625" rel="nofollow" onclick="return false"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2414625" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2414625" rel="nofollow" id="qr_2414625" onclick="return false"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2414625 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2414625_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Sinner</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=103048">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=103048" rel="nofollow">Send a private message to Sinner</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.ugngames.net/projectpawn">Visit Sinner's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=103048" rel="nofollow">Find More Posts by Sinner</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=103048">Add Sinner to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2414625 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2414625 --><!-- post #2414632 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2414632" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2414632" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2414632"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			06/03/2013, 03:08 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2414632&amp;postcount=8" target="new" rel="nofollow" id="postcount2414632" name="8"><strong>8</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2414632">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=193680">Yves</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2414632", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Banned</div>
+			<div class="smallfont"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/pinkdead.gif" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Feb 2013</div>
+				<div>Location: Area 51</div>
+				
+				
+				
+<div>
+  Posts: 1,670
+</div>
+
+<div>Reputation: 122</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2414632" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [MySQL] Table structure and foreign keys</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2414632">
+			
+			nice tut very good <img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/smile.png" border="0" alt="" title="Smiley" class="inlineimg"> this will sure help alot of ppl now with using mysql datebase
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/user_offline.gif" alt="Yves is offline" border="0" title="Yves is offline">
+
+
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2414632" rel="nofollow"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2414632" rel="nofollow"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2414632" rel="nofollow" onclick="return false"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2414632" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2414632" rel="nofollow" id="qr_2414632" onclick="return false"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2414632 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2414632_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Yves</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=193680">View Public Profile</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=193680" rel="nofollow">Find More Posts by Yves</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=193680">Add Yves to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2414632 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2414632 --><!-- post #2414937 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2414937" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2414937" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2414937"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			06/03/2013, 06:31 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2414937&amp;postcount=9" target="new" rel="nofollow" id="postcount2414937" name="9"><strong>9</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2414937">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=191963">Bluec0de</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2414937", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Little Clucker</div>
+			<div class="smallfont"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=191963"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/image(6).php" width="80" height="80" alt="Bluec0de&#39;s Avatar" border="0" title="Bluec0de&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Jan 2013</div>
+				<div>Location: Italy</div>
+				
+				
+				
+<div>
+  Posts: 11
+</div>
+
+<div>Reputation: 3</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2414937" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [MySQL] Table structure and foreign keys</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2414937">
+			
+			nice tutorial, will be useful <img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/cool.png" border="0" alt="" title="cool" class="inlineimg">
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><b>ItaliaFreeroam 0.3x Server 198.20.110.135:7778</b></div><div align="center"><a href="http://www.italiafmserver.tk/" target="_blank">www.italiafmserver.tk</a></div><br>
+<div align="center"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/Sa-MpForumImae.png" border="0" alt=""></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/user_offline.gif" alt="Bluec0de is offline" border="0" title="Bluec0de is offline">
+
+
+		
+			<span id="reputationmenu_2414937"><a href="http://forum.sa-mp.com/reputation.php?p=2414937" rel="nofollow" id="reputation_2414937"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/reputation.png" alt="Add to Bluec0de&#39;s Reputation" border="0" title="Add to Bluec0de&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2414937")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2414937" rel="nofollow"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2414937" rel="nofollow"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2414937" rel="nofollow" onclick="return false"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2414937" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2414937" rel="nofollow" id="qr_2414937" onclick="return false"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2414937 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2414937_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Bluec0de</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=191963">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=191963" rel="nofollow">Send a private message to Bluec0de</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=191963" rel="nofollow">Find More Posts by Bluec0de</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=191963">Add Bluec0de to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2414937 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2414937 --><!-- post #2414940 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2414940" style="padding:0px 0px 6px 0px">
+	
+
+
+
+<table id="post2414940" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2414940"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			06/03/2013, 06:32 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2414940&amp;postcount=10" target="new" rel="nofollow" id="postcount2414940" name="10"><strong>10</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2414940">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=114165">Stylock</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2414940", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Huge Clucker</div>
+			<div class="smallfont"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=114165"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/image(4).php" width="80" height="80" alt="Stylock&#39;s Avatar" border="0" title="Stylock&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Dec 2010</div>
+				
+				
+				
+				
+<div>
+  Posts: 325
+</div>
+
+<div>Reputation: 137</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2414940" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [MySQL] Table structure and foreign keys</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2414940">
+			
+			<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				<div>
+					Originally Posted by <strong>Sinner</strong>
+					<a href="http://forum.sa-mp.com/showthread.php?p=2414625#post2414625" rel="nofollow"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/viewpost.gif" border="0" alt="View Post" title="View Post"></a>
+				</div>
+				<div style="font-style:italic">I'm pretty sure indexed are added automatically by most database systems. I'm entirely sure for MySQL and Postgresql. You make a fair point, they do make a huge difference.</div>
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div>I know that primary key constraints create clustered indexes automatically, but I wasn't sure about foreign key indexes. I thought it was MySQL Workbench that was automatically creating indexes for me, but it was probably MySQL that was actually doing it.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/user_offline.gif" alt="Stylock is offline" border="0" title="Stylock is offline">
+
+
+		
+			<span id="reputationmenu_2414940"><a href="http://forum.sa-mp.com/reputation.php?p=2414940" rel="nofollow" id="reputation_2414940"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/reputation.png" alt="Add to Stylock&#39;s Reputation" border="0" title="Add to Stylock&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2414940")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2414940" rel="nofollow"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2414940" rel="nofollow"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2414940" rel="nofollow" onclick="return false"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2414940" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2414940" rel="nofollow" id="qr_2414940" onclick="return false"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2414940 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2414940_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Stylock</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=114165">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=114165" rel="nofollow">Send a private message to Stylock</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=114165" rel="nofollow">Find More Posts by Stylock</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=114165">Add Stylock to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2414940 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2414940 --><div id="lastpost"></div></div>
+
+<!-- start content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+<!-- / start content table -->
+
+<!-- controls below postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:-3px">
+<tbody><tr valign="top">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;noquote=1&amp;p=2414940" rel="nofollow"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	
+		<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tbody><tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 3</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 10 of 29"><strong>1</strong></span></td>
+ <td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=420363&amp;page=2" title="Show results 11 to 20 of 29">2</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=420363&amp;page=3" title="Show results 21 to 29 of 29">3</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=420363&amp;page=2" title="Next Page - Results 11 to 20 of 29">&gt;</a></td>
+	
+	<td class="vbmenu_control" title="" id="pagenav.209" style="cursor: pointer;"> <img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></td>
+</tr>
+</tbody></table>
+</div>
+		
+		</td>
+	
+</tr>
+</tbody></table>
+<!-- / controls below postbits -->
+
+
+
+
+
+
+
+
+
+
+<!-- lightbox scripts -->
+	<script type="text/javascript" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/vbulletin_lightbox.js"></script>
+	<script type="text/javascript">
+	<!--
+	vBulletin.register_control("vB_Lightbox_Container", "posts", 1);
+	//-->
+	</script>
+<!-- / lightbox scripts -->
+
+
+
+<!-- multiquote scripts -->
+	<script type="text/javascript" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/vbulletin_multi_quote.js"></script>
+	<script type="text/javascript">
+	<!--
+	var mqlimit = 0;
+	//-->
+	</script>
+<!-- / multiquote scripts -->
+
+
+
+<!-- ajax errors table -->
+	<table class="tborder" cellpadding="6" cellspacing="1" border="0" style="display:none; position:absolute" id="ajax_post_errors">
+	<tbody><tr>
+		<td class="thead">
+			<span style="float:right"><input type="button" class="button" value=" X " onclick="vB_QuickEditor.hide_errors()" id="ajax_post_errors_closebtn"></span>
+			vBulletin Message
+		</td>
+	</tr>
+	<tr>
+		<td class="alt2" colspan="2" id="ajax_post_errors_message">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="tfoot" colspan="2" align="center"><a href="http://forum.sa-mp.com/showthread.php?t=420363#" onclick="vB_QuickEditor.abort(); return false;">Cancel Changes</a></td>
+	</tr>
+	</tbody></table>
+<!-- / ajax errors table -->
+
+<!-- scripts for quick reply and quick edit -->
+	<!-- Editor Scripts -->
+<script type="text/javascript" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/vbulletin_textedit.js"></script>
+<script type="text/javascript">
+<!--
+var fontoptions = new Array("Arial", "Arial Black", "Arial Narrow", "Book Antiqua", "Century Gothic", "Comic Sans MS", "Courier New", "Fixedsys", "Franklin Gothic Medium", "Garamond", "Georgia", "Impact", "Lucida Console", "Lucida Sans Unicode", "Microsoft Sans Serif", "Palatino Linotype", "System", "Tahoma", "Times New Roman", "Trebuchet MS", "Verdana");
+var sizeoptions = new Array(1, 2, 3, 4, 5, 6, 7);
+var smilieoptions = {  };
+
+var istyles = { "pi_button_down" : [ "#98B5E2", "#000000", "0px", "1px solid #316AC5" ], "pi_button_hover" : [ "#C1D2EE", "#000000", "0px", "1px solid #316AC5" ], "pi_button_normal" : [ "#E1E1E2", "#000000", "1px", "none" ], "pi_button_selected" : [ "#F1F6F8", "#000000", "0px", "1px solid #316AC5" ], "pi_menu_down" : [ "#98B5E2", "#316AC5", "0px", "1px solid #316AC5" ], "pi_menu_hover" : [ "#C1D2EE", "#316AC5", "0px", "1px solid #316AC5" ], "pi_menu_normal" : [ "#FFFFFF", "#000000", "0px", "1px solid #FFFFFF" ], "pi_popup_down" : [ "#98B5E2", "#000000", "0px", "1px solid #316AC5" ] };
+var ltr = 'left';
+
+var smiliewindow_x = 240;
+var smiliewindow_y = 280;
+
+var ignorequotechars = 1;
+var allowbasicbbcode = true;
+
+// vB Phrases
+vbphrase["wysiwyg_please_wait"]          = "Please wait for the WYSIWYG editor to finish loading...";
+vbphrase["wysiwyg_initialized"]          = "WYSIWYG Editor initialized for %1$s in %2$s seconds.";
+vbphrase["wysiwyg_command_invalid"]      = "This command is invalid or not implemented.";
+vbphrase["moz_must_select_text"]         = "Mozilla requires that you must select some text for this function to work";
+vbphrase["moz_edit_config_file"]         = "You need to edit your Mozilla config file to allow this action.";
+vbphrase["enter_tag_option"]             = "Please enter the option for your %1$s tag:";
+vbphrase["must_select_text_to_use"]      = "You must select some text to use this function.";
+vbphrase["browser_is_safari_no_wysiwyg"] = "The Safari browser does not support WYSIWYG mode.";
+vbphrase["enter_option_x_tag"]           = "Enter the option for the [%1$s] tag:";
+vbphrase["enter_text_to_be_formatted"]   = "Enter the text to be formatted";
+vbphrase["enter_link_text"]              = "Enter the text to be displayed for the link (optional):";
+vbphrase["enter_list_type"]              = "What type of list do you want? Enter '1' for a numbered list, enter 'a' for an alphabetical list, or leave blank for a list with bullet points:";
+vbphrase["enter_list_item"]              = "Enter a list item.\r\nLeave the box empty or press 'Cancel' to complete the list:";
+vbphrase["must_enter_subject"]           = "You must enter a title / subject!";
+vbphrase["message_too_short"]            = "The message you have entered is too short. Please lengthen your message to at least %1$s characters.";
+vbphrase["enter_link_url"]               = "Please enter the URL of your link:";
+vbphrase["enter_image_url"]              = "Please enter the URL of your image:";
+vbphrase["enter_email_link"]             = "Please enter the email address for the link:";
+vbphrase["complete_image_verification"]  = "You did not complete the Image Verification";
+vbphrase["iespell_not_installed"]        = "ieSpell is a spell-checking tool for Internet Explorer.\r\n\r\nIf you would like to download ieSpell, click OK; otherwise click Cancel.\r\n\r\nieSpell can be downloaded from http://www.iespell.com";
+vbphrase["click_quick_reply_icon"]       = "Please click one of the Quick Reply icons in the posts above to activate Quick Reply.";
+vbphrase["insert_all"]                   = "Insert All";
+
+//-->
+</script>
+<!-- / Editor Scripts -->
+	
+<!-- / scripts for quick reply and quick edit -->
+
+
+
+
+<!-- quick reply -->
+	<br>
+	<script type="text/javascript" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/vbulletin_quick_reply.js"></script>
+	<form action="http://forum.sa-mp.com/newreply.php?do=postreply&amp;t=420363" method="post" name="vbform" onsubmit="return qr_prepare_submit(this, 4);" id="qrform">
+	<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+	<thead>
+		<tr>
+			<td class="tcat" colspan="2">
+				<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=420363#top" onclick="return toggle_collapse(&#39;quickreply&#39;);"><img id="collapseimg_quickreply" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/collapse_tcat.gif" alt="" border="0"></a>
+				Quick Reply
+			</td>
+		</tr>
+	</thead>
+	<tbody id="qr_error_tbody" style="display:none">
+	<tr>
+		<td class="thead">The following errors occurred with your submission</td>
+	</tr>
+	<tr>
+		<td class="alt1" id="qr_error_td"></td>
+	</tr>
+	<tr>
+		<td class="tfoot" align="center"><span class="smallfont"><a href="http://forum.sa-mp.com/showthread.php?t=420363#" onclick="return qr_hide_errors()">Okay</a></span></td>
+	</tr>
+	</tbody>
+	<tbody id="collapseobj_quickreply" style="">
+	<tr>
+		<td class="panelsurround" align="center">
+			<div class="panel">
+				<div align="left" style="max-width:800px; width:auto !important; width:800px">
+					<div class="smallfont">Message:</div>
+					<div id="vB_Editor_QR" class="vBulletin_editor">
+		<script type="text/javascript">
+		<!--
+			var threaded_mode = 0;
+			var require_click = 0;
+			var is_last_page = 0; // leave for people with cached JS files
+			var allow_ajax_qr = 0;
+			var ajax_last_post = 1445502851;
+		// -->
+		</script>
+		
+<div id="vB_Editor_QR_controls" class="controlbar">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_removeformat"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/removeformat.gif" width="21" height="20" alt="Remove Text Formatting" title="Remove Text Formatting"></div></td>
+	
+		<td><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_bold"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/bold.gif" width="21" height="20" alt="Bold" title="Bold"></div></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_italic"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/italic.gif" width="21" height="20" alt="Italic" title="Italic"></div></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_underline"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/underline.gif" width="21" height="20" alt="Underline" title="Underline"></div></td>
+	
+	
+		<td><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_popup_forecolor" title="Colors">
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr>
+				<td id="vB_Editor_QR_color_out"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/color.gif" width="21" height="16" alt=""><br><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/clear.gif" id="vB_Editor_QR_color_bar" alt="" style="background-color:black" width="21" height="4"></td>
+				<td class="alt_pickbutton"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/menupop.gif" alt="" width="11" height="16"></td>
+			</tr>
+			</tbody></table>
+		</div></td>
+	
+	
+		<td><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+	
+	
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_createlink"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/createlink.gif" width="21" height="20" alt="Insert Link" title="Insert Link"></div></td>
+	
+	
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_insertimage"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/insertimage.gif" width="21" height="20" alt="Insert Image" title="Insert Image"></div></td>
+	
+	
+		<td><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_wrap0_quote"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/quote.gif" width="21" height="20" alt="Wrap [QUOTE] tags around selected text" title="Wrap [QUOTE] tags around selected text"></div></td>
+	
+	<td width="100%">&nbsp;</td>
+	
+		<td>
+			<div class="imagebutton" id="vB_Editor_QR_cmd_resize_0_99"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/resize_0.gif" width="21" height="9" alt="Decrease Size" title="Decrease Size"></div>
+			<div class="imagebutton" id="vB_Editor_QR_cmd_resize_1_99"><img src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/resize_1.gif" width="21" height="9" alt="Increase Size" title="Increase Size"></div>
+		</td>
+	
+	</tr>
+	</tbody></table>
+</div>
+
+<div class="controlbar" style="padding-right:8px">
+	<fieldset style="border:0px; padding:0px; margin:0px">
+	
+	<textarea name="message" id="vB_Editor_QR_textarea" rows="10" cols="60" style="width:100%; height:100px" tabindex="1" dir="ltr"></textarea>
+	
+	</fieldset>
+	<!--width:800px-->
+</div>
+
+<input type="hidden" name="wysiwyg" id="vB_Editor_QR_mode" value="0">
+<input type="hidden" name="styleid" value="0">
+
+<script type="text/javascript">
+<!--
+vB_Editor['vB_Editor_QR'] = new vB_Text_Editor('vB_Editor_QR', 0, '70', '1');
+var QR_EditorID = 'vB_Editor_QR';
+//-->
+</script>
+	</div>
+
+					<fieldset class="fieldset" style="margin:3px 0px 0px 0px">
+						<legend>Options</legend>
+						<div style="padding:3px">
+							
+								<div style="float:right"><label for="cb_signature"><input type="checkbox" name="signature" value="1" id="cb_signature" tabindex="5" checked="checked">Show your signature</label></div>
+							
+							<label for="qr_quickreply"><input type="checkbox" name="quickreply" value="1" id="qr_quickreply" accesskey="w" tabindex="4" disabled="">Quote message in reply?</label>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+
+			<div style="margin-top:6px">
+				<input type="hidden" name="fromquickreply" value="1">
+				<input type="hidden" name="s" value="">
+				<input type="hidden" name="securitytoken" value="1451585078-33807a1d231892dfb4e1753a752658b91d8a9da1">
+				<input type="hidden" name="do" value="postreply">
+				<input type="hidden" name="t" value="420363" id="qr_threadid">
+				<input type="hidden" name="p" value="who cares" id="qr_postid">
+				<input type="hidden" name="specifiedpost" value="0" id="qr_specifiedpost">
+				<input type="hidden" name="parseurl" value="1">
+				<input type="hidden" name="loggedinuser" value="234935">
+				<input type="submit" class="button" value="Post Quick Reply" accesskey="s" title="(Alt + S)" name="sbutton" tabindex="2" id="qr_submit" onclick="clickedelm = this.value">
+				<input type="submit" class="button" value="Go Advanced" accesskey="x" title="(Alt + X)" name="preview" tabindex="3" id="qr_preview" onclick="clickedelm = this.value">
+			</div>
+
+			<div align="center" id="qr_posting_msg" style="display:none; margin-top:6px">
+				<img style="vertical-align: middle;" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/progress.gif" alt="Posting Quick Reply - Please Wait" title="Posting Quick Reply - Please Wait">&nbsp;<strong>Posting Quick Reply - Please Wait</strong>
+			</div>
+		</td>
+	</tr>
+	</tbody>
+	</table>
+	</form>
+
+	
+		<!-- Mozilla work around for focusing on QR in WYSIWYG mode -->
+		<div id="qr_scroll"></div>
+	
+
+	<script type="text/javascript">
+	<!--
+		// initialize quick reply
+		qr_init();
+	//-->
+	</script>
+<!-- / quick reply -->
+
+
+
+<!-- next / previous links -->
+	<br>
+	<div class="smallfont" align="center">
+		<strong>«</strong>
+			<a href="http://forum.sa-mp.com/showthread.php?t=420363&amp;goto=nextoldest" rel="nofollow">Previous Thread</a>
+			|
+			<a href="http://forum.sa-mp.com/showthread.php?t=420363&amp;goto=nextnewest" rel="nofollow">Next Thread</a>
+		<strong>»</strong>
+	</div>
+<!-- / next / previous links -->
+
+
+
+
+
+
+
+<!-- popup menu contents -->
+<br>
+
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="http://forum.sa-mp.com/postings.php?t=420363&amp;pollid=" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/printer.gif" alt="Show Printable Version" title="Show Printable Version"> <a href="http://forum.sa-mp.com/printthread.php?t=420363" accesskey="3" rel="nofollow">Show Printable Version</a></td>
+	</tr>
+	
+	
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/subscribe.gif" alt="Subscription" title="Subscription">
+		
+			<a href="http://forum.sa-mp.com/subscription.php?do=addsubscription&amp;t=420363" rel="nofollow">Subscribe to this Thread</a>
+		
+		</td>
+	</tr>
+	
+	
+	
+	</tbody></table>
+</form>
+</div>
+<!-- / thread tools menu -->
+
+<!-- **************************************************** -->
+
+<!-- thread display mode menu -->
+<div class="vbmenu_popup" id="displaymodes_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Display Modes<a name="goto_displaymodes"></a></td>
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option" title="nohilite"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/mode_linear.gif" alt="Linear Mode" title="Linear Mode"> <strong>Linear Mode</strong></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/mode_hybrid.gif" alt="Hybrid Mode" title="Hybrid Mode"> <a href="http://forum.sa-mp.com/showthread.php?mode=hybrid&amp;t=420363">Switch to Hybrid Mode</a></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/mode_threaded.gif" alt="Threaded Mode" title="Threaded Mode"> <a href="http://forum.sa-mp.com/showthread.php?p=2412206&amp;mode=threaded#post2412206">Switch to Threaded Mode</a></td>
+	
+	</tr>
+	</tbody></table>
+</div>
+<!-- / thread display mode menu -->
+
+<!-- **************************************************** -->
+
+
+<!-- thread search menu -->
+<div class="vbmenu_popup" id="threadsearch_menu" style="display:none">
+<form action="http://forum.sa-mp.com/search.php?do=process&amp;searchthreadid=420363" method="post">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Search this Thread<a name="goto_threadsearch"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option" title="nohilite">
+			<input type="hidden" name="s" value="">
+			<input type="hidden" name="securitytoken" value="1451585078-33807a1d231892dfb4e1753a752658b91d8a9da1">
+			<input type="hidden" name="do" value="process">
+			<input type="hidden" name="searchthreadid" value="420363">
+			<input type="text" class="bginput" name="query" size="25"><input type="submit" class="button" value="Go"><br>
+		</td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?searchthreadid=420363">Advanced Search</a></td>
+	</tr>
+	</tbody></table>
+</form>
+</div>
+<!-- / thread search menu -->
+
+
+<!-- **************************************************** -->
+
+
+	<!-- thread rating menu -->
+	<div class="vbmenu_popup" id="threadrating_menu" style="display:none">
+	<form action="http://forum.sa-mp.com/threadrate.php?t=420363" method="post" id="showthread_threadrate_form">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead">Rate This Thread<a name="goto_threadrating"></a></td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option" title="nohilite" id="threadrating_options">
+
+			<div><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/rating_5.gif" alt="Excellent" title="Excellent"><label for="vote5"><input type="radio" name="vote" id="vote5" value="5">Excellent</label></div>
+			<div><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/rating_4.gif" alt="Good" title="Good"><label for="vote4"><input type="radio" name="vote" id="vote4" value="4">Good</label></div>
+			<div><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/rating_3.gif" alt="Average" title="Average"><label for="vote3"><input type="radio" name="vote" id="vote3" value="3">Average</label></div>
+			<div><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/rating_2.gif" alt="Bad" title="Bad"><label for="vote2"><input type="radio" name="vote" id="vote2" value="2">Bad</label></div>
+			<div><img class="inlineimg" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/rating_1.gif" alt="Terrible" title="Terrible"><label for="vote1"><input type="radio" name="vote" id="vote1" value="1">Terrible</label></div>
+			</td>
+		</tr>
+		<tr id="threadrating_submit">
+			<td class="vbmenu_option" title="nohilite" align="center">
+				<input type="hidden" name="s" value="">
+				<input type="hidden" name="securitytoken" value="1451585078-33807a1d231892dfb4e1753a752658b91d8a9da1">
+				<input type="hidden" name="t" value="420363">
+				<input type="hidden" name="pp" value="10">
+				<input type="hidden" name="page" value="1">
+				<input type="button" class="button" value="Vote Now">
+			</td>
+		</tr>
+		
+		</tbody></table>
+	</form>
+	</div>
+	<!-- / thread rating menu -->
+
+	<script type="text/javascript" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/vbulletin_ajax_threadrate.js"></script>
+	<script type="text/javascript">
+	<!--
+	vB_AJAX_ThreadRate_Init('showthread_threadrate_form');
+	var threadid = 420363;
+	//-->
+	</script>
+
+
+<!-- / popup menu contents -->
+
+
+<!-- forum rules and admin links -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr valign="bottom">
+	<td width="100%" valign="top">
+		<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="210">
+<thead>
+<tr>
+	<td class="thead">
+		<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=420363#top" onclick="return toggle_collapse(&#39;forumrules&#39;)"><img id="collapseimg_forumrules" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/collapse_thead.gif" alt="" border="0"></a>
+		Posting Rules
+	</td>
+</tr>
+</thead>
+<tbody id="collapseobj_forumrules" style="">
+<tr>
+	<td class="alt1" nowrap="nowrap"><div class="smallfont">
+		
+		<div>You <strong>may</strong> post new threads</div>
+		<div>You <strong>may</strong> post replies</div>
+		<div>You <strong>may</strong> post attachments</div>
+		<div>You <strong>may</strong> edit your posts</div>
+		<hr>
+		
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode" target="_blank">BB code</a> is <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showsmilies" target="_blank">Smilies</a> are <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode#imgcode" target="_blank">[IMG]</a> code is <strong>On</strong></div>
+		<div>HTML code is <strong>Off</strong></div>
+		<hr>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showrules" target="_blank">Forum Rules</a></div>
+	</div></td>
+</tr>
+</tbody>
+</table>
+	</td>
+	<td class="smallfont" align="right">
+		<table cellpadding="0" cellspacing="0" border="0">
+		
+		<tbody><tr>
+			<td>
+			
+			</td>
+		</tr>
+		</tbody></table>
+	</td>
+</tr>
+</tbody></table>
+<!-- /forum rules and admin links -->
+
+<br>
+
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" width="100%" colspan="5">
+			<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=420363#top" onclick="return toggle_collapse(&#39;similarthreads&#39;)"><img id="collapseimg_similarthreads" src="./[Tutorial] [MySQL] Table structure and foreign keys - SA-MP Forums_files/collapse_tcat.gif" alt="" border="0"></a>
+			Similar Threads<a name="similarthreads"></a>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_similarthreads" style="">
+<tr class="thead" align="center">
+	<td class="thead" width="40%">Thread</td>
+	<td class="thead" width="15%" nowrap="nowrap">Thread Starter</td>
+	<td class="thead" width="20%">Forum</td>
+	<td class="thead" width="5%">Replies</td>
+	<td class="thead" width="20%">Last Post</td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=391966" title="I follow the tutorial on SA-MP wiki how to set up mysql i follow everything.. 
+Except the scripting part, The only thing i follow in the tutorial is...">MySQL Table</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">JaKe Elite</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Scripting Help</span></td>
+	<td class="alt2" align="center"><span class="smallfont">5</span></td>
+	<td class="alt1" align="right"><span class="smallfont">13/11/2012 <span class="time">09:53 AM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=371519" title="Hi. 
+ 
+I want to run this result for all players in the table, but I don&#39;t know how to do it. 
+ 
+Here&#39;s the result, this works, but I only can run it...">MySQL: Update all values in table from another table</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">kurta999</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Scripting Help</span></td>
+	<td class="alt2" align="center"><span class="smallfont">8</span></td>
+	<td class="alt1" align="right"><span class="smallfont">23/08/2012 <span class="time">09:55 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=364477" title="Hello, im completely failing at creating a table i dunno what the hell to put into it etc if someone could do it for me or display it on a ss ill be...">MYSQL Table</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">thefatshizms</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Scripting Help</span></td>
+	<td class="alt2" align="center"><span class="smallfont">3</span></td>
+	<td class="alt1" align="right"><span class="smallfont">31/07/2012 <span class="time">03:06 AM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=303652" title="CMySQLHandler::Query(DELETE FROM `vehiclesdata` WHERE `vID` = 1) - An error has occured. (Error ID: 1146, Table &#39;test.vehiclesdata&#39; doesn&#39;t exist) 
+...">mysql table bug</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">juraska</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Scripting Help</span></td>
+	<td class="alt2" align="center"><span class="smallfont">4</span></td>
+	<td class="alt1" align="right"><span class="smallfont">15/12/2011 <span class="time">09:34 AM</span></span></td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+
+<script type="text/javascript">ame_toggle_view({other : 'true',post : 'true',blog : 'true',group : 'true',vm : 'true',sig : 'true'});</script>
+
+<br>
+<div class="smallfont" align="center">All times are GMT +1. The time now is <span class="time">07:04 PM</span>.</div>
+<br>
+
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- /content area table -->
+
+<form action="http://forum.sa-mp.com/index.php" method="get" style="clear:left">
+
+<table cellpadding="6" cellspacing="0" border="0" width="90%" class="page" align="center">
+<tbody><tr>
+	
+	
+		<td class="tfoot">
+			<select name="langid" onchange="switch_id(this, &#39;lang&#39;)">
+				<optgroup label="Quick Language Chooser">
+					<option value="1" class="" selected="selected">-- (EN) English</option>
+<option value="3" class="">-- (ES) Español</option>
+<option value="4" class="">-- (RU) &#1056;&#1091;&#1089;&#1089;&#1082;&#1080;</option>
+
+				</optgroup>
+			</select>
+		</td>
+	
+	<td class="tfoot" align="right" width="100%">
+		<div class="smallfont">
+			<strong>
+				<a href="http://forum.sa-mp.com/sendmessage.php" rel="nofollow" accesskey="9">Contact Us</a> -
+				<a href="http://www.sa-mp.com/">SA-MP</a> -
+				
+				
+				<a href="http://forum.sa-mp.com/archive/index.php">Archive</a> -
+				
+				
+				
+				<a href="http://forum.sa-mp.com/showthread.php?t=420363#top" onclick="self.scrollTo(0, 0); return false;">Top</a>
+			</strong>
+		</div>
+	</td>
+</tr>
+</tbody></table>
+
+<br>
+
+<div align="center">
+	<div class="smallfont" align="center">
+	<!-- Do not remove this copyright notice -->
+	Powered by vBulletin® Version 3.8.6<br>Copyright ©2000 - 2015, Jelsoft Enterprises Ltd.
+	<!-- Do not remove this copyright notice -->
+	</div>
+
+	<div class="smallfont" align="center">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+
+	
+	</div>
+</div>
+
+</form>
+
+
+
+
+<script type="text/javascript">
+<!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//-->
+</script>
+
+<!-- temp -->
+<div style="display:none">
+	<!-- thread rate -->
+	
+		<!-- thread ratings form here -->
+	
+	<!-- / thread rate -->
+</div>
+
+
+</body></html>

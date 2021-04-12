@@ -1,0 +1,3879 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0046)http://forum.sa-mp.com/showthread.php?t=416138 -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	
+<meta name="generator" content="vBulletin 3.8.6">
+
+<meta name="keywords" content="[FilterScript] [0.3e+]Player Attached Object Editor, SA-MP, GTA, multiplayer, online, server, pawn, scripting">
+<meta name="description" content="[FilterScript] [0.3e+]Player Attached Object Editor Filterscripts">
+
+
+<!-- CSS Stylesheet -->
+<style type="text/css" id="vbulletin_css">
+/**
+* vBulletin 3.8.6 CSS
+* Style: 'SAMPStyle'; Style ID: 2
+*/
+body
+{
+	background: #707170;
+	color: #FFFFFFF;
+	font: bold 10pt arial, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 1px 1px 1px 1px;
+	padding: 1px;
+}
+a:link, body_alink
+{
+	color: #4A627F;
+	text-decoration: none;
+}
+a:visited, body_avisited
+{
+	color: #1A425F;
+	text-decoration: none;
+}
+a:hover, a:active, body_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.page
+{
+	background: #DADADB;
+	color: #000000;
+}
+td, th, p, li
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tborder
+{
+	background: #DFDFDF;
+	color: #000000;
+	border: 1px solid #717171;
+}
+.tcat
+{
+	background: #4F4F4F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tcat a:link, .tcat_alink
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:visited, .tcat_avisited
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:hover, .tcat a:active, .tcat_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.thead
+{
+	background: #3F3F3F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.thead a:link, .thead_alink
+{
+	color: #FFFFFF;
+}
+.thead a:visited, .thead_avisited
+{
+	color: #FFFFFF;
+}
+.thead a:hover, .thead a:active, .thead_ahover
+{
+	color: #E76006;
+}
+.tfoot
+{
+	background: #595959;
+	color: #CDCDCD;
+}
+.tfoot a:link, .tfoot_alink
+{
+	color: #CDCDCD;
+}
+.tfoot a:visited, .tfoot_avisited
+{
+	color: #9D9D9D;
+}
+.tfoot a:hover, .tfoot a:active, .tfoot_ahover
+{
+	color: #E76006;
+}
+.alt1, .alt1Active
+{
+	background: #F6F6F6;
+	color: #000000;
+}
+.alt2, .alt2Active
+{
+	background: #EAEAEB;
+	color: #000000;
+}
+.inlinemod
+{
+	background: #FFFFCC;
+	color: #000000;
+}
+.wysiwyg
+{
+	background: #F5F5F5;
+	color: #000000;
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 5px 10px 10px 10px;
+	padding: 0px;
+}
+.wysiwyg a:link, .wysiwyg_alink
+{
+	color: #22229C;
+}
+.wysiwyg a:visited, .wysiwyg_avisited
+{
+	color: #22229C;
+}
+.wysiwyg a:hover, .wysiwyg a:active, .wysiwyg_ahover
+{
+	color: #E76006;
+}
+textarea, .bginput
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.bginput option, .bginput optgroup
+{
+	font-size: 10pt;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.button
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+select
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+option, optgroup
+{
+	font-size: 11px;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.smallfont
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.time
+{
+	color: #666686;
+}
+.navbar
+{
+	font: 12pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.highlight
+{
+	color: #FF0000;
+	font-weight: bold;
+}
+.fjsel
+{
+	background: #3E5C92;
+	color: #E0E0F6;
+}
+.fjdpth0
+{
+	background: #F7F7F7;
+	color: #000000;
+}
+.panel
+{
+	background: #F5F5F5;
+	color: #000000;
+	padding: 10px;
+	border: 1px;
+}
+.panelsurround
+{
+	background: #F5F5F5;
+	color: #000000;
+}
+legend
+{
+	color: #222222;
+	font: 11px tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.vbmenu_control
+{
+	background: #777777;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	padding: 3px 6px 3px 6px;
+	white-space: nowrap;
+}
+.vbmenu_control a:link, .vbmenu_control_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:visited, .vbmenu_control_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:hover, .vbmenu_control a:active, .vbmenu_control_ahover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+.vbmenu_popup
+{
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #0B198C;
+}
+.vbmenu_option
+{
+	background: #444444;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_option a:link, .vbmenu_option_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:visited, .vbmenu_option_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:hover, .vbmenu_option a:active, .vbmenu_option_ahover
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_hilite
+{
+	background: #F37016;
+	color: #000000;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_hilite a:link, .vbmenu_hilite_alink
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:visited, .vbmenu_hilite_avisited
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:hover, .vbmenu_hilite a:active, .vbmenu_hilite_ahover
+{
+	color: #000000;
+	text-decoration: none;
+}
+/* ***** styling for 'big' usernames on postbit etc. ***** */
+.bigusername { font-size: 14pt; }
+
+/* ***** small padding on 'thead' elements ***** */
+td.thead, th.thead, div.thead { padding: 4px; }
+
+/* ***** basic styles for multi-page nav elements */
+.pagenav a { text-decoration: none; }
+.pagenav td { padding: 2px 4px 2px 4px; }
+
+/* ***** de-emphasized text */
+.shade, a.shade:link, a.shade:visited { color: #777777; text-decoration: none; }
+a.shade:active, a.shade:hover { color: #FF4400; text-decoration: underline; }
+.tcat .shade, .thead .shade, .tfoot .shade { color: #DDDDDD; }
+
+/* ***** define margin and font-size for elements inside panels ***** */
+.fieldset { margin-bottom: 6px; }
+.fieldset, .fieldset td, .fieldset p, .fieldset li { font-size: 11px; }
+</style>
+<link rel="stylesheet" type="text/css" href="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/vbulletin_important.css">
+
+
+<!-- / CSS Stylesheet -->
+
+<script type="text/javascript" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/connection-min.js"></script>
+<script type="text/javascript">
+<!--
+var SESSIONURL = "";
+var SECURITYTOKEN = "1467960547-0be80e9225cb70a829633fcddac5a4a92723c4eb";
+var IMGDIR_MISC = "images/misc";
+var vb_disable_ajax = parseInt("0", 10);
+// -->
+</script>
+<script type="text/javascript" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/vbulletin_global.js"></script>
+<script type="text/javascript" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/vbulletin_menu.js"></script>
+
+
+	<link rel="alternate" type="application/rss+xml" title="SA-MP Forums RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2">
+	
+		<link rel="alternate" type="application/rss+xml" title="SA-MP Forums - Filterscripts - RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2&amp;forumids=17">
+	
+<!-- Editor CSS automatically added by functions_editor.php at line 680 -->
+<!-- Editor Styles -->
+<style type="text/css" id="vbulletin_editor_css_dynamic">
+<!--
+@import url("clientscript/vbulletin_editor.css?v=387");
+
+.vBulletin_editor {
+	background: #E1E1E2;
+	padding: 6px;
+}
+.imagebutton {
+	background: #E1E1E2;
+	color: #000000;
+	padding: 1px;
+	border: none;
+}
+.ocolor, .ofont, .osize, .osmilie, .osyscoloar, .smilietitle {
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #FFFFFF;
+}
+.popup_pickbutton {
+	border: 1px solid #FFFFFF;
+}
+.popup_feedback {
+	background: #FFFFFF;
+	color: #000000;
+	border-right: 1px solid #FFFFFF;
+}
+.popupwindow {
+	background: #FFFFFF;
+}
+#fontOut, #sizeOut, .popup_feedback div {
+	background: #FFFFFF;
+	color: #000000;
+}
+.alt_pickbutton {
+	border-left: 1px solid #E1E1E2;
+}
+.popup_feedback input, .popup_feedback div
+{
+	border: 0px solid;
+	padding: 0px 2px 0px 2px;
+	cursor: default;
+	font: 11px tahoma;
+	overflow: hidden;
+}
+-->
+</style>
+<!-- / Editor Styles -->
+	<title>[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums</title>
+	<script type="text/javascript" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/vbulletin_post_loader.js"></script>
+	<style type="text/css" id="vbulletin_showthread_css">
+	<!--
+	
+	#links div { white-space: nowrap; }
+	#links img { vertical-align: middle; }
+	-->
+	</style>
+</head>
+<body onload="">
+<!-- logo -->
+<a name="top"></a>
+<center><div align="center" style="height: 80px; width: 90%; background: transparent url(http://forum.sa-mp.com/logo_new_back3.png) repeat-x 0px 0px; text-align:center;">
+<table border="0" width="90%" cellpadding="0" cellspacing="0" align="center">
+<tbody><tr>
+	<td align="center"><a href="http://forum.sa-mp.com/index.php"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/logo_forum.gif" border="0" alt="SA-MP Forums" title="SA-MP Forums"></a></td>
+</tr>
+</tbody></table>
+</div></center>
+<!-- /logo -->
+
+<!-- content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+
+
+
+
+<br>
+
+<!-- breadcrumb, login, pm info -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<tbody><tr>
+	<td class="alt1" width="100%">
+		
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr valign="bottom">
+				<td><a href="http://forum.sa-mp.com/showthread.php?t=416138#" onclick="history.back(1); return false;"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/navbits_start.gif" alt="Go Back" border="0" title="Go Back"></a></td>
+				<td>&nbsp;</td>
+				<td width="100%"><span class="navbar"><a href="http://forum.sa-mp.com/index.php" accesskey="1">SA-MP Forums</a></span> 
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=8">SA-MP Scripting and Plugins</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=17">Filterscripts</a></span>
+
+</td>
+			</tr>
+			<tr>
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="http://forum.sa-mp.com/showthread.php?t=416138"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/navbits_finallink_ltr.gif" alt="Reload this Page" border="0" title="Reload this Page"></a> <strong>
+	[<span style="font-weight:bold;font-size:8pt;color:#AD3333;">FilterScript</span>] [0.3e+]Player Attached Object Editor
+
+</strong></td>
+			</tr>
+			</tbody></table>
+		
+	</td>
+
+	<td class="alt2" nowrap="nowrap">
+	<div class="smallfont">
+		<strong>Welcome, <a href="http://forum.sa-mp.com/member.php?u=234935">VincenzoDrift</a>.</strong><br>
+		You last visited: 07/07/2016 at <span class="time">09:47 PM</span>
+
+		
+			<div><a href="http://forum.sa-mp.com/private.php">Private Messages</a>: Unread 0, Total 1.</div>
+		
+
+		
+	</div>
+	</td>
+
+</tr>
+</tbody></table>
+<!-- / breadcrumb, login, pm info -->
+
+<!-- nav buttons bar -->
+<div class="tborder" style="padding:1px; border-top-width:0px">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+	<tbody><tr align="center">
+		
+			<td class="vbmenu_control"><a href="http://forum.sa-mp.com/usercp.php">User CP</a></td>
+		
+		
+		
+		
+			<td class="vbmenu_control"><a id="community" href="http://forum.sa-mp.com/showthread.php?t=416138&amp;nojs=1#community" rel="nofollow" accesskey="6" style="cursor: pointer;">Community <img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("community"); </script></td>
+		
+		
+			
+				
+				<td class="vbmenu_control"><a href="http://forum.sa-mp.com/search.php?do=getnew" accesskey="2">New Posts</a></td>
+				
+				<td class="vbmenu_control"><a id="navbar_search" href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow" style="cursor: pointer;">Search <img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("navbar_search"); </script></td>
+			
+			
+				<td class="vbmenu_control"><a id="usercptools" href="http://forum.sa-mp.com/showthread.php?t=416138&amp;nojs=1#usercptools" accesskey="3" style="cursor: pointer;">Quick Links <img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("usercptools"); </script></td>
+			
+		
+		
+		
+			<td class="vbmenu_control"><a href="http://forum.sa-mp.com/login.php?do=logout&amp;logouthash=1467960547-0be80e9225cb70a829633fcddac5a4a92723c4eb" onclick="return log_out(&#39;Are you sure you want to log out?&#39;)">Log Out</a></td>
+		
+		</tr>
+	</tbody></table>
+</div>
+<!-- / nav buttons bar -->
+
+<br>
+
+
+
+
+
+
+<!-- NAVBAR POPUP MENUS -->
+
+	
+	<!-- community link menu -->
+	<div class="vbmenu_popup" id="community_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr><td class="thead">Community Links</td></tr>
+		
+		
+		
+		
+			<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=buddylist">Contacts &amp; Friends</a></td></tr>
+		
+		
+			<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/memberlist.php">Members List</a></td></tr>
+		
+		
+		</tbody></table>
+	</div>
+	<!-- / community link menu -->
+	
+	
+	
+	<!-- header quick search form -->
+	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead">Search Forums</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+				<form action="http://forum.sa-mp.com/search.php?do=process" method="post">
+
+					<input type="hidden" name="do" value="process">
+					<input type="hidden" name="quicksearch" value="1">
+					<input type="hidden" name="childforums" value="1">
+					<input type="hidden" name="exactname" value="1">
+					<input type="hidden" name="s" value="">
+					<input type="hidden" name="securitytoken" value="1467960547-0be80e9225cb70a829633fcddac5a4a92723c4eb">
+					<div><input type="text" class="bginput" name="query" size="25" tabindex="1001"><input type="submit" class="button" value="Go" tabindex="1004"></div>
+					<div style="margin-top:6px">
+						<label for="rb_nb_sp0"><input type="radio" name="showposts" value="0" id="rb_nb_sp0" tabindex="1002" checked="checked">Show Threads</label>
+						&nbsp;
+						<label for="rb_nb_sp1"><input type="radio" name="showposts" value="1" id="rb_nb_sp1" tabindex="1003">Show Posts</label>
+					</div>
+				</form>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow">Advanced Search</a></td>
+		</tr>
+		
+		</tbody></table>
+	</div>
+	<!-- / header quick search form -->
+	
+	
+	
+	<!-- user cp tools menu -->
+	<div class="vbmenu_popup" id="usercptools_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+
+		<tbody><tr><td class="thead">Quick Links</td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=getdaily">Today's Posts</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/forumdisplay.php?do=markread&amp;markreadhash=1467960547-0be80e9225cb70a829633fcddac5a4a92723c4eb">Mark Forums Read</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/showthread.php?t=416138#" onclick="window.open(&#39;misc.php?do=buddylist&amp;focus=1&#39;,&#39;buddylist&#39;,&#39;statusbar=no,menubar=no,toolbar=no,scrollbars=yes,resizable=yes,width=250,height=300&#39;); return false;">Open Contacts Popup</a></td></tr>
+		
+		
+
+		<tr><td class="thead"><a href="http://forum.sa-mp.com/usercp.php">User Control Panel</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editsignature">Edit Signature</a></td></tr>
+		<!--<tr><td class="vbmenu_option"><a href="profile.php?do=editavatar">Edit Avatar</a></td></tr>-->
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editprofile">Edit Your Details</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=editoptions">Edit Options</a></td></tr>
+		
+
+		<tr><td class="thead">Miscellaneous</td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php" rel="nofollow">Private Messages</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/subscription.php" rel="nofollow">Subscribed Threads</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=234935">Your Profile</a></td></tr>
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/online.php">Who's Online</a></td></tr>
+		
+
+		</tbody></table>
+	</div>
+	<!-- / user cp tools menu -->
+
+	
+<!-- / NAVBAR POPUP MENUS -->
+
+<!-- PAGENAV POPUP -->
+	<div class="vbmenu_popup" id="pagenav_menu" style="display: none; position: absolute; z-index: 50;">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead" nowrap="nowrap">Go to Page...</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="">
+			<form action="http://forum.sa-mp.com/index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4">
+				<input type="button" class="button" id="pagenav_ibtn" value="Go">
+			</form>
+			</td>
+		</tr>
+		</tbody></table>
+	</div>
+<!-- / PAGENAV POPUP -->
+
+
+
+
+
+
+
+
+
+
+<a name="poststop" id="poststop"></a>
+
+<!-- controls above postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tbody><tr valign="bottom">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;noquote=1&amp;p=2385649" rel="nofollow"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tbody><tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 4</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 10 of 37"><strong>1</strong></span></td>
+ <td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=416138&amp;page=2" title="Show results 11 to 20 of 37">2</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=416138&amp;page=3" title="Show results 21 to 30 of 37">3</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=416138&amp;page=2" title="Next Page - Results 11 to 20 of 37">&gt;</a></td>
+	<td class="alt1" nowrap="nowrap"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=416138&amp;page=4" title="Last Page - Results 31 to 37 of 37">Last <strong>»</strong></a></td>
+	<td class="vbmenu_control" title="" id="pagenav.42" style="cursor: pointer;"> <img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></td>
+</tr>
+</tbody></table>
+</div></td>
+</tr>
+</tbody></table>
+<!-- / controls above postbits -->
+
+<!-- toolbar -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center" style="border-bottom-width:0px">
+<tbody><tr>
+	<td class="tcat" width="100%">
+		<div class="smallfont">
+		
+		&nbsp;
+		</div>
+	</td>
+	<td class="vbmenu_control" id="threadtools" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=416138&amp;nojs=1#goto_threadtools">Thread Tools</a>
+		<script type="text/javascript"> vbmenu_register("threadtools"); </script> <img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+		<td class="vbmenu_control" id="threadsearch" nowrap="nowrap" style="cursor: pointer;">
+			<a href="http://forum.sa-mp.com/showthread.php?t=416138&amp;nojs=1#goto_threadsearch">Search this Thread</a>
+			<script type="text/javascript"> vbmenu_register("threadsearch"); </script> <img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+		</td>
+	
+	
+		<td class="vbmenu_control" id="threadrating" nowrap="nowrap" style="cursor: pointer;">
+			<a href="http://forum.sa-mp.com/showthread.php?t=416138&amp;nojs=1#goto_threadrating"><span id="threadrating_current">Rating: <img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/rating_2.gif" alt="Thread Rating: 2 votes, 2.00 average." border="0" title="Thread Rating: 2 votes, 2.00 average."></span></a>
+			<script type="text/javascript"> vbmenu_register("threadrating"); </script> <img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+		</td>
+	
+	
+	<td class="vbmenu_control" id="displaymodes" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=416138&amp;nojs=1#goto_displaymodes">Display Modes</a>
+		<script type="text/javascript"> vbmenu_register("displaymodes"); </script> <img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+
+	
+
+</tr>
+</tbody></table>
+<!-- / toolbar -->
+
+
+
+<!-- end content table -->
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- / end content table -->
+
+
+
+
+<script type="text/javascript" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/vbulletin_ajax_reputation.js"></script>
+
+
+<div id="posts"><!-- post #2385649 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2385649" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2385649" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2385649"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			16/02/2013, 10:48 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2385649&amp;postcount=1" target="new" rel="nofollow" id="postcount2385649" name="1"><strong>1</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2385649">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=119434">RoboN1X</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2385649", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Huge Clucker</div>
+			<div class="smallfont"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=119434"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/image.php" width="80" height="80" alt="RoboN1X&#39;s Avatar" border="0" title="RoboN1X&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Feb 2011</div>
+				<div>Location: Indonesia</div>
+				
+				
+				
+<div>
+  Posts: 221
+</div>
+
+<div>Reputation: 51</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2385649" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/icon2.gif" alt="Spray" border="0" title="Spray">
+				<strong>[0.3e+]Player Attached Object Editor</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2385649">
+			
+			<div align="right"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/rating_1.gif" border="0" alt=""> Rate ^ | <font color="DimGray">Latest stable version:</font> 0.4 <font color="DimGray">- November, 2015</font></div><font size="6"><font face="Lucida Sans Unicode"><font color="Teal"><b>P</b>layer <b>A</b>ttached <b>O</b>bject <b>E</b>ditor</font></font></font><br>
+This filter-script is useful for creating and editing a <a href="http://wiki.sa-mp.com/wiki/SetPlayerAttachedObject" target="_blank">player attached object</a> (also known as attached object, holding object, player attachment, clothes, dress, toy) on the player character/skin. Create up to 10 attached objects directly in game, <a href="http://wiki.sa-mp.com/wiki/EditAttachedObject" target="_blank">adjust them with cursor</a>, save, load, or share and make it together with other player(s) in the server. After it's saved, you can copy and paste the code to your SA:MP PAWN script or load them again to edit it. This is just like the attachments editor script made by <a href="http://forum.sa-mp.com/member.php?u=103711" target="_blank">h02</a>, but with more commands and functions. Please note that this is not an attachment system, but an editor script.<br>
+<br>
+<b>Features</b><ul><li>Editor menu with <a href="http://wiki.sa-mp.com/wiki/ShowPlayerDialog" target="_blank">dialog</a></li>
+<li><a href="http://wiki.sa-mp.com/wiki/EditAttachedObject" target="_blank">Edit function</a>, adjust your object with cursor</li>
+<li>Save and load attached object file (as pawn code)</li>
+<li>Auto restore on re-spawn</li>
+<li>Last deleted (by editor) attached objects can be restored</li>
+<li>Multi-player supported, you can make attachment together with other players.</li>
+</ul><br>
+<b>Screenshots</b><br>
+<table><tbody><tr><td class="alt2"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/effdi1.png" border="0" alt=""></td><td class="alt2"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/242h7qv.png" border="0" alt=""></td></tr></tbody></table><ul><li><a href="http://i61.tinypic.com/256yb11.png" target="_blank">http://i61.tinypic.com/256yb11.png</a> (v0.3)</li>
+<li><a href="http://i62.tinypic.com/ekl3me.png" target="_blank">http://i62.tinypic.com/ekl3me.png</a> (v0.3)</li>
+</ul><br>
+<b>Download</b><br>
+Just pick compiled code if you are just going to use it and not to develop it.<br>
+<table><tbody><tr><td class="alt2"><div align="center"><b>Version</b></div></td><td class="alt2"><div align="center"><b>Date</b></div></td><td class="alt2"><div align="center"><b>Compiled Script</b></div></td><td class="alt2"><div align="center"><b>Source Code</b></div></td><td class="alt2"><div align="center"><b>License</b></div></td></tr><tr><td class="alt2"><font size="4"><div align="center">0.4</div></font><div align="right"><font size="1">recommended</font></div></td><td class="alt2"><font size="4">November, 2015</font></td><td class="alt2"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/paperclip.gif" border="0" alt=""> <font size="4"><a href="http://forum.sa-mp.com/attachment.php?attachmentid=9610&amp;d=1448712471" title="Name:  AOE4.amx
+Views: 222
+Size:  312.5 KB">AOE4.amx</a></font> (±313 KB, 0.3.7-1000p)</td><td class="alt2"><ul><li><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/paperclip.gif" border="0" alt=""> <font size="4"><a href="http://forum.sa-mp.com/attachment.php?attachmentid=9609&amp;d=1448712433" title="Name:  AOE4.pwn
+Views: 239
+Size:  137.9 KB">AOE4.pwn</a></font> (±138 KB)</li><li><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/favicon.ico" border="0" alt=""><font size="3"> <a href="http://pastebin.com/JvsDU2Uz" target="_blank">Download via Pastebin</a></font></li></ul></td><td class="alt2"><font size="4"><a href="https://www.mozilla.org/en-US/MPL/2.0/" target="_blank">MPL 2.0</a></font></td></tr><tr><td class="alt2"><div align="center">0.3</div><div align="right"><font size="1">old</font></div></td><td class="alt2">March, 2014</td><td class="alt2"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/paperclip.gif" border="0" alt=""> <a href="http://forum.sa-mp.com/attachment.php?attachmentid=7272&amp;d=1396093018" title="Name:  AOE3.amx
+Views: 768
+Size:  200.7 KB">AOE3.amx</a> (±207 KB, 0.3z-500p)</td><td class="alt2"><ul><li><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/paperclip.gif" border="0" alt=""> <a href="http://forum.sa-mp.com/attachment.php?attachmentid=7273&amp;d=1396093035" title="Name:  AOE3.pwn
+Views: 674
+Size:  132.7 KB">AOE3.pwn</a> (±133 KB)</li><li><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/favicon.ico" border="0" alt=""> <a href="http://pastebin.com/XiKm1X56" target="_blank">Download via Pastebin</a></li></ul></td><td class="alt2"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank"><div align="center"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/88x31.png" border="0" alt=""></div>CC BY-NC-SA 3.0</a></td></tr><tr><td class="alt2"><font size="1"><div align="center">0.2</div><div align="right">unstable</div></font></td><td class="alt2"><font size="1">July, 2013</font></td><td class="alt2"><font size="1">N/A</font></td><td class="alt2"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/favicon.ico" border="0" alt=""> <a href="http://pastebin.com/zbJ7W8jk" target="_blank"><font size="1">Download via Pastebin</font></a></td><td class="alt2"><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank"><font size="1">CC BY-NC-SA 3.0</font></a></td></tr><tr><td class="alt2"><font size="1"><div align="center">0.1b</div><div align="right">old</div></font></td><td class="alt2"><font size="1">March, 2013</font></td><td class="alt2"><font size="1">N/A</font></td><td class="alt2"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/favicon.ico" border="0" alt=""> <a href="http://pastebin.com/Q7VUJJaj" target="_blank"><font size="1">Download via Pastebin</font></a></td><td class="alt2"><font size="1">Listed in code</font></td></tr><tr><td class="alt2"><font size="1"><div align="center">0.1a</div><div align="right">unstable</div></font></td><td class="alt2"><font size="1">February, 2013</font></td><td class="alt2"><font size="1">N/A</font></td><td class="alt2"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/favicon.ico" border="0" alt=""> <a href="http://pastebin.com/Pt8vwwh8" target="_blank"><font size="1">Download via Pastebin</font></a></td><td class="alt2"><font size="1">Listed in code</font></td></tr><tr><td class="alt2"><font size="1"><div align="center">0.1</div><div align="right">unstable</div></font></td><td class="alt2"><font size="1">February, 2013</font></td><td class="alt2"><font size="1">N/A</font></td><td class="alt2"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/favicon.ico" border="0" alt=""> <a href="http://pastebin.com/CkA1HYuh" target="_blank"><font size="1">Download via Pastebin</font></a></td><td class="alt2"><font size="1">Listed in code</font></td></tr></tbody></table><br>
+<b>Requirements</b><br>
+<table><tbody><tr><td class="alt2"><b><div align="center">Version</div></b></td><td class="alt2"><b><div align="center">Compiled Script</div></b></td><td class="alt2"><b><div align="center">Source</div></b></td></tr><tr><td class="alt2"><font size="4"><div align="center">0.4</div></font><font color="White"><font face="Arial Narrow">—————</font></font><div align="center">0.3</div></td><td class="alt2"><ol style="list-style-type: decimal"><li><font size="3"><a href="http://www.sa-mp.com/download.php" target="_blank">SA:MP server package</a> (Windows/Linux) <a href="http://files.sa-mp.com/" target="_blank">version 0.3e</a> or newer</font></li><li><font size="3"><a href="http://forum.sa-mp.com/showthread.php?t=570927" title="SA-MP Forums - Thread 570927">sscanf plugin</a> (v2.8.1+)</font></li></ol></td><td class="alt2"><ol style="list-style-type: decimal"><li><a href="http://www.sa-mp.com/download.php" target="_blank">SA:MP server package</a> with pawncc (Windows) <a href="http://files.sa-mp.com/" target="_blank">version 0.3e</a> or newer</li><li><a href="http://forum.sa-mp.com/showthread.php?t=570927" title="SA-MP Forums - Thread 570927">sscanf plugin + include</a> (v2.8.1+)</li><li><a href="http://forum.sa-mp.com/showthread.php?t=91354" title="SA-MP Forums - Thread 91354">zcmd include</a> (v0.3.1)</li></ol></td></tr><tr><td class="alt2"><font size="1"><div align="center">0.2</div></font><font size="1"><div align="center">0.1b</div></font><font size="1"><div align="center">0.1a</div></font><font size="1"><div align="center">0.1</div></font></td><td class="alt2"><ol style="list-style-type: decimal"><li><font size="1"><a href="http://www.sa-mp.com/download.php" target="_blank">SA:MP server package</a> (Windows/Linux) <a href="http://files.sa-mp.com/" target="_blank">version 0.3e</a> or newer</font></li></ol></td><td class="alt2"><ol style="list-style-type: decimal"><li><font size="1"><a href="http://www.sa-mp.com/download.php" target="_blank">SA:MP server package</a> with pawncc (Windows) <a href="http://files.sa-mp.com/" target="_blank">version 0.3e</a> or newer</font></li><li><font size="1"><a href="http://forum.sa-mp.com/showthread.php?t=50" title="SA-MP Forums - Thread 50">Dini include</a> (v1.6)</font></li></ol></td></tr></tbody></table><br>
+<b>Usage &amp; Installation</b><br>
+<u>Installation</u><ol style="list-style-type: decimal"><li>Make sure you have downloaded the compiled code (.amx) of the newest version from the link above</li>
+<li>Place the AMX file to your "\filterscripts\" folder in the sa-mp server directory</li>
+<li>If you are using version 0.3 or 0.4, make sure sscanf plugin is loaded, you should see this on <a href="http://wiki.sa-mp.com/wiki/Server.cfg" target="_blank">server.cfg file</a>:<ul><li>Windows:<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">plugins sscanf</pre>
+</div></li>
+<li>Linux:<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">plugins sscanf.so</pre>
+</div></li>
+</ul></li>
+<li>Load and run the filter-script,<ul><li>If the server is not running yet, place the AMX file name on the server.cfg file, example: <div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">filterscripts AOE4</pre>
+</div>And then start the sa-mp server</li>
+<li>If the server is already running, send this server console/<a href="https://wiki.sa-mp.com/wiki/Advanced_Server_Controls#RCON_Commands" target="_blank">RCON command</a>:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">loadfs AOE4</pre>
+</div></li>
+</ul></li>
+<li>Once it's done, you should get this on server console/log:<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				Attached Object Editor by Robo_N1X<br>
+-------------loading--------------<br>
+&gt;&gt; Version: 0.4 - November 2015 for SA:MP 0.3e+<br>
+&gt;&gt; Player attached objects count: 0<br>
+Filterscript 'AOE4.amx' loaded.
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div>Congratulations, this filter-script has successfully installed and loaded on your server.</li>
+</ol><u>Usage</u><br>
+After the filter-script is loaded, you can start by using <b>/aoe</b> command, this shows the main menu of the filter-script. Select "Help" to view the command list and its description. Additionally, login as RCON Admin to get more privileges such as deleting file and to bypass limit.<br>
+<br>
+Command list and usages below, command in red means only for RCON admin:<ul><li>/attachedobjecteditor<br>
+Alias: /aoe<br>
+Show the attached object editor filter-script main menu dialog<br>
+<br></li>
+<li><font color="Red">/resetattachedobjecteditor</font><br>
+Alias: <font color="Red">/raoepv</font><br>
+Reset a player's editor variable in case of bug.<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/resetattachedobjecteditor PlayerName/ID <i>AttachedObjectIndex</i></pre>
+</div><ul><li>PlayerName/ID: The target's player name or id to perform this action on</li>
+<li>AttachedObjectIndex (Optional): The attached object index to reset (and remove if invalid), none by default</li>
+</ul><br></li>
+<li>/createattachedobject<br>
+Alias: /cao<br>
+Create your player attached object<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/createattachedobject AttachedObjectIndex ObjectModelID BoneName/ID</pre>
+</div><ul><li>AttachedObjectIndex: The attached object slot number to create, shows free slot dialog list if not specified</li>
+<li>ObjectModelID: The GTA:SA/SA-MP object model id to create as attached object, shows dialog input if not specified</li>
+<li>BoneName/ID: The attached object bone name or id, shows bone dialog list if not specified</li>
+</ul><br></li>
+<li>/removeattachedobject<br>
+Alias: /rao<br>
+Remove your player attached object<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/removeattachedobject AttachedObjectIndex</pre>
+</div><ul><li>AttachedObjectIndex: The attached object slot number to remove</li>
+</ul><br></li>
+<li>/removeattachedobjects<br>
+Alias: /raos<br>
+Removes all of your player attached objects<br>
+<br></li>
+<li>/undeleteattachedobject<br>
+Alias: /udao<br>
+Restore your removed attached object<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/undeleteattachedobject <i>AttachedObjectIndex</i></pre>
+</div><ul><li>AttachedObjectIndex (Optional): The attached object slot number to restore, restores the last removed if not specified</li>
+</ul><br></li>
+<li>/refreshattachedobject<br>
+Alias: /rpao<br>
+Load another player's attached object<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/refreashattachedobject PlayerName/ID <i>AttachedObjectIndex</i></pre>
+</div><ul><li>PlayerName/ID: The target's player name or id to load the attached object from</li>
+<li>AttachedObjectIndex (Optional): The attached object slot number to load from, shows slot dialog list if not specified</li>
+</ul><br></li>
+<li>/duplicateattachedobject<br>
+Alias: /dao<br>
+Duplicates your attached object<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/duplicateattachedobject FromAttachedObjectIndex ToAttachedObjectIndex</pre>
+</div><ul><li>FromAttachedObjectIndex: The existing attached object slot number</li>
+<li>ToAttachedObjectIndex: The attached object slot number to duplicate on, shows slot dialog list if not specified</li>
+</ul><br></li>
+<li>/attachedobjectproperties<br>
+Aliases: /attachedobjectstatus, /aop, /aos<br>
+Shows yours or another player's attached object properties data value<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/attachedobjectproperties AttachedObjectIndex <i>PlayerName/ID</i></pre>
+</div><ul><li>AttachedObjectIndex: The attached object slot number to view its properties</li>
+<li>PlayerName/ID (Optional): The target's player name or id to view its properties, shows your own if not specified</li>
+</ul><br></li>
+<li>/editattachedobject<br>
+Alias: /eao<br>
+Edit and adjust your attached object with mouse cursor<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/editattachedobject AttachedObjectIndex</pre>
+</div><ul><li>AttachedObjectIndex: The attached object slot number to edit</li>
+</ul><br></li>
+<li>/setattachedobjectindex<br>
+Aliases: /setattachedobjectslot, /saoi<br>
+Change your attached object slot number<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/setattachedobjectindex OldAttachedObjectIndex NewAttachedObjectIndex</pre>
+</div><ul><li>OldAttachedObjectIndex: The existing attached object slot number to change from</li>
+<li>NewAttachedObjectIndex: The new attached object slot number to change at, shows free slot dialog list if not specified</li>
+</ul><br></li>
+<li>/setattachedobjectmodel<br>
+Alias: /saom<br>
+Change your attached object model<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/setattachedobjectmodel AttachedObjectIndex NewObjectModelID</pre>
+</div><ul><li>AttachedObjectIndex: The attached object slot number to change its model</li>
+<li>NewObjectModelID: The new attached object model number to change, shows model id dialog input if not specified</li>
+</ul><br></li>
+<li>/setattachedobjectbone<br>
+Alias: /saob<br>
+Change your attached object slot bone<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/setattachedobjectbone AttachedObjectIndex NewBoneName/ID</pre>
+</div><ul><li>AttachedObjectIndex : The attached object slot number to change its bone</li>
+<li>NewBoneName/ID: The new attached object bone name or id to change, shows bone dialog list if not specified</li>
+</ul><br></li>
+<li>/setattachedobjectoffset<br>
+Alias: /saoo<br>
+Change your attached object offset/position<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/setattachedobjectoffset AttachedObjectIndex X/Y/Z OffsetValue</pre>
+</div><ul><li>AttachedObjectIndex: The attached object slot number to change its offset value</li>
+<li>X/Y/Z: The offset axis (X/Y/Z) to edit</li>
+<li>OffsetValue: The new attached object offset value</li>
+</ul><br></li>
+<li>/setattachedobjectrot<br>
+Alias: /saor<br>
+Change your attached object rotation<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/setattachedobjectrot AttachedObjectIndex X/Y/Z RotationValue</pre>
+</div><ul><li>AttachedObjectIndex: The attached object slot number to change its rotation value</li>
+<li>X/Y/Z: The rotation axis (X/Y/Z) to edit</li>
+<li>RotationValue: The new attached object rotation value</li>
+</ul><br></li>
+<li>/setattachedobjectscale<br>
+Alias: /saos<br>
+Change your attached object scale/size<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/setattachedobjectscale AttachedObjectIndex X/Y/Z ScaleValue</pre>
+</div><ul><li>AttachedObjectIndex: The attached object slot number to change its scale value</li>
+<li>X/Y/Z: The scale axis (X/Y/Z) to edit</li>
+<li>ScaleValue: The new attached object scale value</li>
+</ul><br></li>
+<li>/setattachedobjectmc<br>
+Alias: /saomc<br>
+Change your attached object material color<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/setattachedobjectoffset AttachedObjectIndex MaterialColor1 MaterialColor2</pre>
+</div><ul><li>AttachedObjectIndex: The attached object slot number to change its material color</li>
+<li>MaterialColor1: The new attached object #1 material color value</li>
+<li>MaterialColor2: The new attached object #2 material color value</li>
+</ul><br></li>
+<li>/setattachedobjectmc1<br>
+Alias: /saomc1<br>
+Change your attached object material color<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/setattachedobjectoffset AttachedObjectIndex MaterialColor1</pre>
+</div><ul><li>AttachedObjectIndex: The attached object slot number to change its material color</li>
+<li>MaterialColor1: The new attached object #1 material color value</li>
+</ul><br></li>
+<li>/setattachedobjectmc2<br>
+Alias: /saomc2<br>
+Change your attached object material color<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/setattachedobjectoffset AttachedObjectIndex MaterialColor2</pre>
+</div><ul><li>AttachedObjectIndex: The attached object slot number to change its material color</li>
+<li>MaterialColor2: The new attached object #2 material color value</li>
+</ul><br></li>
+<li>/saveattachedobject<br>
+Alias: /sao<br>
+Save one of your attached object as file (PAWN code)<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/saveattachedobject AttachedObjectIndex FileName <i>Comment</i></pre>
+</div><ul><li>AttachedObjectIndex: The attached object slot number to save</li>
+<li>FileName: The name of the save file excluding extension, shows file name dialog input if not specified</li>
+<li>Comment (Optional): The comment message to save, does not work at the current version, writes your name, skin, and time information if not specified.</li>
+</ul><br></li>
+<li>/saveallattachedobjects<br>
+Alias: /saao<br>
+Save all of your attached object set as file (PAWN code)<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/saveattachedobjects FileName <i>Comment</i></pre>
+</div><ul><li>FileName: The name of the save file excluding extension, shows file name dialog input if not specified</li>
+<li>Comment (Optional): The comment message to save, does not work at the current version, writes your name, skin, and time information if not specified.</li>
+</ul><br></li>
+<li>/loadattachedobject<br>
+Alias: /lao<br>
+Load one of attached object from saved file<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/loadattachedobject FileName <i>AttachedObjectIndex</i></pre>
+</div><ul><li>FileName: The name of saved attached object file to load excluding extension</li>
+<li>AttachedObjectIndex (Optional): The attached object slot number to load from, shows free slot dialog list if not specified</li>
+</ul><br></li>
+<li>/loadattachedobjects<br>
+Alias: /laos<br>
+Load all attached object set from saved file<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/loadattachedobjects FileName</pre>
+</div><ul><li>FileName: The name of saved attached object file to load excluding extension</li>
+</ul><br></li>
+<li><font color="Red">/deleteattachedobjectfile</font><br>
+Alias: <font color="Red">/daof</font><br>
+Delete a saved attached object file <br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">/deleteattachedobjectfile FileName</pre>
+</div><ul><li>FileName: The name of saved attached object file to delete excluding extension</li>
+</ul></li>
+</ul><br>
+Legend:<ul><li>AttachedObjectIndex - Attached object slot index number, as sa-mp default: 0 to 9, in this editor use 10 for all (only works in some commands)</li>
+<li>ObjectModelID - <a href="http://wiki.sa-mp.com/wiki/Objects" target="_blank">GTA:SA/SA-MP valid Object model ID</a> number.</li>
+<li>BoneName/ID - Attached object <a href="http://wiki.sa-mp.com/wiki/Bone_IDs" target="_blank">bone name or id</a>, the id is a number from 1 to 18, you can also type the name as its listed on wiki, example "Right hand".</li>
+<li>X/Y/Z - The axis, you have to specify only one of them, for instance "x".</li>
+<li>OffsetValue, RotationValue, ScaleValue - The value of attached object data in float (decimal number), e.g: 1, -2.0, 0.3. This value is limited by the script, login as RCON admin to bypass.</li>
+<li>MaterialColor - The attached object texture material color as integer or hexadecimal number in ARGB format, e.g. 0xFF00FFFF.</li>
+<li>FileName - The attached object save file name, without extension, must be only A to Z, 0 to 9 and some allowed symbols (<u>@$()_=[]</u>), minimum 1 character and maximum 24 characters. The file then will be named as how <font face="Courier New">AOE_FILE_NAME</font> is defined in the script, by default it's named "name_pao.txt" located in scriptfiles folder.</li>
+</ul><br>
+<u>Sample</u><br>
+You probably need the sample of attached objects made with this editor. Here we go i made it, free demo!<br>
+<img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/208d7w7.png" border="0" alt=""><br>
+Just copy the code below then paste on notepad and save the file with name "Flashlight_pao.txt" in scriptfiles folder by default, then you can try it in game by using command: <b>/loadattachedobjects Flashlight</b><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">// Created by Robo_N1X (Skin ID 188) on 05/12/2015 19:16:52 (server time)
+SetPlayerAttachedObject(playerid, 0, 18641, 6, 0.08, 0.04, 0.05, 180.0, 0.0, 0.0);
+SetPlayerAttachedObject(playerid, 1, 18656, 6, 0.08, 0.065, 0.1, 90.0, 0.0, 0.0, 0.03, 0.03, 0.03);
+SetPlayerAttachedObject(playerid, 2, 19281, 6, 0.08, 0.045, 0.175);</pre>
+</div>You can also just paste the code above directly to your own script without this editor.<br>
+<br>
+<b>Changelog</b><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">0.4 - November, 2015 (28/11/2015)
+- License is now MPL 2.0
+- Added #define for non-formatted text messages, makes it easier to edit the text
+- Added #define AOE_SMALLER_SAVE to toggle skip writing optional value in code, makes the save file smaller
+- Added code to automatically delete attached object made with the filter-script on unload, except for RCON admin
+- Added /resetattachedobjecteditor command to reset player editor state in case of bug (admin only)
+- Added /setattachedobjectmc command to set one or both attached object material color
+- Added slot dialog options to select all slot
+- Added slot selection and replace confirmation dialog for /refreshattachedobject
+- Added dialog for /deleteattachedobjectfile command
+- Added confirmation dialog for overwrite file save and other dialog types
+- Added input dialog for editing XYZ value and Material Color data
+- Added "Statistics" options to main menu dialog to show total attached objects, it shows debugging variable for RCON Admin
+- Added code to prevent edit/adjusting over limit and cancel invalid/broken edit
+- Added support for 0.3.7 objects
+- Added a public function AOE_GetPVar() to get the player editor variable to be called with CallRemoteFunction()
+- Changed the dialog id enumerations to #define method
+- Bone names are now constant (read only)
+- Repeated methods now uses one same function instead
+- This version has many changes to commands, colors, messages.
+- Changed the PVar method from function to variable (EPV)
+- Changed the menu dialogs, now more simple and categorized
+- Almost everything is well sorted to make it easy
+- Attached object properties now previews material color better
+- Changed the set XYZ command:
+-- /setattachedobjectoffset(x/y/z) is now /setattachedobjectoffset [slot] [x/y/z]
+-- /setattachedobjectrot(x/y/z) is now /setattachedobjectrot [slot] [x/y/z]
+-- /setattachedobjectscale(x/y/z) is now /setattachedobjectscale [slot] [x/y/z]
+- Fixed the bug that allows editor to restore invalid attached object
+- Fixed the issue with loading comment from saved file
+- Fixed some bugs and optimized code more better
+- Removed command /totalattachedobjects, see "Statistics" on main menu instead.
+0.3 - March, 2014 (29/03/2014)
+- Major Bug fixes
+-- Fixed the dialog
+-- Fixed file name &amp; data parsing for saving &amp; loading
+-- Fixed the material color data and formatting (Hex and Integer)
+-- Fixed the function for player attached object related
+-- Fixed some message typo/grammar
+-- Fixed the wrong defined limit
+-- Fixed valid object model id that was locked on the script and were unable to be used
+- Code improvements, lower and efficient memory, also faster
+-- Changed the size of variables to necessary value
+-- Removed unused and old function
+-- Changed the color to the new style
+-- Changed the style of the script, including the defines, and variables
+-- Removed dcmd from the command processor
+-- Removed dini from file saving/loading player attached object file
+-- Removed the dialog alert on deleting one player attached object, you can just use /udso to restore last deleted one
+- Commands are changed to ZCMD and sscanf
+- File saving/loading now use the default file function with sscanf
+- Defined "FILTERSCRIPT" to make it works fine with the library
+- Now you can write your own comment with /saveattachedobject(s) command, otherwise it will include common information such as creator name and time created
+- Now you can see another player's attached object stats by using /attachedobjectstats command
+- Now you can see the exact material color data on /attachedobjectstats and sample color on the text
+- Added command /refreshattachedobject to load another player's attached object
+- Added command /deleteattachedobjectfile for RCON Admin to delete an existing player attached object file
+- Removed the /converattachedobjectfile, the /saveattachedobject(s) will save the code directly
+- Changed the /loadattachedobject(s) method, it will read the data with correct SetPlayerAttachedObject usage from file, not compatible with older editor version
+- Changes of credits
+-- Added Scott as h02's another name
+-- Added Zeex for the zcmd
+-- Added Y_Less for the sscanf
+-- Removed DracoBlue (for current version)
+0.2 - July, 2013 (29/07/2013)
+- Bug fixes
+-- Fixed the valid data showing on /attachedobjectstats
+-- Fixed the hex color data showing on /attachedobjectstats
+- Changed the create method order from model, bone, slot to slot, model, bone
+- Improved the dialog interfaces
+-- Enabled some dialog back button, which was unused in the previous version
+-- Removed the /attachedobjectlist command as it works like /editattachedobject
+-- Added the /setattachedobjectindex into the dialog menu
+-- Added the /setattachedobjectmodel into the dialog menu
+-- Added the /setattachedobjectbone into the dialog menu
+-- Added dialog confirmation on saving attached object to replace an existing file (RCON Admin Only)
+-- Added the create button on /editattachedobject menu if the attached object is not created in the selected slot
+- Removed variable "valid" from the file saving/loading
+- Code optimization (lower memory), removed unused codes
+0.1b - February, 2013 (28/02/2013)
+- Minor updates and fixes
+0.1a - February, 2013 (17/02/2013)
+- Improved the /aoe menu dialog command
+- Added dialog confirmation on /lao command for replacing used slot
+0.1 - February, 2013 (16/02/2013)
+- First release</pre>
+</div><b>Known Bugs</b><ol style="list-style-type: decimal"><li>It's written up to 99 characters can be saved for comment while its limited to 63 characters.</li>
+<li>Custom comments are not written in saved file.</li>
+</ol><br>
+<b>License</b><br>
+Version 0.4 is released under Mozilla Public License 2.0:<br>
+<a href="https://www.mozilla.org/en-US/MPL/2.0/" target="_blank">https://www.mozilla.org/en-US/MPL/2.0/</a><br>
+You may not remove any credits in the script, especially the author(s) and contributor(s) name.<br>
+Although it's with MPL, but you might not sell this script as it violates the <a href="http://forum.sa-mp.com/announcement.php?f=17" target="_blank">rules</a>.<br>
+<br>
+<b>Credits</b><br>
+Credits &amp; thanks to:<ul><li><a href="http://forum.sa-mp.com/member.php?u=119434" target="_blank">Robo_N1X</a> (Myself)</li>
+<li><a href="http://www.sa-mp.com/" target="_blank">SA-MP</a> Team</li>
+<li><a href="http://forum.sa-mp.com/member.php?u=103711" target="_blank">h02/Scott</a> (attachments filterscript)</li>
+<li><a href="http://forum.sa-mp.com/member.php?u=29176" target="_blank">Y_Less</a> (sscanf plugin &amp; include)</li>
+<li><a href="http://forum.sa-mp.com/member.php?u=193962" target="_blank">Zeex</a> (zcmd include)</li>
+<li>Whoever made the useful functions that support this script, especially by the <a href="http://forum.sa-mp.com/" target="_blank">SA:MP community</a> <a href="http://forum.sa-mp.com/memberlist.php" target="_blank">members</a></li>
+</ul>Also thanks to:<ul><li><a href="http://wiki.sa-mp.com/" target="_blank">SA-MP Wiki</a> <a href="http://wiki.sa-mp.com/wiki/Special:Listusers" target="_blank">contributors</a></li>
+<li><a href="http://forum.sa-mp.com/member.php?u=389" target="_blank">DracoBlue</a> (Dini on past version)</li>
+</ul><br>
+<b>Milestone</b><br>
+Since 29/11/2015 this thread has been viewed more than 23,000 times:<ul><li>v0.3 reached 3300 total downloads/views</li>
+<li>v0.2 reached 1400 views on pastebin</li>
+<li>v0.1b reached 500 views on pastebin</li>
+<li>v0.1a reached 100 views on pastebin</li>
+<li>v0.1 reached 800 views on pastebin</li>
+</ul>Total downloads are 6100, means 25% of the views. <img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/eek.png" border="0" alt="" title="shocked" class="inlineimg"><br>
+<br>
+Thanks to everyone that has used this filter-script tool, if you liked this editor, please rate the topic or post a comment, any feedback is appreciated.<br>
+<br>
+<b>F.A.Q</b><br>
+<u>Which file should i download?</u><br>
+The important file everyone would have to pick is the .AMX file of the latest version (0.4) also the requirements files which one is sscanf plugin. You are only required to download source code if you are going to edit or compile the filter-script by yourself.<br>
+<br>
+<u>Can i use this script on my public server?</u><br>
+Yes you can, but please notice that this is not an attachment/holding object/toy/clothes system. This is an editor script, therefore every player in your server will be able to create, edit, save, load, and use the editor commands on any attached object freely, even not made by the editor script. You should only use it if your server allows free thing like mapping stuff, or in your own private/local server. If you do so, you should have reviewed the source code and edit it for your server needs.<br>
+<br>
+<u>The filter-script dialog id is conflicting with other script that i have.</u><br>
+This filter-script uses 32 dialog id starting from number 400, you have to edit the source code then find and change the number on this define part:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">#define AOE_D	400	// Main Menu ID</pre>
+</div>For instance, if you changed the number from 400 to 1000, then dialog id 1000 to 1031 will be reserved for the editor.<br>
+<br>
+<u>Why am i getting error in game message "<i>Sorry, you can't use this command right now.</i>"?</u><br>
+This filter-script does not allow the player to use most of editor commands if the player is in state such as (1) died, (2) spectating, (3) adjusting with cursor. You need to re-spawn for the first two cases, and save/cancel edit for the last case. Otherwise, in case of bug, you can login as RCON Admin and then use the <b>/resetattachedobjecteditor</b> command.<br>
+<br>
+* More will be posted later<br>
+<br>
+<b>Additional Notes</b><br>
+You may use this script as much as is proper on San Andreas MultiPlayer, in other case, the author is not responsible of the risk and damage caused by this filter-script fault (no warranty), especially unauthorized source or fake mirror.<br>
+<br>
+Please note that the download link for <b>AOE4-03e-500p</b> is compiled with 0.3e server for 500 players and might not work correctly on some conditions. However you should still able to use it on sa-mp server version 0.3e or newer with 500 player slot. This is provided for compatibility and lower memory as it is using necessary API version.<br>
+<br>
+If you have found bugs or have any questions regarding to this script, feel free to reply here or <a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=119434" target="_blank">send me a private message</a>.<br>
+And sorry for my bad english both in the script and this forum thread.<br>
+<br>
+More details of this topic will be updated later, i'm still editing it.
+		</div>
+		<!-- / message -->
+
+		
+		<!-- attachments -->
+			<div style="padding:6px">
+
+			
+
+			
+
+			
+
+			
+				<fieldset class="fieldset">
+					<legend>Attached Files</legend>
+					<table cellpadding="0" cellspacing="3" border="0">
+					<tbody><tr>
+	<td><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/amx.gif" alt="File Type: amx" width="16" height="16" border="0" style="vertical-align:baseline" title="File Type: amx"></td>
+	<td><a href="http://forum.sa-mp.com/attachment.php?attachmentid=9611&amp;d=1448712515">AOE4-03e-500p.amx</a> (211.4 KB, 150 views)</td>
+</tr>
+					</tbody></table>
+				</fieldset>
+			
+
+			
+
+			</div>
+		<!-- / attachments -->
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center">Need Help? Use <a href="http://forum.sa-mp.com/search" target="_blank"> <b>Search</b></a>, <a href="http://wiki.sa-mp.com/" target="_blank"><b>WIKI</b></a>, and <a href="http://forum.sa-mp.com/showpost.php?p=448873&amp;postcount=1" target="_blank"><b>FAQ</b></a><br>
+<a href="samp://gamerxserver.com:8800" target="_blank"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/sig-4-1569599" border="0" alt=""></a></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+		<!-- edit note -->
+			<div class="smallfont">
+				<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+				<em>
+					
+						Last edited by RoboN1X; 05/12/2015 at <span class="time">01:54 PM</span>.
+					
+					
+						Reason: Update 0.4 (command list)
+					
+				</em>
+			</div>
+		<!-- / edit note -->
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/user_offline.gif" alt="RoboN1X is offline" border="0" title="RoboN1X is offline">
+
+
+		
+			<span id="reputationmenu_2385649"><a href="http://forum.sa-mp.com/reputation.php?p=2385649" rel="nofollow" id="reputation_2385649"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/reputation.png" alt="Add to RoboN1X&#39;s Reputation" border="0" title="Add to RoboN1X&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2385649")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2385649" rel="nofollow"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2385649" rel="nofollow"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2385649" rel="nofollow" onclick="return false"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2385649" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2385649" rel="nofollow" id="qr_2385649" onclick="return false"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2385649 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2385649_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">RoboN1X</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=119434">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=119434" rel="nofollow">Send a private message to RoboN1X</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=119434" rel="nofollow">Find More Posts by RoboN1X</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=119434">Add RoboN1X to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2385649 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2385649 --><!-- post #2385664 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2385664" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2385664" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2385664"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			16/02/2013, 11:01 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2385664&amp;postcount=2" target="new" rel="nofollow" id="postcount2385664" name="2"><strong>2</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2385664">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=187070">radiobizza</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2385664", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Gangsta</div>
+			<div class="smallfont"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=187070"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/image(1).php" width="60" height="80" alt="radiobizza&#39;s Avatar" border="0" title="radiobizza&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Dec 2012</div>
+				<div>Location: Romania</div>
+				
+				
+				
+<div>
+  Posts: 512
+</div>
+
+<div>Reputation: 21</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2385664" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [0.3e+][Dini]Player Attached Object Editor</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2385664">
+			
+			gooooddd :X keep up
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/user_offline.gif" alt="radiobizza is offline" border="0" title="radiobizza is offline">
+
+
+		
+			<span id="reputationmenu_2385664"><a href="http://forum.sa-mp.com/reputation.php?p=2385664" rel="nofollow" id="reputation_2385664"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/reputation.png" alt="Add to radiobizza&#39;s Reputation" border="0" title="Add to radiobizza&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2385664")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2385664" rel="nofollow"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2385664" rel="nofollow"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2385664" rel="nofollow" onclick="return false"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2385664" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2385664" rel="nofollow" id="qr_2385664" onclick="return false"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2385664 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2385664_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">radiobizza</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=187070">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=187070" rel="nofollow">Send a private message to radiobizza</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=187070" rel="nofollow">Find More Posts by radiobizza</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=187070">Add radiobizza to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2385664 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2385664 --><!-- post #2385764 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2385764" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2385764" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2385764"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			16/02/2013, 12:38 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2385764&amp;postcount=3" target="new" rel="nofollow" id="postcount2385764" name="3"><strong>3</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2385764">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=183144">WizBoy</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2385764", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Big Clucker</div>
+			<div class="smallfont"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=183144"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/image(2).php" width="80" height="80" alt="WizBoy&#39;s Avatar" border="0" title="WizBoy&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Oct 2012</div>
+				<div>Location: Europe</div>
+				
+				
+				
+<div>
+  Posts: 112
+</div>
+
+<div>Reputation: 51</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2385764" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [0.3e+][Dini]Player Attached Object Editor</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2385764">
+			
+			<b>Very usefull.....+1 Rep for you work <img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/biggrin.png" border="0" alt="" title="Cheesy" class="inlineimg"></b>
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<a href="http://imgur.com/QZVyy" target="_blank"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/QZVyy.png" border="0" alt=""></a><br>
+<b><font color="Orange">Respect:</font></b><b><font color="Red">   XtremeR &amp; Lordz™ </font></b><br>
+<b><font color="Lime">My Works:</font></b><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=387449" target="_blank">WizBank v1.0 - Future Banking System!</a><br>
+<a href="http://forum.sa-mp.com/showthread.php?p=2263145#post2263145" target="_blank">WizRandom v1.0 - Future Random Messages</a><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=398613" target="_blank">WizPrison v1.0 - Cool RP Prison</a>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/user_offline.gif" alt="WizBoy is offline" border="0" title="WizBoy is offline">
+
+
+		
+			<span id="reputationmenu_2385764"><a href="http://forum.sa-mp.com/reputation.php?p=2385764" rel="nofollow" id="reputation_2385764"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/reputation.png" alt="Add to WizBoy&#39;s Reputation" border="0" title="Add to WizBoy&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2385764")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2385764" rel="nofollow"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2385764" rel="nofollow"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2385764" rel="nofollow" onclick="return false"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2385764" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2385764" rel="nofollow" id="qr_2385764" onclick="return false"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2385764 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2385764_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">WizBoy</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=183144">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=183144" rel="nofollow">Send a private message to WizBoy</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=183144" rel="nofollow">Find More Posts by WizBoy</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=183144">Add WizBoy to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2385764 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2385764 --><!-- post #2385796 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2385796" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2385796" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2385796"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			16/02/2013, 01:10 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2385796&amp;postcount=4" target="new" rel="nofollow" id="postcount2385796" name="4"><strong>4</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2385796">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=177813">XtremeR</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2385796", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Gangsta</div>
+			<div class="smallfont"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=177813"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/image(3).php" width="80" height="80" alt="XtremeR&#39;s Avatar" border="0" title="XtremeR&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Aug 2012</div>
+				<div>Location: Australia</div>
+				
+				
+				
+<div>
+  Posts: 949
+</div>
+
+<div>Reputation: 561</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2385796" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [0.3e+][Dini]Player Attached Object Editor</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2385796">
+			
+			Great Rep +!
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><a href="http://xtremer-samp.webs.com/" target="_blank"><font size="2"><font color="Red"><b><font color="Black">My</font> website</b></font></font></a></div><a href="http://xtremer-samp.webs.com/releases" target="_blank"><font size="2"><div align="center"><font color="Red"><b><font color="Black">My</font> works</b></font></div></font></a><div align="center"><a href="http://xtremer-samp.webs.com/contact" target="_blank"><font size="2"><font color="Red"><b><font color="Black">Contact</font> me</b></font></font></a></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/user_offline.gif" alt="XtremeR is offline" border="0" title="XtremeR is offline">
+
+
+		
+			<span id="reputationmenu_2385796"><a href="http://forum.sa-mp.com/reputation.php?p=2385796" rel="nofollow" id="reputation_2385796"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/reputation.png" alt="Add to XtremeR&#39;s Reputation" border="0" title="Add to XtremeR&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2385796")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2385796" rel="nofollow"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2385796" rel="nofollow"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2385796" rel="nofollow" onclick="return false"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2385796" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2385796" rel="nofollow" id="qr_2385796" onclick="return false"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2385796 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2385796_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">XtremeR</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=177813">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=177813" rel="nofollow">Send a private message to XtremeR</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=177813" rel="nofollow">Find More Posts by XtremeR</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=177813">Add XtremeR to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2385796 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2385796 --><!-- post #2385886 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2385886" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2385886" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2385886"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			16/02/2013, 02:13 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2385886&amp;postcount=5" target="new" rel="nofollow" id="postcount2385886" name="5"><strong>5</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2385886">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=188703">nhunor58</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2385886", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Big Clucker</div>
+			<div class="smallfont"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Dec 2012</div>
+				
+				
+				
+				
+<div>
+  Posts: 126
+</div>
+
+<div>Reputation: -4</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2385886" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [0.3e+][Dini]Player Attached Object Editor</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2385886">
+			
+			nice I like it <img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/biggrin.png" border="0" alt="" title="Cheesy" class="inlineimg">
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<a href="http://www.game-state.eu/92.114.32.99:7777/" target="_blank"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/350x20_FFFFFF_FFFFFF_000000_000000.png" border="0" alt=""></a>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/user_offline.gif" alt="nhunor58 is offline" border="0" title="nhunor58 is offline">
+
+
+		
+			<span id="reputationmenu_2385886"><a href="http://forum.sa-mp.com/reputation.php?p=2385886" rel="nofollow" id="reputation_2385886"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/reputation.png" alt="Add to nhunor58&#39;s Reputation" border="0" title="Add to nhunor58&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2385886")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2385886" rel="nofollow"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2385886" rel="nofollow"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2385886" rel="nofollow" onclick="return false"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2385886" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2385886" rel="nofollow" id="qr_2385886" onclick="return false"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2385886 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2385886_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">nhunor58</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=188703">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=188703" rel="nofollow">Send a private message to nhunor58</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=188703" rel="nofollow">Find More Posts by nhunor58</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=188703">Add nhunor58 to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2385886 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2385886 --><!-- post #2388082 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2388082" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2388082" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2388082"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			17/02/2013, 04:10 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2388082&amp;postcount=6" target="new" rel="nofollow" id="postcount2388082" name="6"><strong>6</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2388082">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=119434">RoboN1X</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2388082", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Huge Clucker</div>
+			<div class="smallfont"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=119434"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/image.php" width="80" height="80" alt="RoboN1X&#39;s Avatar" border="0" title="RoboN1X&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Feb 2011</div>
+				<div>Location: Indonesia</div>
+				
+				
+				
+<div>
+  Posts: 221
+</div>
+
+<div>Reputation: 51</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2388082" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [0.3e+][Dini]Player Attached Object Editor</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2388082">
+			
+			Thank you all for the comments and using/downloading this filterscript <img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/biggrin.png" border="0" alt="" title="Cheesy" class="inlineimg"><br>
+There is new minor change/update available! version 0.1a, tested in 0.3x <img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/wink.png" border="0" alt="" title="Wink" class="inlineimg"><br>
+i don't have time right now on making the full guide. Feel free to ask me the question in this topic or forum pm.<br>
+Let me know if anyone have an idea or suggestion on this.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center">Need Help? Use <a href="http://forum.sa-mp.com/search" target="_blank"> <b>Search</b></a>, <a href="http://wiki.sa-mp.com/" target="_blank"><b>WIKI</b></a>, and <a href="http://forum.sa-mp.com/showpost.php?p=448873&amp;postcount=1" target="_blank"><b>FAQ</b></a><br>
+<a href="samp://gamerxserver.com:8800" target="_blank"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/sig-4-1569599" border="0" alt=""></a></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/user_offline.gif" alt="RoboN1X is offline" border="0" title="RoboN1X is offline">
+
+
+		
+			<span id="reputationmenu_2388082"><a href="http://forum.sa-mp.com/reputation.php?p=2388082" rel="nofollow" id="reputation_2388082"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/reputation.png" alt="Add to RoboN1X&#39;s Reputation" border="0" title="Add to RoboN1X&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2388082")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2388082" rel="nofollow"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2388082" rel="nofollow"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2388082" rel="nofollow" onclick="return false"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2388082" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2388082" rel="nofollow" id="qr_2388082" onclick="return false"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2388082 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2388082_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">RoboN1X</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=119434">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=119434" rel="nofollow">Send a private message to RoboN1X</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=119434" rel="nofollow">Find More Posts by RoboN1X</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=119434">Add RoboN1X to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2388082 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2388082 --><!-- post #2429837 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2429837" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2429837" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2429837"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			15/03/2013, 11:52 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2429837&amp;postcount=7" target="new" rel="nofollow" id="postcount2429837" name="7"><strong>7</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2429837">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=196902">Drog</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2429837", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Little Clucker</div>
+			<div class="smallfont"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Mar 2013</div>
+				
+				
+				
+				
+<div>
+  Posts: 10
+</div>
+
+<div>Reputation: 0</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2429837" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/icon14.png" alt="Thumbs up" border="0" title="Thumbs up">
+				<strong>Respuesta: [0.3e+][Dini]Player Attached Object Editor</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2429837">
+			
+			good
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/user_offline.gif" alt="Drog is offline" border="0" title="Drog is offline">
+
+
+		
+			<span id="reputationmenu_2429837"><a href="http://forum.sa-mp.com/reputation.php?p=2429837" rel="nofollow" id="reputation_2429837"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/reputation.png" alt="Add to Drog&#39;s Reputation" border="0" title="Add to Drog&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2429837")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2429837" rel="nofollow"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2429837" rel="nofollow"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2429837" rel="nofollow" onclick="return false"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2429837" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2429837" rel="nofollow" id="qr_2429837" onclick="return false"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2429837 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2429837_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Drog</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=196902">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=196902" rel="nofollow">Send a private message to Drog</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=196902" rel="nofollow">Find More Posts by Drog</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=196902">Add Drog to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2429837 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2429837 --><!-- post #2430792 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2430792" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2430792" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2430792"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			16/03/2013, 03:43 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2430792&amp;postcount=8" target="new" rel="nofollow" id="postcount2430792" name="8"><strong>8</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2430792">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=106102">Hoss</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2430792", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Huge Clucker</div>
+			<div class="smallfont"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Sep 2010</div>
+				
+				
+				
+				
+<div>
+  Posts: 201
+</div>
+
+<div>Reputation: 85</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2430792" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [0.3e+][Dini]Player Attached Object Editor</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2430792">
+			
+			Great release robo <img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/wink.png" border="0" alt="" title="Wink" class="inlineimg">
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/user_offline.gif" alt="Hoss is offline" border="0" title="Hoss is offline">
+
+
+		
+			<span id="reputationmenu_2430792"><a href="http://forum.sa-mp.com/reputation.php?p=2430792" rel="nofollow" id="reputation_2430792"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/reputation.png" alt="Add to Hoss&#39;s Reputation" border="0" title="Add to Hoss&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2430792")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2430792" rel="nofollow"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2430792" rel="nofollow"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2430792" rel="nofollow" onclick="return false"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2430792" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2430792" rel="nofollow" id="qr_2430792" onclick="return false"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2430792 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2430792_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Hoss</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=106102">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=106102" rel="nofollow">Send a private message to Hoss</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=106102" rel="nofollow">Find More Posts by Hoss</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=106102">Add Hoss to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2430792 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2430792 --><!-- post #2453320 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2453320" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2453320" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2453320"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			29/03/2013, 07:50 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2453320&amp;postcount=9" target="new" rel="nofollow" id="postcount2453320" name="9"><strong>9</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2453320">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=197442">Spaseto</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2453320", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Little Clucker</div>
+			<div class="smallfont"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Mar 2013</div>
+				
+				
+				
+				
+<div>
+  Posts: 4
+</div>
+
+<div>Reputation: 0</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2453320" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [0.3e+][Dini]Player Attached Object Editor</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2453320">
+			
+			Cool
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/user_offline.gif" alt="Spaseto is offline" border="0" title="Spaseto is offline">
+
+
+		
+			<span id="reputationmenu_2453320"><a href="http://forum.sa-mp.com/reputation.php?p=2453320" rel="nofollow" id="reputation_2453320"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/reputation.png" alt="Add to Spaseto&#39;s Reputation" border="0" title="Add to Spaseto&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2453320")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2453320" rel="nofollow"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2453320" rel="nofollow"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2453320" rel="nofollow" onclick="return false"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2453320" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2453320" rel="nofollow" id="qr_2453320" onclick="return false"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2453320 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2453320_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Spaseto</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=197442">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=197442" rel="nofollow">Send a private message to Spaseto</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=197442" rel="nofollow">Find More Posts by Spaseto</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=197442">Add Spaseto to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2453320 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2453320 --><!-- post #2600888 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2600888" style="padding:0px 0px 6px 0px">
+	
+
+
+
+<table id="post2600888" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2600888"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			06/07/2013, 05:07 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2600888&amp;postcount=10" target="new" rel="nofollow" id="postcount2600888" name="10"><strong>10</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2600888">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=205742">Androit</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2600888", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Little Clucker</div>
+			<div class="smallfont"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=205742"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/image(4).php" width="80" height="65" alt="Androit&#39;s Avatar" border="0" title="Androit&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Jun 2013</div>
+				
+				
+				
+				
+<div>
+  Posts: 5
+</div>
+
+<div>Reputation: 0</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2600888" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: [0.3e+][Dini]Player Attached Object Editor</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2600888">
+			
+			Nice Job Robo <img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/biggrin.png" border="0" alt="" title="Cheesy" class="inlineimg"> +Rep <img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/wink.png" border="0" alt="" title="Wink" class="inlineimg">
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/2s9ab7l.jpg" border="0" alt=""></div><br>
+<b><font color="Red"><div align="center">Need Scripting Help If you can Pm me <img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/smile.png" border="0" alt="" title="Smiley" class="inlineimg"></div></font></b>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/user_offline.gif" alt="Androit is offline" border="0" title="Androit is offline">
+
+
+		
+			<span id="reputationmenu_2600888"><a href="http://forum.sa-mp.com/reputation.php?p=2600888" rel="nofollow" id="reputation_2600888"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/reputation.png" alt="Add to Androit&#39;s Reputation" border="0" title="Add to Androit&#39;s Reputation"></a></span>
+			<script type="text/javascript"> vbrep_register("2600888")</script>
+		
+		
+		<a href="http://forum.sa-mp.com/report.php?p=2600888" rel="nofollow"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/report.png" alt="Report Post" border="0" title="Report Post"></a>
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2600888" rel="nofollow"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2600888" rel="nofollow" onclick="return false"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/multiquote_off.png" alt="Multi-Quote This Message" border="0" id="mq_2600888" title="Multi-Quote This Message"></a>
+		
+		
+			<a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;p=2600888" rel="nofollow" id="qr_2600888" onclick="return false"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quickreply.png" alt="Quick reply to this message" border="0" title="Quick reply to this message"></a>
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2600888 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2600888_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Androit</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=205742">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&amp;u=205742" rel="nofollow">Send a private message to Androit</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&amp;u=205742" rel="nofollow">Find More Posts by Androit</a></td></tr>
+	
+	
+	<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/profile.php?do=addlist&amp;userlist=buddy&amp;u=205742">Add Androit to Your Contacts</a></td></tr>
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2600888 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2600888 --><div id="lastpost"></div></div>
+
+<!-- start content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+<!-- / start content table -->
+
+<!-- controls below postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:-3px">
+<tbody><tr valign="top">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&amp;noquote=1&amp;p=2600888" rel="nofollow"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	
+		<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tbody><tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 4</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 10 of 37"><strong>1</strong></span></td>
+ <td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=416138&amp;page=2" title="Show results 11 to 20 of 37">2</a></td><td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=416138&amp;page=3" title="Show results 21 to 30 of 37">3</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=416138&amp;page=2" title="Next Page - Results 11 to 20 of 37">&gt;</a></td>
+	<td class="alt1" nowrap="nowrap"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=416138&amp;page=4" title="Last Page - Results 31 to 37 of 37">Last <strong>»</strong></a></td>
+	<td class="vbmenu_control" title="" id="pagenav.215" style="cursor: pointer;"> <img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></td>
+</tr>
+</tbody></table>
+</div>
+		
+		</td>
+	
+</tr>
+</tbody></table>
+<!-- / controls below postbits -->
+
+
+
+
+
+
+
+
+
+
+<!-- lightbox scripts -->
+	<script type="text/javascript" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/vbulletin_lightbox.js"></script>
+	<script type="text/javascript">
+	<!--
+	vBulletin.register_control("vB_Lightbox_Container", "posts", 1);
+	//-->
+	</script>
+<!-- / lightbox scripts -->
+
+
+
+<!-- multiquote scripts -->
+	<script type="text/javascript" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/vbulletin_multi_quote.js"></script>
+	<script type="text/javascript">
+	<!--
+	var mqlimit = 0;
+	//-->
+	</script>
+<!-- / multiquote scripts -->
+
+
+
+<!-- ajax errors table -->
+	<table class="tborder" cellpadding="6" cellspacing="1" border="0" style="display:none; position:absolute" id="ajax_post_errors">
+	<tbody><tr>
+		<td class="thead">
+			<span style="float:right"><input type="button" class="button" value=" X " onclick="vB_QuickEditor.hide_errors()" id="ajax_post_errors_closebtn"></span>
+			vBulletin Message
+		</td>
+	</tr>
+	<tr>
+		<td class="alt2" colspan="2" id="ajax_post_errors_message">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="tfoot" colspan="2" align="center"><a href="http://forum.sa-mp.com/showthread.php?t=416138#" onclick="vB_QuickEditor.abort(); return false;">Cancel Changes</a></td>
+	</tr>
+	</tbody></table>
+<!-- / ajax errors table -->
+
+<!-- scripts for quick reply and quick edit -->
+	<!-- Editor Scripts -->
+<script type="text/javascript" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/vbulletin_textedit.js"></script>
+<script type="text/javascript">
+<!--
+var fontoptions = new Array("Arial", "Arial Black", "Arial Narrow", "Book Antiqua", "Century Gothic", "Comic Sans MS", "Courier New", "Fixedsys", "Franklin Gothic Medium", "Garamond", "Georgia", "Impact", "Lucida Console", "Lucida Sans Unicode", "Microsoft Sans Serif", "Palatino Linotype", "System", "Tahoma", "Times New Roman", "Trebuchet MS", "Verdana");
+var sizeoptions = new Array(1, 2, 3, 4, 5, 6, 7);
+var smilieoptions = {  };
+
+var istyles = { "pi_button_down" : [ "#98B5E2", "#000000", "0px", "1px solid #316AC5" ], "pi_button_hover" : [ "#C1D2EE", "#000000", "0px", "1px solid #316AC5" ], "pi_button_normal" : [ "#E1E1E2", "#000000", "1px", "none" ], "pi_button_selected" : [ "#F1F6F8", "#000000", "0px", "1px solid #316AC5" ], "pi_menu_down" : [ "#98B5E2", "#316AC5", "0px", "1px solid #316AC5" ], "pi_menu_hover" : [ "#C1D2EE", "#316AC5", "0px", "1px solid #316AC5" ], "pi_menu_normal" : [ "#FFFFFF", "#000000", "0px", "1px solid #FFFFFF" ], "pi_popup_down" : [ "#98B5E2", "#000000", "0px", "1px solid #316AC5" ] };
+var ltr = 'left';
+
+var smiliewindow_x = 240;
+var smiliewindow_y = 280;
+
+var ignorequotechars = 1;
+var allowbasicbbcode = true;
+
+// vB Phrases
+vbphrase["wysiwyg_please_wait"]          = "Please wait for the WYSIWYG editor to finish loading...";
+vbphrase["wysiwyg_initialized"]          = "WYSIWYG Editor initialized for %1$s in %2$s seconds.";
+vbphrase["wysiwyg_command_invalid"]      = "This command is invalid or not implemented.";
+vbphrase["moz_must_select_text"]         = "Mozilla requires that you must select some text for this function to work";
+vbphrase["moz_edit_config_file"]         = "You need to edit your Mozilla config file to allow this action.";
+vbphrase["enter_tag_option"]             = "Please enter the option for your %1$s tag:";
+vbphrase["must_select_text_to_use"]      = "You must select some text to use this function.";
+vbphrase["browser_is_safari_no_wysiwyg"] = "The Safari browser does not support WYSIWYG mode.";
+vbphrase["enter_option_x_tag"]           = "Enter the option for the [%1$s] tag:";
+vbphrase["enter_text_to_be_formatted"]   = "Enter the text to be formatted";
+vbphrase["enter_link_text"]              = "Enter the text to be displayed for the link (optional):";
+vbphrase["enter_list_type"]              = "What type of list do you want? Enter '1' for a numbered list, enter 'a' for an alphabetical list, or leave blank for a list with bullet points:";
+vbphrase["enter_list_item"]              = "Enter a list item.\r\nLeave the box empty or press 'Cancel' to complete the list:";
+vbphrase["must_enter_subject"]           = "You must enter a title / subject!";
+vbphrase["message_too_short"]            = "The message you have entered is too short. Please lengthen your message to at least %1$s characters.";
+vbphrase["enter_link_url"]               = "Please enter the URL of your link:";
+vbphrase["enter_image_url"]              = "Please enter the URL of your image:";
+vbphrase["enter_email_link"]             = "Please enter the email address for the link:";
+vbphrase["complete_image_verification"]  = "You did not complete the Image Verification";
+vbphrase["iespell_not_installed"]        = "ieSpell is a spell-checking tool for Internet Explorer.\r\n\r\nIf you would like to download ieSpell, click OK; otherwise click Cancel.\r\n\r\nieSpell can be downloaded from http://www.iespell.com";
+vbphrase["click_quick_reply_icon"]       = "Please click one of the Quick Reply icons in the posts above to activate Quick Reply.";
+vbphrase["insert_all"]                   = "Insert All";
+
+//-->
+</script>
+<!-- / Editor Scripts -->
+	
+<!-- / scripts for quick reply and quick edit -->
+
+
+
+
+<!-- quick reply -->
+	<br>
+	<script type="text/javascript" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/vbulletin_quick_reply.js"></script>
+	<form action="http://forum.sa-mp.com/newreply.php?do=postreply&amp;t=416138" method="post" name="vbform" onsubmit="return qr_prepare_submit(this, 4);" id="qrform">
+	<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+	<thead>
+		<tr>
+			<td class="tcat" colspan="2">
+				<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=416138#top" onclick="return toggle_collapse(&#39;quickreply&#39;);"><img id="collapseimg_quickreply" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/collapse_tcat.gif" alt="" border="0"></a>
+				Quick Reply
+			</td>
+		</tr>
+	</thead>
+	<tbody id="qr_error_tbody" style="display:none">
+	<tr>
+		<td class="thead">The following errors occurred with your submission</td>
+	</tr>
+	<tr>
+		<td class="alt1" id="qr_error_td"></td>
+	</tr>
+	<tr>
+		<td class="tfoot" align="center"><span class="smallfont"><a href="http://forum.sa-mp.com/showthread.php?t=416138#" onclick="return qr_hide_errors()">Okay</a></span></td>
+	</tr>
+	</tbody>
+	<tbody id="collapseobj_quickreply" style="">
+	<tr>
+		<td class="panelsurround" align="center">
+			<div class="panel">
+				<div align="left" style="max-width:800px; width:auto !important; width:800px">
+					<div class="smallfont">Message:</div>
+					<div id="vB_Editor_QR" class="vBulletin_editor">
+		<script type="text/javascript">
+		<!--
+			var threaded_mode = 0;
+			var require_click = 0;
+			var is_last_page = 0; // leave for people with cached JS files
+			var allow_ajax_qr = 0;
+			var ajax_last_post = 1458009984;
+		// -->
+		</script>
+		
+<div id="vB_Editor_QR_controls" class="controlbar">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_removeformat"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/removeformat.gif" width="21" height="20" alt="Remove Text Formatting" title="Remove Text Formatting"></div></td>
+	
+		<td><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_bold"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/bold.gif" width="21" height="20" alt="Bold" title="Bold"></div></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_italic"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/italic.gif" width="21" height="20" alt="Italic" title="Italic"></div></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_underline"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/underline.gif" width="21" height="20" alt="Underline" title="Underline"></div></td>
+	
+	
+		<td><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_popup_forecolor" title="Colors">
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr>
+				<td id="vB_Editor_QR_color_out"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/color.gif" width="21" height="16" alt=""><br><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/clear.gif" id="vB_Editor_QR_color_bar" alt="" style="background-color:black" width="21" height="4"></td>
+				<td class="alt_pickbutton"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/menupop.gif" alt="" width="11" height="16"></td>
+			</tr>
+			</tbody></table>
+		</div></td>
+	
+	
+		<td><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+	
+	
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_createlink"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/createlink.gif" width="21" height="20" alt="Insert Link" title="Insert Link"></div></td>
+	
+	
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_insertimage"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/insertimage.gif" width="21" height="20" alt="Insert Image" title="Insert Image"></div></td>
+	
+	
+		<td><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/separator.gif" width="6" height="20" alt=""></td>
+		<td><div class="imagebutton" id="vB_Editor_QR_cmd_wrap0_quote"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/quote.gif" width="21" height="20" alt="Wrap [QUOTE] tags around selected text" title="Wrap [QUOTE] tags around selected text"></div></td>
+	
+	<td width="100%">&nbsp;</td>
+	
+		<td>
+			<div class="imagebutton" id="vB_Editor_QR_cmd_resize_0_99"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/resize_0.gif" width="21" height="9" alt="Decrease Size" title="Decrease Size"></div>
+			<div class="imagebutton" id="vB_Editor_QR_cmd_resize_1_99"><img src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/resize_1.gif" width="21" height="9" alt="Increase Size" title="Increase Size"></div>
+		</td>
+	
+	</tr>
+	</tbody></table>
+</div>
+
+<div class="controlbar" style="padding-right:8px">
+	<fieldset style="border:0px; padding:0px; margin:0px">
+	
+	<textarea name="message" id="vB_Editor_QR_textarea" rows="10" cols="60" style="width:100%; height:100px" tabindex="1" dir="ltr"></textarea>
+	
+	</fieldset>
+	<!--width:800px-->
+</div>
+
+<input type="hidden" name="wysiwyg" id="vB_Editor_QR_mode" value="0">
+<input type="hidden" name="styleid" value="0">
+
+<script type="text/javascript">
+<!--
+vB_Editor['vB_Editor_QR'] = new vB_Text_Editor('vB_Editor_QR', 0, '17', '1');
+var QR_EditorID = 'vB_Editor_QR';
+//-->
+</script>
+	</div>
+
+					<fieldset class="fieldset" style="margin:3px 0px 0px 0px">
+						<legend>Options</legend>
+						<div style="padding:3px">
+							
+								<div style="float:right"><label for="cb_signature"><input type="checkbox" name="signature" value="1" id="cb_signature" tabindex="5" checked="checked">Show your signature</label></div>
+							
+							<label for="qr_quickreply"><input type="checkbox" name="quickreply" value="1" id="qr_quickreply" accesskey="w" tabindex="4" disabled="">Quote message in reply?</label>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+
+			<div style="margin-top:6px">
+				<input type="hidden" name="fromquickreply" value="1">
+				<input type="hidden" name="s" value="">
+				<input type="hidden" name="securitytoken" value="1467960547-0be80e9225cb70a829633fcddac5a4a92723c4eb">
+				<input type="hidden" name="do" value="postreply">
+				<input type="hidden" name="t" value="416138" id="qr_threadid">
+				<input type="hidden" name="p" value="who cares" id="qr_postid">
+				<input type="hidden" name="specifiedpost" value="0" id="qr_specifiedpost">
+				<input type="hidden" name="parseurl" value="1">
+				<input type="hidden" name="loggedinuser" value="234935">
+				<input type="submit" class="button" value="Post Quick Reply" accesskey="s" title="(Alt + S)" name="sbutton" tabindex="2" id="qr_submit" onclick="clickedelm = this.value">
+				<input type="submit" class="button" value="Go Advanced" accesskey="x" title="(Alt + X)" name="preview" tabindex="3" id="qr_preview" onclick="clickedelm = this.value">
+			</div>
+
+			<div align="center" id="qr_posting_msg" style="display:none; margin-top:6px">
+				<img style="vertical-align: middle;" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/progress.gif" alt="Posting Quick Reply - Please Wait" title="Posting Quick Reply - Please Wait">&nbsp;<strong>Posting Quick Reply - Please Wait</strong>
+			</div>
+		</td>
+	</tr>
+	</tbody>
+	</table>
+	</form>
+
+	
+		<!-- Mozilla work around for focusing on QR in WYSIWYG mode -->
+		<div id="qr_scroll"></div>
+	
+
+	<script type="text/javascript">
+	<!--
+		// initialize quick reply
+		qr_init();
+	//-->
+	</script>
+<!-- / quick reply -->
+
+
+
+<!-- next / previous links -->
+	<br>
+	<div class="smallfont" align="center">
+		<strong>«</strong>
+			<a href="http://forum.sa-mp.com/showthread.php?t=416138&amp;goto=nextoldest" rel="nofollow">Previous Thread</a>
+			|
+			<a href="http://forum.sa-mp.com/showthread.php?t=416138&amp;goto=nextnewest" rel="nofollow">Next Thread</a>
+		<strong>»</strong>
+	</div>
+<!-- / next / previous links -->
+
+
+
+
+
+
+
+<!-- popup menu contents -->
+<br>
+
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="http://forum.sa-mp.com/postings.php?t=416138&amp;pollid=" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/printer.gif" alt="Show Printable Version" title="Show Printable Version"> <a href="http://forum.sa-mp.com/printthread.php?t=416138" accesskey="3" rel="nofollow">Show Printable Version</a></td>
+	</tr>
+	
+	
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/subscribe.gif" alt="Subscription" title="Subscription">
+		
+			<a href="http://forum.sa-mp.com/subscription.php?do=addsubscription&amp;t=416138" rel="nofollow">Subscribe to this Thread</a>
+		
+		</td>
+	</tr>
+	
+	
+	
+	</tbody></table>
+</form>
+</div>
+<!-- / thread tools menu -->
+
+<!-- **************************************************** -->
+
+<!-- thread display mode menu -->
+<div class="vbmenu_popup" id="displaymodes_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Display Modes<a name="goto_displaymodes"></a></td>
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option" title="nohilite"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/mode_linear.gif" alt="Linear Mode" title="Linear Mode"> <strong>Linear Mode</strong></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/mode_hybrid.gif" alt="Hybrid Mode" title="Hybrid Mode"> <a href="http://forum.sa-mp.com/showthread.php?mode=hybrid&amp;t=416138">Switch to Hybrid Mode</a></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/mode_threaded.gif" alt="Threaded Mode" title="Threaded Mode"> <a href="http://forum.sa-mp.com/showthread.php?p=2385649&amp;mode=threaded#post2385649">Switch to Threaded Mode</a></td>
+	
+	</tr>
+	</tbody></table>
+</div>
+<!-- / thread display mode menu -->
+
+<!-- **************************************************** -->
+
+
+<!-- thread search menu -->
+<div class="vbmenu_popup" id="threadsearch_menu" style="display:none">
+<form action="http://forum.sa-mp.com/search.php?do=process&amp;searchthreadid=416138" method="post">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Search this Thread<a name="goto_threadsearch"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option" title="nohilite">
+			<input type="hidden" name="s" value="">
+			<input type="hidden" name="securitytoken" value="1467960547-0be80e9225cb70a829633fcddac5a4a92723c4eb">
+			<input type="hidden" name="do" value="process">
+			<input type="hidden" name="searchthreadid" value="416138">
+			<input type="text" class="bginput" name="query" size="25"><input type="submit" class="button" value="Go"><br>
+		</td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?searchthreadid=416138">Advanced Search</a></td>
+	</tr>
+	</tbody></table>
+</form>
+</div>
+<!-- / thread search menu -->
+
+
+<!-- **************************************************** -->
+
+
+	<!-- thread rating menu -->
+	<div class="vbmenu_popup" id="threadrating_menu" style="display:none">
+	<form action="http://forum.sa-mp.com/threadrate.php?t=416138" method="post" id="showthread_threadrate_form">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead">Rate This Thread<a name="goto_threadrating"></a></td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option" title="nohilite" id="threadrating_options">
+
+			<div><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/rating_5.gif" alt="Excellent" title="Excellent"><label for="vote5"><input type="radio" name="vote" id="vote5" value="5">Excellent</label></div>
+			<div><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/rating_4.gif" alt="Good" title="Good"><label for="vote4"><input type="radio" name="vote" id="vote4" value="4">Good</label></div>
+			<div><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/rating_3.gif" alt="Average" title="Average"><label for="vote3"><input type="radio" name="vote" id="vote3" value="3">Average</label></div>
+			<div><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/rating_2.gif" alt="Bad" title="Bad"><label for="vote2"><input type="radio" name="vote" id="vote2" value="2">Bad</label></div>
+			<div><img class="inlineimg" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/rating_1.gif" alt="Terrible" title="Terrible"><label for="vote1"><input type="radio" name="vote" id="vote1" value="1">Terrible</label></div>
+			</td>
+		</tr>
+		<tr id="threadrating_submit">
+			<td class="vbmenu_option" title="nohilite" align="center">
+				<input type="hidden" name="s" value="">
+				<input type="hidden" name="securitytoken" value="1467960547-0be80e9225cb70a829633fcddac5a4a92723c4eb">
+				<input type="hidden" name="t" value="416138">
+				<input type="hidden" name="pp" value="10">
+				<input type="hidden" name="page" value="1">
+				<input type="button" class="button" value="Vote Now">
+			</td>
+		</tr>
+		
+		</tbody></table>
+	</form>
+	</div>
+	<!-- / thread rating menu -->
+
+	<script type="text/javascript" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/vbulletin_ajax_threadrate.js"></script>
+	<script type="text/javascript">
+	<!--
+	vB_AJAX_ThreadRate_Init('showthread_threadrate_form');
+	var threadid = 416138;
+	//-->
+	</script>
+
+
+<!-- / popup menu contents -->
+
+
+<!-- forum rules and admin links -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr valign="bottom">
+	<td width="100%" valign="top">
+		<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="210">
+<thead>
+<tr>
+	<td class="thead">
+		<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=416138#top" onclick="return toggle_collapse(&#39;forumrules&#39;)"><img id="collapseimg_forumrules" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/collapse_thead.gif" alt="" border="0"></a>
+		Posting Rules
+	</td>
+</tr>
+</thead>
+<tbody id="collapseobj_forumrules" style="">
+<tr>
+	<td class="alt1" nowrap="nowrap"><div class="smallfont">
+		
+		<div>You <strong>may</strong> post new threads</div>
+		<div>You <strong>may</strong> post replies</div>
+		<div>You <strong>may</strong> post attachments</div>
+		<div>You <strong>may</strong> edit your posts</div>
+		<hr>
+		
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode" target="_blank">BB code</a> is <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showsmilies" target="_blank">Smilies</a> are <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode#imgcode" target="_blank">[IMG]</a> code is <strong>On</strong></div>
+		<div>HTML code is <strong>Off</strong></div>
+		<hr>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showrules" target="_blank">Forum Rules</a></div>
+	</div></td>
+</tr>
+</tbody>
+</table>
+	</td>
+	<td class="smallfont" align="right">
+		<table cellpadding="0" cellspacing="0" border="0">
+		
+		<tbody><tr>
+			<td>
+			
+			</td>
+		</tr>
+		</tbody></table>
+	</td>
+</tr>
+</tbody></table>
+<!-- /forum rules and admin links -->
+
+<br>
+
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" width="100%" colspan="5">
+			<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=416138#top" onclick="return toggle_collapse(&#39;similarthreads&#39;)"><img id="collapseimg_similarthreads" src="./[FilterScript] [0.3e+]Player Attached Object Editor - SA-MP Forums_files/collapse_tcat.gif" alt="" border="0"></a>
+			Similar Threads<a name="similarthreads"></a>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_similarthreads" style="">
+<tr class="thead" align="center">
+	<td class="thead" width="40%">Thread</td>
+	<td class="thead" width="15%" nowrap="nowrap">Thread Starter</td>
+	<td class="thead" width="20%">Forum</td>
+	<td class="thead" width="5%">Replies</td>
+	<td class="thead" width="20%">Last Post</td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont">[<span style="font-weight:bold;font-size:8pt;color:#AD3333;">FilterScript</span>] <a href="http://forum.sa-mp.com/showthread.php?t=209234" title="Attached Object Editor 
+ 
+Someone has made one of these before, I looked at it, and found myself wanting more, so I made one 
+...">Attached Object Editor</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Rachael</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Filterscripts</span></td>
+	<td class="alt2" align="center"><span class="smallfont">50</span></td>
+	<td class="alt1" align="right"><span class="smallfont">22/04/2014 <span class="time">11:06 AM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=470582" title="i wanna save the size that the player change it to, with a variable call ObjInfo">how to save the size of attached object after player edit attached object</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Chrisli520</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Scripting Help</span></td>
+	<td class="alt2" align="center"><span class="smallfont">1</span></td>
+	<td class="alt1" align="right"><span class="smallfont">19/10/2013 <span class="time">12:12 AM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=430116" title="I have tried doing this, although I didn&#39;t succeed. 
+ 
+Could anyone confirm that editing objects, while attached to vehicles works? I&#39;d like to make...">Object editor (While attached to vehicles)</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Pizzy</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Scripting Help</span></td>
+	<td class="alt2" align="center"><span class="smallfont">2</span></td>
+	<td class="alt1" align="right"><span class="smallfont">12/04/2013 <span class="time">08:37 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=385412" title="I think this is just a minor bug but it would seem when you use Clickable textdraws and the player attached object editor together you can not move...">[BUG]: Clickable Textdraws / Player attached object editor</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Pottus</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Bug Reports</span></td>
+	<td class="alt2" align="center"><span class="smallfont">10</span></td>
+	<td class="alt1" align="right"><span class="smallfont">17/11/2012 <span class="time">09:31 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=313264" title="Cine imi poate da si mie un attached object editor care sa fie pe 0.3d ca acesta de pe samp.com este pe 0.3c si nu imi merge:( am incercat sa il trec...">un attached object editor</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Andr3y9603</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Român&#259;/Romanian</span></td>
+	<td class="alt2" align="center"><span class="smallfont">0</span></td>
+	<td class="alt1" align="right"><span class="smallfont">25/01/2012 <span class="time">08:59 AM</span></span></td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+
+
+
+<br>
+<div class="smallfont" align="center">All times are GMT +2. The time now is <span class="time">08:49 AM</span>.</div>
+<br>
+
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- /content area table -->
+
+<form action="http://forum.sa-mp.com/index.php" method="get" style="clear:left">
+
+<table cellpadding="6" cellspacing="0" border="0" width="90%" class="page" align="center">
+<tbody><tr>
+	
+	
+		<td class="tfoot">
+			<select name="langid" onchange="switch_id(this, &#39;lang&#39;)">
+				<optgroup label="Quick Language Chooser">
+					<option value="1" class="" selected="selected">-- (EN) English</option>
+<option value="3" class="">-- (ES) Español</option>
+<option value="4" class="">-- (RU) &#1056;&#1091;&#1089;&#1089;&#1082;&#1080;</option>
+
+				</optgroup>
+			</select>
+		</td>
+	
+	<td class="tfoot" align="right" width="100%">
+		<div class="smallfont">
+			<strong>
+				<a href="http://forum.sa-mp.com/sendmessage.php" rel="nofollow" accesskey="9">Contact Us</a> -
+				<a href="http://www.sa-mp.com/">SA-MP</a> -
+				
+				
+				<a href="http://forum.sa-mp.com/archive/index.php">Archive</a> -
+				
+				
+				
+				<a href="http://forum.sa-mp.com/showthread.php?t=416138#top" onclick="self.scrollTo(0, 0); return false;">Top</a>
+			</strong>
+		</div>
+	</td>
+</tr>
+</tbody></table>
+
+<br>
+
+<div align="center">
+	<div class="smallfont" align="center">
+	<!-- Do not remove this copyright notice -->
+	Powered by vBulletin® Version 3.8.6<br>Copyright ©2000 - 2016, Jelsoft Enterprises Ltd.
+	<!-- Do not remove this copyright notice -->
+	</div>
+
+	<div class="smallfont" align="center">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+
+	
+	</div>
+</div>
+
+</form>
+
+
+
+
+<script type="text/javascript">
+<!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//-->
+</script>
+
+<!-- temp -->
+<div style="display:none">
+	<!-- thread rate -->
+	
+		<!-- thread ratings form here -->
+	
+	<!-- / thread rate -->
+</div>
+
+
+</body></html>

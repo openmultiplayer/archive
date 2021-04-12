@@ -1,0 +1,3027 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0046)http://forum.sa-mp.com/showthread.php?t=497081 -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	
+<meta name="generator" content="vBulletin 3.8.6">
+
+<meta name="keywords" content="[Tutorial] Creating an include, SA-MP, GTA, multiplayer, online, server, pawn, scripting">
+<meta name="description" content="[Tutorial] Creating an include Tutorials">
+
+
+<!-- CSS Stylesheet -->
+<style type="text/css" id="vbulletin_css">
+/**
+* vBulletin 3.8.6 CSS
+* Style: 'SAMPStyle'; Style ID: 2
+*/
+body
+{
+	background: #707170;
+	color: #FFFFFFF;
+	font: bold 10pt arial, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 1px 1px 1px 1px;
+	padding: 1px;
+}
+a:link, body_alink
+{
+	color: #4A627F;
+	text-decoration: none;
+}
+a:visited, body_avisited
+{
+	color: #1A425F;
+	text-decoration: none;
+}
+a:hover, a:active, body_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.page
+{
+	background: #DADADB;
+	color: #000000;
+}
+td, th, p, li
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tborder
+{
+	background: #DFDFDF;
+	color: #000000;
+	border: 1px solid #717171;
+}
+.tcat
+{
+	background: #4F4F4F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tcat a:link, .tcat_alink
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:visited, .tcat_avisited
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:hover, .tcat a:active, .tcat_ahover
+{
+	color: #E76006;
+	text-decoration: underline;
+}
+.thead
+{
+	background: #3F3F3F url(images/gradients/grad_thead.png) repeat-x top left;
+	color: #FFFFFF;
+	font: bold 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.thead a:link, .thead_alink
+{
+	color: #FFFFFF;
+}
+.thead a:visited, .thead_avisited
+{
+	color: #FFFFFF;
+}
+.thead a:hover, .thead a:active, .thead_ahover
+{
+	color: #E76006;
+}
+.tfoot
+{
+	background: #595959;
+	color: #CDCDCD;
+}
+.tfoot a:link, .tfoot_alink
+{
+	color: #CDCDCD;
+}
+.tfoot a:visited, .tfoot_avisited
+{
+	color: #9D9D9D;
+}
+.tfoot a:hover, .tfoot a:active, .tfoot_ahover
+{
+	color: #E76006;
+}
+.alt1, .alt1Active
+{
+	background: #F6F6F6;
+	color: #000000;
+}
+.alt2, .alt2Active
+{
+	background: #EAEAEB;
+	color: #000000;
+}
+.inlinemod
+{
+	background: #FFFFCC;
+	color: #000000;
+}
+.wysiwyg
+{
+	background: #F5F5F5;
+	color: #000000;
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 5px 10px 10px 10px;
+	padding: 0px;
+}
+.wysiwyg a:link, .wysiwyg_alink
+{
+	color: #22229C;
+}
+.wysiwyg a:visited, .wysiwyg_avisited
+{
+	color: #22229C;
+}
+.wysiwyg a:hover, .wysiwyg a:active, .wysiwyg_ahover
+{
+	color: #E76006;
+}
+textarea, .bginput
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.bginput option, .bginput optgroup
+{
+	font-size: 10pt;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.button
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+select
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+option, optgroup
+{
+	font-size: 11px;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.smallfont
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.time
+{
+	color: #666686;
+}
+.navbar
+{
+	font: 12pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.highlight
+{
+	color: #FF0000;
+	font-weight: bold;
+}
+.fjsel
+{
+	background: #3E5C92;
+	color: #E0E0F6;
+}
+.fjdpth0
+{
+	background: #F7F7F7;
+	color: #000000;
+}
+.panel
+{
+	background: #F5F5F5;
+	color: #000000;
+	padding: 10px;
+	border: 1px;
+}
+.panelsurround
+{
+	background: #F5F5F5;
+	color: #000000;
+}
+legend
+{
+	color: #222222;
+	font: 11px tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.vbmenu_control
+{
+	background: #777777;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	padding: 3px 6px 3px 6px;
+	white-space: nowrap;
+}
+.vbmenu_control a:link, .vbmenu_control_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:visited, .vbmenu_control_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:hover, .vbmenu_control a:active, .vbmenu_control_ahover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+.vbmenu_popup
+{
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #0B198C;
+}
+.vbmenu_option
+{
+	background: #444444;
+	color: #FFFFFF;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_option a:link, .vbmenu_option_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:visited, .vbmenu_option_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_option a:hover, .vbmenu_option a:active, .vbmenu_option_ahover
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_hilite
+{
+	background: #F37016;
+	color: #000000;
+	font: bold 8pt sans-serif, arial, geneva, lucida, 'lucida grande', helvetica;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_hilite a:link, .vbmenu_hilite_alink
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:visited, .vbmenu_hilite_avisited
+{
+	color: #000000;
+	text-decoration: none;
+}
+.vbmenu_hilite a:hover, .vbmenu_hilite a:active, .vbmenu_hilite_ahover
+{
+	color: #000000;
+	text-decoration: none;
+}
+/* ***** styling for 'big' usernames on postbit etc. ***** */
+.bigusername { font-size: 14pt; }
+
+/* ***** small padding on 'thead' elements ***** */
+td.thead, th.thead, div.thead { padding: 4px; }
+
+/* ***** basic styles for multi-page nav elements */
+.pagenav a { text-decoration: none; }
+.pagenav td { padding: 2px 4px 2px 4px; }
+
+/* ***** de-emphasized text */
+.shade, a.shade:link, a.shade:visited { color: #777777; text-decoration: none; }
+a.shade:active, a.shade:hover { color: #FF4400; text-decoration: underline; }
+.tcat .shade, .thead .shade, .tfoot .shade { color: #DDDDDD; }
+
+/* ***** define margin and font-size for elements inside panels ***** */
+.fieldset { margin-bottom: 6px; }
+.fieldset, .fieldset td, .fieldset p, .fieldset li { font-size: 11px; }
+</style>
+<link rel="stylesheet" type="text/css" href="./[Tutorial] Creating an include - SA-MP Forums_files/vbulletin_important.css">
+
+
+<!-- / CSS Stylesheet -->
+
+<script type="text/javascript" src="./[Tutorial] Creating an include - SA-MP Forums_files/yahoo-dom-event.js"></script><style type="text/css"></style>
+<script type="text/javascript" src="./[Tutorial] Creating an include - SA-MP Forums_files/connection-min.js"></script>
+<script type="text/javascript">
+<!--
+var SESSIONURL = "";
+var SECURITYTOKEN = "guest";
+var IMGDIR_MISC = "images/misc";
+var vb_disable_ajax = parseInt("0", 10);
+// -->
+</script>
+<script type="text/javascript" src="./[Tutorial] Creating an include - SA-MP Forums_files/vbulletin_global.js"></script>
+<script type="text/javascript" src="./[Tutorial] Creating an include - SA-MP Forums_files/vbulletin_menu.js"></script>
+
+
+	<link rel="alternate" type="application/rss+xml" title="SA-MP Forums RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2">
+	
+		<link rel="alternate" type="application/rss+xml" title="SA-MP Forums - Tutorials - RSS Feed" href="http://forum.sa-mp.com/external.php?type=RSS2&forumids=70">
+	
+<script type="text/javascript" src="./[Tutorial] Creating an include - SA-MP Forums_files/ame.js"></script>
+	<title>[Tutorial] Creating an include - SA-MP Forums</title>
+	<script type="text/javascript" src="./[Tutorial] Creating an include - SA-MP Forums_files/vbulletin_post_loader.js"></script>
+	<style type="text/css" id="vbulletin_showthread_css">
+	<!--
+	
+	#links div { white-space: nowrap; }
+	#links img { vertical-align: middle; }
+	-->
+	</style>
+</head>
+<body onload="">
+<!-- logo -->
+<a name="top"></a>
+<center><div align="center" style="height: 80px; width: 90%; background: transparent url(http://forum.sa-mp.com/logo_new_back3.png) repeat-x 0px 0px; text-align:center;">
+<table border="0" width="90%" cellpadding="0" cellspacing="0" align="center">
+<tbody><tr>
+	<td align="center"><a href="http://forum.sa-mp.com/index.php"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/logo_forum.gif" border="0" alt="SA-MP Forums" title="SA-MP Forums"></a></td>
+</tr>
+</tbody></table>
+</div></center>
+<!-- /logo -->
+
+<!-- content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+
+
+
+
+<br>
+
+<!-- breadcrumb, login, pm info -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<tbody><tr>
+	<td class="alt1" width="100%">
+		
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr valign="bottom">
+				<td><a href="http://forum.sa-mp.com/showthread.php?t=497081#" onclick="history.back(1); return false;"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/navbits_start.gif" alt="Go Back" border="0" title="Go Back"></a></td>
+				<td>&nbsp;</td>
+				<td width="100%"><span class="navbar"><a href="http://forum.sa-mp.com/index.php" accesskey="1">SA-MP Forums</a></span> 
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=8">SA-MP Scripting and Plugins</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=12">Scripting Help</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://forum.sa-mp.com/forumdisplay.php?f=70">Tutorials</a></span>
+
+</td>
+			</tr>
+			<tr>
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="./[Tutorial] Creating an include - SA-MP Forums_files/[Tutorial] Creating an include - SA-MP Forums.htm"><img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/navbits_finallink_ltr.gif" alt="Reload this Page" border="0" title="Reload this Page"></a> <strong>
+	[<span style="font-weight:bold;font-size:8pt;color:#841594;">Tutorial</span>] Creating an include
+
+</strong></td>
+			</tr>
+			</tbody></table>
+		
+	</td>
+
+	<td class="alt2" nowrap="nowrap" style="padding:0px">
+		<!-- login form -->
+		<form action="http://forum.sa-mp.com/login.php?do=login" method="post" onsubmit="md5hash(vb_login_password, vb_login_md5password, vb_login_md5password_utf, 0)">
+		<script type="text/javascript" src="./[Tutorial] Creating an include - SA-MP Forums_files/vbulletin_md5.js"></script>
+		<table cellpadding="0" cellspacing="3" border="0">
+		<tbody><tr>
+			<td class="smallfont" style="white-space: nowrap;"><label for="navbar_username">User Name</label></td>
+			<td><input type="text" class="bginput" style="font-size: 11px" name="vb_login_username" id="navbar_username" size="10" accesskey="u" tabindex="101" value="User Name" onfocus="if (this.value == &#39;User Name&#39;) this.value = &#39;&#39;;"></td>
+			<td class="smallfont" nowrap="nowrap"><label for="cb_cookieuser_navbar"><input type="checkbox" name="cookieuser" value="1" tabindex="103" id="cb_cookieuser_navbar" accesskey="c">Remember Me?</label></td>
+		</tr>
+		<tr>
+			<td class="smallfont"><label for="navbar_password">Password</label></td>
+			<td><input type="password" class="bginput" style="font-size: 11px" name="vb_login_password" id="navbar_password" size="10" tabindex="102"></td>
+			<td><input type="submit" class="button" value="Log in" tabindex="104" title="Enter your username and password in the boxes provided to login, or click the &#39;register&#39; button to create a profile for yourself." accesskey="s"></td>
+		</tr>
+		</tbody></table>
+		<input type="hidden" name="s" value="">
+		<input type="hidden" name="securitytoken" value="guest">
+		<input type="hidden" name="do" value="login">
+		<input type="hidden" name="vb_login_md5password">
+		<input type="hidden" name="vb_login_md5password_utf">
+		</form>
+		<!-- / login form -->
+	</td>
+
+</tr>
+</tbody></table>
+<!-- / breadcrumb, login, pm info -->
+
+<!-- nav buttons bar -->
+<div class="tborder" style="padding:1px; border-top-width:0px">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+	<tbody><tr align="center">
+		
+		
+			<td class="vbmenu_control"><a href="http://forum.sa-mp.com/newacc.php" rel="nofollow">New Account</a></td>
+		
+		
+		
+			<td class="vbmenu_control"><a id="community" href="http://forum.sa-mp.com/showthread.php?t=497081&nojs=1#community" rel="nofollow" accesskey="6" style="cursor: pointer;">Community <img src="./[Tutorial] Creating an include - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></a> <script type="text/javascript"> vbmenu_register("community"); </script></td>
+		
+		
+			
+				
+				<td class="vbmenu_control"><a href="http://forum.sa-mp.com/search.php?do=getdaily" accesskey="2">Today's Posts</a></td>
+				
+				<td class="vbmenu_control"><a id="navbar_search" href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow">Search</a> </td>
+			
+			
+		
+		
+		
+		</tr>
+	</tbody></table>
+</div>
+<!-- / nav buttons bar -->
+
+<br>
+
+
+
+
+
+
+<!-- NAVBAR POPUP MENUS -->
+
+	
+	<!-- community link menu -->
+	<div class="vbmenu_popup" id="community_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr><td class="thead">Community Links</td></tr>
+		
+		
+		
+		
+		
+			<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/memberlist.php">Members List</a></td></tr>
+		
+		
+		</tbody></table>
+	</div>
+	<!-- / community link menu -->
+	
+	
+	
+	<!-- header quick search form -->
+	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none;margin-top:3px" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead">Search Forums</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+				<form action="http://forum.sa-mp.com/search.php?do=process" method="post">
+
+					<input type="hidden" name="do" value="process">
+					<input type="hidden" name="quicksearch" value="1">
+					<input type="hidden" name="childforums" value="1">
+					<input type="hidden" name="exactname" value="1">
+					<input type="hidden" name="s" value="">
+					<input type="hidden" name="securitytoken" value="guest">
+					<div><input type="text" class="bginput" name="query" size="25" tabindex="1001"><input type="submit" class="button" value="Go" tabindex="1004"></div>
+					<div style="margin-top:6px">
+						<label for="rb_nb_sp0"><input type="radio" name="showposts" value="0" id="rb_nb_sp0" tabindex="1002" checked="checked">Show Threads</label>
+						&nbsp;
+						<label for="rb_nb_sp1"><input type="radio" name="showposts" value="1" id="rb_nb_sp1" tabindex="1003">Show Posts</label>
+					</div>
+				</form>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php" accesskey="4" rel="nofollow">Advanced Search</a></td>
+		</tr>
+		
+		</tbody></table>
+	</div>
+	<!-- / header quick search form -->
+	
+	
+	
+<!-- / NAVBAR POPUP MENUS -->
+
+<!-- PAGENAV POPUP -->
+	<div class="vbmenu_popup" id="pagenav_menu" style="display: none; position: absolute; z-index: 50;">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead" nowrap="nowrap">Go to Page...</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="">
+			<form action="http://forum.sa-mp.com/index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4">
+				<input type="button" class="button" id="pagenav_ibtn" value="Go">
+			</form>
+			</td>
+		</tr>
+		</tbody></table>
+	</div>
+<!-- / PAGENAV POPUP -->
+
+
+
+
+
+
+
+
+
+
+<a name="poststop" id="poststop"></a>
+
+<!-- controls above postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tbody><tr valign="bottom">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&noquote=1&p=2928750" rel="nofollow"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tbody><tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 2</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 10 of 17"><strong>1</strong></span></td>
+ <td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=497081&page=2" title="Show results 11 to 17 of 17">2</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=497081&page=2" title="Next Page - Results 11 to 17 of 17">&gt;</a></td>
+	
+	<td class="vbmenu_control" title="" id="pagenav.30" style="cursor: pointer;"> <img src="./[Tutorial] Creating an include - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></td>
+</tr>
+</tbody></table>
+</div></td>
+</tr>
+</tbody></table>
+<!-- / controls above postbits -->
+
+<!-- toolbar -->
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center" style="border-bottom-width:0px">
+<tbody><tr>
+	<td class="tcat" width="100%">
+		<div class="smallfont">
+		
+		&nbsp;
+		</div>
+	</td>
+	<td class="vbmenu_control" id="threadtools" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=497081&nojs=1#goto_threadtools">Thread Tools</a>
+		<script type="text/javascript"> vbmenu_register("threadtools"); </script> <img src="./[Tutorial] Creating an include - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+	
+	
+	<td class="vbmenu_control" id="displaymodes" nowrap="nowrap" style="cursor: pointer;">
+		<a href="http://forum.sa-mp.com/showthread.php?t=497081&nojs=1#goto_displaymodes">Display Modes</a>
+		<script type="text/javascript"> vbmenu_register("displaymodes"); </script> <img src="./[Tutorial] Creating an include - SA-MP Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+
+	
+
+</tr>
+</tbody></table>
+<!-- / toolbar -->
+
+
+
+<!-- end content table -->
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- / end content table -->
+
+
+
+
+
+<div id="posts"><!-- post #2928750 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2928750" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2928750" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2928750"><img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			25/02/2014, 06:19 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2928750&postcount=1" target="new" rel="nofollow" id="postcount2928750" name="1"><strong>1</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2928750">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=158660">Lordzy</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2928750", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Mar 2012</div>
+				<div>Location: NetherRealm</div>
+				
+				
+				
+<div>
+  Posts: 2,290
+</div>
+
+<div>Reputation: 738</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2928750" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Creating an include</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2928750">
+			
+			<div align="center"><font size="5"><b><font color="Black"><u><font color="RoyalBlue">Creating an Include</font></u></font></b></font></div><br>
+<font size="4"><b><font color="Black"><u><font color="RoyalBlue">Introduction</font></u></font></b></font><br>
+<br>
+Before starting on, I'm asking the users who doesn't know to create include, after reading this tutorial don't just get on in creating small includes and posting them - which are mainly of small functions. If you're creating functions, feel free to post it on <a href="http://forum.sa-mp.com/showthread.php?t=38965" target="_blank">'Useful Functions'</a> topic or if small snippet, post it on <a href="http://forum.sa-mp.com/showthread.php?t=281" target="_blank">'Useful Snippets'</a> topic.<br>
+<br>
+Alright, many of the users have been seen includes being created. When I was new towards SA-MP, I used to see includes getting released. I had no idea in how they're like but then realized it's just like normal PAWN codes but just small difference from normal scripts and include scripts.<br>
+<br>
+<font size="4"><b><br>
+<font color="Black"><u><font color="RoyalBlue">What are includes?</font></u></font></b></font><br>
+<br>
+Includes on PAWN are those which includes codes according to what it's done on that include. Different includes got different modes of working according to what's coded. For example, an anti-cheat include might have many hooked parts where as an include which is a set of functions would be having many functions in it than hooking parts. Though, hooking may come in the set of functions too.<br>
+<br>
+<font size="4"><b><br>
+<font color="Black"><u><font color="RoyalBlue">Tutorial</font></u></font></b></font><blockquote><br>
+<b>•<u>Including</u></b><blockquote><br>
+Before creating an include, it's necessary to know how <font color="blue">#include</font> directive works. Generally, most of the users include a_samp by just doing <font color="blue">#include &lt;a_samp&gt;</font>. Usage : <font color="blue">#include &lt;file_name_here&gt;</font>. <br>
+This works in a way like the '#include' gets on '/pawno/include/' and finds the file called <b>a_samp<font color="red">.inc</font></b> . Including part can also be done in other way by using quotes instead of angular brackets which allows you to browse the include packages even outside the pawno folder. It also allows you to include files of different extensions. Here's an example in showing both the including parts.<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:151px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">//Normal way:</span><br><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><span style="color: #228822;">/* How it works? :<br>Goes to '/pawno/include/'<br>Gets 'a_samp.inc'<br>*/</span><br><span style="color: #2222AA;">#include &lt;a_samp.inc&gt; //Does the same like above.</span><br><span style="color: #2222AA;">#include &lt;a_samp.pwn&gt; //Does the same but fetches for the file called 'a_samp.pwn' instead of a_samp.inc</span></div></div></pre>
+</div><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:103px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">//Including using quotes</span><br><span style="color: #2222AA;">#include "a_samp" //Does the same as #include &lt;a_samp&gt;</span><br><br><span style="color: #2222AA;">#include "../include/gl_common.inc" </span><br><span style="color: #228822;">//Instead of going to 'pawno/include', it goes to parent directory and goes to 'include' folder. And then it gets 'gl_common.inc' included.</span></div></div></pre>
+</div><br>
+When it comes to folders, you could include it with folder path. Suppose, inside include folder, you got a folder name myLib and inside that you got your include called mylib.inc . So including it would be:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;myLib/mylib.inc&gt;</span></div></div></pre>
+</div><br>
+•<b>#tryinclude</b><br>
+tryinclude works just like <font color="blue">#include</font> works, however it doesn't give a fatal error in case if the include isn't found. For example, guess that <font color="blue">#tryinclude &lt;mystufffffs&gt;</font> is being used where 'mystufffffs.inc' isn't found at <b>'/pawno/include'</b> directory. Instead of giving a fatal error like <font color="blue">#include</font> does, it just skips the inclusion part. This isn't suggested in case if you're trying it to get included for basic functions.<br>
+<br>
+<br>
+For more about including, you could read the documentation of keyword either on <a href="http://wiki.sa-mp.com/wiki/Keywords:Directives#.23include" target="_blank">SA-MP wiki</a> or on pawn documentation file.<br>
+</blockquote><b>•<u>Starting On</u></b><br>
+<br>
+<b>•Collision #1 : Accidental double including</b><blockquote><br>
+The first step in creating an include is to avoid it colliding in case if it's included twice by an accident or if it's being used on other includes or scripts. The basic step is to check if a part is defined or not, if it's defined (the defined symbol should be something like 'KEY' of your include) then it's inclusion part should be aborted assuming that it's already included. And then after closing the checking part, that symbol which has been used for checking has to be defined or else colliding would occur if included twice.<br>
+<br>
+Oh and that's script-wise, before doing that, make sure that you've created the include on <b>'/pawno/include'</b> directory or the place where you want it to be. <br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:215px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">//myfirstinclude.inc</span><br><span style="color: #228822;">//I'll be checking if myinclude's define has been done already</span><br><span style="color: #2222AA;">#if defined _included_myfirstincludestuff </span><br>&nbsp;<span style="color: #228822;">//If, '_included_myfirstincludestuff' has been defined already. If so:</span><br>&nbsp; &nbsp; <span style="color: #2222AA;">#endinput</span><br>&nbsp; &nbsp; <span style="color: #228822;">//Using '#endinput' breaks the inclusion progress of THIS include only. It's a PAWN directive which doesn't harm other includes.</span><br><span style="color: #2222AA;">#endif </span><br><span style="color: #228822;">//Ending the 'If' statement which was started.</span><br><br><span style="color: #228822;">//Now the key which has been checked as if it's defined or not has to be defined before anything.</span><br><span style="color: #2222AA;">#define _included_myfirstincludestuff </span><br><span style="color: #228822;">//Now your include KEY define has been defined!</span></div></div></pre>
+</div>Using this method, it's possible to break <b>MAIN</b> colliding parts. However, there are other ways in which there could occur colliding with other scripts. Now, if your script is using some functions from other include or generally a_samp, you could use #tryinclude to get it included than #include so that it doesn't give a fatal error.<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:119px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#if defined _included_myfirstincludestuff</span><br>&nbsp; &nbsp; <span style="color: #2222AA;">#endinput</span><br><span style="color: #2222AA;">#endif</span><br><br><span style="color: #2222AA;">#define _included_myfirstincludestuff</span><br><span style="color: #2222AA;">#tryinclude &lt;a_samp&gt;</span></div></div></pre>
+</div><br>
+</blockquote><b>• Collision #2 : Variable/Array declaration.</b><blockquote><br>
+The other way in collision occurring between the include created and scripts are due to variable/arrays. Suppose that a variable called "myvar" is being declared in such a way like <font color="blue">new</font> <font color="black">myvar;</font> . And in case if the same variable is being used on your scripts, it would pop up errors in regarding this symbol being declared already. Secondly, arrays could also be a major problem. Suppose there's an array called "string" with size 128 declared on the incude in such a way like <font color="blue">new</font> <font color="black">string[<font color="lightblue">128</font>];</font> , that would give errors in case if it's declared once more with different or equal sizes. <br>
+<br>
+Avoiding that is pretty simple, either it has to be used of with tags like "myLIB_myvar;", "myLIB_string[128]" or using <font color="blue">static</font> variables/arrays. While using <font color="blue">static</font> variables or arrays, it works in a way that the variable is being used on the 'include' part. When it's being included in other scripts and if the var/array is present on other scripts too, it wouldn't give errors as it's isn't really a global var/array declared. It was <font color="blue">static</font>. Here's an example in regarding it:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:247px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#if defined _included_myfirstinclude</span><br>&nbsp; &nbsp; <span style="color: #2222AA;">#endinput</span><br><span style="color: #2222AA;">#endif</span><br><br><span style="color: #2222AA;">#define _included_myfirstinclude</span><br><br><span style="color: #2222BB;">static</span> <br>&nbsp; &nbsp; LIB_myvar,<br>&nbsp; &nbsp; LIB_string<span style="color: #000000;">[</span><span style="color: #000000;">128</span><span style="color: #000000;">]</span>;<br><br><span style="color: #228822;">//Those tag was used to just clarify that things won't collide later.</span><br><br><span style="color: #228822;">//somewhere:</span><br><span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>LIB_myvar <span style="color: #000000;">==</span> <span style="color: #000000;">5</span><span style="color: #000000;">)</span> <span style="color: #222222;">format</span><span style="color: #000000;">(</span>LIB_mystring, <span style="color: #2222BB;">sizeof</span><span style="color: #000000;">(</span>LIB_mystring<span style="color: #000000;">)</span>, <span style="color: #000066;">"Creating an Include - Tutorial"</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div><br>
+You can also use some sort of symbols on your variables to avoid collision such as "LIBTAG_myVar_@_;", "LIBTAG_myArray_@_[128];", but make sure that it don't get you confused later while writing the whole incude.<br>
+</blockquote><b>• Collision #3 : Callbacks</b><blockquote><br>
+Suppose that "OnPlayerConnect" is being used on the include and the include file is being included in a gamemode where OnPlayerConnect is being used. This would give error because a callback couldn't be used twice without getting hooked. 'Hooking' is done to ensure that the rest usage of the same callback would perform what's included internally and also allows the user to perform their own functions within the callback.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:295px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">//myinclude.inc</span><br><span style="color: #2222AA;">#if defined _included_myfirstinclude</span><br>&nbsp; &nbsp; <span style="color: #2222AA;">#endinput</span><br><span style="color: #2222AA;">#endif</span><br><br><span style="color: #2222AA;">#define _included_myfirstinclude</span><br><br><span style="color: #2222BB;">static</span><br>&nbsp; &nbsp; LIB_myvar,<br>&nbsp; &nbsp; LIB_pName<span style="color: #000000;">[</span>MAX_PLAYER_NAME<span style="color: #000000;">]</span>;<br><br><span style="color: #2222BB;">public</span> OnPlayerConnect<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; LIB_myvar <span style="color: #000000;">=</span> playerid;<br>&nbsp; &nbsp; GetPlayerName<span style="color: #000000;">(</span>playerid, LIB_pName, <span style="color: #2222BB;">sizeof</span><span style="color: #000000;">(</span>LIB_pName<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div><br>
+Now on my gamemode:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:279px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><span style="color: #2222AA;">#include &lt;myinclude&gt;</span><br><br>main<span style="color: #000000;">(</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnGameModeInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"my awzum gamemode loaded"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerConnect<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #228822;">//This would give an error because this callback has been already delcared on 'myinclude.inc' and hasn't been hooked!</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div><br>
+<b>• Hooking</b><br>
+<br>
+As already mentioned, hooking is done to ensure that the call is being done internally from our include as well as the functions performed my the user under that callback. The current hooking method being used mostly is the <b>Hook Method 7</b> which uses '_ALS_' prefix. Many users might have been thinking why <b>_ALS_</b> prefix is being used. Well, it's being used to avoid collision with other libraries as they also using hooking method. _ALS_ being a global prefix ensures that things are going right and doesn't create collision between the include being created and other libraries if being used.<br>
+<br>
+Hooking, using _ALS_ prefix is done in a way that it passes other callback which will later be the same callback under which we're performing this. To be clear, if <b>OnPlayerSpawn</b> is being taken, the other call would probably be '<b>myLIB_OnPlayerSpawn'</b> which later would perform the same as <b>OnPlayerSpawn</b> does on the scripts being used.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:439px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#if defined _included_myinclude</span><br>&nbsp; &nbsp; <span style="color: #2222AA;">#endinput</span><br><span style="color: #2222AA;">#endif</span><br><br><span style="color: #2222AA;">#define _included_myinclude</span><br><br><span style="color: #2222BB;">static</span><br>&nbsp; &nbsp; myLIB_myvar,<br>&nbsp; &nbsp; myLIB_lastpspawned<span style="color: #000000;">[</span>MAX_PLAYER_NAME<span style="color: #000000;">]</span>;<br><br><span style="color: #2222BB;">public</span> OnPlayerSpawn<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; myLIB_myvar <span style="color: #000000;">=</span> playerid;<br>&nbsp; &nbsp; GetPlayerName<span style="color: #000000;">(</span>playerid, myLIB_lastpspawned, <span style="color: #2222BB;">sizeof</span><span style="color: #000000;">(</span>myLIB_lastpspawned<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #228822;">//Now, the bypass of this same call should be done. It can also be done using 'CallLocalFunction',</span><br>&nbsp; &nbsp; <span style="color: #228822;">//however comparing to it's performance, hook method 7 is alot better.</span><br>&nbsp; &nbsp; <span style="color: #228822;">//Before hooking, we're just checking if our call has been defined already.</span><br>&nbsp; &nbsp; <span style="color: #2222AA;">#if defined myLIB_OnPlayerSpawn</span><br>&nbsp; &nbsp; <span style="color: #228822;">//If yes.</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> myLIB_OnPlayerSpawn<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>; <span style="color: #228822;">//It returns the callback to 'myLIB_OnPlayerSpawn' callback.</span><br>&nbsp; &nbsp; <span style="color: #2222AA;">#else </span><br>&nbsp; &nbsp; <span style="color: #228822;">//If not.</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>; <span style="color: #228822;">//The call is being stopped here and returns 1.</span><br>&nbsp; &nbsp; <span style="color: #2222AA;">#endif </span><br>&nbsp; &nbsp; <span style="color: #228822;">//Ends the if-statement started.</span><br><span style="color: #000000;">}</span></div></div></pre>
+</div>Now, it's time to get 'myLIB_OnPlayerSpawn' to be also called as 'OnPlayerSpawn'. Which means, we're going to define OnPlayerSpawn as 'myLIB_OnPlayerSpawn' so as if other scripts are using 'OnPlayerSpawn', it means that they're actually using 'myLIB_OnPlayerSpawn' if the include is included.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:263px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">//Before defining, we're using the _ALS_ method to check and undefine this callback before defining.</span><br><span style="color: #228822;">//So it ensures that the previous calls won't fail.</span><br><span style="color: #2222AA;">#if defined _ALS_OnPlayerSpawn //If _ALS_OnPlayerSpawn is defined.</span><br>&nbsp; &nbsp; <span style="color: #2222AA;">#undef OnPlayerSpawn //If yes, it undefines OnPlayerSpawn</span><br><span style="color: #2222AA;">#else //If not</span><br>&nbsp; &nbsp; <span style="color: #2222AA;">#define _ALS_OnPlayerSpawn //It defines _ALS_OnPlayerSpawn so it gets functioned.</span><br><span style="color: #2222AA;">#endif //Closing the if-statement which has been created.</span><br><span style="color: #228822;">//Now OnPlayerSpawn is undefined.</span><br><span style="color: #2222AA;">#define OnPlayerSpawn myLIB_OnPlayerSpawn //OnPlayerSpawn now becomes myLIB_OnPlayerSpawn.</span><br><br><span style="color: #228822;">//Now forward myLIB_OnPlayerSpawn or it would give warns as it lacks forwarding.</span><br><span style="color: #2222AA;">#if defined myLIB_OnPlayerSpawn //Checking if it's defined.</span><br><span style="color: #228822;">//If yes.</span><br><span style="color: #2222BB;">forward</span> myLIB_OnPlayerSpawn<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>; <span style="color: #228822;">//It forwards the callback.</span><br><span style="color: #2222AA;">#endif //Closing the if-statement we started.</span></div></div></pre>
+</div><br>
+And then, the problem with collision of callbacks are solved. In this way, the prevention of callback collision can be solved! I haven't explained much about hooking in this tutorial, so if you're new to hooking, or if the above step didn't sort things out well for you, please have a look on the Hook method 7 created by Y_Less and a small explanation regarding the normal hooking method by myself.<br>
+<br>
+<a href="http://forum.sa-mp.com/showthread.php?t=441293" target="_blank">Hood Method 7 -  by Y_Less</a><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=392061" target="_blank">How to hook Callbacks &amp; Functions (Normal Hook method) - By Lordz (myself)</a><br>
+<br>
+</blockquote><b>•<u>Getting the include user-friendly #1 : Indentation</u></b><blockquote><br>
+Includes have to be always friendly, their use most commonly. Because if the include gives warns or errors, it wouldn't have a positive feedback from others. Also, the indentation of the include has to be fixed even if the indentation style is hard to read by users. What it's really meant is in avoiding the usage of "<font color="blue">#pragma tabsize</font>" inside the include. It would just get other's script to avoid warnings if their indentation has to be fixed.<br>
+<br>
+In cases if tabsize is set to 0, don't forget to get it on tabsize 4 (SA-MP default tabsize) at the end of the include. But that also wouldn't be convenient in case if the user is using any other tabsize values.<br>
+</blockquote><b>•<u>Getting the include user-friendly #2 : Cell size</u></b><blockquote><br>
+Most of the users are generally declaring variables or arrays which are considered to be as a string of size 256. This isn't right in case if 256 cells aren't actually required. If your include is using <font color="blue">#pragma dynamic</font> , it's not a good usage in my view. Includes must be always friendly and should be easier to use. Using of dynamic directive would get the AMX's size bigger in case if you're using higher value of cells on arrays. If you're not good in determining the cell size well, I suggest you to use <b>rBits</b> or <b>y_iterate</b>. <br>
+<br>
+If you're confused about what I've actually meant, here's a message which was conveyed to Misuir: (About #pragma dynamic)<br>
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				Yes, it doesn't change the cell size. It just allows you to get your script compiled with arrays of larger cells. It won't be giving any stack size warning or message in case if higher cells are used under a callback and compiled.
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div></blockquote><b>•<u>Getting the include user-friendly #3 : Easy settings</u></b><blockquote><br>
+If the include got some sort of setting to be done, make it easier. Also in a way that the user won't forget what has to be done. You can use the <font color="blue">#error</font> directive to make it possible in such a way that the symbol MY_VALUE has to be declared by the user before including. However if it's not defined, it would give a user-error in reminding to define it.<br>
+<br>
+And here's an example:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:263px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">//myinclude:</span><br><span style="color: #2222AA;">#if defined _included_myinclude</span><br>&nbsp; &nbsp; <span style="color: #2222AA;">#endinput</span><br><span style="color: #2222AA;">#endif</span><br><br><span style="color: #2222AA;">#define _included_myinclude</span><br><br><span style="color: #2222AA;">#if !defined MY_VALUE</span><br>&nbsp; &nbsp; <span style="color: #228822;">//if MY_VALUE is not defined.</span><br>&nbsp; &nbsp; <span style="color: #2222AA;">#error Please make sure that MY_VALUE is defined before including myinclude.inc</span><br><span style="color: #2222AA;">#endif</span><br><br><span style="color: #228822;">//And somewhere..</span><br><span style="color: #2222BB;">for</span><span style="color: #000000;">(</span><span style="color: #2222BB;">new</span> i; i<span style="color: #000000;">&lt;</span> MY_VALUE; i<span style="color: #000000;">++</span><span style="color: #000000;">)</span> <span style="color: #228822;">///.... </span><br><span style="color: #228822;">//Assuming that 'MY_VALUE' is being used for something.</span></div></div></pre>
+</div><br>
+My gamemode:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:55px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><span style="color: #2222AA;">#include &lt;myinclude&gt;</span></div></div></pre>
+</div>Now, this would just give a fatal error or an error done by the user in regarding the MY_VALUE message. This can be fixed by defining MY_VALUE.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:71px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><span style="color: #2222AA;">#define MY_VALUE 1</span><br><span style="color: #2222AA;">#include &lt;myinclude&gt;</span></div></div></pre>
+</div><br>
+In this way, the settings could be done rather than editing the include each time for different uses.<br>
+</blockquote><b>•<u>Getting the include user-friendly #4 : Performance (in-game and while compiling)</u></b><blockquote><br>
+When the size of the array becomes higher, the performance would get reduced. That's why I've suggested in keeping the cell size as the ones which are required. Useless variables/arrays should be removed as it isn't useful at all. And about performance in-game - It's in looking how complex your codes are. You might be using 5 steps for checking something where as it would be done quicker using just 1 step. This actually happens to most of them. You've to just spend some time in thinking what all steps could be done in what you're actually doing.<br>
+<br>
+Secondly, in some cases, for example if you're trying create a simple textdraw message to all. Rather than creating many textdraws, you could just create 1 single textdraw and set it's string when required. I've once created 100 textdraws for messaging and then realized it could be done with just a single one easily and more quickly!<br>
+</blockquote><b>•<u>Getting the include user-friendly #5 : Fake natives / Support in Syntax highlighting</u></b><blockquote><br>
+Suppose if you're creating an include with some functions which got alot of parameters, the function being highlighted when a bracket is being opened would be really helpful for the users. This can be done by creating fake natives. <b>pawno.exe</b> looks for the part of code which begins with 'native' and adds it into the native list. By this, it also supports in highlighting the parameters when the brackets of the function are being opened. To create a fake native, it's pretty simple.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:183px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">//I may have some function called 'Addint' and 'Subint' which adds and subtracts.</span><br><span style="color: #2222BB;">stock</span> Addint<span style="color: #000000;">(</span>num1, num2<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp;<span style="color: #2222BB;">return</span> num1<span style="color: #000000;">+</span>num2; <span style="color: #228822;">//Returns the sum of first number and second number.</span><br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">stock</span> Subint<span style="color: #000000;">(</span>num1, num2<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp;<span style="color: #2222BB;">return</span> num1<span style="color: #000000;">-</span>num2; <span style="color: #228822;">//Does the same but here it subtracts.</span><br><span style="color: #000000;">}</span></div></div></pre>
+</div><br>
+Now these functions just got 2 parameters, however I'm going to show in creating fake natives.<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:71px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">/*<br>native Addint(num1, num2);<br>native Subint(num1, num2);</span></div></div></pre>
+</div><br>
+The compiler would consider this as a native created and will be adding to native list. It will also highlight the parameters when your code either reaches "AddInt(" or "SubInt(" - When the brackets are being opened.<br>
+<br>
+</blockquote><b>•<u>Creating functions with tags</u></b><blockquote><br>
+Creating tags for functions would just make the look better and also the handling of them would be better than normal ones. In case if there's parameter called "worldid, playerid" in a function and if the user assumes first parameter to be playerid, that would create problems then later. Tags - here what I've meant is in adding tags to the variable/array required.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:327px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">stock</span> <span style="color: #000000;">myTAG</span><span style="color: #000000;">:</span>CreateMyObject<span style="color: #000000;">(</span>modelid, <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>X, <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>Y, <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>Z<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp;<span style="color: #2222BB;">new</span> <span style="color: #000000;">myTag</span><span style="color: #000000;">:</span>ID <span style="color: #000000;">=</span> CreateObject<span style="color: #000000;">(</span>modelid, <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>X, <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>Y, <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>Z, <span style="color: #000000;">0.0</span>, <span style="color: #000000;">0.0</span>, <span style="color: #000000;">0.0</span>, <span style="color: #000000;">200.0</span><span style="color: #000000;">)</span>;<br>&nbsp;<span style="color: #2222BB;">return</span> <span style="color: #000000;">myTAG</span><span style="color: #000000;">:</span>ID; <span style="color: #228822;">//Returns the result with tag.</span><br><span style="color: #000000;">}</span><br><br><span style="color: #228822;">//Now using it would be like</span><br><br><span style="color: #2222BB;">new</span> <span style="color: #000000;">myTAG</span><span style="color: #000000;">:</span>something;<br><span style="color: #000000;">myTAG</span><span style="color: #000000;">:</span>something <span style="color: #000000;">=</span> CreateMyObject<span style="color: #000000;">(</span><span style="color: #000000;">123</span>, <span style="color: #000000;">12.0</span>, <span style="color: #000000;">13.0</span>, <span style="color: #000000;">14.0</span><span style="color: #000000;">)</span>;<br><br><span style="color: #228822;">//Creating functions which requires the tagged variable/array</span><br><br><span style="color: #2222BB;">new</span> <span style="color: #000000;">myTAG</span><span style="color: #000000;">:</span>res<span style="color: #000000;">[</span><span style="color: #000000;">100</span><span style="color: #000000;">]</span>;<br><br><span style="color: #2222BB;">stock</span> GetTaggedResult<span style="color: #000000;">(</span><span style="color: #000000;">myTAG</span><span style="color: #000000;">:</span>id<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp;<span style="color: #2222BB;">return</span> <span style="color: #000000;">myTAG</span><span style="color: #000000;">:</span>res<span style="color: #000000;">[</span><span style="color: #000000;">_</span><span style="color: #000000;">:</span>id<span style="color: #000000;">]</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div><br>
+Why a "_:" has been used before id is to prevent tag-mismatch warning. Using that would get the compiler to assume that a tag is present before the parameter called "id".<br>
+</blockquote><b>•<u>Creating Callbacks</u></b><blockquote><br>
+To create callback, a simple function called <b>CallLocalFunction</b> can be used to get them called under the circumstance you require. Using the above functions, we can try an example. Before the example, here's the parameter of CallLocalFunction.<br>
+<br>
+CallLocalFunction(function[], specifiers[], {Float,_}:...);<br>
+function[] - stands for the callback which is going to get called.<br>
+specifiers[] - stands for the specifiers according to the next parameter.<br>
+    %i or %d - stands for integer.<br>
+    %s - for string.<br>
+    %f - for float.<br>
+    %x - for hex.<br>
+    %c - for character.<br>
+    And for more : <a href="http://wiki.sa-mp.com/wiki/format" target="_blank">http://wiki.sa-mp.com/wiki/format</a><br>
+<br>
+The last parameter stands for the data to get called. Check WIKI SA-MP for further information in regarding it.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:279px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">stock</span> <span style="color: #000000;">myTAG</span><span style="color: #000000;">:</span>CreateMyObject<span style="color: #000000;">(</span>modelid, <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>X, <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>Y, <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>Z<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp;<span style="color: #2222BB;">new</span> <span style="color: #000000;">myTag</span><span style="color: #000000;">:</span>ID <span style="color: #000000;">=</span> CreateObject<span style="color: #000000;">(</span>modelid, <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>X, <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>Y, <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>Z, <span style="color: #000000;">0.0</span>, <span style="color: #000000;">0.0</span>, <span style="color: #000000;">0.0</span>, <span style="color: #000000;">200.0</span><span style="color: #000000;">)</span>;<br>&nbsp;<span style="color: #228822;">//Let's get the call to be done.</span><br>&nbsp;CallLocalFunction<span style="color: #000000;">(</span><span style="color: #000066;">"OnObjectGetCreated"</span>, <span style="color: #000066;">"i"</span>, <span style="color: #000000;">myTAG</span><span style="color: #000000;">:</span>id<span style="color: #000000;">)</span>; <span style="color: #228822;">//This is called when the object is created.</span><br>&nbsp;<span style="color: #2222BB;">return</span> <span style="color: #000000;">myTAG</span><span style="color: #000000;">:</span>ID; <span style="color: #228822;">//Returns the result with tag.</span><br><span style="color: #000000;">}</span><br><br><span style="color: #228822;">//Forward the callback, while forwarding, the parameters mentioned here are then used as the same on public.</span><br><span style="color: #2222BB;">forward</span> OnObjectGetCreated<span style="color: #000000;">(</span><span style="color: #000000;">myTAG</span><span style="color: #000000;">:</span>objectid<span style="color: #000000;">)</span>;<br><span style="color: #2222BB;">public</span> OnObjectGetCreated<span style="color: #000000;">(</span><span style="color: #000000;">myTAG</span><span style="color: #000000;">:</span>objectid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp;<span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #228822;">//In case if you're not using tags, you could just simply remove the tags.</span></div></div></pre>
+</div></blockquote> </blockquote>And well, that's it with the tutorial for now. I may update it in case if necessary. Questions and anything relating to this tutorial can be posted here rather than spamming my inbox. Before ending of, here's some links that would be useful in creating includes.<br>
+<br>
+<b>•<u>Important topics to be viewed</u></b><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=166680" target="_blank">PAWN Pre-Processor - By Y_Less</a><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=486877" target="_blank">Improving your coding habits - By Emmet_</a><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=216730" target="_blank">Tips &amp; Tricks - By Slice</a><br>
+<a href="http://forum.sa-mp.com/showthread.php?t=57018" target="_blank">Code Optimization - By Y_Less</a><br>
+Oh and<br>
+<a href="http://wiki.sa-mp.com/" target="_blank">SA-MP Wiki</a>
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+		<!-- edit note -->
+			<div class="smallfont">
+				<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+				<em>
+					
+						Last edited by Lordzy; 25/02/2014 at <span class="time">02:53 PM</span>.
+					
+					
+				</em>
+			</div>
+		<!-- / edit note -->
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/user_offline.gif" alt="Lordzy is offline" border="0" title="Lordzy is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2928750" rel="nofollow"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2928750 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2928750_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Lordzy</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=158660">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=158660" rel="nofollow">Send a private message to Lordzy</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="https://www.facebook.com/imnotlaughinglol">Visit Lordzy's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=158660" rel="nofollow">Find More Posts by Lordzy</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2928750 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2928750 --><!-- post #2928754 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2928754" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2928754" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2928754"><img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			25/02/2014, 06:21 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2928754&postcount=2" target="new" rel="nofollow" id="postcount2928754" name="2"><strong>2</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2928754">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=158660">Lordzy</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2928754", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Mar 2012</div>
+				<div>Location: NetherRealm</div>
+				
+				
+				
+<div>
+  Posts: 2,290
+</div>
+
+<div>Reputation: 738</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2928754" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Creating an include</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2928754">
+			
+			<b><font size="5">RESERVED.</font></b>
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/user_offline.gif" alt="Lordzy is offline" border="0" title="Lordzy is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2928754" rel="nofollow"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2928754 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2928754_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Lordzy</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=158660">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=158660" rel="nofollow">Send a private message to Lordzy</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="https://www.facebook.com/imnotlaughinglol">Visit Lordzy's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=158660" rel="nofollow">Find More Posts by Lordzy</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2928754 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2928754 --><!-- post #2928755 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2928755" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2928755" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2928755"><img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			25/02/2014, 06:22 AM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2928755&postcount=3" target="new" rel="nofollow" id="postcount2928755" name="3"><strong>3</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2928755">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=187940">Avi Raj</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2928755", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Banned</div>
+			<div class="smallfont"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/pinkdead.gif" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Dec 2012</div>
+				<div>Location: Proud Indian</div>
+				
+				
+				
+<div>
+  Posts: 800
+</div>
+
+<div>Reputation: 126</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2928755" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Creating an include</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2928755">
+			
+			first!<br>
+Awesomeeee Man.<br>
++Repped<br>
+<br>
+"This forum requires that you wait 120 seconds between posts. Please try again in 70 seconds."
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/user_offline.gif" alt="Avi Raj is offline" border="0" title="Avi Raj is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2928755" rel="nofollow"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2928755 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2928755_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Avi Raj</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=187940">View Public Profile</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=187940" rel="nofollow">Find More Posts by Avi Raj</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2928755 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2928755 --><!-- post #2929131 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2929131" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2929131" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2929131"><img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			25/02/2014, 02:30 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2929131&postcount=4" target="new" rel="nofollow" id="postcount2929131" name="4"><strong>4</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2929131">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=180537">LeGGGeNNdA</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2929131", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=180537"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/image.php" width="80" height="58" alt="LeGGGeNNdA&#39;s Avatar" border="0" title="LeGGGeNNdA&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Sep 2012</div>
+				<div>Location: Durres, Albania</div>
+				
+				
+				
+<div>
+  Posts: 1,452
+</div>
+
+<div>Reputation: 238</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2929131" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Creating an include</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2929131">
+			
+			Good job on the tutorial Lordz. I'm pretty sure that It'll help many people <img src="./[Tutorial] Creating an include - SA-MP Forums_files/smile.png" border="0" alt="" title="Smiley" class="inlineimg">.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><br>
+<b><a href="http://ambrosia-servers.eu/arriba" target="_blank"><font face="Comic Sans MS"><font size="4"><font color="Magenta">A</font><font color="DarkOrange">R</font><font color="Green">R</font><font color="Teal">I</font><font color="Purple">B</font><font color="Red">A</font></font></font></a></b> <br>
+<b>94.23.159.129:7777</b> <br>
+<a href="http://nfstimes.com/nfsw/pc/REDI331" target="_blank"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/REDI331.png" border="0" alt=""></a><br>
+</div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/user_offline.gif" alt="LeGGGeNNdA is offline" border="0" title="LeGGGeNNdA is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2929131" rel="nofollow"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2929131 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2929131_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">LeGGGeNNdA</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=180537">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=180537" rel="nofollow">Send a private message to LeGGGeNNdA</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=180537" rel="nofollow">Find More Posts by LeGGGeNNdA</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2929131 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2929131 --><!-- post #2929136 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2929136" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2929136" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2929136"><img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			25/02/2014, 02:34 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2929136&postcount=5" target="new" rel="nofollow" id="postcount2929136" name="5"><strong>5</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2929136">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=220403">Clad</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2929136", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Huge Clucker</div>
+			<div class="smallfont"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=220403"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/image(1).php" width="80" height="80" alt="Clad&#39;s Avatar" border="0" title="Clad&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Dec 2013</div>
+				<div>Location: Earth Planet ( I'm not sure yet because I didn't find any person or I'm using wrong earth version )</div>
+				
+				
+				
+<div>
+  Posts: 459
+</div>
+
+<div>Reputation: 20</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2929136" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Creating an include</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2929136">
+			
+			Awsome buddy
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><a href="http://triangle.gs/u/1175" target="_blank"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/banner_main.png" border="0" alt=""></a></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/user_offline.gif" alt="Clad is offline" border="0" title="Clad is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2929136" rel="nofollow"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2929136 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2929136_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Clad</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=220403">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=220403" rel="nofollow">Send a private message to Clad</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://dreamszonerpg.webs.com/">Visit Clad's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=220403" rel="nofollow">Find More Posts by Clad</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2929136 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2929136 --><!-- post #2929143 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2929143" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2929143" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2929143"><img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			25/02/2014, 02:39 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2929143&postcount=6" target="new" rel="nofollow" id="postcount2929143" name="6"><strong>6</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2929143">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=55934">Misiur</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2929143", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=55934"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/image(2).php" width="80" height="60" alt="Misiur&#39;s Avatar" border="0" title="Misiur&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Jul 2009</div>
+				<div>Location: Poland</div>
+				
+				
+				
+<div>
+  Posts: 1,579
+</div>
+
+<div>Reputation: 201</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2929143" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Creating an include</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2929143">
+			
+			It's funny how you linked Y_Less's thread, but explained something completely diffrent.<br>
+<a href="http://forum.sa-mp.com/showthread.php?p=819593#post819593" target="_blank">http://forum.sa-mp.com/showthread.ph...593#post819593</a><br>
+1. Include guards are already built-in<br>
+2. #include &lt;a/b&gt; should be #include &lt;a\b&gt;<br>
+3. In case you have #include &lt;b&gt; and #include &lt;a\b&gt; you might have to get rid of default include guards and substiture them with your implementation<br>
+4. #pragma dynamic doesn't change cell size. Cell is always 4 bytes on 32 bit builds
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/zJGgE8M.gif" border="0" alt=""></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/user_offline.gif" alt="Misiur is offline" border="0" title="Misiur is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2929143" rel="nofollow"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2929143 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2929143_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Misiur</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=55934">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=55934" rel="nofollow">Send a private message to Misiur</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=55934" rel="nofollow">Find More Posts by Misiur</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2929143 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2929143 --><!-- post #2929156 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2929156" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2929156" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2929156"><img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			25/02/2014, 02:54 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2929156&postcount=7" target="new" rel="nofollow" id="postcount2929156" name="7"><strong>7</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2929156">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=158660">Lordzy</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2929156", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Mar 2012</div>
+				<div>Location: NetherRealm</div>
+				
+				
+				
+<div>
+  Posts: 2,290
+</div>
+
+<div>Reputation: 738</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2929156" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Creating an include</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2929156">
+			
+			<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				<div>
+					Originally Posted by <strong>Misiur</strong>
+					<a href="http://forum.sa-mp.com/showthread.php?p=2929143#post2929143" rel="nofollow"><img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/viewpost.gif" border="0" alt="View Post" title="View Post"></a>
+				</div>
+				<div style="font-style:italic">It's funny how you linked Y_Less's thread, but explained something completely diffrent.<br>
+<a href="http://forum.sa-mp.com/showthread.php?p=819593#post819593" target="_blank">http://forum.sa-mp.com/showthread.ph...593#post819593</a><br>
+1. Include guards are already built-in<br>
+2. #include &lt;a/b&gt; should be #include &lt;a\b&gt;<br>
+3. In case you have #include &lt;b&gt; and #include &lt;a\b&gt; you might have to get rid of default include guards and substiture them with your implementation<br>
+4. #pragma dynamic doesn't change cell size. Cell is always 4 bytes on 32 bit builds</div>
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div>That thread was linked for some basic facts which can be used while creating an include and I don't see anything wrong with it.<br>
+About include-guards : If we're including the same file twice, it's true that there won't be any errors/warns. However, it's required in case if other versions of that include is being done and we're naming it anything else. Some releases are there which mostly uses the same part of code but just the include name is renamed.<br>
+<br>
+About the second one, I was also confused for a while in choosing what should be. I've done some tests and it seems like both character usage works fine. If there's something wrong with it, please let me know. An example would be fine.<br>
+<br>
+Third one - I did some test right now, but it seems like things are alright but got chances to have collision as you've told. In such case, I believe it's better for the user to rename the file.<br>
+<br>
+Fourth - Yes, it doesn't change the cell size. It just allows you to get your script compiled with arrays of larger cells. It won't be giving any stack size warning or message in case if higher cells are used under a callback and compiled. I've given this reply on the tutorial also, now.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/user_offline.gif" alt="Lordzy is offline" border="0" title="Lordzy is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2929156" rel="nofollow"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2929156 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2929156_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Lordzy</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=158660">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=158660" rel="nofollow">Send a private message to Lordzy</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="https://www.facebook.com/imnotlaughinglol">Visit Lordzy's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=158660" rel="nofollow">Find More Posts by Lordzy</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2929156 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2929156 --><!-- post #2929176 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2929176" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2929176" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2929176"><img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			25/02/2014, 03:10 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2929176&postcount=8" target="new" rel="nofollow" id="postcount2929176" name="8"><strong>8</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2929176">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=55934">Misiur</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2929176", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=55934"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/image(2).php" width="80" height="60" alt="Misiur&#39;s Avatar" border="0" title="Misiur&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Jul 2009</div>
+				<div>Location: Poland</div>
+				
+				
+				
+<div>
+  Posts: 1,579
+</div>
+
+<div>Reputation: 201</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2929176" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Creating an include</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2929176">
+			
+			There was supposed to be a rant, but whatever. Reread the Y_Less thread, especially "Other Directives", section "#include". Include guards are created automatically, there is no reason to create your own. You can't include the same file using diffrent name. End of story. <b>Unless</b> you use the wrong directory separator - you guessed it - "/" instead of "\".
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/zJGgE8M.gif" border="0" alt=""></div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/user_offline.gif" alt="Misiur is offline" border="0" title="Misiur is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2929176" rel="nofollow"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2929176 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2929176_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Misiur</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=55934">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=55934" rel="nofollow">Send a private message to Misiur</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=55934" rel="nofollow">Find More Posts by Misiur</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2929176 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2929176 --><!-- post #2929181 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2929181" style="padding:0px 0px 6px 0px">
+	<!-- this is not the last post shown on the page -->
+
+
+
+<table id="post2929181" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2929181"><img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			25/02/2014, 03:14 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2929181&postcount=9" target="new" rel="nofollow" id="postcount2929181" name="9"><strong>9</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2929181">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=13347">Vince</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2929181", true); </script>
+				
+			</div>
+
+			<div class="smallfont">Godfather</div>
+			<div class="smallfont"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+				<div class="smallfont">
+					&nbsp;<br><a href="http://forum.sa-mp.com/member.php?u=13347"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/image(3).php" width="80" height="80" alt="Vince&#39;s Avatar" border="0" title="Vince&#39;s Avatar"></a>
+				</div>
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Sep 2007</div>
+				<div>Location: Belgium</div>
+				
+				
+				
+<div>
+  Posts: 6,308
+</div>
+
+<div>Reputation: 1663</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2929181" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Creating an include</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2929181">
+			
+			I find it quite ironic how you reference to the manual, yet don't use any information set forth therein.<br>
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				#include filename or &lt;filename&gt;<br>
+Inserts the contents of the specified file at the current position within<br>
+the current file. A filename between angle brackets (“&lt;” and “&gt;”)<br>
+refers to a system file; the pawn parser (compiler or interpreter) will<br>
+search for such files only in a pre-set list of directories and not in the<br>
+“current” directory. Filenames that are unquoted or that appear in<br>
+double quotes are normal include files, for which a pawn parser will<br>
+look in the current directory first.<br>
+The pawn parser first attempts to open the file with the specified<br>
+name. If that fails, it tries appending the extensions “.inc”, “.p”<br>
+and “.pawn” to the filename (in that order). The proposed default<br>
+extension of include files is “.inc”.<br>
+When the file can be opened successfully, the #include directive<br>
+defines a constant with the name “_inc_” plus the base name of<br>
+the file (the filename without path and extension) and the value 1.<br>
+If the constant already exists, the #include directive skips opening<br>
+and including the file, thus preventing a double inclusion. To force<br>
+a double include, remove the constant definition with the #undef<br>
+directive before the second inclusion of the file.
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div>
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+		<!-- sig -->
+			<div style="overflow: hidden; max-height: 250px;">
+				__________________<br>
+				<div align="center">I will rarely post a ready made solution in your thread, but rather I try to make you realize your own mistakes so you can fix them yourself.<br>
+<i>Give a man a fish and you feed him for a day; teach a man to fish and you feed him for a lifetime.</i><br>
+</div>
+			</div>
+		<!-- / sig -->
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/user_offline.gif" alt="Vince is offline" border="0" title="Vince is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2929181" rel="nofollow"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2929181 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2929181_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Vince</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=13347">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=13347" rel="nofollow">Send a private message to Vince</a></td></tr>
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=13347" rel="nofollow">Find More Posts by Vince</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2929181 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2929181 --><!-- post #2929183 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+	<div id="edit2929183" style="padding:0px 0px 6px 0px">
+	
+
+
+
+<table id="post2929183" class="tborder" cellpadding="6" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr>
+	
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-right: 0px">
+			<!-- status icon and date -->
+			<a name="post2929183"><img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			25/02/2014, 03:16 PM
+			
+			<!-- / status icon and date -->
+		</td>
+		<td class="thead" style="font-weight:normal; border: 1px solid #DFDFDF; border-left: 0px" align="right">
+			&nbsp;
+			#<a href="http://forum.sa-mp.com/showpost.php?p=2929183&postcount=10" target="new" rel="nofollow" id="postcount2929183" name="10"><strong>10</strong></a>
+			
+		</td>
+	
+</tr>
+<tr valign="top">
+	<td class="alt2" width="175" style="border: 1px solid #DFDFDF; border-top: 0px; border-bottom: 0px">
+
+			<div id="postmenu_2929183">
+				
+				<a class="bigusername" href="http://forum.sa-mp.com/member.php?u=158660">Lordzy</a>
+				<script type="text/javascript"> vbmenu_register("postmenu_2929183", true); </script>
+				
+			</div>
+
+			<div class="smallfont">High-roller</div>
+			<div class="smallfont"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""><img src="./[Tutorial] Creating an include - SA-MP Forums_files/star.png" alt="" border=""></div>
+			
+
+			
+
+			<div class="smallfont">
+				&nbsp;<br>
+				<div>Join Date: Mar 2012</div>
+				<div>Location: NetherRealm</div>
+				
+				
+				
+<div>
+  Posts: 2,290
+</div>
+
+<div>Reputation: 738</div>
+
+				
+				<div>    </div>
+			</div>
+
+	</td>
+	
+	<td class="alt1" id="td_post_2929183" style="border-right: 1px solid #DFDFDF">
+	
+		
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				<img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/icon1.gif" alt="Default" border="0" title="Default">
+				<strong>Re: Creating an include</strong>
+			</div>
+			<hr size="1" style="color:#DFDFDF; background-color:#DFDFDF">
+			<!-- / icon and title -->
+		
+
+		<!-- message -->
+		<div id="post_message_2929183">
+			
+			<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="6" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			
+				<div>
+					Originally Posted by <strong>Misiur</strong>
+					<a href="http://forum.sa-mp.com/showthread.php?p=2929176#post2929176" rel="nofollow"><img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/viewpost.gif" border="0" alt="View Post" title="View Post"></a>
+				</div>
+				<div style="font-style:italic">Include guards are created automatically, there is no reason to create your own. You can't include the same file using diffrent name. End of story..</div>
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div><b>myinclude.inc</b><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:71px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">//Without include guards:</span><br><span style="color: #2222BB;">new</span> mystuff;<br><span style="color: #2222BB;">forward</span> something<span style="color: #000000;">(</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div><br>
+<b>stuffs.inc</b><br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:87px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">//without include guards.</span><br><span style="color: #2222BB;">new</span> mystuff;<br><span style="color: #2222BB;">new</span> additional_mystuff;<br><span style="color: #2222BB;">forward</span> something<span style="color: #000000;">(</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div><br>
+<b>someFS.pwn</b><div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+	<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:71px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><span style="color: #2222AA;">#include &lt;myinclude&gt;</span><br><span style="color: #2222AA;">#include &lt;stuffs.inc&gt;</span></div></div></pre>
+</div><br>
+I tested this and it had an error and here's it:<br>
+<div style="margin:20px; margin-top:5px">
+	<div class="smallfont" style="margin-bottom:2px">Code:</div>
+	<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">error 021: symbol already defined: "mystuff"</pre>
+</div>Couldn't an include use some sort of global variables? And what in case if the same file is being done with other name? Without our own include-guard, couldn't it output errors?<br>
+<br>
+@Vince - Thanks for the information. I haven't read the PAWN implementation guide yet, I'll be looking forward to read out it soon.
+		</div>
+		<!-- / message -->
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="border: 1px solid #DFDFDF; border-top: 0px">
+		<img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/user_offline.gif" alt="Lordzy is offline" border="0" title="Lordzy is offline">
+
+
+		
+		
+		
+		
+		&nbsp;
+	</td>
+	
+	<td class="alt1" align="right" style="border: 1px solid #DFDFDF; border-left: 0px; border-top: 0px">
+	
+		<!-- controls -->
+		
+		
+		
+                  
+                    <a href="http://forum.sa-mp.com/newreply.php?do=newreply&p=2929183" rel="nofollow"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/quote.png" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+                  
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		<!-- / controls -->
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 2929183 popup menu -->
+<div class="vbmenu_popup" id="postmenu_2929183_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Lordzy</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/member.php?u=158660">View Public Profile</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/private.php?do=newpm&u=158660" rel="nofollow">Send a private message to Lordzy</a></td></tr>
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="https://www.facebook.com/imnotlaughinglol">Visit Lordzy's homepage!</a></td></tr>
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://forum.sa-mp.com/search.php?do=finduser&u=158660" rel="nofollow">Find More Posts by Lordzy</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 2929183 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #2929183 --><div id="lastpost"></div></div>
+
+<!-- start content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:90%; text-align:left">
+		<div style="padding:0px 36px 0px 36px" align="left">
+
+<!-- / start content table -->
+
+<!-- controls below postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:-3px">
+<tbody><tr valign="top">
+	
+		<td class="smallfont"><a href="http://forum.sa-mp.com/newreply.php?do=newreply&noquote=1&p=2929183" rel="nofollow"><img src="./[Tutorial] Creating an include - SA-MP Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	
+		<td align="right"><div class="pagenav" align="right">
+<table class="tborder" cellpadding="3" cellspacing="1" border="0">
+<tbody><tr>
+	<td class="vbmenu_control" style="font-weight:normal">Page 1 of 2</td>
+	
+	
+		<td class="alt2"><span class="smallfont" title="Showing results 1 to 10 of 17"><strong>1</strong></span></td>
+ <td class="alt1"><a class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=497081&page=2" title="Show results 11 to 17 of 17">2</a></td>
+	<td class="alt1"><a rel="next" class="smallfont" href="http://forum.sa-mp.com/showthread.php?t=497081&page=2" title="Next Page - Results 11 to 17 of 17">&gt;</a></td>
+	
+	<td class="vbmenu_control" title="" id="pagenav.148" style="cursor: pointer;"> <img src="./[Tutorial] Creating an include - SA-MP Forums_files/menu_open.gif" border="0" title="" alt=""></td>
+</tr>
+</tbody></table>
+</div>
+		
+		</td>
+	
+</tr>
+</tbody></table>
+<!-- / controls below postbits -->
+
+
+
+
+
+
+
+
+
+
+<!-- lightbox scripts -->
+	<script type="text/javascript" src="./[Tutorial] Creating an include - SA-MP Forums_files/vbulletin_lightbox.js"></script>
+	<script type="text/javascript">
+	<!--
+	vBulletin.register_control("vB_Lightbox_Container", "posts", 1);
+	//-->
+	</script>
+<!-- / lightbox scripts -->
+
+
+
+
+
+
+
+
+
+
+<!-- next / previous links -->
+	<br>
+	<div class="smallfont" align="center">
+		<strong>«</strong>
+			<a href="http://forum.sa-mp.com/showthread.php?t=497081&goto=nextoldest" rel="nofollow">Previous Thread</a>
+			|
+			<a href="http://forum.sa-mp.com/showthread.php?t=497081&goto=nextnewest" rel="nofollow">Next Thread</a>
+		<strong>»</strong>
+	</div>
+<!-- / next / previous links -->
+
+
+
+
+
+
+
+<!-- popup menu contents -->
+<br>
+
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="http://forum.sa-mp.com/postings.php?t=497081&pollid=" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/printer.gif" alt="Show Printable Version" title="Show Printable Version"> <a href="http://forum.sa-mp.com/printthread.php?t=497081" accesskey="3" rel="nofollow">Show Printable Version</a></td>
+	</tr>
+	
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/sendtofriend.gif" alt="Email this Page" title="Email this Page"> <a href="http://forum.sa-mp.com/sendmessage.php?do=sendtofriend&t=497081" rel="nofollow">Email this Page</a></td>
+	</tr>
+	
+	
+	
+	
+	</tbody></table>
+</form>
+</div>
+<!-- / thread tools menu -->
+
+<!-- **************************************************** -->
+
+<!-- thread display mode menu -->
+<div class="vbmenu_popup" id="displaymodes_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Display Modes<a name="goto_displaymodes"></a></td>
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option" title="nohilite"><img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/mode_linear.gif" alt="Linear Mode" title="Linear Mode"> <strong>Linear Mode</strong></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/mode_hybrid.gif" alt="Hybrid Mode" title="Hybrid Mode"> <a href="http://forum.sa-mp.com/showthread.php?mode=hybrid&t=497081">Switch to Hybrid Mode</a></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./[Tutorial] Creating an include - SA-MP Forums_files/mode_threaded.gif" alt="Threaded Mode" title="Threaded Mode"> <a href="http://forum.sa-mp.com/showthread.php?p=2928750&mode=threaded#post2928750">Switch to Threaded Mode</a></td>
+	
+	</tr>
+	</tbody></table>
+</div>
+<!-- / thread display mode menu -->
+
+<!-- **************************************************** -->
+
+
+
+<!-- **************************************************** -->
+
+
+
+<!-- / popup menu contents -->
+
+
+<!-- forum rules and admin links -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr valign="bottom">
+	<td width="100%" valign="top">
+		<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="210">
+<thead>
+<tr>
+	<td class="thead">
+		<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=497081#top" onclick="return toggle_collapse(&#39;forumrules&#39;)"><img id="collapseimg_forumrules" src="./[Tutorial] Creating an include - SA-MP Forums_files/collapse_thead.gif" alt="" border="0"></a>
+		Posting Rules
+	</td>
+</tr>
+</thead>
+<tbody id="collapseobj_forumrules" style="">
+<tr>
+	<td class="alt1" nowrap="nowrap"><div class="smallfont">
+		
+		<div>You <strong>may not</strong> post new threads</div>
+		<div>You <strong>may not</strong> post replies</div>
+		<div>You <strong>may not</strong> post attachments</div>
+		<div>You <strong>may not</strong> edit your posts</div>
+		<hr>
+		
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode" target="_blank">BB code</a> is <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showsmilies" target="_blank">Smilies</a> are <strong>On</strong></div>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=bbcode#imgcode" target="_blank">[IMG]</a> code is <strong>On</strong></div>
+		<div>HTML code is <strong>Off</strong></div>
+		<hr>
+		<div><a href="http://forum.sa-mp.com/misc.php?do=showrules" target="_blank">Forum Rules</a></div>
+	</div></td>
+</tr>
+</tbody>
+</table>
+	</td>
+	<td class="smallfont" align="right">
+		<table cellpadding="0" cellspacing="0" border="0">
+		
+		<tbody><tr>
+			<td>
+			
+			</td>
+		</tr>
+		</tbody></table>
+	</td>
+</tr>
+</tbody></table>
+<!-- /forum rules and admin links -->
+
+<br>
+
+<table class="tborder" cellpadding="6" cellspacing="1" border="0" width="100%" align="center">
+<thead>
+	<tr>
+		<td class="tcat" width="100%" colspan="5">
+			<a style="float:right" href="http://forum.sa-mp.com/showthread.php?t=497081#top" onclick="return toggle_collapse(&#39;similarthreads&#39;)"><img id="collapseimg_similarthreads" src="./[Tutorial] Creating an include - SA-MP Forums_files/collapse_tcat.gif" alt="" border="0"></a>
+			Similar Threads<a name="similarthreads"></a>
+		</td>
+	</tr>
+</thead>
+<tbody id="collapseobj_similarthreads" style="">
+<tr class="thead" align="center">
+	<td class="thead" width="40%">Thread</td>
+	<td class="thead" width="15%" nowrap="nowrap">Thread Starter</td>
+	<td class="thead" width="20%">Forum</td>
+	<td class="thead" width="5%">Replies</td>
+	<td class="thead" width="20%">Last Post</td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=392382" title="if i put this in a include 
+ 
+#include &lt;zcmd&gt; 
+ 
+ 
+the person using in the has to put #include zmcd in the pawno again? 
+ 
+i need help im am trying...">creating include</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Glad2BeHere</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Scripting Help</span></td>
+	<td class="alt2" align="center"><span class="smallfont">4</span></td>
+	<td class="alt1" align="right"><span class="smallfont">14/11/2012 <span class="time">04:18 AM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=374003" title="hey guys is there any complete tutorial about how to create include files? 
+i searched but i couldnt find anything">creating an include?</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">R4VER</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Scripting Help</span></td>
+	<td class="alt2" align="center"><span class="smallfont">3</span></td>
+	<td class="alt1" align="right"><span class="smallfont">01/09/2012 <span class="time">01:00 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=290066" title="I have no idea how to make Includes and i want to conver this script into an include. Post it here if you could... 
+ 
+ 
+forward...">Include Creating help</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">KingOfStarfox</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Scripting Help</span></td>
+	<td class="alt2" align="center"><span class="smallfont">3</span></td>
+	<td class="alt1" align="right"><span class="smallfont">04/05/2012 <span class="time">06:01 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=321385" title="Alguem ai tem a include #include &lt;lethaldudb2&gt; 
+darei reputancao desde ja agradeço :D">[PEDIDO] Include #include &lt;lethaldudb2&gt; ?</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">Hancoc</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Português/Portuguese</span></td>
+	<td class="alt2" align="center"><span class="smallfont">1</span></td>
+	<td class="alt1" align="right"><span class="smallfont">26/02/2012 <span class="time">09:05 PM</span></span></td>
+</tr>
+<tr>
+	<td class="alt1" align="left">
+		
+		<span class="smallfont"> <a href="http://forum.sa-mp.com/showthread.php?t=207432" title="As you can see on the subject I&#39;m asking if you can do that without using Hooks by Y-Less.">Making an OnFilterScriptInit in an include without adding anything in the .pwn exepct the #include</a></span>
+	</td>
+	<td class="alt2" nowrap="nowrap"><span class="smallfont">r3k1lLz_</span></td>
+	<td class="alt1" nowrap="nowrap"><span class="smallfont">Help Archive</span></td>
+	<td class="alt2" align="center"><span class="smallfont">6</span></td>
+	<td class="alt1" align="right"><span class="smallfont">06/01/2011 <span class="time">07:49 AM</span></span></td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+
+<script type="text/javascript">ame_toggle_view({other : 'true',post : 'true',blog : 'true',group : 'true',vm : 'true',sig : 'true'});</script>
+
+<br>
+<div class="smallfont" align="center">All times are GMT. The time now is <span class="time">08:45 AM</span>.</div>
+<br>
+
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- /content area table -->
+
+<form action="http://forum.sa-mp.com/index.php" method="get" style="clear:left">
+
+<table cellpadding="6" cellspacing="0" border="0" width="90%" class="page" align="center">
+<tbody><tr>
+	
+	
+		<td class="tfoot">
+			<select name="langid" onchange="switch_id(this, &#39;lang&#39;)">
+				<optgroup label="Quick Language Chooser">
+					<option value="5" class="">-- (DE) Deutsch</option>
+<option value="1" class="" selected="selected">-- (EN) English</option>
+<option value="3" class="">-- (ES) Español</option>
+<option value="2" class="">-- (FR) Français</option>
+<option value="6" class="">-- (NL) Dutch</option>
+<option value="4" class="">-- (RU) &#1056;&#1091;&#1089;&#1089;&#1082;&#1080;</option>
+
+				</optgroup>
+			</select>
+		</td>
+	
+	<td class="tfoot" align="right" width="100%">
+		<div class="smallfont">
+			<strong>
+				<a href="http://forum.sa-mp.com/sendmessage.php" rel="nofollow" accesskey="9">Contact Us</a> -
+				<a href="http://www.sa-mp.com/">SA-MP</a> -
+				
+				
+				<a href="http://forum.sa-mp.com/archive/index.php">Archive</a> -
+				
+				
+				
+				<a href="http://forum.sa-mp.com/showthread.php?t=497081#top" onclick="self.scrollTo(0, 0); return false;">Top</a>
+			</strong>
+		</div>
+	</td>
+</tr>
+</tbody></table>
+
+<br>
+
+<div align="center">
+	<div class="smallfont" align="center">
+	<!-- Do not remove this copyright notice -->
+	Powered by vBulletin® Version 3.8.6<br>Copyright ©2000 - 2014, Jelsoft Enterprises Ltd.
+	<!-- Do not remove this copyright notice -->
+	</div>
+
+	<div class="smallfont" align="center">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+
+	
+	</div>
+</div>
+
+</form>
+
+
+
+
+<script type="text/javascript">
+<!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//-->
+</script>
+
+<!-- temp -->
+<div style="display:none">
+	<!-- thread rate -->
+	
+		
+	
+	<!-- / thread rate -->
+</div>
+
+
+</body></html>
