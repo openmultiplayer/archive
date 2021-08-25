@@ -17,5 +17,3 @@ You can download the files provided in this folder, choose what version do you l
 6. Install [Microsoft Visual C++ 2010 Redistributable Package (x86)](https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one) from AIO Bundle since it doesn't exists anymore from microsoft. 
 7. Copy all .dll files from DLL Files folder to your main server folder
 8. Open your server.
-
-You can watch this video Installation if you're confused with text instructions: https://www.youtube.com/watch?v=rW6y1vzDT5M
