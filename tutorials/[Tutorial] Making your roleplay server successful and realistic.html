@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://sampforum.blast.hk/showthread.php?tid=461988 -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>[Tutorial] Making your roleplay server successful and realistic</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="https://sampforum.blast.hk/syndication.php">
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="https://sampforum.blast.hk/syndication.php?type=atom1.0">
+<link rel="shortcut icon" href="https://sampforum.blast.hk/favicon.ico">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript" src="./[Tutorial] Making your roleplay server successful and realistic_files/jquery.js"></script>
+<script type="text/javascript" src="./[Tutorial] Making your roleplay server successful and realistic_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] Making your roleplay server successful and realistic_files/jquery.plugins.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] Making your roleplay server successful and realistic_files/general.js"></script><style>undefined</style>
+<script type="text/javascript" src="./[Tutorial] Making your roleplay server successful and realistic_files/tooltip.js"></script>
+
+<link rel="stylesheet" href="./[Tutorial] Making your roleplay server successful and realistic_files/bootstrap.min.css">
+<link href="./[Tutorial] Making your roleplay server successful and realistic_files/css" rel="stylesheet" type="text/css">
+<!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" / -->
+<link rel="stylesheet" href="./[Tutorial] Making your roleplay server successful and realistic_files/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Making your roleplay server successful and realistic_files/global.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Making your roleplay server successful and realistic_files/css3.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Making your roleplay server successful and realistic_files/responsive.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Making your roleplay server successful and realistic_files/star_ratings.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Making your roleplay server successful and realistic_files/showthread.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Making your roleplay server successful and realistic_files/grey.css">
+
+
+
+
+<script type="text/javascript">
+jQuery(document).on('click', '.panel-heading span.clickable', function(e){
+    var jQuerythis = jQuery(this);
+	if(!jQuerythis.hasClass('panel-collapsed')) {
+		jQuerythis.parents('.panel').find('.panel-body').slideUp();
+		jQuerythis.addClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+	} else {
+		jQuerythis.parents('.panel').find('.panel-body').slideDown();
+		jQuerythis.removeClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+	}
+})
+</script>
+
+
+
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+	lang.confirm_title = "Please Confirm";
+	lang.expcol_collapse = "[-]";
+	lang.expcol_expand = "[+]";
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+	
+	var templates = {
+		modal: '<div class=\"modal\">\
+	<div style=\"overflow-y: auto; max-height: 400px;\">\
+		<table border=\"0\" cellspacing=\"0\" cellpadding=\"5\" class=\"tborder\">\
+			<tr>\
+				<td class=\"thead\"><strong>__title__</strong></td>\
+			</tr>\
+			<tr>\
+				<td class=\"trow1\">__message__</td>\
+			</tr>\
+			<tr>\
+				<td class=\"tfoot\">\
+					<div style=\"text-align: center\" class=\"modal_buttons\">__buttons__</div>\
+				</td>\
+			</tr>\
+		</table>\
+	</div>\
+</div>',
+		modal_button: '<input type=\"submit\" class=\"button\" value=\"__title__\"/>&nbsp;'
+	};
+	
+	var cookieSecureFlag = "0";
+	var cookieDomain = ".sampforum.blast.hk";
+	var cookiePath = "/";
+	var cookiePrefix = "";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "95671dd73ca1f93b37bc57b5ee6a3dea";
+	var rootpath = "https://sampforum.blast.hk";
+	var imagepath = "https://sampforum.blast.hk/images/bootbb";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "https://sampforum.blast.hk/images/bootbb/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+
+<!-- Make videos responsive - https://github.com/davatron5000/FitVids.js (additional video sites added for MyBB) -->
+<script type="text/javascript" src="./[Tutorial] Making your roleplay server successful and realistic_files/jquery.fitvids.js"></script>
+<script>
+	$(document).ready(function(){
+		// Target the iframe parent div
+		var bvc = $(".bootbb-video-container");
+		//bvc.css("max-width", "800px");
+		bvc.fitVids();
+	});
+</script>
+<!-- end: headerinclude -->
+<script>
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script src="./[Tutorial] Making your roleplay server successful and realistic_files/report.js"></script>
+<script src="./[Tutorial] Making your roleplay server successful and realistic_files/jeditable.min.js"></script>
+<script src="./[Tutorial] Making your roleplay server successful and realistic_files/thread.js"></script>
+<meta name="description" content="Making your roleplay server successful and realistic __________________________________________________ ______________________ Introduction Most roleplay servers are missing the vital notes which make">
+<link rel="canonical" href="https://sampforum.blast.hk/showthread.php?tid=461988">
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./[Tutorial] Making your roleplay server successful and realistic_files/css2"></head>
+<body>
+	<!-- start: header -->
+<header>
+<div class="navbar navbar-default">
+     <div class="container">
+          <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="Toggle navigation">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span> 
+               </button>
+			  
+			  <div class="navbar-header scaleimages">
+				  <!--<a class="navbar-brand" href="https://sampforum.blast.hk">BootBB</a>-->
+				  <a class="" href="https://sampforum.blast.hk/"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/logo_forum.gif"></a>
+			  
+			  </div>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+			  <ul class="nav navbar-nav navbar-right">
+				  <!--<li id="nav-portal"><a href="https://sampforum.blast.hk/portal.php"><i class="fa fa-bell"></i> Portal</a></li>-->
+               <li id="nav-forums"><a href="https://sampforum.blast.hk/index.php"><i class="fa fa-group"></i> Forum</a></li>
+				<!--<li><a href="https://sampforum.blast.hk/search.php?action=getnew"><i class="fa fa-comment"></i> New Posts</a></li>
+            	<li><a href="https://sampforum.blast.hk/search.php?action=getdaily"><i class="fa fa-comments"></i> Today's Posts</a></li>-->
+               <li id="nav-search"><a href="https://sampforum.blast.hk/search.php"><i class="fa fa-search"></i> Search</a></li>
+               <li id="nav-member"><a href="https://sampforum.blast.hk/memberlist.php"><i class="fa fa-users"></i> Members</a></li>
+               <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+				  
+<!--<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cubes"></i> Misc <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			  <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+			  <li class="divider"></li>
+			  <li id="nav-calendar"><a href="https://sampforum.blast.hk/calendar.php"><i class="fa fa-calendar"></i> Calendar</a></li>
+          </ul>
+</li> -->
+</ul>
+  
+          </div>
+     </div>
+</div>
+</header>
+
+
+<div id="container">
+	<a name="top" id="top"></a>
+		<div id="header">
+			<div id="panel">
+				<div class="upper">
+					<div class="container">
+
+						<!-- start: header_welcomeblock_guest -->
+<!--<span><a href="https://sampforum.blast.hk/member.php?action=login" onclick="$('#quick_login').modal({ fadeDuration: 250, keepelement: true }); return false;" class="login btn btn-danger" style="color: #fff;"><i class="fa fa-sign-in"></i> Login</a> <a href="https://sampforum.blast.hk/member.php?action=register" class="register btn btn-success" style="color: #fff;"><i class="fa fa-user-plus"></i> Register</a></span>-->
+
+<span class="float_right hidden-xs">Hello There, Guest!</span>
+
+<br class="clearfix">
+	
+
+				<div class="modal" id="quick_login" style="display: none;">
+					<form method="post" action="https://sampforum.blast.hk/member.php">
+						<input name="my_post_key" type="hidden" value="95671dd73ca1f93b37bc57b5ee6a3dea">
+						<input name="action" type="hidden" value="do_login">
+						<input name="url" type="hidden" value="https://sampforum.blast.hk/showthread.php?tid=461988">
+						<input name="quick_login" type="hidden" value="1">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tborder">
+							<tbody><tr>
+								<td class="thead" colspan="2"><strong>Login</strong></td>
+							</tr>
+							<tr>
+								<td class="trow1" width="25%"><strong>Username:</strong></td>
+								<td class="trow1"><input name="quick_username" id="quick_login_username" type="text" value="" class="textbox initial_focus"></td>
+							</tr>
+							<tr>
+								<td class="trow2"><strong>Password:</strong></td>
+								<td class="trow2">
+									<input name="quick_password" id="quick_login_password" type="password" value="" class="textbox"> <a href="https://sampforum.blast.hk/member.php?action=lostpw" class="lost_password">Lost Password?</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow1">&nbsp;</td>
+								<td class="trow1 remember_me">
+									<input name="quick_remember" id="quick_login_remember" type="checkbox" value="yes" class="checkbox" checked="checked">
+									<label for="quick_login_remember">Remember me</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow2" colspan="2">
+									<div align="center"><input name="submit" type="submit" class="button" value="Login"></div>
+								</td>
+							</tr>
+						</tbody></table>
+					</form>
+				</div>
+				<script type="text/javascript">
+					$("#quick_login input[name='url']").val($(location).attr('href'));
+				</script>
+<!-- end: header_welcomeblock_guest -->
+					
+					</div>
+			</div>
+			</div>
+	</div>
+			</div>
+               
+				   
+                <main class="container">
+				<br>
+                 <!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=29">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav -->
+				
+				
+				
+				
+				
+				
+<!-- end: header -->
+	
+	
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	<div class="tborder tfixed clear">
+		<div class="thead">
+				<div class="float_right">
+					<span class="smalltext"><a href="https://sampforum.blast.hk/showthread.php?mode=threaded&amp;tid=461988&amp;pid=2683633#pid2683633">Threaded Mode</a></span>
+				</div>
+				
+					[Tutorial] Making your roleplay server successful and realistic
+			</div>
+	</div>
+<div id="posts_container">
+	<div id="posts">
+		<!-- start: postbit_classic -->
+
+<a id="pid2683633"></a>
+<div class="post classic " style="" id="post_2683633">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=161610"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=161610">bensmart469</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 298<br>
+	Threads: 25<br>
+	Joined: Apr 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=161610"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=461988&amp;pid=2683633#pid2683633" title="Making your roleplay server successful and realistic">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 1 by bensmart469" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.09.2013, 17:15 <span class="post_edit" id="edited_by_2683633"><!-- start: postbit_editedby -->
+<div class="edited_post postbit_edited postbit_editedby postbit_editedpost">(<!-- start: postbit_editedby_editreason -->
+ <em>Last edited by bensmart469; 04/09/2013 at 08:35 PM.</em>
+<!-- end: postbit_editedby_editreason -->)</div>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2683633">
+		<div align="center"><font size="6"><u><b>Making your roleplay server successful and realistic</b></u></font><br>
+__________________________________________________  ______________________<br>
+<font size="5"><u>Introduction</u></font><br>
+Most roleplay servers are missing the vital notes which make sure that your server is successful, and players get a good experience. This tutorial will tell you the things that you need to know when you are making/developing your roleplay server.<br>
+<br>
+<font size="4"><u>Economy</u></font><br>
+The economy is one of the main points of a server. I've seen highly unrealistic economies on a lot of servers that I used to play on. A few examples are:<ul><li>Phonebook- $500</li>
+<li>6-pack of beer- $100</li>
+<li>Newspaper- $50</li>
+<li>Mask- $500</li>
+</ul>In my opinion, the prices are highly unrealistic here. I would never pay $500 for a phonebook in-real-life, and wouldn't pay $100 for a 6-pack of beer. Your prices of regular items matter, since it adds to the realism of your server, and it may impress a few players, which could help your server to get more reputation, and to get more players, the serious roleplayers.<br>
+Now, lets look at things such as vehicles. I've seen a range of different prices on vehicles, some of them are too high, some are too low. Lets show you some examples of prices which would be a lot:<ul><li>Infernus (sports car)- $50000</li>
+<li>Blista-compact (regular vehicle)- $65000</li>
+<li>Hotring racer- $2000000</li>
+</ul>First of all, obviously, which dealership would sell you a nascar-style vehicle? I've not seen any dealerships that sell vehicles like that, have you? Now, the infernus price would possibly be too low. The infernus is a sports car, one of the fastest vehicles in the game. The car wouldn't be cheap. It'd cost about $100000, <b>at least</b>. The blista compact obviously has a higher price than the infernus too, which makes no sense since there is a large difference between the infernus and blista-compact.<br>
+<br>
+<font size="4"><u>Guns</u></font><br>
+This is another point which needs to be talked about. You wouldn't be able to get a gun easily in-real-life. It would be unrealistic. +It wouldn't take you about 20 seconds to make an ak 47. You would need to know how it works, how it is put together, etc. <br>
+One more thing which I have seen multiple times, people pulling out guns in broad daylight. It is unrealistic, since you'd be spotted by someone if you were to do this in-real-life, and the police would be on-scene ASAP. I know this is more of a point of roleplaying mistakes, but I had to mention it, to give server owners an idea of how unrealistic it is to have this happen in-real-life.<br>
+<br>
+<font size="4"><u>Refunds</u></font><br>
+I do not need to say a lot about refunds, except that they are completely unrealistic and make your server boring. If I was to see a server with a name like this on the SA:MP server browser, I would avoid it:<br>
+"NAME OF ROLEPLAY SERVER [Refunding] [Level 3 VIP] [1 million dollars]"<br>
+Would you rather earn everything yourself, and have the experience of doing this, or would you join this server where everything is given to you?<br>
+<br>
+<font size="4"><u>Starting on the server</u></font><br>
+Starting to connect to your server for the first time will give the new players an impression of your server. You want to give them the best impression, obviously. You want to make everything easy to understand, and also give the player a chance to fully develop their character's details, e.g. show dialogs where players can input details about their character e.g. distinct features, personality, age, story, gender, etc.<br>
+It is also recommended to have a tutorial, otherwise the new players will not know what they have to do, won't know any details about the server, etc.<br>
+<br>
+<font size="4"><u>Staff</u></font><br>
+Admins. Most people do not understand how important admins are for your server. They are one of the key components of your server. It is important that you choose the right person for the job. First of all, avoid anyone that asks for an administrator position. It shows that they are powerhungry, and want an 'admin' position to make them feel important. Try to get people that are above 14 or 15 years of age. The reason for this is due to maturity, and knowledge. Another obvious mistake that I have seen is that some people hire admins, that do not know anything about the server! I had one instance, where one owner didn't even know the server's name! <br>
+<br>
+I will add more to this soon, will add things about making it unique, commands, maps, rules, script, etc.<br>
+<br>
+If you want anything added, or have any criticism, please post below. I hope that I manage to help at least 1 person with this, as it could be good for the future of roleplay servers on SA:MP. I apologize that it may look rushed, I spent about 15 mins on it, and didn't have the time to improve it.<br>
+</div>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2683633">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=161610" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=461988&amp;replyto=2683633" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2683872"></a>
+<div class="post classic " style="" id="post_2683872">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=107760"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/107760.png" alt="" width="33" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=107760">seanny</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,429<br>
+	Threads: 321<br>
+	Joined: Oct 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=107760"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=461988&amp;pid=2683872#pid2683872" title="Re: Making your roleplay server successful and realistic">#2</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 2 by seanny" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.09.2013, 19:47 <span class="post_edit" id="edited_by_2683872"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2683872">
+		This is a good start of a tutorial and well explained, but could do with some more.<br>
+<br>
+4/5.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2683872">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=107760" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=461988&amp;replyto=2683872" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2683906"></a>
+<div class="post classic " style="" id="post_2683906">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=174033"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/174033.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=174033">StuartD</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 954<br>
+	Threads: 24<br>
+	Joined: Jul 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=174033"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=461988&amp;pid=2683906#pid2683906" title="Re: Making your roleplay server successful and realistic">#3</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 3 by StuartD" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.09.2013, 20:21 <span class="post_edit" id="edited_by_2683906"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2683906">
+		Add bits about Administration etc and how they are the frontline part of the server. <br>
+<br>
+Apart from that it is a nice tutorial. <img alt="" border="0" class="inlineimg" src="./[Tutorial] Making your roleplay server successful and realistic_files/smile.png" title="Smiley">
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2683906">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=174033" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=461988&amp;replyto=2683906" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2683951"></a>
+<div class="post classic " style="" id="post_2683951">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=92497"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=92497">Rayco</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Big Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 140<br>
+	Threads: 20<br>
+	Joined: May 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=92497"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=461988&amp;pid=2683951#pid2683951" title="Re: Making your roleplay server successful and realistic">#4</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 4 by Rayco" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.09.2013, 20:55 <span class="post_edit" id="edited_by_2683951"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2683951">
+		Good tutorial +REP.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2683951">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=92497" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=461988&amp;replyto=2683951" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2684073"></a>
+<div class="post classic " style="" id="post_2684073">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=13347"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/13347.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=13347">Vince</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Spam Machine<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 10,066<br>
+	Threads: 38<br>
+	Joined: Sep 2007
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=13347"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=461988&amp;pid=2684073#pid2684073" title="Re: Making your roleplay server successful and realistic">#5</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 5 by Vince" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.09.2013, 22:20 <span class="post_edit" id="edited_by_2684073"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2684073">
+		You are right, I could go to a store and buy a skimask for Ђ15, but the chances of me actually using it to mug someone, let alone rob a bank? Nonexistent. However, if the mask ingame is a requirement to rob a bank then the price should be relatively high to balance the game out. I could also buy a $1 beer, but would it magically heal bullet wounds? Of course not. As for the refunding: what if I'd like to roleplay a succesful business man that just arrived into town? Surely I'd have lots of money.<br>
+<br>
+In this game you need to find a compromise between realism and balance.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2684073">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=13347" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=461988&amp;replyto=2684073" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2689535"></a>
+<div class="post classic " style="" id="post_2689535">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=178237"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/178237.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=178237">Don_Cage</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,072<br>
+	Threads: 168<br>
+	Joined: Aug 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=178237"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=461988&amp;pid=2689535#pid2689535" title="Re: Making your roleplay server successful and realistic">#6</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 6 by Don_Cage" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">08.09.2013, 21:19 <span class="post_edit" id="edited_by_2689535"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2689535">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Vince</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2684073#pid2684073" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Making your roleplay server successful and realistic_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">You are right, I could go to a store and buy a skimask for Ђ15, but the chances of me actually using it to mug someone, let alone rob a bank? Nonexistent. However, if the mask ingame is a requirement to rob a bank then the price should be relatively high to balance the game out. I could also buy a $1 beer, but would it magically heal bullet wounds? Of course not. As for the refunding: what if I'd like to roleplay a succesful business man that just arrived into town? Surely I'd have lots of money.<br>
+<br>
+In this game you need to find a compromise between realism and balance.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Fully agree with you there!<br>
+And nice tutorial. Like to see it updated!
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2689535">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=178237" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=461988&amp;replyto=2689535" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2695745"></a>
+<div class="post classic " style="" id="post_2695745">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=213244"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=213244">NewTimesRolePlay</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Little Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1<br>
+	Threads: 0<br>
+	Joined: Aug 2013
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=213244"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=461988&amp;pid=2695745#pid2695745" title="Re: Making your roleplay server successful and realistic">#7</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 7 by NewTimesRolePlay" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">14.09.2013, 00:56 <span class="post_edit" id="edited_by_2695745"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2695745">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Vince</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2684073#pid2684073" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Making your roleplay server successful and realistic_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">You are right, I could go to a store and buy a skimask for Ђ15, but the chances of me actually using it to mug someone, let alone rob a bank? Nonexistent. However, if the mask ingame is a requirement to rob a bank then the price should be relatively high to balance the game out. I could also buy a $1 beer, but would it magically heal bullet wounds? Of course not. As for the refunding: what if I'd like to roleplay a succesful business man that just arrived into town? Surely I'd have lots of money.<br>
+<br>
+In this game you need to find a compromise between realism and balance.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Thats actually a very good point
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2695745">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=213244" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=461988&amp;replyto=2695745" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2697059"></a>
+<div class="post classic " style="" id="post_2697059">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=147462"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/147462.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=147462">Max_Coldheart</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 667<br>
+	Threads: 11<br>
+	Joined: Dec 2011
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=147462"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=461988&amp;pid=2697059#pid2697059" title="Re: Making your roleplay server successful and realistic">#8</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 8 by Max_Coldheart" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">14.09.2013, 21:14 <span class="post_edit" id="edited_by_2697059"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2697059">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Vince</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2684073#pid2684073" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Making your roleplay server successful and realistic_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">You are right, I could go to a store and buy a skimask for Ђ15, but the chances of me actually using it to mug someone, let alone rob a bank? Nonexistent. However, if the mask ingame is a requirement to rob a bank then the price should be relatively high to balance the game out. I could also buy a $1 beer, but would it magically heal bullet wounds? Of course not. As for the refunding: what if I'd like to roleplay a succesful business man that just arrived into town? Surely I'd have lots of money.<br>
+<br>
+In this game you need to find a compromise between realism and balance.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Excellent! Not many people realize this, but this is the most important thing.<br>
+<br>
+Nice tutorial.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2697059">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=147462" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=461988&amp;replyto=2697059" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3246612"></a>
+<div class="post classic " style="" id="post_3246612">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=236638"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/236638.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=236638">Arastair</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 782<br>
+	Threads: 25<br>
+	Joined: Jun 2014
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=236638"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=461988&amp;pid=3246612#pid3246612" title="Re: Making your roleplay server successful and realistic">#9</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 9 by Arastair" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.11.2014, 05:16 <span class="post_edit" id="edited_by_3246612"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3246612">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Vince</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2684073#pid2684073" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Making your roleplay server successful and realistic_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">You are right, I could go to a store and buy a skimask for Ђ15, but the chances of me actually using it to mug someone, let alone rob a bank? Nonexistent. However, if the mask ingame is a requirement to rob a bank then the price should be relatively high to balance the game out. I could also buy a $1 beer, but would it magically heal bullet wounds? Of course not. As for the refunding: what if I'd like to roleplay a succesful business man that just arrived into town? Surely I'd have lots of money.<br>
+<br>
+In this game you need to find a compromise between realism and balance.</div>
+</td>
+</tr>
+</tbody></table>
+</div>True
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3246612">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=236638" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=461988&amp;replyto=3246612" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3251374"></a>
+<div class="post classic " style="" id="post_3251374">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=111937"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/111937.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=111937">Sasino97</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><img src="./[Tutorial] Making your roleplay server successful and realistic_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,418<br>
+	Threads: 63<br>
+	Joined: Dec 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=111937"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=461988&amp;pid=3251374#pid3251374" title="Re: Making your roleplay server successful and realistic">#10</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 10 by Sasino97" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">08.11.2014, 18:57 <span class="post_edit" id="edited_by_3251374"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3251374">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Vince</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2684073#pid2684073" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Making your roleplay server successful and realistic_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">You are right, I could go to a store and buy a skimask for Ђ15, but the chances of me actually using it to mug someone, let alone rob a bank? Nonexistent. However, if the mask ingame is a requirement to rob a bank then the price should be relatively high to balance the game out. I could also buy a $1 beer, but would it magically heal bullet wounds? Of course not. As for the refunding: what if I'd like to roleplay a succesful business man that just arrived into town? Surely I'd have lots of money.<br>
+<br>
+In this game you need to find a compromise between realism and balance.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Yeah that's true, I agree with you.<br>
+I think that super-super-realistic roleplays are boring and stupid.<br>
+<span style="color: red;" class="mycode_me">* Sasino97 does this</span><br>
+and<br>
+<span style="color: red;" class="mycode_me">* Sasino97 does that</span><br>
+every 2 seconds..<br>
+<br>
+I'm developing a really light roleplay, so the game is funnier and not boring. (read my signature)
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3251374">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=111937" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=461988&amp;replyto=3251374" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic -->
+	</div>
+</div>
+	
+			<div class="tfoot row">
+				<div class="col-sm-6">
+					<strong>« <a href="https://sampforum.blast.hk/showthread.php?tid=461988&amp;action=nextoldest">Next Oldest</a> | <a href="https://sampforum.blast.hk/showthread.php?tid=461988&amp;action=nextnewest">Next Newest</a> »</strong>
+				</div>
+				<div class="col-sm-6"><!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://sampforum.blast.hk/search.php" method="post">
+			<input type="hidden" name="action" value="thread">
+			<input type="hidden" name="tid" value="461988">
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == &#39;Enter Keywords&#39;) { this.value = &#39;&#39;; }" onblur="if(this.value==&#39;&#39;) { this.value=&#39;Enter Keywords&#39;; }" class="textbox" size="25">
+			<input type="submit" class="button" value="Search Thread">
+		</form>
+	</div>
+<!-- end: showthread_search --></div>
+			</div>
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	
+	
+	
+	<br>
+	<div class="float_left">
+		<ul class="thread_tools">
+			<!-- start: showthread_printthread -->
+<li class="printable"><a href="https://sampforum.blast.hk/printthread.php?tid=461988">View a Printable Version</a></li>
+<!-- end: showthread_printthread -->
+			
+			
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://sampforum.blast.hk/forumdisplay.php" method="get">
+<span class="smalltext">Forum Jump:</span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="3"> SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="74">-- News and Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13">-- General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="16">-- Client Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20">-- Bug Reports</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21">-- Screenshots and Videos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6"> SA-MP Server</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="19">-- Server Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22">-- Server Advertisements</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="8"> SA-MP Scripting and Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12">-- Scripting Help</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="70" selected="selected">---- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="84">---- Discussion</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="89">---- Help Archive</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="71">-- Gamemode Scripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="17">-- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="83">---- Includes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="82">---- Tools and Files </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="64">---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="18">-- Plugin Development</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="92"> SA-MP DL Edition</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="90">-- SA-MP 0.3.DL</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="94">---- Model Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="7"> Other</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23">-- Everything and Nothing</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9"> Non-English</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33">-- Languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31">---- Nederlands/Dutch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="76">------ Scripting Showroom en Discussie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="87">------ Off topic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29">---- Español/Spanish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="59">------ Lanzamientos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30">---- Français/French</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="81">------ Showroom</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32">---- Русский/Russian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="66">------ Релизы/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34">---- Português/Portuguese</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56">------ Lançamentos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40">---- Română/Romanian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="77">------ Salonul Scripturilor</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="88">---- Archive</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear">
+	<!-- start: showthread_usersbrowsing -->
+<br>
+<span class="smalltext">Users browsing this thread: 1 Guest(s)</span>
+<br>
+<!-- end: showthread_usersbrowsing -->
+	<!-- start: footer -->
+<div style="clear:both"><div style="padding-top: 10px"><!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=29">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav --></div></div>
+</main>
+
+<div class="blankspace"></div>
+
+<footer id="footer">
+	<div class="container">
+    <div class="row">
+		
+        <!--<div class="col-sm-4 foot">
+			<h3>About Our Community</h3>
+			<p>Discuss about various topics in our community and have fun while doing so. Welcome to SA-MP Forums Archive</p>
+			
+		</div>		
+		
+
+		<div class="col-sm-4 foot">
+			<h3>Quick Links</h3>
+			<p>
+
+ 				<a href="https://sampforum.blast.hk" class="btn btn-success" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Forum Home"><i class="fa fa-home"></i></a>
+				
+				<a href="https://sampforum.blast.hk/archive/index.php?thread-461988.html" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Lite (Archive) Mode"><i class="fa fa-archive"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Become a Fan"><i class="fa fa-facebook-square"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-info" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Follow Us"><i class="fa fa-twitter"></i></a>
+				
+				<a href="https://sampforum.blast.hk/misc.php?action=syndication" class="btn btn-warning" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="RSS Syndication"><i class="fa fa-rss"></i></a>
+				<br/>
+				<a href="misc.php?action=markread&amp;my_post_key=95671dd73ca1f93b37bc57b5ee6a3dea" class="btn btn-danger" style="color: #fff; margin-top:10px" data-toggle="tooltip" data-placement="bottom" data-original-title="Mark all forums read"><i class="fa fa-book"></i> Mark all forums read</a><br /><br />
+				
+				
+				</p>
+
+		</div>
+		
+		<div class="col-sm-4 foot">
+			
+			 <h3>Reach Us</h3>
+			 
+<p><a href="contact.php" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Contact Us"><i class="fa fa-envelope"></i> Contact Us</a>&nbsp;
+			
+			<a href="showteam.php" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Meet Our Team"><i class="fa fa-users"></i> Forum Team</a></p>
+		</div>-->
+		
+		
+		
+		<!-- The following piece of code allows MyBB to run scheduled tasks. DO NOT REMOVE --><!-- start: task_image -->
+<img src="./[Tutorial] Making your roleplay server successful and realistic_files/task.php" height="1" alt="">
+<!-- end: task_image --><!-- End task image code -->
+		</div>
+	
+	</div>
+
+	
+<div id="copyright">
+	<div class="container">
+			<div class="pull-right"><!-- start: footer_languageselect -->
+<div class="language">
+<form method="POST" action="https://sampforum.blast.hk/showthread.php" id="lang_select">
+	<input type="hidden" name="tid" value="461988">
+
+	<input type="hidden" name="my_post_key" value="95671dd73ca1f93b37bc57b5ee6a3dea">
+	<select name="language" onchange="MyBB.changeLanguage();">
+		<optgroup label="Quick Language Select">
+			<!-- start: footer_languageselect_option -->
+<option value="english" selected="selected">&nbsp;&nbsp;&nbsp;English (American)</option>
+<!-- end: footer_languageselect_option --><!-- start: footer_languageselect_option -->
+<option value="russian">&nbsp;&nbsp;&nbsp;Russian</option>
+<!-- end: footer_languageselect_option -->
+		</optgroup>
+	</select>
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_languageselect --></div>
+			<div class="pull-left">
+				<!-- MyBB is free software developed and maintained by a volunteer community.
+					It would be much appreciated by the MyBB Group if you left the full copyright and "powered by" notice intact,
+					to show your support for MyBB.  If you choose to remove or modify the copyright below,
+					you may be refused support on the MyBB Community Forums.
+
+					This is free software, support us and we'll support you. -->
+				Powered By <a href="http://www.mybb.com/" target="_blank" rel="noopener" style="color: #fff;">MyBB</a>. <a href="https://eree.in/" title="EREE" target="_blank" rel="noopener" style="color: #fff;">Crafted by EREE</a> and <a href="https://forum.androidbg.com/" title="AndroidBG" target="_blank" rel="noopener" style="color: #fff;">Android BG</a>. Also powered by <a href="https://www.blast.hk/"><b>blast.hk</b></a><!-- End powered by -->
+				
+			</div>
+	</div>
+
+</div>
+
+</footer>
+
+<!-- Fix for MentionMe popup window position -->
+<script type="text/javascript">
+	var MentionMe = (function(m) {
+	m.customSCEditorContainerOffset = {
+		left: 0,
+		top: 2,
+	};
+
+	return m;
+})(MentionMe || {});
+</script>
+<!-- End Fix for MentionMe popup window position -->
+<!-- end: footer -->
+	<script type="text/javascript">
+		var thread_deleted = "0";
+		if(thread_deleted == "1")
+		{
+			$("#quick_reply_form, .new_reply_button, .thread_tools, .inline_rating").hide();
+			$("#moderator_options_selector option.option_mirage").attr("disabled","disabled");
+		}
+	</script>
+
+
+<!-- end: showthread --><script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>

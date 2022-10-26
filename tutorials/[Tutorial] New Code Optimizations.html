@@ -1,0 +1,3258 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://sampforum.blast.hk/showthread.php?tid=580289 -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>[Tutorial] New Code Optimizations</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="https://sampforum.blast.hk/syndication.php">
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="https://sampforum.blast.hk/syndication.php?type=atom1.0">
+<link rel="shortcut icon" href="https://sampforum.blast.hk/favicon.ico">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript" src="./[Tutorial] New Code Optimizations_files/jquery.js"></script><style>undefined</style>
+<script type="text/javascript" src="./[Tutorial] New Code Optimizations_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] New Code Optimizations_files/jquery.plugins.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] New Code Optimizations_files/general.js"></script>
+<script type="text/javascript" src="./[Tutorial] New Code Optimizations_files/tooltip.js"></script>
+
+<link rel="stylesheet" href="./[Tutorial] New Code Optimizations_files/bootstrap.min.css">
+<link href="./[Tutorial] New Code Optimizations_files/css" rel="stylesheet" type="text/css">
+<!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" / -->
+<link rel="stylesheet" href="./[Tutorial] New Code Optimizations_files/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+
+<link type="text/css" rel="stylesheet" href="./[Tutorial] New Code Optimizations_files/global.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] New Code Optimizations_files/css3.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] New Code Optimizations_files/responsive.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] New Code Optimizations_files/star_ratings.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] New Code Optimizations_files/showthread.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] New Code Optimizations_files/grey.css">
+
+
+
+
+<script type="text/javascript">
+jQuery(document).on('click', '.panel-heading span.clickable', function(e){
+    var jQuerythis = jQuery(this);
+	if(!jQuerythis.hasClass('panel-collapsed')) {
+		jQuerythis.parents('.panel').find('.panel-body').slideUp();
+		jQuerythis.addClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+	} else {
+		jQuerythis.parents('.panel').find('.panel-body').slideDown();
+		jQuerythis.removeClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+	}
+})
+</script>
+
+
+
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+	lang.confirm_title = "Please Confirm";
+	lang.expcol_collapse = "[-]";
+	lang.expcol_expand = "[+]";
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+	
+	var templates = {
+		modal: '<div class=\"modal\">\
+	<div style=\"overflow-y: auto; max-height: 400px;\">\
+		<table border=\"0\" cellspacing=\"0\" cellpadding=\"5\" class=\"tborder\">\
+			<tr>\
+				<td class=\"thead\"><strong>__title__</strong></td>\
+			</tr>\
+			<tr>\
+				<td class=\"trow1\">__message__</td>\
+			</tr>\
+			<tr>\
+				<td class=\"tfoot\">\
+					<div style=\"text-align: center\" class=\"modal_buttons\">__buttons__</div>\
+				</td>\
+			</tr>\
+		</table>\
+	</div>\
+</div>',
+		modal_button: '<input type=\"submit\" class=\"button\" value=\"__title__\"/>&nbsp;'
+	};
+	
+	var cookieSecureFlag = "0";
+	var cookieDomain = ".sampforum.blast.hk";
+	var cookiePath = "/";
+	var cookiePrefix = "";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "2220ae0a21c853e6459922e7a63ded4d";
+	var rootpath = "https://sampforum.blast.hk";
+	var imagepath = "https://sampforum.blast.hk/images/bootbb";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "https://sampforum.blast.hk/images/bootbb/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+
+<!-- Make videos responsive - https://github.com/davatron5000/FitVids.js (additional video sites added for MyBB) -->
+<script type="text/javascript" src="./[Tutorial] New Code Optimizations_files/jquery.fitvids.js"></script>
+<script>
+	$(document).ready(function(){
+		// Target the iframe parent div
+		var bvc = $(".bootbb-video-container");
+		//bvc.css("max-width", "800px");
+		bvc.fitVids();
+	});
+</script>
+<!-- end: headerinclude -->
+<script>
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script src="./[Tutorial] New Code Optimizations_files/report.js"></script>
+<script src="./[Tutorial] New Code Optimizations_files/jeditable.min.js"></script>
+<script src="./[Tutorial] New Code Optimizations_files/thread.js"></script>
+<meta name="description" content="New Code Optimizations Total Optimization Tricks:13 | Update:21st June 2016 I will be sharing few ideas using which you can optimize your code. There have been many such topics in the past but this to">
+<link rel="canonical" href="https://sampforum.blast.hk/showthread.php?tid=580289">
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./[Tutorial] New Code Optimizations_files/css2"></head>
+<body>
+	<!-- start: header -->
+<header>
+<div class="navbar navbar-default">
+     <div class="container">
+          <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="Toggle navigation">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span> 
+               </button>
+			  
+			  <div class="navbar-header scaleimages">
+				  <!--<a class="navbar-brand" href="https://sampforum.blast.hk">BootBB</a>-->
+				  <a class="" href="https://sampforum.blast.hk/"><img src="./[Tutorial] New Code Optimizations_files/logo_forum.gif"></a>
+			  
+			  </div>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+			  <ul class="nav navbar-nav navbar-right">
+				  <!--<li id="nav-portal"><a href="https://sampforum.blast.hk/portal.php"><i class="fa fa-bell"></i> Portal</a></li>-->
+               <li id="nav-forums"><a href="https://sampforum.blast.hk/index.php"><i class="fa fa-group"></i> Forum</a></li>
+				<!--<li><a href="https://sampforum.blast.hk/search.php?action=getnew"><i class="fa fa-comment"></i> New Posts</a></li>
+            	<li><a href="https://sampforum.blast.hk/search.php?action=getdaily"><i class="fa fa-comments"></i> Today's Posts</a></li>-->
+               <li id="nav-search"><a href="https://sampforum.blast.hk/search.php"><i class="fa fa-search"></i> Search</a></li>
+               <li id="nav-member"><a href="https://sampforum.blast.hk/memberlist.php"><i class="fa fa-users"></i> Members</a></li>
+               <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+				  
+<!--<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cubes"></i> Misc <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			  <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+			  <li class="divider"></li>
+			  <li id="nav-calendar"><a href="https://sampforum.blast.hk/calendar.php"><i class="fa fa-calendar"></i> Calendar</a></li>
+          </ul>
+</li> -->
+</ul>
+  
+          </div>
+     </div>
+</div>
+</header>
+
+
+<div id="container">
+	<a name="top" id="top"></a>
+		<div id="header">
+			<div id="panel">
+				<div class="upper">
+					<div class="container">
+
+						<!-- start: header_welcomeblock_guest -->
+<!--<span><a href="https://sampforum.blast.hk/member.php?action=login" onclick="$('#quick_login').modal({ fadeDuration: 250, keepelement: true }); return false;" class="login btn btn-danger" style="color: #fff;"><i class="fa fa-sign-in"></i> Login</a> <a href="https://sampforum.blast.hk/member.php?action=register" class="register btn btn-success" style="color: #fff;"><i class="fa fa-user-plus"></i> Register</a></span>-->
+
+<span class="float_right hidden-xs">Hello There, Guest!</span>
+
+<br class="clearfix">
+	
+
+				<div class="modal" id="quick_login" style="display: none;">
+					<form method="post" action="https://sampforum.blast.hk/member.php">
+						<input name="my_post_key" type="hidden" value="2220ae0a21c853e6459922e7a63ded4d">
+						<input name="action" type="hidden" value="do_login">
+						<input name="url" type="hidden" value="https://sampforum.blast.hk/showthread.php?tid=580289">
+						<input name="quick_login" type="hidden" value="1">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tborder">
+							<tbody><tr>
+								<td class="thead" colspan="2"><strong>Login</strong></td>
+							</tr>
+							<tr>
+								<td class="trow1" width="25%"><strong>Username:</strong></td>
+								<td class="trow1"><input name="quick_username" id="quick_login_username" type="text" value="" class="textbox initial_focus"></td>
+							</tr>
+							<tr>
+								<td class="trow2"><strong>Password:</strong></td>
+								<td class="trow2">
+									<input name="quick_password" id="quick_login_password" type="password" value="" class="textbox"> <a href="https://sampforum.blast.hk/member.php?action=lostpw" class="lost_password">Lost Password?</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow1">&nbsp;</td>
+								<td class="trow1 remember_me">
+									<input name="quick_remember" id="quick_login_remember" type="checkbox" value="yes" class="checkbox" checked="checked">
+									<label for="quick_login_remember">Remember me</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow2" colspan="2">
+									<div align="center"><input name="submit" type="submit" class="button" value="Login"></div>
+								</td>
+							</tr>
+						</tbody></table>
+					</form>
+				</div>
+				<script type="text/javascript">
+					$("#quick_login input[name='url']").val($(location).attr('href'));
+				</script>
+<!-- end: header_welcomeblock_guest -->
+					
+					</div>
+			</div>
+			</div>
+	</div>
+			</div>
+               
+				   
+                <main class="container">
+				<br>
+                 <!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=7">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav -->
+				
+				
+				
+				
+				
+				
+<!-- end: header -->
+	
+	
+	<div class="float_left">
+		<!-- start: multipage -->
+<div class="pagination">
+<span class="pages">Pages (2):</span>
+<!-- start: multipage_page_current -->
+ <span class="pagination_current">1</span>
+<!-- end: multipage_page_current --><!-- start: multipage_page -->
+<a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;page=2" class="pagination_page">2</a>
+<!-- end: multipage_page --><!-- start: multipage_nextpage -->
+<a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;page=2" class="pagination_next">Next »</a>
+<!-- end: multipage_nextpage -->
+</div>
+<!-- end: multipage -->
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	<div class="tborder tfixed clear">
+		<div class="thead">
+				<div class="float_right">
+					<span class="smalltext"><a href="https://sampforum.blast.hk/showthread.php?mode=threaded&amp;tid=580289&amp;pid=3509893#pid3509893">Threaded Mode</a></span>
+				</div>
+				
+					[Tutorial] New Code Optimizations
+			</div>
+	</div>
+<div id="posts_container">
+	<div id="posts">
+		<!-- start: postbit_classic -->
+
+<a id="pid3509893"></a>
+<div class="post classic " style="" id="post_3509893">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=169426"><img src="./[Tutorial] New Code Optimizations_files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=169426">Yashas</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 882<br>
+	Threads: 50<br>
+	Joined: Jun 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=169426"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;pid=3509893#pid3509893" title="New Code Optimizations">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 1 by Yashas" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.07.2015, 04:01 <span class="post_edit" id="edited_by_3509893"><!-- start: postbit_editedby -->
+<div class="edited_post postbit_edited postbit_editedby postbit_editedpost">(<!-- start: postbit_editedby_editreason -->
+ <em>Последний раз редактировалось Yashas; 06.07.2016 в 14:31.</em>
+<!-- end: postbit_editedby_editreason -->)</div>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3509893">
+		<font color="DarkSlateGray"><font size="7">New Code Optimizations</font></font><br>
+<b><font color="DarkRed">Total Optimization Tricks:13 | Update:21st June 2016</font></b><br>
+<br>
+I will be sharing few ideas using which you can optimize your code. There have been many such topics in the past but this topic has some new ideas.<br>
+<br>
+<b>Related Threads:</b><ul><li><b><a href="https://sampforum.blast.hk/showthread.php?tid=216730" target="_blank">Tips &amp; Tricks by Slice</a></b></li>
+<li><b><a href="https://sampforum.blast.hk/showthread.php?tid=580165" target="_blank">Why you shouldn't make your strings 256 cells big by ******</a></b></li>
+<li><b><a href="https://sampforum.blast.hk/showthread.php?pid=3517039#pid3517039" target="_blank">Code Optimizations by ******</a></b></li>
+</ul>
+<b>Currently this topic has the following tricks:</b><br>
+<ul><li><b>Arrays are slower than normal variables</b></li>
+<li><b>Do not use CallLocalFunction &amp; funcidx when you know the function name in advance</b></li>
+<li><b>Natives are lot faster than PAWN Code</b></li>
+<li><b>Conditions in loops</b></li>
+<li><b>Assigning multiple variables to the same value</b></li>
+<li><b>Delay declaring local variables</b></li>
+<li><b>Simplifying &amp; Rephrasing Math to avoid expensive operations</b></li>
+<li><b>memcpy,strfind,etc work on arrays too</b></li>
+<li><b>Is using CallRemoteFunction really worth?</b></li>
+<li><b>Accessing array elements multiple times</b></li>
+<li><b>Do not mix floats and integers in an expression by <u>Mauzen</u></b></li>
+<li><b>Using Streamer unnecessarily</b></li>
+<li><b>Good &amp; Bad Use of functions (Optimizing 2D Array manipulation code)</b></li>
+</ul>
+Some of these make a significant improvement whereas some do not. <b>You can ignore some minor optimizations and give priority to writing readable code</b>.<br>
+<br>
+<b><font size="4">1. Arrays are slower than normal variables</font></b><br>
+<br>
+The following code is inefficient:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">new Float:pos[3];
+GetPlayerPos(playerid, pos[0], pos[1], pos[2]);</pre>
+</div>And here is the assembly version of that above code:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 290px;
+		text-align: left;
+		overflow: auto">zero.pri
+addr.alt fffffff4
+fill c ;These 3 instructions are responsible for zeroing all the array elements
+break	; 38
+
+addr.pri fffffff4 ;Get the address of the array
+add.c 8 ;Add the index (index 2 means 2*4 bytes ahead)
+load.i ;This will get the value stored at that address
+push.pri ;Now push the argument
+
+addr.pri fffffff4 ;Same as above
+add.c 4
+load.i
+push.pri
+addr.pri fffffff4 ;Same as above
+load.i
+push.pri</pre>
+</div>Now here is an equivalent code written more efficiently:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">new Float:x, Float:y, Float:z;
+GetPlayerPos(playerid, x, y , z);</pre>
+</div>And here is the assembly version:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 114px;
+		text-align: left;
+		overflow: auto">push.c 0 //Making room for the variables on the stack
+push.c 0
+push.c 0
+push.adr fffffff4 //Pushing the arguments
+push.adr fffffff8
+push.adr fffffffc</pre>
+</div>When you want to access an array element, the compiler uses the following algorithm:<br>
+<br>
+Address of first element + 4*Index = the location where Array[Index] is stored (This formula is true only for 1-dimensional arrays)<br>
+<br>
+After computing the address of the array element, the data stored in the element can be retrieved.<br>
+<br>
+This doesn't mean that you must not use arrays. You must instead use arrays wisely. Do not make arrays for no reason when the same thing can be simply done using normal variables.<br>
+<br>
+In my opinion using x, y, z is actually more readable than using an array pos[3].<br>
+<br>
+<b><u>Speed Tests:</u></b><br>
+Array (10 Assignments):2444,2448,2473<br>
+Non-Array (10 Assignments):972,975,963<br>
+<br>
+Speed Test Code:<a href="http://pastebin.com/aMkNtaC2" target="_blank">http://pastebin.com/aMkNtaC2</a><br>
+<br>
+<b>Non-Array version is 2.5 times faster than the array version.</b><br>
+<br>
+<b><font size="4">2. Do not use CallLocalFunction &amp; funcidx when you know the function name in advance</font></b><br>
+<br>
+Do you know that CallLocalFunction and funcidx are slow functions? They are very slow because they need to check the function name which you pass as an argument in a list of all publics. That means lot of internal strcmps.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if(funcidx("OnPlayerEatBanana") == -1)</pre>
+</div>You actually don't need that line.You can do the same with "0" instructions. If you know the function name already, then simply use the pre-processor directives to find out if the function exists.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">#if defined OnPlayerEatBanana
+//OnPlayerEatBanana has been declared
+#endif</pre>
+</div><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">if(CallLocalFunction("OnPlayerEatBanana","ii",playerid,bananaid"))</pre>
+</div>you can <br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">#if defined OnPlayerEatBanana
+if(OnPlayerEatBanana(playerid,bananaid))
+#else
+//That function hasn't been declared
+#endif</pre>
+</div><b><u>Speed Tests:</u></b> (1 public taking zero arguments)<br>
+Calling directly:204,226,218<br>
+CallLocalFunction:1112,1097,1001<br>
+<br>
+<br>
+Please note that this is the best case for CallLocalFunction. In reality CallLocalFunction will be much slower since there will be many public functions. <br>
+<br>
+<b><font size="4">3. Natives are lot faster than PAWN Code</font></b><br>
+Avoid creating your functions when there is a native which can do it (or maybe using a combination of natives).<br>
+<br>
+The reason why natives are way lot faster is because the native functions are directly executed by your computer whereas all your PAWN Code is executed in a virtual computer. For every PAWN instruction the AMX Machine (the virtual computer) has to decode the instruction then get the operands and then execute the instruction. Decoding and fetching the operands takes some CPU. <br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">stock strcpy(dest[], src[], sz=sizeof(dest))
+{
+  dest[0] = 0;
+  return strcat(dest,src,sz); //Notice that I have used strcat instead of writing my own loops
+}</pre>
+</div><b><u>Speed Tests:</u></b><br>
+Loop based strcpy vs native strcat<br>
+<br>
+Here are two equivalent functions which function as strcpy. <br>
+<a href="http://pastebin.com/Y7RJ21tw" target="_blank">http://pastebin.com/Y7RJ21tw</a><br>
+<br>
+Native:697,700,718,705<br>
+Non-Native:5484,5422,5507,5562<br>
+<br>
+<b><font size="4">4. Conditions in loops </font></b><br>
+<br>
+I don't know how many times I have told people about this but still there are few who still don't do this simple optimization.<br>
+<br>
+Code 1:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">for(new i = 0;i &lt;= GetPlayerPoolSize();i++) {}</pre>
+</div>Code 2:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">for(new i = 0,j = GetPlayerPoolSize();i &lt;= j;i++) {}</pre>
+</div>In the first code, GetPlayerPoolSize is called for every iteration. GetPlayerPoolSize in our timeframe, returns a constant value every time it is called. So why simply call GetPlayerPoolSize on every iteration?<br>
+<br>
+That's what the second code avoids. It makes a local variable which stores the value returned by GetPlayerPoolSize and uses it in the condition. Therefore calling the function just once and avoiding the function overhead.<br>
+<br>
+<u><b>Speed Tests:</b></u><br>
+With Optimization:1102,1080,1069,1091<br>
+Without Optimization:2374,2359,2429,2364<br>
+<br>
+Test Code:<a href="http://pastebin.com/SLZDGRG4" target="_blank">http://pastebin.com/SLZDGRG4</a><br>
+<br>
+Though the improvement in the above case may be negligible compared to the code which you put inside the loop, there will be times when you will be using a more slower functions. <br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">for(new i = 0; i &lt; CallRemoteFunction("GetPlayersInTeam", "i", TEAM_ID); i++) 
+{
+  
+}</pre>
+</div><b><font size="4">5. Assigning multiple variables to the same value &amp; using memset</font></b><br>
+<br>
+Code 1:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">x = abc;
+y = abc;
+z = abc;</pre>
+</div>Code 2:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">x = 
+y = 
+z = abc;</pre>
+</div>Which code do you think is faster?<br>
+<br>
+Code 1:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 146px;
+		text-align: left;
+		overflow: auto">load.pri c ;Get abc
+stor.pri 8 ;Store it in X
+break	; 20
+load.pri c ;Get abc
+stor.pri 4 ;Store it in Y
+break	; 34
+load.pri c ;Get abc
+stor.pri 0 ;Store it in Z</pre>
+</div>Code 2:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">load.pri c ;Get abc
+stor.pri 0 ;Store in X
+stor.pri 4 ;Store in Y
+stor.pri 8 ;Store in Z</pre>
+</div>See the difference? The first code has extra useless instructions which fetches abc again and again when its already there whereas the second version gets abc only once and sets x,y,z.<br>
+<br>
+The obvious conclusion is that Code 2 is faster but this is probably insignificant.<br>
+<br>
+When you have large arrays that have to be set to zeros or ones or any other value use <b><a href="https://sampforum.blast.hk/showthread.php?pid=1974747#pid1974747" target="_blank">memset</a></b>.<br>
+<br>
+<b><u>Speed Tests:</u></b><br>
+Using memset to set all elements of an array (3D) of 100 elements to zero:363,367,372<br>
+Setting elements of an array (3D) of 100 elements to zero using for loop:6662,6642,6687<br>
+<br>
+<b><font size="4">6. Delay declaring local variables</font></b><br>
+I have seen scripts where all local variables are put at the top of the function though there are some which are needed sometimes.The examples should make things clear.<br>
+<br>
+Bad Code:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 146px;
+		text-align: left;
+		overflow: auto">public OnPlayerDoSomething(playerid)
+{
+  new actionid = GetPlayerAction(playerid), pee_id, peed_on_whome, amount_of_pee;
+  if(actionid == PLAYER_PEE)
+  {
+
+  }
+}</pre>
+</div>Good Code:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 146px;
+		text-align: left;
+		overflow: auto">public OnPlayerDoSomething(playerid)
+{
+  new actionid = GetPlayerAction(playerid);
+  if(actionid == PLAYER_PEE)
+  {
+  new pee_id,peed_on_whome,amount_of_pee;
+  }
+}</pre>
+</div>If you had gone through my previous tips, you must be knowing by now that when you create a local variable, the compiler first creates some room for it in the stack and then initializes it with zero.<br>
+<br>
+So you must not simply make local variables if you are not sure if you are going to use them.The second code creates locals if and only if it needs it whereas in the first code the locals are created even though you may not use them.<br>
+<br>
+This does <b>not</b> make any significant effect on the performance for few variables however it improves the readability of the code.<br>
+<br>
+<b><font size="4">7.Simplifying &amp; Rephrasing Math to avoid expensive operations</font></b><br>
+<br>
+I always keep a pen and paper on the desk while I write programs. I write on paper the equations and do some shifting and changes and get a simpler equation.<br>
+<br>
+Here is a classic example which will boost the performance of this snippet:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">new Float:x,Float:y,Float:z;
+GetPlayerVelocity(playerid,x,y,z);
+if(floatsqrt( (x*x) + (y*y) + (z*z)) &gt; 5.0)</pre>
+</div><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">new Float:x,Float:y,Float:z;
+GetPlayerVelocity(playerid,x,y,z);
+if( ((x*x) + (y*y) + (z*z)) &gt; 25.0)</pre>
+</div>Do you notice the change?<br>
+I squared both sides on the condition in the if statement and eliminated the slow function 'floatsqrt'.<br>
+<br>
+Here is another one:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 130px;
+		text-align: left;
+		overflow: auto">for(new i = 0, j = GetTickCount(); i &lt; 10; i++)
+{
+  if( j - LastTick[i] &gt; MAX_TIME_ALLOWED)
+  {
+
+  }
+}</pre>
+</div><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 130px;
+		text-align: left;
+		overflow: auto">for(new i = 0, j = GetTickCount() - MAX_TIME_ALLOWED; i &lt; 10; i++)
+{
+  if(j &gt; LastTick[i])
+  {
+
+  }
+}</pre>
+</div>Whoa, I removed MAX_TIME_ALLOWED for the condition. Now the subtraction is done only once whereas it is done every time in the first code. Even this improvement is insignificant unless you have the operation which consume lot of CPU.<br>
+<br>
+<b><font size="4">8. memcpy, strfind, etc work on arrays too</font></b><br>
+<br>
+After all strings and arrays are one and the same. The only difference is that a string is terminated by a null character whereas a normal array doesn't.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 130px;
+		text-align: left;
+		overflow: auto">new DefaultPlayerArray[100] = {1,2,3,4,5,6,7,8,9,10};
+new PlayerArray[MAX_PLAYERS][100];
+
+for(new i = sizeof(DefaultPlayerArray); i != -1; i--)
+{
+  PlayerArray[playerid][i] = DefaultPlayerArray[i];
+}</pre>
+</div>Here is another equivalent code<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">memcpy(PlayerArray[playerid], DefaultPlayerArray, 0, sizeof(DefaultPlayerArray)*4, sizeof(PlayerArray[]));</pre>
+</div>I did some benchmarks for the two codes and here are the results:<br>
+<u>Loop Version:</u><br>
+4286ms<br>
+4309ms<br>
+4410ms<br>
+<br>
+<u>memcpy version:</u><br>
+60ms<br>
+62ms<br>
+60ms<br>
+<br>
+Similarly you can use strfind,strmid and many other string functions on arrays.The only problem is that when str functions find a element '0' in your array, the function terminates because the value 0 means '\0', i.e:null character.<br>
+<br>
+<b><font size="4">9. Is using CallRemoteFunction really worth?</font></b><br>
+First of all, I would like to say that CallRemoteFunction is horribly slow and must be avoided whenever possible. CallRemoteFunction is usually used to update player variables when you have an anti-cheat in some other script.<br>
+<br>
+Did you ever thought of having an anti-cheat in every script? I actually have one anti-hack in my gamemode which ensures that modified data is not updated in database and another anti-hack in administration filterscript which deals with taking action on the cheat (works independently).<br>
+<br>
+Why two anti-cheats? We have two choices, either make two anti-cheats or use CallRemoteFunction to update the player variable.<br>
+<br>
+Sometimes having two separate anti cheats is faster, in fact the some of the anti-cheat checks take a quarter of the time CallRemoteFunction takes to call the update function.<br>
+<br>
+It doesn't matter if you are calculating some player variables in each and every script. Its way better than updating in one script and using CallRemoteFunction to access it.<br>
+<br>
+<b><font size="4">10. Accessing array elements multiple times</font></b><br>
+<br>
+Lets take an example to understand what we are talking about here<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">new val = value[x][y][z];
+for(new i = 50; i != -1; --i) Arr[i] = val;</pre>
+</div><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">for(new i = 50; i != -1; --i) Arr[i] = value[x][y][z];</pre>
+</div>Which one in your opinion is faster?<br>
+<br>
+The first one is faster if you had read the Tip #2 carefully. You know that calculating the correct address from the array index takes some time. In the second code, the address calculation is done every time the value is copied to Arr whereas in the first case we calculate the address only once.<br>
+<br>
+Here is the take away message, if you are going to access an array element multiple times then create a temporary copy of the array element in a local variable and use the local variable.<br>
+<br>
+<u>Speed Tests:</u><br>
+Code 1:2280,2330,2350<br>
+Code 2:8008,8183,8147<br>
+<br>
+<b><font size="4">11. Do not mix floats and integers in an expression</font></b><br>
+<b>by Mauzen</b><br>
+<br>
+Maybe this one is too simple, but I at least wanted to add it, as I see people doing that "mistake" very often.<br>
+<br>
+Never mix up floats and integers (even if it does not give a tag mismatch warning). Always use the same datatypes in a single statement.<br>
+<br>
+e.g.<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:135px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>result <span style="color: #000000;">=</span> <span style="color: #000000;">2.0</span> <span style="color: #000000;">+</span> <span style="color: #000000;">1</span>;<br><br><span style="color: #228822;">// Is compiled as</span><br><span style="color: #2222BB;">new</span> <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>result <span style="color: #000000;">=</span> <span style="color: #000000;">2.0</span> <span style="color: #000000;">+</span> <span style="color: #222222;">float</span><span style="color: #000000;">(</span><span style="color: #000000;">1</span><span style="color: #000000;">)</span>;<br><br><span style="color: #228822;">// Which is significantly slower than</span><br><span style="color: #2222BB;">new</span> <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>result <span style="color: #000000;">=</span> <span style="color: #000000;">2.0</span> <span style="color: #000000;">+</span> <span style="color: #000000;">1.0</span>;</div></div></pre>
+</div>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:183px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> mindist <span style="color: #000000;">=</span> <span style="color: #000000;">10</span>;<br><span style="color: #2222BB;">if</span> <span style="color: #000000;">(</span>GetPlayerDistanceFromPoint<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">237.9</span>, <span style="color: #000000;">115.6</span>, <span style="color: #000000;">1010.2</span><span style="color: #000000;">)</span> <span style="color: #000000;">&lt;</span> mindist<span style="color: #000000;">)</span><br><br><span style="color: #228822;">// Is compiled as</span><br><span style="color: #2222BB;">new</span> mindist <span style="color: #000000;">=</span> <span style="color: #000000;">10</span>;<br><span style="color: #2222BB;">if</span> <span style="color: #000000;">(</span>GetPlayerDistanceFromPoint<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">237.9</span>, <span style="color: #000000;">115.6</span>, <span style="color: #000000;">1010.2</span><span style="color: #000000;">)</span> <span style="color: #000000;">&lt;</span> <span style="color: #222222;">float</span><span style="color: #000000;">(</span>mindist<span style="color: #000000;">)</span><span style="color: #000000;">)</span><br><br><span style="color: #228822;">// Which is significantly slower than</span><br><span style="color: #2222BB;">new</span> <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>mindist <span style="color: #000000;">=</span> <span style="color: #000000;">10.0</span>;<br><span style="color: #2222BB;">if</span> <span style="color: #000000;">(</span>GetPlayerDistanceFromPoint<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">237.9</span>, <span style="color: #000000;">115.6</span>, <span style="color: #000000;">1010.2</span><span style="color: #000000;">)</span> <span style="color: #000000;">&lt;</span> mindist<span style="color: #000000;">)</span></div></div></pre>
+</div>
+For complex mathematical tasks a simple .0 can make a speed difference of some percent.<br>
+<br>
+<b><font size="4">12. Using streamer unnecessarily</font></b><br>
+It has become a habit for everyone to use streamer even when you need just 10 or 20 map icons, 50 objects, etc.<br>
+<br>
+Do you even know what is a streamer? Streamer is a plugin/include which allows you to bypass the SAMP limits. SAMP allows a maximum of 1000 objects and you cannot have more objects than that.<br>
+<br>
+Streamer allows you to bypass that limit by creating objects when a player is within the draw distance to the object and destroying it when there is no player in vicinity of the object. So basically streamer creates objects when required and destroys them when not required. In this way it allows you to cross the SAMP Limits.<br>
+<br>
+When you use Streamer functions, say CreateDynamicObject, streamer doesn't really create an object. It adds the object information (X,Y,Z,RotX,RotY,RotZ....) to a database of objects. After a definite number of server tick/cycle have passed, it goes through all the objects in the database and checks if there is a player close to an object and creates it if required.<br>
+<br>
+You can see streamer adding information about the object to a database <b><a href="https://github.com/samp-incognito/samp-streamer-plugin/blob/master/src/natives/objects.cpp#L36" target="_blank">here</a></b>.<br>
+<br>
+Player update starts <b><a href="https://github.com/samp-incognito/samp-streamer-plugin/blob/master/src/streamer.cpp#L105" target="_blank">here</a></b><br>
+<b><a href="https://github.com/samp-incognito/samp-streamer-plugin/blob/master/src/streamer.cpp#L456" target="_blank">Here</a></b> is the function responsible for updating objects.<br>
+<br>
+Does it makes sense to use streamer when you have less than 1000 objects?<br>
+Do you really need a streamer?<br>
+<br>
+NO!<br>
+<br>
+If you are sure that you are not going to cross the SAMP limit, then you needn't use a streamer. <br>
+<br>
+This brings us a new problem, suppose in your existing version, you have 500 objects but you are going to update your script which needs 1500 objects. So now do you need to convert all the SAMP Object natives to streamer natives?<br>
+<br>
+No if you wrote your initial version smartly.<br>
+<br>
+Here is what I do:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">#define CreateDynamicObject CreateObject</pre>
+</div>You can now use CreateDynamicObject in your code even though you do not have streamer.<br>
+<br>
+When you know that you are going to need streamer, just remove the defines and include streamer.<br>
+<br>
+A even clever way is to use CreateObject for the objects which are present at popular zones such as a spawn point where you can assume that a player will almost always be present at that location. For objects which are at remote locations and players hardly visit them, you should definitely use CreateDynamicObject because these are the ones which needn't be created all the time whereas the popular ones are bound to exist all the time (even if used with streamer so using streamer for such objects is not worth the cost). <br>
+<br>
+You will have to do it for many objects to see a reasonable improvment since streamer is a plugin and hence it is pretty fast compared to PAWN code.<br>
+<br>
+Similarly, you can do it for other natives.<br>
+<br>
+<b><font size="4">13. Good &amp; Bad Use of functions (Optimizing 2D Array manipulation code)</font></b><br>
+A common myth which many believe in is that function calls are very expensive which isn't true. In fact, raw function calls (empty) are many times faster than dereferencing a 2D array.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">native SLE_algo_foreach_list_init(list:listid, &amp;val);
+native SLE_algo_foreach_list_get(feid);
+
+#define foreach::list(%0(%1)) for(new %1, fel_%0@%1_id = SLE_algo_foreach_list_init(%0, %1); SLE_algo_foreach_list_get(fel_%0@%1_id);)</pre>
+</div>If you carefully it just makes a function call to obtain the value which is faster than dereferencing the array. To clear the mist completely, the function is defined in a plugin otherwise for obvious reasons it wouldn't be faster because there is indeed an array being used but that is inside a plugin.<br>
+<br>
+That example was just to show that a function call isn't that costly compared to the other code that you write. This means that you should create functions for large chunks of code which does a specific task when necessary especially if it improves the readablity of the code. <br>
+<br>
+However, misuse of functions could prove costly especially in loops which has been discussed earlier. <br>
+<br>
+Here is one situation where using a 1D/2D array would fare better.<br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Vince</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3718443#pid3718443" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">One thing I see constantly, and which is not mentioned in the first post, is the excessive usage of GetPlayerName. A player can't change his name while connected (the exception, of course, being SetPlayerName) so it seems redundant to call the function over and over again. I would say using a wrapper is even worse. Simply store it in a variable when the player connects and then use that variable everywhere. The same goes for GetPlayerIP.</div>
+</td>
+</tr>
+</tbody></table>
+</div>There is another myth which says "making functions is always slower" which isn't true at all when it comes to dealing with multi-dimensional arrays. If done properly, making functions can actually improve performance significantly.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">for(new y = 0; y &lt; 100; y++)
+{
+  Array[playerid][y] = y;
+}</pre>
+</div>is considerably slower than<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 130px;
+		text-align: left;
+		overflow: auto">stock DoSomething(arr[])
+{
+  for(new y = 0; y &lt; 100; y++)
+  {
+  arr[y] = y;
+  }
+}</pre>
+</div>The reason lies within the roots of the assembly code. A quick look at how arrays are dereferenced in PAWN explains it.<br>
+<br>
+This is the amount of code that is involved in dereferencing a 2D Array<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 306px;
+		text-align: left;
+		overflow: auto">#emit CONST.alt arr //Load the address of the array
+#emit CONST.pri 2 //We want to access the 2nd sub-array
+#emit IDXADDR //Address of the 2nd element of the major array
+
+#emit MOVE.alt //Keep a copy of that address since we need to add it to the offset to get the address of the sub-array
+
+//ALT = PRI = Address of the 2nd element of the major array
+#emit LOAD.I
+
+//ALT = Address of the 2nd element of the major array
+//PRI = offset relative to the address stored in the ALT to the 2nd sub-array
+#emit ADD
+
+//PRI now has the address of the sub-array
+#emit MOVE.alt //Move the address of the first element of the sub-array from PRI to ALT
+
+#emit CONST.pri 4 //We want the 4th element of the sub-array
+#emit LIDX//Load the value stored at arr[2][4]</pre>
+</div>Compare it with what goes to dereference a 1D array<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 130px;
+		text-align: left;
+		overflow: auto">#emit CONST.alt array_address
+#emit CONST.pri n
+#emit IDXADDR //PRI now has the address of the (n + 1)th element
+
+#emit CONST.alt array_address
+#emit CONST.pri n
+#emit LIDX //PRI now has the value stored in the (n + 1)th element</pre>
+</div>There is <br>
+<br>
+This is how arrays are passed<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto"> //Pushing the address of the global string
+  #emit PUSH.C global_str 
+
+  //Pushing a local string
+  #emit PUSH.S cmdtext</pre>
+</div>Which clearly explains why that works. When you push arrays, you push the address of the array so in your function call you recieve a 1D array. The first part of the 2D array dereference code is essentially skipped in every iteration in this case which makes it a whole lot faster.<br>
+<br>
+Its sad that PAWN doesn't provide pointers.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3509893">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=169426" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=580289&amp;replyto=3509893" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3510002"></a>
+<div class="post classic " style="" id="post_3510002">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=249500"><img src="./[Tutorial] New Code Optimizations_files/249500.png" alt="" width="49" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=249500">Gammix</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,773<br>
+	Threads: 47<br>
+	Joined: Jan 2015
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=249500"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;pid=3510002#pid3510002" title="Re: New Code Optimizations">#2</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 2 by Gammix" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.07.2015, 09:59 <span class="post_edit" id="edited_by_3510002"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3510002">
+		<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:87px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">for</span><span style="color: #000000;">(</span><span style="color: #2222BB;">new</span> i <span style="color: #000000;">=</span> <span style="color: #000000;">0</span>,j <span style="color: #000000;">=</span> GetPlayerPoolSize<span style="color: #000000;">(</span><span style="color: #000000;">)</span>;i <span style="color: #000000;">&lt;</span> j;i<span style="color: #000000;">++</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br><br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+Must be:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">for(new i = 0,j = GetPlayerPoolSize();i <b><font color="Blue">&lt;=</font></b> j;i++)
+{
+
+}</pre>
+</div>I think using arrays hardly matters, according to me its much readable than individual variables for each assignment (like your position example).<br>
+<br>
+One thing i would really suggest people to limit defines (constants) to their exact usage limit. That would really save the memory and the output size. <br>
+For example: You can save alot of memory by just redefining MAX_PLAYERS.<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:55px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#undef MAX_PLAYERS</span><br><span style="color: #2222AA;">#define MAX_PLAYERS 100</span></div></div></pre>
+</div>Widely used in making player arrays; same for other stuff as well.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3510002">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=249500" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=580289&amp;replyto=3510002" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3510017"></a>
+<div class="post classic " style="" id="post_3510017">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=98318"><img src="./[Tutorial] New Code Optimizations_files/98318.png" alt="" width="37" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=98318">maximthepain</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 300<br>
+	Threads: 78<br>
+	Joined: Jul 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=98318"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;pid=3510017#pid3510017" title="Re: New Code Optimizations">#3</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 3 by maximthepain" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.07.2015, 10:33 <span class="post_edit" id="edited_by_3510017"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3510017">
+		Can you explain about when we should use stock or public and whats more optimized to which function? <br>
+ex: <br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">public SavePlayerData(playerid)</pre>
+</div>or<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">stock SavePlayerData(playerid)</pre>
+</div>Or it doesn't matter in speed matters?<br>
+Also, you didn't speak about timers and OnPlayerUpdate <img alt="" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/biggrin.png" title="Cheesy"> alot of players use OnPlayerUpdate as a timer...<br>
+Also, does it matters if i'm using foreach function or for with MAX_PLAYERS in speed matters?<br>
+<br>
+Overall i have learned alot more from this tutorial then ****** tutorial, I dont know why.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3510017">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=98318" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=580289&amp;replyto=3510017" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3510020"></a>
+<div class="post classic " style="" id="post_3510020">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=211432"><img src="./[Tutorial] New Code Optimizations_files/211432.png" alt="" width="55" height="37"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=211432">theYiin</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Big Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 84<br>
+	Threads: 7<br>
+	Joined: Aug 2013
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=211432"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;pid=3510020#pid3510020" title="Re: New Code Optimizations">#4</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 4 by theYiin" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.07.2015, 10:36 <span class="post_edit" id="edited_by_3510020"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3510020">
+		neat <img alt="" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/smile.png" title="Smiley"><br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>maximthepain</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3510017#pid3510017" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Can you explain about when we should use stock or public and whats more optimized to which function? <br>
+ex: <br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">public SavePlayerData(playerid)</pre>
+</div>or<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">stock SavePlayerData(playerid)</pre>
+</div>Or it doesn't matter in speed matters?</div>
+</td>
+</tr>
+</tbody></table>
+</div>public functions headers are saved in memory, so you can call them using CallLocal/RemoteFunction or SetTimer(Ex). If you aren't using any of the mentioned functions to call yours, there is no point to forward a public function. <b>stock</b> is not a function declaration keyword. It's used to tell compiler that if you aren't using this function anywhere in the code, he should ignore it.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3510020">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=211432" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=580289&amp;replyto=3510020" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3510027"></a>
+<div class="post classic " style="" id="post_3510027">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=75179"><img src="./[Tutorial] New Code Optimizations_files/75179.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=75179">Cypress</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 937<br>
+	Threads: 69<br>
+	Joined: Dec 2009
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=75179"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;pid=3510027#pid3510027" title="Re: New Code Optimizations">#5</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 5 by Cypress" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.07.2015, 10:42 <span class="post_edit" id="edited_by_3510027"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3510027">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Gammix</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3510002#pid3510002" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic"><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:87px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">for</span><span style="color: #000000;">(</span><span style="color: #2222BB;">new</span> i <span style="color: #000000;">=</span> <span style="color: #000000;">0</span>,j <span style="color: #000000;">=</span> GetPlayerPoolSize<span style="color: #000000;">(</span><span style="color: #000000;">)</span>;i <span style="color: #000000;">&lt;</span> j;i<span style="color: #000000;">++</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br><br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+Must be:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">for(new i = 0,j = GetPlayerPoolSize();i <b><font color="Blue">&lt;=</font></b> j;i++)
+{
+
+}</pre>
+</div>I think using arrays hardly matters, according to me its much readable than individual variables for each assignment (like your position example).<br>
+<br>
+One thing i would really suggest people to limit defines (constants) to their exact usage limit. That would really save the memory and the output size. <br>
+For example: You can save alot of memory by just redefining MAX_PLAYERS.<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:55px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#undef MAX_PLAYERS</span><br><span style="color: #2222AA;">#define MAX_PLAYERS 100</span></div></div></pre>
+</div>Widely used in making player arrays; same for other stuff as well.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Is that equation &lt;= only for player loops? <br>
+<br>
+Also about this loop<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 130px;
+		text-align: left;
+		overflow: auto">The same code can be optimized further
+Code:
+
+for(new i = GetPlayerPoolSize();i != -1;i--)
+{
+
+}</pre>
+</div>Can I use i++ according to which direction I want to loop, right?
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3510027">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=75179" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=580289&amp;replyto=3510027" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3510031"></a>
+<div class="post classic " style="" id="post_3510031">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=223079"><img src="./[Tutorial] New Code Optimizations_files/223079.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=223079">sammp</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 584<br>
+	Threads: 51<br>
+	Joined: Jan 2014
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=223079"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;pid=3510031#pid3510031" title="Re: New Code Optimizations">#6</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 6 by sammp" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.07.2015, 10:51 <span class="post_edit" id="edited_by_3510031"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3510031">
+		<b>stock</b> doesn't do anything except ignore the unused function exception.<br>
+<br>
+if you're making functions, just write<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">myFunction(){};</pre>
+</div>Unless you're making an include. Then use stock myFunction(){};<br>
+<br>
+<br>
+OT: Most of these optimizations only improve the execution time by milliseconds I'd bet, half of them aren't even worth the time to sit through and optimize. Put it this way: you won't need to do this in your scripts.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3510031">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=223079" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=580289&amp;replyto=3510031" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3510036"></a>
+<div class="post classic " style="" id="post_3510036">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=223079"><img src="./[Tutorial] New Code Optimizations_files/223079.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=223079">sammp</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 584<br>
+	Threads: 51<br>
+	Joined: Jan 2014
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=223079"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;pid=3510036#pid3510036" title="Re: New Code Optimizations">#7</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 7 by sammp" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.07.2015, 10:59 <span class="post_edit" id="edited_by_3510036"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3510036">
+		<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">new Float:pos[3];
+GetPlayerPos(playerid,pos[0],pos[1],pos[2]);
+SetPlayerPos(playerid,pos[0] + 5,pos[1] + 5,pos[2] + 5);</pre>
+</div>deleted<br>
+<br>
+BTW I'm not having a go at you I'm just challenging your code<br>
+<br>
+<br>
+Actually, you're right. The variables are quicker than the array, sorry. But when using arrays it's much easier to contain and to sort. In scripting it's pretty much all about what gets the job done in the most readable manner. The difference in memory isnt even kbytes.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3510036">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=223079" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=580289&amp;replyto=3510036" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3510068"></a>
+<div class="post classic " style="" id="post_3510068">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=249500"><img src="./[Tutorial] New Code Optimizations_files/249500.png" alt="" width="49" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=249500">Gammix</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,773<br>
+	Threads: 47<br>
+	Joined: Jan 2015
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=249500"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;pid=3510068#pid3510068" title="Re: New Code Optimizations">#8</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 8 by Gammix" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.07.2015, 11:53 <span class="post_edit" id="edited_by_3510068"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3510068">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>sammp</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3510031#pid3510031" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">OT: Most of these optimizations only improve the execution time by milliseconds I'd bet, half of them aren't even worth the time to sit through and optimize. Put it this way: you won't need to do this in your scripts.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Yes in most of the case, why care about negligible speed! <br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Cypress</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3510027#pid3510027" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Is that equation &lt;= only for player loops?</div>
+</td>
+</tr>
+</tbody></table>
+</div>No, for all Pool sizes. Because the pool size have all the valid cells and if you don't use <b>=</b>, you'll miss the last cell.<br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Cypress</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3510027#pid3510027" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Also about this loop<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 130px;
+		text-align: left;
+		overflow: auto">The same code can be optimized further
+Code:
+
+for(new i = GetPlayerPoolSize();i != -1;i--)
+{
+
+}</pre>
+</div>Can I use i++ according to which direction I want to loop, right?</div>
+</td>
+</tr>
+</tbody></table>
+</div>Doesn't make sense if you use <b>i++</b>. It will turn out to be an infinite loop which will always exceed a value greater than Pool size every time (+1).
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3510068">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=249500" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=580289&amp;replyto=3510068" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3510272"></a>
+<div class="post classic " style="" id="post_3510272">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=169426"><img src="./[Tutorial] New Code Optimizations_files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=169426">Yashas</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 882<br>
+	Threads: 50<br>
+	Joined: Jun 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=169426"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;pid=3510272#pid3510272" title="Re: New Code Optimizations">#9</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 9 by Yashas" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.07.2015, 15:49 <span class="post_edit" id="edited_by_3510272"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3510272">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Gammix</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3510002#pid3510002" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">I think using arrays hardly matters, according to me its much readable than individual variables for each assignment (like your position example).<br>
+<br>
+One thing i would really suggest people to limit defines (constants) to their exact usage limit. That would really save the memory and the output size. <br>
+For example: You can save alot of memory by just redefining MAX_PLAYERS.<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:55px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#undef MAX_PLAYERS</span><br><span style="color: #2222AA;">#define MAX_PLAYERS 100</span></div></div></pre>
+</div>Widely used in making player arrays; same for other stuff as well.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Thanks for reporting! Fixed it!<br>
+<br>
+Using arrays matter a lot!!<br>
+If ****** were to be here he would have screwed you for that statement lol (because I remember him telling more organized doesn't mean more efficient)<br>
+<br>
+At the MAX_PLAYERS statement, the memory you save depends more on your code. By the way no one cares about memory in 2015! But anyway it is good to keep memory usage minimum.<br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>maximthepain</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3510017#pid3510017" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Can you explain about when we should use stock or public and whats more optimized to which function? <br>
+ex: <br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">public SavePlayerData(playerid)</pre>
+</div>or<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">stock SavePlayerData(playerid)</pre>
+</div>Or it doesn't matter in speed matters?<br>
+Also, you didn't speak about timers and OnPlayerUpdate <img alt="" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/biggrin.png" title="Cheesy"> alot of players use OnPlayerUpdate as a timer...<br>
+Also, does it matters if i'm using foreach function or for with MAX_PLAYERS in speed matters?<br>
+<br>
+Overall i have learned alot more from this tutorial then ****** tutorial, I dont know why.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Calling a public or a stock produce identical assembly (AMX Code). Therefore the speeds will remain the same. But wait, public functions make the function accessible outside the script but that comes with a cost. More public functions you add to your script, the more slower CallLocalFunction &amp; CallRemoteFunction &amp; funcidx gets.<br>
+<br>
+Hence, you must make functions public if and only if you are going to use them in CallLocalFunction/CallRemoteFunction/funcidx.<br>
+<br>
+The stock keyword is optional, by prefixing a function identifier with stock only tells the compiler to not compile that function if it doesn't get called in the script. <br>
+<br>
+About the OnPlayerUpdate, using OnPlayerUpdate is for timers with small interval is good instead of having to create shitlod of timers for each player. Each SetTimer/SetTimerEx you use , you make the server's overall performance less efficient and it will also take some memory. It is usually good to have one single timer (SetTimer/Ex) which checks all the players rather than having a timer for each individual player.<br>
+<br>
+First of all if you are using MAX_PLAYERS, then stop using it and switch to GetPlayerPoolSize().When you have scattered playerids then foreach will be faster than using GetPlayerPoolSize Loop. But this never happens (extremely rare since SAMP gives the lowest available ID to the player who joins). GetPlayerPoolSize loop will be much faster than foreach when the player count is high, especially when the player count is nearly the max capacity.<br>
+<br>
+@Cypress Gammix has answered but I would like to add some more to it. Use the subtraction loop if the order of iterations do not matter. I have never come across a situation where I had to check every player in order.<br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>sammp</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3510031#pid3510031" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic"><b>stock</b><br>
+OT: Most of these optimizations only improve the execution time by milliseconds I'd bet, half of them aren't even worth the time to sit through and optimize. Put it this way: you won't need to do this in your scripts.</div>
+</td>
+</tr>
+</tbody></table>
+</div>None of them improve execution time by milliseconds, in fact they are less than 0.1 milliseconds.Computers are very fast that you cannot observe the effect. You need to iterate a million times to see milliseconds. Please check my reply to Gammix below and let me know if you'd change your mind (half? or just 1 or 2 optimizations that are not worth optimizing). <br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>sammp;</strong><br>
+</div>
+<div style="font-style:italic">Actually, you're right. The variables are quicker than the array, sorry. But when using arrays it's much easier to contain and to sort. In scripting it's pretty much all about what gets the job done in the most readable manner. The difference in memory isnt even kbytes.</div>
+</td>
+</tr>
+</tbody></table>
+</div>There is no question of memory here since local variables are stored on the stack. Moreover, both the array version and the individual variable version occupy the same amount of space on the stack. I think it pretty much clear that arrays are a way lot slower than individual variables after looking at the assembly output that I showed in the thread.If that does not convenience you, then here are few benchmark result:<br>
+Array:921,921,917<br>
+Non-Array:505,532,510<br>
+<br>
+By the way I never told "not to use arrays". I just said avoid them when you can.<br>
+<br>
+Examples:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">new params[5];
+new pos[3];
+new color[2];</pre>
+</div><div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Gammix</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3510068#pid3510068" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Yes in most of the case, why care about negligible speed!</div>
+</td>
+</tr>
+</tbody></table>
+</div>I have no idea how many times I have told you that everything optimization makes negligible difference whereas collection of optimizations make a huge improvement.<br>
+<br>
+Moreover, please justify "most of the case". I would prefer to use "few of them" make negligible improvement.<br>
+<br>
+#1 I agree on this<br>
+#2 You just have no idea, it depends how many times you access the array.<br>
+Array (10 Assignments):2444,2448,2473<br>
+Non-Array (10 Assignments):972,975,963<br>
+<br>
+Speed Test Code:<a href="http://pastebin.com/aMkNtaC2" target="_blank">http://pastebin.com/aMkNtaC2</a><br>
+<br>
+#3 7x faster than using CallLocalFunction in my gamemode - hmm, how is this negligible?<br>
+#4 Anyone goes against this would have got badly screwed by ******<br>
+#5 Makes a difference when you hook SetPlayerHealth,SetPlayerPos,etc for Anti-Cheat or for some other purpose<br>
+<br>
+#6 Check this<br>
+With Optimization:1102,1080,1069,1091<br>
+Without Optimization:2374,2359,2429,2364<br>
+<br>
+Test Code:<a href="http://pastebin.com/SLZDGRG4" target="_blank">http://pastebin.com/SLZDGRG4</a><br>
+<br>
+#7 I would agree on this but does make a small difference <br>
+With Optimization:134,128,129<br>
+Without Optimization:172,168,169<br>
+<br>
+#8 This will improve performance to a very small extent but makes the code much more readable!<br>
+<br>
+#9 You have no idea how slow floatsqrt is<br>
+<br>
+#10 <b>73.5 </b> times faster than original code, negligible :O really?<br>
+<br>
+#11 Sometimes twice as fast, sometimes thrice as fast! Negligible ye?<br>
+<br>
+I have tested every optimization I have posted here whereas you made claims without checking.<br>
+<br>
+If you are so least bothered about performance, then why not use dini,dcmds instead of y_ini/ZCMD?
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3510272">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=169426" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=580289&amp;replyto=3510272" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3510289"></a>
+<div class="post classic " style="" id="post_3510289">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=184410"><img src="./[Tutorial] New Code Optimizations_files/184410.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=184410">PT</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Godfather<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 7,185<br>
+	Threads: 5<br>
+	Joined: Nov 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=184410"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;pid=3510289#pid3510289" title="Re: New Code Optimizations">#10</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 10 by PT" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.07.2015, 16:04 <span class="post_edit" id="edited_by_3510289"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3510289">
+		I really like what you did, have alot interesting stuff here.<br>
+<br>
+Nice job.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3510289">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=184410" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=580289&amp;replyto=3510289" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3510293"></a>
+<div class="post classic " style="" id="post_3510293">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=102035"><img src="./[Tutorial] New Code Optimizations_files/102035.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=102035">Macluawn</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 613<br>
+	Threads: 11<br>
+	Joined: Aug 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=102035"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;pid=3510293#pid3510293" title="Re: New Code Optimizations">#11</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 11 by Macluawn" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.07.2015, 16:09 <span class="post_edit" id="edited_by_3510293"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3510293">
+		Most of these optimizations are too minute to make a big a noticeable impact. Removing 2 machine code instructions just isnt worth it. If one cares about performance - pawn isnt the language of choice.<br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Yashas</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3509893#pid3509893" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Avoid creating your functions when there is a native which can do it (or maybe using a combination of natives).</div>
+</td>
+</tr>
+</tbody></table>
+</div>It entirely depends on the natives implementation and your use case. Say you wanted to find a substring, you would probably use strfind. The native uses a linear algorithm, but it can be done much faster with, say, <a href="https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm" target="_blank">kmp</a> with the cost of a little more pre-calculation.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3510293">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=102035" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=580289&amp;replyto=3510293" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3510301"></a>
+<div class="post classic " style="" id="post_3510301">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=169426"><img src="./[Tutorial] New Code Optimizations_files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=169426">Yashas</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 882<br>
+	Threads: 50<br>
+	Joined: Jun 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=169426"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;pid=3510301#pid3510301" title="Re: New Code Optimizations">#12</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 12 by Yashas" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.07.2015, 16:17 <span class="post_edit" id="edited_by_3510301"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3510301">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Macluawn</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3510293#pid3510293" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Most of these optimizations are too minute to make a big a noticeable impact. Removing 2 machine code instructions just isnt worth it. If one cares about performance - pawn isnt the language of choice.<br>
+<br>
+<br>
+It entirely depends on the natives implementation and your use case. Say you wanted to find a substring, you would probably use strfind. The native uses a linear algorithm, but it can be done much faster with, say, <a href="https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm" target="_blank">kmp</a> with the cost of a little more pre-calculation.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Whatever algorithm you use, natives will always be much faster. The reason is "AMX" is an abstract machine. Some instructions are executed for decoding the P-Code and identifying the arguments,.... Check the source!<br>
+<br>
+Just ****** Abstract Machine, read about it and you'll realize why abstract machines are very slow. The virtual machine has lot of work to do for PAWN Code. PAWN Code is executed by the virtual machine whereas native functions directly run on your real computer.<br>
+<br>
+Just to give you an idea how fast natives can be, here is a custom strcpy functions vs strcat.<br>
+<br>
+<a href="http://pastebin.com/Y7RJ21tw" target="_blank">http://pastebin.com/Y7RJ21tw</a><br>
+<br>
+Results:<br>
+native: 697,700,718,705<br>
+non-native:5484,5422,5507,5562<br>
+<br>
+Mind blown?<br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Macluawn</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3510293#pid3510293" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Most of these optimizations are too minute to make a big a noticeable impact. Removing 2 machine code instructions just isnt worth it. If one cares about performance - pawn isnt the language of choice.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Hmm, there are only two examples which do that.And at the beginning of the thread I had mentioned that ignore minor optimizations if you want to and keep the code more readable.<br>
+<br>
+I think "Most of these optimizations are too minute" needs to be changed to "Few of these optimizations are too minute".
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3510301">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=169426" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=580289&amp;replyto=3510301" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3510320"></a>
+<div class="post classic " style="" id="post_3510320">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=249500"><img src="./[Tutorial] New Code Optimizations_files/249500.png" alt="" width="49" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=249500">Gammix</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,773<br>
+	Threads: 47<br>
+	Joined: Jan 2015
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=249500"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;pid=3510320#pid3510320" title="Re: New Code Optimizations">#13</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 13 by Gammix" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.07.2015, 16:40 <span class="post_edit" id="edited_by_3510320"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3510320">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			<br>
+				pawn isnt the language of choice.<br>
+			<br>
+		</td>
+</tr>
+</tbody></table>
+</div>That's the reason why I don't care about speed, I rather is more practical and concerned about the efficiency of gameplay and try reducing lag.<br>
+<br>
+Optimizing such like using individual vars from arrays doesn't matter.<br>
+<br>
+And I would have answered the same to Y_Less as well.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3510320">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=249500" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=580289&amp;replyto=3510320" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3510321"></a>
+<div class="post classic " style="" id="post_3510321">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=102035"><img src="./[Tutorial] New Code Optimizations_files/102035.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=102035">Macluawn</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 613<br>
+	Threads: 11<br>
+	Joined: Aug 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=102035"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;pid=3510321#pid3510321" title="Re: New Code Optimizations">#14</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 14 by Macluawn" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.07.2015, 16:41 <span class="post_edit" id="edited_by_3510321"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3510321">
+		I'm not sure if that is the best possible implementation, but I suppose you're right, I forgot about the virtual machine.<br>
+The example I gave was from a test in c++ when checking the performance of a native function vs a more advanced implementation.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3510321">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=102035" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=580289&amp;replyto=3510321" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3510332"></a>
+<div class="post classic " style="" id="post_3510332">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=169426"><img src="./[Tutorial] New Code Optimizations_files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=169426">Yashas</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 882<br>
+	Threads: 50<br>
+	Joined: Jun 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=169426"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;pid=3510332#pid3510332" title="Re: New Code Optimizations">#15</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 15 by Yashas" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.07.2015, 16:53 <span class="post_edit" id="edited_by_3510332"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3510332">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Gammix</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3510320#pid3510320" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">That's the reason why I don't care about speed, I rather is more practical and concerned about the efficiency of gameplay and try reducing lag.<br>
+<br>
+Optimizing such like using individual vars from arrays doesn't matter.<br>
+<br>
+And I would have answered the same to Y_Less as well.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Hmm, can I know how you manage to improve the efficiency and reduce lag without optimizing your code. Do you know who Y_Less is?<br>
+<br>
+He was the best programmer here at the forums unfortunately left us.<br>
+<br>
+There was a thread written by Y_Less titled "Code Optimizations" which has been deleted since he left the community. No one hasn't re-posted it till now.<br>
+<br>
+But just to let you know there were at least 25 optimization tricks in that thread. Even the ones like<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 114px;
+		text-align: left;
+		overflow: auto">if( (variable = func()) == 1) 
+
+VS
+
+variable = func();
+if(variable == 1)</pre>
+</div>and many more!<br>
+<br>
+Most of them who claimed that they make negligible improvements have apologized for the false claims. I have provided you the speed tests, what more do you want? It is obvious from the tests that most of the tricks improve the performance of the code in multiples like 3x,4x,5x,6x,7x.<br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Macluawn</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3510321#pid3510321" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">I'm not sure if that is the best possible implementation, but I suppose you're right, I forgot about the virtual machine.<br>
+The example I gave was from a test in c++ when checking the performance of a native function vs a more advanced implementation.</div>
+</td>
+</tr>
+</tbody></table>
+</div>lol hmm I see<br>
+The efficiency of libraries and C++ code will be almost the same provided the programmer knows how to write efficient code.<br>
+<br>
+When I try to re-invent the wheel in C++ just to optimize, it never works because the C++ libraries are written by professionals and are very efficient whereas I am not that professional in C++.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3510332">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=169426" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=580289&amp;replyto=3510332" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3510337"></a>
+<div class="post classic " style="" id="post_3510337">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=102035"><img src="./[Tutorial] New Code Optimizations_files/102035.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=102035">Macluawn</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 613<br>
+	Threads: 11<br>
+	Joined: Aug 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=102035"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;pid=3510337#pid3510337" title="Re: New Code Optimizations">#16</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 16 by Macluawn" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.07.2015, 16:56 <span class="post_edit" id="edited_by_3510337"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3510337">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Yashas</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3510332#pid3510332" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Hmm, can I know how you manage to reduce lag without optimizing your code.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Throwing a more powerful server at the problem is always an option.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3510337">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=102035" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=580289&amp;replyto=3510337" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3510341"></a>
+<div class="post classic " style="" id="post_3510341">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=169426"><img src="./[Tutorial] New Code Optimizations_files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=169426">Yashas</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 882<br>
+	Threads: 50<br>
+	Joined: Jun 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=169426"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;pid=3510341#pid3510341" title="Re: New Code Optimizations">#17</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 17 by Yashas" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.07.2015, 16:59 <span class="post_edit" id="edited_by_3510341"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3510341">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Macluawn</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3510337#pid3510337" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Throwing a more powerful server at the problem is always an option.</div>
+</td>
+</tr>
+</tbody></table>
+</div>For that you need to be powerful too. ( $$ ).<br>
+<br>
+By the way, bad code can still cause problems in the server.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3510341">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=169426" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=580289&amp;replyto=3510341" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3510359"></a>
+<div class="post classic " style="" id="post_3510359">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=79017"><img src="./[Tutorial] New Code Optimizations_files/79017.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=79017">Lynn</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 937<br>
+	Threads: 106<br>
+	Joined: Jan 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=79017"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;pid=3510359#pid3510359" title="Re: New Code Optimizations">#18</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 18 by Lynn" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.07.2015, 17:17 <span class="post_edit" id="edited_by_3510359"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3510359">
+		Pretty good information. Thanks for the post.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3510359">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=79017" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=580289&amp;replyto=3510359" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3510400"></a>
+<div class="post classic " style="" id="post_3510400">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=173600"><img src="./[Tutorial] New Code Optimizations_files/173600.png" alt="" width="55" height="52"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=173600">rymax99</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 724<br>
+	Threads: 14<br>
+	Joined: Jul 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=173600"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;pid=3510400#pid3510400" title="Re: New Code Optimizations">#19</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 19 by rymax99" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">04.07.2015, 17:52 <span class="post_edit" id="edited_by_3510400"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3510400">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Macluawn</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3510337#pid3510337" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] New Code Optimizations_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Throwing a more powerful server at the problem is always an option.</div>
+</td>
+</tr>
+</tbody></table>
+</div>No, it's not. The SA-MP server application is single threaded. 1 processing thread is only so powerful. Sure, you can write shitty code that works, and throw more power at it, but at some very reachable point, you're going to feel the impacts, especially if you ever plan to have a beefy playerbase. <br>
+<br>
+So, you can either write bad code and end up needing to fix it later, or you can write code that is good to start out. It doesn't take much longer to do a bit of thinking an research.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3510400">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=173600" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=580289&amp;replyto=3510400" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3510854"></a>
+<div class="post classic " style="" id="post_3510854">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=249500"><img src="./[Tutorial] New Code Optimizations_files/249500.png" alt="" width="49" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=249500">Gammix</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><img src="./[Tutorial] New Code Optimizations_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,773<br>
+	Threads: 47<br>
+	Joined: Jan 2015
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=249500"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;pid=3510854#pid3510854" title="Re: New Code Optimizations">#20</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 20 by Gammix" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">05.07.2015, 02:31 <span class="post_edit" id="edited_by_3510854"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3510854">
+		<b>@Yashas</b>: I didn't covered optimization but only speed, the one i have been saying "negligible speed". And if you are going to say it's harmful in long term or in cluster, i don't have any use of those things in a cluster. And if i ever get to, i'll use your method. And i reduce the lag by improving the structure, use static and constant things where mostly required; natives as you said; more usage of stocks/functions to prevent repetition of code. <br>
+<br>
+Its a good practice to use optimizations but not until if it's just a pin drop improvement and when i find the other code more fascinated; at least for me.<br>
+I won't reply any further because people may take it as an argument, you may PM if you want to continue.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3510854">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=249500" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=580289&amp;replyto=3510854" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic -->
+	</div>
+</div>
+	
+			<div class="tfoot row">
+				<div class="col-sm-6">
+					<strong>« <a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;action=nextoldest">Next Oldest</a> | <a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;action=nextnewest">Next Newest</a> »</strong>
+				</div>
+				<div class="col-sm-6"><!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://sampforum.blast.hk/search.php" method="post">
+			<input type="hidden" name="action" value="thread">
+			<input type="hidden" name="tid" value="580289">
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == &#39;Enter Keywords&#39;) { this.value = &#39;&#39;; }" onblur="if(this.value==&#39;&#39;) { this.value=&#39;Enter Keywords&#39;; }" class="textbox" size="25">
+			<input type="submit" class="button" value="Search Thread">
+		</form>
+	</div>
+<!-- end: showthread_search --></div>
+			</div>
+	<div class="float_left">
+		<!-- start: multipage -->
+<div class="pagination">
+<span class="pages">Pages (2):</span>
+<!-- start: multipage_page_current -->
+ <span class="pagination_current">1</span>
+<!-- end: multipage_page_current --><!-- start: multipage_page -->
+<a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;page=2" class="pagination_page">2</a>
+<!-- end: multipage_page --><!-- start: multipage_nextpage -->
+<a href="https://sampforum.blast.hk/showthread.php?tid=580289&amp;page=2" class="pagination_next">Next »</a>
+<!-- end: multipage_nextpage -->
+</div>
+<!-- end: multipage -->
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	
+	
+	
+	<br>
+	<div class="float_left">
+		<ul class="thread_tools">
+			<!-- start: showthread_printthread -->
+<li class="printable"><a href="https://sampforum.blast.hk/printthread.php?tid=580289">View a Printable Version</a></li>
+<!-- end: showthread_printthread -->
+			
+			
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://sampforum.blast.hk/forumdisplay.php" method="get">
+<span class="smalltext">Forum Jump:</span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="3"> SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="74">-- News and Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13">-- General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="16">-- Client Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20">-- Bug Reports</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21">-- Screenshots and Videos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6"> SA-MP Server</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="19">-- Server Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22">-- Server Advertisements</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="8"> SA-MP Scripting and Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12">-- Scripting Help</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="70" selected="selected">---- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="84">---- Discussion</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="89">---- Help Archive</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="71">-- Gamemode Scripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="17">-- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="83">---- Includes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="82">---- Tools and Files </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="64">---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="18">-- Plugin Development</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="92"> SA-MP DL Edition</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="90">-- SA-MP 0.3.DL</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="94">---- Model Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="7"> Other</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23">-- Everything and Nothing</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9"> Non-English</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33">-- Languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31">---- Nederlands/Dutch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="76">------ Scripting Showroom en Discussie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="87">------ Off topic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29">---- Español/Spanish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="59">------ Lanzamientos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30">---- Français/French</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="81">------ Showroom</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32">---- Русский/Russian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="66">------ Релизы/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34">---- Português/Portuguese</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56">------ Lançamentos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40">---- Română/Romanian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="77">------ Salonul Scripturilor</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="88">---- Archive</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear">
+	<!-- start: showthread_usersbrowsing -->
+<br>
+<span class="smalltext">Users browsing this thread: 1 Guest(s)</span>
+<br>
+<!-- end: showthread_usersbrowsing -->
+	<!-- start: footer -->
+<div style="clear:both"><div style="padding-top: 10px"><!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=7">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav --></div></div>
+</main>
+
+<div class="blankspace"></div>
+
+<footer id="footer">
+	<div class="container">
+    <div class="row">
+		
+        <!--<div class="col-sm-4 foot">
+			<h3>About Our Community</h3>
+			<p>Discuss about various topics in our community and have fun while doing so. Welcome to SA-MP Forums Archive</p>
+			
+		</div>		
+		
+
+		<div class="col-sm-4 foot">
+			<h3>Quick Links</h3>
+			<p>
+
+ 				<a href="https://sampforum.blast.hk" class="btn btn-success" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Forum Home"><i class="fa fa-home"></i></a>
+				
+				<a href="https://sampforum.blast.hk/archive/index.php?thread-580289.html" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Lite (Archive) Mode"><i class="fa fa-archive"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Become a Fan"><i class="fa fa-facebook-square"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-info" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Follow Us"><i class="fa fa-twitter"></i></a>
+				
+				<a href="https://sampforum.blast.hk/misc.php?action=syndication" class="btn btn-warning" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="RSS Syndication"><i class="fa fa-rss"></i></a>
+				<br/>
+				<a href="misc.php?action=markread&amp;my_post_key=2220ae0a21c853e6459922e7a63ded4d" class="btn btn-danger" style="color: #fff; margin-top:10px" data-toggle="tooltip" data-placement="bottom" data-original-title="Mark all forums read"><i class="fa fa-book"></i> Mark all forums read</a><br /><br />
+				
+				
+				</p>
+
+		</div>
+		
+		<div class="col-sm-4 foot">
+			
+			 <h3>Reach Us</h3>
+			 
+<p><a href="contact.php" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Contact Us"><i class="fa fa-envelope"></i> Contact Us</a>&nbsp;
+			
+			<a href="showteam.php" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Meet Our Team"><i class="fa fa-users"></i> Forum Team</a></p>
+		</div>-->
+		
+		
+		
+		<!-- The following piece of code allows MyBB to run scheduled tasks. DO NOT REMOVE --><!-- start: task_image -->
+<img src="./[Tutorial] New Code Optimizations_files/task.php" height="1" alt="">
+<!-- end: task_image --><!-- End task image code -->
+		</div>
+	
+	</div>
+
+	
+<div id="copyright">
+	<div class="container">
+			<div class="pull-right"><!-- start: footer_languageselect -->
+<div class="language">
+<form method="POST" action="https://sampforum.blast.hk/showthread.php" id="lang_select">
+	<input type="hidden" name="tid" value="580289">
+
+	<input type="hidden" name="my_post_key" value="2220ae0a21c853e6459922e7a63ded4d">
+	<select name="language" onchange="MyBB.changeLanguage();">
+		<optgroup label="Quick Language Select">
+			<!-- start: footer_languageselect_option -->
+<option value="english" selected="selected">&nbsp;&nbsp;&nbsp;English (American)</option>
+<!-- end: footer_languageselect_option --><!-- start: footer_languageselect_option -->
+<option value="russian">&nbsp;&nbsp;&nbsp;Russian</option>
+<!-- end: footer_languageselect_option -->
+		</optgroup>
+	</select>
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_languageselect --></div>
+			<div class="pull-left">
+				<!-- MyBB is free software developed and maintained by a volunteer community.
+					It would be much appreciated by the MyBB Group if you left the full copyright and "powered by" notice intact,
+					to show your support for MyBB.  If you choose to remove or modify the copyright below,
+					you may be refused support on the MyBB Community Forums.
+
+					This is free software, support us and we'll support you. -->
+				Powered By <a href="http://www.mybb.com/" target="_blank" rel="noopener" style="color: #fff;">MyBB</a>. <a href="https://eree.in/" title="EREE" target="_blank" rel="noopener" style="color: #fff;">Crafted by EREE</a> and <a href="https://forum.androidbg.com/" title="AndroidBG" target="_blank" rel="noopener" style="color: #fff;">Android BG</a>. Also powered by <a href="https://www.blast.hk/"><b>blast.hk</b></a><!-- End powered by -->
+				
+			</div>
+	</div>
+
+</div>
+
+</footer>
+
+<!-- Fix for MentionMe popup window position -->
+<script type="text/javascript">
+	var MentionMe = (function(m) {
+	m.customSCEditorContainerOffset = {
+		left: 0,
+		top: 2,
+	};
+
+	return m;
+})(MentionMe || {});
+</script>
+<!-- End Fix for MentionMe popup window position -->
+<!-- end: footer -->
+	<script type="text/javascript">
+		var thread_deleted = "0";
+		if(thread_deleted == "1")
+		{
+			$("#quick_reply_form, .new_reply_button, .thread_tools, .inline_rating").hide();
+			$("#moderator_options_selector option.option_mirage").attr("disabled","disabled");
+		}
+	</script>
+
+
+<!-- end: showthread --><script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>

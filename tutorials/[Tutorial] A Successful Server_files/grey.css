@@ -1,0 +1,127 @@
+.tfoot {
+	background: #95A5A6;
+}
+
+.active-color {
+	background-color:#95A5A6;
+}
+
+.postbit_user_btn a:link, .postbit_user_btn a:visited, .postbit_user_btn a:active {
+    background: #95A5A6;
+    color: #fff;
+}
+
+.panel-primary>.panel-heading {
+    background-color: #95A5A6;
+    border-color: #95A5A6;
+}
+
+blockquote {
+    border-left: 5px solid #95A5A6;
+}
+
+.thead {
+	background: #95A5A6;
+	color:#fff;
+	font-weight: bold;
+}
+
+.thead a:link, .thead a:visited {
+	color:#fff;
+}
+
+.popup_menu .popup_item:hover {
+	background: #95A5A6;
+}
+
+a:link {
+	color: #4A627F;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #4A627F;
+	text-decoration: none;
+}
+
+a:hover,
+a:active {
+	color: #E76006;
+	text-decoration: none;
+}
+
+#logo {
+	background: #95A5A6;
+}
+
+.forum_on {
+color: #95A5A6;
+}
+
+#portal #nav-portal a,
+#forums #nav-forums a,
+#searchh #nav-search a,
+#member #nav-member a,
+#calendar #nav-calendar a,
+#help #nav-help a {
+    background-color: #95A5A6;
+}
+
+.pagination a:hover {
+	background: #95A5A6;
+	border-color: #95A5A6;
+}
+
+.navbar-default {
+	background: transparent url(/images/bootbb/logo_new_back3.png) repeat 0px 0px;
+	min-height: 84px;
+}
+
+.navbar-default .navbar-nav > li > a {
+	 color: #ffffff;
+}
+
+.navbar-nav > li > a {
+	line-height: 44px;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+     background-color: #95A5A6;
+	 color: #fff;
+}
+
+.pagination a:hover {
+ background: #95A5A6;
+ color: #fff;
+ border-color: #95A5A6;
+ text-decoration: none;
+}
+
+.popup_menu .popup_item:hover {
+ background: #95A5A6;
+ color: #fff;
+}
+
+select {
+    color: #95A5A6;
+}
+
+.thead input.textbox,
+.thead select {
+ border: 1px solid #95A5A6;
+}
+
+.modcp_nav_item:before {
+	color: #95A5A6;
+}
+
+pre.alt2, div.alt2 {
+  height: auto !important;
+    max-height: 500px;
+}
+
+		
+		
+		
+		

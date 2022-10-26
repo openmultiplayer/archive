@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0039)https://team.sa-mp.com/wiki/Binary.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="keywords" content="Binary,Kyoshiro">
+<link rel="shortcut icon" href="https://team.sa-mp.com/favicon.ico">
+		<title>Binary - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="./Binary - SA-MP Wiki_files/commonPrint.css">
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="./Binary - SA-MP Wiki_files/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="./Binary - SA-MP Wiki_files/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			<style>undefined</style><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./Binary - SA-MP Wiki_files/css2"></head>
+<body class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Binary</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="https://team.sa-mp.com/wiki/Binary.html#column-one">navigation</a>, <a href="https://team.sa-mp.com/wiki/Binary.html#searchInput">search</a></div>			<!-- start content -->
+			<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tbody><tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="https://team.sa-mp.com/wiki/Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="./Binary - SA-MP Wiki_files/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="../wiki/Image_32px-Ambox_warning_orange.png.html"></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This article is currently under construction. If you edit anything, please leave a comment in the discussion.</span>
+</td></tr></tbody></table>
+</div>
+<p><br>
+</p>
+<table id="toc" class="toc" summary="Contents"><tbody><tr><td><div id="toctitle"><h2>Contents</h2> <span class="toctoggle">[<a id="togglelink" class="internal" href="javascript:toggleToc()">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1"><a href="https://team.sa-mp.com/wiki/Binary.html#What_is_binary"><span class="tocnumber">1</span> <span class="toctext">What is binary</span></a></li>
+<li class="toclevel-1"><a href="https://team.sa-mp.com/wiki/Binary.html#A_deeper_look_at_bits"><span class="tocnumber">2</span> <span class="toctext">A deeper look at bits</span></a>
+<ul>
+<li class="toclevel-2"><a href="https://team.sa-mp.com/wiki/Binary.html#Signed_integers"><span class="tocnumber">2.1</span> <span class="toctext">Signed integers</span></a></li>
+<li class="toclevel-2"><a href="https://team.sa-mp.com/wiki/Binary.html#Unsigned_integers"><span class="tocnumber">2.2</span> <span class="toctext">Unsigned integers</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="https://team.sa-mp.com/wiki/Binary.html#Binary_operators"><span class="tocnumber">3</span> <span class="toctext">Binary operators</span></a>
+<ul>
+<li class="toclevel-2"><a href="https://team.sa-mp.com/wiki/Binary.html#Bitwise_AND"><span class="tocnumber">3.1</span> <span class="toctext">Bitwise AND</span></a></li>
+<li class="toclevel-2"><a href="https://team.sa-mp.com/wiki/Binary.html#Bitwise_OR"><span class="tocnumber">3.2</span> <span class="toctext">Bitwise OR</span></a></li>
+<li class="toclevel-2"><a href="https://team.sa-mp.com/wiki/Binary.html#Bitwise_XOR"><span class="tocnumber">3.3</span> <span class="toctext">Bitwise XOR</span></a></li>
+<li class="toclevel-2"><a href="https://team.sa-mp.com/wiki/Binary.html#Bitwise_NOT"><span class="tocnumber">3.4</span> <span class="toctext">Bitwise NOT</span></a></li>
+<li class="toclevel-2"><a href="https://team.sa-mp.com/wiki/Binary.html#Bit_Shifting"><span class="tocnumber">3.5</span> <span class="toctext">Bit Shifting</span></a>
+<ul>
+<li class="toclevel-3"><a href="https://team.sa-mp.com/wiki/Binary.html#Arithmetic_shifts"><span class="tocnumber">3.5.1</span> <span class="toctext">Arithmetic shifts</span></a>
+<ul>
+<li class="toclevel-4"><a href="https://team.sa-mp.com/wiki/Binary.html#Right_shift"><span class="tocnumber">3.5.1.1</span> <span class="toctext">Right shift</span></a></li>
+<li class="toclevel-4"><a href="https://team.sa-mp.com/wiki/Binary.html#Left_shift"><span class="tocnumber">3.5.1.2</span> <span class="toctext">Left shift</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3"><a href="https://team.sa-mp.com/wiki/Binary.html#Logical_Shifts"><span class="tocnumber">3.5.2</span> <span class="toctext">Logical Shifts</span></a>
+<ul>
+<li class="toclevel-4"><a href="https://team.sa-mp.com/wiki/Binary.html#Right_shift_2"><span class="tocnumber">3.5.2.1</span> <span class="toctext">Right shift</span></a></li>
+<li class="toclevel-4"><a href="https://team.sa-mp.com/wiki/Binary.html#Left_shift_2"><span class="tocnumber">3.5.2.2</span> <span class="toctext">Left shift</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td></tr></tbody></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Binary.html" title="Edit section: What is binary">edit</a>]</div><a name="What_is_binary"></a><h2>What is binary</h2>
+<p>Binary is a numeral system that uses two unique symbols to represent numbers. While the more common decimal system uses ten numerals (base 10), binary uses only 0 and 1. This may sound useless in every day life, but binary is essential when it comes to computers. Computers at their lowest level perform all of their calculations by manipulating the flow of electricity to indicate on and off states. This is exactly what binary is, just a ton of switches flipped on and off. This is a sort of alien concept to most people, so lets take a look at the decimal and binary system next to each other. 
+</p><p><br>
+<b>Decimal (base 10)</b>
+</p>
+<pre class="pawn"><span style="color: #4169e1;">0</span>
+<span style="color: #4169e1;">1</span>
+<span style="color: #4169e1;">2</span>
+<span style="color: #4169e1;">3</span>
+<span style="color: #4169e1;">4</span>
+<span style="color: #4169e1;">5</span>
+<span style="color: #4169e1;">6</span>
+<span style="color: #4169e1;">7</span>
+<span style="color: #4169e1;">8</span>
+<span style="color: #4169e1;">9</span>
+<span style="color: #4169e1;">10</span>
+<span style="color: #4169e1;">11</span>
+<span style="color: #4169e1;">12</span>
+<span style="color: #4169e1;">13</span></pre>
+<p><b>Binary (Base 2)</b>
+</p>
+<pre class="pawn"><span style="color: #4169e1;">0</span> <span style="color: #808080; font-style: italic;">//0</span>
+<span style="color: #4169e1;">1</span> <span style="color: #808080; font-style: italic;">//1</span>
+<span style="color: #4169e1;">10</span> <span style="color: #808080; font-style: italic;">//2</span>
+<span style="color: #4169e1;">11</span> <span style="color: #808080; font-style: italic;">//3</span>
+<span style="color: #4169e1;">100</span> <span style="color: #808080; font-style: italic;">//4</span>
+<span style="color: #4169e1;">101</span> <span style="color: #808080; font-style: italic;">//5</span>
+<span style="color: #4169e1;">110</span> <span style="color: #808080; font-style: italic;">//6</span>
+<span style="color: #4169e1;">111</span> <span style="color: #808080; font-style: italic;">//7</span>
+<span style="color: #4169e1;">1000</span> <span style="color: #808080; font-style: italic;">//8</span>
+<span style="color: #4169e1;">1001</span> <span style="color: #808080; font-style: italic;">//9</span>
+<span style="color: #4169e1;">1010</span> <span style="color: #808080; font-style: italic;">//10</span>
+<span style="color: #4169e1;">1011</span> <span style="color: #808080; font-style: italic;">//11</span>
+<span style="color: #4169e1;">1100</span> <span style="color: #808080; font-style: italic;">//12</span>
+<span style="color: #4169e1;">1101</span> <span style="color: #808080; font-style: italic;">//13</span></pre>
+<p>Looking at both systems beside one another, you'll notice they behave exactly the same. Once you reach the last available number you have to move on to another place. These places in binary are referred to as bits (<b>b</b>inary dig<b>its</b>) and are simply powers of two; just as places in the decimal system are powers of 10. To prove this, lets take a look at the number 13 in standard notation.
+</p><p><br>
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tbody><tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="https://team.sa-mp.com/wiki/Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="./Binary - SA-MP Wiki_files/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="../wiki/Image_32px-Ambox_warning_orange.png.html"></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">'^' is power in these next few examples, not bitwise exclusive (which we'll cover later)</span>
+</td></tr></tbody></table>
+</div>
+<p><br>
+<b>Decimal (base 10)</b>
+</p>
+<pre class="pawn"><span style="color: #4169e1;">13</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">//which equals</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">(</span><span style="color: #4169e1;">10</span>^<span style="color: #4169e1;">1</span><span style="color: #66cc66;">)</span> + <span style="color: #4169e1;">3</span> * <span style="color: #66cc66;">(</span><span style="color: #4169e1;">10</span>^<span style="color: #4169e1;">0</span><span style="color: #66cc66;">)</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">//which equals</span>
+&nbsp;
+<span style="color: #4169e1;">10</span><span style="color: #4169e1;">+3</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">//which equals</span>
+&nbsp;
+<span style="color: #4169e1;">13</span></pre>
+<p><b>Binary (base 2)</b>
+</p>
+<pre class="pawn"><span style="color: #4169e1;">1101</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">//which equals</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">(</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">3</span><span style="color: #66cc66;">)</span> + <span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">(</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">2</span><span style="color: #66cc66;">)</span> + <span style="color: #4169e1;">0</span> * <span style="color: #66cc66;">(</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">1</span><span style="color: #66cc66;">)</span> + <span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">(</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">0</span><span style="color: #66cc66;">)</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">//which equals</span>
+&nbsp;
+<span style="color: #4169e1;">8</span><span style="color: #4169e1;">+4</span><span style="color: #4169e1;">+0</span><span style="color: #4169e1;">+1</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">//which equals</span>
+&nbsp;
+<span style="color: #4169e1;">13</span></pre>
+<p>We can see from the preceding example that if a bit is set to 0, we can ignore it and move on; after all, anything multiplied by 0 is going to be 0. The previous example was a little over complicated and was just me trying to being absolutely clear. When you're converting from binary, all you really have to worry about is adding up the powers of all the bits that are turned on. 
+</p><p>Here are 12 powers of 2 just off the top of my head:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">4096</span>,<span style="color: #4169e1;">2048</span>,<span style="color: #4169e1;">1024</span>,<span style="color: #4169e1;">512</span>,<span style="color: #4169e1;">256</span>,<span style="color: #4169e1;">128</span>,<span style="color: #4169e1;">64</span>,<span style="color: #4169e1;">32</span>,<span style="color: #4169e1;">16</span>,<span style="color: #4169e1;">8</span>,<span style="color: #4169e1;">4</span>,<span style="color: #4169e1;">2</span>,<span style="color: #4169e1;">1</span></pre>
+<p>If you know nothing about working with powers, this probably makes no sense to you at all. A power is a number multiplied by itself x amount of times. With this information in mind, the preceding list of powers probably makes more sense; well with the exception of 1. You may be curious why 2 raised to the power of 0 gives a result of 1, all i can say to this is that it just does.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">1</span> = <span style="color: #4169e1;">2</span>, <span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">3</span> = <span style="color: #4169e1;">4</span>, <span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">4</span> = <span style="color: #4169e1;">8</span></pre>
+<p>We can see that when we move to the right, our previous value is multiplied by 2; so its safe to assume that when we move to the left our new value is just the previous number divided by 2. With this in mind you can see how we can end up with 2 to the zeroth power equaling 1. If this isn't satisfying enough, im sure you can find more proof on google. All that being said, lets take a look at one final example, and lets make it somewhat complicated!
+</p>
+<pre class="pawn"><span style="color: #4169e1;">111011001011111000</span> <span style="color: #808080; font-style: italic;">//242424</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">//Remember, ignore the bits that arent turned on.</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">(</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">17</span><span style="color: #66cc66;">)</span> = <span style="color: #4169e1;">131072</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">(</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">16</span><span style="color: #66cc66;">)</span> = <span style="color: #4169e1;">65536</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">(</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">15</span><span style="color: #66cc66;">)</span> = <span style="color: #4169e1;">32768</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">(</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">13</span><span style="color: #66cc66;">)</span> = <span style="color: #4169e1;">8192</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">(</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">12</span><span style="color: #66cc66;">)</span> = <span style="color: #4169e1;">4096</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">(</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">9</span><span style="color: #66cc66;">)</span> = <span style="color: #4169e1;">512</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">(</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">7</span><span style="color: #66cc66;">)</span> = <span style="color: #4169e1;">128</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">(</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">6</span><span style="color: #66cc66;">)</span> = <span style="color: #4169e1;">64</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">(</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">5</span><span style="color: #66cc66;">)</span> = <span style="color: #4169e1;">32</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">(</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">4</span><span style="color: #66cc66;">)</span> = <span style="color: #4169e1;">16</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">(</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">3</span><span style="color: #66cc66;">)</span> = <span style="color: #4169e1;">8</span>
+&nbsp;
+&nbsp;
+<span style="color: #4169e1;">131072</span><span style="color: #4169e1;">+65536</span><span style="color: #4169e1;">+32768</span><span style="color: #4169e1;">+8192</span><span style="color: #4169e1;">+4096</span><span style="color: #4169e1;">+512</span><span style="color: #4169e1;">+128</span><span style="color: #4169e1;">+64</span><span style="color: #4169e1;">+32</span><span style="color: #4169e1;">+16</span><span style="color: #4169e1;">+8</span>
+=
+<span style="color: #4169e1;">242424</span></pre>
+<p>Remember when converting: The first power is 0 so dont make the mistake as seeing the 18th place as 2^18. There are indeed 18 powers, but that is including the power of 0, so 17 is actually our highest power.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Binary.html" title="Edit section: A deeper look at bits">edit</a>]</div><a name="A_deeper_look_at_bits"></a><h2> A deeper look at bits </h2>
+<p>Most programming languages allow different data types which range in the amount of bits that can be used to store information; however pawn is a typeless 32 bit language. This means that pawn will always have 32 bits available for storing information. So what happens when you have to much information? The answer to that question lies with signed and unsigned integers.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Binary.html" title="Edit section: Signed integers">edit</a>]</div><a name="Signed_integers"></a><h3>Signed integers</h3>
+<p>Have you ever noticed that when an integer in pawn gets to high it turns into a negative? This "wrapping" is due to you go OVER the maximum value in pawn which is:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">31</span> - <span style="color: #4169e1;">1</span> <span style="color: #808080; font-style: italic;">//Power, not bitwise exclusive. Also the -1 is because we count 0 (there ARE 2,147,483,648 values, but that is with 0, So technically 2,147,483,647 is the max).</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">//which equals</span>
+&nbsp;
+<span style="color: #4169e1;">2</span>,<span style="color: #4169e1;">147</span>,<span style="color: #4169e1;">483</span>,<span style="color: #4169e1;">647</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">//which in binary is</span>
+&nbsp;
+<span style="color: #4169e1;">1111111111111111111111111111111</span> <span style="color: #808080; font-style: italic;">//31 bits- all on</span></pre>
+<p>You might be wondering why THAT is the max value, and not 2^32-1 (4,294,967,295). This is where signed and unsigned integers come into play. Signed integers have the ability to store negative values, where unsigned integers do not. This might sound like im straying away from the question, but i assure you i am not. The reason the maximum integer isnt 2^32-1 is because the 32nd bit is used as a sort of toggle for negative and positive values. This is called the MSB (Most significant bit) if the MSB is turned on, the number will be negative; if its turned off, the number is positive. Pretty simple, right?
+</p><p>Before i show a few negative values, i need to explain how negative values are represented in pawn. Pawn uses a system called 2's complement to represent negative values, which basically means you flip every single bit in your number and add 1 to the new number in order to make it negative. 
+</p><p>Lets take a look at a few negative values while this idea is still in your head:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">11111111111111111111111111111111</span> <span style="color: #808080; font-style: italic;">//all 32 bits turned on</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">//equals</span>
+&nbsp;
+<span style="color: #4169e1;">-1</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">//and</span>
+&nbsp;
+<span style="color: #4169e1;">11111111111111111111111111111110</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">//equals</span>
+&nbsp;
+<span style="color: #4169e1;">-2</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">//and finally</span>
+&nbsp;
+<span style="color: #4169e1;">10000000000000000000000000000000</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">//equals</span>
+&nbsp;
+<span style="color: #4169e1;">-2147483648</span></pre>
+<p>See, all negative numbers are simply the original positive number with all its bits flipped and increased by one. This is super clear with our last example, as the highest POSITIVE integer is 2147483647.
+</p><p>From this we can see that the number range in pawn is actually: 
+</p>
+<pre class="pawn">−<span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">31</span> to <span style="color: #4169e1;">+2</span>^<span style="color: #4169e1;">31</span> − <span style="color: #4169e1;">1</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Binary.html" title="Edit section: Unsigned integers">edit</a>]</div><a name="Unsigned_integers"></a><h3>Unsigned integers</h3>
+<p>There is no such thing as unsigned integers in pawn, but im adding this just so its balanced. The only difference between a signed integer and an unsigned integer is that unsigned integers can not store negative values; Integers still wrap around, but they wrap back to 0, instead of a negative value.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Binary.html" title="Edit section: Binary operators">edit</a>]</div><a name="Binary_operators"></a><h2> Binary operators </h2>
+<p>Binary operators allow you to manipulate individual bits of a bit pattern. Lets take a look at a list of available bitwise operators. 
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th><b>Symbol</b>
+</th><th><b>Name</b>
+</th></tr>
+<tr>
+<td> &gt;&gt;, and &lt;&lt;
+</td><td> Bitwise arithmetic shift
+</td></tr>
+
+<tr>
+<td> &gt;&gt;&gt;
+</td><td> Bitwise logical shift
+</td></tr>
+
+<tr>
+<td> ~
+</td><td> Bitwise NOT (aka complement)
+</td></tr>
+
+<tr>
+<td> &amp;
+</td><td> Bitwise AND
+</td></tr>
+
+<tr>
+<td> |
+</td><td> Bitwise OR
+</td></tr>
+
+<tr>
+<td> ^
+</td><td> Bitwise XOR (aka exclusive-or)
+</td></tr>
+</tbody></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Binary.html" title="Edit section: Bitwise AND">edit</a>]</div><a name="Bitwise_AND"></a><h3>Bitwise AND</h3>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tbody><tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="https://team.sa-mp.com/wiki/Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="./Binary - SA-MP Wiki_files/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="../wiki/Image_32px-Ambox_warning_orange.png.html"></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Not to be confused by the logical AND operator <a href="http://wiki.sa-mp.com/wiki/Control_Structures#Operators" class="external autonumber" title="http://wiki.sa-mp.com/wiki/Control_Structures#Operators" rel="nofollow">[1]</a></span>
+</td></tr></tbody></table>
+</div>
+<p><br>
+A binary AND simply takes the logical AND of the bits in each position of a number in binary form. This sounds a bit confusing, so lets take a look at it in action!
+</p>
+<pre class="pawn"><span style="color: #4169e1;">1100</span> <span style="color: #808080; font-style: italic;">//12</span>
+&amp; 
+<span style="color: #4169e1;">0100</span> <span style="color: #808080; font-style: italic;">//4</span>
+= 
+<span style="color: #4169e1;">0100</span> <span style="color: #808080; font-style: italic;">//4 as they both have "100" in them (which is 4)</span></pre>
+<p>That was a little easy, lets take a look at a harder one:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">10111000</span> <span style="color: #808080; font-style: italic;">//184</span>
+&amp; 
+<span style="color: #4169e1;">01001000</span> <span style="color: #808080; font-style: italic;">//72</span>
+=
+<span style="color: #4169e1;">00001000</span> <span style="color: #808080; font-style: italic;">//8</span></pre>
+<p>Looking at the examples should give you a pretty good idea what this operator does. It compares two bit sets together, if <b>both</b> of them share a bit of 1, the result will have the same bit turned on. If they share no bits at all, then the result is 0.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Binary.html" title="Edit section: Bitwise OR">edit</a>]</div><a name="Bitwise_OR"></a><h3>Bitwise OR</h3>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tbody><tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="https://team.sa-mp.com/wiki/Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="./Binary - SA-MP Wiki_files/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="../wiki/Image_32px-Ambox_warning_orange.png.html"></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Not to be confused by the logical OR operator <a href="http://wiki.sa-mp.com/wiki/Control_Structures#Operators" class="external autonumber" title="http://wiki.sa-mp.com/wiki/Control_Structures#Operators" rel="nofollow">[2]</a></span>
+</td></tr></tbody></table>
+</div>
+<p><br>
+Bitwise OR works almost exactly the same as bitwise AND. The only difference between the two is that bitwise OR only needs one of the two bit patterns to have a bit turned on in order for the result to have the same bit turned on. Lets take a look at a couple of examples!
+</p>
+<pre class="pawn"><span style="color: #4169e1;">1100</span> <span style="color: #808080; font-style: italic;">//12</span>
+|
+<span style="color: #4169e1;">0100</span> <span style="color: #808080; font-style: italic;">//4</span>
+=
+<span style="color: #4169e1;">1100</span> <span style="color: #808080; font-style: italic;">//12.</span></pre>
+<p>Lets take a look at one more example.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">10111000</span> <span style="color: #808080; font-style: italic;">//184</span>
+|
+<span style="color: #4169e1;">01001000</span> <span style="color: #808080; font-style: italic;">//72</span>
+=
+<span style="color: #4169e1;">11111000</span> <span style="color: #808080; font-style: italic;">//248</span></pre>
+<p>I think this is pretty self explanatory, if either of the numbers have a bit turned on the resulting number will also have that bit turned on.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Binary.html" title="Edit section: Bitwise XOR">edit</a>]</div><a name="Bitwise_XOR"></a><h3>Bitwise XOR</h3>
+<p>This operator is a little similar to the bitwise OR operator, but there is a bit of a difference. Lets look at the same example used in the bitwise OR section, and see if you can spot the difference.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">1100</span> <span style="color: #808080; font-style: italic;">//12</span>
+^
+<span style="color: #4169e1;">0100</span> <span style="color: #808080; font-style: italic;">//4</span>
+=
+<span style="color: #4169e1;">1000</span> <span style="color: #808080; font-style: italic;">//8.</span></pre>
+<p>and finally:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">10111000</span> <span style="color: #808080; font-style: italic;">//184</span>
+^
+<span style="color: #4169e1;">01001000</span> <span style="color: #808080; font-style: italic;">//72</span>
+=
+<span style="color: #4169e1;">11110000</span> <span style="color: #808080; font-style: italic;">//240</span></pre>
+<p>The only difference between bitwise XOR and bitwise OR, is that if <b>both</b> bit patterns have the same bit turned on, then the result will not have that bit turned on.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Binary.html" title="Edit section: Bitwise NOT">edit</a>]</div><a name="Bitwise_NOT"></a><h3>Bitwise NOT</h3>
+<p>This operator flips every bit in the bit pattern, turning all 1's to 0's and vise versa. 
+</p>
+<pre class="pawn">~<span style="color: #4169e1;">0</span>
+=
+<span style="color: #4169e1;">11111111111111111111111111111111</span> <span style="color: #808080; font-style: italic;">//-1</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">//and</span>
+&nbsp;
+~<span style="color: #4169e1;">100</span> <span style="color: #808080; font-style: italic;">//4</span>
+=
+<span style="color: #4169e1;">11111111111111111111111111111011</span> <span style="color: #808080; font-style: italic;">//-5</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">//and</span>
+&nbsp;
+~<span style="color: #4169e1;">1111111111111111111111111111111</span> <span style="color: #808080; font-style: italic;">//2147483647 (not to be confused with -1, which has 32 bits, not 31)</span>
+=
+<span style="color: #4169e1;">10000000000000000000000000000000</span> <span style="color: #808080; font-style: italic;">//-2147483648 (32nd bit turned on)</span></pre>
+<p>If you dont understand why the negative values are sort of "backwards" please read the section about signed integers.
+</p><p><br>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Binary.html" title="Edit section: Bit Shifting">edit</a>]</div><a name="Bit_Shifting"></a><h3>Bit Shifting</h3>
+<p>Bit shifting does exactly what you would imagine it does; it shifts the bits in a number towards a certain direction. If you remember earlier in the article i mentioned that PAWN has a specific memory range (32 bits that can be used for storage). What happens when you shift a number past that range? The answer to this question lies in what shifting operator you are using, and what direction you are shifting in. 
+</p><p><br>
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tbody><tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="https://team.sa-mp.com/wiki/Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="./Binary - SA-MP Wiki_files/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="../wiki/Image_32px-Ambox_warning_orange.png.html"></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">In the following examples, all binary numbers will be written out in full (all 32 bits) to avoid any confusions.</span>
+</td></tr></tbody></table>
+</div>
+<p><br>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Binary.html" title="Edit section: Arithmetic shifts">edit</a>]</div><a name="Arithmetic_shifts"></a><h4>Arithmetic shifts</h4>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Binary.html" title="Edit section: Right shift">edit</a>]</div><a name="Right_shift"></a><h5>Right shift</h5>
+<p>All bits in a number are shifted x amount of times to the right when using this operator. Lets takes a quick look at a simple example.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">00000000000000000000000000001000</span>  <span style="color: #808080; font-style: italic;">//8</span>
+&gt;&gt;
+<span style="color: #4169e1;">2</span>
+&nbsp;
+=
+&nbsp;
+<span style="color: #4169e1;">00000000000000000000000000000010</span> <span style="color: #808080; font-style: italic;">//2</span></pre>
+<p>You can see from the preceding example that every bit has moved to the right by two places, and two zeros were added on the left side as padding. These two zeros are actually the value of the MSB (Most significant bit) and are very important when it comes to signed integer shifting. The reason the MSB is used as padding is so we keep the sign of the number that is being shifted. Lets take a look at the same example, except lets make it negative.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">11111111111111111111111111111000</span> <span style="color: #808080; font-style: italic;">//-8</span>
+&gt;&gt;
+<span style="color: #4169e1;">2</span>
+&nbsp;
+=
+&nbsp;
+<span style="color: #4169e1;">11111111111111111111111111111110</span> <span style="color: #808080; font-style: italic;">//-2</span></pre>
+<p>Clearly this behaves exactly the same as the previous example, except the left bits used for padding are ones; which proves that the padding of right arithmetic shift is the value of the MSB.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Binary.html" title="Edit section: Left shift">edit</a>]</div><a name="Left_shift"></a><h5>Left shift</h5>
+<p>This is the exact opposite of the right arithmetic shifting operator. It shifts all the bits in a number to the left x amount of times. Lets look at an example.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">00000000000000000000000000001000</span>  <span style="color: #808080; font-style: italic;">//8</span>
+&lt;&lt;
+<span style="color: #4169e1;">2</span>
+&nbsp;
+=
+&nbsp;
+<span style="color: #4169e1;">00000000000000000000000000100000</span> <span style="color: #808080; font-style: italic;">//32</span></pre>
+<p>The only difference between the left and right arithmetic shift (besides the direction of the shift) would be the way it handles padding. With the right arithmetic shift, the padding is the value of the MSB (Most significant bit), but with the left arithmetic shift the value is just 0. This is because there is no relevant information like a number's sign to keep track of. 
+</p>
+<pre class="pawn"><span style="color: #4169e1;">11111111111111111111111111111000</span> <span style="color: #808080; font-style: italic;">//-8</span>
+&lt;&lt;
+<span style="color: #4169e1;">2</span>
+&nbsp;
+=
+&nbsp;
+<span style="color: #4169e1;">11111111111111111111111111100000</span> <span style="color: #808080; font-style: italic;">//-32</span></pre>
+<p>See? Even though the padding is always 0, the sign of the number is still kept. The only thing you really have to worry about is shifting to far. If you shift a positive number past the highest possible number, it will become negative and vise versa with negative values (you'll eventually hit 0). 
+</p><p><br>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Binary.html" title="Edit section: Logical Shifts">edit</a>]</div><a name="Logical_Shifts"></a><h4>Logical Shifts</h4>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Binary.html" title="Edit section: Right shift">edit</a>]</div><a name="Right_shift_2"></a><h5>Right shift</h5>
+<p>This is the converse to the arithmetic left shift. The best way to describe it would be a hybrid between the two arithmetic shifts. Lets take a look at it in action!
+</p><p><br>
+</p>
+<pre class="pawn"><span style="color: #4169e1;">00000000000000000000000000001000</span>  <span style="color: #808080; font-style: italic;">//8</span>
+&gt;&gt;&gt;
+<span style="color: #4169e1;">2</span>
+&nbsp;
+=
+&nbsp;
+<span style="color: #4169e1;">00000000000000000000000000000010</span> <span style="color: #808080; font-style: italic;">//2</span></pre>
+<p>The bits in the number 8 where shifted 2 times to the right. So how is this any different from the arithmetic right shift? The answer is the padding. With the arithmetic right shift, the padding is the value of the MSB, but with the logical right shift the padding is just 0 (just as it is with the arithmetic left shift). This means that it will not keep the number of the sign, and our result will always be positive. To prove this, lets shift a negative number!
+</p><p><br>
+</p>
+<pre class="pawn"><span style="color: #4169e1;">11111111111111111111111111111000</span> <span style="color: #808080; font-style: italic;">//-8</span>
+&gt;&gt;&gt;
+<span style="color: #4169e1;">2</span>
+&nbsp;
+=
+&nbsp;
+<span style="color: #4169e1;">00111111111111111111111111111110</span> <span style="color: #808080; font-style: italic;">//1073741822</span></pre>
+<p><br>
+That proves that we wont get any negative values while using the logical right shift!
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Binary.html" title="Edit section: Left shift">edit</a>]</div><a name="Left_shift_2"></a><h5>Left shift</h5>
+<p>There is no logical left shift, as it would do exactly the same as the arithmetic left shift. I just added this to avoid confusion of any sort, and also to keep the section balanced.
+</p><p><br>
+</p>
+<hr>
+<p>--<a href="https://team.sa-mp.com/wiki/User_Kyoshiro.html" title="User:Kyoshiro">Kyoshiro</a> 02:06, 9 September 2010 (CEST)
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Binary.html">http://localhost../wiki/Binary.html</a>"</div>
+			<div id="catlinks"><p class="catlinks"><a href="https://team.sa-mp.com/wiki/Special_Categories.html" title="Special:Categories">Category</a>: <span dir="ltr"><a href="https://team.sa-mp.com/wiki/Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="https://team.sa-mp.com/wiki/Binary.html" accesskey="c" title="View the content page [alt-c]">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="https://team.sa-mp.com/wiki/Talk_Binary.html" accesskey="t" title="Discussion about the content page [alt-t]">Discussion</a></li>
+				 <li id="ca-edit"><a href="https://team.sa-mp.com/wiki/Binary.html" accesskey="e" title="You can edit this page. Please use the preview button before saving. [alt-e]">Edit</a></li>
+				 <li id="ca-history"><a href="https://team.sa-mp.com/wiki/Binary.html" accesskey="h" title="Past versions of this page. [alt-h]">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class="portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-mainpage"><a href="https://team.sa-mp.com/wiki-archive.html" accesskey="z" title="Visit the Main Page [alt-z]">Main Page</a></li>
+				<li id="n-help" title="The place to find out."><a href="https://team.sa-mp.com/wiki/Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="./Binary - SA-MP Wiki_files/poweredby_mediawiki_88x31.png" alt="MediaWiki"></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 57,579 times.</li>
+				<li id="credits">This page was last modified 23:23, 29 April 2014 by SA-MP Wiki user <a href="https://team.sa-mp.com/wiki/User_Vince.html" title="User:Vince">Vince</a>. Based on work by SA-MP Wiki user(s) <a href="https://team.sa-mp.com/wiki/User_Kyoshiro.html" title="User:Kyoshiro">Kyoshiro</a>, <a href="https://team.sa-mp.com/wiki/User_RoBo.html" class="new" title="User:RoBo">RoBo</a> and <a href="https://team.sa-mp.com/wiki/User_Ronyx69.html" title="User:Ronyx69">Ronyx69</a>.</li>
+				<li id="privacy"><a href="https://team.sa-mp.com/wiki/SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="https://team.sa-mp.com/wiki/SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="https://team.sa-mp.com/wiki/SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 60.22 secs. -->
+
+<script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>

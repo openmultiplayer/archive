@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://sampforum.blast.hk/showthread.php?tid=570953 -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>[Tutorial] PAWN Pre-Processor - Case study - Part 6/7</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="https://sampforum.blast.hk/syndication.php">
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="https://sampforum.blast.hk/syndication.php?type=atom1.0">
+<link rel="shortcut icon" href="https://sampforum.blast.hk/favicon.ico">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript" src="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/jquery.js"></script><style>undefined</style>
+<script type="text/javascript" src="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/jquery.plugins.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/general.js"></script>
+<script type="text/javascript" src="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/tooltip.js"></script>
+
+<link rel="stylesheet" href="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/bootstrap.min.css">
+<link href="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/css" rel="stylesheet" type="text/css">
+<!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" / -->
+<link rel="stylesheet" href="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+
+<link type="text/css" rel="stylesheet" href="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/global.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/css3.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/responsive.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/star_ratings.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/showthread.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/grey.css">
+
+
+
+
+<script type="text/javascript">
+jQuery(document).on('click', '.panel-heading span.clickable', function(e){
+    var jQuerythis = jQuery(this);
+	if(!jQuerythis.hasClass('panel-collapsed')) {
+		jQuerythis.parents('.panel').find('.panel-body').slideUp();
+		jQuerythis.addClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+	} else {
+		jQuerythis.parents('.panel').find('.panel-body').slideDown();
+		jQuerythis.removeClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+	}
+})
+</script>
+
+
+
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+	lang.confirm_title = "Please Confirm";
+	lang.expcol_collapse = "[-]";
+	lang.expcol_expand = "[+]";
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+	
+	var templates = {
+		modal: '<div class=\"modal\">\
+	<div style=\"overflow-y: auto; max-height: 400px;\">\
+		<table border=\"0\" cellspacing=\"0\" cellpadding=\"5\" class=\"tborder\">\
+			<tr>\
+				<td class=\"thead\"><strong>__title__</strong></td>\
+			</tr>\
+			<tr>\
+				<td class=\"trow1\">__message__</td>\
+			</tr>\
+			<tr>\
+				<td class=\"tfoot\">\
+					<div style=\"text-align: center\" class=\"modal_buttons\">__buttons__</div>\
+				</td>\
+			</tr>\
+		</table>\
+	</div>\
+</div>',
+		modal_button: '<input type=\"submit\" class=\"button\" value=\"__title__\"/>&nbsp;'
+	};
+	
+	var cookieSecureFlag = "0";
+	var cookieDomain = ".sampforum.blast.hk";
+	var cookiePath = "/";
+	var cookiePrefix = "";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "941ba5eae2c9c834bbcecb6bbdc42918";
+	var rootpath = "https://sampforum.blast.hk";
+	var imagepath = "https://sampforum.blast.hk/images/bootbb";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "https://sampforum.blast.hk/images/bootbb/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+
+<!-- Make videos responsive - https://github.com/davatron5000/FitVids.js (additional video sites added for MyBB) -->
+<script type="text/javascript" src="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/jquery.fitvids.js"></script>
+<script>
+	$(document).ready(function(){
+		// Target the iframe parent div
+		var bvc = $(".bootbb-video-container");
+		//bvc.css("max-width", "800px");
+		bvc.fitVids();
+	});
+</script>
+<!-- end: headerinclude -->
+<script>
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script src="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/report.js"></script>
+<script src="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/jeditable.min.js"></script>
+<script src="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/thread.js"></script>
+<meta name="description" content="Contents Part 1 - Covers an introduction to the pre-processor and covers some important things when writing function-like macros. Part 2 - Explains exactly what the compiler searches for and looks at">
+<link rel="canonical" href="https://sampforum.blast.hk/showthread.php?tid=570953">
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/css2"></head>
+<body>
+	<!-- start: header -->
+<header>
+<div class="navbar navbar-default">
+     <div class="container">
+          <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="Toggle navigation">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span> 
+               </button>
+			  
+			  <div class="navbar-header scaleimages">
+				  <!--<a class="navbar-brand" href="https://sampforum.blast.hk">BootBB</a>-->
+				  <a class="" href="https://sampforum.blast.hk/"><img src="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/logo_forum.gif"></a>
+			  
+			  </div>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+			  <ul class="nav navbar-nav navbar-right">
+				  <!--<li id="nav-portal"><a href="https://sampforum.blast.hk/portal.php"><i class="fa fa-bell"></i> Portal</a></li>-->
+               <li id="nav-forums"><a href="https://sampforum.blast.hk/index.php"><i class="fa fa-group"></i> Forum</a></li>
+				<!--<li><a href="https://sampforum.blast.hk/search.php?action=getnew"><i class="fa fa-comment"></i> New Posts</a></li>
+            	<li><a href="https://sampforum.blast.hk/search.php?action=getdaily"><i class="fa fa-comments"></i> Today's Posts</a></li>-->
+               <li id="nav-search"><a href="https://sampforum.blast.hk/search.php"><i class="fa fa-search"></i> Search</a></li>
+               <li id="nav-member"><a href="https://sampforum.blast.hk/memberlist.php"><i class="fa fa-users"></i> Members</a></li>
+               <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+				  
+<!--<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cubes"></i> Misc <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			  <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+			  <li class="divider"></li>
+			  <li id="nav-calendar"><a href="https://sampforum.blast.hk/calendar.php"><i class="fa fa-calendar"></i> Calendar</a></li>
+          </ul>
+</li> -->
+</ul>
+  
+          </div>
+     </div>
+</div>
+</header>
+
+
+<div id="container">
+	<a name="top" id="top"></a>
+		<div id="header">
+			<div id="panel">
+				<div class="upper">
+					<div class="container">
+
+						<!-- start: header_welcomeblock_guest -->
+<!--<span><a href="https://sampforum.blast.hk/member.php?action=login" onclick="$('#quick_login').modal({ fadeDuration: 250, keepelement: true }); return false;" class="login btn btn-danger" style="color: #fff;"><i class="fa fa-sign-in"></i> Login</a> <a href="https://sampforum.blast.hk/member.php?action=register" class="register btn btn-success" style="color: #fff;"><i class="fa fa-user-plus"></i> Register</a></span>-->
+
+<span class="float_right hidden-xs">Hello There, Guest!</span>
+
+<br class="clearfix">
+	
+
+				<div class="modal" id="quick_login" style="display: none;">
+					<form method="post" action="https://sampforum.blast.hk/member.php">
+						<input name="my_post_key" type="hidden" value="941ba5eae2c9c834bbcecb6bbdc42918">
+						<input name="action" type="hidden" value="do_login">
+						<input name="url" type="hidden" value="https://sampforum.blast.hk/showthread.php?tid=570953">
+						<input name="quick_login" type="hidden" value="1">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tborder">
+							<tbody><tr>
+								<td class="thead" colspan="2"><strong>Login</strong></td>
+							</tr>
+							<tr>
+								<td class="trow1" width="25%"><strong>Username:</strong></td>
+								<td class="trow1"><input name="quick_username" id="quick_login_username" type="text" value="" class="textbox initial_focus"></td>
+							</tr>
+							<tr>
+								<td class="trow2"><strong>Password:</strong></td>
+								<td class="trow2">
+									<input name="quick_password" id="quick_login_password" type="password" value="" class="textbox"> <a href="https://sampforum.blast.hk/member.php?action=lostpw" class="lost_password">Lost Password?</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow1">&nbsp;</td>
+								<td class="trow1 remember_me">
+									<input name="quick_remember" id="quick_login_remember" type="checkbox" value="yes" class="checkbox" checked="checked">
+									<label for="quick_login_remember">Remember me</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow2" colspan="2">
+									<div align="center"><input name="submit" type="submit" class="button" value="Login"></div>
+								</td>
+							</tr>
+						</tbody></table>
+					</form>
+				</div>
+				<script type="text/javascript">
+					$("#quick_login input[name='url']").val($(location).attr('href'));
+				</script>
+<!-- end: header_welcomeblock_guest -->
+					
+					</div>
+			</div>
+			</div>
+	</div>
+			</div>
+               
+				   
+                <main class="container">
+				<br>
+                 <!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=23">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav -->
+				
+				
+				
+				
+				
+				
+<!-- end: header -->
+	
+	
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	<div class="tborder tfixed clear">
+		<div class="thead">
+				<div class="float_right">
+					<span class="smalltext"><a href="https://sampforum.blast.hk/showthread.php?mode=threaded&amp;tid=570953&amp;pid=3431039#pid3431039">Threaded Mode</a></span>
+				</div>
+				
+					[Tutorial] PAWN Pre-Processor - Case study - Part 6/7
+			</div>
+	</div>
+<div id="posts_container">
+	<div id="posts">
+		<!-- start: postbit_classic -->
+
+<a id="pid3431039"></a>
+<div class="post classic " style="" id="post_3431039">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=55934"><img src="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/55934.png" alt="" width="55" height="42"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=55934">Misiur</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/star.png" alt="*"><img src="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/star.png" alt="*"><img src="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/star.png" alt="*"><img src="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/star.png" alt="*"><img src="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 2,528<br>
+	Threads: 124<br>
+	Joined: Jul 2009
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=55934"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=570953&amp;pid=3431039#pid3431039" title="PAWN Pre-Processor - Case study - Part 6/7">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 1 by Misiur" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">14.04.2015, 21:15 <span class="post_edit" id="edited_by_3431039"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3431039">
+		<font size="5"><font color="green"><b><u>Contents</u></b></font></font><br>
+<br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=570933" target="_blank">Part 1</a> - Covers an introduction to the pre-processor and covers some important things when writing function-like macros.<br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=570944" target="_blank">Part 2</a> - Explains exactly what the compiler searches for and looks at some common macro uses.<br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=570948" target="_blank">Part 3</a> - Describes the other directives available (beside "#define") and looks at definitions with no replacement value.<br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=570950" target="_blank">Part 4</a> - How to use strings with the pre-processor.<br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=570952" target="_blank">Part 5</a> - Alternatives to the pre-processor, multiple symbols and recursion.<br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=570953" target="_blank">Part 6</a> - Case Study (y_remote).<br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=570954" target="_blank">Part 7</a> - Macro issues and spaces.<br>
+<br>
+<font size="5"><font color="green"><b><u>Additional</u></b></font></font><br>
+<br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=877901#pid877901" target="_blank">Utilising tagof</a> - By g_aSlice.<br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1076208#pid1076208" target="_blank">Future-proof string concatenation</a><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1120377#pid1120377" target="_blank">String bug</a><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1103639#pid1103639" target="_blank">Macros that do multiple things</a><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1135865#pid1135865" target="_blank">Advanced "tag" macros</a><br>
+<br>
+<font size="5"><font color="green"><b><u>Case Study</u></b></font></font><br>
+<br>
+For this tutorial, I am going to walk you through the development of one of the YSI libraries, designed to (IMHO) simplify the use of "CallRemoteFunction" and "CallLocalFunction" by removing the need for format specifiers ("si", "iii" etc) and adding compile-time parameter checking. How many times have you seen people complain that this isn't working:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:167px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnPlayerConnect<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; CallRemoteFunction<span style="color: #000000;">(</span><span style="color: #000066;">"Anything"</span>, <span style="color: #000066;">""</span><span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> Anything<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"%d"</span>, playerid<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>The problem is that as far as the compiler is concerned, the parameters to "CallRemoteFunction" are correct, and because "Anything" is a string, there's no way for it to associate the call with the function. Or now about these mistakes:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:167px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnPlayerConnect<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; CallRemoteFunction<span style="color: #000000;">(</span><span style="color: #000066;">"NEthing"</span>, <span style="color: #000066;">""</span><span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> Anything<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"%d"</span>, playerid<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:167px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnPlayerConnect<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; CallRemoteFunction<span style="color: #000000;">(</span><span style="color: #000066;">"Anything"</span>, <span style="color: #000066;">"s"</span>, playerid<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> Anything<span style="color: #000000;">(</span><span style="color: #000000;">Float</span><span style="color: #000000;">:</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"%f"</span>, playerid<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>The first one spells the function name wrong, the second gets the types very very wrong. Again, no warnings or errors from the compiler producing hard to track bugs. This is how y_remote does "CallRemoteFunction":<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:167px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnPlayerConnect<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; broadcast Anything<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span><br><br>remote Anything<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"%d"</span>, playerid<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>Spell the function wrong - error!<br>
+Miss a parameter - warning!<br>
+Get the tag wrong - warning!<br>
+Pass a string instead of a variable - error!<br>
+Get the format specifier wrong - impossible!<br>
+<br>
+<font size="5"><font color="green"><b><u>Target</u></b></font></font><br>
+<br>
+The underlying implementation looks something like this once compiled:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:279px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnPlayerConnect<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; Anything_Call<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">stock</span> Anything_Call<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; CallRemoteFunction<span style="color: #000000;">(</span><span style="color: #000066;">"Anything"</span>, <span style="color: #000066;">"i"</span>, playerid<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">forward</span> Anything<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>;<br><br><span style="color: #2222BB;">public</span> Anything<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"%d"</span>, playerid<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>Because "Anything_Call" has the same parameters as "Anything", and that is what you really call, that is where the compile-time errors come from if you do anything wrong (including typos). Additionally, the "CallRemoteFunction" line is automatically generated so shouldn't ever be wrong.<br>
+<br>
+As for the call site, if you do:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:87px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnPlayerConnect<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; Anything<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>This looks like a normal function call, and so should be treated as a normal function call. Calling the same function in many scripts at once is not the same thing at all and may be unexpected, this is why we use "broadcast". We could of course NOT use "broadcast" and instead generate code that looks something like this:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:279px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnPlayerConnect<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; Anything<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">stock</span> Anything<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; CallRemoteFunction<span style="color: #000000;">(</span><span style="color: #000066;">"Anything_Impl"</span>, <span style="color: #000066;">"i"</span>, playerid<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">forward</span> Anything_Impl<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>;<br><br><span style="color: #2222BB;">public</span> Anything_Impl<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"%d"</span>, playerid<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>This is in fact what "y_master" does - uses normal looking function calls and redirects them based on run-time or compile-time information to either the current script or another script, allowing you to transparently write multi-script systems such as Anti-Cheat APIs (safe "GivePlayerMoney" for example) without ever worrying about modifying existing scripts.<br>
+<br>
+<font size="5"><font color="green"><b><u>Basics</u></b></font></font><br>
+<br>
+So how is this done? The basic code is simple, it is only when we come to parameters that we have an issue:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:55px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define remote%0(%1) stock %0_Call(%1){CallRemoteFunction(#%0, /* ??? */);}forward %0(%1);public %0(%1)</span><br><span style="color: #2222AA;">#define broadcast%0(%1) %0_Call(%1)</span></div></div></pre>
+</div>How are the parameters done? How does the compiler know to use "a" for arrays and "s" for strings? And how does it know to not include the "[]" after arrays in "CallRemoteFunction"? Doing this is wrong:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:87px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">stock</span> Anything<span style="color: #000000;">(</span>str<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; CallRemoteFunction<span style="color: #000000;">(</span><span style="color: #000066;">"Anything_Impl"</span>, <span style="color: #000066;">"s"</span>, str<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>It should be:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:87px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">stock</span> Anything<span style="color: #000000;">(</span>str<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; CallRemoteFunction<span style="color: #000000;">(</span><span style="color: #000066;">"Anything_Impl"</span>, <span style="color: #000066;">"s"</span>, str<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>Or we get an error. This is where "tag macros" come in. I've touched on them briefly before but I'll cover them more now.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:71px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define TYPE(%0) _:TYPE_0:TYPE_1(%0)</span><br><span style="color: #2222AA;">#define TYPE_0:TYPE_1(%0[]) "array"</span><br><span style="color: #2222AA;">#define TYPE_1(%0) "varaible"</span></div></div></pre>
+</div>In the code above is that there are three macros - one called "TYPE", one called "TYPE_0" and one called "TYPE_1". The first macro is NOT called "TYPE_0:TYPE_1" as the name ends at the first symbol character (except "@"). The macro "TYPE_0" only matches if it is followed by the text "TYPE_1" (which it is) and if whatever comes between the brackets includes square brackets. The contents of "%0" will be everything typed BEFORE the square brackets and will end at the square brackets. This also makes the order important, this will not work and will identify everything as "variable", given what has been discussed in previous posts, I leave working out WHY to the reader:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:71px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define TYPE(%0) _:TYPE_0:TYPE_1(%0)</span><br><span style="color: #2222AA;">#define TYPE_0:TYPE_1(%0) "variable"</span><br><span style="color: #2222AA;">#define TYPE_1(%0[]) "array"</span></div></div></pre>
+</div>Now given the working version of the code, we can do:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:55px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #222222;">printf</span><span style="color: #000000;">(</span>TYPE<span style="color: #000000;">(</span>arr<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br><span style="color: #222222;">printf</span><span style="color: #000000;">(</span>TYPE<span style="color: #000000;">(</span>var<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div>And this will compile as:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:55px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #222222;">printf</span><span style="color: #000000;">(</span>_<span style="color: #000000;">:</span><span style="color: #000066;">"array"</span><span style="color: #000000;">)</span>;<br><span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000000;">_</span><span style="color: #000000;">:</span>TYPE_0<span style="color: #000000;">:</span><span style="color: #000066;">"variable"</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div>"_:" and "TYPE_0" in the final code are tag overrides, same as "Float". The "_:" is always required in these cases as it converts the types from whatever else they are back to normal variables; the "TYPE_0:" will be parsed by the compiler, then ignored because the tag is changed again straight away (the technical term is that tags are right-associative and are the same as doing this):<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:55px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #222222;">printf</span><span style="color: #000000;">(</span>_<span style="color: #000000;">:</span><span style="color: #000066;">"array"</span><span style="color: #000000;">)</span>;<br><span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000000;">_</span><span style="color: #000000;">:</span><span style="color: #000000;">(</span>TYPE_0<span style="color: #000000;">:</span><span style="color: #000066;">"variable"</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div>The string "variable" is first converted to a string with tag "TYPE_0", then converted to a string with tag "_:", which is what "printf" takes ("_:" means no tag).<br>
+<br>
+So that is how we can determine the type of a variable, now instead of printing the type we can do:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:71px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define TYPE(%0) _:TYPE_0:TYPE_1(%0)</span><br><span style="color: #2222AA;">#define TYPE_0:TYPE_1(%0[%2]%3) "a", %0</span><br><span style="color: #2222AA;">#define TYPE_1(%0) "i", %0</span></div></div></pre>
+</div>Using the same code above again we get:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:55px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #222222;">printf</span><span style="color: #000000;">(</span>_<span style="color: #000000;">:</span><span style="color: #000066;">"a"</span>, arr<span style="color: #000000;">)</span>;<br><span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000000;">_</span><span style="color: #000000;">:</span>TYPE_0<span style="color: #000000;">:</span><span style="color: #000066;">"i"</span>, var<span style="color: #000000;">)</span>;</div></div></pre>
+</div>Giving us both the format specifier ("a" for array or "i" for integer) and the variable itself with no additional syntax ("arr" instead of "arr[]" for the array variable, "var" as normal). The "TYPE_0" macro has been expanded slightly to "(%0[%2]%3)"; the original version would match "(arr[])", but not "(arr [ ] )" or "(arr [])", this new version will match the additional whitespace and discard it. Although we are using "printf" for now, we will move on from this as you will notice that none of the variables are actually printed - this is just a demonstration.<br>
+<br>
+<font size="5"><font color="green"><b><u>Recursion</u></b></font></font><br>
+<br>
+We have already looked at recursive macros in an earlier post, so this will be brief. Given:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #222222;">printf</span><span style="color: #000000;">(</span>TYPES<span style="color: #000000;">(</span>arr<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, var<span style="color: #000000;">)</span>;</div></div></pre>
+</div>We want:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"ai"</span>, arr, var<span style="color: #000000;">)</span>;</div></div></pre>
+</div>And vastly harder, given:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #222222;">printf</span><span style="color: #000000;">(</span>TYPES<span style="color: #000000;">(</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div>We want:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">""</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div>Again recall that macros are not evaluated twice once they have failed to match. If we do:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:87px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define A:B(%0) %0</span><br><span style="color: #2222AA;">#define C B</span><br><br><span style="color: #000000;">A</span><span style="color: #000000;">:</span>C<span style="color: #000000;">(</span><span style="color: #000066;">"hi"</span><span style="color: #000000;">)</span></div></div></pre>
+</div>The output will NOT be:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #000066;">"hi"</span></div></div></pre>
+</div>Because "C" is converted to "B" AFTER "A" has been evaluated and the pre-processor will not return to those older characters which previously failed to match. This macro, even for basic detection, is hard. These are the requirements:<ul><li>Detect 0 parameters and not add extra commas.</li>
+<li>Detect the CURRENT parameter uniquely.</li>
+<li>Detect the end of the parameter list.</li>
+<li>Add all parameter types to the type string.</li>
+<li>Strings may NOT have tags in the middle - only at the start.</li>
+</ul>These are the solutions I use:<ul><li>Add an explicit tag for this case, detecting commas with nothing in between.</li>
+<li>The current parameter has an unknown number of commas before it, so we need some unique symbol. I use "|||" as it isn't used anywhere else in the language.</li>
+<li>If the current parameter has "|||" either side, then the end will look like "||||||" (no parameter between the two sets of three).</li>
+<li>As in the example above.</li>
+<li>This just means we need to pile all the tags up in the same place (and pile up they will)...</li>
+</ul>From this list the code is a bit of a leap, but it is also fairly standard now - it took a while to perfect. I have also switched to "TYPES:%0)" - that's not a typo as you'll see later:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:391px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// There are TWO extra commas here.</span><br><span style="color: #2222AA;">#define TYPES:%0) _:TYPE_N:TYPE_M:##%0,,)</span><br><br><span style="color: #228822;">// Detect no parameters - nothing between the commas.</span><br><span style="color: #2222AA;">#define TYPE_N:TYPE_M:##,,) "")</span><br><br><span style="color: #228822;">// Detect one or more parameters - "%3" may CONTAIN commas (see earlier posts).</span><br><span style="color: #228822;">// Also select the CURRENT parameter.</span><br><span style="color: #2222AA;">#define TYPE_M:##%2,%3) TYPE_0:TYPE_1:TYPE_E:##|||%2|||%3)</span><br><br><span style="color: #228822;">// This macro detects an array surrounded by "|||"s as detailed above. &nbsp;It also</span><br><span style="color: #228822;">// extracts all the text between the "#"s ("%0") and any previously parsed</span><br><span style="color: #228822;">// parameters ("%1"). &nbsp;The output is the same string with an additional "a",</span><br><span style="color: #228822;">// followed by the existing variables, then "%2" without the square brackets.</span><br><span style="color: #228822;">// Finally we select the next single parameter.</span><br><span style="color: #2222AA;">#define TYPE_0:TYPE_1:TYPE_E:#%0#%1|||%2[]|||%3,%4) TYPE_0:TYPE_1:TYPE_E:#%0a#%1,%2|||%3|||%4)</span><br><br><span style="color: #228822;">// This code detects normal variables. &nbsp;As you can see, the output is now fairly</span><br><span style="color: #228822;">// standard.</span><br><span style="color: #2222AA;">#define TYPE_1:TYPE_E:#%0#%1|||%2|||%3,%4) TYPE_0:TYPE_1:TYPE_E:#%0i#%1,%2|||%3|||%4)</span><br><br><span style="color: #228822;">// Finally, this code detects the end of the parameters.</span><br><span style="color: #2222AA;">#define TYPE_E:#%0#%1||||||%3) #%0#%1)</span></div></div></pre>
+</div>Now analysing the code above may take a few reads through, but something may stand out - surely detecting "||||||" should come BEFORE detecting "|||%2|||"? "%2" can legally match an empty string, so will be "" at the end and we will get the wrong macro? This is not the case due to the two extra commas initially added, as best shown by a step-by-step expansion:<br>
+<br>
+0 parameters:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:119px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #000000;">TYPES</span><span style="color: #000000;">:</span><span style="color: #000000;">)</span><br><span style="color: #228822;">// Apply "TYPES".</span><br><span style="color: #000000;">_</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_N</span><span style="color: #000000;">:</span>TYPE_M<span style="color: #000000;">:</span><span style="color: #2222AA;">##,,)</span><br><span style="color: #228822;">// Apply "TYPE_N".</span><br>_<span style="color: #000000;">:</span><span style="color: #000066;">""</span><span style="color: #000000;">)</span><br><span style="color: #228822;">// Done.</span></div></div></pre>
+</div>1 parameter:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:231px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #000000;">TYPES</span><span style="color: #000000;">:</span>arr<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><br><span style="color: #228822;">// Apply "TYPES".</span><br><span style="color: #000000;">_</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_N</span><span style="color: #000000;">:</span>TYPE_M<span style="color: #000000;">:</span><span style="color: #2222AA;">##arr[],,)</span><br><span style="color: #228822;">// Fail "TYPE_N".</span><br><span style="color: #228822;">// Apply "TYPE_M" (notice that "%3" is only ONE comma - the other was matched).</span><br><span style="color: #000000;">_</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_N</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_0</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_1</span><span style="color: #000000;">:</span>TYPE_E<span style="color: #000000;">:</span><span style="color: #2222AA;">##|||arr[]|||,)</span><br><span style="color: #228822;">// Apply "TYPE_0" (one comma consumed, zero remain).</span><br><span style="color: #000000;">_</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_N</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_0</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_1</span><span style="color: #000000;">:</span>TYPE_E<span style="color: #000000;">:</span><span style="color: #2222AA;">#a#,arr||||||)</span><br><span style="color: #228822;">// Fail "TYPE_0".</span><br><span style="color: #228822;">// Fail "TYPE_1" (no required comma to match).</span><br><span style="color: #228822;">// Apply "TYPE_E".</span><br><span style="color: #000000;">_</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_N</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_0</span><span style="color: #000000;">:</span>TYPE_1<span style="color: #000000;">:</span><span style="color: #2222AA;">#a#,arr)</span><br><span style="color: #228822;">// Done.</span></div></div></pre>
+</div>3 parameters:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:311px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #000000;">TYPES</span><span style="color: #000000;">:</span>arr<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, var, other<span style="color: #000000;">)</span><br><span style="color: #228822;">// Apply "TYPES".</span><br><span style="color: #000000;">_</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_N</span><span style="color: #000000;">:</span>TYPE_M<span style="color: #000000;">:</span><span style="color: #2222AA;">##arr[], var, other,,)</span><br><span style="color: #228822;">// Fail "TYPE_N".</span><br><span style="color: #228822;">// Apply "TYPE_M".</span><br><span style="color: #000000;">_</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_N</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_0</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_1</span><span style="color: #000000;">:</span>TYPE_E<span style="color: #000000;">:</span><span style="color: #2222AA;">##|||arr[]||| var, other,,)</span><br><span style="color: #228822;">// Apply "TYPE_0".</span><br><span style="color: #000000;">_</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_N</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_0</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_1</span><span style="color: #000000;">:</span>TYPE_E<span style="color: #000000;">:</span><span style="color: #2222AA;">#a#,arr||| var||| other,,)</span><br><span style="color: #228822;">// Fail "TYPE_0".</span><br><span style="color: #228822;">// Apply "TYPE_1".</span><br><span style="color: #000000;">_</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_N</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_0</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_0</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_1</span><span style="color: #000000;">:</span>TYPE_E<span style="color: #000000;">:</span><span style="color: #2222AA;">#ai#,arr, var||| other|||,)</span><br><span style="color: #228822;">// Fail "TYPE_0".</span><br><span style="color: #228822;">// Apply "TYPE_1".</span><br><span style="color: #000000;">_</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_N</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_0</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_0</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_0</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_1</span><span style="color: #000000;">:</span>TYPE_E<span style="color: #000000;">:</span><span style="color: #2222AA;">#aii#,arr, var, other||||||)</span><br><span style="color: #228822;">// Fail "TYPE_0".</span><br><span style="color: #228822;">// Fail "TYPE_1".</span><br><span style="color: #000000;">_</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_N</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_0</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_0</span><span style="color: #000000;">:</span><span style="color: #000000;">TYPE_0</span><span style="color: #000000;">:</span>TYPE_1<span style="color: #000000;">:</span><span style="color: #2222AA;">#aii#,arr, var, other)</span><br><span style="color: #228822;">// Done.</span></div></div></pre>
+</div>I said tags would pile up - every time a match fails a tag gets left behind. For this reason code inside YSI uses tag macros with names like "@Ya:" to keep the number of letters as small as possible to avoid line-length limits as much as possible.<br>
+<br>
+<font size="5"><font color="green"><b><u>More Parameters</u></b></font></font><br>
+<br>
+So far this code supports arrays and variables, but we want strings and floats too. To the compiler strings and arrays look the same, so we need to tell them apart. Additionaly, arrays MUST be followed by their length in "CallRemoteFunction", strings don't need to be. The convention in YSI to solve this is to use "string:" before all strings:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:503px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// We don't ACTUALLY want parameters to have this string, it is just used to</span><br><span style="color: #228822;">// detect strings not arrays. &nbsp;Remove it in all other cases.</span><br><span style="color: #2222AA;">#define string:</span><br><br><span style="color: #2222AA;">#define TYPES:%0) _:TYPE_N:TYPE_M:##%0,,)</span><br><span style="color: #2222AA;">#define TYPE_N:TYPE_M:##,,) "")</span><br><br><span style="color: #228822;">// Now we have to detect more types.</span><br><span style="color: #2222AA;">#define TYPE_M:##%2,%3) TYPE_0:TYPE_1:TYPE_E:##|||%2|||%3)</span><br><br><span style="color: #228822;">// What type of array is this?</span><br><span style="color: #2222AA;">#define TYPE_0:TYPE_1:TYPE_E:#%0#%1|||%2[]|||%3,%4) TYPE_0a:TYPE_0b:#%0#%1|||%2|||%3,%4)</span><br><br><span style="color: #228822;">// String.</span><br><span style="color: #2222AA;">#define TYPE_0a:TYPE_0b:#%0#%1|||string:%2|||%3,%4) TYPE_0:TYPE_1:TYPE_E:#%0s#%1,%2|||%3|||%4)</span><br><br><span style="color: #228822;">// Other. &nbsp;Note parameter "%5" to ENSURE that there is AT LEAST one more</span><br><span style="color: #228822;">// parameter after the array to contain the length. &nbsp;Will give an error if it is</span><br><span style="color: #228822;">// not a variable because we do not strip the "[]"s. &nbsp;We add TWO parameters here</span><br><span style="color: #228822;">// instead of 1 everywhere else.</span><br><span style="color: #2222AA;">#define TYPE_0b:#%0#%1|||%2|||%3,%4,%5) TYPE_0:TYPE_1:TYPE_E:#%0ai#%1,%2,%3|||%4|||%5)</span><br><br><span style="color: #228822;">// What type of variable is this:</span><br><span style="color: #2222AA;">#define TYPE_1:TYPE_E:#%0#%1|||%2|||%3,%4) TYPE_1a:TYPE_1b:#%0#%1|||%2|||%3,%4)</span><br><br><span style="color: #228822;">// Tagged (has ":"), we can still use "i" - trust me.</span><br><span style="color: #2222AA;">#define TYPE_1a:TYPE_1b:#%0#%1|||%6:%2|||%3,%4) TYPE_0:TYPE_1:TYPE_E:#%0i#%1,_:%2|||%3|||%4)</span><br><br><span style="color: #228822;">// Normal.</span><br><span style="color: #2222AA;">#define TYPE_1b:#%0#%1|||%2|||%3,%4) TYPE_0:TYPE_1:TYPE_E:#%0i#%1,%2|||%3|||%4)</span><br><br><span style="color: #228822;">// End.</span><br><span style="color: #2222AA;">#define TYPE_E:#%0#%1||||||%3) #%0#%1)</span></div></div></pre>
+</div>Now to use this macro we do (you see here why we changed the "TYPES:%0)" macro from "()" to "<img alt="" border="0" class="inlineimg" src="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/smile.png" title="Smiley">":<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define remote%0(%1) stock %0_Call(%1){CallRemoteFunction(#%0, TYPES:%1);}forward %0(%1);public %0(%1)</span></div></div></pre>
+</div>Now there is just one remaining snag - spacing! For one thing, the macro MUST be called as "remote Func(params)". This means that "%0" ALWAYS has a space at the start and MUST NOT have a space at the end. For another thing, all the other parameters MAY have spaces before and after that need ignoring. With this the final version is:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:487px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define string:</span><br><br><span style="color: #2222AA;">#define TYPES:%0) _:TYPE_N:TYPE_M:##%0,,)</span><br><span style="color: #2222AA;">#define TYPE_N:TYPE_M:##,,) "")</span><br><br><span style="color: #2222AA;">#define TYPE_M:##%2,%3) TYPE_0:TYPE_1:TYPE_E:##|||%2|||%3)</span><br><br><span style="color: #228822;">// [].</span><br><span style="color: #2222AA;">#define TYPE_0:TYPE_1:TYPE_E:#%0#%1|||%2[%8]%9|||%3,%4) TYPE_0a:TYPE_0b:#%0#%1|||%2|||%3,%4)</span><br><br><span style="color: #228822;">// String.</span><br><span style="color: #2222AA;">#define TYPE_0a:TYPE_0b:#%0#%1|||%9string:%2|||%3,%4) TYPE_0:TYPE_1:TYPE_E:#%0s#%1,%2|||%3|||%4)</span><br><br><span style="color: #228822;">// Other.</span><br><span style="color: #2222AA;">#define TYPE_0b:#%0#%1|||%2|||%3,%4,%5) TYPE_0:TYPE_1:TYPE_E:#%0ai#%1,%2,%3|||%4|||%5)</span><br><br><span style="color: #228822;">// Variable.</span><br><span style="color: #2222AA;">#define TYPE_1:TYPE_E:#%0#%1|||%2|||%3,%4) TYPE_1a:TYPE_1b:#%0#%1|||%2|||%3,%4)</span><br><br><span style="color: #228822;">// Tag.</span><br><span style="color: #2222AA;">#define TYPE_1a:TYPE_1b:#%0#%1|||%6:%2|||%3,%4) TYPE_0:TYPE_1:TYPE_E:#%0i#%1,_:%2|||%3|||%4)</span><br><br><span style="color: #228822;">// _.</span><br><span style="color: #2222AA;">#define TYPE_1b:#%0#%1|||%2|||%3,%4) TYPE_0:TYPE_1:TYPE_E:#%0i#%1,%2|||%3|||%4)</span><br><br><span style="color: #228822;">// End.</span><br><span style="color: #2222AA;">#define TYPE_E:#%0#%1||||||%3) #%0#%1)</span><br><br><span style="color: #2222AA;">#define remote%0(%1) stock%0_Call(%1){CallRemoteFunction(#%0, TYPES:%1);}forward%0(%1);public%0(%1)</span></div></div></pre>
+</div><font size="5"><font color="green"><b><u>Challenge</u></b></font></font><br>
+<br>
+Slice wrote a new version of "CallLocalFunction":<br>
+<br>
+<a href="http://forum.sa-mp.com/showthread.ph...on#post1642880" target="_blank">http://forum.sa-mp.com/showthread.ph...on#post1642880</a><br>
+<br>
+See if you can add new elements in to the code above to detect "&amp;" and generate the "v" parameter for it. Hint "TYPE_0:TYPE_1:TYPE_2:TYPE_E".
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3431039">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=55934" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=570953&amp;replyto=3431039" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic -->
+	</div>
+</div>
+	
+			<div class="tfoot row">
+				<div class="col-sm-6">
+					<strong>« <a href="https://sampforum.blast.hk/showthread.php?tid=570953&amp;action=nextoldest">Next Oldest</a> | <a href="https://sampforum.blast.hk/showthread.php?tid=570953&amp;action=nextnewest">Next Newest</a> »</strong>
+				</div>
+				<div class="col-sm-6"><!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://sampforum.blast.hk/search.php" method="post">
+			<input type="hidden" name="action" value="thread">
+			<input type="hidden" name="tid" value="570953">
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == &#39;Enter Keywords&#39;) { this.value = &#39;&#39;; }" onblur="if(this.value==&#39;&#39;) { this.value=&#39;Enter Keywords&#39;; }" class="textbox" size="25">
+			<input type="submit" class="button" value="Search Thread">
+		</form>
+	</div>
+<!-- end: showthread_search --></div>
+			</div>
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	
+	
+	
+	<br>
+	<div class="float_left">
+		<ul class="thread_tools">
+			<!-- start: showthread_printthread -->
+<li class="printable"><a href="https://sampforum.blast.hk/printthread.php?tid=570953">View a Printable Version</a></li>
+<!-- end: showthread_printthread -->
+			
+			
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://sampforum.blast.hk/forumdisplay.php" method="get">
+<span class="smalltext">Forum Jump:</span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="3"> SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="74">-- News and Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13">-- General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="16">-- Client Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20">-- Bug Reports</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21">-- Screenshots and Videos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6"> SA-MP Server</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="19">-- Server Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22">-- Server Advertisements</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="8"> SA-MP Scripting and Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12">-- Scripting Help</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="70" selected="selected">---- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="84">---- Discussion</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="89">---- Help Archive</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="71">-- Gamemode Scripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="17">-- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="83">---- Includes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="82">---- Tools and Files </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="64">---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="18">-- Plugin Development</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="92"> SA-MP DL Edition</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="90">-- SA-MP 0.3.DL</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="94">---- Model Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="7"> Other</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23">-- Everything and Nothing</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9"> Non-English</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33">-- Languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31">---- Nederlands/Dutch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="76">------ Scripting Showroom en Discussie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="87">------ Off topic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29">---- Español/Spanish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="59">------ Lanzamientos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30">---- Français/French</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="81">------ Showroom</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32">---- Русский/Russian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="66">------ Релизы/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34">---- Português/Portuguese</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56">------ Lançamentos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40">---- Română/Romanian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="77">------ Salonul Scripturilor</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="88">---- Archive</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear">
+	<!-- start: showthread_usersbrowsing -->
+<br>
+<span class="smalltext">Users browsing this thread: 1 Guest(s)</span>
+<br>
+<!-- end: showthread_usersbrowsing -->
+	<!-- start: footer -->
+<div style="clear:both"><div style="padding-top: 10px"><!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=23">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav --></div></div>
+</main>
+
+<div class="blankspace"></div>
+
+<footer id="footer">
+	<div class="container">
+    <div class="row">
+		
+        <!--<div class="col-sm-4 foot">
+			<h3>About Our Community</h3>
+			<p>Discuss about various topics in our community and have fun while doing so. Welcome to SA-MP Forums Archive</p>
+			
+		</div>		
+		
+
+		<div class="col-sm-4 foot">
+			<h3>Quick Links</h3>
+			<p>
+
+ 				<a href="https://sampforum.blast.hk" class="btn btn-success" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Forum Home"><i class="fa fa-home"></i></a>
+				
+				<a href="https://sampforum.blast.hk/archive/index.php?thread-570953.html" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Lite (Archive) Mode"><i class="fa fa-archive"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Become a Fan"><i class="fa fa-facebook-square"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-info" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Follow Us"><i class="fa fa-twitter"></i></a>
+				
+				<a href="https://sampforum.blast.hk/misc.php?action=syndication" class="btn btn-warning" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="RSS Syndication"><i class="fa fa-rss"></i></a>
+				<br/>
+				<a href="misc.php?action=markread&amp;my_post_key=941ba5eae2c9c834bbcecb6bbdc42918" class="btn btn-danger" style="color: #fff; margin-top:10px" data-toggle="tooltip" data-placement="bottom" data-original-title="Mark all forums read"><i class="fa fa-book"></i> Mark all forums read</a><br /><br />
+				
+				
+				</p>
+
+		</div>
+		
+		<div class="col-sm-4 foot">
+			
+			 <h3>Reach Us</h3>
+			 
+<p><a href="contact.php" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Contact Us"><i class="fa fa-envelope"></i> Contact Us</a>&nbsp;
+			
+			<a href="showteam.php" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Meet Our Team"><i class="fa fa-users"></i> Forum Team</a></p>
+		</div>-->
+		
+		
+		
+		<!-- The following piece of code allows MyBB to run scheduled tasks. DO NOT REMOVE --><!-- start: task_image -->
+<img src="./[Tutorial] PAWN Pre-Processor - Case study - Part 6_7_files/task.php" height="1" alt="">
+<!-- end: task_image --><!-- End task image code -->
+		</div>
+	
+	</div>
+
+	
+<div id="copyright">
+	<div class="container">
+			<div class="pull-right"><!-- start: footer_languageselect -->
+<div class="language">
+<form method="POST" action="https://sampforum.blast.hk/showthread.php" id="lang_select">
+	<input type="hidden" name="tid" value="570953">
+
+	<input type="hidden" name="my_post_key" value="941ba5eae2c9c834bbcecb6bbdc42918">
+	<select name="language" onchange="MyBB.changeLanguage();">
+		<optgroup label="Quick Language Select">
+			<!-- start: footer_languageselect_option -->
+<option value="english" selected="selected">&nbsp;&nbsp;&nbsp;English (American)</option>
+<!-- end: footer_languageselect_option --><!-- start: footer_languageselect_option -->
+<option value="russian">&nbsp;&nbsp;&nbsp;Russian</option>
+<!-- end: footer_languageselect_option -->
+		</optgroup>
+	</select>
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_languageselect --></div>
+			<div class="pull-left">
+				<!-- MyBB is free software developed and maintained by a volunteer community.
+					It would be much appreciated by the MyBB Group if you left the full copyright and "powered by" notice intact,
+					to show your support for MyBB.  If you choose to remove or modify the copyright below,
+					you may be refused support on the MyBB Community Forums.
+
+					This is free software, support us and we'll support you. -->
+				Powered By <a href="http://www.mybb.com/" target="_blank" rel="noopener" style="color: #fff;">MyBB</a>. <a href="https://eree.in/" title="EREE" target="_blank" rel="noopener" style="color: #fff;">Crafted by EREE</a> and <a href="https://forum.androidbg.com/" title="AndroidBG" target="_blank" rel="noopener" style="color: #fff;">Android BG</a>. Also powered by <a href="https://www.blast.hk/"><b>blast.hk</b></a><!-- End powered by -->
+				
+			</div>
+	</div>
+
+</div>
+
+</footer>
+
+<!-- Fix for MentionMe popup window position -->
+<script type="text/javascript">
+	var MentionMe = (function(m) {
+	m.customSCEditorContainerOffset = {
+		left: 0,
+		top: 2,
+	};
+
+	return m;
+})(MentionMe || {});
+</script>
+<!-- End Fix for MentionMe popup window position -->
+<!-- end: footer -->
+	<script type="text/javascript">
+		var thread_deleted = "0";
+		if(thread_deleted == "1")
+		{
+			$("#quick_reply_form, .new_reply_button, .thread_tools, .inline_rating").hide();
+			$("#moderator_options_selector option.option_mirage").attr("disabled","disabled");
+		}
+	</script>
+
+
+<!-- end: showthread --><script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>

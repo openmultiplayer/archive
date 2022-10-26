@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://sampforum.blast.hk/showthread.php?tid=586886 -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>[Tutorial] Tips on hiring staff</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="https://sampforum.blast.hk/syndication.php">
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="https://sampforum.blast.hk/syndication.php?type=atom1.0">
+<link rel="shortcut icon" href="https://sampforum.blast.hk/favicon.ico">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript" src="./[Tutorial] Tips on hiring staff_files/jquery.js"></script><style>undefined</style>
+<script type="text/javascript" src="./[Tutorial] Tips on hiring staff_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] Tips on hiring staff_files/jquery.plugins.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] Tips on hiring staff_files/general.js"></script>
+<script type="text/javascript" src="./[Tutorial] Tips on hiring staff_files/tooltip.js"></script>
+
+<link rel="stylesheet" href="./[Tutorial] Tips on hiring staff_files/bootstrap.min.css">
+<link href="./[Tutorial] Tips on hiring staff_files/css" rel="stylesheet" type="text/css">
+<!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" / -->
+<link rel="stylesheet" href="./[Tutorial] Tips on hiring staff_files/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Tips on hiring staff_files/global.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Tips on hiring staff_files/css3.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Tips on hiring staff_files/responsive.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Tips on hiring staff_files/star_ratings.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Tips on hiring staff_files/showthread.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Tips on hiring staff_files/grey.css">
+
+
+
+
+<script type="text/javascript">
+jQuery(document).on('click', '.panel-heading span.clickable', function(e){
+    var jQuerythis = jQuery(this);
+	if(!jQuerythis.hasClass('panel-collapsed')) {
+		jQuerythis.parents('.panel').find('.panel-body').slideUp();
+		jQuerythis.addClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+	} else {
+		jQuerythis.parents('.panel').find('.panel-body').slideDown();
+		jQuerythis.removeClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+	}
+})
+</script>
+
+
+
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+	lang.confirm_title = "Please Confirm";
+	lang.expcol_collapse = "[-]";
+	lang.expcol_expand = "[+]";
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+	
+	var templates = {
+		modal: '<div class=\"modal\">\
+	<div style=\"overflow-y: auto; max-height: 400px;\">\
+		<table border=\"0\" cellspacing=\"0\" cellpadding=\"5\" class=\"tborder\">\
+			<tr>\
+				<td class=\"thead\"><strong>__title__</strong></td>\
+			</tr>\
+			<tr>\
+				<td class=\"trow1\">__message__</td>\
+			</tr>\
+			<tr>\
+				<td class=\"tfoot\">\
+					<div style=\"text-align: center\" class=\"modal_buttons\">__buttons__</div>\
+				</td>\
+			</tr>\
+		</table>\
+	</div>\
+</div>',
+		modal_button: '<input type=\"submit\" class=\"button\" value=\"__title__\"/>&nbsp;'
+	};
+	
+	var cookieSecureFlag = "0";
+	var cookieDomain = ".sampforum.blast.hk";
+	var cookiePath = "/";
+	var cookiePrefix = "";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "2220ae0a21c853e6459922e7a63ded4d";
+	var rootpath = "https://sampforum.blast.hk";
+	var imagepath = "https://sampforum.blast.hk/images/bootbb";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "https://sampforum.blast.hk/images/bootbb/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+
+<!-- Make videos responsive - https://github.com/davatron5000/FitVids.js (additional video sites added for MyBB) -->
+<script type="text/javascript" src="./[Tutorial] Tips on hiring staff_files/jquery.fitvids.js"></script>
+<script>
+	$(document).ready(function(){
+		// Target the iframe parent div
+		var bvc = $(".bootbb-video-container");
+		//bvc.css("max-width", "800px");
+		bvc.fitVids();
+	});
+</script>
+<!-- end: headerinclude -->
+<script>
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script src="./[Tutorial] Tips on hiring staff_files/report.js"></script>
+<script src="./[Tutorial] Tips on hiring staff_files/jeditable.min.js"></script>
+<script src="./[Tutorial] Tips on hiring staff_files/thread.js"></script>
+<meta name="description" content="Everyone has different ways of hiring their own staff members. Some people hand pick their staff, some make them apply and some test people straight away when they ask for admin, which is an insanely">
+<link rel="canonical" href="https://sampforum.blast.hk/showthread.php?tid=586886">
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./[Tutorial] Tips on hiring staff_files/css2"></head>
+<body>
+	<!-- start: header -->
+<header>
+<div class="navbar navbar-default">
+     <div class="container">
+          <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="Toggle navigation">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span> 
+               </button>
+			  
+			  <div class="navbar-header scaleimages">
+				  <!--<a class="navbar-brand" href="https://sampforum.blast.hk">BootBB</a>-->
+				  <a class="" href="https://sampforum.blast.hk/"><img src="./[Tutorial] Tips on hiring staff_files/logo_forum.gif"></a>
+			  
+			  </div>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+			  <ul class="nav navbar-nav navbar-right">
+				  <!--<li id="nav-portal"><a href="https://sampforum.blast.hk/portal.php"><i class="fa fa-bell"></i> Portal</a></li>-->
+               <li id="nav-forums"><a href="https://sampforum.blast.hk/index.php"><i class="fa fa-group"></i> Forum</a></li>
+				<!--<li><a href="https://sampforum.blast.hk/search.php?action=getnew"><i class="fa fa-comment"></i> New Posts</a></li>
+            	<li><a href="https://sampforum.blast.hk/search.php?action=getdaily"><i class="fa fa-comments"></i> Today's Posts</a></li>-->
+               <li id="nav-search"><a href="https://sampforum.blast.hk/search.php"><i class="fa fa-search"></i> Search</a></li>
+               <li id="nav-member"><a href="https://sampforum.blast.hk/memberlist.php"><i class="fa fa-users"></i> Members</a></li>
+               <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+				  
+<!--<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cubes"></i> Misc <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			  <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+			  <li class="divider"></li>
+			  <li id="nav-calendar"><a href="https://sampforum.blast.hk/calendar.php"><i class="fa fa-calendar"></i> Calendar</a></li>
+          </ul>
+</li> -->
+</ul>
+  
+          </div>
+     </div>
+</div>
+</header>
+
+
+<div id="container">
+	<a name="top" id="top"></a>
+		<div id="header">
+			<div id="panel">
+				<div class="upper">
+					<div class="container">
+
+						<!-- start: header_welcomeblock_guest -->
+<!--<span><a href="https://sampforum.blast.hk/member.php?action=login" onclick="$('#quick_login').modal({ fadeDuration: 250, keepelement: true }); return false;" class="login btn btn-danger" style="color: #fff;"><i class="fa fa-sign-in"></i> Login</a> <a href="https://sampforum.blast.hk/member.php?action=register" class="register btn btn-success" style="color: #fff;"><i class="fa fa-user-plus"></i> Register</a></span>-->
+
+<span class="float_right hidden-xs">Hello There, Guest!</span>
+
+<br class="clearfix">
+	
+
+				<div class="modal" id="quick_login" style="display: none;">
+					<form method="post" action="https://sampforum.blast.hk/member.php">
+						<input name="my_post_key" type="hidden" value="2220ae0a21c853e6459922e7a63ded4d">
+						<input name="action" type="hidden" value="do_login">
+						<input name="url" type="hidden" value="https://sampforum.blast.hk/showthread.php?tid=586886">
+						<input name="quick_login" type="hidden" value="1">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tborder">
+							<tbody><tr>
+								<td class="thead" colspan="2"><strong>Login</strong></td>
+							</tr>
+							<tr>
+								<td class="trow1" width="25%"><strong>Username:</strong></td>
+								<td class="trow1"><input name="quick_username" id="quick_login_username" type="text" value="" class="textbox initial_focus"></td>
+							</tr>
+							<tr>
+								<td class="trow2"><strong>Password:</strong></td>
+								<td class="trow2">
+									<input name="quick_password" id="quick_login_password" type="password" value="" class="textbox"> <a href="https://sampforum.blast.hk/member.php?action=lostpw" class="lost_password">Lost Password?</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow1">&nbsp;</td>
+								<td class="trow1 remember_me">
+									<input name="quick_remember" id="quick_login_remember" type="checkbox" value="yes" class="checkbox" checked="checked">
+									<label for="quick_login_remember">Remember me</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow2" colspan="2">
+									<div align="center"><input name="submit" type="submit" class="button" value="Login"></div>
+								</td>
+							</tr>
+						</tbody></table>
+					</form>
+				</div>
+				<script type="text/javascript">
+					$("#quick_login input[name='url']").val($(location).attr('href'));
+				</script>
+<!-- end: header_welcomeblock_guest -->
+					
+					</div>
+			</div>
+			</div>
+	</div>
+			</div>
+               
+				   
+                <main class="container">
+				<br>
+                 <!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=19">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav -->
+				
+				
+				
+				
+				
+				
+<!-- end: header -->
+	
+	
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	<div class="tborder tfixed clear">
+		<div class="thead">
+				<div class="float_right">
+					<span class="smalltext"><a href="https://sampforum.blast.hk/showthread.php?mode=threaded&amp;tid=586886&amp;pid=3560532#pid3560532">Threaded Mode</a></span>
+				</div>
+				
+					[Tutorial] Tips on hiring staff
+			</div>
+	</div>
+<div id="posts_container">
+	<div id="posts">
+		<!-- start: postbit_classic -->
+
+<a id="pid3560532"></a>
+<div class="post classic " style="" id="post_3560532">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=209316"><img src="./[Tutorial] Tips on hiring staff_files/209316.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=209316">Gazzy</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Big Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 165<br>
+	Threads: 18<br>
+	Joined: Jul 2013
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=209316"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=586886&amp;pid=3560532#pid3560532" title="Tips on hiring staff">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 1 by Gazzy" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">26.08.2015, 03:53 <span class="post_edit" id="edited_by_3560532"><!-- start: postbit_editedby -->
+<div class="edited_post postbit_edited postbit_editedby postbit_editedpost">(<!-- start: postbit_editedby_editreason -->
+ <em>Last edited by Gazzy; 29/08/2015 at 01:47 PM.</em>
+<!-- end: postbit_editedby_editreason -->)</div>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3560532">
+		Everyone has different ways of hiring their own staff members. Some people hand pick their staff, some make them apply and some test people straight away when they ask for admin, which is an insanely stupid thing to do. Making people apply would be the most straightforward way to hire the best staff for your server, although hand picking can be better but requires you to closely analyse the player and notice his skills, abilities, etc. If a new player joins and asks for admin, you should always tell them that they need to apply on forums of some sort. This will also show you whether they care enough about dedicating theirselves to being an admin on your server to make the effort of making an application. If a player asks to be tested in game, always reject their offer as this shows that they are what are known as power and admin hungry kids. A typical application format consists of a name, age, past experience, skills, time zone and how they can benefit you. Make sure you pick the questions to out in your format carefully as this is your chance to analyse your applicants successfully. You would not be able to analyse applicants with such precision if you simply tested them in game. Also, never make a promise to a player saying he will definitely be accepted if he applies, as this puts yourself in an extremely awkward position if the player turns out to have extremely bad grammar. You should always hire players that are fluent in your server's main language as players will leave if they see that your admins cannot speak the main server language fluently. If a player asks to be an admin as soon as he joins, tell him he must apply on the forums and don't allow him to try and encourage you to test him ingame. To summarise:<br>
+<ul><li>Never hire admin hungry kids</li>
+<li>Make people apply or hand pick your staff</li>
+<li>Always tell new people to apply for admin if they ask for it</li>
+<li>Always pick admins of different time zones so that you can have administrators administrating your server at all times</li>
+<li>Write your application format carefully</li>
+<li>Make sure your staff work for their ranks, don't just give ranks out to people for fun</li>
+<li>Never hire people who join and say stuff like "I can make your game mode unique" as they just want your script</li>
+</ul>
+Follow the tutorial and steps above and you'll soon have a great administrator team. If you are unsure of the skills you need to look for in admins, here are a few. Patience, friendliness, happiness to make people feel welcome, assertive to enforce rules correctly, mature to not abuse commands. These are only a few skills to look out for though.<br>
+<br>
+Thanks for reading my tutorial. I know it's not all fancy and colourful, but I just wanted to try and teach some server owners how to have a good staff team instead of 12 year old administrators.<br>
+<br>
+<br>
+<font size="6">Information about Co-Owners</font><br>
+An explanation of Co-Ownership is simple. They own and maintain the server with you, which requires more trust than anyone else on the server. If you are thinking of giving your Co-Owner the FTP VPS or Rcon details, you'll need to maintain a healthy and trustworthy relationship with them, which can only be built from the bottom up and not from some guy who claims to have been Head Admin on SARP or something. The only type of people who could possibly be a Co:Owner with you are people that have applied for admin status on your server or people that you have hand picked. Remember, you're trusting your Co-Owner with your server, which means you need a lot of trust in them. Co-Owners are not compulsory, and you can maintain your server without a Co-Owner at first with a low player base, so don't try and rush to get a Co-Owner at first as you will most likely end up getting just another power hungry kid that tried to manipulate you.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3560532">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=209316" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=586886&amp;replyto=3560532" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3560534"></a>
+<div class="post classic " style="" id="post_3560534">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=263294"><img src="./[Tutorial] Tips on hiring staff_files/263294.png" alt="" width="55" height="42"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=263294">Variable™</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 828<br>
+	Threads: 20<br>
+	Joined: Jul 2015
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=263294"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=586886&amp;pid=3560534#pid3560534" title="Re: Tips on hiring staff">#2</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 2 by Variable™" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">26.08.2015, 03:55 <span class="post_edit" id="edited_by_3560534"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3560534">
+		Good work <img alt="" border="0" class="inlineimg" src="./[Tutorial] Tips on hiring staff_files/smile.png" title="Smiley">
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3560534">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=263294" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=586886&amp;replyto=3560534" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3560535"></a>
+<div class="post classic " style="" id="post_3560535">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=209316"><img src="./[Tutorial] Tips on hiring staff_files/209316.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=209316">Gazzy</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Big Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 165<br>
+	Threads: 18<br>
+	Joined: Jul 2013
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=209316"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=586886&amp;pid=3560535#pid3560535" title="Re: Tips on hiring staff">#3</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 3 by Gazzy" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">26.08.2015, 03:56 <span class="post_edit" id="edited_by_3560535"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3560535">
+		Thank you for the feedback <img alt="" border="0" class="inlineimg" src="./[Tutorial] Tips on hiring staff_files/smile.png" title="Smiley">
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3560535">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=209316" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=586886&amp;replyto=3560535" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3560539"></a>
+<div class="post classic " style="" id="post_3560539">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=225495"><img src="./[Tutorial] Tips on hiring staff_files/225495.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=225495">Andre02</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 315<br>
+	Threads: 39<br>
+	Joined: Jan 2014
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=225495"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=586886&amp;pid=3560539#pid3560539" title="Re: Tips on hiring staff">#4</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 4 by Andre02" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">26.08.2015, 04:07 <span class="post_edit" id="edited_by_3560539"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3560539">
+		Nice one! <img alt="" border="0" class="inlineimg" src="./[Tutorial] Tips on hiring staff_files/smile.png" title="Smiley"><br>
+<br>
+We see more and more servers with power hungry admins nowadays, and it's sad!<br>
+<br>
+Hope this will help some people out here
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3560539">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=225495" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=586886&amp;replyto=3560539" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3560545"></a>
+<div class="post classic " style="" id="post_3560545">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=261971"><img src="./[Tutorial] Tips on hiring staff_files/261971.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=261971">jamesmith12</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 283<br>
+	Threads: 35<br>
+	Joined: Jul 2015
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=261971"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=586886&amp;pid=3560545#pid3560545" title="Re: Tips on hiring staff">#5</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 5 by jamesmith12" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">26.08.2015, 04:25 <span class="post_edit" id="edited_by_3560545"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3560545">
+		Thank you help me alot to choose better admins
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3560545">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=261971" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=586886&amp;replyto=3560545" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3560546"></a>
+<div class="post classic " style="" id="post_3560546">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=216736"><img src="./[Tutorial] Tips on hiring staff_files/216736.png" alt="" width="55" height="31"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=216736">DarkLored</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,045<br>
+	Threads: 150<br>
+	Joined: Oct 2013
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=216736"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=586886&amp;pid=3560546#pid3560546" title="Re: Tips on hiring staff">#6</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 6 by DarkLored" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">26.08.2015, 04:39 <span class="post_edit" id="edited_by_3560546"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3560546">
+		This is an amazing tutorial.<br>
+<br>
+Suggestion: You should also explain what co ownership means and how to pick a co owner, there's a big misconception in samp about co ownership.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3560546">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=216736" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=586886&amp;replyto=3560546" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3560547"></a>
+<div class="post classic " style="" id="post_3560547">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=209316"><img src="./[Tutorial] Tips on hiring staff_files/209316.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=209316">Gazzy</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Big Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 165<br>
+	Threads: 18<br>
+	Joined: Jul 2013
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=209316"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=586886&amp;pid=3560547#pid3560547" title="Re: Tips on hiring staff">#7</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 7 by Gazzy" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">26.08.2015, 04:42 <span class="post_edit" id="edited_by_3560547"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3560547">
+		Thanks for the feedback guys, added a section about Co-Owners
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3560547">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=209316" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=586886&amp;replyto=3560547" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3563166"></a>
+<div class="post classic " style="" id="post_3563166">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=259892"><img src="./[Tutorial] Tips on hiring staff_files/259892.png" alt="" width="55" height="44"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=259892">ahameed4755</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 217<br>
+	Threads: 38<br>
+	Joined: Jun 2015
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=259892"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=586886&amp;pid=3563166#pid3563166" title="Re: Tips on hiring staff">#8</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 8 by ahameed4755" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">29.08.2015, 11:20 <span class="post_edit" id="edited_by_3563166"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3563166">
+		nice!
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3563166">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=259892" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=586886&amp;replyto=3563166" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3563171"></a>
+<div class="post classic " style="" id="post_3563171">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=263429"><img src="./[Tutorial] Tips on hiring staff_files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=263429">UnforgiveNNN</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Little Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 41<br>
+	Threads: 7<br>
+	Joined: Jul 2015
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=263429"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=586886&amp;pid=3563171#pid3563171" title="Re: Tips on hiring staff">#9</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 9 by UnforgiveNNN" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">29.08.2015, 11:24 <span class="post_edit" id="edited_by_3563171"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3563171">
+		You are a fucking genius. I hope more owners will read this and understand they have to choose carefully.<br>
+<br>
+From my experience: Joined once on a dm/freeroam/stunt server and just started driving around ( at this time admin making a event ) he practically forced me join his/her event, by killing me with minigun everytime i took a car/bike. Told owner about it, and he replyed me: Next time join event, don't waste admin time. For god sake, who force you join event?<br>
+<br>
+<br>
++ rep.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3563171">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=263429" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=586886&amp;replyto=3563171" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3563172"></a>
+<div class="post classic " style="" id="post_3563172">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=245435"><img src="./[Tutorial] Tips on hiring staff_files/245435.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=245435">HydraHumza</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><img src="./[Tutorial] Tips on hiring staff_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 626<br>
+	Threads: 46<br>
+	Joined: Oct 2014
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=245435"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=586886&amp;pid=3563172#pid3563172" title="Re: Tips on hiring staff">#10</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 10 by HydraHumza" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">29.08.2015, 11:24 <span class="post_edit" id="edited_by_3563172"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3563172">
+		Nice tutorial man
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3563172">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=245435" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=586886&amp;replyto=3563172" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic -->
+	</div>
+</div>
+	
+			<div class="tfoot row">
+				<div class="col-sm-6">
+					<strong>« <a href="https://sampforum.blast.hk/showthread.php?tid=586886&amp;action=nextoldest">Next Oldest</a> | <a href="https://sampforum.blast.hk/showthread.php?tid=586886&amp;action=nextnewest">Next Newest</a> »</strong>
+				</div>
+				<div class="col-sm-6"><!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://sampforum.blast.hk/search.php" method="post">
+			<input type="hidden" name="action" value="thread">
+			<input type="hidden" name="tid" value="586886">
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == &#39;Enter Keywords&#39;) { this.value = &#39;&#39;; }" onblur="if(this.value==&#39;&#39;) { this.value=&#39;Enter Keywords&#39;; }" class="textbox" size="25">
+			<input type="submit" class="button" value="Search Thread">
+		</form>
+	</div>
+<!-- end: showthread_search --></div>
+			</div>
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	
+	
+	
+	<br>
+	<div class="float_left">
+		<ul class="thread_tools">
+			<!-- start: showthread_printthread -->
+<li class="printable"><a href="https://sampforum.blast.hk/printthread.php?tid=586886">View a Printable Version</a></li>
+<!-- end: showthread_printthread -->
+			
+			
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://sampforum.blast.hk/forumdisplay.php" method="get">
+<span class="smalltext">Forum Jump:</span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="3"> SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="74">-- News and Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13">-- General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="16">-- Client Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20">-- Bug Reports</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21">-- Screenshots and Videos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6"> SA-MP Server</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="19">-- Server Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22">-- Server Advertisements</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="8"> SA-MP Scripting and Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12">-- Scripting Help</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="70" selected="selected">---- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="84">---- Discussion</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="89">---- Help Archive</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="71">-- Gamemode Scripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="17">-- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="83">---- Includes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="82">---- Tools and Files </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="64">---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="18">-- Plugin Development</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="92"> SA-MP DL Edition</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="90">-- SA-MP 0.3.DL</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="94">---- Model Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="7"> Other</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23">-- Everything and Nothing</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9"> Non-English</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33">-- Languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31">---- Nederlands/Dutch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="76">------ Scripting Showroom en Discussie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="87">------ Off topic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29">---- Español/Spanish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="59">------ Lanzamientos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30">---- Français/French</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="81">------ Showroom</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32">---- Русский/Russian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="66">------ Релизы/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34">---- Português/Portuguese</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56">------ Lançamentos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40">---- Română/Romanian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="77">------ Salonul Scripturilor</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="88">---- Archive</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear">
+	<!-- start: showthread_usersbrowsing -->
+<br>
+<span class="smalltext">Users browsing this thread: 1 Guest(s)</span>
+<br>
+<!-- end: showthread_usersbrowsing -->
+	<!-- start: footer -->
+<div style="clear:both"><div style="padding-top: 10px"><!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=19">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav --></div></div>
+</main>
+
+<div class="blankspace"></div>
+
+<footer id="footer">
+	<div class="container">
+    <div class="row">
+		
+        <!--<div class="col-sm-4 foot">
+			<h3>About Our Community</h3>
+			<p>Discuss about various topics in our community and have fun while doing so. Welcome to SA-MP Forums Archive</p>
+			
+		</div>		
+		
+
+		<div class="col-sm-4 foot">
+			<h3>Quick Links</h3>
+			<p>
+
+ 				<a href="https://sampforum.blast.hk" class="btn btn-success" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Forum Home"><i class="fa fa-home"></i></a>
+				
+				<a href="https://sampforum.blast.hk/archive/index.php?thread-586886.html" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Lite (Archive) Mode"><i class="fa fa-archive"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Become a Fan"><i class="fa fa-facebook-square"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-info" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Follow Us"><i class="fa fa-twitter"></i></a>
+				
+				<a href="https://sampforum.blast.hk/misc.php?action=syndication" class="btn btn-warning" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="RSS Syndication"><i class="fa fa-rss"></i></a>
+				<br/>
+				<a href="misc.php?action=markread&amp;my_post_key=2220ae0a21c853e6459922e7a63ded4d" class="btn btn-danger" style="color: #fff; margin-top:10px" data-toggle="tooltip" data-placement="bottom" data-original-title="Mark all forums read"><i class="fa fa-book"></i> Mark all forums read</a><br /><br />
+				
+				
+				</p>
+
+		</div>
+		
+		<div class="col-sm-4 foot">
+			
+			 <h3>Reach Us</h3>
+			 
+<p><a href="contact.php" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Contact Us"><i class="fa fa-envelope"></i> Contact Us</a>&nbsp;
+			
+			<a href="showteam.php" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Meet Our Team"><i class="fa fa-users"></i> Forum Team</a></p>
+		</div>-->
+		
+		
+		
+		<!-- The following piece of code allows MyBB to run scheduled tasks. DO NOT REMOVE --><!-- start: task_image -->
+<img src="./[Tutorial] Tips on hiring staff_files/task.php" height="1" alt="">
+<!-- end: task_image --><!-- End task image code -->
+		</div>
+	
+	</div>
+
+	
+<div id="copyright">
+	<div class="container">
+			<div class="pull-right"><!-- start: footer_languageselect -->
+<div class="language">
+<form method="POST" action="https://sampforum.blast.hk/showthread.php" id="lang_select">
+	<input type="hidden" name="tid" value="586886">
+
+	<input type="hidden" name="my_post_key" value="2220ae0a21c853e6459922e7a63ded4d">
+	<select name="language" onchange="MyBB.changeLanguage();">
+		<optgroup label="Quick Language Select">
+			<!-- start: footer_languageselect_option -->
+<option value="english" selected="selected">&nbsp;&nbsp;&nbsp;English (American)</option>
+<!-- end: footer_languageselect_option --><!-- start: footer_languageselect_option -->
+<option value="russian">&nbsp;&nbsp;&nbsp;Russian</option>
+<!-- end: footer_languageselect_option -->
+		</optgroup>
+	</select>
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_languageselect --></div>
+			<div class="pull-left">
+				<!-- MyBB is free software developed and maintained by a volunteer community.
+					It would be much appreciated by the MyBB Group if you left the full copyright and "powered by" notice intact,
+					to show your support for MyBB.  If you choose to remove or modify the copyright below,
+					you may be refused support on the MyBB Community Forums.
+
+					This is free software, support us and we'll support you. -->
+				Powered By <a href="http://www.mybb.com/" target="_blank" rel="noopener" style="color: #fff;">MyBB</a>. <a href="https://eree.in/" title="EREE" target="_blank" rel="noopener" style="color: #fff;">Crafted by EREE</a> and <a href="https://forum.androidbg.com/" title="AndroidBG" target="_blank" rel="noopener" style="color: #fff;">Android BG</a>. Also powered by <a href="https://www.blast.hk/"><b>blast.hk</b></a><!-- End powered by -->
+				
+			</div>
+	</div>
+
+</div>
+
+</footer>
+
+<!-- Fix for MentionMe popup window position -->
+<script type="text/javascript">
+	var MentionMe = (function(m) {
+	m.customSCEditorContainerOffset = {
+		left: 0,
+		top: 2,
+	};
+
+	return m;
+})(MentionMe || {});
+</script>
+<!-- End Fix for MentionMe popup window position -->
+<!-- end: footer -->
+	<script type="text/javascript">
+		var thread_deleted = "0";
+		if(thread_deleted == "1")
+		{
+			$("#quick_reply_form, .new_reply_button, .thread_tools, .inline_rating").hide();
+			$("#moderator_options_selector option.option_mirage").attr("disabled","disabled");
+		}
+	</script>
+
+
+<!-- end: showthread --><script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>

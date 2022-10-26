@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://sampforum.blast.hk/showthread.php?tid=251335 -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>[Tutorial] How to make clean and readable code</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="https://sampforum.blast.hk/syndication.php">
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="https://sampforum.blast.hk/syndication.php?type=atom1.0">
+<link rel="shortcut icon" href="https://sampforum.blast.hk/favicon.ico">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript" src="./[Tutorial] How to make clean and readable code_files/jquery.js"></script><style>undefined</style>
+<script type="text/javascript" src="./[Tutorial] How to make clean and readable code_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] How to make clean and readable code_files/jquery.plugins.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] How to make clean and readable code_files/general.js"></script>
+<script type="text/javascript" src="./[Tutorial] How to make clean and readable code_files/tooltip.js"></script>
+
+<link rel="stylesheet" href="./[Tutorial] How to make clean and readable code_files/bootstrap.min.css">
+<link href="./[Tutorial] How to make clean and readable code_files/css" rel="stylesheet" type="text/css">
+<!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" / -->
+<link rel="stylesheet" href="./[Tutorial] How to make clean and readable code_files/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+
+<link type="text/css" rel="stylesheet" href="./[Tutorial] How to make clean and readable code_files/global.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] How to make clean and readable code_files/css3.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] How to make clean and readable code_files/responsive.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] How to make clean and readable code_files/star_ratings.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] How to make clean and readable code_files/showthread.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] How to make clean and readable code_files/grey.css">
+
+
+
+
+<script type="text/javascript">
+jQuery(document).on('click', '.panel-heading span.clickable', function(e){
+    var jQuerythis = jQuery(this);
+	if(!jQuerythis.hasClass('panel-collapsed')) {
+		jQuerythis.parents('.panel').find('.panel-body').slideUp();
+		jQuerythis.addClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+	} else {
+		jQuerythis.parents('.panel').find('.panel-body').slideDown();
+		jQuerythis.removeClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+	}
+})
+</script>
+
+
+
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+	lang.confirm_title = "Please Confirm";
+	lang.expcol_collapse = "[-]";
+	lang.expcol_expand = "[+]";
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+	
+	var templates = {
+		modal: '<div class=\"modal\">\
+	<div style=\"overflow-y: auto; max-height: 400px;\">\
+		<table border=\"0\" cellspacing=\"0\" cellpadding=\"5\" class=\"tborder\">\
+			<tr>\
+				<td class=\"thead\"><strong>__title__</strong></td>\
+			</tr>\
+			<tr>\
+				<td class=\"trow1\">__message__</td>\
+			</tr>\
+			<tr>\
+				<td class=\"tfoot\">\
+					<div style=\"text-align: center\" class=\"modal_buttons\">__buttons__</div>\
+				</td>\
+			</tr>\
+		</table>\
+	</div>\
+</div>',
+		modal_button: '<input type=\"submit\" class=\"button\" value=\"__title__\"/>&nbsp;'
+	};
+	
+	var cookieSecureFlag = "0";
+	var cookieDomain = ".sampforum.blast.hk";
+	var cookiePath = "/";
+	var cookiePrefix = "";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "2220ae0a21c853e6459922e7a63ded4d";
+	var rootpath = "https://sampforum.blast.hk";
+	var imagepath = "https://sampforum.blast.hk/images/bootbb";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "https://sampforum.blast.hk/images/bootbb/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+
+<!-- Make videos responsive - https://github.com/davatron5000/FitVids.js (additional video sites added for MyBB) -->
+<script type="text/javascript" src="./[Tutorial] How to make clean and readable code_files/jquery.fitvids.js"></script>
+<script>
+	$(document).ready(function(){
+		// Target the iframe parent div
+		var bvc = $(".bootbb-video-container");
+		//bvc.css("max-width", "800px");
+		bvc.fitVids();
+	});
+</script>
+<!-- end: headerinclude -->
+<script>
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script src="./[Tutorial] How to make clean and readable code_files/report.js"></script>
+<script src="./[Tutorial] How to make clean and readable code_files/jeditable.min.js"></script>
+<script src="./[Tutorial] How to make clean and readable code_files/thread.js"></script>
+<meta name="description" content="Introduction I&#39;d like to point out, that anything said below doesn&#39;t apply to experienced coders, since they all have developed their own programming style and perfectly know how to bring structure to">
+<link rel="canonical" href="https://sampforum.blast.hk/showthread.php?tid=251335">
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./[Tutorial] How to make clean and readable code_files/css2"></head>
+<body>
+	<!-- start: header -->
+<header>
+<div class="navbar navbar-default">
+     <div class="container">
+          <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="Toggle navigation">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span> 
+               </button>
+			  
+			  <div class="navbar-header scaleimages">
+				  <!--<a class="navbar-brand" href="https://sampforum.blast.hk">BootBB</a>-->
+				  <a class="" href="https://sampforum.blast.hk/"><img src="./[Tutorial] How to make clean and readable code_files/logo_forum.gif"></a>
+			  
+			  </div>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+			  <ul class="nav navbar-nav navbar-right">
+				  <!--<li id="nav-portal"><a href="https://sampforum.blast.hk/portal.php"><i class="fa fa-bell"></i> Portal</a></li>-->
+               <li id="nav-forums"><a href="https://sampforum.blast.hk/index.php"><i class="fa fa-group"></i> Forum</a></li>
+				<!--<li><a href="https://sampforum.blast.hk/search.php?action=getnew"><i class="fa fa-comment"></i> New Posts</a></li>
+            	<li><a href="https://sampforum.blast.hk/search.php?action=getdaily"><i class="fa fa-comments"></i> Today's Posts</a></li>-->
+               <li id="nav-search"><a href="https://sampforum.blast.hk/search.php"><i class="fa fa-search"></i> Search</a></li>
+               <li id="nav-member"><a href="https://sampforum.blast.hk/memberlist.php"><i class="fa fa-users"></i> Members</a></li>
+               <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+				  
+<!--<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cubes"></i> Misc <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			  <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+			  <li class="divider"></li>
+			  <li id="nav-calendar"><a href="https://sampforum.blast.hk/calendar.php"><i class="fa fa-calendar"></i> Calendar</a></li>
+          </ul>
+</li> -->
+</ul>
+  
+          </div>
+     </div>
+</div>
+</header>
+
+
+<div id="container">
+	<a name="top" id="top"></a>
+		<div id="header">
+			<div id="panel">
+				<div class="upper">
+					<div class="container">
+
+						<!-- start: header_welcomeblock_guest -->
+<!--<span><a href="https://sampforum.blast.hk/member.php?action=login" onclick="$('#quick_login').modal({ fadeDuration: 250, keepelement: true }); return false;" class="login btn btn-danger" style="color: #fff;"><i class="fa fa-sign-in"></i> Login</a> <a href="https://sampforum.blast.hk/member.php?action=register" class="register btn btn-success" style="color: #fff;"><i class="fa fa-user-plus"></i> Register</a></span>-->
+
+<span class="float_right hidden-xs">Hello There, Guest!</span>
+
+<br class="clearfix">
+	
+
+				<div class="modal" id="quick_login" style="display: none;">
+					<form method="post" action="https://sampforum.blast.hk/member.php">
+						<input name="my_post_key" type="hidden" value="2220ae0a21c853e6459922e7a63ded4d">
+						<input name="action" type="hidden" value="do_login">
+						<input name="url" type="hidden" value="https://sampforum.blast.hk/showthread.php?tid=251335">
+						<input name="quick_login" type="hidden" value="1">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tborder">
+							<tbody><tr>
+								<td class="thead" colspan="2"><strong>Login</strong></td>
+							</tr>
+							<tr>
+								<td class="trow1" width="25%"><strong>Username:</strong></td>
+								<td class="trow1"><input name="quick_username" id="quick_login_username" type="text" value="" class="textbox initial_focus"></td>
+							</tr>
+							<tr>
+								<td class="trow2"><strong>Password:</strong></td>
+								<td class="trow2">
+									<input name="quick_password" id="quick_login_password" type="password" value="" class="textbox"> <a href="https://sampforum.blast.hk/member.php?action=lostpw" class="lost_password">Lost Password?</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow1">&nbsp;</td>
+								<td class="trow1 remember_me">
+									<input name="quick_remember" id="quick_login_remember" type="checkbox" value="yes" class="checkbox" checked="checked">
+									<label for="quick_login_remember">Remember me</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow2" colspan="2">
+									<div align="center"><input name="submit" type="submit" class="button" value="Login"></div>
+								</td>
+							</tr>
+						</tbody></table>
+					</form>
+				</div>
+				<script type="text/javascript">
+					$("#quick_login input[name='url']").val($(location).attr('href'));
+				</script>
+<!-- end: header_welcomeblock_guest -->
+					
+					</div>
+			</div>
+			</div>
+	</div>
+			</div>
+               
+				   
+                <main class="container">
+				<br>
+                 <!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=82">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav -->
+				
+				
+				
+				
+				
+				
+<!-- end: header -->
+	
+	
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	<div class="tborder tfixed clear">
+		<div class="thead">
+				<div class="float_right">
+					<span class="smalltext"><a href="https://sampforum.blast.hk/showthread.php?mode=threaded&amp;tid=251335&amp;pid=1181561#pid1181561">Threaded Mode</a></span>
+				</div>
+				
+					[Tutorial] How to make clean and readable code
+			</div>
+	</div>
+<div id="posts_container">
+	<div id="posts">
+		<!-- start: postbit_classic -->
+
+<a id="pid1181561"></a>
+<div class="post classic " style="" id="post_1181561">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=103048"><img src="./[Tutorial] How to make clean and readable code_files/103048.png" alt="" width="55" height="52"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=103048">Sinner</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 772<br>
+	Threads: 52<br>
+	Joined: Aug 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=103048"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=251335&amp;pid=1181561#pid1181561" title="How to make clean and readable code">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 1 by Sinner" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">26.04.2011, 15:59 <span class="post_edit" id="edited_by_1181561"><!-- start: postbit_editedby -->
+<div class="edited_post postbit_edited postbit_editedby postbit_editedpost">(<!-- start: postbit_editedby_editreason -->
+ <em>Последний раз редактировалось Sinner; 26.04.2011 в 17:44.</em>
+<!-- end: postbit_editedby_editreason -->)</div>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1181561">
+		<font size="5"><b>Introduction</b></font><br>
+<br>
+I'd like to point out, that anything said below doesn't apply to experienced coders, since they all have developed their own programming style and perfectly know how to bring structure to code. Also, anything said is my own opinion and I'm not stating that my ways are "the" way to do it. I can image people like ****** and Kalcor use totally different ways to program, but after all, I'd love some objective criticism.<br>
+<br>
+-<br>
+<br>
+At first some may think, why should I make my code readable? It works, what's the big deal? And fact is, if you're writing a very straight-forward piece of code this applies, there's little to read and so it doesn't really matter if it's "wel-formed" or not. But once you start scripting bigger gamemodes, making your code readable is EXTREMELY important, because if you need to change something (could be something very trivial) and your gamemode is a mashup of chaotic coding styles that are not in any way properly written, you could end up throwing your PC out the nearest open window because of the frustration.<br>
+<br>
+<font size="5"><b>Part 1: Proper indenting</b></font><br>
+<br>
+ Indenting is THE most important part of making your code readable, but some people don't do it properly and avoid warning by simply doing:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">#pragma tabsize 0</pre>
+</div>Throughout your entire script, try maintaining the same tabsize for all indents. Commonly used are 4 spaces or a TAB (which has the same width as 4 spaces). Although it's fine to use 2 or 3 spaces, it makes code less readable (depending on your editor) because everything will seem more packed together. Never use more then 4 spaces.<br>
+<br>
+Indenting should be done in the following cases:<br>
+<br>
+<b>a) Whenever you use curly brackets, indent the next snippet by 1, like so:</b><br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">PHP код:</div>
+<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 162px;
+		text-align: left;
+		overflow: auto">
+<code style="white-space:nowrap">
+<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">Example</span><span style="color: #007700">(</span><span style="color: #0000BB">void</span><span style="color: #007700">)
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Indent
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if(</span><span style="color: #0000BB">something&nbsp;</span><span style="color: #007700">==</span><span style="color: #0000BB">TRUE</span><span style="color: #007700">)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//Indent
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DoSomething</span><span style="color: #007700">();
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>}&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+</code>
+</div>
+</div>You immediatly see that this is way more readable then for example this:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">PHP код:</div>
+<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 114px;
+		text-align: left;
+		overflow: auto">
+<code style="white-space:nowrap">
+<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">Example</span><span style="color: #007700">(</span><span style="color: #0000BB">void</span><span style="color: #007700">){
+<br>if(</span><span style="color: #0000BB">something&nbsp;</span><span style="color: #007700">==</span><span style="color: #0000BB">TRUE</span><span style="color: #007700">)
+<br>{
+<br></span><span style="color: #0000BB">DoSomething</span><span style="color: #007700">();
+<br>}
+<br>}&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+</code>
+</div>
+</div>In this snippet, it's very hard to see where the function ends and starts, since the curly brackets add up.<br>
+<br>
+<b>b) Whenever your statement is too long:</b><br>
+<br>
+When statements get too long, it's wise to indent them to make it more readable, don't worry, as long as it's 1 statement the compiler wont care about the carriage return. <br>
+<br>
+Example with a very long format function:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">PHP код:</div>
+<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">
+<code style="white-space:nowrap">
+<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">carmenu</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">carmenu</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"Nos&nbsp;%s\nBoost&nbsp;%s\nColor1&nbsp;%s\nColor2&nbsp;%s\nJump&nbsp;%s\nWheels&nbsp;%s\nHydraulics&nbsp;%s\nAutofix&nbsp;%s\nRamps&nbsp;%s\nBike&nbsp;Antifall&nbsp;%s\nFast&nbsp;Entering:&nbsp;%s\nFast&nbsp;Exiting:&nbsp;%s"</span><span style="color: #007700">,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">__state</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">],</span><span style="color: #0000BB">__state</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">],</span><span style="color: #0000BB">__state</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">],</span><span style="color: #0000BB">__state</span><span style="color: #007700">[</span><span style="color: #0000BB">3</span><span style="color: #007700">],</span><span style="color: #0000BB">__state</span><span style="color: #007700">[</span><span style="color: #0000BB">4</span><span style="color: #007700">],</span><span style="color: #0000BB">__state</span><span style="color: #007700">[</span><span style="color: #0000BB">5</span><span style="color: #007700">],
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">__state</span><span style="color: #007700">[</span><span style="color: #0000BB">6</span><span style="color: #007700">],</span><span style="color: #0000BB">__state</span><span style="color: #007700">[</span><span style="color: #0000BB">7</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">__state</span><span style="color: #007700">[</span><span style="color: #0000BB">8</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">__state</span><span style="color: #007700">[</span><span style="color: #0000BB">9</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">__state</span><span style="color: #007700">[</span><span style="color: #0000BB">10</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">__state</span><span style="color: #007700">[</span><span style="color: #0000BB">11</span><span style="color: #007700">]);&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+</code>
+</div>
+</div><font size="5"><b>Part 2: Proper use of curly brackets</b></font><br>
+<br>
+Just as important as indenting, is properly using curly brackets. Here is where there are 2 commonly accepted methods, some place the brackets parallel to each other, while other like to keep the first bracket next to the corresponding statement, seperated by a space. Both methods are fine and commonly used, but I prefer the first one since it's more readable (prove me wrong O.o).<br>
+<br>
+Example method 1:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">PHP код:</div>
+<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 130px;
+		text-align: left;
+		overflow: auto">
+<code style="white-space:nowrap">
+<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">Example</span><span style="color: #007700">(</span><span style="color: #0000BB">void</span><span style="color: #007700">)
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">isSomethingTrue</span><span style="color: #007700">())
+<br>&nbsp;&nbsp;&nbsp;&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Do&nbsp;something&nbsp;here
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">}
+<br>}&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+</code>
+</div>
+</div>Example method 2:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">PHP код:</div>
+<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">
+<code style="white-space:nowrap">
+<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">Example</span><span style="color: #007700">(</span><span style="color: #0000BB">void</span><span style="color: #007700">)&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">isSomethingTrue</span><span style="color: #007700">())&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Do&nbsp;something&nbsp;here
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">}
+<br>}&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+</code>
+</div>
+</div>Decide to yourself which you like best. The trick to never forget a bracket ever again, is to always immediatly place the 2 brackets before even starting to code the next group of statements. This way, if there are many nested statements, you won't have to search for which bracket you didn't properly close. Also, if you forget a curly bracket it'll immediatly give lots of errors, making it even harder to find your mistake.<br>
+<br>
+<font size="5"><b>Part 3: Use #define(s)</b></font><br>
+<br>
+Defines are easy to use and can not only make your code more readable, but it makes it possible to change a lot of data by changing 1 line. If not properly defined though, defines can give nasty errors that are very hard to find if you're unaware of your mistake, since the error line will point to the place where you used the define, not where the define is created.<br>
+<br>
+<b>a) What are defines? </b><br>
+Defines are no more then "copys" of a certain statement, whenever you use a define you are just using whatever statement you defined it as.<br>
+<br>
+<b>b) How to properly use defines</b><br>
+I always like to put round brackets around my defines, this way you prevent it from messing up your statement. Well known example are defines that make a calculation, which will return a wrong result if you don't put your round brackets in the right places. I won't be going any further into how to properly use defines as this is not a tutorial about that.<br>
+<br>
+Defines are created like this:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">PHP код:</div>
+<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">
+<code style="white-space:nowrap">
+<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #FF8000">#define&nbsp;[name&nbsp;of&nbsp;define]&nbsp;[statement]
+
+<br>//&nbsp;for&nbsp;example
+
+<br>#define&nbsp;MULTIPLY(%0,&nbsp;%1)&nbsp;&nbsp;&nbsp;&nbsp;((%0)&nbsp;*&nbsp;(%1))&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+</code>
+</div>
+</div>
+<font size="5"><b>Part 4: Use #include(s)</b></font><br>
+<br>
+Includes help to reduce the lines of code in a script, by simply gathering functions/defines instead of writing these functions/defines in the gamemode. A big advantage is that you can use includes in other Filterscripts aswell as oppose to writing the same functions/defines all over again in every script you need them in, it's a lot better to just store these functions somewhere, in a place where all scripts can access them (.INC file). Typically includes are used to define colors, dialog ids, general purpose variables and functions, etc...<br>
+<br>
+You include a file by writing:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">PHP код:</div>
+<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">
+<code style="white-space:nowrap">
+<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #FF8000">#include&nbsp;&lt;"filename"&gt;&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+</code>
+</div>
+</div><b>"filename</b>"  referring to the .INC file in your <b>PAWNO/INCLUDES/</b> folder<br>
+<br>
+An example of the content of an include file could be the following:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">PHP код:</div>
+<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 274px;
+		text-align: left;
+		overflow: auto">
+<code style="white-space:nowrap">
+<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #FF8000">#define&nbsp;COLOR_YELLOW&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0xFFDD00AA
+<br>#define&nbsp;COLOR_GREY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0xAFAFAFAA
+<br>#define&nbsp;COLOR_REDONLY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0xE60000FF
+
+<br>#define&nbsp;SCRIPT_HELP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"/help"
+<br>#define&nbsp;SCRIPT_COMMANDS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"/commands"
+<br>#define&nbsp;SCRIPT_TELEPORTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"/teles"
+
+<br>#define&nbsp;LMS_DMZ_VWORLD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(27)
+<br>#define&nbsp;GANGDM_DMZ_VWORLD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(28)
+<br>#define&nbsp;DW_DMZ_VWORLD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(29)
+<br>#define&nbsp;VWORLD_VIP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(30)
+
+<br>#define&nbsp;DIALOG_AUTOFIX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(100)
+<br>#define&nbsp;DIALOG_CARMENU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(101)
+<br>#define&nbsp;DIALOG_CARMENU_COLOR1&nbsp;&nbsp;&nbsp;(102)&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+</code>
+</div>
+</div>Now every FS/Gm that has this file included can use these colors, abbreviations, vworlds and dialog ids.<br>
+<br>
+<font size="5"><b>Part 5: Use functions</b></font><br>
+<br>
+If you don't know how to write functions, learn it! They are the backbone of every good script. Functions are if not the most important thing you'll ever learn as a programmer. In fact, you'll never be a good programmer if you don't know how to write and declare a function. Functions make your code readable and (if written properly) are easy to use.<br>
+<br>
+Since functions make your code so much readable, it's perfectly fine to use a function in a function, in a function, in ... Infact, it's ok to use as many nested functions as you want (as long as they make sense).<br>
+<br>
+<font size="5"><b>Part 6: Write comments/document your code!</b></font><br>
+<br>
+I cannot stress this enough, you should place comments <b>everywhere!</b> It may be that you perfectly know what a function/statement does but believe me, X months later you won't remember it (if the function/statement is complicated enough). This is why it's so important to properly document your code. Whenever you're not sure if you'll remember what something will do don't be afraid to write a whole page of information about the snippet next to it, since it can only help you. Comments don't harm anyone and they don't increase the filesize of your .AMX file since the compiler ignores them, so why not use them?<br>
+<br>
+I'd say, good code has just as many lines of comments then it has statements (if not more).<br>
+<br>
+<font size="5"><b>Part 7: Use whitespaces</b></font><br>
+<br>
+This is not mandatory, but it's recommended you leave a line open between each function and/or callback. This makes your code more readable.<br>
+<br>
+<font size="5"><b>I hope you enjoyed and/or learned something from this tutorial, any feedback is appreciated <img alt="" border="0" class="inlineimg" src="./[Tutorial] How to make clean and readable code_files/wink.png" title="Wink"></b></font><br>
+<br>
+EDIT: Thanks @Hiddos for pointing out a mistake
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1181561">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=103048" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=251335&amp;replyto=1181561" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1181692"></a>
+<div class="post classic " style="" id="post_1181692">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=37431"><img src="./[Tutorial] How to make clean and readable code_files/37431.png" alt="" width="46" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=37431">Hiddos</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 3,304<br>
+	Threads: 58<br>
+	Joined: Sep 2008
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=37431"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=251335&amp;pid=1181692#pid1181692" title="Re: How to make clean and readable code">#2</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 2 by Hiddos" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">26.04.2011, 17:23 <span class="post_edit" id="edited_by_1181692"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1181692">
+		I'm an asshole for pointing out, but you've got 'Part 4' twice.<br>
+<br>
+Anyways, +1 for this tutorial as there amazingly enough are too much people who don't understand properly indenting their code.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1181692">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=37431" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=251335&amp;replyto=1181692" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1181719"></a>
+<div class="post classic " style="" id="post_1181719">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=103048"><img src="./[Tutorial] How to make clean and readable code_files/103048.png" alt="" width="55" height="52"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=103048">Sinner</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 772<br>
+	Threads: 52<br>
+	Joined: Aug 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=103048"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=251335&amp;pid=1181719#pid1181719" title="Re: How to make clean and readable code">#3</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 3 by Sinner" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">26.04.2011, 17:39 <span class="post_edit" id="edited_by_1181719"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1181719">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Hiddos</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1181692#pid1181692" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] How to make clean and readable code_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">I'm an asshole for pointing out, but you've got 'Part 4' twice.<br>
+<br>
+Anyways, +1 for this tutorial as there amazingly enough are too much people who don't understand properly indenting their code.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Haha, no you're totally right, I'll fix that straight away!
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1181719">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=103048" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=251335&amp;replyto=1181719" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1181809"></a>
+<div class="post classic " style="" id="post_1181809">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=115827"><img src="./[Tutorial] How to make clean and readable code_files/115827.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=115827">Unknown1234</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Big Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 119<br>
+	Threads: 2<br>
+	Joined: Jan 2011
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=115827"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=251335&amp;pid=1181809#pid1181809" title="Re: How to make clean and readable code">#4</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 4 by Unknown1234" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">26.04.2011, 18:32 <span class="post_edit" id="edited_by_1181809"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1181809">
+		most newb will learn from it<br>
++5
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1181809">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=115827" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=251335&amp;replyto=1181809" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1181814"></a>
+<div class="post classic " style="" id="post_1181814">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=50344"><img src="./[Tutorial] How to make clean and readable code_files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=50344">[MWR]Blood</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 2,268<br>
+	Threads: 89<br>
+	Joined: Apr 2009
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=50344"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=251335&amp;pid=1181814#pid1181814" title="Re: How to make clean and readable code">#5</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 5 by [MWR]Blood" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">26.04.2011, 18:34 <span class="post_edit" id="edited_by_1181814"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1181814">
+		Nice tutorial, good job!<br>
+Useful for beginners <img alt="" border="0" class="inlineimg" src="./[Tutorial] How to make clean and readable code_files/smile.png" title="Smiley">
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1181814">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=50344" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=251335&amp;replyto=1181814" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1183200"></a>
+<div class="post classic " style="" id="post_1183200">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=103048"><img src="./[Tutorial] How to make clean and readable code_files/103048.png" alt="" width="55" height="52"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=103048">Sinner</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 772<br>
+	Threads: 52<br>
+	Joined: Aug 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=103048"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=251335&amp;pid=1183200#pid1183200" title="Re: How to make clean and readable code">#6</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 6 by Sinner" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">27.04.2011, 18:53 <span class="post_edit" id="edited_by_1183200"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1183200">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>[HLF]Southclaw</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1181899#pid1181899" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] How to make clean and readable code_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Great tutorial <img alt="" border="0" class="inlineimg" src="./[Tutorial] How to make clean and readable code_files/razz.gif" title="Tongue"> I was going to add something like this in my big scripting beginners guide, but Instead I shall link to this <img alt="" border="0" class="inlineimg" src="./[Tutorial] How to make clean and readable code_files/razz.gif" title="Tongue"> Good work</div>
+</td>
+</tr>
+</tbody></table>
+</div>Thanks, I feel honored <img alt="" border="0" class="inlineimg" src="./[Tutorial] How to make clean and readable code_files/biggrin.gif" title="Grin">
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1183200">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=103048" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=251335&amp;replyto=1183200" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1183905"></a>
+<div class="post classic " style="" id="post_1183905">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=101738"><img src="./[Tutorial] How to make clean and readable code_files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=101738">xir</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 746<br>
+	Threads: 81<br>
+	Joined: Aug 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=101738"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=251335&amp;pid=1183905#pid1183905" title="Re: How to make clean and readable code">#7</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 7 by xir" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">28.04.2011, 12:08 <span class="post_edit" id="edited_by_1183905"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1183905">
+		Nice tutorial but use [ pawn ] [ / pawn ] tags
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1183905">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=101738" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=251335&amp;replyto=1183905" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1183930"></a>
+<div class="post classic " style="" id="post_1183930">
+<div class="post_author scaleimages">
+	
+	<div class="author_information">
+			<strong><span class="largetext">XFlawless</span></strong> <br>
+			<span class="smalltext">
+				Unregistered<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_guest -->
+&nbsp;
+<!-- end: postbit_author_guest -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=251335&amp;pid=1183930#pid1183930" title="Re: How to make clean and readable code">#8</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 8 by XFlawless" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">28.04.2011, 12:32 <span class="post_edit" id="edited_by_1183930"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1183930">
+		This tutorial is really use for beginners who can start clean coding.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1183930">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=251335&amp;replyto=1183930" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1184080"></a>
+<div class="post classic " style="" id="post_1184080">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=108302"><img src="./[Tutorial] How to make clean and readable code_files/108302.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=108302">ScRaT</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Big Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><img src="./[Tutorial] How to make clean and readable code_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 122<br>
+	Threads: 8<br>
+	Joined: Oct 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=108302"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=251335&amp;pid=1184080#pid1184080" title="Re: How to make clean and readable code">#9</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 9 by ScRaT" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">28.04.2011, 14:53 <span class="post_edit" id="edited_by_1184080"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1184080">
+		yea<br>
+nice tutorial <img alt="" border="0" class="inlineimg" src="./[Tutorial] How to make clean and readable code_files/wink.png" title="Wink"><br>
+09/10
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1184080">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=108302" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=251335&amp;replyto=1184080" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1184104"></a>
+<div class="post classic " style="" id="post_1184104">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=97231"><img src="./[Tutorial] How to make clean and readable code_files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=97231"><s>TheGarfield</s></a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Banned<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 649<br>
+	Threads: 4<br>
+	Joined: Jul 2010
+	<br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=251335&amp;pid=1184104#pid1184104" title="Re: How to make clean and readable code">#10</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 10 by TheGarfield" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">28.04.2011, 15:10 <span class="post_edit" id="edited_by_1184104"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1184104">
+		tree method:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:71px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;a_samp&gt; // Method 1</span><br><span style="color: #2222AA;">#include "a_samp&gt; &nbsp;// Method 2</span><br><span style="color: #2222AA;">#include a_samp &nbsp; &nbsp; // Method 3</span></div></div></pre>
+</div>
+this is for all iqual!<br>
+<br>
+Nice tutorials, congratulations!
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1184104">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=97231" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=251335&amp;replyto=1184104" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic -->
+	</div>
+</div>
+	
+			<div class="tfoot row">
+				<div class="col-sm-6">
+					<strong>« <a href="https://sampforum.blast.hk/showthread.php?tid=251335&amp;action=nextoldest">Next Oldest</a> | <a href="https://sampforum.blast.hk/showthread.php?tid=251335&amp;action=nextnewest">Next Newest</a> »</strong>
+				</div>
+				<div class="col-sm-6"><!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://sampforum.blast.hk/search.php" method="post">
+			<input type="hidden" name="action" value="thread">
+			<input type="hidden" name="tid" value="251335">
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == &#39;Enter Keywords&#39;) { this.value = &#39;&#39;; }" onblur="if(this.value==&#39;&#39;) { this.value=&#39;Enter Keywords&#39;; }" class="textbox" size="25">
+			<input type="submit" class="button" value="Search Thread">
+		</form>
+	</div>
+<!-- end: showthread_search --></div>
+			</div>
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	
+	
+	
+	<br>
+	<div class="float_left">
+		<ul class="thread_tools">
+			<!-- start: showthread_printthread -->
+<li class="printable"><a href="https://sampforum.blast.hk/printthread.php?tid=251335">View a Printable Version</a></li>
+<!-- end: showthread_printthread -->
+			
+			
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://sampforum.blast.hk/forumdisplay.php" method="get">
+<span class="smalltext">Forum Jump:</span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="3"> SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="74">-- News and Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13">-- General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="16">-- Client Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20">-- Bug Reports</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21">-- Screenshots and Videos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6"> SA-MP Server</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="19">-- Server Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22">-- Server Advertisements</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="8"> SA-MP Scripting and Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12">-- Scripting Help</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="70" selected="selected">---- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="84">---- Discussion</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="89">---- Help Archive</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="71">-- Gamemode Scripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="17">-- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="83">---- Includes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="82">---- Tools and Files </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="64">---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="18">-- Plugin Development</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="92"> SA-MP DL Edition</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="90">-- SA-MP 0.3.DL</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="94">---- Model Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="7"> Other</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23">-- Everything and Nothing</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9"> Non-English</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33">-- Languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31">---- Nederlands/Dutch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="76">------ Scripting Showroom en Discussie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="87">------ Off topic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29">---- Español/Spanish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="59">------ Lanzamientos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30">---- Français/French</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="81">------ Showroom</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32">---- Русский/Russian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="66">------ Релизы/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34">---- Português/Portuguese</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56">------ Lançamentos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40">---- Română/Romanian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="77">------ Salonul Scripturilor</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="88">---- Archive</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear">
+	<!-- start: showthread_usersbrowsing -->
+<br>
+<span class="smalltext">Users browsing this thread: 1 Guest(s)</span>
+<br>
+<!-- end: showthread_usersbrowsing -->
+	<!-- start: footer -->
+<div style="clear:both"><div style="padding-top: 10px"><!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=82">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav --></div></div>
+</main>
+
+<div class="blankspace"></div>
+
+<footer id="footer">
+	<div class="container">
+    <div class="row">
+		
+        <!--<div class="col-sm-4 foot">
+			<h3>About Our Community</h3>
+			<p>Discuss about various topics in our community and have fun while doing so. Welcome to SA-MP Forums Archive</p>
+			
+		</div>		
+		
+
+		<div class="col-sm-4 foot">
+			<h3>Quick Links</h3>
+			<p>
+
+ 				<a href="https://sampforum.blast.hk" class="btn btn-success" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Forum Home"><i class="fa fa-home"></i></a>
+				
+				<a href="https://sampforum.blast.hk/archive/index.php?thread-251335.html" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Lite (Archive) Mode"><i class="fa fa-archive"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Become a Fan"><i class="fa fa-facebook-square"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-info" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Follow Us"><i class="fa fa-twitter"></i></a>
+				
+				<a href="https://sampforum.blast.hk/misc.php?action=syndication" class="btn btn-warning" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="RSS Syndication"><i class="fa fa-rss"></i></a>
+				<br/>
+				<a href="misc.php?action=markread&amp;my_post_key=2220ae0a21c853e6459922e7a63ded4d" class="btn btn-danger" style="color: #fff; margin-top:10px" data-toggle="tooltip" data-placement="bottom" data-original-title="Mark all forums read"><i class="fa fa-book"></i> Mark all forums read</a><br /><br />
+				
+				
+				</p>
+
+		</div>
+		
+		<div class="col-sm-4 foot">
+			
+			 <h3>Reach Us</h3>
+			 
+<p><a href="contact.php" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Contact Us"><i class="fa fa-envelope"></i> Contact Us</a>&nbsp;
+			
+			<a href="showteam.php" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Meet Our Team"><i class="fa fa-users"></i> Forum Team</a></p>
+		</div>-->
+		
+		
+		
+		<!-- The following piece of code allows MyBB to run scheduled tasks. DO NOT REMOVE --><!-- start: task_image -->
+<img src="./[Tutorial] How to make clean and readable code_files/task.php" height="1" alt="">
+<!-- end: task_image --><!-- End task image code -->
+		</div>
+	
+	</div>
+
+	
+<div id="copyright">
+	<div class="container">
+			<div class="pull-right"><!-- start: footer_languageselect -->
+<div class="language">
+<form method="POST" action="https://sampforum.blast.hk/showthread.php" id="lang_select">
+	<input type="hidden" name="tid" value="251335">
+
+	<input type="hidden" name="my_post_key" value="2220ae0a21c853e6459922e7a63ded4d">
+	<select name="language" onchange="MyBB.changeLanguage();">
+		<optgroup label="Quick Language Select">
+			<!-- start: footer_languageselect_option -->
+<option value="english" selected="selected">&nbsp;&nbsp;&nbsp;English (American)</option>
+<!-- end: footer_languageselect_option --><!-- start: footer_languageselect_option -->
+<option value="russian">&nbsp;&nbsp;&nbsp;Russian</option>
+<!-- end: footer_languageselect_option -->
+		</optgroup>
+	</select>
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_languageselect --></div>
+			<div class="pull-left">
+				<!-- MyBB is free software developed and maintained by a volunteer community.
+					It would be much appreciated by the MyBB Group if you left the full copyright and "powered by" notice intact,
+					to show your support for MyBB.  If you choose to remove or modify the copyright below,
+					you may be refused support on the MyBB Community Forums.
+
+					This is free software, support us and we'll support you. -->
+				Powered By <a href="http://www.mybb.com/" target="_blank" rel="noopener" style="color: #fff;">MyBB</a>. <a href="https://eree.in/" title="EREE" target="_blank" rel="noopener" style="color: #fff;">Crafted by EREE</a> and <a href="https://forum.androidbg.com/" title="AndroidBG" target="_blank" rel="noopener" style="color: #fff;">Android BG</a>. Also powered by <a href="https://www.blast.hk/"><b>blast.hk</b></a><!-- End powered by -->
+				
+			</div>
+	</div>
+
+</div>
+
+</footer>
+
+<!-- Fix for MentionMe popup window position -->
+<script type="text/javascript">
+	var MentionMe = (function(m) {
+	m.customSCEditorContainerOffset = {
+		left: 0,
+		top: 2,
+	};
+
+	return m;
+})(MentionMe || {});
+</script>
+<!-- End Fix for MentionMe popup window position -->
+<!-- end: footer -->
+	<script type="text/javascript">
+		var thread_deleted = "0";
+		if(thread_deleted == "1")
+		{
+			$("#quick_reply_form, .new_reply_button, .thread_tools, .inline_rating").hide();
+			$("#moderator_options_selector option.option_mirage").attr("disabled","disabled");
+		}
+	</script>
+
+
+<!-- end: showthread --><script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>

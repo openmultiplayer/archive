@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://sampforum.blast.hk/showthread.php?tid=482429 -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>[Tutorial] Fixes for runtime errors</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="https://sampforum.blast.hk/syndication.php">
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="https://sampforum.blast.hk/syndication.php?type=atom1.0">
+<link rel="shortcut icon" href="https://sampforum.blast.hk/favicon.ico">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript" src="./[Tutorial] Fixes for runtime errors_files/jquery.js"></script><style>undefined</style>
+<script type="text/javascript" src="./[Tutorial] Fixes for runtime errors_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] Fixes for runtime errors_files/jquery.plugins.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] Fixes for runtime errors_files/general.js"></script>
+<script type="text/javascript" src="./[Tutorial] Fixes for runtime errors_files/tooltip.js"></script>
+
+<link rel="stylesheet" href="./[Tutorial] Fixes for runtime errors_files/bootstrap.min.css">
+<link href="./[Tutorial] Fixes for runtime errors_files/css" rel="stylesheet" type="text/css">
+<!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" / -->
+<link rel="stylesheet" href="./[Tutorial] Fixes for runtime errors_files/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Fixes for runtime errors_files/global.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Fixes for runtime errors_files/css3.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Fixes for runtime errors_files/responsive.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Fixes for runtime errors_files/star_ratings.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Fixes for runtime errors_files/showthread.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Fixes for runtime errors_files/grey.css">
+
+
+
+
+<script type="text/javascript">
+jQuery(document).on('click', '.panel-heading span.clickable', function(e){
+    var jQuerythis = jQuery(this);
+	if(!jQuerythis.hasClass('panel-collapsed')) {
+		jQuerythis.parents('.panel').find('.panel-body').slideUp();
+		jQuerythis.addClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+	} else {
+		jQuerythis.parents('.panel').find('.panel-body').slideDown();
+		jQuerythis.removeClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+	}
+})
+</script>
+
+
+
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+	lang.confirm_title = "Please Confirm";
+	lang.expcol_collapse = "[-]";
+	lang.expcol_expand = "[+]";
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+	
+	var templates = {
+		modal: '<div class=\"modal\">\
+	<div style=\"overflow-y: auto; max-height: 400px;\">\
+		<table border=\"0\" cellspacing=\"0\" cellpadding=\"5\" class=\"tborder\">\
+			<tr>\
+				<td class=\"thead\"><strong>__title__</strong></td>\
+			</tr>\
+			<tr>\
+				<td class=\"trow1\">__message__</td>\
+			</tr>\
+			<tr>\
+				<td class=\"tfoot\">\
+					<div style=\"text-align: center\" class=\"modal_buttons\">__buttons__</div>\
+				</td>\
+			</tr>\
+		</table>\
+	</div>\
+</div>',
+		modal_button: '<input type=\"submit\" class=\"button\" value=\"__title__\"/>&nbsp;'
+	};
+	
+	var cookieSecureFlag = "0";
+	var cookieDomain = ".sampforum.blast.hk";
+	var cookiePath = "/";
+	var cookiePrefix = "";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "941ba5eae2c9c834bbcecb6bbdc42918";
+	var rootpath = "https://sampforum.blast.hk";
+	var imagepath = "https://sampforum.blast.hk/images/bootbb";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "https://sampforum.blast.hk/images/bootbb/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+
+<!-- Make videos responsive - https://github.com/davatron5000/FitVids.js (additional video sites added for MyBB) -->
+<script type="text/javascript" src="./[Tutorial] Fixes for runtime errors_files/jquery.fitvids.js"></script>
+<script>
+	$(document).ready(function(){
+		// Target the iframe parent div
+		var bvc = $(".bootbb-video-container");
+		//bvc.css("max-width", "800px");
+		bvc.fitVids();
+	});
+</script>
+<!-- end: headerinclude -->
+<script>
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script src="./[Tutorial] Fixes for runtime errors_files/report.js"></script>
+<script src="./[Tutorial] Fixes for runtime errors_files/jeditable.min.js"></script>
+<script src="./[Tutorial] Fixes for runtime errors_files/thread.js"></script>
+<meta name="description" content="Fixes for runtime errors Sections Runtime error 3: Stack/heap collision (insufficient stack size) Runtime error 4: Array index out of bounds Runtime error 5: Invalid memory access Runtime error 7: Sta">
+<link rel="canonical" href="https://sampforum.blast.hk/showthread.php?tid=482429">
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./[Tutorial] Fixes for runtime errors_files/css2"></head>
+<body>
+	<!-- start: header -->
+<header>
+<div class="navbar navbar-default">
+     <div class="container">
+          <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="Toggle navigation">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span> 
+               </button>
+			  
+			  <div class="navbar-header scaleimages">
+				  <!--<a class="navbar-brand" href="https://sampforum.blast.hk">BootBB</a>-->
+				  <a class="" href="https://sampforum.blast.hk/"><img src="./[Tutorial] Fixes for runtime errors_files/logo_forum.gif"></a>
+			  
+			  </div>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+			  <ul class="nav navbar-nav navbar-right">
+				  <!--<li id="nav-portal"><a href="https://sampforum.blast.hk/portal.php"><i class="fa fa-bell"></i> Portal</a></li>-->
+               <li id="nav-forums"><a href="https://sampforum.blast.hk/index.php"><i class="fa fa-group"></i> Forum</a></li>
+				<!--<li><a href="https://sampforum.blast.hk/search.php?action=getnew"><i class="fa fa-comment"></i> New Posts</a></li>
+            	<li><a href="https://sampforum.blast.hk/search.php?action=getdaily"><i class="fa fa-comments"></i> Today's Posts</a></li>-->
+               <li id="nav-search"><a href="https://sampforum.blast.hk/search.php"><i class="fa fa-search"></i> Search</a></li>
+               <li id="nav-member"><a href="https://sampforum.blast.hk/memberlist.php"><i class="fa fa-users"></i> Members</a></li>
+               <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+				  
+<!--<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cubes"></i> Misc <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			  <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+			  <li class="divider"></li>
+			  <li id="nav-calendar"><a href="https://sampforum.blast.hk/calendar.php"><i class="fa fa-calendar"></i> Calendar</a></li>
+          </ul>
+</li> -->
+</ul>
+  
+          </div>
+     </div>
+</div>
+</header>
+
+
+<div id="container">
+	<a name="top" id="top"></a>
+		<div id="header">
+			<div id="panel">
+				<div class="upper">
+					<div class="container">
+
+						<!-- start: header_welcomeblock_guest -->
+<!--<span><a href="https://sampforum.blast.hk/member.php?action=login" onclick="$('#quick_login').modal({ fadeDuration: 250, keepelement: true }); return false;" class="login btn btn-danger" style="color: #fff;"><i class="fa fa-sign-in"></i> Login</a> <a href="https://sampforum.blast.hk/member.php?action=register" class="register btn btn-success" style="color: #fff;"><i class="fa fa-user-plus"></i> Register</a></span>-->
+
+<span class="float_right hidden-xs">Hello There, Guest!</span>
+
+<br class="clearfix">
+	
+
+				<div class="modal" id="quick_login" style="display: none;">
+					<form method="post" action="https://sampforum.blast.hk/member.php">
+						<input name="my_post_key" type="hidden" value="941ba5eae2c9c834bbcecb6bbdc42918">
+						<input name="action" type="hidden" value="do_login">
+						<input name="url" type="hidden" value="https://sampforum.blast.hk/showthread.php?tid=482429">
+						<input name="quick_login" type="hidden" value="1">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tborder">
+							<tbody><tr>
+								<td class="thead" colspan="2"><strong>Login</strong></td>
+							</tr>
+							<tr>
+								<td class="trow1" width="25%"><strong>Username:</strong></td>
+								<td class="trow1"><input name="quick_username" id="quick_login_username" type="text" value="" class="textbox initial_focus"></td>
+							</tr>
+							<tr>
+								<td class="trow2"><strong>Password:</strong></td>
+								<td class="trow2">
+									<input name="quick_password" id="quick_login_password" type="password" value="" class="textbox"> <a href="https://sampforum.blast.hk/member.php?action=lostpw" class="lost_password">Lost Password?</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow1">&nbsp;</td>
+								<td class="trow1 remember_me">
+									<input name="quick_remember" id="quick_login_remember" type="checkbox" value="yes" class="checkbox" checked="checked">
+									<label for="quick_login_remember">Remember me</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow2" colspan="2">
+									<div align="center"><input name="submit" type="submit" class="button" value="Login"></div>
+								</td>
+							</tr>
+						</tbody></table>
+					</form>
+				</div>
+				<script type="text/javascript">
+					$("#quick_login input[name='url']").val($(location).attr('href'));
+				</script>
+<!-- end: header_welcomeblock_guest -->
+					
+					</div>
+			</div>
+			</div>
+	</div>
+			</div>
+               
+				   
+                <main class="container">
+				<br>
+                 <!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=42">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav -->
+				
+				
+				
+				
+				
+				
+<!-- end: header -->
+	
+	
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	<div class="tborder tfixed clear">
+		<div class="thead">
+				<div class="float_right">
+					<span class="smalltext"><a href="https://sampforum.blast.hk/showthread.php?mode=threaded&amp;tid=482429&amp;pid=2827724#pid2827724">Threaded Mode</a></span>
+				</div>
+				
+					[Tutorial] Fixes for runtime errors
+			</div>
+	</div>
+<div id="posts_container">
+	<div id="posts">
+		<!-- start: postbit_classic -->
+
+<a id="pid2827724"></a>
+<div class="post classic " style="" id="post_2827724">
+<div class="post_author scaleimages">
+	
+	<div class="author_information">
+			<strong><span class="largetext">Emmet_</span></strong> <br>
+			<span class="smalltext">
+				Unregistered<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_guest -->
+&nbsp;
+<!-- end: postbit_author_guest -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482429&amp;pid=2827724#pid2827724" title="Fixes for runtime errors">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 1 by Emmet_" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">21.12.2013, 04:21 <span class="post_edit" id="edited_by_2827724"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2827724">
+		<font size="3"><font color="green"><b><u>Fixes for runtime errors</u></b></font></font><br>
+<br>
+<font color="green"><b>Sections</b></font><br>
+<ul><li>Runtime error 3: Stack/heap collision (insufficient stack size)</li>
+<li>Runtime error 4: Array index out of bounds</li>
+<li>Runtime error 5: Invalid memory access</li>
+<li>Runtime error 7: Stack underflow</li>
+<li>Runtime error 10: Native function failed</li>
+<li>Runtime error 11: Divide by zero</li>
+<li>Runtime error 12: (sleep mode)</li>
+<li>Runtime error 16: Out of memory</li>
+<li>Runtime error 17: Invalid/unsupported P-code file format</li>
+<li>Runtime error 19: File or function is not found</li>
+<li>Runtime error 20: Invalid index parameter (bad entry point)</li>
+<li>Runtime error 22: AMX not initialized (or doubly initialized)</li>
+</ul>
+<font color="green"><b>Introduction</b></font><br>
+New scripters are always having issues with certain runtime problems, so this tutorial will help suppress of those errors to ensure a safe, stable mode.<br>
+<br>
+Basically, runtime errors are errors that are generated at runtime and not by your compiler. I've listed all of the common ones below (there are either some missing, or so rare that nobody ever receives them) to the best of my knowledge, so read on if you're interested.<br>
+<br>
+<font color="green"><b>Runtime error 3</b></font><br>
+Your script has apparently ran out of local memory. The stack is where any local variables are allocated and stored, in terms of memory. This means that the stack and the heap are colliding with each other, which could effectively corrupt data in the long run.<br>
+<br>
+<i>Solution:</i> Try to use less cells for local declaration. For example, huge strings can be declared using "static" so it isn't allocated every function call. Alternatively, there's "#pragma dynamic x" but that's only if you're lazy.<br>
+<br>
+<font color="green"><b>Runtime error 4</b></font><br>
+Very simple, you're trying to access out-of-bound data in an array, in other words, a cell inside of an array that doesn't exist.<br>
+<br>
+<i>Solution:</i> If you're using the crashdetect plugin, it'll tell you which callback the error is in. Simply debug your code until you find the culprit, then remove it.<br>
+<br>
+<font color="green"><b>Runtime error 5</b></font><br>
+You are either trying to incorrectly access memory, or the system was unable to read or write any memory because of an incorrectly used native.<br>
+<br>
+<i>Solution:</i> Look in the callback and see if you can find the problem. These are really tricky to find, so you have to be careful and debug your code one-by-one.<br>
+<br>
+<font color="green"><b>Runtime error 7</b></font><br>
+This is caused by removing too much data from the stack. Eventually, the stack register becomes a negative number and corrupts all of your shit.<br>
+<br>
+<i>Solution:</i> Debug the code and remove any code that uses #emit until the problem is found.<br>
+<br>
+<font color="green"><b>Runtime error 10</b></font><br>
+A native function has been used incorrectly, or one of the parameters are incorrectly used.<br>
+<br>
+<i>Solution:</i> Remove the corresponding native from your code and look up a way to correctly use that function.<br>
+<br>
+<font color="green"><b>Runtime error 11</b></font><br>
+This is caused by dividing zero with another number.<br>
+<br>
+<i>Solution:</i> Don't divide by zero, idiot!<br>
+<br>
+<font color="green"><b>Runtime error 12</b></font><br>
+This is caused by using "sleep mode" in a function other than the entry point (main). This is a very rare issue, and it can sometimes be caused by external libraries.<br>
+<br>
+<i>Solution:</i> Only use "sleep" in the main entry.<br>
+<br>
+<font color="green"><b>Runtime error 16</b></font><br>
+Your computer has ran out of memory, and there's no way to store the data any further.<br>
+<br>
+<i>Solution:</i> Get a new computer, or use less memory (pointing back to error 3).<br>
+<br>
+<font color="green"><b>Runtime error 17</b></font><br>
+Your .AMX file is corrupt and contains an invalid P-code format. This can be caused by trying to run the server while the script is compiling.<br>
+<br>
+<i>Solution:</i> Shut the server off and compile the script again. If you've uploaded the .amx file, then upload it again.<br>
+<br>
+<font color="green"><b>Runtime error 19</b></font><br>
+One of the most common known problems in SA-MP. This simply means that the include and plugin versions might not match. One of them is either outdated, or newer than the other.<br>
+<br>
+<i>Solution:</i> Update your plugins and includes. If you can, disable your plugins until the problem is found.<br>
+<br>
+<font color="green"><b>Runtime error 20</b></font><br>
+When running a gamemode, the "main" function indicates the entry point for that mode. Without it, your mode won't function properly.<br>
+<br>
+<i>Solution:</i> Add this snippet under your includes:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;">main<span style="color: #000000;">(</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span><span style="color: #000000;">}</span></div></div></pre>
+</div>
+<font color="green"><b>Runtime error 22</b></font><br>
+This is caused by the abstract machine not being initialized properly, or being initialized twice.<br>
+<br>
+<i>Solution:</i> Find out where the problem is coming from. Disable any filterscripts or plugins, and debug your mode. This error also pops up frequently when using #emit incorrectly.<br>
+<br>
+<br>
+<font color="green"><b>Notes</b></font><ul><li>I apologize for any incorrect information. It was late when I made this tutorial, you know.<br></li>
+<li>There are more runtime problems (I believe there's around ~25) but I only listed the frequent ones.<br></li>
+<li>Whoever stole the pancake mix that was in my drawer, you better fucking give it back, NOW.</li>
+</ul>
+<font color="green"><b>Conclusion</b></font><br>
+Okay, so you've managed to reach the end of this tutorial, good for you.<br>
+<br>
+Alternatively, you can also solve these problems yourself by using common sense, debugging your code and running the usual tests.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2827724">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482429&amp;replyto=2827724" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2827735"></a>
+<div class="post classic " style="" id="post_2827735">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=205484"><img src="./[Tutorial] Fixes for runtime errors_files/205484.png" alt="" width="55" height="48"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=205484">qazwsx</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 409<br>
+	Threads: 37<br>
+	Joined: Jun 2013
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=205484"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482429&amp;pid=2827735#pid2827735" title="Re: Fixes for runtime errors">#2</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 2 by qazwsx" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">21.12.2013, 04:45 <span class="post_edit" id="edited_by_2827735"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2827735">
+		Very great tutorial!<br>
+Well done, emmet_<br>
+<br>
+I myself  got helped by your tutorial, since ive never seen tutorial which discuss thing like this.<br>
+Could be usefull for newbie, or someone who just getting started. <img alt="" border="0" class="inlineimg" src="./[Tutorial] Fixes for runtime errors_files/smile.png" title="Smiley"><br>
+<br>
++REP
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2827735">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=205484" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482429&amp;replyto=2827735" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2827761"></a>
+<div class="post classic " style="" id="post_2827761">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=218252"><img src="./[Tutorial] Fixes for runtime errors_files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=218252">TahaAsif12</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 271<br>
+	Threads: 19<br>
+	Joined: Nov 2013
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=218252"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482429&amp;pid=2827761#pid2827761" title="Re: Fixes for runtime errors">#3</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 3 by TahaAsif12" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">21.12.2013, 05:45 <span class="post_edit" id="edited_by_2827761"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2827761">
+		Excellent tutorial! keep it up dude!<br>
+I was getting runtime error 17 but after reading your explaination, it got fixed!
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2827761">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=218252" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482429&amp;replyto=2827761" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2827858"></a>
+<div class="post classic " style="" id="post_2827858">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=211594"><img src="./[Tutorial] Fixes for runtime errors_files/211594.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=211594"><s>KingServerIRAN</s></a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Banned<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 361<br>
+	Threads: 16<br>
+	Joined: Aug 2013
+	<br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482429&amp;pid=2827858#pid2827858" title="Re: Fixes for runtime errors">#4</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 4 by KingServerIRAN" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">21.12.2013, 08:59 <span class="post_edit" id="edited_by_2827858"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2827858">
+		I Likeeeeeeeee This tutorial
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2827858">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=211594" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482429&amp;replyto=2827858" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2827866"></a>
+<div class="post classic " style="" id="post_2827866">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=138992"><img src="./[Tutorial] Fixes for runtime errors_files/138992.png" alt="" width="55" height="42"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=138992">gtakillerIV</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 985<br>
+	Threads: 13<br>
+	Joined: Sep 2011
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=138992"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482429&amp;pid=2827866#pid2827866" title="Re: Fixes for runtime errors">#5</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 5 by gtakillerIV" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">21.12.2013, 09:09 <span class="post_edit" id="edited_by_2827866"><!-- start: postbit_editedby -->
+<div class="edited_post postbit_edited postbit_editedby postbit_editedpost">(<!-- start: postbit_editedby_editreason -->
+ <em>Последний раз редактировалось gtakillerIV; 21.12.2013 в 10:50.
+					
+					
+						Причина: Added some more detail.</em>
+<!-- end: postbit_editedby_editreason -->)</div>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2827866">
+		Looking good. Though I hate the fact that I gotta scroll up just to see what runtime error 22 is for example.<br>
+<br>
+You could make it like:<br>
+<br>
+Run time error 22: AMX not initialized (or doubly initialized)<br>
+<br>
+To elaborate abit more on run time error 19: It means that the function you're trying to use in your game mode might've been abandoned in the latest version of the include/plugin or you're using an older version that doesn't support/have that function.<br>
+<br>
+For example. The creator of the plugin deleted a function(or even changed the name of it) that was in an older version and released a new version. You took only the include and forgot about the .dll or .so. After that you used one of the new functions inside of your gamemode that the creator added. Then you clicked on compile and the compiler compiled the script. You then started the server and it starts complaining about you using a function that is not included inside the .dll or .so (  File or function is not found ). This can also be the other way round. Only downloading the new .dll or .so and forgetting the include file. In that case, the script won't even compile at all. Instead, it'll give out an error saying something like "Symbol undefined".<br>
+<br>
+That's why it's very important to update both the include and the .dll or .so.<br>
+<br>
+If I've made a mistake in my post, please tell me.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2827866">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=138992" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482429&amp;replyto=2827866" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2827939"></a>
+<div class="post classic " style="" id="post_2827939">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=116256"><img src="./[Tutorial] Fixes for runtime errors_files/116256.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=116256">BizzyD</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 879<br>
+	Threads: 90<br>
+	Joined: Jan 2011
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=116256"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482429&amp;pid=2827939#pid2827939" title="Re: Fixes for runtime errors">#6</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 6 by BizzyD" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">21.12.2013, 10:42 <span class="post_edit" id="edited_by_2827939"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2827939">
+		Nice tutorial, and yeah. As the guy above me said.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2827939">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=116256" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482429&amp;replyto=2827939" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2828548"></a>
+<div class="post classic " style="" id="post_2828548">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=96708"><img src="./[Tutorial] Fixes for runtime errors_files/96708.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=96708">iZN</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 2,368<br>
+	Threads: 27<br>
+	Joined: Jun 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=96708"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482429&amp;pid=2828548#pid2828548" title="Re: Fixes for runtime errors">#7</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 7 by iZN" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">21.12.2013, 17:51 <span class="post_edit" id="edited_by_2828548"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2828548">
+		This actually increased my knowledge because I actually don't know about other run time errors, to be honest I never had any run time error; it was a great problem for me when I was an beginner scripter. Good work.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2828548">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=96708" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482429&amp;replyto=2828548" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2829144"></a>
+<div class="post classic " style="" id="post_2829144">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=174314"><img src="./[Tutorial] Fixes for runtime errors_files/174314.png" alt="" width="55" height="45"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=174314">DJ_Shocker</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 426<br>
+	Threads: 56<br>
+	Joined: Jul 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=174314"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482429&amp;pid=2829144#pid2829144" title="Re: Fixes for runtime errors">#8</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 8 by DJ_Shocker" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">22.12.2013, 04:24 <span class="post_edit" id="edited_by_2829144"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2829144">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Emmet_</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2827724#pid2827724" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] Fixes for runtime errors_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic"><font size="3"><font color="green"><b><u>Fixes for runtime errors</u></b></font></font><br>
+<br>
+<font color="green"><b>Runtime error 11</b></font><br>
+This is caused by dividing zero with another number.<br>
+<br>
+<i>Solution:</i> Don't divide by zero, idiot!<br></div>
+</td>
+</tr>
+</tbody></table>
+</div>Am i the only one that LOLd at this?<br>
+<br>
+Well done Emmet! +Rep
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2829144">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=174314" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482429&amp;replyto=2829144" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2829157"></a>
+<div class="post classic " style="" id="post_2829157">
+<div class="post_author scaleimages">
+	
+	<div class="author_information">
+			<strong><span class="largetext">Emmet_</span></strong> <br>
+			<span class="smalltext">
+				Unregistered<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_guest -->
+&nbsp;
+<!-- end: postbit_author_guest -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482429&amp;pid=2829157#pid2829157" title="Re: Fixes for runtime errors">#9</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 9 by Emmet_" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">22.12.2013, 04:46 <span class="post_edit" id="edited_by_2829157"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2829157">
+		Thanks, everyone!<br>
+<br>
+@gtakillerIV: Good idea, it'll be added soon! Thanks.<br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>DJ_Shocker</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2829144#pid2829144" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] Fixes for runtime errors_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Am i the only one that LOLd at this?<br>
+<br>
+Well done Emmet! +Rep</div>
+</td>
+</tr>
+</tbody></table>
+</div>Haha, I laughed a bit when I made it.<br>
+<br>
+It's not meant to be offensive, though. I just thought that I'd add a joke in it for the amusement! <img alt="" border="0" class="inlineimg" src="./[Tutorial] Fixes for runtime errors_files/razz.gif" title="Tongue">
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2829157">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482429&amp;replyto=2829157" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2830572"></a>
+<div class="post classic " style="" id="post_2830572">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=158660"><img src="./[Tutorial] Fixes for runtime errors_files/158660.png" alt="" width="55" height="49"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=158660">Lordzy</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><img src="./[Tutorial] Fixes for runtime errors_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 2,698<br>
+	Threads: 37<br>
+	Joined: Mar 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=158660"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482429&amp;pid=2830572#pid2830572" title="Re: Fixes for runtime errors">#10</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 10 by Lordzy" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 06:19 <span class="post_edit" id="edited_by_2830572"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2830572">
+		This is really useful, thanks for it Emmet! Oh and by the way :<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Emmet_</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2827724#pid2827724" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] Fixes for runtime errors_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic"><ul><li>Whoever stole the pancake mix that was in my drawer, you better fucking give it back, NOW.</li>
+</ul></div>
+</td>
+</tr>
+</tbody></table>
+</div><img alt="" border="0" src="./[Tutorial] Fixes for runtime errors_files/untitle.JPG">
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2830572">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=158660" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482429&amp;replyto=2830572" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic -->
+	</div>
+</div>
+	
+			<div class="tfoot row">
+				<div class="col-sm-6">
+					<strong>« <a href="https://sampforum.blast.hk/showthread.php?tid=482429&amp;action=nextoldest">Next Oldest</a> | <a href="https://sampforum.blast.hk/showthread.php?tid=482429&amp;action=nextnewest">Next Newest</a> »</strong>
+				</div>
+				<div class="col-sm-6"><!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://sampforum.blast.hk/search.php" method="post">
+			<input type="hidden" name="action" value="thread">
+			<input type="hidden" name="tid" value="482429">
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == &#39;Enter Keywords&#39;) { this.value = &#39;&#39;; }" onblur="if(this.value==&#39;&#39;) { this.value=&#39;Enter Keywords&#39;; }" class="textbox" size="25">
+			<input type="submit" class="button" value="Search Thread">
+		</form>
+	</div>
+<!-- end: showthread_search --></div>
+			</div>
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	
+	
+	
+	<br>
+	<div class="float_left">
+		<ul class="thread_tools">
+			<!-- start: showthread_printthread -->
+<li class="printable"><a href="https://sampforum.blast.hk/printthread.php?tid=482429">View a Printable Version</a></li>
+<!-- end: showthread_printthread -->
+			
+			
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://sampforum.blast.hk/forumdisplay.php" method="get">
+<span class="smalltext">Forum Jump:</span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="3"> SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="74">-- News and Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13">-- General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="16">-- Client Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20">-- Bug Reports</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21">-- Screenshots and Videos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6"> SA-MP Server</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="19">-- Server Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22">-- Server Advertisements</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="8"> SA-MP Scripting and Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12">-- Scripting Help</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="70" selected="selected">---- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="84">---- Discussion</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="89">---- Help Archive</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="71">-- Gamemode Scripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="17">-- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="83">---- Includes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="82">---- Tools and Files </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="64">---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="18">-- Plugin Development</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="92"> SA-MP DL Edition</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="90">-- SA-MP 0.3.DL</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="94">---- Model Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="7"> Other</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23">-- Everything and Nothing</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9"> Non-English</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33">-- Languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31">---- Nederlands/Dutch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="76">------ Scripting Showroom en Discussie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="87">------ Off topic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29">---- Español/Spanish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="59">------ Lanzamientos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30">---- Français/French</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="81">------ Showroom</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32">---- Русский/Russian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="66">------ Релизы/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34">---- Português/Portuguese</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56">------ Lançamentos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40">---- Română/Romanian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="77">------ Salonul Scripturilor</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="88">---- Archive</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear">
+	<!-- start: showthread_usersbrowsing -->
+<br>
+<span class="smalltext">Users browsing this thread: 1 Guest(s)</span>
+<br>
+<!-- end: showthread_usersbrowsing -->
+	<!-- start: footer -->
+<div style="clear:both"><div style="padding-top: 10px"><!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=42">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav --></div></div>
+</main>
+
+<div class="blankspace"></div>
+
+<footer id="footer">
+	<div class="container">
+    <div class="row">
+		
+        <!--<div class="col-sm-4 foot">
+			<h3>About Our Community</h3>
+			<p>Discuss about various topics in our community and have fun while doing so. Welcome to SA-MP Forums Archive</p>
+			
+		</div>		
+		
+
+		<div class="col-sm-4 foot">
+			<h3>Quick Links</h3>
+			<p>
+
+ 				<a href="https://sampforum.blast.hk" class="btn btn-success" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Forum Home"><i class="fa fa-home"></i></a>
+				
+				<a href="https://sampforum.blast.hk/archive/index.php?thread-482429.html" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Lite (Archive) Mode"><i class="fa fa-archive"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Become a Fan"><i class="fa fa-facebook-square"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-info" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Follow Us"><i class="fa fa-twitter"></i></a>
+				
+				<a href="https://sampforum.blast.hk/misc.php?action=syndication" class="btn btn-warning" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="RSS Syndication"><i class="fa fa-rss"></i></a>
+				<br/>
+				<a href="misc.php?action=markread&amp;my_post_key=941ba5eae2c9c834bbcecb6bbdc42918" class="btn btn-danger" style="color: #fff; margin-top:10px" data-toggle="tooltip" data-placement="bottom" data-original-title="Mark all forums read"><i class="fa fa-book"></i> Mark all forums read</a><br /><br />
+				
+				
+				</p>
+
+		</div>
+		
+		<div class="col-sm-4 foot">
+			
+			 <h3>Reach Us</h3>
+			 
+<p><a href="contact.php" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Contact Us"><i class="fa fa-envelope"></i> Contact Us</a>&nbsp;
+			
+			<a href="showteam.php" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Meet Our Team"><i class="fa fa-users"></i> Forum Team</a></p>
+		</div>-->
+		
+		
+		
+		<!-- The following piece of code allows MyBB to run scheduled tasks. DO NOT REMOVE --><!-- End task image code -->
+		</div>
+	
+	</div>
+
+	
+<div id="copyright">
+	<div class="container">
+			<div class="pull-right"><!-- start: footer_languageselect -->
+<div class="language">
+<form method="POST" action="https://sampforum.blast.hk/showthread.php" id="lang_select">
+	<input type="hidden" name="tid" value="482429">
+
+	<input type="hidden" name="my_post_key" value="941ba5eae2c9c834bbcecb6bbdc42918">
+	<select name="language" onchange="MyBB.changeLanguage();">
+		<optgroup label="Quick Language Select">
+			<!-- start: footer_languageselect_option -->
+<option value="english" selected="selected">&nbsp;&nbsp;&nbsp;English (American)</option>
+<!-- end: footer_languageselect_option --><!-- start: footer_languageselect_option -->
+<option value="russian">&nbsp;&nbsp;&nbsp;Russian</option>
+<!-- end: footer_languageselect_option -->
+		</optgroup>
+	</select>
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_languageselect --></div>
+			<div class="pull-left">
+				<!-- MyBB is free software developed and maintained by a volunteer community.
+					It would be much appreciated by the MyBB Group if you left the full copyright and "powered by" notice intact,
+					to show your support for MyBB.  If you choose to remove or modify the copyright below,
+					you may be refused support on the MyBB Community Forums.
+
+					This is free software, support us and we'll support you. -->
+				Powered By <a href="http://www.mybb.com/" target="_blank" rel="noopener" style="color: #fff;">MyBB</a>. <a href="https://eree.in/" title="EREE" target="_blank" rel="noopener" style="color: #fff;">Crafted by EREE</a> and <a href="https://forum.androidbg.com/" title="AndroidBG" target="_blank" rel="noopener" style="color: #fff;">Android BG</a>. Also powered by <a href="https://www.blast.hk/"><b>blast.hk</b></a><!-- End powered by -->
+				
+			</div>
+	</div>
+
+</div>
+
+</footer>
+
+<!-- Fix for MentionMe popup window position -->
+<script type="text/javascript">
+	var MentionMe = (function(m) {
+	m.customSCEditorContainerOffset = {
+		left: 0,
+		top: 2,
+	};
+
+	return m;
+})(MentionMe || {});
+</script>
+<!-- End Fix for MentionMe popup window position -->
+<!-- end: footer -->
+	<script type="text/javascript">
+		var thread_deleted = "0";
+		if(thread_deleted == "1")
+		{
+			$("#quick_reply_form, .new_reply_button, .thread_tools, .inline_rating").hide();
+			$("#moderator_options_selector option.option_mirage").attr("disabled","disabled");
+		}
+	</script>
+
+
+<!-- end: showthread --><script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>

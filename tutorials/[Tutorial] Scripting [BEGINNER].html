@@ -1,0 +1,2172 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://sampforum.blast.hk/showthread.php?tid=317336 -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>[Tutorial] Scripting [BEGINNER]</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="https://sampforum.blast.hk/syndication.php">
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="https://sampforum.blast.hk/syndication.php?type=atom1.0">
+<link rel="shortcut icon" href="https://sampforum.blast.hk/favicon.ico">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript" src="./[Tutorial] Scripting [BEGINNER]_files/jquery.js"></script><style>undefined</style>
+<script type="text/javascript" src="./[Tutorial] Scripting [BEGINNER]_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] Scripting [BEGINNER]_files/jquery.plugins.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] Scripting [BEGINNER]_files/general.js"></script>
+<script type="text/javascript" src="./[Tutorial] Scripting [BEGINNER]_files/tooltip.js"></script>
+
+<link rel="stylesheet" href="./[Tutorial] Scripting [BEGINNER]_files/bootstrap.min.css">
+<link href="./[Tutorial] Scripting [BEGINNER]_files/css" rel="stylesheet" type="text/css">
+<!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" / -->
+<link rel="stylesheet" href="./[Tutorial] Scripting [BEGINNER]_files/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Scripting [BEGINNER]_files/global.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Scripting [BEGINNER]_files/css3.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Scripting [BEGINNER]_files/responsive.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Scripting [BEGINNER]_files/star_ratings.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Scripting [BEGINNER]_files/showthread.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Scripting [BEGINNER]_files/grey.css">
+
+
+
+
+<script type="text/javascript">
+jQuery(document).on('click', '.panel-heading span.clickable', function(e){
+    var jQuerythis = jQuery(this);
+	if(!jQuerythis.hasClass('panel-collapsed')) {
+		jQuerythis.parents('.panel').find('.panel-body').slideUp();
+		jQuerythis.addClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+	} else {
+		jQuerythis.parents('.panel').find('.panel-body').slideDown();
+		jQuerythis.removeClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+	}
+})
+</script>
+
+
+
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+	lang.confirm_title = "Please Confirm";
+	lang.expcol_collapse = "[-]";
+	lang.expcol_expand = "[+]";
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+	
+	var templates = {
+		modal: '<div class=\"modal\">\
+	<div style=\"overflow-y: auto; max-height: 400px;\">\
+		<table border=\"0\" cellspacing=\"0\" cellpadding=\"5\" class=\"tborder\">\
+			<tr>\
+				<td class=\"thead\"><strong>__title__</strong></td>\
+			</tr>\
+			<tr>\
+				<td class=\"trow1\">__message__</td>\
+			</tr>\
+			<tr>\
+				<td class=\"tfoot\">\
+					<div style=\"text-align: center\" class=\"modal_buttons\">__buttons__</div>\
+				</td>\
+			</tr>\
+		</table>\
+	</div>\
+</div>',
+		modal_button: '<input type=\"submit\" class=\"button\" value=\"__title__\"/>&nbsp;'
+	};
+	
+	var cookieSecureFlag = "0";
+	var cookieDomain = ".sampforum.blast.hk";
+	var cookiePath = "/";
+	var cookiePrefix = "";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "2220ae0a21c853e6459922e7a63ded4d";
+	var rootpath = "https://sampforum.blast.hk";
+	var imagepath = "https://sampforum.blast.hk/images/bootbb";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "https://sampforum.blast.hk/images/bootbb/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+
+<!-- Make videos responsive - https://github.com/davatron5000/FitVids.js (additional video sites added for MyBB) -->
+<script type="text/javascript" src="./[Tutorial] Scripting [BEGINNER]_files/jquery.fitvids.js"></script>
+<script>
+	$(document).ready(function(){
+		// Target the iframe parent div
+		var bvc = $(".bootbb-video-container");
+		//bvc.css("max-width", "800px");
+		bvc.fitVids();
+	});
+</script>
+<!-- end: headerinclude -->
+<script>
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script src="./[Tutorial] Scripting [BEGINNER]_files/report.js"></script>
+<script src="./[Tutorial] Scripting [BEGINNER]_files/jeditable.min.js"></script>
+<script src="./[Tutorial] Scripting [BEGINNER]_files/thread.js"></script>
+<meta name="description" content="Greetings. This is a basic tutorial made for beginners at SA:MP Scripting. Remember, This is not a professionally made tutorial. There are a lot of other good tutorials you can find on SA:MP forums. I">
+<link rel="canonical" href="https://sampforum.blast.hk/showthread.php?tid=317336">
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./[Tutorial] Scripting [BEGINNER]_files/css2"></head>
+<body>
+	<!-- start: header -->
+<header>
+<div class="navbar navbar-default">
+     <div class="container">
+          <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="Toggle navigation">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span> 
+               </button>
+			  
+			  <div class="navbar-header scaleimages">
+				  <!--<a class="navbar-brand" href="https://sampforum.blast.hk">BootBB</a>-->
+				  <a class="" href="https://sampforum.blast.hk/"><img src="./[Tutorial] Scripting [BEGINNER]_files/logo_forum.gif"></a>
+			  
+			  </div>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+			  <ul class="nav navbar-nav navbar-right">
+				  <!--<li id="nav-portal"><a href="https://sampforum.blast.hk/portal.php"><i class="fa fa-bell"></i> Portal</a></li>-->
+               <li id="nav-forums"><a href="https://sampforum.blast.hk/index.php"><i class="fa fa-group"></i> Forum</a></li>
+				<!--<li><a href="https://sampforum.blast.hk/search.php?action=getnew"><i class="fa fa-comment"></i> New Posts</a></li>
+            	<li><a href="https://sampforum.blast.hk/search.php?action=getdaily"><i class="fa fa-comments"></i> Today's Posts</a></li>-->
+               <li id="nav-search"><a href="https://sampforum.blast.hk/search.php"><i class="fa fa-search"></i> Search</a></li>
+               <li id="nav-member"><a href="https://sampforum.blast.hk/memberlist.php"><i class="fa fa-users"></i> Members</a></li>
+               <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+				  
+<!--<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cubes"></i> Misc <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			  <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+			  <li class="divider"></li>
+			  <li id="nav-calendar"><a href="https://sampforum.blast.hk/calendar.php"><i class="fa fa-calendar"></i> Calendar</a></li>
+          </ul>
+</li> -->
+</ul>
+  
+          </div>
+     </div>
+</div>
+</header>
+
+
+<div id="container">
+	<a name="top" id="top"></a>
+		<div id="header">
+			<div id="panel">
+				<div class="upper">
+					<div class="container">
+
+						<!-- start: header_welcomeblock_guest -->
+<!--<span><a href="https://sampforum.blast.hk/member.php?action=login" onclick="$('#quick_login').modal({ fadeDuration: 250, keepelement: true }); return false;" class="login btn btn-danger" style="color: #fff;"><i class="fa fa-sign-in"></i> Login</a> <a href="https://sampforum.blast.hk/member.php?action=register" class="register btn btn-success" style="color: #fff;"><i class="fa fa-user-plus"></i> Register</a></span>-->
+
+<span class="float_right hidden-xs">Hello There, Guest!</span>
+
+<br class="clearfix">
+	
+
+				<div class="modal" id="quick_login" style="display: none;">
+					<form method="post" action="https://sampforum.blast.hk/member.php">
+						<input name="my_post_key" type="hidden" value="2220ae0a21c853e6459922e7a63ded4d">
+						<input name="action" type="hidden" value="do_login">
+						<input name="url" type="hidden" value="https://sampforum.blast.hk/showthread.php?tid=317336">
+						<input name="quick_login" type="hidden" value="1">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tborder">
+							<tbody><tr>
+								<td class="thead" colspan="2"><strong>Login</strong></td>
+							</tr>
+							<tr>
+								<td class="trow1" width="25%"><strong>Username:</strong></td>
+								<td class="trow1"><input name="quick_username" id="quick_login_username" type="text" value="" class="textbox initial_focus"></td>
+							</tr>
+							<tr>
+								<td class="trow2"><strong>Password:</strong></td>
+								<td class="trow2">
+									<input name="quick_password" id="quick_login_password" type="password" value="" class="textbox"> <a href="https://sampforum.blast.hk/member.php?action=lostpw" class="lost_password">Lost Password?</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow1">&nbsp;</td>
+								<td class="trow1 remember_me">
+									<input name="quick_remember" id="quick_login_remember" type="checkbox" value="yes" class="checkbox" checked="checked">
+									<label for="quick_login_remember">Remember me</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow2" colspan="2">
+									<div align="center"><input name="submit" type="submit" class="button" value="Login"></div>
+								</td>
+							</tr>
+						</tbody></table>
+					</form>
+				</div>
+				<script type="text/javascript">
+					$("#quick_login input[name='url']").val($(location).attr('href'));
+				</script>
+<!-- end: header_welcomeblock_guest -->
+					
+					</div>
+			</div>
+			</div>
+	</div>
+			</div>
+               
+				   
+                <main class="container">
+				<br>
+                 <!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=17">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav -->
+				
+				
+				
+				
+				
+				
+<!-- end: header -->
+	
+	
+	<div class="float_left">
+		<!-- start: multipage -->
+<div class="pagination">
+<span class="pages">Pages (3):</span>
+<!-- start: multipage_page_current -->
+ <span class="pagination_current">1</span>
+<!-- end: multipage_page_current --><!-- start: multipage_page -->
+<a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;page=2" class="pagination_page">2</a>
+<!-- end: multipage_page --><!-- start: multipage_page -->
+<a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;page=3" class="pagination_page">3</a>
+<!-- end: multipage_page --><!-- start: multipage_nextpage -->
+<a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;page=2" class="pagination_next">Next »</a>
+<!-- end: multipage_nextpage -->
+</div>
+<!-- end: multipage -->
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	<div class="tborder tfixed clear">
+		<div class="thead">
+				<div class="float_right">
+					<span class="smalltext"><a href="https://sampforum.blast.hk/showthread.php?mode=threaded&amp;tid=317336&amp;pid=1671627#pid1671627">Threaded Mode</a></span>
+				</div>
+				
+					[Tutorial] Scripting [BEGINNER]
+			</div>
+	</div>
+<div id="posts_container">
+	<div id="posts">
+		<!-- start: postbit_classic -->
+
+<a id="pid1671627"></a>
+<div class="post classic " style="" id="post_1671627">
+<div class="post_author scaleimages">
+	
+	<div class="author_information">
+			<strong><span class="largetext">Nicholas.</span></strong> <br>
+			<span class="smalltext">
+				Unregistered<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_guest -->
+&nbsp;
+<!-- end: postbit_author_guest -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;pid=1671627#pid1671627" title="Scripting [BEGINNER]">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 1 by Nicholas." style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">11.02.2012, 01:17 <span class="post_edit" id="edited_by_1671627"><!-- start: postbit_editedby -->
+<div class="edited_post postbit_edited postbit_editedby postbit_editedpost">(<!-- start: postbit_editedby_editreason -->
+ <em>Последний раз редактировалось Nicholas.; 11.07.2012 в 05:42.</em>
+<!-- end: postbit_editedby_editreason -->)</div>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1671627">
+		<font size="3"><b>Greetings.</b></font><br>
+<br>
+<font face="arial">This is a basic tutorial made for beginners at SA:MP Scripting. Remember, This is not a professionally made tutorial. There are a lot of other good tutorials you can find on SA:MP forums. I have just decided to make one. So let's begin.</font><br>
+<br>
+<b>What is SA:MP?</b><br>
+<font face="arial">San Andreas Multiplayer (SA:MP) is a modification for Grand Theft Auto: San Andreas which turns it into a multiplayer game. You can play over the internet with other people. You need the original Grand Theft Auto: San Andreas PC game to play San Andreas Multiplayer.</font><br>
+<br>
+<b>What is PAWN?</b><br>
+<font face="arial">Pawn is a programming language that is embedded into other programs, in our case, SA-MP.</font><br>
+<br>
+<b>Recommendation.</b><br>
+<font face="arial">To all beginners I would recommend completely reading SA-MP Wiki - Scripting basics. When scripting always have these pages opened on your internet browser.</font> <a href="https://sampwiki.blast.hk/wiki/Scripting_Basics" target="_blank"> Click here.</a><br>
+<br>
+<br>
+<font size="3"><b>Getting Started.</b></font><br>
+<br>
+<font face="arial">Setting up your server - Go to sa-mp.com, go into downloads and click on <font color="DarkOrange"><font size="2"><b>SA-MP 0.3d R2 Windows Server.</b></font></font> After your download is complete, save the file to your computer. In this file you would find, filterscripts, gamemodes, include, npcmodes, pawno, plugins, scriptfiles, annouce, samp-license, samp-npc, samp-server, server and server-readme, files.</font><br>
+<br>
+<font face="arial">We'll start by setting up the server configs. We are going to open 'server' file.<br>
+<br>
+You will see this:</font><br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			<br>
+				echo Executing Server Config...<br>
+lanmode 0<br>
+rcon_password changeme<br>
+maxplayers 32<br>
+port 7777<br>
+hostname SA-MP 0.3 Server<br>
+gamemode0 grandlarc 1<br>
+filterscripts baseaf gl_actions gl_property gl_realtime gl_mapicon ls_elevator<br>
+announce 0<br>
+query 1<br>
+weburl <a href="http://www.sa-mp.com/" target="_blank">www.sa-mp.com</a><br>
+onfoot_rate 40<br>
+incar_rate 40<br>
+weapon_rate 40<br>
+stream_distance 300.0<br>
+stream_rate 1000<br>
+maxnpc 0<br>
+logtimeformat [%H:%M:%S]<br>
+			<br>
+		</td>
+</tr>
+</tbody></table>
+</div><font face="arial">Now, We're going to change these default settings to your likings.<br>
+<br>
+Hostname - This is what your server name will be when hosted on SA:MP client.<br>
+Rcon_password - This is the password to access your server.<br>
+Maxplayers - This is to change the amount of players to allow on the server.<br>
+gamemode - This is the server's running script.<br>
+<br>
+So let's change the settings to our likings.</font><br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+			<br>
+				echo Executing Server Config...<br>
+lanmode 0<br>
+rcon_password Server<br>
+maxplayers 50<br>
+port 7777<br>
+hostname SA-MP 0.3 server<br>
+gamemode0 Gamemode<br>
+filterscripts <br>
+announce 0<br>
+query 1<br>
+weburl <a href="http://www.sa-mp.com/" target="_blank">www.sa-mp.com</a><br>
+onfoot_rate 40<br>
+incar_rate 40<br>
+weapon_rate 40<br>
+stream_distance 300.0<br>
+stream_rate 1000<br>
+maxnpc 0<br>
+logtimeformat [%H:%M:%S]<br>
+			<br>
+		</td>
+</tr>
+</tbody></table>
+</div><font face="arial">After these are changed save the file.</font><br>
+<br>
+<b>Step 1 - Scripting.</b><br>
+<font face="arial">Now, We're going to start by going into &gt; pawno &gt; pawno.exe.<br>
+Open the file, It will be blank. Create a new file by going into &gt; File &gt; New, in the top right-hand corner.<br>
+<br>
+This will appear:</font><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:503px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// This is a comment</span><br><span style="color: #228822;">// uncomment the line below if you want to write a filterscript</span><br><span style="color: #228822;">//#define FILTERSCRIPT</span><br><br><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><br><span style="color: #2222AA;">#if defined FILTERSCRIPT</span><br><br><span style="color: #2222BB;">public</span> OnFilterScriptInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #222222;">print</span><span style="color: #000000;">(</span><span style="color: #000066;">"<span style="color: #000099; font-weight: bold;">\n</span>--------------------------------------"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #222222;">print</span><span style="color: #000000;">(</span><span style="color: #000066;">" Blank Filterscript by your name here"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #222222;">print</span><span style="color: #000000;">(</span><span style="color: #000066;">"--------------------------------------<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnFilterScriptExit<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222AA;">#else</span><br><br>main<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #222222;">print</span><span style="color: #000000;">(</span><span style="color: #000066;">"<span style="color: #000099; font-weight: bold;">\n</span>----------------------------------"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #222222;">print</span><span style="color: #000000;">(</span><span style="color: #000066;">" Blank Gamemode by your name here"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #222222;">print</span><span style="color: #000000;">(</span><span style="color: #000066;">"----------------------------------<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222AA;">#endif</span><br><br><span style="color: #2222BB;">public</span> OnGameModeInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #228822;">// Don't use these lines if it's a filterscript</span><br>&nbsp; &nbsp; SetGameModeText<span style="color: #000000;">(</span><span style="color: #000066;">"Blank Script"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; AddPlayerClass<span style="color: #000000;">(</span><span style="color: #000000;">0</span>, <span style="color: #000000;">1958.3783</span>, <span style="color: #000000;">1343.1572</span>, <span style="color: #000000;">15.3746</span>, <span style="color: #000000;">269.1425</span>, <span style="color: #000000;">0</span>, <span style="color: #000000;">0</span>, <span style="color: #000000;">0</span>, <span style="color: #000000;">0</span>, <span style="color: #000000;">0</span>, <span style="color: #000000;">0</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnGameModeExit<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerRequestClass<span style="color: #000000;">(</span>playerid, classid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; SetPlayerPos<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">1958.3783</span>, <span style="color: #000000;">1343.1572</span>, <span style="color: #000000;">15.3746</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; SetPlayerCameraPos<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">1958.3783</span>, <span style="color: #000000;">1343.1572</span>, <span style="color: #000000;">15.3746</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; SetPlayerCameraLookAt<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">1958.3783</span>, <span style="color: #000000;">1343.1572</span>, <span style="color: #000000;">15.3746</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerConnect<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerDisconnect<span style="color: #000000;">(</span>playerid, reason<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerSpawn<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerDeath<span style="color: #000000;">(</span>playerid, killerid, reason<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnVehicleSpawn<span style="color: #000000;">(</span>vehicleid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnVehicleDeath<span style="color: #000000;">(</span>vehicleid, killerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerText<span style="color: #000000;">(</span>playerid, text<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerCommandText<span style="color: #000000;">(</span>playerid, cmdtext<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span> <span style="color: #000000;">(</span><span style="color: #222222;">strcmp</span><span style="color: #000000;">(</span><span style="color: #000066;">"/mycommand"</span>, cmdtext, true, <span style="color: #000000;">10</span><span style="color: #000000;">)</span> <span style="color: #000000;">==</span> <span style="color: #000000;">0</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #228822;">// Do something here</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">0</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerEnterVehicle<span style="color: #000000;">(</span>playerid, vehicleid, ispassenger<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerExitVehicle<span style="color: #000000;">(</span>playerid, vehicleid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerStateChange<span style="color: #000000;">(</span>playerid, newstate, oldstate<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerEnterCheckpoint<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerLeaveCheckpoint<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerEnterRaceCheckpoint<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerLeaveRaceCheckpoint<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnRconCommand<span style="color: #000000;">(</span>cmd<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerRequestSpawn<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnObjectMoved<span style="color: #000000;">(</span>objectid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerObjectMoved<span style="color: #000000;">(</span>playerid, objectid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerPickUpPickup<span style="color: #000000;">(</span>playerid, pickupid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnVehicleMod<span style="color: #000000;">(</span>playerid, vehicleid, componentid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnVehiclePaintjob<span style="color: #000000;">(</span>playerid, vehicleid, paintjobid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnVehicleRespray<span style="color: #000000;">(</span>playerid, vehicleid, color1, color2<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerSelectedMenuRow<span style="color: #000000;">(</span>playerid, row<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerExitedMenu<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerInteriorChange<span style="color: #000000;">(</span>playerid, newinteriorid, oldinteriorid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerKeyStateChange<span style="color: #000000;">(</span>playerid, newkeys, oldkeys<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnRconLoginAttempt<span style="color: #000000;">(</span>ip<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, password<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, success<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerUpdate<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerStreamIn<span style="color: #000000;">(</span>playerid, forplayerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerStreamOut<span style="color: #000000;">(</span>playerid, forplayerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnVehicleStreamIn<span style="color: #000000;">(</span>vehicleid, forplayerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnVehicleStreamOut<span style="color: #000000;">(</span>vehicleid, forplayerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnDialogResponse<span style="color: #000000;">(</span>playerid, dialogid, response, listitem, inputtext<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerClickPlayer<span style="color: #000000;">(</span>playerid, clickedplayerid, source<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+<font face="arial"><br>
+This is a blank script. Now click F5 to compile, this will notify you if there's any errors.<br>
+If you're compiling your script for the first time you will have to save it also. Save it as the name you have for your gamemode0 settings in the server configs file so the server could run the script. For me I have 'Gamemode' so I'll save it as 'Gamemode'.<br>
+<br>
+<br>
+Now click samp-server to start the server. Add :7777 to your favorite list on your SA:MP client and your server will appear.</font><br>
+<br>
+<b>Step 2 - Scripting</b><br>
+<br>
+<font face="Arial">So, let's begin by removing the first 3 lines. <br>
+Now what we're going to write some comments. Example, credits, version, developer etc.<br>
+<br>
+So let's do this:</font><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:151px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">/*******************************************************************************<br>* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SERVER NAME: Gamemode<br>* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SERVER VERSION: Mode v1.0<br>* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SERVER DEVELOPER: Nicholas<br>*<br>* &nbsp; INFORMATION:<br>*<br>*******************************************************************************/</span></div></div></pre>
+</div>
+<font face="Arial">I would recommend compiling before continuing further with your scripting.</font><br>
+<br>
+<font face="Arial">Now let's work on our function "main()" </font><br>
+<br>
+<font face="Arial">So you'll have this:</font><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:119px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;">main<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #222222;">print</span><span style="color: #000000;">(</span><span style="color: #000066;">"<span style="color: #000099; font-weight: bold;">\n</span>----------------------------------"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #222222;">print</span><span style="color: #000000;">(</span><span style="color: #000066;">" Blank Gamemode by your name here"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #222222;">print</span><span style="color: #000000;">(</span><span style="color: #000066;">"----------------------------------<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+<font face="Arial">What is this? This is what is printed into your console (samp-server)<br>
+So this will basically display what script the server is running.<br>
+<br>
+So let's do this:</font><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:119px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;">main<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #222222;">print</span><span style="color: #000000;">(</span><span style="color: #000066;">"SERVER: Gamemoder"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #222222;">print</span><span style="color: #000000;">(</span><span style="color: #000066;">"VERSION: Mode v1.0"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #222222;">print</span><span style="color: #000000;">(</span><span style="color: #000066;">"DEVELOPER: Nicholas"</span><span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+<font face="Arial">So let's now work on OnGameModeInit() function.<br>
+<br>
+We have this: </font><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:135px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnGameModeInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #228822;">// Don't use these lines if it's a filterscript</span><br>&nbsp; &nbsp; SetGameModeText<span style="color: #000000;">(</span><span style="color: #000066;">"Blank Script"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; AddPlayerClass<span style="color: #000000;">(</span><span style="color: #000000;">0</span>, <span style="color: #000000;">1958.3783</span>, <span style="color: #000000;">1343.1572</span>, <span style="color: #000000;">15.3746</span>, <span style="color: #000000;">269.1425</span>, <span style="color: #000000;">0</span>, <span style="color: #000000;">0</span>, <span style="color: #000000;">0</span>, <span style="color: #000000;">0</span>, <span style="color: #000000;">0</span>, <span style="color: #000000;">0</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+<font face="Arial">Now, We're gong to set the 'SetGameModeText'. This will show the server's mode, example version.<br>
+<br>
+So let's do this:</font><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:135px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnGameModeInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #228822;">// Don't use these lines if it's a filterscript</span><br>&nbsp; &nbsp; SetGameModeText<span style="color: #000000;">(</span><span style="color: #000066;">"Party v2.0.0"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; AddPlayerClass<span style="color: #000000;">(</span><span style="color: #000000;">0</span>, <span style="color: #000000;">1958.3783</span>, <span style="color: #000000;">1343.1572</span>, <span style="color: #000000;">15.3746</span>, <span style="color: #000000;">269.1425</span>, <span style="color: #000000;">0</span>, <span style="color: #000000;">0</span>, <span style="color: #000000;">0</span>, <span style="color: #000000;">0</span>, <span style="color: #000000;">0</span>, <span style="color: #000000;">0</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+<font face="Arial">Now, We're going to work on our class selection, AddPlayerClass. <a href="https://sampwiki.blast.hk/wiki/AddPlayerClass" target="_blank"> Read more.</a><br>
+By default the coordinates are set for the High Roller casino in Las Venturas. <br>
+<br>
+Now we're going to remove the default coordinates and add our own coordinates. To get coordinates you have to use this command on the server, /save, this command saves your OnFoot Position. Now the coordinates are save in your GTA San Andreas User file &gt; SAMP &gt; Savepositions.</font><br>
+<br>
+<font face="Arial">These are the coordinates I have collected.</font><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:103px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;">AddPlayerClass<span style="color: #000000;">(</span><span style="color: #000000;">23</span>,<span style="color: #000000;">2038.5416</span>,<span style="color: #000000;">1342.3601</span>,<span style="color: #000000;">10.6719</span>,<span style="color: #000000;">270.0824</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span><span style="color: #000000;">)</span>;<br>AddPlayerClass<span style="color: #000000;">(</span><span style="color: #000000;">46</span>,<span style="color: #000000;">1831.0970</span>,<span style="color: #000000;">-</span><span style="color: #000000;">1682.6102</span>,<span style="color: #000000;">13.5469</span>,<span style="color: #000000;">88.3051</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span><span style="color: #000000;">)</span>;<br>AddPlayerClass<span style="color: #000000;">(</span><span style="color: #000000;">45</span>,<span style="color: #000000;">1481.3297</span>,<span style="color: #000000;">-</span><span style="color: #000000;">1748.6530</span>,<span style="color: #000000;">15.4453</span>,<span style="color: #000000;">359.7071</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span><span style="color: #000000;">)</span>;<br>AddPlayerClass<span style="color: #000000;">(</span><span style="color: #000000;">83</span>,<span style="color: #000000;">723.3815</span>,<span style="color: #000000;">-</span><span style="color: #000000;">1494.9203</span>,<span style="color: #000000;">1.9343</span>,<span style="color: #000000;">359.2792</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span><span style="color: #000000;">)</span>;<br>AddPlayerClass<span style="color: #000000;">(</span><span style="color: #000000;">92</span>,<span style="color: #000000;">1126.6831</span>,<span style="color: #000000;">-</span><span style="color: #000000;">1425.8101</span>,<span style="color: #000000;">15.7969</span>,<span style="color: #000000;">357.7497</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div>
+<font face="Arial">Now add your coordinates to your script.</font><br>
+<br>
+<font face="Arial">Now, we have this:</font><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:199px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnGameModeInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; SetGameModeText<span style="color: #000000;">(</span><span style="color: #000066;">"Party v2.0.0"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #228822;">//------------------------[PLAYER CLASS SELECTION]--------------------------</span><br>&nbsp; &nbsp; AddPlayerClass<span style="color: #000000;">(</span><span style="color: #000000;">23</span>,<span style="color: #000000;">2038.5416</span>,<span style="color: #000000;">1342.3601</span>,<span style="color: #000000;">10.6719</span>,<span style="color: #000000;">270.0824</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; AddPlayerClass<span style="color: #000000;">(</span><span style="color: #000000;">46</span>,<span style="color: #000000;">1831.0970</span>,<span style="color: #000000;">-</span><span style="color: #000000;">1682.6102</span>,<span style="color: #000000;">13.5469</span>,<span style="color: #000000;">88.3051</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; AddPlayerClass<span style="color: #000000;">(</span><span style="color: #000000;">45</span>,<span style="color: #000000;">1481.3297</span>,<span style="color: #000000;">-</span><span style="color: #000000;">1748.6530</span>,<span style="color: #000000;">15.4453</span>,<span style="color: #000000;">359.7071</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; AddPlayerClass<span style="color: #000000;">(</span><span style="color: #000000;">83</span>,<span style="color: #000000;">723.3815</span>,<span style="color: #000000;">-</span><span style="color: #000000;">1494.9203</span>,<span style="color: #000000;">1.9343</span>,<span style="color: #000000;">359.2792</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; AddPlayerClass<span style="color: #000000;">(</span><span style="color: #000000;">92</span>,<span style="color: #000000;">1126.6831</span>,<span style="color: #000000;">-</span><span style="color: #000000;">1425.8101</span>,<span style="color: #000000;">15.7969</span>,<span style="color: #000000;">357.7497</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div><font face="Arial"><br>
+Let's add a vehicle to the script/server.</font> <a href="https://sampwiki.blast.hk/wiki/AddStaticVehicle" target="_blank"> Read more.</a><br>
+<font face="Arial">We're going to use AddStaticVehicle. We're going to add this under the OnGameModeInit. <br>
+We're going to use the /save command to get our coordinates so the vehicle will spawn.</font><br>
+<br>
+<font face="Arial">Here are my coordinates </font><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #000000;">(</span><span style="color: #000000;">0</span>,<span style="color: #000000;">1478.9257</span>,<span style="color: #000000;">-</span><span style="color: #000000;">1737.8595</span>,<span style="color: #000000;">13.2929</span>,<span style="color: #000000;">270.0982</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div><font face="Arial">The first 0 in the coordinate is the vehicle ID so let's change this to 402.</font><br>
+<br>
+<font face="Arial">So we have this:</font> <br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:231px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnGameModeInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; SetGameModeText<span style="color: #000000;">(</span><span style="color: #000066;">"Party v2.0.0"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #228822;">//------------------------[PLAYER CLASS SELECTION]--------------------------</span><br>&nbsp; &nbsp; AddPlayerClass<span style="color: #000000;">(</span><span style="color: #000000;">23</span>,<span style="color: #000000;">2038.5416</span>,<span style="color: #000000;">1342.3601</span>,<span style="color: #000000;">10.6719</span>,<span style="color: #000000;">270.0824</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; AddPlayerClass<span style="color: #000000;">(</span><span style="color: #000000;">46</span>,<span style="color: #000000;">1831.0970</span>,<span style="color: #000000;">-</span><span style="color: #000000;">1682.6102</span>,<span style="color: #000000;">13.5469</span>,<span style="color: #000000;">88.3051</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; AddPlayerClass<span style="color: #000000;">(</span><span style="color: #000000;">45</span>,<span style="color: #000000;">1481.3297</span>,<span style="color: #000000;">-</span><span style="color: #000000;">1748.6530</span>,<span style="color: #000000;">15.4453</span>,<span style="color: #000000;">359.7071</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; AddPlayerClass<span style="color: #000000;">(</span><span style="color: #000000;">83</span>,<span style="color: #000000;">723.3815</span>,<span style="color: #000000;">-</span><span style="color: #000000;">1494.9203</span>,<span style="color: #000000;">1.9343</span>,<span style="color: #000000;">359.2792</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; AddPlayerClass<span style="color: #000000;">(</span><span style="color: #000000;">92</span>,<span style="color: #000000;">1126.6831</span>,<span style="color: #000000;">-</span><span style="color: #000000;">1425.8101</span>,<span style="color: #000000;">15.7969</span>,<span style="color: #000000;">357.7497</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #228822;">//---------------------------[SERVER VEHICLES]------------------------------</span><br>&nbsp; &nbsp; AddStaticVehicle<span style="color: #000000;">(</span><span style="color: #000000;">402</span>,<span style="color: #000000;">1478.9257</span>,<span style="color: #000000;">-</span><span style="color: #000000;">1737.8595</span>,<span style="color: #000000;">13.2929</span>,<span style="color: #000000;">270.0982</span>,<span style="color: #000000;">0</span>,<span style="color: #000000;">0</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+<font face="Arial">So yeah, As I said this is basic tutorial. There are more advance tutorials on SA:MP forums. So I will end my tutorial by making a simple /help command.</font><br>
+<font face="Arial"><br>
+This is what we have:</font><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:167px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnPlayerCommandText<span style="color: #000000;">(</span>playerid, cmdtext<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span> <span style="color: #000000;">(</span><span style="color: #222222;">strcmp</span><span style="color: #000000;">(</span><span style="color: #000066;">"/mycommand"</span>, cmdtext, true, <span style="color: #000000;">10</span><span style="color: #000000;">)</span> <span style="color: #000000;">==</span> <span style="color: #000000;">0</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #228822;">// Do something here</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">0</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+<font face="Arial">So let's work on this....<br>
+Let's do this:</font><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:55px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span> <span style="color: #000000;">(</span><span style="color: #222222;">strcmp</span><span style="color: #000000;">(</span><span style="color: #000066;">"/help"</span>, cmdtext, true, <span style="color: #000000;">4</span><span style="color: #000000;">)</span> <span style="color: #000000;">==</span> <span style="color: #000000;">0</span><span style="color: #000000;">)</span></div></div></pre>
+</div>
+<font face="Arial">Now let's add our SendClientMessage.<br>
+Let's do this:</font><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;">SendClientMessage<span style="color: #000000;">(</span>playerid,0xFFFFFF,<span style="color: #000066;">"This is a Deathmatch Script."</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div>
+<font face="Arial">So we have this:</font><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:151px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnPlayerCommandText<span style="color: #000000;">(</span>playerid, cmdtext<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span> <span style="color: #000000;">(</span><span style="color: #222222;">strcmp</span><span style="color: #000000;">(</span><span style="color: #000066;">"/help"</span>, cmdtext, true, <span style="color: #000000;">5</span><span style="color: #000000;">)</span> <span style="color: #000000;">==</span> <span style="color: #000000;">0</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>SendClientMessage<span style="color: #000000;">(</span>playerid,0xFFFFFF,<span style="color: #000066;">"This is a Deathmatch Script."</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">0</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+<br>
+<font face="Arial">End of Tutorial. This was a basic tutorial to get beginners started. Keep reading SA:MP Wiki about scripting.</font>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1671627">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=317336&amp;replyto=1671627" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1671640"></a>
+<div class="post classic " style="" id="post_1671640">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=151590"><img src="./[Tutorial] Scripting [BEGINNER]_files/151590.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=151590">2KY</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 949<br>
+	Threads: 153<br>
+	Joined: Jan 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=151590"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;pid=1671640#pid1671640" title="Re: Scripting [BEGINNER]">#2</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 2 by 2KY" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">11.02.2012, 01:32 <span class="post_edit" id="edited_by_1671640"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1671640">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Nicholas.</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1671627#pid1671627" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] Scripting [BEGINNER]_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">
+What is PAWN?<br>
+Pawn is a programming language that is embedded into other programs, for example, Half-Life or Quake, in our case, SA-MP<br>
+<br>
+Now click samp-server to start the server. Add :777 to your favorite list on your SA:MP client and your server will appear.</div>
+</td>
+</tr>
+</tbody></table>
+</div>@What is PAWN:<br>
+That section is actually wrong, how is Half-Life or Quake an example of a programming language embedded into another program? A better example would be C, or C++.<br>
+<br>
+@Now click...:<br>
+I'm assuming it's a typo, but the default port is 7777. Just felt like I should notify you.<br>
+<br>
+However, it's a pretty decent, standard tutorial. Keep editing it as you learn.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1671640">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=151590" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=317336&amp;replyto=1671640" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1671664"></a>
+<div class="post classic " style="" id="post_1671664">
+<div class="post_author scaleimages">
+	
+	<div class="author_information">
+			<strong><span class="largetext">Nicholas.</span></strong> <br>
+			<span class="smalltext">
+				Unregistered<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_guest -->
+&nbsp;
+<!-- end: postbit_author_guest -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;pid=1671664#pid1671664" title="Re: Scripting [BEGINNER]">#3</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 3 by Nicholas." style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">11.02.2012, 01:51 <span class="post_edit" id="edited_by_1671664"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1671664">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>2KY</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1671640#pid1671640" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] Scripting [BEGINNER]_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">@What is PAWN:<br>
+That section is actually wrong, how is Half-Life or Quake an example of a programming language embedded into another program? A better example would be C, or C++.<br>
+<br>
+@Now click...:<br>
+I'm assuming it's a typo, but the default port is 7777. Just felt like I should notify you.<br>
+<br>
+However, it's a pretty decent, standard tutorial. Keep editing it as you learn.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Thank you for commenting. It is appreciated. <br>
+<br>
+Yes, I meant :7777. As you assumed it was a typo by me.<br>
+Actually, The information about What is PAWN was collected from SA:MP Wiki.<br>
+<br>
+If anyone like this tutorial. I would appreciate a click on the reputation button, Thank you.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1671664">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=317336&amp;replyto=1671664" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1671679"></a>
+<div class="post classic " style="" id="post_1671679">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=151590"><img src="./[Tutorial] Scripting [BEGINNER]_files/151590.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=151590">2KY</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 949<br>
+	Threads: 153<br>
+	Joined: Jan 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=151590"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;pid=1671679#pid1671679" title="Re: Scripting [BEGINNER]">#4</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 4 by 2KY" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">11.02.2012, 02:07 <span class="post_edit" id="edited_by_1671679"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1671679">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Nicholas.</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1671664#pid1671664" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] Scripting [BEGINNER]_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Thank you for commenting. It is appreciated. <br>
+<br>
+Yes, I meant :7777. As you assumed it was a typo by me.<br>
+Actually, The information about What is PAWN was collected from SA:MP Wiki.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Well, considering Half-Life and Quake are game ENGINES, not the programming itself, I don't think was correct in the first place.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1671679">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=151590" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=317336&amp;replyto=1671679" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1671682"></a>
+<div class="post classic " style="" id="post_1671682">
+<div class="post_author scaleimages">
+	
+	<div class="author_information">
+			<strong><span class="largetext">Nicholas.</span></strong> <br>
+			<span class="smalltext">
+				Unregistered<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_guest -->
+&nbsp;
+<!-- end: postbit_author_guest -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;pid=1671682#pid1671682" title="Re: Scripting [BEGINNER]">#5</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 5 by Nicholas." style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">11.02.2012, 02:10 <span class="post_edit" id="edited_by_1671682"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1671682">
+		Thank you for informing me.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1671682">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=317336&amp;replyto=1671682" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1672878"></a>
+<div class="post classic " style="" id="post_1672878">
+<div class="post_author scaleimages">
+	
+	<div class="author_information">
+			<strong><span class="largetext">Nicholas.</span></strong> <br>
+			<span class="smalltext">
+				Unregistered<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_guest -->
+&nbsp;
+<!-- end: postbit_author_guest -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;pid=1672878#pid1672878" title="Re: Scripting [BEGINNER]">#6</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 6 by Nicholas." style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">11.02.2012, 17:42 <span class="post_edit" id="edited_by_1672878"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1672878">
+		Updated.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1672878">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=317336&amp;replyto=1672878" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1679617"></a>
+<div class="post classic " style="" id="post_1679617">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=141501"><img src="./[Tutorial] Scripting [BEGINNER]_files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=141501">Mr.Fames</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 335<br>
+	Threads: 59<br>
+	Joined: Oct 2011
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=141501"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;pid=1679617#pid1679617" title="Re: Scripting [BEGINNER]">#7</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 7 by Mr.Fames" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">15.02.2012, 15:59 <span class="post_edit" id="edited_by_1679617"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1679617">
+		good tutorial keep up the good work as you learn <br>
+rep++;
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1679617">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=141501" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=317336&amp;replyto=1679617" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1681176"></a>
+<div class="post classic " style="" id="post_1681176">
+<div class="post_author scaleimages">
+	
+	<div class="author_information">
+			<strong><span class="largetext">Nicholas.</span></strong> <br>
+			<span class="smalltext">
+				Unregistered<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_guest -->
+&nbsp;
+<!-- end: postbit_author_guest -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;pid=1681176#pid1681176" title="Re: Scripting [BEGINNER]">#8</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 8 by Nicholas." style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">16.02.2012, 14:26 <span class="post_edit" id="edited_by_1681176"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1681176">
+		Thank you.<br>
+I will be updating it very soon.<br>
+<br>
+Next:<br>
+Making a login and registration system using Y_INI.<br>
+Making a /enter and /exit command
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1681176">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=317336&amp;replyto=1681176" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1705051"></a>
+<div class="post classic " style="" id="post_1705051">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=50257"><img src="./[Tutorial] Scripting [BEGINNER]_files/50257.png" alt="" width="55" height="35"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=50257"><s>Dripac</s></a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Banned<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,534<br>
+	Threads: 179<br>
+	Joined: Apr 2009
+	<br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;pid=1705051#pid1705051" title="Re: Scripting [BEGINNER]">#9</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 9 by Dripac" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">01.03.2012, 11:47 <span class="post_edit" id="edited_by_1705051"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1705051">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Nicholas.</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1671664#pid1671664" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] Scripting [BEGINNER]_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">If anyone like this tutorial. I would appreciate a click on the reputation button, Thank you.</div>
+</td>
+</tr>
+</tbody></table>
+</div>I was about to give you reputation (4 points), but now i won't<br>
+<br>
+Tutorial is nice, good job
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1705051">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=50257" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=317336&amp;replyto=1705051" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1731663"></a>
+<div class="post classic " style="" id="post_1731663">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=155643"><img src="./[Tutorial] Scripting [BEGINNER]_files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=155643">TheDominator</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 494<br>
+	Threads: 9<br>
+	Joined: Feb 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=155643"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;pid=1731663#pid1731663" title="Re: Scripting [BEGINNER]">#10</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 10 by TheDominator" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">14.03.2012, 21:31 <span class="post_edit" id="edited_by_1731663"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1731663">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Nicholas.</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1692739#pid1692739" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Scripting [BEGINNER]_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Thank you.<br>
+I am glad you liked the tutorial. Also thank you, I appreciate the reputation.<br>
+<br>
+EDIT: Sorry I haven't got around to continuing this tutorial. I've been busy these days. I will soon get around to it.</div>
+</td>
+</tr>
+</tbody></table>
+</div>No problem man, it's good to know that people still care about helping us n00bs out <img alt="" border="0" class="inlineimg" src="./[Tutorial] Scripting [BEGINNER]_files/biggrin.png" title="Cheesy">
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1731663">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=155643" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=317336&amp;replyto=1731663" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1977405"></a>
+<div class="post classic " style="" id="post_1977405">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=166488"><img src="./[Tutorial] Scripting [BEGINNER]_files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=166488">Goru</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Big Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 84<br>
+	Threads: 19<br>
+	Joined: May 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=166488"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;pid=1977405#pid1977405" title="Re: Scripting [BEGINNER]">#11</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 11 by Goru" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">10.07.2012, 14:33 <span class="post_edit" id="edited_by_1977405"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1977405">
+		Pawn is not programming.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1977405">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=166488" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=317336&amp;replyto=1977405" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1978260"></a>
+<div class="post classic " style="" id="post_1978260">
+<div class="post_author scaleimages">
+	
+	<div class="author_information">
+			<strong><span class="largetext">Nicholas.</span></strong> <br>
+			<span class="smalltext">
+				Unregistered<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_guest -->
+&nbsp;
+<!-- end: postbit_author_guest -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;pid=1978260#pid1978260" title="Re: Scripting [BEGINNER]">#12</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 12 by Nicholas." style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">10.07.2012, 20:19 <span class="post_edit" id="edited_by_1978260"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1978260">
+		Thanks for dumping. *sarcasm*<br>
+<br>
+ I actually forgot all about this old tutorial I made. I feel I'll update it soon. <br>
+<br>
+Pawn isn't a programming language?, WELL, thats new to me. *sarcasm again*
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1978260">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=317336&amp;replyto=1978260" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1978819"></a>
+<div class="post classic " style="" id="post_1978819">
+<div class="post_author scaleimages">
+	
+	<div class="author_information">
+			<strong><span class="largetext">Disturn</span></strong> <br>
+			<span class="smalltext">
+				Unregistered<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_guest -->
+&nbsp;
+<!-- end: postbit_author_guest -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;pid=1978819#pid1978819" title="Re: Scripting [BEGINNER]">#13</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 13 by Disturn" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">11.07.2012, 01:52 <span class="post_edit" id="edited_by_1978819"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1978819">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Nicholas.</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1978260#pid1978260" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Scripting [BEGINNER]_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Pawn isn't a programming language?, WELL, thats new to me. *sarcasm again*</div>
+</td>
+</tr>
+</tbody></table>
+</div>It is a programming language, and I'm not going to travel the distance to explain why. I'll leave that up to you <img alt="" border="0" class="inlineimg" src="./[Tutorial] Scripting [BEGINNER]_files/wink.png" title="Wink">
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1978819">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=317336&amp;replyto=1978819" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1978898"></a>
+<div class="post classic " style="" id="post_1978898">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=166488"><img src="./[Tutorial] Scripting [BEGINNER]_files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=166488">Goru</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Big Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 84<br>
+	Threads: 19<br>
+	Joined: May 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=166488"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;pid=1978898#pid1978898" title="Re: Scripting [BEGINNER]">#14</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 14 by Goru" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">11.07.2012, 03:11 <span class="post_edit" id="edited_by_1978898"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1978898">
+		Even the company it self said it was a programming language. Look up there Wiki.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1978898">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=166488" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=317336&amp;replyto=1978898" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1978913"></a>
+<div class="post classic " style="" id="post_1978913">
+<div class="post_author scaleimages">
+	
+	<div class="author_information">
+			<strong><span class="largetext">Nicholas.</span></strong> <br>
+			<span class="smalltext">
+				Unregistered<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_guest -->
+&nbsp;
+<!-- end: postbit_author_guest -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;pid=1978913#pid1978913" title="Re: Scripting [BEGINNER]">#15</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 15 by Nicholas." style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">11.07.2012, 03:29 <span class="post_edit" id="edited_by_1978913"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1978913">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Goru</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1977405#pid1977405" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Scripting [BEGINNER]_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Pawn is not programming.</div>
+</td>
+</tr>
+</tbody></table>
+</div><div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Goru</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1978898#pid1978898" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Scripting [BEGINNER]_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Even the company it self said it was a programming language. Look up there Wiki.</div>
+</td>
+</tr>
+</tbody></table>
+</div>First you dump this old thread by saying pawn is not a programming language. Then you reply again saying it was. Are you mentally challenge by way chance? Pawn is a programming language, that's all I will say to you.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1978913">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=317336&amp;replyto=1978913" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1978970"></a>
+<div class="post classic " style="" id="post_1978970">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=166488"><img src="./[Tutorial] Scripting [BEGINNER]_files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=166488">Goru</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Big Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 84<br>
+	Threads: 19<br>
+	Joined: May 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=166488"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;pid=1978970#pid1978970" title="Re: Scripting [BEGINNER]">#16</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 16 by Goru" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">11.07.2012, 05:02 <span class="post_edit" id="edited_by_1978970"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1978970">
+		It was a typo, you don't have a source to your "Statement" therefor, your argument is invalid. As, I can provide source my self.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1978970">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=166488" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=317336&amp;replyto=1978970" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1978977"></a>
+<div class="post classic " style="" id="post_1978977">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=169288"><img src="./[Tutorial] Scripting [BEGINNER]_files/169288.png" alt="" width="55" height="42"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=169288">M3mPHi$_S3</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 641<br>
+	Threads: 30<br>
+	Joined: Jun 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=169288"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;pid=1978977#pid1978977" title="Re: Scripting [BEGINNER]">#17</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 17 by M3mPHi$_S3" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">11.07.2012, 05:25 <span class="post_edit" id="edited_by_1978977"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1978977">
+		Not bad :
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1978977">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=169288" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=317336&amp;replyto=1978977" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1978978"></a>
+<div class="post classic " style="" id="post_1978978">
+<div class="post_author scaleimages">
+	
+	<div class="author_information">
+			<strong><span class="largetext">Nicholas.</span></strong> <br>
+			<span class="smalltext">
+				Unregistered<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_guest -->
+&nbsp;
+<!-- end: postbit_author_guest -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;pid=1978978#pid1978978" title="Re: Scripting [BEGINNER]">#18</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 18 by Nicholas." style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">11.07.2012, 05:30 <span class="post_edit" id="edited_by_1978978"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1978978">
+		Source? Statement? Argument? Invalid? I have not a clue what you are talking about. So let's just leave it there.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1978978">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=317336&amp;replyto=1978978" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1978979"></a>
+<div class="post classic " style="" id="post_1978979">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=146580"><img src="./[Tutorial] Scripting [BEGINNER]_files/146580.png" alt="" width="55" height="38"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=146580">Rudy_</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><img src="./[Tutorial] Scripting [BEGINNER]_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,355<br>
+	Threads: 68<br>
+	Joined: Nov 2011
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=146580"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;pid=1978979#pid1978979" title="Re: Scripting [BEGINNER]">#19</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 19 by Rudy_" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">11.07.2012, 05:35 <span class="post_edit" id="edited_by_1978979"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1978979">
+		Nice Tutorial <img alt="" border="0" class="inlineimg" src="./[Tutorial] Scripting [BEGINNER]_files/smile.png" title="Smiley"><br>
+Register / Login tut would be good<br>
+or maybe Driving license tut for soon <img alt="" border="0" class="inlineimg" src="./[Tutorial] Scripting [BEGINNER]_files/smile.png" title="Smiley"><br>
+Good luck
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1978979">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=146580" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=317336&amp;replyto=1978979" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1978982"></a>
+<div class="post classic " style="" id="post_1978982">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=160896"><img src="./[Tutorial] Scripting [BEGINNER]_files/160896.png" alt="" width="55" height="48"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=160896"><s>Robert West</s></a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Banned<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 207<br>
+	Threads: 30<br>
+	Joined: Apr 2012
+	<br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;pid=1978982#pid1978982" title="Re: Scripting [BEGINNER]">#20</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 20 by Robert West" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">11.07.2012, 05:43 <span class="post_edit" id="edited_by_1978982"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1978982">
+		Nice Work <img alt="" border="0" class="inlineimg" src="./[Tutorial] Scripting [BEGINNER]_files/smile.png" title="Smiley"> <br>
+rep+
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1978982">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=160896" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=317336&amp;replyto=1978982" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic -->
+	</div>
+</div>
+	
+			<div class="tfoot row">
+				<div class="col-sm-6">
+					<strong>« <a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;action=nextoldest">Next Oldest</a> | <a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;action=nextnewest">Next Newest</a> »</strong>
+				</div>
+				<div class="col-sm-6"><!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://sampforum.blast.hk/search.php" method="post">
+			<input type="hidden" name="action" value="thread">
+			<input type="hidden" name="tid" value="317336">
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == &#39;Enter Keywords&#39;) { this.value = &#39;&#39;; }" onblur="if(this.value==&#39;&#39;) { this.value=&#39;Enter Keywords&#39;; }" class="textbox" size="25">
+			<input type="submit" class="button" value="Search Thread">
+		</form>
+	</div>
+<!-- end: showthread_search --></div>
+			</div>
+	<div class="float_left">
+		<!-- start: multipage -->
+<div class="pagination">
+<span class="pages">Pages (3):</span>
+<!-- start: multipage_page_current -->
+ <span class="pagination_current">1</span>
+<!-- end: multipage_page_current --><!-- start: multipage_page -->
+<a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;page=2" class="pagination_page">2</a>
+<!-- end: multipage_page --><!-- start: multipage_page -->
+<a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;page=3" class="pagination_page">3</a>
+<!-- end: multipage_page --><!-- start: multipage_nextpage -->
+<a href="https://sampforum.blast.hk/showthread.php?tid=317336&amp;page=2" class="pagination_next">Next »</a>
+<!-- end: multipage_nextpage -->
+</div>
+<!-- end: multipage -->
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	
+	
+	
+	<br>
+	<div class="float_left">
+		<ul class="thread_tools">
+			<!-- start: showthread_printthread -->
+<li class="printable"><a href="https://sampforum.blast.hk/printthread.php?tid=317336">View a Printable Version</a></li>
+<!-- end: showthread_printthread -->
+			
+			
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://sampforum.blast.hk/forumdisplay.php" method="get">
+<span class="smalltext">Forum Jump:</span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="3"> SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="74">-- News and Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13">-- General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="16">-- Client Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20">-- Bug Reports</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21">-- Screenshots and Videos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6"> SA-MP Server</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="19">-- Server Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22">-- Server Advertisements</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="8"> SA-MP Scripting and Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12">-- Scripting Help</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="70" selected="selected">---- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="84">---- Discussion</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="89">---- Help Archive</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="71">-- Gamemode Scripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="17">-- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="83">---- Includes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="82">---- Tools and Files </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="64">---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="18">-- Plugin Development</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="92"> SA-MP DL Edition</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="90">-- SA-MP 0.3.DL</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="94">---- Model Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="7"> Other</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23">-- Everything and Nothing</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9"> Non-English</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33">-- Languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31">---- Nederlands/Dutch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="76">------ Scripting Showroom en Discussie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="87">------ Off topic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29">---- Español/Spanish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="59">------ Lanzamientos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30">---- Français/French</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="81">------ Showroom</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32">---- Русский/Russian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="66">------ Релизы/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34">---- Português/Portuguese</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56">------ Lançamentos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40">---- Română/Romanian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="77">------ Salonul Scripturilor</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="88">---- Archive</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear">
+	<!-- start: showthread_usersbrowsing -->
+<br>
+<span class="smalltext">Users browsing this thread: 1 Guest(s)</span>
+<br>
+<!-- end: showthread_usersbrowsing -->
+	<!-- start: footer -->
+<div style="clear:both"><div style="padding-top: 10px"><!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=17">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav --></div></div>
+</main>
+
+<div class="blankspace"></div>
+
+<footer id="footer">
+	<div class="container">
+    <div class="row">
+		
+        <!--<div class="col-sm-4 foot">
+			<h3>About Our Community</h3>
+			<p>Discuss about various topics in our community and have fun while doing so. Welcome to SA-MP Forums Archive</p>
+			
+		</div>		
+		
+
+		<div class="col-sm-4 foot">
+			<h3>Quick Links</h3>
+			<p>
+
+ 				<a href="https://sampforum.blast.hk" class="btn btn-success" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Forum Home"><i class="fa fa-home"></i></a>
+				
+				<a href="https://sampforum.blast.hk/archive/index.php?thread-317336.html" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Lite (Archive) Mode"><i class="fa fa-archive"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Become a Fan"><i class="fa fa-facebook-square"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-info" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Follow Us"><i class="fa fa-twitter"></i></a>
+				
+				<a href="https://sampforum.blast.hk/misc.php?action=syndication" class="btn btn-warning" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="RSS Syndication"><i class="fa fa-rss"></i></a>
+				<br/>
+				<a href="misc.php?action=markread&amp;my_post_key=2220ae0a21c853e6459922e7a63ded4d" class="btn btn-danger" style="color: #fff; margin-top:10px" data-toggle="tooltip" data-placement="bottom" data-original-title="Mark all forums read"><i class="fa fa-book"></i> Mark all forums read</a><br /><br />
+				
+				
+				</p>
+
+		</div>
+		
+		<div class="col-sm-4 foot">
+			
+			 <h3>Reach Us</h3>
+			 
+<p><a href="contact.php" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Contact Us"><i class="fa fa-envelope"></i> Contact Us</a>&nbsp;
+			
+			<a href="showteam.php" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Meet Our Team"><i class="fa fa-users"></i> Forum Team</a></p>
+		</div>-->
+		
+		
+		
+		<!-- The following piece of code allows MyBB to run scheduled tasks. DO NOT REMOVE --><!-- start: task_image -->
+<img src="./[Tutorial] Scripting [BEGINNER]_files/task.php" height="1" alt="">
+<!-- end: task_image --><!-- End task image code -->
+		</div>
+	
+	</div>
+
+	
+<div id="copyright">
+	<div class="container">
+			<div class="pull-right"><!-- start: footer_languageselect -->
+<div class="language">
+<form method="POST" action="https://sampforum.blast.hk/showthread.php" id="lang_select">
+	<input type="hidden" name="tid" value="317336">
+
+	<input type="hidden" name="my_post_key" value="2220ae0a21c853e6459922e7a63ded4d">
+	<select name="language" onchange="MyBB.changeLanguage();">
+		<optgroup label="Quick Language Select">
+			<!-- start: footer_languageselect_option -->
+<option value="english" selected="selected">&nbsp;&nbsp;&nbsp;English (American)</option>
+<!-- end: footer_languageselect_option --><!-- start: footer_languageselect_option -->
+<option value="russian">&nbsp;&nbsp;&nbsp;Russian</option>
+<!-- end: footer_languageselect_option -->
+		</optgroup>
+	</select>
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_languageselect --></div>
+			<div class="pull-left">
+				<!-- MyBB is free software developed and maintained by a volunteer community.
+					It would be much appreciated by the MyBB Group if you left the full copyright and "powered by" notice intact,
+					to show your support for MyBB.  If you choose to remove or modify the copyright below,
+					you may be refused support on the MyBB Community Forums.
+
+					This is free software, support us and we'll support you. -->
+				Powered By <a href="http://www.mybb.com/" target="_blank" rel="noopener" style="color: #fff;">MyBB</a>. <a href="https://eree.in/" title="EREE" target="_blank" rel="noopener" style="color: #fff;">Crafted by EREE</a> and <a href="https://forum.androidbg.com/" title="AndroidBG" target="_blank" rel="noopener" style="color: #fff;">Android BG</a>. Also powered by <a href="https://www.blast.hk/"><b>blast.hk</b></a><!-- End powered by -->
+				
+			</div>
+	</div>
+
+</div>
+
+</footer>
+
+<!-- Fix for MentionMe popup window position -->
+<script type="text/javascript">
+	var MentionMe = (function(m) {
+	m.customSCEditorContainerOffset = {
+		left: 0,
+		top: 2,
+	};
+
+	return m;
+})(MentionMe || {});
+</script>
+<!-- End Fix for MentionMe popup window position -->
+<!-- end: footer -->
+	<script type="text/javascript">
+		var thread_deleted = "0";
+		if(thread_deleted == "1")
+		{
+			$("#quick_reply_form, .new_reply_button, .thread_tools, .inline_rating").hide();
+			$("#moderator_options_selector option.option_mirage").attr("disabled","disabled");
+		}
+	</script>
+
+
+<!-- end: showthread --><script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>

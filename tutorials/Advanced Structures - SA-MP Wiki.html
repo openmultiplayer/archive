@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0052)https://team.sa-mp.com/wiki/Advanced_Structures.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="keywords" content="Advanced Structures,Main Page,Scripting Basics,Server Plugins,Scripting Callbacks,Scripting Functions,Tutorials">
+<link rel="shortcut icon" href="https://team.sa-mp.com/favicon.ico">
+		<title>Advanced Structures - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="./Advanced Structures - SA-MP Wiki_files/commonPrint.css">
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="./Advanced Structures - SA-MP Wiki_files/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="./Advanced Structures - SA-MP Wiki_files/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			<style>undefined</style><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./Advanced Structures - SA-MP Wiki_files/css2"></head>
+<body class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Advanced Structures</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="https://team.sa-mp.com/wiki/Advanced_Structures.html#column-one">navigation</a>, <a href="https://team.sa-mp.com/wiki/Advanced_Structures.html#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="https://team.sa-mp.com/wiki-archive.html" title="Main Page">Main Page</a> | <a href="https://team.sa-mp.com/wiki/Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a> | <a href="https://team.sa-mp.com/wiki/Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="https://team.sa-mp.com/wiki/Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="https://team.sa-mp.com/wiki/Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="https://team.sa-mp.com/wiki/Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br>
+<p><br>
+</p>
+<table id="toc" class="toc" summary="Contents"><tbody><tr><td><div id="toctitle"><h2>Contents</h2> <span class="toctoggle">[<a id="togglelink" class="internal" href="javascript:toggleToc()">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1"><a href="https://team.sa-mp.com/wiki/Advanced_Structures.html#Array_manipulation"><span class="tocnumber">1</span> <span class="toctext">Array manipulation</span></a>
+<ul>
+<li class="toclevel-2"><a href="https://team.sa-mp.com/wiki/Advanced_Structures.html#Finding_an_empty_slot_properly"><span class="tocnumber">1.1</span> <span class="toctext">Finding an empty slot properly</span></a></li>
+<li class="toclevel-2"><a href="https://team.sa-mp.com/wiki/Advanced_Structures.html#Lists"><span class="tocnumber">1.2</span> <span class="toctext">Lists</span></a>
+<ul>
+<li class="toclevel-3"><a href="https://team.sa-mp.com/wiki/Advanced_Structures.html#Introduction"><span class="tocnumber">1.2.1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-3"><a href="https://team.sa-mp.com/wiki/Advanced_Structures.html#Types"><span class="tocnumber">1.2.2</span> <span class="toctext">Types</span></a></li>
+<li class="toclevel-3"><a href="https://team.sa-mp.com/wiki/Advanced_Structures.html#Mixed_lists"><span class="tocnumber">1.2.3</span> <span class="toctext">Mixed lists</span></a></li>
+<li class="toclevel-3"><a href="https://team.sa-mp.com/wiki/Advanced_Structures.html#Code"><span class="tocnumber">1.2.4</span> <span class="toctext">Code</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="https://team.sa-mp.com/wiki/Advanced_Structures.html#Binary_Trees"><span class="tocnumber">1.3</span> <span class="toctext">Binary Trees</span></a>
+<ul>
+<li class="toclevel-3"><a href="https://team.sa-mp.com/wiki/Advanced_Structures.html#Introduction_2"><span class="tocnumber">1.3.1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-3"><a href="https://team.sa-mp.com/wiki/Advanced_Structures.html#Example"><span class="tocnumber">1.3.2</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-3"><a href="https://team.sa-mp.com/wiki/Advanced_Structures.html#Balanced_and_unbalanced"><span class="tocnumber">1.3.3</span> <span class="toctext">Balanced and unbalanced</span></a></li>
+<li class="toclevel-3"><a href="https://team.sa-mp.com/wiki/Advanced_Structures.html#Modification"><span class="tocnumber">1.3.4</span> <span class="toctext">Modification</span></a>
+<ul>
+<li class="toclevel-4"><a href="https://team.sa-mp.com/wiki/Advanced_Structures.html#Addition"><span class="tocnumber">1.3.4.1</span> <span class="toctext">Addition</span></a></li>
+<li class="toclevel-4"><a href="https://team.sa-mp.com/wiki/Advanced_Structures.html#Deletion"><span class="tocnumber">1.3.4.2</span> <span class="toctext">Deletion</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td></tr></tbody></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Advanced_Structures.html" title="Edit section: Array manipulation">edit</a>]</div><a name="Array_manipulation"></a><h1> Array manipulation </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Advanced_Structures.html" title="Edit section: Finding an empty slot properly">edit</a>]</div><a name="Finding_an_empty_slot_properly"></a><h2> Finding an empty slot properly </h2>
+<p>This example shows how to find an empty slot in an array using standard coding practices.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	gMyArray<span style="color: #66cc66;">[</span><span style="color: #4169e1;">10</span><span style="color: #66cc66;">]</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">stock</span> FindEmptySlot<span style="color: #66cc66;">(</span><span style="color: #66cc66;">)</span>
+<span style="color: #66cc66;">{</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		i = <span style="color: #4169e1;">0</span>;
+	<span style="color: #4169e1;">while</span> <span style="color: #66cc66;">(</span>i &lt; <span style="color: orange; font-weight: bold;">sizeof</span> <span style="color: #66cc66;">(</span>gMyArray<span style="color: #66cc66;">)</span> &amp;&amp; gMyArray<span style="color: #66cc66;">[</span>i<span style="color: #66cc66;">]</span><span style="color: #66cc66;">)</span>
+	<span style="color: #66cc66;">{</span>
+		i++;
+	<span style="color: #66cc66;">}</span>
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">(</span>i == <span style="color: orange; font-weight: bold;">sizeof</span> <span style="color: #66cc66;">(</span>gMyArray<span style="color: #66cc66;">)</span><span style="color: #66cc66;">)</span> <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">-1</span>;
+	<span style="color: orange; font-weight: bold;">return</span> i;
+<span style="color: #66cc66;">}</span></pre>
+<p>This basic example assumes an array slot is empty if it's value is 0.  The loop loops through all values in the array (could also be done with a constant) as long as the values are not 0.  When it reaches one which is 0 the while condition will fail and the lopo end without using a break as is common practice but discouraged in situations like this.  This function also returns -1 if a free slot is not found, which would need to be checked at the other end.  More commonly you would use the found id straight away:
+</p>
+<pre class="pawn">MyFunction<span style="color: #66cc66;">(</span><span style="color: #66cc66;">)</span>
+<span style="color: #66cc66;">{</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		i = <span style="color: #4169e1;">0</span>;
+	<span style="color: #4169e1;">while</span> <span style="color: #66cc66;">(</span>i &lt; <span style="color: orange; font-weight: bold;">sizeof</span> <span style="color: #66cc66;">(</span>gMyArray<span style="color: #66cc66;">)</span> &amp;&amp; gMyArray<span style="color: #66cc66;">[</span>i<span style="color: #66cc66;">]</span><span style="color: #66cc66;">)</span>
+	<span style="color: #66cc66;">{</span>
+		i++;
+	<span style="color: #66cc66;">}</span>
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">(</span>i == <span style="color: orange; font-weight: bold;">sizeof</span> <span style="color: #66cc66;">(</span>gMyArray<span style="color: #66cc66;">)</span><span style="color: #66cc66;">)</span>
+	<span style="color: #66cc66;">{</span>
+		<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">(</span><span style="color: #b22222;">"No free slot found"</span><span style="color: #66cc66;">)</span>;
+		<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+	<span style="color: #66cc66;">}</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">(</span><span style="color: #b22222;">"Slot %d is empty"</span>, i<span style="color: #66cc66;">)</span>;
+	<span style="color: #808080; font-style: italic;">// Use the found slot in your code for whatever</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">}</span></pre>
+<p>Obviously you would replace the "gMyArray[i]" expression with your own indication of a slot in use.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Advanced_Structures.html" title="Edit section: Lists">edit</a>]</div><a name="Lists"></a><h2> Lists </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Advanced_Structures.html" title="Edit section: Introduction">edit</a>]</div><a name="Introduction"></a><h3> Introduction </h3>
+<p>Lists are a very useful type of structure, they're basically an array where the next piece or relevant data is pointed to by the last piece.
+</p><p>Example:
+</p><p>Say you have the following array:
+</p>
+<pre>3, 1, 64, 2, 4, 786, 2, 9
+</pre>
+<p>If you wanted to sort the array you would end up with:
+</p>
+<pre>1, 2, 2, 3, 4, 9, 64, 786
+</pre>
+<p>If however you wanted to leave the data in the original order but still know the numbers in order for some reason (it's just an example), you have a problem, how are you meant to have numbers in two orders at once?  This would be a good use of lists.  To construct a list from this data you would need to make the array into a 2d array, where the second dimension was 2 cells big, one containing the original number, the other containing the index of the next largest number.  You would also need a separate variable to hold the index of the lowest number, so your new array would look like:
+</p>
+<pre>start = 1
+3, 1, 64, 2, 4, 786, 2, 9
+4, 3, 5,  6, 7, -1,  0, 2
+</pre>
+<p>The next index associated with 786 is -1, this is an invalid array index and indicates the end of the list, i.e. there are no more numbers.  The two 2's could obviously be either way round, the first one in the array is the first on in the list too as it's the more likely one to be encountered first.
+</p><p>The other advantage of this method of sorting the numbers is adding more numbers is a lot faster.  If you wanted to add another number 3 to the sorted array you would need to first shift at least 4 numbers one slot to the right to make space, not terrible here but very slow in larger arrays.  With the list version you could just append the 3 to the end of the array and modify a single value in the list;
+</p>
+<pre>start = 1
+3, 1, 64, 2, 4, 786, 2, 9, 3
+8, 3, 5,  6, 7, -1,  0, 2, 4
+^ modify this value        ^ next highest slot
+</pre>
+<p>None of the other numbers have moved so none of the other indexes need updating, just make the next lowest number point to the new number and make the new number point the number the next lowest used to be pointing to.  Removing a value is even easier:
+</p>
+<pre>start = 1
+3, 1, 64, X, 4, 786, 2, 9, 3
+8, 6, 5,  6, 7, -1,  0, 2, 4
+   ^ Changed to jump over the removed value
+</pre>
+<p>Here the first 2 has been removed and the number which pointed to that number (the 1) has been updated to point to the number the removed number was pointing to.  In this example neither the removed number's pointer nor number have been removed, but you cannot possibly get to that slot following the list so it doesn't matter, it is effectively removed.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Advanced_Structures.html" title="Edit section: Types">edit</a>]</div><a name="Types"></a><h3> Types </h3>
+<p>The lists in the examples above were just basic single lists, you can also have double lists where every value points to the next value and the last value, these tend to have a pointer to the end of the list too to go backwards (e.g. to get the numbers in descending order):
+</p>
+<pre>start = 1
+end = 5
+value: 3, 1,  64, 2, 4, 786, 2, 9, 3
+next:  8, 3,  5,  6, 7, -1,  0, 2, 4
+last:  6, -1, 7,  1, 8, 2,   3, 4, 0
+</pre>
+<p>You have to be careful with these, especially when you have more than one of any value, that the last pointer points to the number who's next pointer goes straight back again, e.g this is wrong:
+</p>
+<pre>2,  3, 3
+1,  2, -1
+-1, 2, 0
+</pre>
+<p>The 2's next pointer points to the 3 in slot one, but that 3's last pointer doesn't go back to the two, both lists are in order on their own (as the two threes can be either way round) but together they are wrong, the correct version would be:
+</p>
+<pre>2,  3, 3
+1,  2, -1
+-1, 0, 2
+</pre>
+<p>Both of those lists start and end on the end two numbers, the back list in the wrong example started on the middle number.
+</p><p>The other type of list is the looping one where the last value points back to the first.  The obvious advantage to this is that you can get to any value from any other value without knowing in advance whether the target is before or after the start point, you just need to be careful not to get into an infinite loop as there's no explicit -1 end point.  These lists do still have start points.  You can also do double looping lists where you have a next and last list, both of which loop round:
+</p>
+<pre>start = 1
+end = 5
+3, 1,  64, 2, 4, 786, 2, 9, 3
+8, 3,  5,  6, 7, 1,   0, 2, 4
+6, 5,  7,  1, 8, 2,   3, 4, 0
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Advanced_Structures.html" title="Edit section: Mixed lists">edit</a>]</div><a name="Mixed_lists"></a><h3> Mixed lists </h3>
+<p>Mixed lists are arrays containing multiple lists at once.  An example could be an array of values, sorted by a list, with another list linking all unused slots so you know where you can add a new value.  Example (X means unused (free) slot):
+</p>
+<pre>sortedStart = 3
+unusedStart = 1
+value: 34, X, X, 6, 34, 46, X,  54, 23, 25, X,  75, X, 45
+sort:  4,        8, 13, 7,      11, 9,  0,      -1,    5
+free:      2, 6,            10,             12,     -1
+</pre>
+<p>Obviously the two lists never interact so both can use the same slot for their next value:
+</p>
+<pre>sortedStart = 3
+unusedStart = 1
+value: 34, X, X, 6, 34, 46, X,  54, 23, 25, X,  75, X,  45
+next:  4,  2, 6, 8, 13, 7,  10, 11, 9,  0,  12, -1, -1, 5
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Advanced_Structures.html" title="Edit section: Code">edit</a>]</div><a name="Code"></a><h3> Code </h3>
+<p>Before you start the code you need to decide what sort of list is best suited for your application, this is entirely based on application can't easily be covered here.  All these examples are mixed lists, one list for the required values, one for unused slots.
+</p><p>This example shows how to write code for a list sorted numerically ascending.
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#define NUMBER_OF_VALUES (10)</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">enum</span> E_DATA_LIST
+<span style="color: #66cc66;">{</span>
+	E_DATA_LIST_VALUE,
+	E_DATA_LIST_NEXT
+<span style="color: #66cc66;">}</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span>
+	gListData<span style="color: #66cc66;">[</span>NUMBER_OF_VALUES<span style="color: #66cc66;">]</span><span style="color: #66cc66;">[</span>E_DATA_LIST<span style="color: #66cc66;">]</span>,
+	gUnusedStart = <span style="color: #4169e1;">0</span>,
+	gListStart = <span style="color: #4169e1;">-1</span>; <span style="color: #808080; font-style: italic;">// Starts off with no list</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// This function initializes the list</span>
+List_Setup<span style="color: #66cc66;">(</span><span style="color: #66cc66;">)</span>
+<span style="color: #66cc66;">{</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		i;
+	size--;
+	<span style="color: #4169e1;">for</span> <span style="color: #66cc66;">(</span>i = <span style="color: #4169e1;">0</span>; i &lt; size; i++<span style="color: #66cc66;">)</span>
+	<span style="color: #66cc66;">{</span>
+		<span style="color: #808080; font-style: italic;">// To start with all slots are unused</span>
+		gListData<span style="color: #66cc66;">[</span>i<span style="color: #66cc66;">]</span><span style="color: #66cc66;">[</span>E_DATA_LIST_NEXT<span style="color: #66cc66;">]</span> = i + <span style="color: #4169e1;">1</span>;
+	<span style="color: #66cc66;">}</span>
+	<span style="color: #808080; font-style: italic;">// End the list</span>
+	gListData<span style="color: #66cc66;">[</span>size<span style="color: #66cc66;">]</span><span style="color: #66cc66;">[</span>E_DATA_LIST_NEXT<span style="color: #66cc66;">]</span> = <span style="color: #4169e1;">-1</span>;
+<span style="color: #66cc66;">}</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// This function adds a value to the list (using basic sorting)</span>
+List_Add<span style="color: #66cc66;">(</span>value<span style="color: #66cc66;">)</span>
+<span style="color: #66cc66;">{</span>
+	<span style="color: #808080; font-style: italic;">// Check there are free slots in the array</span>
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">(</span>gUnusedStart == <span style="color: #4169e1;">-1</span><span style="color: #66cc66;">)</span> <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">-1</span>;
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		pointer = gListStart,
+		last = <span style="color: #4169e1;">-1</span>
+		slot = gUnusedStart;
+	<span style="color: #808080; font-style: italic;">// Add the value to the array</span>
+	gListData<span style="color: #66cc66;">[</span>slot<span style="color: #66cc66;">]</span><span style="color: #66cc66;">[</span>E_DATA_LIST_VALUE<span style="color: #66cc66;">]</span> = value;
+	<span style="color: #808080; font-style: italic;">// Update the empty list</span>
+	gUnusedStart = gListData<span style="color: #66cc66;">[</span>slot<span style="color: #66cc66;">]</span><span style="color: #66cc66;">[</span>E_DATA_LIST_NEXT<span style="color: #66cc66;">]</span>;
+	<span style="color: #808080; font-style: italic;">// Loop through the list till we get to bigger/same size number</span>
+	<span style="color: #4169e1;">while</span> <span style="color: #66cc66;">(</span>pointer&nbsp;!= <span style="color: #4169e1;">-1</span> &amp;&amp; gListData<span style="color: #66cc66;">[</span>pointer<span style="color: #66cc66;">]</span><span style="color: #66cc66;">[</span>E_DATA_LIST_VALUE<span style="color: #66cc66;">]</span> &lt; value<span style="color: #66cc66;">)</span>
+	<span style="color: #66cc66;">{</span>
+		<span style="color: #808080; font-style: italic;">// Save the position of the last value</span>
+		last = pointer
+		<span style="color: #808080; font-style: italic;">// Move on to the next slot</span>
+		pointer = gListData<span style="color: #66cc66;">[</span>pointer<span style="color: #66cc66;">]</span><span style="color: #66cc66;">[</span>E_DATA_LIST_NEXT<span style="color: #66cc66;">]</span>;
+	<span style="color: #66cc66;">}</span>
+	<span style="color: #808080; font-style: italic;">// If we got here we ran out of values or reached a larger one</span>
+	<span style="color: #808080; font-style: italic;">// Check if we checked any numbers</span>
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">(</span>last == <span style="color: #4169e1;">-1</span><span style="color: #66cc66;">)</span>
+	<span style="color: #66cc66;">{</span>
+		<span style="color: #808080; font-style: italic;">// The first number was bigger or there is no list</span>
+		<span style="color: #808080; font-style: italic;">// Either way add the new value to the start of the list</span>
+		gListData<span style="color: #66cc66;">[</span>slot<span style="color: #66cc66;">]</span><span style="color: #66cc66;">[</span>E_DATA_LIST_NEXT<span style="color: #66cc66;">]</span> = gListStart;
+		gListStart = slot;
+	<span style="color: #66cc66;">}</span>
+	<span style="color: #4169e1;">else</span>
+	<span style="color: #66cc66;">{</span>
+		<span style="color: #808080; font-style: italic;">// Place the new value in the list</span>
+		gListData<span style="color: #66cc66;">[</span>slot<span style="color: #66cc66;">]</span><span style="color: #66cc66;">[</span>E_DATA_LIST_NEXT<span style="color: #66cc66;">]</span> = pointer;
+		gListData<span style="color: #66cc66;">[</span>last<span style="color: #66cc66;">]</span><span style="color: #66cc66;">[</span>E_DATA_LIST_NEXT<span style="color: #66cc66;">]</span> = slot;
+	<span style="color: #66cc66;">}</span>
+	<span style="color: orange; font-weight: bold;">return</span> slot;
+<span style="color: #66cc66;">}</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// This function removes a value from a given slot in the array (returned by List_Add)</span>
+List_Remove<span style="color: #66cc66;">(</span>slot<span style="color: #66cc66;">)</span>
+<span style="color: #66cc66;">{</span>
+	<span style="color: #808080; font-style: italic;">// Is this a valid slot</span>
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">(</span>slot &lt; <span style="color: #4169e1;">0</span> || slot &gt;= NUMBER_OF_VALUES<span style="color: #66cc66;">)</span> <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+	<span style="color: #808080; font-style: italic;">// First find the slot before</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		pointer = gListStart,
+		last = <span style="color: #4169e1;">-1</span>;
+	<span style="color: #4169e1;">while</span> <span style="color: #66cc66;">(</span>pointer&nbsp;!= <span style="color: #4169e1;">-1</span> &amp;&amp; pointer&nbsp;!= slot<span style="color: #66cc66;">)</span>
+	<span style="color: #66cc66;">{</span>
+		last = pointer;
+		pointer = gListData<span style="color: #66cc66;">[</span>pointer<span style="color: #66cc66;">]</span><span style="color: #66cc66;">[</span>E_LIST_DATA_NEXT<span style="color: #66cc66;">]</span>;
+	<span style="color: #66cc66;">}</span>
+	<span style="color: #808080; font-style: italic;">// Did we find the slot in the list</span>
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">(</span>pointer == <span style="color: #4169e1;">-1</span><span style="color: #66cc66;">)</span> <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">(</span>last == <span style="color: #4169e1;">-1</span><span style="color: #66cc66;">)</span>
+	<span style="color: #66cc66;">{</span>
+		<span style="color: #808080; font-style: italic;">// The value is the first in the list</span>
+		<span style="color: #808080; font-style: italic;">// Skip over this slot in the list</span>
+		gListStart = gListData<span style="color: #66cc66;">[</span>slot<span style="color: #66cc66;">]</span><span style="color: #66cc66;">[</span>E_LIST_DATA_NEXT<span style="color: #66cc66;">]</span>;
+	<span style="color: #66cc66;">}</span>
+	<span style="color: #4169e1;">else</span>
+	<span style="color: #66cc66;">{</span>
+		<span style="color: #808080; font-style: italic;">// The value is in the list</span>
+		<span style="color: #808080; font-style: italic;">// Skip over this slot in the list</span>
+		gListData<span style="color: #66cc66;">[</span>last<span style="color: #66cc66;">]</span><span style="color: #66cc66;">[</span>E_LIST_DATA_NEXT<span style="color: #66cc66;">]</span> = gListData<span style="color: #66cc66;">[</span>slot<span style="color: #66cc66;">]</span><span style="color: #66cc66;">[</span>E_LIST_DATA_NEXT<span style="color: #66cc66;">]</span>;
+	<span style="color: #66cc66;">}</span>
+	<span style="color: #808080; font-style: italic;">// Add this slot to the unused list</span>
+	<span style="color: #808080; font-style: italic;">// The unused list isn't in any order so this doesn't matter</span>
+	gListData<span style="color: #66cc66;">[</span>slot<span style="color: #66cc66;">]</span><span style="color: #66cc66;">[</span>E_LIST_DATA_NEXT<span style="color: #66cc66;">]</span> = gUnusedStart;
+	gUnusedStart = slot;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">}</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Advanced_Structures.html" title="Edit section: Binary Trees">edit</a>]</div><a name="Binary_Trees"></a><h2> Binary Trees </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Advanced_Structures.html" title="Edit section: Introduction">edit</a>]</div><a name="Introduction_2"></a><h3> Introduction </h3>
+<p>Binary trees are a very fast method of searching for data in an array by using a very special list system.  The most well known binary tree is probably the 20 questions game, with just 20 yes/no questions you can have over 1048576 items.  A binary tree, as it's name implies, is a type of tree, similar to a family tree, where every item has 0, 1 or 2 children.  They are not used for ordering data like a list but sorting data for very efficient searching.  Basically you start with an item somewhere near the middle of the ordered list of objects (e.g. the middle number in a sorted array) and compare that to the value you want to find.  If it's the same you've found your item, if it's greater you move to the item to the right (not immediately to the right, the item to the right of the middle item would be the item at the three quarter mark), if it's less you move left, then repeat the process.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Advanced_Structures.html" title="Edit section: Example">edit</a>]</div><a name="Example"></a><h3> Example </h3>
+<pre>1 2 5 6 7 9 12 14 17 19 23 25 28 33 38
+</pre>
+<p>You have the preceding ordered array and you want to find what slot the number 7 is in (if it's in at all), in this example it's probably more efficient to just loop straight through the array to find it but that's not the point, that method increases in time linearly with the size of the array, a binary search time increases linearly as the array increases exponentially in size.  I.e. an array 128 big will take twice as long to search straight through as an array 64 big, but a binary search 128 big will only take one check more than a binary search 64 big, not a lot at all.
+</p><p>If we construct a binary tree from the data above we get:
+</p><p><a href="https://team.sa-mp.com/wiki/Image_Binarytree.GIF.html" class="image" title="The constructed binary tree."><img src="./Advanced Structures - SA-MP Wiki_files/Binarytree.GIF" alt="The constructed binary tree." width="438" height="132" longdesc="../wiki/Image_Binarytree.GIF.html"></a>
+</p><p>If you read left to right, ignoring the vertical aspect you can see that the numbers are in order.  Now we can try find the 7.
+</p><p>The start number is 14, 7 is less than 14 so we go to the slot pointed to by the left branch of 14.  This brings us to 6, 7 is bigger than 6 so we go right to 9, then left again to 7.  This method took 4 comparisons to find the number (including the final check to confirm that we are on 7), using a straight search would have taken 5.
+</p><p>Lets say there is no 7, we would end up with this binary tree:
+</p><p><a href="https://team.sa-mp.com/wiki/Image_Binarytree-7-less.GIF.html" class="image" title="Binary tree with no 7."><img src="./Advanced Structures - SA-MP Wiki_files/Binarytree-7-less.GIF" alt="Binary tree with no 7." width="438" height="132" longdesc="../wiki/Image_Binarytree-7-less.GIF.html"></a>
+</p><p>This, unlike the example above, has a single child number (the 9), as well as 2 and 0 child numbers.  You only get a perfect tree when there are (2^n)-1 numbers (0, 1, 3, 7, 15, 31 ...), any other numbers will give a not quite full tree.  In this case when we get to the 9, where the 7 will be, we'll find there is no left branch, meaning the 7 doesn't exist (it cannot possibly be anywhere else in the tree, think about it), so we return -1 for invalid slot.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Advanced_Structures.html" title="Edit section: Balanced and unbalanced">edit</a>]</div><a name="Balanced_and_unbalanced"></a><h3> Balanced and unbalanced </h3>
+<p>The trees in the examples above are called balanced binary trees, this means as near as possible all the branches are the same length (obviously in the second there aren't enough numbers for this to be the case but it's as near as possible).  Constructing balanced trees is not easy, the generally accepted method of constructing almost balanced trees is putting the numbers in in a random order, this may mean you end up with something like this:
+</p><p><a href="https://team.sa-mp.com/wiki/Image_Binarytree-uneven.GIF.html" class="image" title="Unbalanced binary tree."><img src="./Advanced Structures - SA-MP Wiki_files/Binarytree-uneven.GIF" alt="Unbalanced binary tree." width="416" height="216" longdesc="../wiki/Image_Binarytree-uneven.GIF.html"></a>
+</p><p>Obviously this tree is still valid but the right side is much larger than the left, however finding 25 still only takes 7 comparisons in this compared to 12 in the straight list.  Also, as long as you start with a fairly middle number the random insertion method should produced a fairly balanced tree.  The worst possible thing you can do is put the numbers in in order as then there will be no left branches at all (or right branches if done the other way), however even in this worst case the binary tree will take no longer to search than the straight list.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Advanced_Structures.html" title="Edit section: Modification">edit</a>]</div><a name="Modification"></a><h3> Modification </h3>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Advanced_Structures.html" title="Edit section: Addition">edit</a>]</div><a name="Addition"></a><h4> Addition </h4>
+<p>Adding a value to a binary tree is relatively easy, you just follow the tree through, using the value you want to add as a reference untill you reach an empty branch and add the number there.  E.g. if you wanted to add the number 15 to our original balanced tree it would end up on the left branch of the 17.  If we wanted to add the number 8 to the second balanced tree (the one without the 7) it would end up in the 7's old slot on the left of the 9.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="https://team.sa-mp.com/wiki/Advanced_Structures.html" title="Edit section: Deletion">edit</a>]</div><a name="Deletion"></a><h4> Deletion </h4>
+<p>Deleting a number from a binary tree can be hard or it can be easy.  If the number is at the end of a branch (e.g. 1, 5, 7, 12 etc in the original tree) you simply remove them.  If a number only has one child (e.g. the 9 in the second example) you simply move that child (e.g. the 12) up into their position (so 6's children would be 2 and 12 in the new second example with 9 removed).  Deletion only gets interesting when a node has two children.  There are at least four ways of doing this:
+</p><p>The first method is the simplest computationally.  Basically you choose one of the branches (left or right, assume right for this explanation) and replace the node you've removed with the first node of that branch (i.e. the right child of the node you've removed).  You then go left through than new branch till you reach the end and place the left branch there.  E.g. if you removed the 14 from the original exampe you would end up with 25 taking it's place at the top of the tree and 6 attached to the left branch of 17.  This method is fast but ends up with very unbalanced trees very quickly.
+</p><p>The second method is to get all the numbers which are children of the node you just removed and rebuild a new binary tree from them, then put the top of that tree into the node you've just removed.  This keeps the tree fairly well balanced but is obviously slower.
+</p><p>The third method is to combine the two methods above and rebuild the tree inline, this is more complex to code but keeps the tree balanced and is faster than the second method (though no-where near as fast as the first).
+</p><p>The final menthod listed here is to simply set a flag on a value saying it's not used any more, this is even faster than the first method and maintains the structure but means you can't re-use slots unless you can find a value to replace it with later.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Advanced_Structures.html">http://localhost../wiki/Advanced_Structures.html</a>"</div>
+			<div id="catlinks"><p class="catlinks"><a href="https://team.sa-mp.com/wiki/Special_Categories.html" title="Special:Categories">Category</a>: <span dir="ltr"><a href="https://team.sa-mp.com/wiki/Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="https://team.sa-mp.com/wiki/Advanced_Structures.html" accesskey="c" title="View the content page [alt-c]">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="https://team.sa-mp.com/wiki/Talk_Advanced_Structures.html" accesskey="t" title="Discussion about the content page [alt-t]">Discussion</a></li>
+				 <li id="ca-edit"><a href="https://team.sa-mp.com/wiki/Advanced_Structures.html" accesskey="e" title="You can edit this page. Please use the preview button before saving. [alt-e]">Edit</a></li>
+				 <li id="ca-history"><a href="https://team.sa-mp.com/wiki/Advanced_Structures.html" accesskey="h" title="Past versions of this page. [alt-h]">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class="portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-mainpage"><a href="https://team.sa-mp.com/wiki-archive.html" accesskey="z" title="Visit the Main Page [alt-z]">Main Page</a></li>
+				<li id="n-help" title="The place to find out."><a href="https://team.sa-mp.com/wiki/Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="./Advanced Structures - SA-MP Wiki_files/poweredby_mediawiki_88x31.png" alt="MediaWiki"></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 53,599 times.</li>
+				<li id="credits">This page was last modified 12:53, 1 August 2017 by SA-MP Wiki user <a href="https://team.sa-mp.com/wiki/User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="https://team.sa-mp.com/wiki/User_Y_Less.html" title="User:Y Less">Y Less</a>.</li>
+				<li id="privacy"><a href="https://team.sa-mp.com/wiki/SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="https://team.sa-mp.com/wiki/SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="https://team.sa-mp.com/wiki/SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 33.40 secs. -->
+
+<script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>

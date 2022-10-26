@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://sampforum.blast.hk/showthread.php?tid=574203 -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>[Tutorial] Function Overloading in PAWN</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="https://sampforum.blast.hk/syndication.php">
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="https://sampforum.blast.hk/syndication.php?type=atom1.0">
+<link rel="shortcut icon" href="https://sampforum.blast.hk/favicon.ico">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript" src="./[Tutorial] Function Overloading in PAWN_files/jquery.js"></script><style>undefined</style>
+<script type="text/javascript" src="./[Tutorial] Function Overloading in PAWN_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] Function Overloading in PAWN_files/jquery.plugins.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] Function Overloading in PAWN_files/general.js"></script>
+<script type="text/javascript" src="./[Tutorial] Function Overloading in PAWN_files/tooltip.js"></script>
+
+<link rel="stylesheet" href="./[Tutorial] Function Overloading in PAWN_files/bootstrap.min.css">
+<link href="./[Tutorial] Function Overloading in PAWN_files/css" rel="stylesheet" type="text/css">
+<!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" / -->
+<link rel="stylesheet" href="./[Tutorial] Function Overloading in PAWN_files/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Function Overloading in PAWN_files/global.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Function Overloading in PAWN_files/css3.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Function Overloading in PAWN_files/responsive.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Function Overloading in PAWN_files/star_ratings.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Function Overloading in PAWN_files/showthread.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Function Overloading in PAWN_files/grey.css">
+
+
+
+
+<script type="text/javascript">
+jQuery(document).on('click', '.panel-heading span.clickable', function(e){
+    var jQuerythis = jQuery(this);
+	if(!jQuerythis.hasClass('panel-collapsed')) {
+		jQuerythis.parents('.panel').find('.panel-body').slideUp();
+		jQuerythis.addClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+	} else {
+		jQuerythis.parents('.panel').find('.panel-body').slideDown();
+		jQuerythis.removeClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+	}
+})
+</script>
+
+
+
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+	lang.confirm_title = "Please Confirm";
+	lang.expcol_collapse = "[-]";
+	lang.expcol_expand = "[+]";
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+	
+	var templates = {
+		modal: '<div class=\"modal\">\
+	<div style=\"overflow-y: auto; max-height: 400px;\">\
+		<table border=\"0\" cellspacing=\"0\" cellpadding=\"5\" class=\"tborder\">\
+			<tr>\
+				<td class=\"thead\"><strong>__title__</strong></td>\
+			</tr>\
+			<tr>\
+				<td class=\"trow1\">__message__</td>\
+			</tr>\
+			<tr>\
+				<td class=\"tfoot\">\
+					<div style=\"text-align: center\" class=\"modal_buttons\">__buttons__</div>\
+				</td>\
+			</tr>\
+		</table>\
+	</div>\
+</div>',
+		modal_button: '<input type=\"submit\" class=\"button\" value=\"__title__\"/>&nbsp;'
+	};
+	
+	var cookieSecureFlag = "0";
+	var cookieDomain = ".sampforum.blast.hk";
+	var cookiePath = "/";
+	var cookiePrefix = "";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "906b4f4af2a15f55d2b64b776caec649";
+	var rootpath = "https://sampforum.blast.hk";
+	var imagepath = "https://sampforum.blast.hk/images/bootbb";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "https://sampforum.blast.hk/images/bootbb/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+
+<!-- Make videos responsive - https://github.com/davatron5000/FitVids.js (additional video sites added for MyBB) -->
+<script type="text/javascript" src="./[Tutorial] Function Overloading in PAWN_files/jquery.fitvids.js"></script>
+<script>
+	$(document).ready(function(){
+		// Target the iframe parent div
+		var bvc = $(".bootbb-video-container");
+		//bvc.css("max-width", "800px");
+		bvc.fitVids();
+	});
+</script>
+<!-- end: headerinclude -->
+<script>
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script src="./[Tutorial] Function Overloading in PAWN_files/report.js"></script>
+<script src="./[Tutorial] Function Overloading in PAWN_files/jeditable.min.js"></script>
+<script src="./[Tutorial] Function Overloading in PAWN_files/thread.js"></script>
+<meta name="description" content="Function Overloading in PAWN PAWN now closer to Object Oriented Programming Though PAWN is a typeless language, there are tags which partially allow us to have what we call datatypes in PAWN.For examp">
+<link rel="canonical" href="https://sampforum.blast.hk/showthread.php?tid=574203">
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./[Tutorial] Function Overloading in PAWN_files/css2"></head>
+<body>
+	<!-- start: header -->
+<header>
+<div class="navbar navbar-default">
+     <div class="container">
+          <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="Toggle navigation">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span> 
+               </button>
+			  
+			  <div class="navbar-header scaleimages">
+				  <!--<a class="navbar-brand" href="https://sampforum.blast.hk">BootBB</a>-->
+				  <a class="" href="https://sampforum.blast.hk/"><img src="./[Tutorial] Function Overloading in PAWN_files/logo_forum.gif"></a>
+			  
+			  </div>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+			  <ul class="nav navbar-nav navbar-right">
+				  <!--<li id="nav-portal"><a href="https://sampforum.blast.hk/portal.php"><i class="fa fa-bell"></i> Portal</a></li>-->
+               <li id="nav-forums"><a href="https://sampforum.blast.hk/index.php"><i class="fa fa-group"></i> Forum</a></li>
+				<!--<li><a href="https://sampforum.blast.hk/search.php?action=getnew"><i class="fa fa-comment"></i> New Posts</a></li>
+            	<li><a href="https://sampforum.blast.hk/search.php?action=getdaily"><i class="fa fa-comments"></i> Today's Posts</a></li>-->
+               <li id="nav-search"><a href="https://sampforum.blast.hk/search.php"><i class="fa fa-search"></i> Search</a></li>
+               <li id="nav-member"><a href="https://sampforum.blast.hk/memberlist.php"><i class="fa fa-users"></i> Members</a></li>
+               <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+				  
+<!--<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cubes"></i> Misc <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			  <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+			  <li class="divider"></li>
+			  <li id="nav-calendar"><a href="https://sampforum.blast.hk/calendar.php"><i class="fa fa-calendar"></i> Calendar</a></li>
+          </ul>
+</li> -->
+</ul>
+  
+          </div>
+     </div>
+</div>
+</header>
+
+
+<div id="container">
+	<a name="top" id="top"></a>
+		<div id="header">
+			<div id="panel">
+				<div class="upper">
+					<div class="container">
+
+						<!-- start: header_welcomeblock_guest -->
+<!--<span><a href="https://sampforum.blast.hk/member.php?action=login" onclick="$('#quick_login').modal({ fadeDuration: 250, keepelement: true }); return false;" class="login btn btn-danger" style="color: #fff;"><i class="fa fa-sign-in"></i> Login</a> <a href="https://sampforum.blast.hk/member.php?action=register" class="register btn btn-success" style="color: #fff;"><i class="fa fa-user-plus"></i> Register</a></span>-->
+
+<span class="float_right hidden-xs">Hello There, Guest!</span>
+
+<br class="clearfix">
+	
+
+				<div class="modal" id="quick_login" style="display: none;">
+					<form method="post" action="https://sampforum.blast.hk/member.php">
+						<input name="my_post_key" type="hidden" value="906b4f4af2a15f55d2b64b776caec649">
+						<input name="action" type="hidden" value="do_login">
+						<input name="url" type="hidden" value="https://sampforum.blast.hk/showthread.php?tid=574203">
+						<input name="quick_login" type="hidden" value="1">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tborder">
+							<tbody><tr>
+								<td class="thead" colspan="2"><strong>Login</strong></td>
+							</tr>
+							<tr>
+								<td class="trow1" width="25%"><strong>Username:</strong></td>
+								<td class="trow1"><input name="quick_username" id="quick_login_username" type="text" value="" class="textbox initial_focus"></td>
+							</tr>
+							<tr>
+								<td class="trow2"><strong>Password:</strong></td>
+								<td class="trow2">
+									<input name="quick_password" id="quick_login_password" type="password" value="" class="textbox"> <a href="https://sampforum.blast.hk/member.php?action=lostpw" class="lost_password">Lost Password?</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow1">&nbsp;</td>
+								<td class="trow1 remember_me">
+									<input name="quick_remember" id="quick_login_remember" type="checkbox" value="yes" class="checkbox" checked="checked">
+									<label for="quick_login_remember">Remember me</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow2" colspan="2">
+									<div align="center"><input name="submit" type="submit" class="button" value="Login"></div>
+								</td>
+							</tr>
+						</tbody></table>
+					</form>
+				</div>
+				<script type="text/javascript">
+					$("#quick_login input[name='url']").val($(location).attr('href'));
+				</script>
+<!-- end: header_welcomeblock_guest -->
+					
+					</div>
+			</div>
+			</div>
+	</div>
+			</div>
+               
+				   
+                <main class="container">
+				<br>
+                 <!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=22">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav -->
+				
+				
+				
+				
+				
+				
+<!-- end: header -->
+	
+	
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	<div class="tborder tfixed clear">
+		<div class="thead">
+				<div class="float_right">
+					<span class="smalltext"><a href="https://sampforum.blast.hk/showthread.php?mode=threaded&amp;tid=574203&amp;pid=3459023#pid3459023">Threaded Mode</a></span>
+				</div>
+				
+					[Tutorial] Function Overloading in PAWN
+			</div>
+	</div>
+<div id="posts_container">
+	<div id="posts">
+		<!-- start: postbit_classic -->
+
+<a id="pid3459023"></a>
+<div class="post classic " style="" id="post_3459023">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=169426"><img src="./[Tutorial] Function Overloading in PAWN_files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=169426">Yashas</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 882<br>
+	Threads: 50<br>
+	Joined: Jun 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=169426"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=574203&amp;pid=3459023#pid3459023" title="Function Overloading in PAWN">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 1 by Yashas" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">14.05.2015, 17:06 <span class="post_edit" id="edited_by_3459023"><!-- start: postbit_editedby -->
+<div class="edited_post postbit_edited postbit_editedby postbit_editedpost">(<!-- start: postbit_editedby_editreason -->
+ <em>Последний раз редактировалось Yashas; 26.12.2016 в 05:13.</em>
+<!-- end: postbit_editedby_editreason -->)</div>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3459023">
+		<font color="DimGray"><font size="6"><font color="RoyalBlue">F</font>unction <font color="RoyalBlue">O</font>verloading in <font color="RoyalBlue">PAWN</font></font></font><br>
+PAWN now closer to Object Oriented Programming<br>
+<br>
+Though PAWN is a typeless language, there are <b><a href="https://sampwiki.blast.hk/wiki/Scripting:tags#Operators" target="_blank">tags</a></b> which partially allow us to have what we call datatypes in PAWN.For example we prefix Float to variables where 'Float' is actually a tag.Using Float tag for a variable makes adding,subtracting,dividing,multiplying decimals a lot easier.It is because the addition (+),multiplication(*), subtraction(-) and other operators are overloaded.Overloaded here means that there is a separate function which handles addition or subtraction or any other operation for Float Variables.<br>
+<br>
+<font color="RoyalBlue"><font size="5">What is function overloading?</font></font><br>
+In some programming languages, Function overloading is the ability to create multiple methods of the same name with different implementations. Calls to an overloaded function will run a specific implementation of that function appropriate to the context of the call, allowing one function call to perform different tasks depending on context.<br>
+<br>
+Thanks to wiki for that definition.If you did not understand that, have no worries, we will see two examples,one in PAWN and one in C++ to understand what we mean by overloading.<br>
+<br>
+Do you know that PAWN supports operator overloading?(this is not actually function overloading but is similar;I am discussing about this just to give you a feel for function overloading). If you have explored float.inc include then you would have seen operators being overloaded.Anyway here is a piece of code which I copied from float.inc which shows what happens when you use - between two floats or float and an integer(typeless or tagless).<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 114px;
+		text-align: left;
+		overflow: auto">native Float:operator-(Float:oper1, Float:oper2) = floatsub; //We will call this function 1
+stock Float:operator-(Float:oper1, oper2) //We will call this function 2
+    return floatsub(oper1, float(oper2));
+
+stock Float:operator-(oper1, Float:oper2) //We will call this function 3
+    return floatsub(float(oper1), oper2);</pre>
+</div>You would have probably been wondering what on Earth is the function 1.It is not even close to a function(by looks). Actually its a PAWN feature that allows lazy programmers to strive better.What it does is calls floatsub with the arguments that were passed to the operator(i.e: oper1 and oper2).<br>
+<br>
+Note that the other two are functions though they do not have curly braces.We can have one line functions without braces in PAWN.For example,<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">stock ReturnNumber2()
+        return 2;</pre>
+</div>Once again, this is another feature that keeps lazy programmers happy.<br>
+<br>
+Back to the topic, there are three functions here.Do you notice something unusual?Aren't the two functions only differing in their parameters?So which one will be called when you use the '-' operator? It is left to the compiler to decide which function to call depending on the situation.<br>
+<br>
+If you used the following code,<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">new Float:a=5,Float:b;
+b = a - 4;</pre>
+</div>The function 2 will be called to handle this subtraction operation since the first <b><a href="http://en.wikipedia.org/wiki/Operand" target="_blank">operand</a></b> is a float(a) and the second operand is an integer(the second function accepts the first <b><a href="http://en.wikipedia.org/wiki/Argument_of_a_function" target="_blank">argument</a></b> as float and the other as an integer).<br>
+<br>
+What if you were trying to compile this code?<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">new Float:a=5,Float:b;
+b = 4-a;</pre>
+</div>You may have already guessed, the function 3 would be called since here the first operand here is an integer and the second operand is a float(function 2 takes the first operand as an integer and the second operand as a float).<br>
+<br>
+<br>
+What would happen to this code?<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">new Float:a=5,Float:b,Float:c=10;
+b = a - c;</pre>
+</div>The function 1 will be called.<br>
+<br>
+This must have given you an idea about overloading.PAWN does not support function overloading but with a smart trick we can overload functions in PAWN.Now lets see function overloading in C++ so that we will know what we are trying to do in this tutorial.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 146px;
+		text-align: left;
+		overflow: auto">void ExampleFunction(int a,float b)
+{
+       cout&lt;&lt;"You passed a decimal and an integer";
+}
+int ExampleFunction(int a,int b)
+{
+      cout&lt;&lt;"You passed two integers";
+}</pre>
+</div>If you know C++ to some level you might have by now understood what this code does or might have already guessed what could function overloading be.If you did not understand, don't worry, we will discuss this in detail now.<br>
+<br>
+So we here have two functions here with the same name.If you were compiling this using a C++ compiler, you'd get no errors because this is perfectly valid code(C++ allows function overloading). The compiler would now pick which function to call depending on what type of arguments were passed to ExampleFunction.If you had used ExampleFunction(1,2) then the compiler would have added code to call the second version(i.e:the one which prints "You passed two integers") because the arguments are integers.What if you had used ExampleFunction(1,2.5)? Then the compiler would add instructions to call the first version of the code because the first argument here is an integer and the second is 2.5 (the first version of the function accepts the first argument as an integer and the second as a float).<br>
+<br>
+I am pretty sure that you now know what function overloading means.So basically function overloading means making multiple functions with the same name but with arguments of different data types.<br>
+<br>
+Let's now move on to learn how to implement function overloading in PAWN.<br>
+<br>
+<font color="RoyalBlue"><font size="5">How to overload functions in PAWN?</font></font><br>
+PAWN is typeless.So we can't overload functions based on data type(there is no data type in PAWN) instead we will use tags to overload functions.<br>
+<br>
+Go and try this code.<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 146px;
+		text-align: left;
+		overflow: auto">stock func(Float:a,b)
+{
+      print("Float and an integer");
+}
+stock func(Float:a,Float:b)
+{
+      print("Float and Float");
+}</pre>
+</div>
+Got this eh?<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">error 025: function heading differs from prototype
+error 021: symbol already defined: "func"</pre>
+</div>The above code would give you errors because PAWN does not support function overloading.<br>
+<br>
+Then how do we overload functions in PAWN? By the end of the tutorial you'll know how.<br>
+<br>
+To successfully implement function overloading in PAWN we need to learn a few things.I have splitted everything into three sections.The first is argument restricting, second is using tagof and the last is putting these two ideas together.<br>
+<br>
+Did you know that we can restrict the arguments that are passed to a function to be of a specific tag?How?The code below will show you how.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">stock MyFunction({Float,bool}:a)
+{
+      print("Test");
+}</pre>
+</div>The above code will tell the compiler to give a warning if the argument passed to MyFunction has a tag other than bool and float.<br>
+<br>
+So calling MyFunction this way would give a warning because we are passing an integer which is of tag _: (also known as tagless)<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">MyFunction(5);</pre>
+</div>In other words, this is a method to allow arguments with multiple tags without having the compiler issue a tag mismatch warning.We will use this as a method to allow function to accept argument of different tag rather than using it to restrict tags.<br>
+<br>
+There are some more things about argument tags which Misiur has explained in the first reply of this thread.<br>
+<br>
+We have got 33% closer to overloading functions in PAWN.Let's continue our journey on our quest to implement function overloading.<br>
+<br>
+We now need to learn about a keyword tagof which PAWN provides to check the tag of a variable.tagof is similar to sizeof in one way, i.e: both are replaced with appropriate value during compile time.<br>
+<br>
+The PAWN compiler gives each tag a unique code which will represents the tag.The tagof function returns this code.So if we had to check if a variable was a Float or a bool,etc we would use the following code.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">new Float:var;
+if(tagof(var) == tagof(Float:)) print("It is a float");
+else if(tagof(var) == tagof(bool:)) print("It is a bool");</pre>
+</div>You must have understood everything except tagof(Float: ) and tagof(bool: ). All it does is gives the id which was assigned to Float tag and similar is the case for for tagof(bool: ). So in this way we can check what tag a variable has.<br>
+<br>
+By the way , you need to note one thing.If you use tagof(_: ) , the compiler will crash.<br>
+<br>
+We have progressed by 66.666...% and we are just 33.3333..% away from implementing function overloading in PAWN.<br>
+<br>
+The the last part which constitutes that last 33.333...% is putting together what we learnt in the previous 66.66666...%.<br>
+<br>
+If you are very smart you would have probably already understood how to overload functions by now.Anyway we will discuss about it.<br>
+<br>
+We will start of with the code and I will explain every important line in the code later.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Код:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">stock MyFunc({Float,bool}:var1,{Float,bool}:var2,tagid1 = tagof(var1),tagid2 = tagof(var2))
+{
+	if(tagid1 == tagof(Float:))
+	{
+	    if(tagid2 == tagof(Float:))
+	    {
+			print("Float Float");
+	    }
+	    else if(tagid2 == tagof(bool:))
+	    {
+            print("Float Bool");
+	    }
+	    else
+	    {
+	        print("Ahhh...you are a bad programmer.You ignored the compiler's tag mismatch warning!!!");
+	    }
+	}
+	else if(tagid1 == tagof(bool:))
+	{
+	    if(tagid2 == tagof(Float:))
+	    {
+            print("Bool Float");
+	    }
+	    else if(tagid2 == tagof(bool:))
+	    {
+            print("Bool Bool");
+	    }
+	    else
+	    {
+	        print("Ahhh...you are a bad programmer.You ignored the compiler's tag mismatch warning!!!");
+	    }
+	
+	}
+	else
+	{
+	    print("Ahhh...you are a bad programmer.You ignored the compiler's tag mismatch warning!!!");
+	}
+}</pre>
+</div>The function definition must have been now obvious thing for you after reading the first 33.3333...%. The third and the fourth line were we declare two local variables also must be an obvious thing after going through the previous 33.3333...%. All we need to now see is how to exploit and implement function overloading using the previous 66.6666...%. Actually the rest of the code is also obvious.I will still discuss this just for the sake of keeping the tutorial complete.<br>
+<br>
+We first get the tagids of the tags which are allowed in as arguments and store the ids in const variables.We store them in variables.You can also do the checks using a switch statement but you need to take add extra parenthesis before using tagof in case.We then use if statements to check the tagid of the first argument that was passed if it matches with any of the tagids of the tags that were allowed for that argument.If we find a match then we will use few more if statements to check for the tagid of the second argument to see if it matches any of the tagids of the tags that were allowed.If a match is found then we now know what type of variables were passed and take the appropriate action.<br>
+<br>
+You got it?Must have, its so simple <img alt="" border="0" class="inlineimg" src="./[Tutorial] Function Overloading in PAWN_files/biggrin.png" title="Cheesy"><br>
+<br>
+Congratulations!!We have successfully implemented function overloading in PAWN!!<br>
+Enjoy playing with overloaded functions <img alt="" border="0" class="inlineimg" src="./[Tutorial] Function Overloading in PAWN_files/wink.png" title="Wink">
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3459023">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=169426" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=574203&amp;replyto=3459023" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3459516"></a>
+<div class="post classic " style="" id="post_3459516">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=55934"><img src="./[Tutorial] Function Overloading in PAWN_files/55934.png" alt="" width="55" height="42"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=55934">Misiur</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 2,528<br>
+	Threads: 124<br>
+	Joined: Jul 2009
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=55934"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=574203&amp;pid=3459516#pid3459516" title="Re: Function Overloading in PAWN">#2</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 2 by Misiur" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">15.05.2015, 09:40 <span class="post_edit" id="edited_by_3459516"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3459516">
+		Slice wrote a post-tutorial "utilising tagof", but it was in thread by ******, so... rest is history. <br>
+<br>
+Neat tutorial. I might add one thing about argument tags. As some of you are aware, there are two types of tags: strong tags, starting with uppercase letter, and weak tags starting with lowercase letter (and tagless type, known misleadingly as integer "_:"). So, if your function accepts<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #000000;">{</span>Float,_<span style="color: #000000;">}</span><span style="color: #000000;">:</span>something</div></div></pre>
+</div>You can pass a weak tag (for example aforementioned "bool") to it without a problem, as it accepts "_". You can also specify more allowed strong tags:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #000000;">{</span>Text,Float,Customtag<span style="color: #000000;">}</span><span style="color: #000000;">:</span>something</div></div></pre>
+</div>
+Also one warning about using tagof with switch: you need another pair of brackets to avoid compiler errors:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:119px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">switch</span><span style="color: #000000;">(</span>tagofvar<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">case</span> <span style="color: #000000;">(</span><span style="color: #2222BB;">tagof</span><span style="color: #000000;">(</span><span style="color: #000000;">bool</span><span style="color: #000000;">:</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">:</span> <span style="color: #000000;">{</span><br><br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+Also, you might add const on tagof argument for <a href="http://en.wikipedia.org/wiki/Const_%28computer_programming%29#Introduction" target="_blank">const-correctness</a>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3459516">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=55934" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=574203&amp;replyto=3459516" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3459518"></a>
+<div class="post classic " style="" id="post_3459518">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=251236"><img src="./[Tutorial] Function Overloading in PAWN_files/251236.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=251236">FernandoLight</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 296<br>
+	Threads: 2<br>
+	Joined: Feb 2015
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=251236"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=574203&amp;pid=3459518#pid3459518" title="Re: Function Overloading in PAWN">#3</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 3 by FernandoLight" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">15.05.2015, 09:45 <span class="post_edit" id="edited_by_3459518"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3459518">
+		Mvm good
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3459518">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=251236" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=574203&amp;replyto=3459518" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3459527"></a>
+<div class="post classic " style="" id="post_3459527">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=256436"><img src="./[Tutorial] Function Overloading in PAWN_files/256436.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=256436">Konverse</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 783<br>
+	Threads: 4<br>
+	Joined: Apr 2015
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=256436"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=574203&amp;pid=3459527#pid3459527" title="Re: Function Overloading in PAWN">#4</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 4 by Konverse" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">15.05.2015, 10:11 <span class="post_edit" id="edited_by_3459527"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3459527">
+		This has been tutorial-ed before by Slice as I could remember. But never mind it looks good too.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3459527">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=256436" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=574203&amp;replyto=3459527" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3459719"></a>
+<div class="post classic " style="" id="post_3459719">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=169426"><img src="./[Tutorial] Function Overloading in PAWN_files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=169426">Yashas</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><img src="./[Tutorial] Function Overloading in PAWN_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 882<br>
+	Threads: 50<br>
+	Joined: Jun 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=169426"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=574203&amp;pid=3459719#pid3459719" title="Re: Function Overloading in PAWN">#5</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 5 by Yashas" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">15.05.2015, 14:54 <span class="post_edit" id="edited_by_3459719"><!-- start: postbit_editedby -->
+<div class="edited_post postbit_edited postbit_editedby postbit_editedpost">(<!-- start: postbit_editedby_editreason -->
+ <em>Последний раз редактировалось Yashas; 11.04.2016 в 16:43.</em>
+<!-- end: postbit_editedby_editreason -->)</div>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3459719">
+		Slice never wrote a tutorial on Function Overloading if I remember correctly.He only wrote a reply to one of ******'s thread showing how to use tagof.<br>
+<br>
+@Misiur<br>
+Thanks
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3459719">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=169426" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=574203&amp;replyto=3459719" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic -->
+	</div>
+</div>
+	
+			<div class="tfoot row">
+				<div class="col-sm-6">
+					<strong>« <a href="https://sampforum.blast.hk/showthread.php?tid=574203&amp;action=nextoldest">Next Oldest</a> | <a href="https://sampforum.blast.hk/showthread.php?tid=574203&amp;action=nextnewest">Next Newest</a> »</strong>
+				</div>
+				<div class="col-sm-6"><!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://sampforum.blast.hk/search.php" method="post">
+			<input type="hidden" name="action" value="thread">
+			<input type="hidden" name="tid" value="574203">
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == &#39;Enter Keywords&#39;) { this.value = &#39;&#39;; }" onblur="if(this.value==&#39;&#39;) { this.value=&#39;Enter Keywords&#39;; }" class="textbox" size="25">
+			<input type="submit" class="button" value="Search Thread">
+		</form>
+	</div>
+<!-- end: showthread_search --></div>
+			</div>
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	
+	
+	
+	<br>
+	<div class="float_left">
+		<ul class="thread_tools">
+			<!-- start: showthread_printthread -->
+<li class="printable"><a href="https://sampforum.blast.hk/printthread.php?tid=574203">View a Printable Version</a></li>
+<!-- end: showthread_printthread -->
+			
+			
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://sampforum.blast.hk/forumdisplay.php" method="get">
+<span class="smalltext">Forum Jump:</span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="3"> SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="74">-- News and Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13">-- General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="16">-- Client Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20">-- Bug Reports</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21">-- Screenshots and Videos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6"> SA-MP Server</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="19">-- Server Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22">-- Server Advertisements</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="8"> SA-MP Scripting and Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12">-- Scripting Help</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="70" selected="selected">---- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="84">---- Discussion</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="89">---- Help Archive</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="71">-- Gamemode Scripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="17">-- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="83">---- Includes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="82">---- Tools and Files </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="64">---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="18">-- Plugin Development</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="92"> SA-MP DL Edition</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="90">-- SA-MP 0.3.DL</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="94">---- Model Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="7"> Other</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23">-- Everything and Nothing</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9"> Non-English</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33">-- Languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31">---- Nederlands/Dutch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="76">------ Scripting Showroom en Discussie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="87">------ Off topic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29">---- Español/Spanish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="59">------ Lanzamientos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30">---- Français/French</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="81">------ Showroom</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32">---- Русский/Russian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="66">------ Релизы/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34">---- Português/Portuguese</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56">------ Lançamentos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40">---- Română/Romanian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="77">------ Salonul Scripturilor</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="88">---- Archive</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear">
+	<!-- start: showthread_usersbrowsing -->
+<br>
+<span class="smalltext">Users browsing this thread: </span>
+<br>
+<!-- end: showthread_usersbrowsing -->
+	<!-- start: footer -->
+<div style="clear:both"><div style="padding-top: 10px"><!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=22">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav --></div></div>
+</main>
+
+<div class="blankspace"></div>
+
+<footer id="footer">
+	<div class="container">
+    <div class="row">
+		
+        <!--<div class="col-sm-4 foot">
+			<h3>About Our Community</h3>
+			<p>Discuss about various topics in our community and have fun while doing so. Welcome to SA-MP Forums Archive</p>
+			
+		</div>		
+		
+
+		<div class="col-sm-4 foot">
+			<h3>Quick Links</h3>
+			<p>
+
+ 				<a href="https://sampforum.blast.hk" class="btn btn-success" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Forum Home"><i class="fa fa-home"></i></a>
+				
+				<a href="https://sampforum.blast.hk/archive/index.php?thread-574203.html" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Lite (Archive) Mode"><i class="fa fa-archive"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Become a Fan"><i class="fa fa-facebook-square"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-info" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Follow Us"><i class="fa fa-twitter"></i></a>
+				
+				<a href="https://sampforum.blast.hk/misc.php?action=syndication" class="btn btn-warning" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="RSS Syndication"><i class="fa fa-rss"></i></a>
+				<br/>
+				<a href="misc.php?action=markread&amp;my_post_key=906b4f4af2a15f55d2b64b776caec649" class="btn btn-danger" style="color: #fff; margin-top:10px" data-toggle="tooltip" data-placement="bottom" data-original-title="Mark all forums read"><i class="fa fa-book"></i> Mark all forums read</a><br /><br />
+				
+				
+				</p>
+
+		</div>
+		
+		<div class="col-sm-4 foot">
+			
+			 <h3>Reach Us</h3>
+			 
+<p><a href="contact.php" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Contact Us"><i class="fa fa-envelope"></i> Contact Us</a>&nbsp;
+			
+			<a href="showteam.php" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Meet Our Team"><i class="fa fa-users"></i> Forum Team</a></p>
+		</div>-->
+		
+		
+		
+		<!-- The following piece of code allows MyBB to run scheduled tasks. DO NOT REMOVE --><!-- start: task_image -->
+<img src="./[Tutorial] Function Overloading in PAWN_files/task.php" height="1" alt="">
+<!-- end: task_image --><!-- End task image code -->
+		</div>
+	
+	</div>
+
+	
+<div id="copyright">
+	<div class="container">
+			<div class="pull-right"><!-- start: footer_languageselect -->
+<div class="language">
+<form method="POST" action="https://sampforum.blast.hk/showthread.php" id="lang_select">
+	<input type="hidden" name="tid" value="574203">
+
+	<input type="hidden" name="my_post_key" value="906b4f4af2a15f55d2b64b776caec649">
+	<select name="language" onchange="MyBB.changeLanguage();">
+		<optgroup label="Quick Language Select">
+			<!-- start: footer_languageselect_option -->
+<option value="english" selected="selected">&nbsp;&nbsp;&nbsp;English (American)</option>
+<!-- end: footer_languageselect_option --><!-- start: footer_languageselect_option -->
+<option value="russian">&nbsp;&nbsp;&nbsp;Russian</option>
+<!-- end: footer_languageselect_option -->
+		</optgroup>
+	</select>
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_languageselect --></div>
+			<div class="pull-left">
+				<!-- MyBB is free software developed and maintained by a volunteer community.
+					It would be much appreciated by the MyBB Group if you left the full copyright and "powered by" notice intact,
+					to show your support for MyBB.  If you choose to remove or modify the copyright below,
+					you may be refused support on the MyBB Community Forums.
+
+					This is free software, support us and we'll support you. -->
+				Powered By <a href="http://www.mybb.com/" target="_blank" rel="noopener" style="color: #fff;">MyBB</a>. <a href="https://eree.in/" title="EREE" target="_blank" rel="noopener" style="color: #fff;">Crafted by EREE</a> and <a href="https://forum.androidbg.com/" title="AndroidBG" target="_blank" rel="noopener" style="color: #fff;">Android BG</a>. Also powered by <a href="https://www.blast.hk/"><b>blast.hk</b></a><!-- End powered by -->
+				
+			</div>
+	</div>
+
+</div>
+
+</footer>
+
+<!-- Fix for MentionMe popup window position -->
+<script type="text/javascript">
+	var MentionMe = (function(m) {
+	m.customSCEditorContainerOffset = {
+		left: 0,
+		top: 2,
+	};
+
+	return m;
+})(MentionMe || {});
+</script>
+<!-- End Fix for MentionMe popup window position -->
+<!-- end: footer -->
+	<script type="text/javascript">
+		var thread_deleted = "0";
+		if(thread_deleted == "1")
+		{
+			$("#quick_reply_form, .new_reply_button, .thread_tools, .inline_rating").hide();
+			$("#moderator_options_selector option.option_mirage").attr("disabled","disabled");
+		}
+	</script>
+
+
+<!-- end: showthread --><script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>
