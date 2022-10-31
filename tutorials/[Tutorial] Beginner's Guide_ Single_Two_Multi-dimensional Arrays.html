@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://sampforum.blast.hk/showthread.php?tid=318212 -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>[Tutorial] Beginner's Guide: Single/Two/Multi-dimensional Arrays</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="https://sampforum.blast.hk/syndication.php">
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="https://sampforum.blast.hk/syndication.php?type=atom1.0">
+<link rel="shortcut icon" href="https://sampforum.blast.hk/favicon.ico">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/jquery.js"></script><style>undefined</style>
+<script type="text/javascript" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/jquery.plugins.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/general.js"></script>
+<script type="text/javascript" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/tooltip.js"></script>
+
+<link rel="stylesheet" href="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/bootstrap.min.css">
+<link href="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/css" rel="stylesheet" type="text/css">
+<!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" / -->
+<link rel="stylesheet" href="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/global.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/css3.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/responsive.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star_ratings.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/showthread.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/grey.css">
+
+
+
+
+<script type="text/javascript">
+jQuery(document).on('click', '.panel-heading span.clickable', function(e){
+    var jQuerythis = jQuery(this);
+	if(!jQuerythis.hasClass('panel-collapsed')) {
+		jQuerythis.parents('.panel').find('.panel-body').slideUp();
+		jQuerythis.addClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+	} else {
+		jQuerythis.parents('.panel').find('.panel-body').slideDown();
+		jQuerythis.removeClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+	}
+})
+</script>
+
+
+
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+	lang.confirm_title = "Please Confirm";
+	lang.expcol_collapse = "[-]";
+	lang.expcol_expand = "[+]";
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+	
+	var templates = {
+		modal: '<div class=\"modal\">\
+	<div style=\"overflow-y: auto; max-height: 400px;\">\
+		<table border=\"0\" cellspacing=\"0\" cellpadding=\"5\" class=\"tborder\">\
+			<tr>\
+				<td class=\"thead\"><strong>__title__</strong></td>\
+			</tr>\
+			<tr>\
+				<td class=\"trow1\">__message__</td>\
+			</tr>\
+			<tr>\
+				<td class=\"tfoot\">\
+					<div style=\"text-align: center\" class=\"modal_buttons\">__buttons__</div>\
+				</td>\
+			</tr>\
+		</table>\
+	</div>\
+</div>',
+		modal_button: '<input type=\"submit\" class=\"button\" value=\"__title__\"/>&nbsp;'
+	};
+	
+	var cookieSecureFlag = "0";
+	var cookieDomain = ".sampforum.blast.hk";
+	var cookiePath = "/";
+	var cookiePrefix = "";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "2220ae0a21c853e6459922e7a63ded4d";
+	var rootpath = "https://sampforum.blast.hk";
+	var imagepath = "https://sampforum.blast.hk/images/bootbb";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "https://sampforum.blast.hk/images/bootbb/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+
+<!-- Make videos responsive - https://github.com/davatron5000/FitVids.js (additional video sites added for MyBB) -->
+<script type="text/javascript" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/jquery.fitvids.js"></script>
+<script>
+	$(document).ready(function(){
+		// Target the iframe parent div
+		var bvc = $(".bootbb-video-container");
+		//bvc.css("max-width", "800px");
+		bvc.fitVids();
+	});
+</script>
+<!-- end: headerinclude -->
+<script>
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/report.js"></script>
+<script src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/jeditable.min.js"></script>
+<script src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/thread.js"></script>
+<meta name="description" content="Beginner&#39;s Guide Single &amp; Multi-dimensional Arrays (I&#39;m a little free today so I thought about making a tutorial..) In this tutorial, we&#39;ll cover only the basic information and understandings about ho">
+<link rel="canonical" href="https://sampforum.blast.hk/showthread.php?tid=318212">
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/css2"></head>
+<body>
+	<!-- start: header -->
+<header>
+<div class="navbar navbar-default">
+     <div class="container">
+          <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="Toggle navigation">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span> 
+               </button>
+			  
+			  <div class="navbar-header scaleimages">
+				  <!--<a class="navbar-brand" href="https://sampforum.blast.hk">BootBB</a>-->
+				  <a class="" href="https://sampforum.blast.hk/"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/logo_forum.gif"></a>
+			  
+			  </div>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+			  <ul class="nav navbar-nav navbar-right">
+				  <!--<li id="nav-portal"><a href="https://sampforum.blast.hk/portal.php"><i class="fa fa-bell"></i> Portal</a></li>-->
+               <li id="nav-forums"><a href="https://sampforum.blast.hk/index.php"><i class="fa fa-group"></i> Forum</a></li>
+				<!--<li><a href="https://sampforum.blast.hk/search.php?action=getnew"><i class="fa fa-comment"></i> New Posts</a></li>
+            	<li><a href="https://sampforum.blast.hk/search.php?action=getdaily"><i class="fa fa-comments"></i> Today's Posts</a></li>-->
+               <li id="nav-search"><a href="https://sampforum.blast.hk/search.php"><i class="fa fa-search"></i> Search</a></li>
+               <li id="nav-member"><a href="https://sampforum.blast.hk/memberlist.php"><i class="fa fa-users"></i> Members</a></li>
+               <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+				  
+<!--<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cubes"></i> Misc <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			  <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+			  <li class="divider"></li>
+			  <li id="nav-calendar"><a href="https://sampforum.blast.hk/calendar.php"><i class="fa fa-calendar"></i> Calendar</a></li>
+          </ul>
+</li> -->
+</ul>
+  
+          </div>
+     </div>
+</div>
+</header>
+
+
+<div id="container">
+	<a name="top" id="top"></a>
+		<div id="header">
+			<div id="panel">
+				<div class="upper">
+					<div class="container">
+
+						<!-- start: header_welcomeblock_guest -->
+<!--<span><a href="https://sampforum.blast.hk/member.php?action=login" onclick="$('#quick_login').modal({ fadeDuration: 250, keepelement: true }); return false;" class="login btn btn-danger" style="color: #fff;"><i class="fa fa-sign-in"></i> Login</a> <a href="https://sampforum.blast.hk/member.php?action=register" class="register btn btn-success" style="color: #fff;"><i class="fa fa-user-plus"></i> Register</a></span>-->
+
+<span class="float_right hidden-xs">Hello There, Guest!</span>
+
+<br class="clearfix">
+	
+
+				<div class="modal" id="quick_login" style="display: none;">
+					<form method="post" action="https://sampforum.blast.hk/member.php">
+						<input name="my_post_key" type="hidden" value="2220ae0a21c853e6459922e7a63ded4d">
+						<input name="action" type="hidden" value="do_login">
+						<input name="url" type="hidden" value="https://sampforum.blast.hk/showthread.php?tid=318212">
+						<input name="quick_login" type="hidden" value="1">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tborder">
+							<tbody><tr>
+								<td class="thead" colspan="2"><strong>Login</strong></td>
+							</tr>
+							<tr>
+								<td class="trow1" width="25%"><strong>Username:</strong></td>
+								<td class="trow1"><input name="quick_username" id="quick_login_username" type="text" value="" class="textbox initial_focus"></td>
+							</tr>
+							<tr>
+								<td class="trow2"><strong>Password:</strong></td>
+								<td class="trow2">
+									<input name="quick_password" id="quick_login_password" type="password" value="" class="textbox"> <a href="https://sampforum.blast.hk/member.php?action=lostpw" class="lost_password">Lost Password?</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow1">&nbsp;</td>
+								<td class="trow1 remember_me">
+									<input name="quick_remember" id="quick_login_remember" type="checkbox" value="yes" class="checkbox" checked="checked">
+									<label for="quick_login_remember">Remember me</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow2" colspan="2">
+									<div align="center"><input name="submit" type="submit" class="button" value="Login"></div>
+								</td>
+							</tr>
+						</tbody></table>
+					</form>
+				</div>
+				<script type="text/javascript">
+					$("#quick_login input[name='url']").val($(location).attr('href'));
+				</script>
+<!-- end: header_welcomeblock_guest -->
+					
+					</div>
+			</div>
+			</div>
+	</div>
+			</div>
+               
+				   
+                <main class="container">
+				<br>
+                 <!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=74">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav -->
+				
+				
+				
+				
+				
+				
+<!-- end: header -->
+	
+	
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	<div class="tborder tfixed clear">
+		<div class="thead">
+				<div class="float_right">
+					<span class="smalltext"><a href="https://sampforum.blast.hk/showthread.php?mode=threaded&amp;tid=318212&amp;pid=1677333#pid1677333">Threaded Mode</a></span>
+				</div>
+				
+					[Tutorial] Beginner's Guide: Single/Two/Multi-dimensional Arrays
+			</div>
+	</div>
+<div id="posts_container">
+	<div id="posts">
+		<!-- start: postbit_classic -->
+
+<a id="pid1677333"></a>
+<div class="post classic " style="" id="post_1677333">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=122705"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/122705.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=122705">iPLEOMAX</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,250<br>
+	Threads: 92<br>
+	Joined: Mar 2011
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=122705"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=318212&amp;pid=1677333#pid1677333" title="Beginner&#39;s Guide: Single/Two/Multi-dimensional Arrays">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 1 by iPLEOMAX" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">14.02.2012, 10:09 <span class="post_edit" id="edited_by_1677333"><!-- start: postbit_editedby -->
+<div class="edited_post postbit_edited postbit_editedby postbit_editedpost">(<!-- start: postbit_editedby_editreason -->
+ <em>Last edited by iPLEOMAX; 14/02/2012 at 01:30 PM.</em>
+<!-- end: postbit_editedby_editreason -->)</div>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1677333">
+		<div align="center"><font color="RoyalBlue"><font size="5"><b><font face="Tahoma"><u>Beginner's Guide</u></font></b></font><br>
+<font size="6"><b><font face="Tahoma">Single &amp; Multi-dimensional Arrays</font></b></font></font><br>
+</div>
+<font size="1">(I'm a little free today so I thought about making a tutorial..)</font><br>
+<br>
+In this tutorial, we'll cover only the basic information and understandings about how arrays work.<br>
+Knowledge about "Arrays" is necessary for any scripter. So, let's get started.<br>
+<br>
+<b><u><font color="RoyalBlue">Requirements:</font></u></b><br>
+a) Some basic ideas about scripting/pawn.<br>
+b) Patience &amp; Understanding ability.<br>
+<br>
+<b><u><font color="RoyalBlue">Contents:</font></u></b><br>
+0. Definition of Array<br>
+1. Single Dimensional<br>
+2. Two Dimensional (Will post soon)<br>
+3. Three Dimensional (Will post soon)<br>
+<br>
+<div align="center"><b><font color="RoyalBlue"><font size="4"><u>Definition</u></font></font></b></div>Array is a structure of data that contains same or different values as a collection, each of them has a unique ID relating to their position in the structure. Easy, right? No, not really for a beginner, just read what's written below, you'll understand better.<br>
+<br>
+<div align="center"><b><font color="RoyalBlue"><font size="5"><u>1. Single Dimensional</u></font></font></b></div>
+Let's start with an example:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> MyArray<span style="color: #000000;">[</span><span style="color: #000000;">10</span><span style="color: #000000;">]</span>;</div></div></pre>
+</div>
+This will create a structure of 10 elements that looks like this:<br>
+<img alt="" border="0" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/scaled.php"><br>
+<br>
+Since this is only a "Chain", you can call it "Single Dimensional" or "String".<br>
+<br>
+If we were to give IDs to each of the the elements, the whole chain would be [0] and each of the boxes would be [0]..[9]<br>
+<br>
+<img alt="" border="0" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/scaled(1).php"><br>
+<br>
+Remember, first element will always start with ID "0" <b>not</b> "1"! If you count from 0 to 9, you'll see that there are 10 numbers. So, 0-9 = 10 slots.<br>
+<br>
+<br>
+As you can see the boxes are empty, but an element cannot be empty, so actually, these are filled with "NULL" characters.<br>
+This helps the compiler to understand where the strings end or else it wouldn't be able to to check the length of the string and terminate it.<br>
+Now, this is what it looks like:<br>
+<br>
+<img alt="" border="0" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/scaled(2).php"><br>
+<br>
+Note that '\0' is a character constant called NULL.<br>
+<br>
+Now, Let's see how it looks like if we have a word in it:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> MyArray<span style="color: #000000;">[</span><span style="color: #000000;">10</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000066;">"Computers"</span>;</div></div></pre>
+</div>
+<img alt="" border="0" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/scaled(3).php"><br>
+<br>
+Now you see a '\0' at the end. It tells the compiler that the string ends there.<br>
+<br>
+If you would've done:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> MyArray<span style="color: #000000;">[</span><span style="color: #000000;">10</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000066;">"Computerss"</span>;</div></div></pre>
+</div>
+You'll come across:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">error 018: initialization data exceeds declared size</pre>
+</div>Because there is no space for a NULL character!<br>
+<br>
+You can also do:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:55px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> MyArray<span style="color: #000000;">[</span><span style="color: #000000;">10</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">{</span><span style="color: #000066;">'C'</span>, <span style="color: #000066;">'o'</span>, <span style="color: #000066;">'m'</span>, <span style="color: #000066;">'p'</span>, <span style="color: #000066;">'u'</span>, <span style="color: #000066;">'t'</span>, <span style="color: #000066;">'e'</span>, <span style="color: #000066;">'r'</span>, <span style="color: #000066;">'s'</span><span style="color: #000000;">}</span>;<br><span style="color: #228822;">//It's same as new MyArray[10] = "Computers";</span></div></div></pre>
+</div>
+To utilize the array:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:391px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> MyArray<span style="color: #000000;">[</span><span style="color: #000000;">10</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000066;">"Computers"</span>;<br><br><span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"%s"</span> <span style="color: #228822;">/* identifier %s is for strings */</span>, MyArray<span style="color: #000000;">)</span>;<br><br><span style="color: #228822;">//or:</span><br>&nbsp; &nbsp; <br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><br>&nbsp; &nbsp; <span style="color: #000000;">(</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">"%c%c%c%c%c%c%c%c%c%c"</span>, <span style="color: #228822;">//If you didn't know, identifier '%c' is for characters.</span><br>&nbsp; &nbsp; &nbsp; &nbsp; MyArray<span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; MyArray<span style="color: #000000;">[</span><span style="color: #000000;">1</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; MyArray<span style="color: #000000;">[</span><span style="color: #000000;">2</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; MyArray<span style="color: #000000;">[</span><span style="color: #000000;">3</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; MyArray<span style="color: #000000;">[</span><span style="color: #000000;">4</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; MyArray<span style="color: #000000;">[</span><span style="color: #000000;">5</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; MyArray<span style="color: #000000;">[</span><span style="color: #000000;">6</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; MyArray<span style="color: #000000;">[</span><span style="color: #000000;">7</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; MyArray<span style="color: #000000;">[</span><span style="color: #000000;">8</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; MyArray<span style="color: #000000;">[</span><span style="color: #000000;">9</span><span style="color: #000000;">]</span><br>&nbsp; &nbsp; <span style="color: #000000;">)</span>;<br><br><span style="color: #228822;">//Both will output:</span><br>Computers</div></div></pre>
+</div>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:135px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">//If you do:</span><br><span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"%i"</span> <span style="color: #228822;">/* %i is for integers (numbers) */</span>, MyArray<span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>;<br><br><span style="color: #228822;">//it will output:</span><br><span style="color: #000000;">67</span><br><br>Because <span style="color: #000000;">67</span> is the ASCII number <span style="color: #2222BB;">for</span> the letter C.</div></div></pre>
+</div>
+So, for a simple use:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:119px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> message<span style="color: #000000;">[</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000066;">"Hello guys! I'm reading the tutorial here!"</span>;<br><span style="color: #222222;">format</span><span style="color: #000000;">(</span>message, <span style="color: #2222BB;">sizeof</span> message, <span style="color: #000066;">"She said: %s"</span>, message<span style="color: #000000;">)</span>;<br><span style="color: #222222;">print</span><span style="color: #000000;">(</span>message<span style="color: #000000;">)</span>;<br><br><span style="color: #228822;">//Will give you:</span><br>She <span style="color: #000000;">said</span><span style="color: #000000;">:</span> Hello guys<span style="color: #000000;">!</span> I<span style="color: #000066;">'m reading the tutorial here!</span></div></div></pre>
+</div>
+Note: If you declare a string with no size, the precompiler will automatically set the size according to what you have initialized it with.<br>
+Example:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:71px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> something<span style="color: #000000;">[</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000066;">"YAY!"</span>; <br><span style="color: #228822;">//it becomes:</span><br><span style="color: #2222BB;">new</span> something<span style="color: #000000;">[</span><span style="color: #000000;">5</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000066;">"YAY!"</span>;</div></div></pre>
+</div>
+<br>
+<div align="center"><b><font color="RoyalBlue"><font size="5"><u>2. Two Dimensional</u></font></font></b></div>
+Now, you know a lot more about 'Strings'. A 2D Array is actually String of Strings.<br>
+<br>
+When you declare a new 2D Array:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> MyArray_2D<span style="color: #000000;">[</span><span style="color: #000000;">7</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #000000;">8</span><span style="color: #000000;">]</span>;</div></div></pre>
+</div>It looks like:<br>
+<br>
+<img alt="" border="0" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/scaled(4).php"><br>
+<br>
+A 2D Array with content inside:<br>
+<br>
+<img alt="" border="0" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/scaled(5).php"><br>
+<br>
+Some more explanation:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:407px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> MyArray_2D <span style="color: #000000;">[</span><span style="color: #000000;">]</span> <span style="color: #000000;">[</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">"One"</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">"Two"</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">"Three"</span><br>&nbsp; &nbsp; <span style="color: #000000;">}</span>;<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"%s"</span>, MyArray_2D<span style="color: #000000;">)</span>;<br><span style="color: #228822;">//will give you some weird symbols because MyArray_2D is a 2D Array, </span><br><span style="color: #228822;">//you are supposed to index it with an ID [i].</span><br><br><span style="color: #228822;">//So, do it this way:</span><br><span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"%s"</span>, MyArray_2D<span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>;<br><span style="color: #228822;">//gives: "One" because at first index 0, you have a string "One"</span><br><br><span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"%s"</span>, MyArray_2D<span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>;<br><span style="color: #228822;">//Also gives: "One" because in the printf function, you specified it as a "String" using %s, </span><br><span style="color: #228822;">//it will print characters until it reaches a NULL index.</span><br><br><span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"%c"</span>, MyArray_2D<span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>;<br><span style="color: #228822;">//Gives: "O" because at the position 0, 0 in MyArray_2D, "O" is a character.</span><br><br><span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"%s"</span>, MyArray_2D<span style="color: #000000;">[</span><span style="color: #000000;">1</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>;<br><span style="color: #228822;">//Gives: "Two" and similarly, &nbsp;MyArray_2D[2] will print "Three"</span></div></div></pre>
+</div>
+Some simple examples:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:183px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> NewsHeadlines <span style="color: #000000;">[</span><span style="color: #000000;">4</span><span style="color: #000000;">]</span> <span style="color: #000000;">[</span><span style="color: #000000;">128</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #228822;">//[0] ............................................................ [i]</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #228822;">/* [0] */</span> <span style="color: #000066;">"The server was attacked by a group of rougue members this evening!"</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #228822;">/* [1] */</span> <span style="color: #000066;">"A competition held by an admin caused the server to crash!"</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #228822;">/* [2] */</span> <span style="color: #000066;">"Server crashed due to a bad filterscript this evening."</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #228822;">/* [3] */</span> <span style="color: #000066;">"I have no other news in my head."</span><br>&nbsp; &nbsp; <span style="color: #000000;">}</span>;<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; SendClientMessageToAll<span style="color: #000000;">(</span><span style="color: #000000;">-</span><span style="color: #000000;">1</span>, NewsHeadlines <span style="color: #000000;">[</span> <span style="color: #222222;">random</span><span style="color: #000000;">(</span><span style="color: #2222BB;">sizeof</span> NewsHeadlines<span style="color: #000000;">)</span> <span style="color: #000000;">]</span> <span style="color: #000000;">)</span>;</div></div></pre>
+</div>
+Here, "sizeof NewsHeadlines" will give 4.<br>
+Random of 4 will give 0 or 1 or 2 or 3 (0-3 = 4 numbers)<br>
+<br>
+So, NewsHeadlines[0-3] will give the message on ID 0-3.<br>
+<br>
+And since it's a variable, you can changed the headlines!<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:55px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #222222;">format</span><span style="color: #000000;">(</span>NewsHeadlines<span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span>, <span style="color: #000000;">128</span>, <span style="color: #000066;">"The headline has been changed!"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"%s"</span>, NewsHeadlines<span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div>
+<br>
+<div align="center"><b><font color="RoyalBlue"><font size="5"><u>3. Three Dimensional</u></font></font></b></div>
+Alright, so the harder part, 3D arrays.<br>
+As I've told you 2D arrays are string of strings, then 3D Arrays are string of strings of strings. Confusing, eh?<br>
+<br>
+Anyway, I'll show an example:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> Array_3D <span style="color: #000000;">[</span><span style="color: #000000;">4</span><span style="color: #000000;">]</span> <span style="color: #000000;">[</span><span style="color: #000000;">4</span><span style="color: #000000;">]</span> <span style="color: #000000;">[</span><span style="color: #000000;">4</span><span style="color: #000000;">]</span>;</div></div></pre>
+</div>
+It would look like:<br>
+<img alt="" border="0" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/scaled(6).php"><br>
+<br>
+And If we put index numbers (slot ids):<br>
+<img alt="" border="0" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/scaled(7).php"><br>
+<br>
+As in scripts:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:327px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> Array_3D_A <span style="color: #000000;">[</span><span style="color: #000000;">3</span><span style="color: #000000;">]</span> <span style="color: #000000;">[</span><span style="color: #000000;">5</span><span style="color: #000000;">]</span> <span style="color: #000000;">[</span><span style="color: #000000;">12</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><span style="color: #000066;">"Pen"</span>, &nbsp; &nbsp; <span style="color: #000066;">"Book"</span>, &nbsp; &nbsp; <span style="color: #000066;">"Paper"</span>, &nbsp;<span style="color: #000066;">"Notes"</span>, &nbsp;<span style="color: #000066;">"Pencil"</span><span style="color: #000000;">}</span>,<br>&nbsp; &nbsp; <span style="color: #000000;">{</span><span style="color: #000066;">"Laptop"</span>, &nbsp;<span style="color: #000066;">"Computer"</span>, <span style="color: #000066;">"Cell"</span>, &nbsp; <span style="color: #000066;">"Pad"</span>, &nbsp; &nbsp;<span style="color: #000066;">"Pod"</span><span style="color: #000000;">}</span>,<br>&nbsp; &nbsp; <span style="color: #000000;">{</span><span style="color: #000066;">"Car"</span>, &nbsp; &nbsp; <span style="color: #000066;">"Bike"</span>, &nbsp; &nbsp; <span style="color: #000066;">"Bus"</span>, &nbsp; &nbsp;<span style="color: #000066;">"Train"</span>, &nbsp;<span style="color: #000066;">"Muscle"</span><span style="color: #000000;">}</span><br><span style="color: #000000;">}</span>;<br><br><span style="color: #2222BB;">for</span> <span style="color: #000000;">(</span> <span style="color: #2222BB;">new</span> index <span style="color: #000000;">=</span> <span style="color: #000000;">0</span>; index <span style="color: #000000;">&lt;</span> <span style="color: #2222BB;">sizeof</span> Array_3D_A; index<span style="color: #000000;">++</span> <span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #222222;">printf</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">(</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">"Objects: %s | %s | %s | %s | %s"</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Array_3D_A<span style="color: #000000;">[</span>index<span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Array_3D_A<span style="color: #000000;">[</span>index<span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #000000;">1</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Array_3D_A<span style="color: #000000;">[</span>index<span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #000000;">2</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Array_3D_A<span style="color: #000000;">[</span>index<span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #000000;">3</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Array_3D_A<span style="color: #000000;">[</span>index<span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #000000;">4</span><span style="color: #000000;">]</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span></div></div></pre>
+</div>
+Will output:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">Objects: Pen | Book | Paper | Notes | Pencil
+Objects: Laptop | Computer | Cell | Pad | Pod
+Objects: Car | Bike | Bus | Train |</pre>
+</div>Let's see how we get the index ids:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:135px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> Array_3D_A <span style="color: #000000;">[</span><span style="color: #000000;">3</span><span style="color: #000000;">]</span> <span style="color: #000000;">[</span><span style="color: #000000;">5</span><span style="color: #000000;">]</span> <span style="color: #000000;">[</span><span style="color: #000000;">12</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #228822;">// &nbsp; &nbsp; &nbsp; [0] &nbsp; &nbsp; &nbsp; &nbsp;[1] &nbsp; &nbsp; &nbsp; &nbsp; [2] &nbsp; &nbsp; &nbsp; [3] &nbsp; &nbsp; &nbsp; [4]</span><br>&nbsp; &nbsp; <span style="color: #228822;">/*[0]*/</span> <span style="color: #000000;">{</span><span style="color: #000066;">"Pen"</span>, &nbsp; &nbsp; <span style="color: #000066;">"Book"</span>, &nbsp; &nbsp; <span style="color: #000066;">"Paper"</span>, &nbsp;<span style="color: #000066;">"Notes"</span>, &nbsp;<span style="color: #000066;">"Pencil"</span><span style="color: #000000;">}</span>,<br>&nbsp; &nbsp; <span style="color: #228822;">/*[1]*/</span> <span style="color: #000000;">{</span><span style="color: #000066;">"Laptop"</span>, &nbsp;<span style="color: #000066;">"Computer"</span>, <span style="color: #000066;">"Cell"</span>, &nbsp; <span style="color: #000066;">"Pad"</span>, &nbsp; &nbsp;<span style="color: #000066;">"Pod"</span><span style="color: #000000;">}</span>,<br>&nbsp; &nbsp; <span style="color: #228822;">/*[2]*/</span> <span style="color: #000000;">{</span><span style="color: #000066;">"Car"</span>, &nbsp; &nbsp; <span style="color: #000066;">"Bike"</span>, &nbsp; &nbsp; <span style="color: #000066;">"Bus"</span>, &nbsp; &nbsp;<span style="color: #000066;">"Train"</span>, &nbsp;<span style="color: #000066;">"Muscle"</span><span style="color: #000000;">}</span><br><span style="color: #000000;">}</span>;</div></div></pre>
+</div>
+As you move down the lines, it's in increasing order of main indexes. (Above, there are 3 columns, 0-2)<br>
+As you move Left-to-Right, it's in increasing order of the second indexes. (Above, there are 5 rows, 0-4)<br>
+And as you count the characters of each string (word), your going in increasing order of the third indexes.<br>
+(Above, there are 12 elements, 0-11 where the strings are stored)<br>
+<br>
+<br>
+Another example:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:295px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> Array_3D_B <span style="color: #000000;">[</span><span style="color: #000000;">]</span> <span style="color: #000000;">[</span><span style="color: #000000;">]</span> <span style="color: #000000;">[</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><span style="color: #222222;">float</span><span style="color: #000000;">:</span><span style="color: #000000;">102.14571</span>, &nbsp; <span style="color: #000066;">"******"</span>, &nbsp; &nbsp; &nbsp; <span style="color: #000000;">4100</span><span style="color: #000000;">}</span>,<br>&nbsp; &nbsp; <span style="color: #000000;">{</span><span style="color: #222222;">float</span><span style="color: #000000;">:</span><span style="color: #000000;">452.45245</span>, &nbsp; <span style="color: #000066;">"*******"</span>, &nbsp;&nbsp; &nbsp; <span style="color: #000000;">4012</span><span style="color: #000000;">}</span>,<br>&nbsp; &nbsp; <span style="color: #000000;">{</span><span style="color: #222222;">float</span><span style="color: #000000;">:</span><span style="color: #000000;">124.78951</span>, &nbsp; <span style="color: #000066;">"Memebase"</span>, &nbsp; &nbsp; <span style="color: #000000;">4501</span><span style="color: #000000;">}</span><br><span style="color: #000000;">}</span>;<br><br><span style="color: #2222BB;">for</span> <span style="color: #000000;">(</span> <span style="color: #2222BB;">new</span> index <span style="color: #000000;">=</span> <span style="color: #000000;">0</span>; index <span style="color: #000000;">&lt;</span> <span style="color: #2222BB;">sizeof</span> Array_3D_B; index<span style="color: #000000;">++</span> <span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #222222;">printf</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">(</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">"Data: %f | %s | %i"</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Array_3D_B<span style="color: #000000;">[</span>index<span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Array_3D_B<span style="color: #000000;">[</span>index<span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #000000;">1</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Array_3D_B<span style="color: #000000;">[</span>index<span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #000000;">2</span><span style="color: #000000;">]</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span></div></div></pre>
+</div>
+Will output:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">Data: 102.145713 | ****** | 4100
+Data: 452.452453 | ******* | 4012
+Data: 124.789512 | Memebase | 4501</pre>
+</div>Another one:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:311px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> Array_3D_C <span style="color: #000000;">[</span><span style="color: #000000;">]</span> <span style="color: #000000;">[</span><span style="color: #000000;">]</span> <span style="color: #000000;">[</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span> <span style="color: #000000;">{</span><span style="color: #000066;">'A'</span>, <span style="color: #000066;">'C'</span>, <span style="color: #000066;">'E'</span>, <span style="color: #000066;">'<span style="color: #000099; font-weight: bold;">\0</span>'</span><span style="color: #000000;">}</span>, 0xFF11FF25, <span style="color: #222222;">float</span><span style="color: #000000;">:</span><span style="color: #000000;">4.154</span>, &nbsp;<span style="color: #000000;">36</span><span style="color: #000000;">}</span>,<br>&nbsp; &nbsp; <span style="color: #000000;">{</span> <span style="color: #000000;">{</span><span style="color: #000066;">'B'</span>, <span style="color: #000066;">'A'</span>, <span style="color: #000066;">'M'</span>, <span style="color: #000066;">'<span style="color: #000099; font-weight: bold;">\0</span>'</span><span style="color: #000000;">}</span>, 0xFFFFFFFF, <span style="color: #222222;">float</span><span style="color: #000000;">:</span><span style="color: #000000;">6.154</span>, &nbsp;<span style="color: #000000;">43</span><span style="color: #000000;">}</span>,<br>&nbsp; &nbsp; <span style="color: #000000;">{</span> <span style="color: #000000;">{</span><span style="color: #000066;">'Y'</span>, <span style="color: #000066;">'A'</span>, <span style="color: #000066;">'Y'</span>, <span style="color: #000066;">'<span style="color: #000099; font-weight: bold;">\0</span>'</span><span style="color: #000000;">}</span>, 0x0, &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #222222;">float</span><span style="color: #000000;">:</span><span style="color: #000000;">74.154</span>, <span style="color: #000000;">46</span><span style="color: #000000;">}</span><br><span style="color: #000000;">}</span>;<br><br><span style="color: #2222BB;">for</span> <span style="color: #000000;">(</span> <span style="color: #2222BB;">new</span> index <span style="color: #000000;">=</span> <span style="color: #000000;">0</span>; index <span style="color: #000000;">&lt;</span> <span style="color: #2222BB;">sizeof</span> Array_3D_C; index<span style="color: #000000;">++</span> <span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #222222;">printf</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">(</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000066;">"Data: %s | %x | %f | %c"</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Array_3D_C<span style="color: #000000;">[</span>index<span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Array_3D_C<span style="color: #000000;">[</span>index<span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #000000;">1</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Array_3D_C<span style="color: #000000;">[</span>index<span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #000000;">2</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Array_3D_C<span style="color: #000000;">[</span>index<span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #000000;">3</span><span style="color: #000000;">]</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span></div></div></pre>
+</div>
+Will output:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">Data: ACE | -EE00DB | 4.153999 | $ | 
+Data: BAM | -1 | 6.153999 | + | 
+Data: YAY | 0 | 74.153999 | . |</pre>
+</div>---<br>
+<br>
+That's all for now!
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1677333">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=122705" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=318212&amp;replyto=1677333" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1677337"></a>
+<div class="post classic " style="" id="post_1677337">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=122705"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/122705.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=122705">iPLEOMAX</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,250<br>
+	Threads: 92<br>
+	Joined: Mar 2011
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=122705"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=318212&amp;pid=1677337#pid1677337" title="Re: Beginner&#39;s Guide: Single/Two/Multi-dimensional Arrays">#2</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 2 by iPLEOMAX" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">14.02.2012, 10:13 <span class="post_edit" id="edited_by_1677337"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1677337">
+		<u>* Reserved for Future use.</u>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1677337">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=122705" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=318212&amp;replyto=1677337" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1677360"></a>
+<div class="post classic " style="" id="post_1677360">
+<div class="post_author scaleimages">
+	
+	<div class="author_information">
+			<strong><span class="largetext">T0pAz</span></strong> <br>
+			<span class="smalltext">
+				Unregistered<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_guest -->
+&nbsp;
+<!-- end: postbit_author_guest -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=318212&amp;pid=1677360#pid1677360" title="Re: Beginner&#39;s Guide: Single/Two/Multi-dimensional Arrays">#3</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 3 by T0pAz" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">14.02.2012, 10:28 <span class="post_edit" id="edited_by_1677360"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1677360">
+		This is very bad... I cannot give you reputation you deserve for this excellent tutorial. Very beautiful work and will help alot of people on difficult situation understanding arrays.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1677360">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=318212&amp;replyto=1677360" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1677379"></a>
+<div class="post classic " style="" id="post_1677379">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=13347"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/13347.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=13347">Vince</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Spam Machine<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 10,066<br>
+	Threads: 38<br>
+	Joined: Sep 2007
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=13347"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=318212&amp;pid=1677379#pid1677379" title="Re: Beginner&#39;s Guide: Single/Two/Multi-dimensional Arrays">#4</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 4 by Vince" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">14.02.2012, 10:42 <span class="post_edit" id="edited_by_1677379"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1677379">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>iPLEOMAX</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1677333#pid1677333" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic"><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:103px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">//If you do:</span><br><span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"%c"</span>, MyArray<span style="color: #000000;">[</span><span style="color: #000000;">10</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>;<br><br><span style="color: #228822;">//will ouput:</span><br><span style="color: #000000;">(</span>null<span style="color: #000000;">)</span> because the last character is <span style="color: #000066;">'<span style="color: #000099; font-weight: bold;">\0</span>'</span></div></div></pre>
+</div></div>
+</td>
+</tr>
+</tbody></table>
+</div>I'm quite sure that this is an OOB (Out-Of-Bounds) error; the 10th element doesn't exist. Other than that, very good.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1677379">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=13347" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=318212&amp;replyto=1677379" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1677383"></a>
+<div class="post classic " style="" id="post_1677383">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=122705"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/122705.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=122705">iPLEOMAX</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,250<br>
+	Threads: 92<br>
+	Joined: Mar 2011
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=122705"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=318212&amp;pid=1677383#pid1677383" title="Re: Beginner&#39;s Guide: Single/Two/Multi-dimensional Arrays">#5</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 5 by iPLEOMAX" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">14.02.2012, 10:46 <span class="post_edit" id="edited_by_1677383"><!-- start: postbit_editedby -->
+<div class="edited_post postbit_edited postbit_editedby postbit_editedpost">(<!-- start: postbit_editedby_editreason -->
+ <em>Last edited by iPLEOMAX; 14/02/2012 at 12:22 PM.</em>
+<!-- end: postbit_editedby_editreason -->)</div>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1677383">
+		<b>@T0pAz</b><br>
+No problem bro, it's all for the sake of community.<br>
+<br>
+<b>@Vince</b><br>
+Yes, thank you for pointing that out. Edited now.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1677383">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=122705" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=318212&amp;replyto=1677383" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1677534"></a>
+<div class="post classic " style="" id="post_1677534">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=61301"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/61301.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=61301">[XST]O_x</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,954<br>
+	Threads: 79<br>
+	Joined: Aug 2009
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=61301"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=318212&amp;pid=1677534#pid1677534" title="Re: Beginner&#39;s Guide: Single/Two/Multi-dimensional Arrays">#6</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 6 by [XST]O_x" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">14.02.2012, 12:25 <span class="post_edit" id="edited_by_1677534"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1677534">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Y_Less</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1677483#pid1677483" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">I'd suggest you do something on enum arrays, and how they're not what people think.</div>
+</td>
+</tr>
+</tbody></table>
+</div>That's something I'd glad to know, how come enum arrays are not what people think?
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1677534">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=61301" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=318212&amp;replyto=1677534" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1677539"></a>
+<div class="post classic " style="" id="post_1677539">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=122705"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/122705.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=122705">iPLEOMAX</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,250<br>
+	Threads: 92<br>
+	Joined: Mar 2011
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=122705"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=318212&amp;pid=1677539#pid1677539" title="Re: Beginner&#39;s Guide: Single/Two/Multi-dimensional Arrays">#7</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 7 by iPLEOMAX" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">14.02.2012, 12:27 <span class="post_edit" id="edited_by_1677539"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1677539">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Y_Less</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1677483#pid1677483" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">I'd suggest you do something on enum arrays, and how they're not what people think.</div>
+</td>
+</tr>
+</tbody></table>
+</div><div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>[XST]O_x</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1677534#pid1677534" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">That's something I'd glad to know, how come enum arrays are not what people think?</div>
+</td>
+</tr>
+</tbody></table>
+</div>Alright then, I'll also do that <img alt="" border="0" class="inlineimg" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/wink.png" title="Wink">
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1677539">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=122705" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=318212&amp;replyto=1677539" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1677551"></a>
+<div class="post classic " style="" id="post_1677551">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=61301"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/61301.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=61301">[XST]O_x</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,954<br>
+	Threads: 79<br>
+	Joined: Aug 2009
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=61301"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=318212&amp;pid=1677551#pid1677551" title="Re: Beginner&#39;s Guide: Single/Two/Multi-dimensional Arrays">#8</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 8 by [XST]O_x" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">14.02.2012, 12:37 <span class="post_edit" id="edited_by_1677551"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1677551">
+		Part 1:<br>
+1) hi 10<br>
+2) h 10<br>
+F) hi 10<br>
+3)-5) I have no idea. (I'd be really glad for an explanation though)<br>
+<br>
+Part 2:<br>
+6) h, and I believe 1? Or 10, not quite sure.<br>
+F) h, 1<br>
+<br>
+Part 3:<br>
+7)hi<br>
+F)hi, 10
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1677551">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=61301" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=318212&amp;replyto=1677551" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1677561"></a>
+<div class="post classic " style="" id="post_1677561">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=97007"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/97007.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=97007"><s>KingHual</s></a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Banned<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 2,286<br>
+	Threads: 18<br>
+	Joined: Jun 2010
+	<br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=318212&amp;pid=1677561#pid1677561" title="Re: Beginner&#39;s Guide: Single/Two/Multi-dimensional Arrays">#9</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 9 by KingHual" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">14.02.2012, 12:48 <span class="post_edit" id="edited_by_1677561"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1677561">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Y_Less</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1677547#pid1677547" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Do you know what this code prints?<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:503px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><br><span style="color: #2222BB;">enum</span> E_EG<br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; E_EG_NUM,<br>&nbsp; &nbsp; E_EG_STR<span style="color: #000000;">[</span><span style="color: #000000;">10</span><span style="color: #000000;">]</span>,<br><span style="color: #000000;">}</span><br><br>main<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #228822;">// Part 1.</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span> eg<span style="color: #000000;">[</span>E_EG<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">{</span><span style="color: #000000;">42</span>, <span style="color: #000066;">"hi"</span><span style="color: #000000;">}</span>;<br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"1) %s %d"</span>, eg<span style="color: #000000;">[</span>E_EG_STR<span style="color: #000000;">]</span>, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>eg<span style="color: #000000;">[</span>E_EG_STR<span style="color: #000000;">]</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"2) %s %d"</span>, eg<span style="color: #000000;">[</span>E_EG_STR<span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span>, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>eg<span style="color: #000000;">[</span>E_EG_STR<span style="color: #000000;">]</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; func<span style="color: #000000;">(</span>eg<span style="color: #000000;">[</span>E_EG_STR<span style="color: #000000;">]</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"3) %d"</span>, eg<span style="color: #000000;">[</span><span style="color: #000000;">E_EG</span><span style="color: #000000;">:</span><span style="color: #000000;">2</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"4) %d"</span>, eg<span style="color: #000000;">[</span>E_EG_STR <span style="color: #000000;">+</span> <span style="color: #000000;">E_EG</span><span style="color: #000000;">:</span><span style="color: #000000;">1</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"5) %d"</span>, <span style="color: #000000;">_</span><span style="color: #000000;">:</span>E_EG_STR<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #228822;">// Part 2.</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span> eg2<span style="color: #000000;">[</span><span style="color: #000000;">10</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000066;">"hi"</span>;<br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"6) %s %d"</span>, eg2<span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span>, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>eg2<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; func<span style="color: #000000;">(</span>eg2<span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #228822;">// Part 3.</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span> eg3<span style="color: #000000;">[</span><span style="color: #000000;">10</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span>E_EG<span style="color: #000000;">]</span>;<br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"7) %s"</span>, eg3<span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span>E_EG_STR<span style="color: #000000;">]</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; func<span style="color: #000000;">(</span>eg3<span style="color: #000000;">[</span><span style="color: #000000;">5</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span>E_EG_STR<span style="color: #000000;">]</span><span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span><br><br>func<span style="color: #000000;">(</span>data<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, size <span style="color: #000000;">=</span> <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>data<span style="color: #000000;">)</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"F) %s %d"</span>, data, size<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div></div>
+</td>
+</tr>
+</tbody></table>
+</div>Sorry about ME answering your question, but wouldn't it return the ascii value of "i" (the second character in the string)? I'm just curious about that since I'm not very good at this.<br>
+<br>
+EDIT: Oh, I see you've edited it. Let me see again.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:503px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><br><span style="color: #2222BB;">enum</span> E_EG<br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; E_EG_NUM,<br>&nbsp; &nbsp; E_EG_STR<span style="color: #000000;">[</span><span style="color: #000000;">10</span><span style="color: #000000;">]</span> <span style="color: #228822;">// There was an unneeded comma here, so I removed it</span><br><span style="color: #000000;">}</span><br><br>main<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #228822;">// Part 1.</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span> eg<span style="color: #000000;">[</span>E_EG<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">{</span><span style="color: #000000;">42</span>, <span style="color: #000066;">"hi"</span><span style="color: #000000;">}</span>; <span style="color: #228822;">// Assigns 42 to the E_EG_NUM var and "hi" to the E_EG_STR var</span><br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"1) %s %d"</span>, eg<span style="color: #000000;">[</span>E_EG_STR<span style="color: #000000;">]</span>, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>eg<span style="color: #000000;">[</span>E_EG_STR<span style="color: #000000;">]</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>; <span style="color: #228822;">// Prints the string itself, and the size of the string</span><br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"2) %s %d"</span>, eg<span style="color: #000000;">[</span>E_EG_STR<span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span>, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>eg<span style="color: #000000;">[</span>E_EG_STR<span style="color: #000000;">]</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>; <span style="color: #228822;">// Prints the string, starting from position 0 and the size</span><br>&nbsp; &nbsp; func<span style="color: #000000;">(</span>eg<span style="color: #000000;">[</span>E_EG_STR<span style="color: #000000;">]</span><span style="color: #000000;">)</span>; <span style="color: #228822;">// Prints the string, and the current size of the string</span><br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"3) %d"</span>, eg<span style="color: #000000;">[</span><span style="color: #000000;">E_EG</span><span style="color: #000000;">:</span><span style="color: #000000;">2</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>; <span style="color: #228822;">// Prints the ascii value of the second character</span><br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"4) %d"</span>, eg<span style="color: #000000;">[</span>E_EG_STR <span style="color: #000000;">+</span> <span style="color: #000000;">E_EG</span><span style="color: #000000;">:</span><span style="color: #000000;">1</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>; <span style="color: #228822;">// Prints the same as above</span><br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"5) %d"</span>, <span style="color: #000000;">_</span><span style="color: #000000;">:</span>E_EG_STR<span style="color: #000000;">)</span>; <span style="color: #228822;">// No idea what this is though</span><br>&nbsp; &nbsp; <span style="color: #228822;">// Part 2.</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span> eg2<span style="color: #000000;">[</span><span style="color: #000000;">10</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000066;">"hi"</span>; <span style="color: #228822;">// Creates a new char and assigns the value "hi" to it</span><br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"6) %s %d"</span>, eg2<span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span>, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>eg2<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>; <span style="color: #228822;">// Does exactly what 2) does, but it gets the current size of the variable</span><br>&nbsp; &nbsp; func<span style="color: #000000;">(</span>eg2<span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>; <span style="color: #228822;">// Does exactly what the previous F) does, but assigns the string to be gotten from a chosen position</span><br>&nbsp; &nbsp; <span style="color: #228822;">// Part 3.</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span> eg3<span style="color: #000000;">[</span><span style="color: #000000;">10</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span>E_EG<span style="color: #000000;">]</span>; <span style="color: #228822;">// No idea what this does</span><br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"7) %s"</span>, eg3<span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span>E_EG_STR<span style="color: #000000;">]</span><span style="color: #000000;">)</span>; <span style="color: #228822;">// No idea what this does</span><br>&nbsp; &nbsp; func<span style="color: #000000;">(</span>eg3<span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span>E_EG_STR<span style="color: #000000;">]</span><span style="color: #000000;">)</span>; <span style="color: #228822;">// No idea what this does</span><br><span style="color: #000000;">}</span><br><br>func<span style="color: #000000;">(</span>data<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, size <span style="color: #000000;">=</span> <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>data<span style="color: #000000;">)</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"F) %s %d"</span>, data, size<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1677561">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=97007" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=318212&amp;replyto=1677561" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid1677581"></a>
+<div class="post classic " style="" id="post_1677581">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=97007"><img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/97007.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=97007"><s>KingHual</s></a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Banned<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 2,286<br>
+	Threads: 18<br>
+	Joined: Jun 2010
+	<br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=318212&amp;pid=1677581#pid1677581" title="Re: Beginner&#39;s Guide: Single/Two/Multi-dimensional Arrays">#10</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 10 by KingHual" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">14.02.2012, 13:10 <span class="post_edit" id="edited_by_1677581"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_1677581">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Y_Less</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1677567#pid1677567" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">That's not very clear actually, the main point is the difference between:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"%d"</span>, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>arr<span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"%d"</span>, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>eArr<span style="color: #000000;">[</span>E_EG_STR<span style="color: #000000;">]</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:71px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;">func<span style="color: #000000;">(</span>eArr<span style="color: #000000;">[</span>E_EG_STR<span style="color: #000000;">]</span><span style="color: #000000;">)</span>;<br><span style="color: #228822;">// ...</span><br>func<span style="color: #000000;">(</span>arr<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, size <span style="color: #000000;">=</span> <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>arr<span style="color: #000000;">)</span> <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"%d"</span>, size<span style="color: #000000;">)</span>;</div></div></pre>
+</div>
+One of which won't even compile, the other two will give different results for essentially the same thing.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Well, the function itself won't compile because there's a bracket missing, but anyway, this is really interesting to be honest. There definately should be a tut on it.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_1677581">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=97007" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=318212&amp;replyto=1677581" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic -->
+	</div>
+</div>
+	
+			<div class="tfoot row">
+				<div class="col-sm-6">
+					<strong>« <a href="https://sampforum.blast.hk/showthread.php?tid=318212&amp;action=nextoldest">Next Oldest</a> | <a href="https://sampforum.blast.hk/showthread.php?tid=318212&amp;action=nextnewest">Next Newest</a> »</strong>
+				</div>
+				<div class="col-sm-6"><!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://sampforum.blast.hk/search.php" method="post">
+			<input type="hidden" name="action" value="thread">
+			<input type="hidden" name="tid" value="318212">
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == &#39;Enter Keywords&#39;) { this.value = &#39;&#39;; }" onblur="if(this.value==&#39;&#39;) { this.value=&#39;Enter Keywords&#39;; }" class="textbox" size="25">
+			<input type="submit" class="button" value="Search Thread">
+		</form>
+	</div>
+<!-- end: showthread_search --></div>
+			</div>
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	
+	
+	
+	<br>
+	<div class="float_left">
+		<ul class="thread_tools">
+			<!-- start: showthread_printthread -->
+<li class="printable"><a href="https://sampforum.blast.hk/printthread.php?tid=318212">View a Printable Version</a></li>
+<!-- end: showthread_printthread -->
+			
+			
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://sampforum.blast.hk/forumdisplay.php" method="get">
+<span class="smalltext">Forum Jump:</span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="3"> SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="74">-- News and Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13">-- General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="16">-- Client Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20">-- Bug Reports</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21">-- Screenshots and Videos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6"> SA-MP Server</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="19">-- Server Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22">-- Server Advertisements</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="8"> SA-MP Scripting and Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12">-- Scripting Help</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="70" selected="selected">---- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="84">---- Discussion</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="89">---- Help Archive</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="71">-- Gamemode Scripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="17">-- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="83">---- Includes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="82">---- Tools and Files </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="64">---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="18">-- Plugin Development</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="92"> SA-MP DL Edition</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="90">-- SA-MP 0.3.DL</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="94">---- Model Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="7"> Other</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23">-- Everything and Nothing</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9"> Non-English</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33">-- Languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31">---- Nederlands/Dutch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="76">------ Scripting Showroom en Discussie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="87">------ Off topic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29">---- Español/Spanish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="59">------ Lanzamientos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30">---- Français/French</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="81">------ Showroom</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32">---- Русский/Russian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="66">------ Релизы/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34">---- Português/Portuguese</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56">------ Lançamentos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40">---- Română/Romanian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="77">------ Salonul Scripturilor</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="88">---- Archive</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear">
+	<!-- start: showthread_usersbrowsing -->
+<br>
+<span class="smalltext">Users browsing this thread: 1 Guest(s)</span>
+<br>
+<!-- end: showthread_usersbrowsing -->
+	<!-- start: footer -->
+<div style="clear:both"><div style="padding-top: 10px"><!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=74">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav --></div></div>
+</main>
+
+<div class="blankspace"></div>
+
+<footer id="footer">
+	<div class="container">
+    <div class="row">
+		
+        <!--<div class="col-sm-4 foot">
+			<h3>About Our Community</h3>
+			<p>Discuss about various topics in our community and have fun while doing so. Welcome to SA-MP Forums Archive</p>
+			
+		</div>		
+		
+
+		<div class="col-sm-4 foot">
+			<h3>Quick Links</h3>
+			<p>
+
+ 				<a href="https://sampforum.blast.hk" class="btn btn-success" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Forum Home"><i class="fa fa-home"></i></a>
+				
+				<a href="https://sampforum.blast.hk/archive/index.php?thread-318212.html" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Lite (Archive) Mode"><i class="fa fa-archive"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Become a Fan"><i class="fa fa-facebook-square"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-info" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Follow Us"><i class="fa fa-twitter"></i></a>
+				
+				<a href="https://sampforum.blast.hk/misc.php?action=syndication" class="btn btn-warning" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="RSS Syndication"><i class="fa fa-rss"></i></a>
+				<br/>
+				<a href="misc.php?action=markread&amp;my_post_key=2220ae0a21c853e6459922e7a63ded4d" class="btn btn-danger" style="color: #fff; margin-top:10px" data-toggle="tooltip" data-placement="bottom" data-original-title="Mark all forums read"><i class="fa fa-book"></i> Mark all forums read</a><br /><br />
+				
+				
+				</p>
+
+		</div>
+		
+		<div class="col-sm-4 foot">
+			
+			 <h3>Reach Us</h3>
+			 
+<p><a href="contact.php" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Contact Us"><i class="fa fa-envelope"></i> Contact Us</a>&nbsp;
+			
+			<a href="showteam.php" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Meet Our Team"><i class="fa fa-users"></i> Forum Team</a></p>
+		</div>-->
+		
+		
+		
+		<!-- The following piece of code allows MyBB to run scheduled tasks. DO NOT REMOVE --><!-- start: task_image -->
+<img src="./[Tutorial] Beginner&#39;s Guide_ Single_Two_Multi-dimensional Arrays_files/task.php" height="1" alt="">
+<!-- end: task_image --><!-- End task image code -->
+		</div>
+	
+	</div>
+
+	
+<div id="copyright">
+	<div class="container">
+			<div class="pull-right"><!-- start: footer_languageselect -->
+<div class="language">
+<form method="POST" action="https://sampforum.blast.hk/showthread.php" id="lang_select">
+	<input type="hidden" name="tid" value="318212">
+
+	<input type="hidden" name="my_post_key" value="2220ae0a21c853e6459922e7a63ded4d">
+	<select name="language" onchange="MyBB.changeLanguage();">
+		<optgroup label="Quick Language Select">
+			<!-- start: footer_languageselect_option -->
+<option value="english" selected="selected">&nbsp;&nbsp;&nbsp;English (American)</option>
+<!-- end: footer_languageselect_option --><!-- start: footer_languageselect_option -->
+<option value="russian">&nbsp;&nbsp;&nbsp;Russian</option>
+<!-- end: footer_languageselect_option -->
+		</optgroup>
+	</select>
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_languageselect --></div>
+			<div class="pull-left">
+				<!-- MyBB is free software developed and maintained by a volunteer community.
+					It would be much appreciated by the MyBB Group if you left the full copyright and "powered by" notice intact,
+					to show your support for MyBB.  If you choose to remove or modify the copyright below,
+					you may be refused support on the MyBB Community Forums.
+
+					This is free software, support us and we'll support you. -->
+				Powered By <a href="http://www.mybb.com/" target="_blank" rel="noopener" style="color: #fff;">MyBB</a>. <a href="https://eree.in/" title="EREE" target="_blank" rel="noopener" style="color: #fff;">Crafted by EREE</a> and <a href="https://forum.androidbg.com/" title="AndroidBG" target="_blank" rel="noopener" style="color: #fff;">Android BG</a>. Also powered by <a href="https://www.blast.hk/"><b>blast.hk</b></a><!-- End powered by -->
+				
+			</div>
+	</div>
+
+</div>
+
+</footer>
+
+<!-- Fix for MentionMe popup window position -->
+<script type="text/javascript">
+	var MentionMe = (function(m) {
+	m.customSCEditorContainerOffset = {
+		left: 0,
+		top: 2,
+	};
+
+	return m;
+})(MentionMe || {});
+</script>
+<!-- End Fix for MentionMe popup window position -->
+<!-- end: footer -->
+	<script type="text/javascript">
+		var thread_deleted = "0";
+		if(thread_deleted == "1")
+		{
+			$("#quick_reply_form, .new_reply_button, .thread_tools, .inline_rating").hide();
+			$("#moderator_options_selector option.option_mirage").attr("disabled","disabled");
+		}
+	</script>
+
+
+<!-- end: showthread --><script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>

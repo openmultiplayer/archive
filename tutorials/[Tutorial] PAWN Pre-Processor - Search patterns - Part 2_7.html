@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://sampforum.blast.hk/showthread.php?tid=570944 -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>[Tutorial] PAWN Pre-Processor - Search patterns - Part 2/7</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="https://sampforum.blast.hk/syndication.php">
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="https://sampforum.blast.hk/syndication.php?type=atom1.0">
+<link rel="shortcut icon" href="https://sampforum.blast.hk/favicon.ico">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript" src="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/jquery.js"></script><style>undefined</style>
+<script type="text/javascript" src="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/jquery.plugins.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/general.js"></script>
+<script type="text/javascript" src="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/tooltip.js"></script>
+
+<link rel="stylesheet" href="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/bootstrap.min.css">
+<link href="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/css" rel="stylesheet" type="text/css">
+<!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" / -->
+<link rel="stylesheet" href="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+
+<link type="text/css" rel="stylesheet" href="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/global.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/css3.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/responsive.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/star_ratings.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/showthread.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/grey.css">
+
+
+
+
+<script type="text/javascript">
+jQuery(document).on('click', '.panel-heading span.clickable', function(e){
+    var jQuerythis = jQuery(this);
+	if(!jQuerythis.hasClass('panel-collapsed')) {
+		jQuerythis.parents('.panel').find('.panel-body').slideUp();
+		jQuerythis.addClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+	} else {
+		jQuerythis.parents('.panel').find('.panel-body').slideDown();
+		jQuerythis.removeClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+	}
+})
+</script>
+
+
+
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+	lang.confirm_title = "Please Confirm";
+	lang.expcol_collapse = "[-]";
+	lang.expcol_expand = "[+]";
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+	
+	var templates = {
+		modal: '<div class=\"modal\">\
+	<div style=\"overflow-y: auto; max-height: 400px;\">\
+		<table border=\"0\" cellspacing=\"0\" cellpadding=\"5\" class=\"tborder\">\
+			<tr>\
+				<td class=\"thead\"><strong>__title__</strong></td>\
+			</tr>\
+			<tr>\
+				<td class=\"trow1\">__message__</td>\
+			</tr>\
+			<tr>\
+				<td class=\"tfoot\">\
+					<div style=\"text-align: center\" class=\"modal_buttons\">__buttons__</div>\
+				</td>\
+			</tr>\
+		</table>\
+	</div>\
+</div>',
+		modal_button: '<input type=\"submit\" class=\"button\" value=\"__title__\"/>&nbsp;'
+	};
+	
+	var cookieSecureFlag = "0";
+	var cookieDomain = ".sampforum.blast.hk";
+	var cookiePath = "/";
+	var cookiePrefix = "";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "906b4f4af2a15f55d2b64b776caec649";
+	var rootpath = "https://sampforum.blast.hk";
+	var imagepath = "https://sampforum.blast.hk/images/bootbb";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "https://sampforum.blast.hk/images/bootbb/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+
+<!-- Make videos responsive - https://github.com/davatron5000/FitVids.js (additional video sites added for MyBB) -->
+<script type="text/javascript" src="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/jquery.fitvids.js"></script>
+<script>
+	$(document).ready(function(){
+		// Target the iframe parent div
+		var bvc = $(".bootbb-video-container");
+		//bvc.css("max-width", "800px");
+		bvc.fitVids();
+	});
+</script>
+<!-- end: headerinclude -->
+<script>
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script src="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/report.js"></script>
+<script src="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/jeditable.min.js"></script>
+<script src="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/thread.js"></script>
+<meta name="description" content="Contents Part 1 - Covers an introduction to the pre-processor and covers some important things when writing function-like macros. Part 2 - Explains exactly what the compiler searches for and looks at">
+<link rel="canonical" href="https://sampforum.blast.hk/showthread.php?tid=570944">
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/css2"></head>
+<body>
+	<!-- start: header -->
+<header>
+<div class="navbar navbar-default">
+     <div class="container">
+          <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="Toggle navigation">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span> 
+               </button>
+			  
+			  <div class="navbar-header scaleimages">
+				  <!--<a class="navbar-brand" href="https://sampforum.blast.hk">BootBB</a>-->
+				  <a class="" href="https://sampforum.blast.hk/"><img src="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/logo_forum.gif"></a>
+			  
+			  </div>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+			  <ul class="nav navbar-nav navbar-right">
+				  <!--<li id="nav-portal"><a href="https://sampforum.blast.hk/portal.php"><i class="fa fa-bell"></i> Portal</a></li>-->
+               <li id="nav-forums"><a href="https://sampforum.blast.hk/index.php"><i class="fa fa-group"></i> Forum</a></li>
+				<!--<li><a href="https://sampforum.blast.hk/search.php?action=getnew"><i class="fa fa-comment"></i> New Posts</a></li>
+            	<li><a href="https://sampforum.blast.hk/search.php?action=getdaily"><i class="fa fa-comments"></i> Today's Posts</a></li>-->
+               <li id="nav-search"><a href="https://sampforum.blast.hk/search.php"><i class="fa fa-search"></i> Search</a></li>
+               <li id="nav-member"><a href="https://sampforum.blast.hk/memberlist.php"><i class="fa fa-users"></i> Members</a></li>
+               <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+				  
+<!--<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cubes"></i> Misc <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			  <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+			  <li class="divider"></li>
+			  <li id="nav-calendar"><a href="https://sampforum.blast.hk/calendar.php"><i class="fa fa-calendar"></i> Calendar</a></li>
+          </ul>
+</li> -->
+</ul>
+  
+          </div>
+     </div>
+</div>
+</header>
+
+
+<div id="container">
+	<a name="top" id="top"></a>
+		<div id="header">
+			<div id="panel">
+				<div class="upper">
+					<div class="container">
+
+						<!-- start: header_welcomeblock_guest -->
+<!--<span><a href="https://sampforum.blast.hk/member.php?action=login" onclick="$('#quick_login').modal({ fadeDuration: 250, keepelement: true }); return false;" class="login btn btn-danger" style="color: #fff;"><i class="fa fa-sign-in"></i> Login</a> <a href="https://sampforum.blast.hk/member.php?action=register" class="register btn btn-success" style="color: #fff;"><i class="fa fa-user-plus"></i> Register</a></span>-->
+
+<span class="float_right hidden-xs">Hello There, Guest!</span>
+
+<br class="clearfix">
+	
+
+				<div class="modal" id="quick_login" style="display: none;">
+					<form method="post" action="https://sampforum.blast.hk/member.php">
+						<input name="my_post_key" type="hidden" value="906b4f4af2a15f55d2b64b776caec649">
+						<input name="action" type="hidden" value="do_login">
+						<input name="url" type="hidden" value="https://sampforum.blast.hk/showthread.php?tid=570944">
+						<input name="quick_login" type="hidden" value="1">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tborder">
+							<tbody><tr>
+								<td class="thead" colspan="2"><strong>Login</strong></td>
+							</tr>
+							<tr>
+								<td class="trow1" width="25%"><strong>Username:</strong></td>
+								<td class="trow1"><input name="quick_username" id="quick_login_username" type="text" value="" class="textbox initial_focus"></td>
+							</tr>
+							<tr>
+								<td class="trow2"><strong>Password:</strong></td>
+								<td class="trow2">
+									<input name="quick_password" id="quick_login_password" type="password" value="" class="textbox"> <a href="https://sampforum.blast.hk/member.php?action=lostpw" class="lost_password">Lost Password?</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow1">&nbsp;</td>
+								<td class="trow1 remember_me">
+									<input name="quick_remember" id="quick_login_remember" type="checkbox" value="yes" class="checkbox" checked="checked">
+									<label for="quick_login_remember">Remember me</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow2" colspan="2">
+									<div align="center"><input name="submit" type="submit" class="button" value="Login"></div>
+								</td>
+							</tr>
+						</tbody></table>
+					</form>
+				</div>
+				<script type="text/javascript">
+					$("#quick_login input[name='url']").val($(location).attr('href'));
+				</script>
+<!-- end: header_welcomeblock_guest -->
+					
+					</div>
+			</div>
+			</div>
+	</div>
+			</div>
+               
+				   
+                <main class="container">
+				<br>
+                 <!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=23">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav -->
+				
+				
+				
+				
+				
+				
+<!-- end: header -->
+	
+	
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	<div class="tborder tfixed clear">
+		<div class="thead">
+				<div class="float_right">
+					<span class="smalltext"><a href="https://sampforum.blast.hk/showthread.php?mode=threaded&amp;tid=570944&amp;pid=3430993#pid3430993">Threaded Mode</a></span>
+				</div>
+				
+					[Tutorial] PAWN Pre-Processor - Search patterns - Part 2/7
+			</div>
+	</div>
+<div id="posts_container">
+	<div id="posts">
+		<!-- start: postbit_classic -->
+
+<a id="pid3430993"></a>
+<div class="post classic " style="" id="post_3430993">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=55934"><img src="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/55934.png" alt="" width="55" height="42"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=55934">Misiur</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/star.png" alt="*"><img src="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/star.png" alt="*"><img src="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/star.png" alt="*"><img src="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/star.png" alt="*"><img src="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 2,528<br>
+	Threads: 124<br>
+	Joined: Jul 2009
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=55934"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=570944&amp;pid=3430993#pid3430993" title="PAWN Pre-Processor - Search patterns - Part 2/7">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 1 by Misiur" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">14.04.2015, 20:37 <span class="post_edit" id="edited_by_3430993"><!-- start: postbit_editedby -->
+<div class="edited_post postbit_edited postbit_editedby postbit_editedpost">(<!-- start: postbit_editedby_editreason -->
+ <em>Last edited by Misiur; 14/04/2015 at 09:23 PM.</em>
+<!-- end: postbit_editedby_editreason -->)</div>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3430993">
+		<font size="5"><font color="green"><b><u>Contents</u></b></font></font><br>
+<br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=570933" target="_blank">Part 1</a> - Covers an introduction to the pre-processor and covers some important things when writing function-like macros.<br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=570944" target="_blank">Part 2</a> - Explains exactly what the compiler searches for and looks at some common macro uses.<br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=570948" target="_blank">Part 3</a> - Describes the other directives available (beside "#define") and looks at definitions with no replacement value.<br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=570950" target="_blank">Part 4</a> - How to use strings with the pre-processor.<br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=570952" target="_blank">Part 5</a> - Alternatives to the pre-processor, multiple symbols and recursion.<br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=570953" target="_blank">Part 6</a> - Case Study (y_remote).<br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=570954" target="_blank">Part 7</a> - Macro issues and spaces.<br>
+<br>
+<font size="5"><font color="green"><b><u>Additional</u></b></font></font><br>
+<br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=877901#pid877901" target="_blank">Utilising tagof</a> - By g_aSlice.<br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1076208#pid1076208" target="_blank">Future-proof string concatenation</a><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1120377#pid1120377" target="_blank">String bug</a><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1103639#pid1103639" target="_blank">Macros that do multiple things</a><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=1135865#pid1135865" target="_blank">Advanced "tag" macros</a><br>
+<br>
+<font size="5"><font color="green"><b><u>Search patterns</u></b></font></font><br>
+<br>
+The easiest way to explain all macro search patterns generically is by explaining EXACTLY what the compiler searches for. It is also very important to realise that macros are text replacements - all of the following are valid:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:119px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// Definition</span><br><span style="color: #2222AA;">#define MY_DEF &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;IsPlayerConnected</span><br><span style="color: #228822;">// Use</span><br><span style="color: #2222BB;">if</span> <span style="color: #000000;">(</span>MY_DEF<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><span style="color: #000000;">)</span><br><span style="color: #228822;">// Output</span><br><span style="color: #2222BB;">if</span> <span style="color: #000000;">(</span>IsPlayerConnected<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><span style="color: #000000;">)</span></div></div></pre>
+</div><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:119px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// Definition</span><br><span style="color: #2222AA;">#define MY_DEF &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;IsPlayerConnected(</span><br><span style="color: #228822;">// Use</span><br><span style="color: #2222BB;">if</span> <span style="color: #000000;">(</span>MY_DEF playerid<span style="color: #000000;">)</span><span style="color: #000000;">)</span><br><span style="color: #228822;">// Output</span><br><span style="color: #2222BB;">if</span> <span style="color: #000000;">(</span>IsPlayerConnected<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><span style="color: #000000;">)</span></div></div></pre>
+</div><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:119px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// Definition</span><br><span style="color: #2222AA;">#define MY_DEF &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;IsPlayerConnected(playerid</span><br><span style="color: #228822;">// Use</span><br><span style="color: #2222BB;">if</span> <span style="color: #000000;">(</span>MY_DEF<span style="color: #000000;">)</span><span style="color: #000000;">)</span><br><span style="color: #228822;">// Output</span><br><span style="color: #2222BB;">if</span> <span style="color: #000000;">(</span>IsPlayerConnected<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><span style="color: #000000;">)</span></div></div></pre>
+</div><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:119px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// Definition</span><br><span style="color: #2222AA;">#define MY_DEF &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;IsPlayerConnected(playerid))</span><br><span style="color: #228822;">// Use</span><br><span style="color: #2222BB;">if</span> <span style="color: #000000;">(</span>MY_DEF<br><span style="color: #228822;">// Output</span><br><span style="color: #2222BB;">if</span> <span style="color: #000000;">(</span>IsPlayerConnected<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><span style="color: #000000;">)</span></div></div></pre>
+</div><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:119px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// Definition</span><br><span style="color: #2222AA;">#define MY_DEF &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (IsPlayerConnected(playerid))</span><br><span style="color: #228822;">// Use</span><br>MY_DEF<br><span style="color: #228822;">// Output</span><br><span style="color: #2222BB;">if</span> <span style="color: #000000;">(</span>IsPlayerConnected<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><span style="color: #000000;">)</span></div></div></pre>
+</div><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:119px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// Definition</span><br><span style="color: #2222AA;">#define MY_DEF(%0) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (IsPlayerConnected((%0)))</span><br><span style="color: #228822;">// Use</span><br>MY_DEF<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #228822;">// Output</span><br><span style="color: #2222BB;">if</span> <span style="color: #000000;">(</span>IsPlayerConnected<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><span style="color: #000000;">)</span></div></div></pre>
+</div>It doesn't matter if the code is not valid syntax BEFORE macro replacements - just as long as it's valid AFTER.<ul><li><font size="2"><font color="green"><b><u>Definitions</u></b></font></font></li>
+</ul>A definition only has text in the search pattern - for example "MAX_PLAYERS". The examples above give a number of examples of this in various situations and with all sorts of replacement patterns. This is the name of the macro. Macros can START with any of the following characters:<br>
+<br>
+Code: a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z _ @ And after the start can contain any of the following characters:<br>
+<br>
+Code: a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 _ @<ul><li><font size="2"><font color="green"><b><u>Macros</u></b></font></font></li>
+</ul>A macro search pattern with parameters has the very relaxed following syntax with three parts:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define &lt;part 1&gt;&lt;part 2&gt;&lt;part 3&gt;</span></div></div></pre>
+</div>Part 1 is the name of the macro - this is the same as in normal definitions and can use the same symbols.<br>
+<br>
+Part 3 is a character - ANY character - that denotes the end of the macro. Probably the most common character seen here is ')' - a close bracket, but it could be anything (including letters and numbers).<br>
+<br>
+Part 2 is everything else and can contain parameters, letters, numbers and random symbols. This must start with an invalid name character just so the compiler knows where the name finishes. This part contains all the parameters.<br>
+<br>
+Examples - these are ALL valid search patterns (the replace patterns have been left off):<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:87px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// Part 1: MY_FUNC</span><br><span style="color: #228822;">// Part 2: (</span><br><span style="color: #228822;">// Part 3: )</span><br><span style="color: #2222AA;">#define MY_FUNC()</span></div></div></pre>
+</div><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:87px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// Part 1: MY_FUNC</span><br><span style="color: #228822;">// Part 2: (%0</span><br><span style="color: #228822;">// Part 3: )</span><br><span style="color: #2222AA;">#define MY_FUNC(%0)</span></div></div></pre>
+</div><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:87px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// Part 1: MY_FUNC</span><br><span style="color: #228822;">// Part 2: (%0-%1</span><br><span style="color: #228822;">// Part 3: )</span><br><span style="color: #2222AA;">#define MY_FUNC(%0-%1)</span></div></div></pre>
+</div><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:87px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// Part 1: MY_FUNC</span><br><span style="color: #228822;">// Part 2: $%0,%1</span><br><span style="color: #228822;">// Part 3: $</span><br><span style="color: #2222AA;">#define MY_FUNC$%0,%1$</span></div></div></pre>
+</div><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:87px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// Part 1: Module</span><br><span style="color: #228822;">// Part 2: -&gt;%0(%1</span><br><span style="color: #228822;">// Part 3: )</span><br><span style="color: #2222AA;">#define Module-&gt;%0(%1)</span></div></div></pre>
+</div><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:87px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// Part 1: CRAZY</span><br><span style="color: #228822;">// Part 2: ^S%0Y%1</span><br><span style="color: #228822;">// Part 3: Z</span><br><span style="color: #2222AA;">#define CRAZY^S%0Y%1Z</span></div></div></pre>
+</div><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:87px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// Part 1: RF</span><br><span style="color: #228822;">// Part 2: :%0:%1[%2](%3)&lt;%4</span><br><span style="color: #228822;">// Part 3: &gt;</span><br><span style="color: #2222AA;">#define RF:%0:%1[%2](%3)&lt;%4&gt;</span></div></div></pre>
+</div>Those examples should tell you all you ever need to know about search patterns, though we will look at some more specially. A common misconception is that they must be of the form "NAME(parameter,parameter)" - this is simply not the case in PAWN (and is frankly an AWESOME feature)!<br>
+<br>
+<font size="5"><font color="green"><b><u>Replacements</u></b></font></font><br>
+<br>
+There are four types of replacements (as I classify them) - definitions, function macros, code macros and special.<ul><li>Definitions are like "MAX_PLAYERS" - they define a single number or string and are used instead of numbers.</li>
+<li>Function macros are used where functions could be used and look a lot like functions (often I will use function naming conventions for these instead of macro conventions, but it varies).</li>
+<li>Code macros generate a load of code, often multiple statements - these tend to use macro naming conventions to show people that something special is going on, these look a lot like function macros but can't always be used in the same place.</li>
+<li>Special macros are used to add things to the language - a good example of this is "foreach" - this adds a new type of loop (the "foreach" loop) which looks like a regular PAWN statement, but is infact a special macro using the "for" loop.</li>
+</ul>Special macros will be addressed later and definitions have already been covered - this section looks at function and code macros.<br>
+<br>
+<font size="5"><font color="green"><b><u>Function Macros</u></b></font></font><br>
+<br>
+Part 1 covered these to some extent in the "Macros" and "Parameters" sections, but there is more to them. A function macro is one which does the job which would otherwise be done by a function and which can be used anywhere a function can be used (mostly).<br>
+<br>
+Imagine you have the following code:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:327px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">enum</span> E_DATA<br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>E_DATA_HEALTH,<br>&nbsp; &nbsp; E_DATA_MONEY<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">new</span> gPlayerData<span style="color: #000000;">[</span>MAX_PLAYERS<span style="color: #000000;">]</span><span style="color: #000000;">[</span>E_DATA<span style="color: #000000;">]</span>;<br><br><span style="color: #2222BB;">public</span> OnPlayerConnect<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; gPlayerData<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span><span style="color: #000000;">[</span>E_DATA_MONEY<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">100</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerDisconnect<span style="color: #000000;">(</span>playerid, reason<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"player %d had %d"</span>, playerid, gPlayerData<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span><span style="color: #000000;">[</span>E_DATA_MONEY<span style="color: #000000;">]</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>Using all those arrays can be quite unwieldy, so we can introduce functions to make it a bit easier:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:487px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">enum</span> E_DATA<br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>E_DATA_HEALTH,<br>&nbsp; &nbsp; E_DATA_MONEY<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">new</span> gPlayerData<span style="color: #000000;">[</span>MAX_PLAYERS<span style="color: #000000;">]</span><span style="color: #000000;">[</span>E_DATA<span style="color: #000000;">]</span>;<br><br>GetMoney<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> gPlayerData<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span><span style="color: #000000;">[</span>E_DATA_MONEY<span style="color: #000000;">]</span>;<br><span style="color: #000000;">}</span><br><br>SetMoney<span style="color: #000000;">(</span>playerid, money<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; gPlayerData<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span><span style="color: #000000;">[</span>E_DATA_MONEY<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> money;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerConnect<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; SetMoney<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">100</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerDisconnect<span style="color: #000000;">(</span>playerid, reason<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"player %d had %d"</span>, playerid, GetMoney<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>Those functions are very simple - the first version of the code didn't have them at all and wasn't TOO bad. It may have been slightly larger code, but not by much! We can combine both using function macros:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:423px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">enum</span> E_DATA<br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #000000;">Float</span><span style="color: #000000;">:</span>E_DATA_HEALTH,<br>&nbsp; &nbsp; E_DATA_MONEY<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">new</span> gPlayerData<span style="color: #000000;">[</span>MAX_PLAYERS<span style="color: #000000;">]</span><span style="color: #000000;">[</span>E_DATA<span style="color: #000000;">]</span>;<br><br><span style="color: #2222AA;">#define GetMoney(%0) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\</span><br>&nbsp; &nbsp; gPlayerData<span style="color: #000000;">[</span><span style="color: #000000;">(</span><span style="color: #000000;">%</span>0<span style="color: #000000;">)</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span>E_DATA_MONEY<span style="color: #000000;">]</span><br><br><span style="color: #2222AA;">#define SetMoney(%0,%1) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \</span><br>&nbsp; &nbsp; gPlayerData<span style="color: #000000;">[</span><span style="color: #000000;">(</span><span style="color: #000000;">%</span>0<span style="color: #000000;">)</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span>E_DATA_MONEY<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">(</span><span style="color: #000000;">%</span>1<span style="color: #000000;">)</span><br><br><span style="color: #2222BB;">public</span> OnPlayerConnect<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; SetMoney<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">100</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerDisconnect<span style="color: #000000;">(</span>playerid, reason<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"player %d had %d"</span>, playerid, GetMoney<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>This version now has the speed of the first version with the simplicity of the second. Note that although there is no maths in the macro, brackets are still used. Try and figure out what would happen if the following code was used ("%0" now has no brackets) given what you know about how macros match patters - people are unlikely to type this but mistakes can happen:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:151px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define GetMoney(%0) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\</span><br>&nbsp; &nbsp; gPlayerData<span style="color: #000000;">[</span><span style="color: #000000;">%</span>0<span style="color: #000000;">]</span><span style="color: #000000;">[</span>E_DATA_MONEY<span style="color: #000000;">]</span><br><br><span style="color: #2222BB;">public</span> OnPlayerDisconnect<span style="color: #000000;">(</span>playerid, reason<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #222222;">printf</span><span style="color: #000000;">(</span><span style="color: #000066;">"player %d had %d"</span>, playerid, GetMoney<span style="color: #000000;">(</span> <span style="color: #000000;">0</span><span style="color: #000000;">]</span>, moo<span style="color: #000000;">[</span><span style="color: #000000;">10</span> <span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>The macros here, as function macros, are designed to replace functions and be used like functions - so for this reason they use function naming conventions instead of macro naming conventions. The major downside is that the parameters are not named, so it's difficult to determine their meanings without looking at the code. The other problem with doing this is that people may try to do clever things like:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;">SetMoney<span style="color: #000000;">(</span>playerid, money<span style="color: #000000;">++</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div>This is explained in detail at the end of part 1. In these examples it doesn't so much matter as the parameter is only used once, so the variable is only incremented once - this is a good rule of thumb: If you are writing a macro to replace a small function, and each parameter is only used once, you can use function naming conventions if you desire. If the money parameter was used 2 or more times the following syntax may be better to discourage people from putting "++" in the parameters passed:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:55px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;">SET_MONEY<span style="color: #000000;">(</span>playerid, money<span style="color: #000000;">)</span>;<br>money<span style="color: #000000;">++</span>;</div></div></pre>
+</div><ul><li><font size="2"><font color="green"><b><u>Examples</u></b></font></font></li>
+</ul>These are some examples of function macros:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:215px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// Wrapper around printf.</span><br><span style="color: #2222AA;">#define DEBUG(%0) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; printf("Debug: %s", (%0))</span><br><br><span style="color: #228822;">// Square two numbers - watch out for increments.</span><br><span style="color: #2222AA;">#define SQUARE(%0) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;((%0) * (%0))</span><br><br><span style="color: #228822;">// Set a timer to do a passed function every second.</span><br><span style="color: #2222AA;">#define EVERY_SECOND(%0) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SetTimer((%0), 1000, 1)</span><br><br><span style="color: #228822;">// Show an icon - calls "GetNextIcon", an imaginary custom function (or macro).</span><br><span style="color: #2222AA;">#define ShowIcon(%0,%1,%2,%3) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \</span><br>&nbsp; &nbsp; SetPlayerMapIcon<span style="color: #000000;">(</span>playerid, GetNextIcon<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, <span style="color: #000000;">%</span>1, <span style="color: #000000;">%</span>2, <span style="color: #000000;">%</span>3, <span style="color: #000000;">%</span>0, COLOR_RED<span style="color: #000000;">)</span></div></div></pre>
+</div><font size="5"><font color="green"><b><u>Code Macros</u></b></font></font><br>
+<br>
+A code macro is similar to a function macro, but can't be used in all places. This is usually due to code macros having more statements than a function macro, which only has one:<br>
+<br>
+Function macro:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:167px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// Declaration</span><br><span style="color: #2222AA;">#define MY_FUNC(%0) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ((%0) + 7)</span><br><br><span style="color: #228822;">// Uses</span><br><span style="color: #2222BB;">if</span> <span style="color: #000000;">(</span>MY_FUNC<span style="color: #000000;">(</span>var<span style="color: #000000;">)</span><span style="color: #000000;">)</span><br><br>var <span style="color: #000000;">=</span> MY_FUNC<span style="color: #000000;">(</span>var<span style="color: #000000;">)</span>;<br><br>OtherFunc<span style="color: #000000;">(</span>MY_FUNC<span style="color: #000000;">(</span><span style="color: #000000;">42</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div>Code macro:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:167px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// Declaration</span><br><span style="color: #2222AA;">#define MY_FUNC(%0) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; new b = ((%0) + 7)</span><br><br><span style="color: #228822;">// All invalid</span><br><span style="color: #2222BB;">if</span> <span style="color: #000000;">(</span>MY_FUNC<span style="color: #000000;">(</span>var<span style="color: #000000;">)</span><span style="color: #000000;">)</span><br><br>var <span style="color: #000000;">=</span> MY_FUNC<span style="color: #000000;">(</span>var<span style="color: #000000;">)</span>;<br><br>OtherFunc<span style="color: #000000;">(</span>MY_FUNC<span style="color: #000000;">(</span><span style="color: #000000;">42</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div>The function macro is valid syntax in all of those places because it just contains expressions (an expression is something which can go on the right hand side of an equals sign), the code macro contains a statement (a statement can include expressions, keywords and other bits such as braces). "if (new b = ((var + y))" is not valid syntax, neither is "var = new b = ((var) + 7);" (Side note, "a = b = c;" IS valid syntax - "b = c" is an expression).<ul><li><font size="2"><font color="green"><b><u>Ommitting Brackets</u></b></font></font></li>
+</ul>Part 1 told you to put parameters to macros in brackets - we are about to change that statement!<br>
+<br>
+Consider sending text to a player:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;">SendClientMessage<span style="color: #000000;">(</span>playerid, COLOR_RED, <span style="color: #000066;">"Hello there"</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div>Now cosider that you want to add the player's ID to the message:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:71px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> str<span style="color: #000000;">[</span><span style="color: #000000;">32</span><span style="color: #000000;">]</span>;<br><span style="color: #222222;">format</span><span style="color: #000000;">(</span>str, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>str<span style="color: #000000;">)</span>, <span style="color: #000066;">"Hello there %d"</span>, playerid<span style="color: #000000;">)</span>;<br>SendClientMessage<span style="color: #000000;">(</span>playerid, COLOR_RED, str<span style="color: #000000;">)</span>;</div></div></pre>
+</div>Is there no easier way to do it? Yes there is, using a function macro - one that looks and is used like a normal function:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:87px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define SendClientMessageFormatted(%0,%1,%2,%3) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span> str<span style="color: #000000;">[</span><span style="color: #000000;">32</span><span style="color: #000000;">]</span>; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\<br>&nbsp; &nbsp; <span style="color: #222222;">format</span><span style="color: #000000;">(</span>str, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>str<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span><span style="color: #000000;">%</span>2<span style="color: #000000;">)</span>, <span style="color: #000000;">%</span>3<span style="color: #000000;">)</span>; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\<br>&nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span><span style="color: #000000;">(</span><span style="color: #000000;">%</span>0<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span><span style="color: #000000;">%</span>1<span style="color: #000000;">)</span>, str<span style="color: #000000;">)</span></div></div></pre>
+</div>Notice that "%3" is NOT in brackets and that the last statement has no semi-colon - what do you think that will do to the output?<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;">SendClientMessageFormatted<span style="color: #000000;">(</span>playerid, COLOR_RED, <span style="color: #000066;">"Hello there %d"</span>, playerid<span style="color: #000000;">)</span>;</div></div></pre>
+</div>Will generate:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:71px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> str<span style="color: #000000;">[</span><span style="color: #000000;">32</span><span style="color: #000000;">]</span>;<br><span style="color: #222222;">format</span><span style="color: #000000;">(</span>str, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>str<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span><span style="color: #000066;">"Hello there %d"</span><span style="color: #000000;">)</span>, playerid<span style="color: #000000;">)</span>;<br>SendClientMessage<span style="color: #000000;">(</span><span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span>COLOR_RED<span style="color: #000000;">)</span>, str<span style="color: #000000;">)</span>;</div></div></pre>
+</div>And:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;">SendClientMessageFormatted<span style="color: #000000;">(</span>playerid, COLOR_RED, <span style="color: #000066;">"Hello there %d, you have $%d"</span>, playerid, money<span style="color: #000000;">)</span>;</div></div></pre>
+</div>Will generate:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:71px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> str<span style="color: #000000;">[</span><span style="color: #000000;">32</span><span style="color: #000000;">]</span>;<br><span style="color: #222222;">format</span><span style="color: #000000;">(</span>str, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>str<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span><span style="color: #000066;">"Hello there %d, you have $%d"</span><span style="color: #000000;">)</span>, playerid, money<span style="color: #000000;">)</span>;<br>SendClientMessage<span style="color: #000000;">(</span><span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span>COLOR_RED<span style="color: #000000;">)</span>, str<span style="color: #000000;">)</span>;</div></div></pre>
+</div>Now what would have happened if the "%3" was in brackets and we gave the last statement a semi-colon?<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:87px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define SendClientMessageFormatted(%0,%1,%2,%3) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span> str<span style="color: #000000;">[</span><span style="color: #000000;">32</span><span style="color: #000000;">]</span>; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\<br>&nbsp; &nbsp; <span style="color: #222222;">format</span><span style="color: #000000;">(</span>str, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>str<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span><span style="color: #000000;">%</span>2<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span><span style="color: #000000;">%</span>3<span style="color: #000000;">)</span><span style="color: #000000;">)</span>; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\<br>&nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span><span style="color: #000000;">(</span><span style="color: #000000;">%</span>0<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span><span style="color: #000000;">%</span>1<span style="color: #000000;">)</span>, str<span style="color: #000000;">)</span>;</div></div></pre>
+</div><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;">SendClientMessageFormatted<span style="color: #000000;">(</span>playerid, COLOR_RED, <span style="color: #000066;">"Hello there %d"</span>, playerid<span style="color: #000000;">)</span>;</div></div></pre>
+</div>Will generate:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:71px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> str<span style="color: #000000;">[</span><span style="color: #000000;">32</span><span style="color: #000000;">]</span>;<br><span style="color: #222222;">format</span><span style="color: #000000;">(</span>str, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>str<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span><span style="color: #000066;">"Hello there %d"</span><span style="color: #000000;">)</span>, <span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br>SendClientMessage<span style="color: #000000;">(</span><span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span>COLOR_RED<span style="color: #000000;">)</span>, str<span style="color: #000000;">)</span>;;</div></div></pre>
+</div>"playerid" is now in brackets (which is still fine) and there are TWO semi-colons at the end. One from the macro and the other from the end of the original text - the semi-colon is NOT part of the search text so is not replaced - think about what the following code will produce (note also that this code has no parameters but still has brackets):<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:55px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define a() ;</span><br>a<span style="color: #000000;">(</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div>Back to the main example:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;">SendClientMessageFormatted<span style="color: #000000;">(</span>playerid, COLOR_RED, <span style="color: #000066;">"Hello there %d, you have $%d"</span>, playerid, money<span style="color: #000000;">)</span>;</div></div></pre>
+</div>Will generate:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:71px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> str<span style="color: #000000;">[</span><span style="color: #000000;">32</span><span style="color: #000000;">]</span>;<br><span style="color: #222222;">format</span><span style="color: #000000;">(</span>str, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>str<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span><span style="color: #000066;">"Hello there %d"</span><span style="color: #000000;">)</span>, <span style="color: #000000;">(</span>playerid, money<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br>SendClientMessage<span style="color: #000000;">(</span><span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span>COLOR_RED<span style="color: #000000;">)</span>, str<span style="color: #000000;">)</span>;;</div></div></pre>
+</div>"playerid, money" (the contents of "%3", as it was ended by a close bracket, not a comma) is now in brackets - which is WRONG! And the double semi-colon is still there.<ul><li><font size="2"><font color="green"><b><u>Scoped Code Macros</u></b></font></font></li>
+</ul>The code above has a major flaw - if I do:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:55px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;">SendClientMessageFormatted<span style="color: #000000;">(</span>playerid, COLOR_RED, <span style="color: #000066;">"Hello there %d"</span>, playerid<span style="color: #000000;">)</span>;<br>SendClientMessageFormatted<span style="color: #000000;">(</span>playerid, COLOR_RED, <span style="color: #000066;">"You have $%d"</span>, money<span style="color: #000000;">)</span>;</div></div></pre>
+</div>The code generated will look like:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:119px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> str<span style="color: #000000;">[</span><span style="color: #000000;">32</span><span style="color: #000000;">]</span>;<br><span style="color: #222222;">format</span><span style="color: #000000;">(</span>str, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>str<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span><span style="color: #000066;">"Hello there %d"</span><span style="color: #000000;">)</span>, playerid<span style="color: #000000;">)</span>;<br>SendClientMessage<span style="color: #000000;">(</span><span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span>COLOR_RED<span style="color: #000000;">)</span>, str<span style="color: #000000;">)</span>;<br><span style="color: #2222BB;">new</span> str<span style="color: #000000;">[</span><span style="color: #000000;">32</span><span style="color: #000000;">]</span>;<br><span style="color: #222222;">format</span><span style="color: #000000;">(</span>str, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>str<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span><span style="color: #000066;">"You have $%d"</span><span style="color: #000000;">)</span>, money<span style="color: #000000;">)</span>;<br>SendClientMessage<span style="color: #000000;">(</span><span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span>COLOR_RED<span style="color: #000000;">)</span>, str<span style="color: #000000;">)</span>;</div></div></pre>
+</div>This will generate an error because your code is declaring "str" twice. To avoid this you need to restrict the scope of the variables to just the few lines, the easiest way of doing this is with braces:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:119px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define SendClientMessageFormatted(%0,%1,%2,%3) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">new</span> str<span style="color: #000000;">[</span><span style="color: #000000;">32</span><span style="color: #000000;">]</span>; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #222222;">format</span><span style="color: #000000;">(</span>str, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>str<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span><span style="color: #000000;">%</span>2<span style="color: #000000;">)</span>, <span style="color: #000000;">%</span>3<span style="color: #000000;">)</span>; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\<br>&nbsp; &nbsp; &nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span><span style="color: #000000;">(</span><span style="color: #000000;">%</span>0<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span><span style="color: #000000;">%</span>1<span style="color: #000000;">)</span>, str<span style="color: #000000;">)</span>; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \<br>&nbsp; &nbsp; <span style="color: #000000;">}</span></div></div></pre>
+</div>Which will generate:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:183px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span> str<span style="color: #000000;">[</span><span style="color: #000000;">32</span><span style="color: #000000;">]</span>;<br>&nbsp; &nbsp; <span style="color: #222222;">format</span><span style="color: #000000;">(</span>str, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>str<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span><span style="color: #000066;">"Hello there %d"</span><span style="color: #000000;">)</span>, playerid<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span><span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span>COLOR_RED<span style="color: #000000;">)</span>, str<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span>;<br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span> str<span style="color: #000000;">[</span><span style="color: #000000;">32</span><span style="color: #000000;">]</span>;<br>&nbsp; &nbsp; <span style="color: #222222;">format</span><span style="color: #000000;">(</span>str, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>str<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span><span style="color: #000066;">"You have $%d"</span><span style="color: #000000;">)</span>, money<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span><span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span>COLOR_RED<span style="color: #000000;">)</span>, str<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span>;</div></div></pre>
+</div>This solves the variable scope problem but introduces a new problem - the braces have a semi-colon after them from the semi-colon at the end of the macro call (this is the same as the double semi-colon problem above). You need some way of ending your code requiring a semi-colon while still restricting the scope with braces. The only statement which allows this is the "do-while" loop, but you don't want to loop!<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:151px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define SendClientMessageFormatted(%0,%1,%2,%3) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">do</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\<br>&nbsp; &nbsp; <span style="color: #000000;">{</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">new</span> str<span style="color: #000000;">[</span><span style="color: #000000;">32</span><span style="color: #000000;">]</span>; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #222222;">format</span><span style="color: #000000;">(</span>str, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>str<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span><span style="color: #000000;">%</span>2<span style="color: #000000;">)</span>, <span style="color: #000000;">%</span>3<span style="color: #000000;">)</span>; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\<br>&nbsp; &nbsp; &nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span><span style="color: #000000;">(</span><span style="color: #000000;">%</span>0<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span><span style="color: #000000;">%</span>1<span style="color: #000000;">)</span>, str<span style="color: #000000;">)</span>; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \<br>&nbsp; &nbsp; <span style="color: #000000;">}</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \<br>&nbsp; &nbsp; <span style="color: #2222BB;">while</span> <span style="color: #000000;">(</span>false<span style="color: #000000;">)</span></div></div></pre>
+</div>Nearly there! Now the compiler complains about the constant expression in the loop ("false" is never true, so it thinks the code is pointless - note that this is a common method of coding in C/C++ where the compiler recognises and accepts this code). The final fix is:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:247px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#if !defined FALSE</span><br>&nbsp; &nbsp; <span style="color: #228822;">// stock variables are not included if they're not used.</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">stock</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">bool</span><span style="color: #000000;">:</span>FALSE <span style="color: #000000;">=</span> false;<br><span style="color: #2222AA;">#endif</span><br><br><span style="color: #2222AA;">#define SendClientMessageFormatted(%0,%1,%2,%3) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">do</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\<br>&nbsp; &nbsp; <span style="color: #000000;">{</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">new</span> str<span style="color: #000000;">[</span><span style="color: #000000;">32</span><span style="color: #000000;">]</span>; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #222222;">format</span><span style="color: #000000;">(</span>str, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>str<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span><span style="color: #000000;">%</span>2<span style="color: #000000;">)</span>, <span style="color: #000000;">%</span>3<span style="color: #000000;">)</span>; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\<br>&nbsp; &nbsp; &nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span><span style="color: #000000;">(</span><span style="color: #000000;">%</span>0<span style="color: #000000;">)</span>, <span style="color: #000000;">(</span><span style="color: #000000;">%</span>1<span style="color: #000000;">)</span>, str<span style="color: #000000;">)</span>; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \<br>&nbsp; &nbsp; <span style="color: #000000;">}</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \<br>&nbsp; &nbsp; <span style="color: #2222BB;">while</span> <span style="color: #000000;">(</span>FALSE<span style="color: #000000;">)</span></div></div></pre>
+</div>This now ends requiring a semi-colon and will not loop because "FALSE" is never true.<ul><li><font size="2"><font color="green"><b><u>Examples</u></b></font></font></li>
+</ul>These are some examples of code macros:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:183px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// Wrapper around printf with _DEBUG check.</span><br><span style="color: #2222AA;">#define DEBUG(%0) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (_DEBUG == 1) printf("Debug: %s", (%0))</span><br><br><span style="color: #228822;">// Declare a variable.</span><br><span style="color: #2222AA;">#define VAR(%0) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; new %0 = -1</span><br><br><span style="color: #228822;">// Shortcut to declare a public function.</span><br><span style="color: #2222AA;">#define PUBLIC(%0,%1) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">forward</span> <span style="color: #000000;">%</span>0<span style="color: #000000;">(</span><span style="color: #000000;">%</span>1<span style="color: #000000;">)</span>; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \<br>&nbsp; &nbsp; <span style="color: #2222BB;">public</span> <span style="color: #000000;">%</span>0<span style="color: #000000;">(</span><span style="color: #000000;">%</span>1<span style="color: #000000;">)</span></div></div></pre>
+</div><font size="5"><font color="green"><b><u>Long Macros</u></b></font></font><br>
+<br>
+Lines in PAWN have to be under a certain size (512 characters including the end of line marker - effectively making the limit 510) AFTER all preprocessing is done. The final version of the "SendClientMessageFormatted" macro above will not actually compile for this reason. The code above illustrates concepts in the pre-processor, it's designed as a reference, not a code source, you may need to adjust some things to get it compiling.<br>
+<br>
+To reduce the length of lines remove excess whitespace - the examples above have a lot of spaces and can be shrunk to one line.<br>
+<br>
+I'll come back to this topic later.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3430993">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=55934" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=570944&amp;replyto=3430993" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic -->
+	</div>
+</div>
+	
+			<div class="tfoot row">
+				<div class="col-sm-6">
+					<strong>« <a href="https://sampforum.blast.hk/showthread.php?tid=570944&amp;action=nextoldest">Next Oldest</a> | <a href="https://sampforum.blast.hk/showthread.php?tid=570944&amp;action=nextnewest">Next Newest</a> »</strong>
+				</div>
+				<div class="col-sm-6"><!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://sampforum.blast.hk/search.php" method="post">
+			<input type="hidden" name="action" value="thread">
+			<input type="hidden" name="tid" value="570944">
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == &#39;Enter Keywords&#39;) { this.value = &#39;&#39;; }" onblur="if(this.value==&#39;&#39;) { this.value=&#39;Enter Keywords&#39;; }" class="textbox" size="25">
+			<input type="submit" class="button" value="Search Thread">
+		</form>
+	</div>
+<!-- end: showthread_search --></div>
+			</div>
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	
+	
+	
+	<br>
+	<div class="float_left">
+		<ul class="thread_tools">
+			<!-- start: showthread_printthread -->
+<li class="printable"><a href="https://sampforum.blast.hk/printthread.php?tid=570944">View a Printable Version</a></li>
+<!-- end: showthread_printthread -->
+			
+			
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://sampforum.blast.hk/forumdisplay.php" method="get">
+<span class="smalltext">Forum Jump:</span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="3"> SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="74">-- News and Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13">-- General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="16">-- Client Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20">-- Bug Reports</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21">-- Screenshots and Videos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6"> SA-MP Server</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="19">-- Server Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22">-- Server Advertisements</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="8"> SA-MP Scripting and Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12">-- Scripting Help</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="70" selected="selected">---- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="84">---- Discussion</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="89">---- Help Archive</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="71">-- Gamemode Scripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="17">-- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="83">---- Includes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="82">---- Tools and Files </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="64">---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="18">-- Plugin Development</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="92"> SA-MP DL Edition</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="90">-- SA-MP 0.3.DL</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="94">---- Model Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="7"> Other</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23">-- Everything and Nothing</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9"> Non-English</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33">-- Languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31">---- Nederlands/Dutch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="76">------ Scripting Showroom en Discussie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="87">------ Off topic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29">---- Español/Spanish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="59">------ Lanzamientos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30">---- Français/French</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="81">------ Showroom</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32">---- Русский/Russian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="66">------ Релизы/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34">---- Português/Portuguese</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56">------ Lançamentos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40">---- Română/Romanian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="77">------ Salonul Scripturilor</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="88">---- Archive</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear">
+	<!-- start: showthread_usersbrowsing -->
+<br>
+<span class="smalltext">Users browsing this thread: 1 Guest(s)</span>
+<br>
+<!-- end: showthread_usersbrowsing -->
+	<!-- start: footer -->
+<div style="clear:both"><div style="padding-top: 10px"><!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=23">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav --></div></div>
+</main>
+
+<div class="blankspace"></div>
+
+<footer id="footer">
+	<div class="container">
+    <div class="row">
+		
+        <!--<div class="col-sm-4 foot">
+			<h3>About Our Community</h3>
+			<p>Discuss about various topics in our community and have fun while doing so. Welcome to SA-MP Forums Archive</p>
+			
+		</div>		
+		
+
+		<div class="col-sm-4 foot">
+			<h3>Quick Links</h3>
+			<p>
+
+ 				<a href="https://sampforum.blast.hk" class="btn btn-success" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Forum Home"><i class="fa fa-home"></i></a>
+				
+				<a href="https://sampforum.blast.hk/archive/index.php?thread-570944.html" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Lite (Archive) Mode"><i class="fa fa-archive"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Become a Fan"><i class="fa fa-facebook-square"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-info" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Follow Us"><i class="fa fa-twitter"></i></a>
+				
+				<a href="https://sampforum.blast.hk/misc.php?action=syndication" class="btn btn-warning" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="RSS Syndication"><i class="fa fa-rss"></i></a>
+				<br/>
+				<a href="misc.php?action=markread&amp;my_post_key=906b4f4af2a15f55d2b64b776caec649" class="btn btn-danger" style="color: #fff; margin-top:10px" data-toggle="tooltip" data-placement="bottom" data-original-title="Mark all forums read"><i class="fa fa-book"></i> Mark all forums read</a><br /><br />
+				
+				
+				</p>
+
+		</div>
+		
+		<div class="col-sm-4 foot">
+			
+			 <h3>Reach Us</h3>
+			 
+<p><a href="contact.php" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Contact Us"><i class="fa fa-envelope"></i> Contact Us</a>&nbsp;
+			
+			<a href="showteam.php" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Meet Our Team"><i class="fa fa-users"></i> Forum Team</a></p>
+		</div>-->
+		
+		
+		
+		<!-- The following piece of code allows MyBB to run scheduled tasks. DO NOT REMOVE --><!-- start: task_image -->
+<img src="./[Tutorial] PAWN Pre-Processor - Search patterns - Part 2_7_files/task.php" height="1" alt="">
+<!-- end: task_image --><!-- End task image code -->
+		</div>
+	
+	</div>
+
+	
+<div id="copyright">
+	<div class="container">
+			<div class="pull-right"><!-- start: footer_languageselect -->
+<div class="language">
+<form method="POST" action="https://sampforum.blast.hk/showthread.php" id="lang_select">
+	<input type="hidden" name="tid" value="570944">
+
+	<input type="hidden" name="my_post_key" value="906b4f4af2a15f55d2b64b776caec649">
+	<select name="language" onchange="MyBB.changeLanguage();">
+		<optgroup label="Quick Language Select">
+			<!-- start: footer_languageselect_option -->
+<option value="english" selected="selected">&nbsp;&nbsp;&nbsp;English (American)</option>
+<!-- end: footer_languageselect_option --><!-- start: footer_languageselect_option -->
+<option value="russian">&nbsp;&nbsp;&nbsp;Russian</option>
+<!-- end: footer_languageselect_option -->
+		</optgroup>
+	</select>
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_languageselect --></div>
+			<div class="pull-left">
+				<!-- MyBB is free software developed and maintained by a volunteer community.
+					It would be much appreciated by the MyBB Group if you left the full copyright and "powered by" notice intact,
+					to show your support for MyBB.  If you choose to remove or modify the copyright below,
+					you may be refused support on the MyBB Community Forums.
+
+					This is free software, support us and we'll support you. -->
+				Powered By <a href="http://www.mybb.com/" target="_blank" rel="noopener" style="color: #fff;">MyBB</a>. <a href="https://eree.in/" title="EREE" target="_blank" rel="noopener" style="color: #fff;">Crafted by EREE</a> and <a href="https://forum.androidbg.com/" title="AndroidBG" target="_blank" rel="noopener" style="color: #fff;">Android BG</a>. Also powered by <a href="https://www.blast.hk/"><b>blast.hk</b></a><!-- End powered by -->
+				
+			</div>
+	</div>
+
+</div>
+
+</footer>
+
+<!-- Fix for MentionMe popup window position -->
+<script type="text/javascript">
+	var MentionMe = (function(m) {
+	m.customSCEditorContainerOffset = {
+		left: 0,
+		top: 2,
+	};
+
+	return m;
+})(MentionMe || {});
+</script>
+<!-- End Fix for MentionMe popup window position -->
+<!-- end: footer -->
+	<script type="text/javascript">
+		var thread_deleted = "0";
+		if(thread_deleted == "1")
+		{
+			$("#quick_reply_form, .new_reply_button, .thread_tools, .inline_rating").hide();
+			$("#moderator_options_selector option.option_mirage").attr("disabled","disabled");
+		}
+	</script>
+
+
+<!-- end: showthread --><script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>

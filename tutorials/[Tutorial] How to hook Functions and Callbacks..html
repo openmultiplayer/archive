@@ -1,0 +1,2341 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://sampforum.blast.hk/showthread.php?tid=392061 -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>[Tutorial] How to hook Functions and Callbacks.</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="https://sampforum.blast.hk/syndication.php">
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="https://sampforum.blast.hk/syndication.php?type=atom1.0">
+<link rel="shortcut icon" href="https://sampforum.blast.hk/favicon.ico">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript" src="./[Tutorial] How to hook Functions and Callbacks._files/jquery.js"></script><style>undefined</style>
+<script type="text/javascript" src="./[Tutorial] How to hook Functions and Callbacks._files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] How to hook Functions and Callbacks._files/jquery.plugins.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] How to hook Functions and Callbacks._files/general.js"></script>
+<script type="text/javascript" src="./[Tutorial] How to hook Functions and Callbacks._files/tooltip.js"></script>
+
+<link rel="stylesheet" href="./[Tutorial] How to hook Functions and Callbacks._files/bootstrap.min.css">
+<link href="./[Tutorial] How to hook Functions and Callbacks._files/css" rel="stylesheet" type="text/css">
+<!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" / -->
+<link rel="stylesheet" href="./[Tutorial] How to hook Functions and Callbacks._files/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+
+<link type="text/css" rel="stylesheet" href="./[Tutorial] How to hook Functions and Callbacks._files/global.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] How to hook Functions and Callbacks._files/css3.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] How to hook Functions and Callbacks._files/responsive.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] How to hook Functions and Callbacks._files/star_ratings.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] How to hook Functions and Callbacks._files/showthread.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] How to hook Functions and Callbacks._files/grey.css">
+
+
+
+
+<script type="text/javascript">
+jQuery(document).on('click', '.panel-heading span.clickable', function(e){
+    var jQuerythis = jQuery(this);
+	if(!jQuerythis.hasClass('panel-collapsed')) {
+		jQuerythis.parents('.panel').find('.panel-body').slideUp();
+		jQuerythis.addClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+	} else {
+		jQuerythis.parents('.panel').find('.panel-body').slideDown();
+		jQuerythis.removeClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+	}
+})
+</script>
+
+
+
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+	lang.confirm_title = "Please Confirm";
+	lang.expcol_collapse = "[-]";
+	lang.expcol_expand = "[+]";
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+	
+	var templates = {
+		modal: '<div class=\"modal\">\
+	<div style=\"overflow-y: auto; max-height: 400px;\">\
+		<table border=\"0\" cellspacing=\"0\" cellpadding=\"5\" class=\"tborder\">\
+			<tr>\
+				<td class=\"thead\"><strong>__title__</strong></td>\
+			</tr>\
+			<tr>\
+				<td class=\"trow1\">__message__</td>\
+			</tr>\
+			<tr>\
+				<td class=\"tfoot\">\
+					<div style=\"text-align: center\" class=\"modal_buttons\">__buttons__</div>\
+				</td>\
+			</tr>\
+		</table>\
+	</div>\
+</div>',
+		modal_button: '<input type=\"submit\" class=\"button\" value=\"__title__\"/>&nbsp;'
+	};
+	
+	var cookieSecureFlag = "0";
+	var cookieDomain = ".sampforum.blast.hk";
+	var cookiePath = "/";
+	var cookiePrefix = "";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "2220ae0a21c853e6459922e7a63ded4d";
+	var rootpath = "https://sampforum.blast.hk";
+	var imagepath = "https://sampforum.blast.hk/images/bootbb";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "https://sampforum.blast.hk/images/bootbb/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+
+<!-- Make videos responsive - https://github.com/davatron5000/FitVids.js (additional video sites added for MyBB) -->
+<script type="text/javascript" src="./[Tutorial] How to hook Functions and Callbacks._files/jquery.fitvids.js"></script>
+<script>
+	$(document).ready(function(){
+		// Target the iframe parent div
+		var bvc = $(".bootbb-video-container");
+		//bvc.css("max-width", "800px");
+		bvc.fitVids();
+	});
+</script>
+<!-- end: headerinclude -->
+<script>
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script src="./[Tutorial] How to hook Functions and Callbacks._files/report.js"></script>
+<script src="./[Tutorial] How to hook Functions and Callbacks._files/jeditable.min.js"></script>
+<script src="./[Tutorial] How to hook Functions and Callbacks._files/thread.js"></script>
+<meta name="description" content="How to hook Functions &amp; Callbacks Introduction Well here I&#39;m with my 3rd tutorial regarding hooking functions &amp; callbacks. Yet this is even possible easily using y_hooks created by ****** but I though">
+<link rel="canonical" href="https://sampforum.blast.hk/showthread.php?tid=392061">
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./[Tutorial] How to hook Functions and Callbacks._files/css2"></head>
+<body>
+	<!-- start: header -->
+<header>
+<div class="navbar navbar-default">
+     <div class="container">
+          <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="Toggle navigation">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span> 
+               </button>
+			  
+			  <div class="navbar-header scaleimages">
+				  <!--<a class="navbar-brand" href="https://sampforum.blast.hk">BootBB</a>-->
+				  <a class="" href="https://sampforum.blast.hk/"><img src="./[Tutorial] How to hook Functions and Callbacks._files/logo_forum.gif"></a>
+			  
+			  </div>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+			  <ul class="nav navbar-nav navbar-right">
+				  <!--<li id="nav-portal"><a href="https://sampforum.blast.hk/portal.php"><i class="fa fa-bell"></i> Portal</a></li>-->
+               <li id="nav-forums"><a href="https://sampforum.blast.hk/index.php"><i class="fa fa-group"></i> Forum</a></li>
+				<!--<li><a href="https://sampforum.blast.hk/search.php?action=getnew"><i class="fa fa-comment"></i> New Posts</a></li>
+            	<li><a href="https://sampforum.blast.hk/search.php?action=getdaily"><i class="fa fa-comments"></i> Today's Posts</a></li>-->
+               <li id="nav-search"><a href="https://sampforum.blast.hk/search.php"><i class="fa fa-search"></i> Search</a></li>
+               <li id="nav-member"><a href="https://sampforum.blast.hk/memberlist.php"><i class="fa fa-users"></i> Members</a></li>
+               <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+				  
+<!--<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cubes"></i> Misc <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			  <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+			  <li class="divider"></li>
+			  <li id="nav-calendar"><a href="https://sampforum.blast.hk/calendar.php"><i class="fa fa-calendar"></i> Calendar</a></li>
+          </ul>
+</li> -->
+</ul>
+  
+          </div>
+     </div>
+</div>
+</header>
+
+
+<div id="container">
+	<a name="top" id="top"></a>
+		<div id="header">
+			<div id="panel">
+				<div class="upper">
+					<div class="container">
+
+						<!-- start: header_welcomeblock_guest -->
+<!--<span><a href="https://sampforum.blast.hk/member.php?action=login" onclick="$('#quick_login').modal({ fadeDuration: 250, keepelement: true }); return false;" class="login btn btn-danger" style="color: #fff;"><i class="fa fa-sign-in"></i> Login</a> <a href="https://sampforum.blast.hk/member.php?action=register" class="register btn btn-success" style="color: #fff;"><i class="fa fa-user-plus"></i> Register</a></span>-->
+
+<span class="float_right hidden-xs">Hello There, Guest!</span>
+
+<br class="clearfix">
+	
+
+				<div class="modal" id="quick_login" style="display: none;">
+					<form method="post" action="https://sampforum.blast.hk/member.php">
+						<input name="my_post_key" type="hidden" value="2220ae0a21c853e6459922e7a63ded4d">
+						<input name="action" type="hidden" value="do_login">
+						<input name="url" type="hidden" value="https://sampforum.blast.hk/showthread.php?tid=392061">
+						<input name="quick_login" type="hidden" value="1">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tborder">
+							<tbody><tr>
+								<td class="thead" colspan="2"><strong>Login</strong></td>
+							</tr>
+							<tr>
+								<td class="trow1" width="25%"><strong>Username:</strong></td>
+								<td class="trow1"><input name="quick_username" id="quick_login_username" type="text" value="" class="textbox initial_focus"></td>
+							</tr>
+							<tr>
+								<td class="trow2"><strong>Password:</strong></td>
+								<td class="trow2">
+									<input name="quick_password" id="quick_login_password" type="password" value="" class="textbox"> <a href="https://sampforum.blast.hk/member.php?action=lostpw" class="lost_password">Lost Password?</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow1">&nbsp;</td>
+								<td class="trow1 remember_me">
+									<input name="quick_remember" id="quick_login_remember" type="checkbox" value="yes" class="checkbox" checked="checked">
+									<label for="quick_login_remember">Remember me</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow2" colspan="2">
+									<div align="center"><input name="submit" type="submit" class="button" value="Login"></div>
+								</td>
+							</tr>
+						</tbody></table>
+					</form>
+				</div>
+				<script type="text/javascript">
+					$("#quick_login input[name='url']").val($(location).attr('href'));
+				</script>
+<!-- end: header_welcomeblock_guest -->
+					
+					</div>
+			</div>
+			</div>
+	</div>
+			</div>
+               
+				   
+                <main class="container">
+				<br>
+                 <!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=8">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav -->
+				
+				
+				
+				
+				
+				
+<!-- end: header -->
+	
+	
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	<div class="tborder tfixed clear">
+		<div class="thead">
+				<div class="float_right">
+					<span class="smalltext"><a href="https://sampforum.blast.hk/showthread.php?mode=threaded&amp;tid=392061&amp;pid=2219426#pid2219426">Threaded Mode</a></span>
+				</div>
+				
+					[Tutorial] How to hook Functions and Callbacks.
+			</div>
+	</div>
+<div id="posts_container">
+	<div id="posts">
+		<!-- start: postbit_classic -->
+
+<a id="pid2219426"></a>
+<div class="post classic " style="" id="post_2219426">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=158660"><img src="./[Tutorial] How to hook Functions and Callbacks._files/158660.png" alt="" width="55" height="49"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=158660">Lordzy</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 2,698<br>
+	Threads: 37<br>
+	Joined: Mar 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=158660"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=392061&amp;pid=2219426#pid2219426" title="How to hook Functions and Callbacks.">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 1 by Lordzy" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">12.11.2012, 17:44 <span class="post_edit" id="edited_by_2219426"><!-- start: postbit_editedby -->
+<div class="edited_post postbit_edited postbit_editedby postbit_editedpost">(<!-- start: postbit_editedby_editreason -->
+ <em>Последний раз редактировалось Lordzy; 23.12.2013 в 06:26.</em>
+<!-- end: postbit_editedby_editreason -->)</div>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2219426">
+		<div align="center"><u><b><font color="red"><font size="10">How to hook Functions &amp; Callbacks</font></font></b></u></div>
+<u><b><font color="blue"><font size="5">Introduction</font></font></b></u><br>
+Well here I'm with my 3rd tutorial regarding hooking functions &amp; callbacks. Yet this is even possible easily using y_hooks created by ****** but I thought of posting a tutorial regarding manual hooking method for users who like to know how to hook through manual way. There are other methods too for hooking callbacks/functions, but here I'm with what I know.<br>
+<br>
+<u><b><font color="blue"><font size="5">Hooking</font></font></b></u><br>
+Hooking means to add something on a particular thing. Here, we refer it to adding something too on a callback or function. For example, function 'SetPlayerScore' sets the player's score. But if we are using a server sided score system, the 'SetPlayerScore' won't set it. So, we've gotta set that server sided score too by setting variables.<br>
+<br>
+Here's an example<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:103px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnPlayerSpawn<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp;SetPlayerScore<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">50</span><span style="color: #000000;">)</span>;<br>&nbsp;<span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+Here, it sets the score only, not our server sided score. So, if we want to set our server sided score, we've gotta set the variable for it too.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:359px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">enum</span> g_PLAYER_DATA<br><span style="color: #000000;">{</span><br>&nbsp; L_KILLS,<br>&nbsp; L_DEATHS,<br>&nbsp; L_SCORE,<br>&nbsp; L_MONEY,<br>&nbsp; L_HEALTH,<br>&nbsp; L_ADMIN,<br>&nbsp; L_CLAN,<br>&nbsp; L_VIP<br><span style="color: #000000;">}</span> <br><span style="color: #2222BB;">new</span> L_PLAYER_INFO<span style="color: #000000;">[</span>MAX_PLAYERS<span style="color: #000000;">]</span><span style="color: #000000;">[</span>g_PLAYER_DATA<span style="color: #000000;">]</span>;<br><br><span style="color: #228822;">//Example enum ^^</span><br><br><span style="color: #2222BB;">public</span> OnPlayerSpawn<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; SetPlayerScore<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">50</span><span style="color: #000000;">)</span>;<br>&nbsp; L_PLAYER_INFO<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span><span style="color: #000000;">[</span>L_SCORE<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">50</span>; <span style="color: #228822;">//We've set our server sided score too.</span><br>&nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+This is the method we use when we don't hook. But, through hooking it allows it to be in one function and makes. Also, hooking callbacks allows to use it multiple times too and prevents errors and warns. So, lets get into the tutorial of hooking callbacks and functions.<br>
+<br>
+<u><b><font color="blue"><font size="5">Tutorial</font></font></b></u><br>
+<br>
+<br>
+<u><b><font color="RoyalBlue"><font size="3">Hooking Functions</font></font></b></u><br>
+<br>
+Let's take an example that like the above. We'll hook 'SetPlayerScore' function. Inorder to hook, we can create a simple function as we create in our scripts using 'stock.'<br>
+<br>
+Example stocks(functions)<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:279px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">stock</span> GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; <span style="color: #2222BB;">new</span> Lname<span style="color: #000000;">[</span>MAX_PLAYER_NAME<span style="color: #000000;">]</span>;<br>&nbsp; GetPlayerName<span style="color: #000000;">(</span>playerid, Lname, <span style="color: #2222BB;">sizeof</span><span style="color: #000000;">(</span>Lname<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br>&nbsp; <span style="color: #2222BB;">return</span> Lname;<br><span style="color: #000000;">}</span><br><span style="color: #228822;">//Now this is a function which gets player's name in one single line.</span><br><br><span style="color: #228822;">//Using it.</span><br><span style="color: #2222BB;">public</span> OnPlayerDeath<span style="color: #000000;">(</span>playerid, killerid, reason<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; <span style="color: #2222BB;">new</span> str<span style="color: #000000;">[</span><span style="color: #000000;">128</span><span style="color: #000000;">]</span>;<br>&nbsp; <span style="color: #222222;">format</span><span style="color: #000000;">(</span>str, <span style="color: #2222BB;">sizeof</span><span style="color: #000000;">(</span>str<span style="color: #000000;">)</span>, <span style="color: #000066;">"%s killed %s"</span>, GetName<span style="color: #000000;">(</span>killerid<span style="color: #000000;">)</span>, GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><span style="color: #000000;">)</span>; <span style="color: #228822;">//Gets the name of killer and the dead person.</span><br>&nbsp; SendClientMessageToAll<span style="color: #000000;">(</span>0xFF0000FF, str<span style="color: #000000;">)</span>;<br>&nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+This is how a simple function is created. <b>As this tutorial is based on hooking functions and callbacks, I won't be explaining other stuffs, I'll be explaining more about the related stuffs of this tutorial only.</b><br>
+<br>
+Now, let's hook our 'SetPlayerScore' function. To hook, first we must create a simple function of the server sided score. We can use 'stock' to create the function.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:135px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">stock</span> SetPlayerScoreEx<span style="color: #000000;">(</span>playerid, amount<span style="color: #000000;">)</span> <span style="color: #228822;">//Two parameters: playerid, for the player and amount, the amount to set.</span><br><span style="color: #000000;">{</span> <span style="color: #228822;">//Opening brackets to execute the functions below.</span><br><span style="color: #228822;">//We'll choose our made enum above and set it.</span><br>&nbsp; &nbsp;L_PLAYER_INFO<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span><span style="color: #000000;">[</span>L_SCORE<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> amount; <span style="color: #228822;">//It sets the server sided score to amount. Amount will be specified on the function by user itself.</span><br>&nbsp; &nbsp;SetPlayerScore<span style="color: #000000;">(</span>playerid, amount<span style="color: #000000;">)</span>; <span style="color: #228822;">//We'll later undefine 'SetPlayerScore' function and hook it with our current stock. So it's necessary to use this function too or it doesn't make any sense it saying 'hooking SetPlayerScpre.'</span><br>&nbsp; &nbsp;<span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>; <span style="color: #228822;">//Returning the function.</span><br><span style="color: #000000;">}</span> <span style="color: #228822;">//Closing brackets.</span></div></div></pre>
+</div>Now, we have created our function and this can be used as:<br>
+'SetPlayerScoreEx(playerid, amount);'<br>
+Example:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:103px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnPlayerSpawn<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; SetPlayerScoreEx<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">50</span><span style="color: #000000;">)</span>; <span style="color: #228822;">//Sets to 50 server sided score and also the original score.</span><br>&nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+As we've created the functions required, lets start hooking. To hook, we can use simple defines and _ALS_ functions as it's said on Samp info(Some where, I don't remember it though. :P)<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:151px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">stock</span> SetPlayerScoreEx<span style="color: #000000;">(</span>playerid, amount<span style="color: #000000;">)</span>;<br><span style="color: #000000;">{</span><br>&nbsp; L_PLAYER_INFO<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span><span style="color: #000000;">[</span>L_SCORE<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> amount;<br>&nbsp; SetPlayerScore<span style="color: #000000;">(</span>playerid, amount<span style="color: #000000;">)</span>;<br>&nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #228822;">/*Our function created.^^</span></div></div></pre>
+</div>For hooking, we'll detect it with _ALS_(function name) and if it isn't defined, we'll define it and then undefine the original function. We'll define the same undefined function then with our created function.<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:343px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">stock</span> SetPlayerScoreEx<span style="color: #000000;">(</span>playerid, amount<span style="color: #000000;">)</span>;<br><span style="color: #000000;">{</span><br>&nbsp; L_PLAYER_INFO<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span><span style="color: #000000;">[</span>L_SCORE<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> amount;<br>&nbsp; SetPlayerScore<span style="color: #000000;">(</span>playerid, amount<span style="color: #000000;">)</span>; <span style="color: #228822;">//We must do this too because we're gonna undefine the SetPlayerScore function later and hook it with our.</span><br>&nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #228822;">/*Our function created.^^<br>Hooking:*/</span><br><br><span style="color: #2222AA;">#if defined _ALS_SetPlayerScore //If _ALS_SetPlayerScore is defined. Then:</span><br>&nbsp; <span style="color: #2222AA;">#undef SetPlayerScore //If yes, it will undefine SetPlayerScore function.</span><br><span style="color: #2222AA;">#else //Else if not defined</span><br><span style="color: #2222AA;">#define _ALS_SetPlayerScore //If not defined, it will define _ALS_SetPlayerScore.</span><br><span style="color: #2222AA;">#endif //As we started a PAWN function with '#if', it's necessary to use #endif or you'll get trouble with errors.</span><br><br><span style="color: #228822;">/*SetPlayerScore is now undefined, we can define it to whatever we need :P. Even this:<br>#define SetPlayerScore 0xFF0000<br>But here, we must hook it, so we must define it to our function which we have created.*/</span><br><span style="color: #2222AA;">#define SetPlayerScore SetPlayerScoreEx //As we have undefined SetPlayerScore, inorder to hook it, we must define it to the stock function which we created.</span></div></div></pre>
+</div>We have successfully hooked a function and can use it!<br>
+<br>
+Example:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:119px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnPlayerSpawn<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; SetPlayerScore<span style="color: #000000;">(</span>playerid, amount<span style="color: #000000;">)</span>;<br>&nbsp; <span style="color: #228822;">//This do sets the original score as well as the server sided score to 50.</span><br>&nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+We have done with hooking functions.<br>
+<br>
+<u><b><font color="RoyalBlue"><font size="3">Hooking Callbacks</font></font></b></u><br>
+<br>
+This is also almost same as hooking callbacks, though it needs some more stuffs to do too. Lets hook OnPlayerSpawn.<br>
+<br>
+To hook on callbacks, we don't need to create a stock/function for it. While hooking OnPlayerSpawn or any original SAMP callback, we must hook and create a callback inside the callback which needs to get hooked.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:103px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnPlayerSpawn<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp;<span style="color: #228822;">//This callback is called when a player spawns.</span><br>&nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>Now, lets hook it. For example, we need to add one more parameter too. Here, lets choose a weaponid parameter which must be like this:<br>
+'public OnPlayerSpawn(playerid, weaponid)'<br>
+<br>
+First, we must create another callback to hook with, like how we created a function to hook.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:199px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnPlayerSpawn<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; <span style="color: #228822;">//As we want to get the weaponid as a parameter on spawn callback, let's create a variable to get it.</span><br>&nbsp; <span style="color: #2222BB;">new</span> weaponid; <span style="color: #228822;">//Created a variable to get player's weapon.</span><br>&nbsp; weaponid <span style="color: #000000;">=</span> GetPlayerWeapon<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp;<span style="color: #228822;">//To create a callback, we use CallLocalFunction. For more explanation about CallLocalFunction, go to wiki.sa-mp.com/wiki/CallLocalFunction</span><br>&nbsp; &nbsp;CallLocalFunction<span style="color: #000000;">(</span><span style="color: #000066;">"L_OnPlayerSpawn"</span>, <span style="color: #000066;">"id"</span>, playerid, weaponid<span style="color: #000000;">)</span>; <br>&nbsp; <span style="color: #228822;">/*"id" are the formats used. 'i' and 'd' stands for the playerid and weaponid as those are integers/number. 'i' and 'd' both, stands same though.<br>It's done with creating a callback.*/</span><br>&nbsp; &nbsp;<span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>; <span style="color: #228822;">//Returning the callback.</span><br><span style="color: #000000;">}</span> <span style="color: #228822;">//Closing brackets.</span></div></div></pre>
+</div>
+Just like we hooked a function using defines, we could hook the callback too.<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:423px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnPlayerSpawn<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; <span style="color: #2222BB;">new</span> weaponid;<br>&nbsp; weaponid <span style="color: #000000;">=</span> GetPlayerWeapon<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>;<br>&nbsp; CallLocalFunction<span style="color: #000000;">(</span><span style="color: #000066;">"L_OnPlayerSpawn"</span>, <span style="color: #000066;">"id"</span>, playerid, weaponid<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #228822;">/*This was those callback and calls for the original callback we done. Now lets hook it.<br>Same like functions, we do use _ALS_ defining here.<br>In here, it's used that if _ALS_(callback name) is defined, we will undefine the callback and if it isn't defined, we'll define the _ALS_(callback name).<br>And then hook the callback.<br>*/</span><br><br><span style="color: #2222AA;">#if defined _ALS_OnPlayerSpawn //If _ALS_OnPlayerSpawn is defined:</span><br>&nbsp; <span style="color: #2222AA;">#undef OnPlayerSpawn //If defined, it will undefine OnPlayerSpawn.</span><br><span style="color: #2222AA;">#else //Else if not:</span><br><span style="color: #2222AA;">#define _ALS_OnPlayerSpawn //If not, we'll define _ALS_OnPlayerSpawn.</span><br><span style="color: #2222AA;">#endif //As we started a PAWN function '#if', it's necessary to use #endif or you'll get troubled.</span><br><br><span style="color: #228822;">//As the callback 'OnPlayerSpawn' is undefined now, we can define it to whatever but here we are hooking it. So define it to our callback created, 'L_OnPlayerSpawn'.</span><br><span style="color: #2222AA;">#define OnPlayerSpawn L_OnPlayerSpawn</span><br><br><span style="color: #228822;">//Even though we hooked it, we must forward the callback too inorder to get it used.</span><br><br><span style="color: #2222BB;">forward</span> L_OnPlayerSpawn<span style="color: #000000;">(</span>playerid, weaponid<span style="color: #000000;">)</span>; <span style="color: #228822;">//We must forward the callback which created itself.</span></div></div></pre>
+</div>
+We can now use it as 'public OnPlayerSpawn(playerid, weaponid);'<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:151px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnPlayerSpawn<span style="color: #000000;">(</span>playerid, weaponid<span style="color: #000000;">)</span>;<br><span style="color: #000000;">{</span><br>&nbsp; <span style="color: #2222BB;">new</span> str<span style="color: #000000;">[</span><span style="color: #000000;">128</span><span style="color: #000000;">]</span>;<br>&nbsp; SetPlayerScore<span style="color: #000000;">(</span>playerid, amount<span style="color: #000000;">)</span>; <span style="color: #228822;">//Sets the server sided score too as we have hooked.</span><br>&nbsp; &nbsp;<span style="color: #222222;">format</span><span style="color: #000000;">(</span>str, <span style="color: #2222BB;">sizeof</span><span style="color: #000000;">(</span>str<span style="color: #000000;">)</span>, <span style="color: #000066;">"You are using %d weaponid."</span>, weaponid<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp;SendClientMessage<span style="color: #000000;">(</span>playerid, 0xFF0000, str<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp;<span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+We have done with learning how to hook functions and callbacks in a manual way.<b>If you didn't understand any part of the tutorial, you can post it here and I'll explain more better.</b><br>
+<br>
+<u><b><font color="blue"><font size="5">Examples</font></font></b></u><br>
+<br>
+Some examples:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:503px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnFilterScriptInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; SetTimer<span style="color: #000000;">(</span><span style="color: #000066;">"Loopplayers"</span>, <span style="color: #000000;">1000</span>, true<span style="color: #000000;">)</span>;<br>&nbsp; CallLocalFunction<span style="color: #000000;">(</span><span style="color: #000066;">"L_OnFilterScriptInit"</span>, <span style="color: #000066;">""</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp;<span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">forward</span> Loopplayers<span style="color: #000000;">(</span><span style="color: #000000;">)</span>;<br><span style="color: #2222BB;">public</span> Loopplayers<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; <span style="color: #2222BB;">for</span><span style="color: #000000;">(</span><span style="color: #2222BB;">new</span> i <span style="color: #000000;">=</span> <span style="color: #000000;">0</span>; i<span style="color: #000000;">&lt;</span> MAX_PLAYERS; i<span style="color: #000000;">++</span><span style="color: #000000;">)</span><br>&nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>IsPlayerConnected<span style="color: #000000;">(</span>i<span style="color: #000000;">)</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>GetPlayerHealth<span style="color: #000000;">(</span>i<span style="color: #000000;">)</span> <span style="color: #000000;">&gt;=</span> <span style="color: #000000;">101</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; SetPlayerHealth<span style="color: #000000;">(</span>i, <span style="color: #000000;">100</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; <span style="color: #000000;">}</span><br>&nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222AA;">#if defined _ALS_OnFilterScriptInit</span><br>&nbsp; <span style="color: #2222AA;">#undef OnFilterScriptInit</span><br><span style="color: #2222AA;">#else</span><br><span style="color: #2222AA;">#define _ALS_OnFilterScriptInit</span><br><span style="color: #2222AA;">#endif</span><br><br><span style="color: #2222AA;">#define OnFilterScriptInit L_OnFilterScriptInit</span><br><br><span style="color: #2222BB;">forward</span> L_OnFilterScriptInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div>
+Example 2<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:503px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> lhp<span style="color: #000000;">[</span>MAX_PLAYERS<span style="color: #000000;">]</span>;<br><span style="color: #2222BB;">stock</span> SetPlayerHp<span style="color: #000000;">(</span>playerid, amount<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; lhp<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> amount;<br>&nbsp; SetPlayerHealth<span style="color: #000000;">(</span>playerid, amount<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp;<span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><br><span style="color: #2222AA;">#if defined _ALS_SetPlayerHealth</span><br>&nbsp; <span style="color: #2222AA;">#undef SetPlayerHealth</span><br><span style="color: #2222AA;">#else</span><br><span style="color: #2222AA;">#define _ALS_SetPlayerHealth</span><br><span style="color: #2222AA;">#endif</span><br><span style="color: #2222AA;">#define SetPlayerHealth SetPlayerHp</span><br><br><span style="color: #2222BB;">public</span> OnFilterScriptInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; SetTimer<span style="color: #000000;">(</span><span style="color: #000066;">"Detecthp"</span>, <span style="color: #000000;">1000</span>, true<span style="color: #000000;">)</span>;<br>&nbsp; CallLocalFunction<span style="color: #000000;">(</span><span style="color: #000066;">"L_OnFilterScriptInit"</span>, <span style="color: #000066;">""</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp;<span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><span style="color: #2222BB;">forward</span> Detecthp<span style="color: #000000;">(</span><span style="color: #000000;">)</span>;<br><span style="color: #2222BB;">public</span> Detecthp<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; <span style="color: #2222BB;">for</span><span style="color: #000000;">(</span><span style="color: #2222BB;">new</span> i <span style="color: #000000;">=</span> <span style="color: #000000;">0</span>; i<span style="color: #000000;">&lt;</span> MAX_PLAYERS; i<span style="color: #000000;">++</span><span style="color: #000000;">)</span><br>&nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>GetPlayerHealth<span style="color: #000000;">(</span>i<span style="color: #000000;">)</span> <span style="color: #000000;">&gt;</span> lhp<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">new</span> str<span style="color: #000000;">[</span><span style="color: #000000;">128</span><span style="color: #000000;">]</span>;<br>&nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">new</span> LName<span style="color: #000000;">[</span>MAX_PLAYER_NAME<span style="color: #000000;">]</span>;<br>&nbsp; &nbsp; &nbsp; GetPlayerName<span style="color: #000000;">(</span>playerid, Lname, <span style="color: #2222BB;">sizeof</span><span style="color: #000000;">(</span>Lname<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; <span style="color: #222222;">format</span><span style="color: #000000;">(</span>str, <span style="color: #2222BB;">sizeof</span><span style="color: #000000;">(</span>str<span style="color: #000000;">)</span>, <span style="color: #000066;">"%s has been banned from the server. (Reason:Health hack)"</span>, Lname<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; Ban<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp;<span style="color: #000000;">}</span><br>&nbsp; <span style="color: #000000;">}</span><br>&nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222AA;">#if defined _ALS_OnFilterScriptInit</span><br>&nbsp; <span style="color: #2222AA;">#undef OnFilterScriptInit</span><br><span style="color: #2222AA;">#else</span><br><span style="color: #2222AA;">#define _ALS_OnFilterScriptInit</span><br><span style="color: #2222AA;">#endif</span><br><span style="color: #2222AA;">#define OnFilterScriptInit L_OnFilterScriptInit</span><br><br><span style="color: #2222BB;">forward</span> L_OnFilterScriptInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span>;</div></div></pre>
+</div>
+<b>Note</b>: Don't use the example as Anti-Cheat, it's not efficient. It's just an example.<br>
+<br>
+Doubts, questions or anything related to this tutorial can be posted here. <br>
+<img alt="" border="0" class="inlineimg" src="./[Tutorial] How to hook Functions and Callbacks._files/smile.png" title="Smiley"><br>
+<br>
+-<b>Lordz™</b>.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2219426">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=158660" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=392061&amp;replyto=2219426" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2219463"></a>
+<div class="post classic " style="" id="post_2219463">
+<div class="post_author scaleimages">
+	
+	<div class="author_information">
+			<strong><span class="largetext">Emmet_</span></strong> <br>
+			<span class="smalltext">
+				Unregistered<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_guest -->
+&nbsp;
+<!-- end: postbit_author_guest -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=392061&amp;pid=2219463#pid2219463" title="Re: How to hook Functions and Callbacks.">#2</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 2 by Emmet_" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">12.11.2012, 17:58 <span class="post_edit" id="edited_by_2219463"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2219463">
+		For hooking functions, you can just do:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define &lt;native&gt; &lt;hooked function&gt;</span></div></div></pre>
+</div>
+In this case:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define SetPlayerScore SetPlayerScoreEx</span></div></div></pre>
+</div>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2219463">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=392061&amp;replyto=2219463" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2219472"></a>
+<div class="post classic " style="" id="post_2219472">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=158660"><img src="./[Tutorial] How to hook Functions and Callbacks._files/158660.png" alt="" width="55" height="49"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=158660">Lordzy</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 2,698<br>
+	Threads: 37<br>
+	Joined: Mar 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=158660"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=392061&amp;pid=2219472#pid2219472" title="Re: How to hook Functions and Callbacks.">#3</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 3 by Lordzy" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">12.11.2012, 18:01 <span class="post_edit" id="edited_by_2219472"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2219472">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Emmet_</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2219463#pid2219463" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] How to hook Functions and Callbacks._files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">For hooking functions, you can just do:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define &lt;native&gt; &lt;hooked function&gt;</span></div></div></pre>
+</div>
+In this case:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define SetPlayerScore SetPlayerScoreEx</span></div></div></pre>
+</div></div>
+</td>
+</tr>
+</tbody></table>
+</div>As I've mentioned  on the introduction that I'm creating in a method I know. So I wrote it as I knew. Thanks for that new idea Emmet_, I'll check it soon when I get a PC.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2219472">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=158660" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=392061&amp;replyto=2219472" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2219691"></a>
+<div class="post classic " style="" id="post_2219691">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=114165"><img src="./[Tutorial] How to hook Functions and Callbacks._files/114165.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=114165">Stylock</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 315<br>
+	Threads: 6<br>
+	Joined: Dec 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=114165"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=392061&amp;pid=2219691#pid2219691" title="Re: How to hook Functions and Callbacks.">#4</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 4 by Stylock" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">12.11.2012, 19:33 <span class="post_edit" id="edited_by_2219691"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2219691">
+		Emmet, you shoud still use the "_ALS_" defines though because the same rule applies to functions, too, not just callbacks.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2219691">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=114165" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=392061&amp;replyto=2219691" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2220281"></a>
+<div class="post classic " style="" id="post_2220281">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=158660"><img src="./[Tutorial] How to hook Functions and Callbacks._files/158660.png" alt="" width="55" height="49"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=158660">Lordzy</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 2,698<br>
+	Threads: 37<br>
+	Joined: Mar 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=158660"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=392061&amp;pid=2220281#pid2220281" title="Re: How to hook Functions and Callbacks.">#5</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 5 by Lordzy" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">13.11.2012, 04:25 <span class="post_edit" id="edited_by_2220281"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2220281">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>YJIET</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2219691#pid2219691" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] How to hook Functions and Callbacks._files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Emmet, you shoud still use the "_ALS_" defines though because the same rule applies to functions, too, not just callbacks.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Well yes, I think you're right because how come we just define it simply without undefining the original function?
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2220281">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=158660" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=392061&amp;replyto=2220281" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2220289"></a>
+<div class="post classic " style="" id="post_2220289">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=177813"><img src="./[Tutorial] How to hook Functions and Callbacks._files/177813.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=177813">XtremeR</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 867<br>
+	Threads: 27<br>
+	Joined: Aug 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=177813"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=392061&amp;pid=2220289#pid2220289" title="Re: How to hook Functions and Callbacks.">#6</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 6 by XtremeR" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">13.11.2012, 04:57 <span class="post_edit" id="edited_by_2220289"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2220289">
+		good one! keep it up!
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2220289">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=177813" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=392061&amp;replyto=2220289" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2220607"></a>
+<div class="post classic " style="" id="post_2220607">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=164585"><img src="./[Tutorial] How to hook Functions and Callbacks._files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=164585">Cell_</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Big Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 160<br>
+	Threads: 3<br>
+	Joined: May 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=164585"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=392061&amp;pid=2220607#pid2220607" title="Re: How to hook Functions and Callbacks.">#7</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 7 by Cell_" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">13.11.2012, 11:41 <span class="post_edit" id="edited_by_2220607"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2220607">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Emmet_</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2219463#pid2219463" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] How to hook Functions and Callbacks._files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">For hooking functions, you can just do:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define &lt;native&gt; &lt;hooked function&gt;</span></div></div></pre>
+</div>
+In this case:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define SetPlayerScore SetPlayerScoreEx</span></div></div></pre>
+</div></div>
+</td>
+</tr>
+</tbody></table>
+</div>Funny, I can't find that to be working, though, I haven't tried it out. The pre-processor also agrees with me on this one. Here is a little test I did:<br>
+<br>
+Original code:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:311px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><br><span style="color: #2222AA;">#define SetPlayerScore SetPlayerScoreEx</span><br><br><span style="color: #2222BB;">new</span> playerScore<span style="color: #000000;">[</span>MAX_PLAYERS<span style="color: #000000;">]</span>;<br><br><span style="color: #2222BB;">public</span> OnPlayerConnect<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; SetPlayerScore<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">1</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br>SetPlayerScoreEx<span style="color: #000000;">(</span>playerid, value<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; playerScore<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> value;<br>&nbsp; &nbsp; SetPlayerScore<span style="color: #000000;">(</span>playerid, value<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+Pre-processed code:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:311px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><br><span style="color: #2222AA;">#define SetPlayerScore SetPlayerScoreEx</span><br><br><span style="color: #2222BB;">new</span> playerScore<span style="color: #000000;">[</span><span style="color: #000000;">(</span><span style="color: #000000;">500</span><span style="color: #000000;">)</span><span style="color: #000000;">]</span>;<br><br><span style="color: #2222BB;">public</span> OnPlayerConnect<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; SetPlayerScoreEx<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">1</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br>SetPlayerScoreEx<span style="color: #000000;">(</span>playerid, value<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; playerScore<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> value;<br>&nbsp; &nbsp; SetPlayerScoreEx<span style="color: #000000;">(</span>playerid, value<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+I mean SetPlayerScore under the SetPlayerScoreEx function was also defined to SetPlayerScoreEx, won't that create a loop without a loop?<br>
+<br>
+Source: <a href="http://slice-vps.nl/ppg/" target="_blank">http://slice-vps.nl/ppg/</a><br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Lordz™</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2219426#pid2219426" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] How to hook Functions and Callbacks._files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic"><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:135px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">stock</span> SetPlayerScoreEx<span style="color: #000000;">(</span>playerid, amount<span style="color: #000000;">)</span> <span style="color: #228822;">//Two parameters: playerid, for the player and amount, the amount to set.</span><br><span style="color: #000000;">{</span> <span style="color: #228822;">//Opening brackets to execute the functions below.</span><br><span style="color: #228822;">//We'll choose our made enum above and set it.</span><br>&nbsp; &nbsp;L_PLAYER_INFO<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span><span style="color: #000000;">[</span>L_SCORE<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> amount; <span style="color: #228822;">//It sets the server sided score to amount. Amount will be specified on the function by user itself.</span><br>&nbsp; &nbsp;SetPlayerPos<span style="color: #000000;">(</span>playerid, amount<span style="color: #000000;">)</span>; <span style="color: #228822;">//We'll later undefine 'SetPlayerPos' function and hook it with our current stock. So it's necessary to use this function too or it doesn't make any sense it saying 'hooking SetPlayerPos.'</span><br>&nbsp; &nbsp;<span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>; <span style="color: #228822;">//Returning the function.</span><br><span style="color: #000000;">}</span> <span style="color: #228822;">//Closing brackets.</span></div></div></pre>
+</div></div>
+</td>
+</tr>
+</tbody></table>
+</div>Mistakes happen, now fix them.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2220607">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=164585" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=392061&amp;replyto=2220607" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2220541"></a>
+<div class="post classic " style="" id="post_2220541">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=29176"><img src="./[Tutorial] How to hook Functions and Callbacks._files/29176.png" alt="" width="55" height="54"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=29176"><s>Y_Less</s></a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Banned<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 15,941<br>
+	Threads: 0<br>
+	Joined: Jun 2008
+	<br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=392061&amp;pid=2220541#pid2220541" title="Re: How to hook Functions and Callbacks.">#8</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 8 by Y_Less" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">13.11.2012, 11:56 <span class="post_edit" id="edited_by_2220541"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2220541">
+		You might want to explain some of the optimisations from the original topic.  Some more information on multiple hooking methods (pretty much in order):<br>
+<br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=85907" target="_blank">https://sampforum.blast.hk/showthread.php?tid=85907</a><br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=166016" target="_blank">https://sampforum.blast.hk/showthread.php?tid=166016</a><br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=194509" target="_blank">https://sampforum.blast.hk/showthread.php?tid=194509</a><br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=241446" target="_blank">https://sampforum.blast.hk/showthread.php?tid=241446</a><br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=357881" target="_blank">https://sampforum.blast.hk/showthread.php?tid=357881</a><br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=382029" target="_blank">https://sampforum.blast.hk/showthread.php?tid=382029</a><br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=387600" target="_blank">https://sampforum.blast.hk/showthread.php?tid=387600</a><br>
+<br>
+Some of that data should be very useful, some less so (als2 I've not tested on Linux or with the JIT plugin, although I know Slice has solved the first issue).
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2220541">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=29176" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=392061&amp;replyto=2220541" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2220625"></a>
+<div class="post classic " style="" id="post_2220625">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=158660"><img src="./[Tutorial] How to hook Functions and Callbacks._files/158660.png" alt="" width="55" height="49"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=158660">Lordzy</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 2,698<br>
+	Threads: 37<br>
+	Joined: Mar 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=158660"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=392061&amp;pid=2220625#pid2220625" title="Re: How to hook Functions and Callbacks.">#9</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 9 by Lordzy" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">13.11.2012, 11:56 <span class="post_edit" id="edited_by_2220625"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2220625">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Cell_</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2220607#pid2220607" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] How to hook Functions and Callbacks._files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Mistakes happen, now fix them.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Well didn't I mention that we later undefine the original native? After undefining it, it no longer works. So if we just create the function without the original native, it won't perform as the original native. It just performs those server sided scores. Isn't it?
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2220625">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=158660" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=392061&amp;replyto=2220625" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2220627"></a>
+<div class="post classic " style="" id="post_2220627">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=164585"><img src="./[Tutorial] How to hook Functions and Callbacks._files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=164585">Cell_</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Big Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 160<br>
+	Threads: 3<br>
+	Joined: May 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=164585"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=392061&amp;pid=2220627#pid2220627" title="Re: How to hook Functions and Callbacks.">#10</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 10 by Cell_" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">13.11.2012, 12:00 <span class="post_edit" id="edited_by_2220627"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2220627">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Lordz™</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2220625#pid2220625" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] How to hook Functions and Callbacks._files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Well didn't I mention that we later undefine the original native. After undefining it, it no longer works. So if we just create the function without the original native, it won't perform as the original native. It just performs those server sided scores. Isn't it?</div>
+</td>
+</tr>
+</tbody></table>
+</div>And what does SetPlayerPos have to do anything with player scores?<br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>******</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2220623#pid2220623" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] How to hook Functions and Callbacks._files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">You put the define UNDER the function, not above.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Ah, that sums it all up.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2220627">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=164585" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=392061&amp;replyto=2220627" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2220637"></a>
+<div class="post classic " style="" id="post_2220637">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=158660"><img src="./[Tutorial] How to hook Functions and Callbacks._files/158660.png" alt="" width="55" height="49"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=158660">Lordzy</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 2,698<br>
+	Threads: 37<br>
+	Joined: Mar 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=158660"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=392061&amp;pid=2220637#pid2220637" title="Re: How to hook Functions and Callbacks.">#11</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 11 by Lordzy" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">13.11.2012, 12:07 <span class="post_edit" id="edited_by_2220637"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2220637">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Cell_</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2220627#pid2220627" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] How to hook Functions and Callbacks._files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">And what does SetPlayerPos have to do anything with player scores?<br>
+<br>
+<br>
+<br>
+Ah, that sums it all up.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Oops, didn't see that well! I'm really sorry for that mistake. And you're correct, mistakes do happen. Thanks Cell_.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2220637">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=158660" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=392061&amp;replyto=2220637" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2220623"></a>
+<div class="post classic " style="" id="post_2220623">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=29176"><img src="./[Tutorial] How to hook Functions and Callbacks._files/29176.png" alt="" width="55" height="54"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=29176"><s>Y_Less</s></a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Banned<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 15,941<br>
+	Threads: 0<br>
+	Joined: Jun 2008
+	<br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=392061&amp;pid=2220623#pid2220623" title="Re: How to hook Functions and Callbacks.">#12</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 12 by Y_Less" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">13.11.2012, 12:54 <span class="post_edit" id="edited_by_2220623"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2220623">
+		You put the define UNDER the function, not above.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2220623">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=29176" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=392061&amp;replyto=2220623" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2290563"></a>
+<div class="post classic " style="" id="post_2290563">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=181627"><img src="./[Tutorial] How to hook Functions and Callbacks._files/181627.png" alt="" width="55" height="51"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=181627">dr.lozer</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 371<br>
+	Threads: 66<br>
+	Joined: Oct 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=181627"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=392061&amp;pid=2290563#pid2290563" title="Re: How to hook Functions and Callbacks.">#13</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 13 by dr.lozer" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">26.12.2012, 17:10 <span class="post_edit" id="edited_by_2290563"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2290563">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Lordz™</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2219426#pid2219426" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] How to hook Functions and Callbacks._files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic"><div align="center"><u><b><font color="red"><font size="10">How to hook Functions &amp; Callbacks</font></font></b></u></div>
+<u><b><font color="blue"><font size="5">Introduction</font></font></b></u><br>
+Well here I'm with my 3rd tutorial regarding hooking functions &amp; callbacks. Yet this is even possible easily using y_hooks created by Y_Less but I thought of posting a tutorial regarding manual hooking method for users who like to know how to hook through manual way. There are other methods too for hooking callbacks/functions, but here I'm with what I know.<br>
+<br>
+<u><b><font color="blue"><font size="5">Hooking</font></font></b></u><br>
+Hooking means to add something on a particular thing. Here, we refer it to adding something too on a callback or function. For example, function 'SetPlayerScore' sets the player's score. But if we are using a server sided score system, the 'SetPlayerScore' won't set it. So, we've gotta set that server sided score too by setting variables.<br>
+<br>
+Here's an example<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">public OnPlayerSpawn(playerid)
+{
+ SetPlayerScore(playerid, 50);
+ return 1;
+}</pre>
+</div>
+Here, it sets the score only, not our server sided score. So, if we want to set our server sided score, we've gotta set the variable for it too.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 354px;
+		text-align: left;
+		overflow: auto">enum g_PLAYER_DATA
+{
+  L_KILLS,
+  L_DEATHS,
+  L_SCORE,
+  L_MONEY,
+  L_HEALTH,
+  L_ADMIN,
+  L_CLAN,
+  L_VIP
+} 
+new L_PLAYER_INFO[MAX_PLAYERS][g_PLAYER_DATA];
+
+//Example enum ^^
+
+public OnPlayerSpawn(playerid)
+{
+  SetPlayerScore(playerid, 50);
+  L_PLAYER_INFO[playerid][L_SCORE] = 50; //We've set our server sided score too.
+  return 1;
+}</pre>
+</div>
+This is the method we use when we don't hook. But, through hooking it allows it to be in one function and makes. Also, hooking callbacks allows to use it multiple times too and prevents errors and warns. So, lets get into the tutorial of hooking callbacks and functions.<br>
+<br>
+<u><b><font color="blue"><font size="5">Tutorial</font></font></b></u><br>
+<br>
+<br>
+<u><b><font color="RoyalBlue"><font size="3">Hooking Functions</font></font></b></u><br>
+<br>
+Let's take an example that like the above. We'll hook 'SetPlayerScore' function. Inorder to hook, we can create a simple function as we create in our scripts using 'stock.'<br>
+<br>
+Example stocks(functions)<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 274px;
+		text-align: left;
+		overflow: auto">stock GetName(playerid)
+{
+  new Lname[MAX_PLAYER_NAME];
+  GetPlayerName(playerid, Lname, sizeof(Lname));
+  return Lname;
+}
+//Now this is a function which gets player's name in one single line.
+
+//Using it.
+public OnPlayerDeath(playerid, killerid, reason)
+{
+  new str[128];
+  format(str, sizeof(str), "%s killed %s", GetName(killerid), GetName(playerid)); //Gets the name of killer and the dead person.
+  SendClientMessageToAll(0xFF0000FF, str);
+  return 1;
+}</pre>
+</div>
+This is how a simple function is created. <b>As this tutorial is based on hooking functions and callbacks, I won't be explaining other stuffs, I'll be explaining more about the related stuffs of this tutorial only.</b><br>
+<br>
+Now, let's hook our 'SetPlayerScore' function. To hook, first we must create a simple function of the server sided score. We can use 'stock' to create the function.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 130px;
+		text-align: left;
+		overflow: auto">stock SetPlayerScoreEx(playerid, amount) //Two parameters: playerid, for the player and amount, the amount to set.
+{ //Opening brackets to execute the functions below.
+//We'll choose our made enum above and set it.
+   L_PLAYER_INFO[playerid][L_SCORE] = amount; //It sets the server sided score to amount. Amount will be specified on the function by user itself.
+   SetPlayerScore(playerid, amount); //We'll later undefine 'SetPlayerScore' function and hook it with our current stock. So it's necessary to use this function too or it doesn't make any sense it saying 'hooking SetPlayerScpre.'
+   return 1; //Returning the function.
+} //Closing brackets.</pre>
+</div>Now, we have created our function and this can be used as:<br>
+'SetPlayerScoreEx(playerid, amount);'<br>
+Example:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">public OnPlayerSpawn(playerid)
+{
+  SetPlayerScoreEx(playerid, 50); //Sets to 50 server sided score and also the original score.
+  return 1;
+}</pre>
+</div>
+As we've created the functions required, lets start hooking. To hook, we can use simple defines and _ALS_ functions as it's said on Samp info(Some where, I don't remember it though. :P)<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 146px;
+		text-align: left;
+		overflow: auto">stock SetPlayerScoreEx(playerid, amount);
+{
+  L_PLAYER_INFO[playerid][L_SCORE] = amount;
+  SetPlayerScore(playerid, amount);
+  return 1;
+}
+
+/*Our function created.^^</pre>
+</div>For hooking, we'll detect it with _ALS_(function name) and if it isn't defined, we'll define it and then undefine the original function. We'll define the same undefined function then with our created function.<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 338px;
+		text-align: left;
+		overflow: auto">stock SetPlayerScoreEx(playerid, amount);
+{
+  L_PLAYER_INFO[playerid][L_SCORE] = amount;
+  SetPlayerScore(playerid, amount); //We must do this too because we're gonna undefine the SetPlayerScore function later and hook it with our.
+  return 1;
+}
+
+/*Our function created.^^
+Hooking:*/
+
+#if defined _ALS_SetPlayerScore //If _ALS_SetPlayerScore is defined. Then:
+  #undef SetPlayerScore //If yes, it will undefine SetPlayerScore function.
+#else //Else if not defined
+#define _ALS_SetPlayerScore //If not defined, it will define _ALS_SetPlayerScore.
+#endif //As we started a PAWN function with '#if', it's necessary to use #endif or you'll get trouble with errors.
+
+/*SetPlayerScore is now undefined, we can define it to whatever we need :P. Even this:
+#define SetPlayerScore 0xFF0000
+But here, we must hook it, so we must define it to our function which we have created.*/
+#define SetPlayerScore SetPlayerScoreEx //As we have undefined SetPlayerScore, inorder to hook it, we must define it to the stock function which we created.</pre>
+</div>We have successfully hooked a function and can use it!<br>
+<br>
+Example:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 114px;
+		text-align: left;
+		overflow: auto">public OnPlayerSpawn(playerid)
+{
+  SetPlayerScore(playerid, amount);
+  //This do sets the original score as well as the server sided score to 50.
+  return 1;
+}</pre>
+</div>
+We have done with hooking functions.<br>
+<br>
+<u><b><font color="RoyalBlue"><font size="3">Hooking Callbacks</font></font></b></u><br>
+<br>
+This is also almost same as hooking callbacks, though it needs some more stuffs to do too. Lets hook OnPlayerSpawn.<br>
+<br>
+To hook on callbacks, we don't need to create a stock/function for it. While hooking OnPlayerSpawn or any original SAMP callback, we must hook and create a callback inside the callback which needs to get hooked.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">public OnPlayerSpawn(playerid)
+{
+ //This callback is called when a player spawns.
+  return 1;
+}</pre>
+</div>Now, lets hook it. For example, we need to add one more parameter too. Here, lets choose a weaponid parameter which must be like this:<br>
+'public OnPlayerSpawn(playerid, weaponid)'<br>
+<br>
+First, we must create another callback to hook with, like how we created a function to hook.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 194px;
+		text-align: left;
+		overflow: auto">public OnPlayerSpawn(playerid)
+{
+  //As we want to get the weaponid as a parameter on spawn callback, let's create a variable to get it.
+  new weaponid; //Created a variable to get player's weapon.
+  weaponid = GetPlayerWeapon(playerid);
+   //To create a callback, we use CallLocalFunction. For more explanation about CallLocalFunction, go to wiki.sa-mp.com/wiki/CallLocalFunction
+   CallLocalFunction("L_OnPlayerSpawn", "id", playerid, weaponid); 
+  /*"id" are the formats used. 'i' and 'd' stands for the playerid and weaponid as those are integers/number. 'i' and 'd' both, stands same though.
+It's done with creating a callback.*/
+   return 1; //Returning the callback.
+} //Closing brackets.</pre>
+</div>
+Just like we hooked a function using defines, we could hook the callback too.<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 418px;
+		text-align: left;
+		overflow: auto">public OnPlayerSpawn(playerid)
+{
+  new weaponid;
+  weaponid = GetPlayerWeapon(playerid);
+  CallLocalFunction("L_OnPlayerSpawn", "id", playerid, weaponid);
+}
+
+/*This was those callback and calls for the original callback we done. Now lets hook it.
+Same like functions, we do use _ALS_ defining here.
+In here, it's used that if _ALS_(callback name) is defined, we will undefine the callback and if it isn't defined, we'll define the _ALS_(callback name).
+And then hook the callback.
+*/
+
+#if defined _ALS_OnPlayerSpawn //If _ALS_OnPlayerSpawn is defined:
+  #undef OnPlayerSpawn //If defined, it will undefine OnPlayerSpawn.
+#else //Else if not:
+#define _ALS_OnPlayerSpawn //If not, we'll define _ALS_OnPlayerSpawn.
+#endif //As we started a PAWN function '#if', it's necessary to use #endif or you'll get troubled.
+
+//As the callback 'OnPlayerSpawn' is undefined now, we can define it to whatever but here we are hooking it. So define it to our callback created, 'L_OnPlayerSpawn'.
+#define OnPlayerSpawn L_OnPlayerSpawn
+
+//Even though we hooked it, we must forward the callback too inorder to get it used.
+
+forward L_OnPlayerSpawn(playerid, weaponid); //We must forward the callback which created itself.</pre>
+</div>
+We can now use it as 'public OnPlayerSpawn(playerid, weaponid);'<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 146px;
+		text-align: left;
+		overflow: auto">public OnPlayerSpawn(playerid, weaponid);
+{
+  new str[128];
+  SetPlayerScore(playerid, amount); //Sets the server sided score too as we have hooked.
+   format(str, sizeof(str), "You are using %d weaponid.", weaponid);
+   SendClientMessage(playerid, 0xFF0000, str);
+   return 1;
+}</pre>
+</div>
+We have done with learning how to hook functions and callbacks in a manual way.<b>If you didn't understand any part of the tutorial, you can post it here and I'll explain more better.</b><br>
+<br>
+<u><b><font color="blue"><font size="5">Examples</font></font></b></u><br>
+<br>
+Some examples:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">public OnFilterScriptInit()
+{
+  SetTimer("Loopplayers", 1000, true);
+  CallLocalFunction("L_OnFilterScriptInit", "");
+   return 1;
+}
+
+forward Loopplayers();
+public Loopplayers()
+{
+  for(new i = 0; i&lt; MAX_PLAYERS; i++)
+  {
+    if(IsPlayerConnected(i))
+    {
+      if(GetPlayerHealth(i) &gt;= 101)
+      {
+        SetPlayerHealth(i, 100);
+      }
+    }
+  }
+  return 1;
+}
+
+#if defined _ALS_OnFilterScriptInit
+  #undef OnFilterScriptInit
+#else
+#define _ALS_OnFilterScriptInit
+#endif
+
+#define OnFilterScriptInit L_OnFilterScriptInit
+
+forward L_OnFilterScriptInit();</pre>
+</div>
+Example 2<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">new lhp[MAX_PLAYERS];
+stock SetPlayerHp(playerid, amount)
+{
+  lhp[playerid] = amount;
+  SetPlayerHealth(playerid, amount);
+   return 1;
+}
+
+
+#if defined _ALS_SetPlayerHealth
+  #undef SetPlayerHealth
+#else
+#define _ALS_SetPlayerHealth
+#endif
+#define SetPlayerHealth SetPlayerHp
+
+public OnFilterScriptInit()
+{
+  SetTimer("Detecthp", 1000, true);
+  CallLocalFunction("L_OnFilterScriptInit", "");
+   return 1;
+}
+forward Detecthp();
+public Detecthp()
+{
+  for(new i = 0; i&lt; MAX_PLAYERS; i++)
+  {
+    if(GetPlayerHealth(i) != lhp[i])
+    {
+      new str[128];
+      new LName[MAX_PLAYER_NAME];
+      GetPlayerName(playerid, Lname, sizeof(Lname));
+      format(str, sizeof(str), "%s has been banned from the server. (Reason:Health hack)", Lname);
+      Ban(playerid);
+     }
+  }
+  return 1;
+}
+
+#if defined _ALS_OnFilterScriptInit
+  #undef OnFilterScriptInit
+#else
+#define _ALS_OnFilterScriptInit
+#endif
+#define OnFilterScriptInit L_OnFilterScriptInit
+
+forward L_OnFilterScriptInit();</pre>
+</div>
+Doubts, questions or anything related to this tutorial can be posted here. <br>
+<img alt="" border="0" class="inlineimg" src="./[Tutorial] How to hook Functions and Callbacks._files/smile.png" title="Smiley"><br>
+<br>
+-<b>Lordz™</b>.</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+what does _ALS_ means<img alt="" border="0" class="inlineimg" src="./[Tutorial] How to hook Functions and Callbacks._files/confused.gif" title="Huh?">
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2290563">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=181627" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=392061&amp;replyto=2290563" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2291297"></a>
+<div class="post classic " style="" id="post_2291297">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=158660"><img src="./[Tutorial] How to hook Functions and Callbacks._files/158660.png" alt="" width="55" height="49"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=158660">Lordzy</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 2,698<br>
+	Threads: 37<br>
+	Joined: Mar 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=158660"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=392061&amp;pid=2291297#pid2291297" title="Re: How to hook Functions and Callbacks.">#14</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 14 by Lordzy" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">27.12.2012, 03:14 <span class="post_edit" id="edited_by_2291297"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2291297">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>dr.lozer</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2290563#pid2290563" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] How to hook Functions and Callbacks._files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">what does _ALS_ means<img alt="" border="0" class="inlineimg" src="./[Tutorial] How to hook Functions and Callbacks._files/confused.gif" title="Huh?"></div>
+</td>
+</tr>
+</tbody></table>
+</div>'_ALS_' is a prefix used for hooking. It wasn't introduced at very beginning but then was inorder to hook functions and callbacks.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2291297">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=158660" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=392061&amp;replyto=2291297" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2291610"></a>
+<div class="post classic " style="" id="post_2291610">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=175038"><img src="./[Tutorial] How to hook Functions and Callbacks._files/175038.png" alt="" width="55" height="52"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=175038">Windrush</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 638<br>
+	Threads: 117<br>
+	Joined: Aug 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=175038"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=392061&amp;pid=2291610#pid2291610" title="Re: How to hook Functions and Callbacks.">#15</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 15 by Windrush" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">27.12.2012, 10:03 <span class="post_edit" id="edited_by_2291610"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2291610">
+		Tnx lol
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2291610">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=175038" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=392061&amp;replyto=2291610" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3954068"></a>
+<div class="post classic " style="" id="post_3954068">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=282620"><img src="./[Tutorial] How to hook Functions and Callbacks._files/282620.png" alt="" width="41" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=282620">Eoussama</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><img src="./[Tutorial] How to hook Functions and Callbacks._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,076<br>
+	Threads: 70<br>
+	Joined: Jul 2016
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=282620"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=392061&amp;pid=3954068#pid3954068" title="Re: How to hook Functions and Callbacks.">#16</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 16 by Eoussama" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">11.11.2017, 19:26 <span class="post_edit" id="edited_by_3954068"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3954068">
+		I got too used so y_hooks that I forgot the origins, nice tutorial, that was an amazing reminder.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3954068">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=282620" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=392061&amp;replyto=3954068" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic -->
+	</div>
+</div>
+	
+			<div class="tfoot row">
+				<div class="col-sm-6">
+					<strong>« <a href="https://sampforum.blast.hk/showthread.php?tid=392061&amp;action=nextoldest">Next Oldest</a> | <a href="https://sampforum.blast.hk/showthread.php?tid=392061&amp;action=nextnewest">Next Newest</a> »</strong>
+				</div>
+				<div class="col-sm-6"><!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://sampforum.blast.hk/search.php" method="post">
+			<input type="hidden" name="action" value="thread">
+			<input type="hidden" name="tid" value="392061">
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == &#39;Enter Keywords&#39;) { this.value = &#39;&#39;; }" onblur="if(this.value==&#39;&#39;) { this.value=&#39;Enter Keywords&#39;; }" class="textbox" size="25">
+			<input type="submit" class="button" value="Search Thread">
+		</form>
+	</div>
+<!-- end: showthread_search --></div>
+			</div>
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	
+	
+	
+	<br>
+	<div class="float_left">
+		<ul class="thread_tools">
+			<!-- start: showthread_printthread -->
+<li class="printable"><a href="https://sampforum.blast.hk/printthread.php?tid=392061">View a Printable Version</a></li>
+<!-- end: showthread_printthread -->
+			
+			
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://sampforum.blast.hk/forumdisplay.php" method="get">
+<span class="smalltext">Forum Jump:</span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="3"> SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="74">-- News and Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13">-- General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="16">-- Client Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20">-- Bug Reports</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21">-- Screenshots and Videos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6"> SA-MP Server</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="19">-- Server Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22">-- Server Advertisements</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="8"> SA-MP Scripting and Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12">-- Scripting Help</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="70" selected="selected">---- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="84">---- Discussion</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="89">---- Help Archive</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="71">-- Gamemode Scripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="17">-- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="83">---- Includes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="82">---- Tools and Files </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="64">---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="18">-- Plugin Development</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="92"> SA-MP DL Edition</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="90">-- SA-MP 0.3.DL</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="94">---- Model Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="7"> Other</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23">-- Everything and Nothing</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9"> Non-English</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33">-- Languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31">---- Nederlands/Dutch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="76">------ Scripting Showroom en Discussie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="87">------ Off topic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29">---- Español/Spanish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="59">------ Lanzamientos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30">---- Français/French</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="81">------ Showroom</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32">---- Русский/Russian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="66">------ Релизы/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34">---- Português/Portuguese</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56">------ Lançamentos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40">---- Română/Romanian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="77">------ Salonul Scripturilor</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="88">---- Archive</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear">
+	<!-- start: showthread_usersbrowsing -->
+<br>
+<span class="smalltext">Users browsing this thread: 1 Guest(s)</span>
+<br>
+<!-- end: showthread_usersbrowsing -->
+	<!-- start: footer -->
+<div style="clear:both"><div style="padding-top: 10px"><!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=8">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav --></div></div>
+</main>
+
+<div class="blankspace"></div>
+
+<footer id="footer">
+	<div class="container">
+    <div class="row">
+		
+        <!--<div class="col-sm-4 foot">
+			<h3>About Our Community</h3>
+			<p>Discuss about various topics in our community and have fun while doing so. Welcome to SA-MP Forums Archive</p>
+			
+		</div>		
+		
+
+		<div class="col-sm-4 foot">
+			<h3>Quick Links</h3>
+			<p>
+
+ 				<a href="https://sampforum.blast.hk" class="btn btn-success" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Forum Home"><i class="fa fa-home"></i></a>
+				
+				<a href="https://sampforum.blast.hk/archive/index.php?thread-392061.html" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Lite (Archive) Mode"><i class="fa fa-archive"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Become a Fan"><i class="fa fa-facebook-square"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-info" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Follow Us"><i class="fa fa-twitter"></i></a>
+				
+				<a href="https://sampforum.blast.hk/misc.php?action=syndication" class="btn btn-warning" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="RSS Syndication"><i class="fa fa-rss"></i></a>
+				<br/>
+				<a href="misc.php?action=markread&amp;my_post_key=2220ae0a21c853e6459922e7a63ded4d" class="btn btn-danger" style="color: #fff; margin-top:10px" data-toggle="tooltip" data-placement="bottom" data-original-title="Mark all forums read"><i class="fa fa-book"></i> Mark all forums read</a><br /><br />
+				
+				
+				</p>
+
+		</div>
+		
+		<div class="col-sm-4 foot">
+			
+			 <h3>Reach Us</h3>
+			 
+<p><a href="contact.php" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Contact Us"><i class="fa fa-envelope"></i> Contact Us</a>&nbsp;
+			
+			<a href="showteam.php" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Meet Our Team"><i class="fa fa-users"></i> Forum Team</a></p>
+		</div>-->
+		
+		
+		
+		<!-- The following piece of code allows MyBB to run scheduled tasks. DO NOT REMOVE --><!-- End task image code -->
+		</div>
+	
+	</div>
+
+	
+<div id="copyright">
+	<div class="container">
+			<div class="pull-right"><!-- start: footer_languageselect -->
+<div class="language">
+<form method="POST" action="https://sampforum.blast.hk/showthread.php" id="lang_select">
+	<input type="hidden" name="tid" value="392061">
+
+	<input type="hidden" name="my_post_key" value="2220ae0a21c853e6459922e7a63ded4d">
+	<select name="language" onchange="MyBB.changeLanguage();">
+		<optgroup label="Quick Language Select">
+			<!-- start: footer_languageselect_option -->
+<option value="english" selected="selected">&nbsp;&nbsp;&nbsp;English (American)</option>
+<!-- end: footer_languageselect_option --><!-- start: footer_languageselect_option -->
+<option value="russian">&nbsp;&nbsp;&nbsp;Russian</option>
+<!-- end: footer_languageselect_option -->
+		</optgroup>
+	</select>
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_languageselect --></div>
+			<div class="pull-left">
+				<!-- MyBB is free software developed and maintained by a volunteer community.
+					It would be much appreciated by the MyBB Group if you left the full copyright and "powered by" notice intact,
+					to show your support for MyBB.  If you choose to remove or modify the copyright below,
+					you may be refused support on the MyBB Community Forums.
+
+					This is free software, support us and we'll support you. -->
+				Powered By <a href="http://www.mybb.com/" target="_blank" rel="noopener" style="color: #fff;">MyBB</a>. <a href="https://eree.in/" title="EREE" target="_blank" rel="noopener" style="color: #fff;">Crafted by EREE</a> and <a href="https://forum.androidbg.com/" title="AndroidBG" target="_blank" rel="noopener" style="color: #fff;">Android BG</a>. Also powered by <a href="https://www.blast.hk/"><b>blast.hk</b></a><!-- End powered by -->
+				
+			</div>
+	</div>
+
+</div>
+
+</footer>
+
+<!-- Fix for MentionMe popup window position -->
+<script type="text/javascript">
+	var MentionMe = (function(m) {
+	m.customSCEditorContainerOffset = {
+		left: 0,
+		top: 2,
+	};
+
+	return m;
+})(MentionMe || {});
+</script>
+<!-- End Fix for MentionMe popup window position -->
+<!-- end: footer -->
+	<script type="text/javascript">
+		var thread_deleted = "0";
+		if(thread_deleted == "1")
+		{
+			$("#quick_reply_form, .new_reply_button, .thread_tools, .inline_rating").hide();
+			$("#moderator_options_selector option.option_mirage").attr("disabled","disabled");
+		}
+	</script>
+
+
+<!-- end: showthread --><script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>

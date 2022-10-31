@@ -1,0 +1,106 @@
+.threadbit_rating > div {
+ width:90px;
+ text-align:center;
+ margin:0 auto;
+}
+
+.star_rating_container {
+  display:inline-block;
+  vertical-align:middle;
+  margin-right:6px;
+  position:relative;
+  top:0px;
+}
+.star_rating,
+.star_rating li a:hover,
+.star_rating .current_rating {
+ background: url(../../../images/star_rating.png) left -1000px repeat-x;
+ vertical-align: middle;
+}
+
+.star_rating {
+ position: relative;
+ width:80px;
+ height:16px;
+ overflow: hidden;
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ background-position: left top;
+}
+
+
+.star_rating li {
+ display: inline;
+}
+
+.star_rating li a,
+.star_rating .current_rating {
+ position: absolute;
+ text-indent: -1000px;
+ height: 16px;
+ line-height: 16px;
+ outline: none;
+ overflow: hidden;
+ border: none;
+ top:0;
+ left:0;
+}
+
+.star_rating_notrated li a:hover {
+ background-position: left bottom;
+}
+
+.star_rating li a.one_star {
+ width:20%;
+ z-index:6;
+}
+
+.star_rating li a.two_stars {
+ width:40%;
+ z-index:5;
+}
+
+.star_rating li a.three_stars {
+ width:60%;
+ z-index:4;
+}
+
+.star_rating li a.four_stars {
+ width:80%;
+ z-index:3;
+}
+
+.star_rating li a.five_stars {
+ width:100%;
+ z-index:2;
+}
+
+.star_rating .current_rating {
+ z-index:1;
+ background-position: left center;
+}
+
+.star_rating_success,
+.success_message {
+ color: #00b200;
+ font-weight: bold;
+ font-size: 10px;
+ margin-bottom: 10px;
+}
+
+.inline_rating {
+ background: url(../../../images/star_rating.png) left -1000px repeat-x;
+ float: left;
+ vertical-align: middle;
+ padding-right: 5px;
+}
+		
+		
+		
+		
+		
+		
+		
+		
+		

@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0049)https://sampwiki.blast.hk/wiki/PAWN_for_Begginers -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="keywords" content="PAWN for Beginners,Debug Guide,Main Page,PAWN for Begginers,PAWN tutorial,Scripting Basics,Server Plugins,Scripting Callbacks,Scripting Functions,Tutorials">
+<link rel="shortcut icon" href="https://sampwiki.blast.hk/favicon.ico">
+		<title>PAWN for Beginners - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/wroot/skins/monobook/main.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="./PAWN for Beginners - SA-MP Wiki_files/commonPrint.css">
+		<!--[if lt IE 5.5000]><style type="text/css">@import "/wroot/skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "/wroot/skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "/wroot/skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "/wroot/skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="/wroot/skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '/wroot/skins';</script>
+		<script type="text/javascript" src="./PAWN for Beginners - SA-MP Wiki_files/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="./PAWN for Beginners - SA-MP Wiki_files/index.php"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/wroot/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wroot/index.php?title=MediaWiki:Monobook.css&action=raw&ctype=text/css&smaxage=18000";
+@import "/wroot/index.php?title=-&action=raw&gen=css&maxage=18000";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-105570047-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-105570047-3');
+</script><style>undefined</style><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./PAWN for Beginners - SA-MP Wiki_files/css2"></head>
+<body class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">PAWN for Beginners</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub">(Redirected from <a href="https://sampwiki.blast.hk/wroot/index.php?title=PAWN_for_Begginers&amp;redirect=no" title="PAWN for Begginers">PAWN for Begginers</a>)</div>
+									<div id="jump-to-nav">Jump to: <a href="https://sampwiki.blast.hk/wiki/PAWN_for_Begginers#column-one">navigation</a>, <a href="https://sampwiki.blast.hk/wiki/PAWN_for_Begginers#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="https://sampwiki.blast.hk/wiki/Main_Page" title="Main Page">Main Page</a> | <a href="https://sampwiki.blast.hk/wiki/Category:Scripting_Functions" title="Category:Scripting Functions">Scripting Functions</a> | <a href="https://sampwiki.blast.hk/wiki/Category:Scripting_Callbacks" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="https://sampwiki.blast.hk/wiki/Scripting_Basics" title="Scripting Basics">Scripting Basics</a> | <a href="https://sampwiki.blast.hk/wiki/Server_Plugins" title="Server Plugins">Server Plugins</a> | <a href="https://sampwiki.blast.hk/wiki/Category:Tutorials" title="Category:Tutorials">Tutorials</a></div></div><br>
+<p><br>
+</p>
+<div class="thumb tright"><div style="width:192px;"><a href="https://sampwiki.blast.hk/wroot/index.php?title=Special:Upload&amp;wpDestFile=Sshot-1.png" class="new" title="Image:Sshot-1.png">Image:Sshot-1.png</a>  <div class="thumbcaption">The 'samp folder.</div></div></div>
+<p>Welcome to your very first tutorial about <b>PAWN Scripting Language</b> and <b>PAWNO Program</b>. This tutorial is designed to help beginners (newbies, noobs) to understand how PAWN works and how can you create a simple Server Script. When you finish this tutorial, you'll have a fully-functional Deathmatch script. Before starting, be sure you have this material:
+</p>
+<ul><li>SA-MP Server installed
+</li><li>Functional GTA:SA US/EU game copy
+</li><li>PAWNO Program (pawno.exe)
+</li><li>All this stuff working correctly on the GTA:SA Folder.
+</li></ul>
+<p>I recommend you create a Folder inside your GTA:SA Root folder with the name 'samp' and put all the material there. This will make easier the lesson as I use the following configuration: \SA Root\samp\ and all the other Folders that are in there (gamemodes, filterscripts, pawno, scriptfiles). So, you're equipped, let's begin.
+</p>
+<table id="toc" class="toc" summary="Contents"><tbody><tr><td><div id="toctitle"><h2>Contents</h2> <span class="toctoggle">[<a id="togglelink" class="internal" href="javascript:toggleToc()">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1"><a href="https://sampwiki.blast.hk/wiki/PAWN_for_Begginers#What_is_PAWN_and_PAWNO.3F"><span class="tocnumber">1</span> <span class="toctext">What is PAWN and PAWNO?</span></a></li>
+<li class="toclevel-1"><a href="https://sampwiki.blast.hk/wiki/PAWN_for_Begginers#Starting"><span class="tocnumber">2</span> <span class="toctext">Starting</span></a></li>
+<li class="toclevel-1"><a href="https://sampwiki.blast.hk/wiki/PAWN_for_Begginers#The_classes_and_spawnpoints"><span class="tocnumber">3</span> <span class="toctext">The classes and spawnpoints</span></a></li>
+<li class="toclevel-1"><a href="https://sampwiki.blast.hk/wiki/PAWN_for_Begginers#Introduction_on_modifying_more_Callbacks"><span class="tocnumber">4</span> <span class="toctext">Introduction on modifying more Callbacks</span></a>
+<ul>
+<li class="toclevel-2"><a href="https://sampwiki.blast.hk/wiki/PAWN_for_Begginers#Vehicle_spawns"><span class="tocnumber">4.1</span> <span class="toctext">Vehicle spawns</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="https://sampwiki.blast.hk/wiki/PAWN_for_Begginers#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</td></tr></tbody></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="What_is_PAWN_and_PAWNO.3F"></a><h2>What is PAWN and PAWNO?</h2>
+<p>According to Wikipedia, Pawn is a programming language that is embedded into other programs, for example, Half-Life or Quake, in our case, SA-MP. CompuPhase SMALL is a simple, typeless, 32-bit extension language with a C-like syntax. It is designed to be useful as an embedded systems programming language and is distributed under a liberal zLib/libpng license. This language is useful as a safer environment within or alongside the C programming language, for instance as a scripting language in games programming or on resource-limited systems. Now, however, it has been renamed to PAWN.
+</p><p>Now that we know what is PAWN, we can continue with <b>PAWNO</b>. PAWNO is the program used to code and write PAWN code. It's a simple IDE made to edit PAWN files. You can still use other IDE such as Notepad++, Sublime Text 2 or 3, Visual Basic, so on. You just need to know how to setup custom compiler and that's it. See below to setup your Notepad++ or Sublime Text to edit and compile PAWN scripts.
+</p>
+<ul><li> <a href="https://sampforum.blast.hk/showthread.php?tid=174046" class="external text" title="https://sampforum.blast.hk/showthread.php?tid=174046" rel="nofollow">PAWN for SA-MP in Notepad++</a> by Slice
+</li><li> <a href="https://sampforum.blast.hk/showthread.php?tid=445985" class="external text" title="https://sampforum.blast.hk/showthread.php?tid=445985" rel="nofollow">PAWN for SA-MP in Sublime Text</a> by Macluawn
+</li></ul>
+<a name="Starting"></a><h2>Starting</h2>
+<div class="thumb tright"><div style="width:212px;"><a href="https://sampwiki.blast.hk/wroot/index.php?title=Special:Upload&amp;wpDestFile=Sshot-2.jpg" class="new" title="Image:Sshot-2.jpg">Image:Sshot-2.jpg</a>  <div class="thumbcaption">Your first PAWNO screen.</div></div></div>
+<p>Go to your SA root folder, and search your brand-new folder, maybe called 'samp' or other thing. You'll see some .exes, some text files and some folders. Go right to the 'pawno' folder. Open pawno.exe, then click new on the toolbar. Yep. Your first SA-MP server script. 
+Of course the server can work with this 'blank' script, but can you imagine a server full of unarmed CJ's running everywhere? That's not the kind of server we want. We want something with a lot of spawnpoints, some commands, multiple player models and deathly weapons. 
+We need to code. We'll start coding in PAWN language.
+</p>
+<a name="The_classes_and_spawnpoints"></a><h2>The classes and spawnpoints</h2>
+<p>First we're gonna talk about the classes. The classes are how the Game or server call every player model. So, if you want to know, CJ is class 0. You can find the classes in peds.ide, but there's a better way to find them, using SA-MP Debug. Run debug and start changing classes with F11 and F12. When you find your class, you can run or spawn a vehicle (see <a href="https://sampwiki.blast.hk/wiki/Debug_Guide" title="Debug Guide">Debug Guide</a> for more info) and go to your new class spawnpoint. Type /save in the chat prompt (accesible typing F6 or T) and that coordinates, player class, facing angle and other info will be saved in PAWN-ready format. To put a commentary to easily know what class or spawnpoint is it, type /save [comment]. Cool, isn't it?
+</p><p>You already set all your spawnpoints with their respective classes? Well, so let's continue. Go to your GTA:SA root and search for a file called 'savedpositions.txt'. Open it and you'll see your saved Spawnpoints in PAWN-ready format, and maybe with a commentary.
+Go to pawno folder and execute pawno.exe. Search for a block of words like this one:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://sampwiki.blast.hk/wiki/OnGameModeInit"><span style="color: #dc143c">OnGameModeInit</span></a><span style="color: #66cc66;">(</span><span style="color: #66cc66;">)</span>
+<span style="color: #66cc66;">{</span>
+	<span style="color: #808080; font-style: italic;">// Don't use these lines if it's a filterscript</span>
+	<a href="http://sampwiki.blast.hk/wiki/SetGameModeText"><span style="color: #006400;">SetGameModeText</span></a><span style="color: #66cc66;">(</span><span style="color: #b22222;">"Blank Script"</span><span style="color: #66cc66;">)</span>;
+	<a href="http://sampwiki.blast.hk/wiki/AddPlayerClass"><span style="color: #006400;">AddPlayerClass</span></a><span style="color: #66cc66;">(</span><span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">1958.3783</span>, <span style="color: #4169e1;">1343.1572</span>, <span style="color: #4169e1;">15.3746</span>, <span style="color: #4169e1;">269.1425</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">)</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">}</span></pre>
+<p>That's the OnGameModeInit callback. (See <a href="https://sampwiki.blast.hk/wiki/PAWN_tutorial#Introduction_to_functions_and_callbacks" title="PAWN tutorial">here</a> for more info about callbacks and functions) Now let's add our own spawnpoints, shall we?
+Delete that
+</p>
+<pre class="pawn"><a href="http://sampwiki.blast.hk/wiki/AddPlayerClass"><span style="color: #006400;">AddPlayerClass</span></a><span style="color: #66cc66;">(</span><span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">1958.3783</span>, <span style="color: #4169e1;">1343.1572</span>, <span style="color: #4169e1;">15.3746</span>, <span style="color: #4169e1;">269.1425</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">)</span>;</pre>
+<div class="thumb tleft"><div style="width:162px;"><a href="https://sampwiki.blast.hk/wroot/index.php?title=Special:Upload&amp;wpDestFile=Sshot-3.jpg" class="new" title="Image:Sshot-3.jpg">Image:Sshot-3.jpg</a>  <div class="thumbcaption">Example of 'savedpositions' file.</div></div></div>
+<p>And add yours, that may look the same but with different data. Now, let's try it! Save your PAWN file into \samp\gamemodes\ and then click the button inmediatly on the left of the blue arrow (This will compile .pwn files into .amx, readable for the server). Now go to your 'samp' folder and open 'server.cfg'; replace the gamemode line with 'gamemode [your .pwn file name]', save and close, now run 'samp-server.exe'. Go to SA-MP client and add to the favorites this IP: 127.0.0.1. This is your local testing IP. It should say Unnamed SA-MP 0.2.2 Server, and as Gamemode 'Blank Script'. That's ok for now. Now connect.
+Surprise! What can you see? That classical electric-stairs spawpoint. Doesn't matter, change your class and you'll see you'll spawn at your designated place. Now we'll start modding more Script parts to personalize the server.
+</p>
+<a name="Introduction_on_modifying_more_Callbacks"></a><h2>Introduction on modifying more Callbacks</h2>
+<p>The callbacks are sections of code run by the server, so if you want to show a big message on the screen when a player leaves, enters or gets killed you would put the code for that there. All the callbacks the game uses (except 2, but they are used by filterscripts, not gamemodes and are not covered here) are in your file, you cannot make up your own. Most of them appear as someones under do, but some (i.e. "OnPlayerCommandText", "OnPlayerRequestClass", "OnGameModeInit" and "main" (which is not strictly a callback and never has more than your game title) have other bits in already, either to make the game work or to show you what to do there. You may also use other, similar blocks (as we are about to) which look the same but are called functions, these have to be called by you yourself. <a href="https://sampwiki.blast.hk/wiki/PAWN_for_Begginers#References" title="PAWN for Begginers">1</a>
+</p><p>The basic server callbacks are these ones:
+</p>
+<pre class="pawn">main<span style="color: #66cc66;">(</span><span style="color: #66cc66;">)</span>
+<span style="color: #66cc66;">{</span>
+	<a href="http://sampwiki.blast.hk/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">(</span>!<span style="color: #b22222;">" -&gt; My script loaded! &lt;-"</span><span style="color: #66cc66;">)</span>;
+<span style="color: #66cc66;">}</span>
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://sampwiki.blast.hk/wiki/OnGameModeInit"><span style="color: #dc143c">OnGameModeInit</span></a><span style="color: #66cc66;">(</span><span style="color: #66cc66;">)</span>
+<span style="color: #66cc66;">{</span>
+	<span style="color: #808080; font-style: italic;">// Don't use these lines if it's a filterscript</span>
+	<a href="http://sampwiki.blast.hk/wiki/SetGameModeText"><span style="color: #006400;">SetGameModeText</span></a><span style="color: #66cc66;">(</span><span style="color: #b22222;">"Blank Script"</span><span style="color: #66cc66;">)</span>;
+	<a href="http://sampwiki.blast.hk/wiki/AddPlayerClass"><span style="color: #006400;">AddPlayerClass</span></a><span style="color: #66cc66;">(</span><span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">1958.3783</span>, <span style="color: #4169e1;">1343.1572</span>, <span style="color: #4169e1;">15.3746</span>, <span style="color: #4169e1;">269.1425</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">)</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">}</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://sampwiki.blast.hk/wiki/OnGameModeExit"><span style="color: #dc143c">OnGameModeExit</span></a><span style="color: #66cc66;">(</span><span style="color: #66cc66;">)</span>
+<span style="color: #66cc66;">{</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">}</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://sampwiki.blast.hk/wiki/OnPlayerRequestClass"><span style="color: #dc143c">OnPlayerRequestClass</span></a><span style="color: #66cc66;">(</span>playerid, classid<span style="color: #66cc66;">)</span>
+<span style="color: #66cc66;">{</span>
+	<a href="http://sampwiki.blast.hk/wiki/SetPlayerPos"><span style="color: #006400;">SetPlayerPos</span></a><span style="color: #66cc66;">(</span>playerid, <span style="color: #4169e1;">1958.3783</span>, <span style="color: #4169e1;">1343.1572</span>, <span style="color: #4169e1;">15.3746</span><span style="color: #66cc66;">)</span>;
+	<a href="http://sampwiki.blast.hk/wiki/SetPlayerCameraPos"><span style="color: #006400;">SetPlayerCameraPos</span></a><span style="color: #66cc66;">(</span>playerid, <span style="color: #4169e1;">1958.3783</span>, <span style="color: #4169e1;">1343.1572</span>, <span style="color: #4169e1;">15.3746</span><span style="color: #66cc66;">)</span>;
+	<a href="http://sampwiki.blast.hk/wiki/SetPlayerCameraLookAt"><span style="color: #006400;">SetPlayerCameraLookAt</span></a><span style="color: #66cc66;">(</span>playerid, <span style="color: #4169e1;">1958.3783</span>, <span style="color: #4169e1;">1343.1572</span>, <span style="color: #4169e1;">15.3746</span><span style="color: #66cc66;">)</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">}</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://sampwiki.blast.hk/wiki/OnPlayerRequestSpawn"><span style="color: #dc143c">OnPlayerRequestSpawn</span></a><span style="color: #66cc66;">(</span>playerid<span style="color: #66cc66;">)</span>
+<span style="color: #66cc66;">{</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">}</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://sampwiki.blast.hk/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">(</span>playerid<span style="color: #66cc66;">)</span>
+<span style="color: #66cc66;">{</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">}</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://sampwiki.blast.hk/wiki/OnPlayerDisconnect"><span style="color: #dc143c">OnPlayerDisconnect</span></a><span style="color: #66cc66;">(</span>playerid, reason<span style="color: #66cc66;">)</span>
+<span style="color: #66cc66;">{</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">}</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://sampwiki.blast.hk/wiki/OnPlayerSpawn"><span style="color: #dc143c">OnPlayerSpawn</span></a><span style="color: #66cc66;">(</span>playerid<span style="color: #66cc66;">)</span>
+<span style="color: #66cc66;">{</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">}</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://sampwiki.blast.hk/wiki/OnPlayerDeath"><span style="color: #dc143c">OnPlayerDeath</span></a><span style="color: #66cc66;">(</span>playerid, killerid, reason<span style="color: #66cc66;">)</span>
+<span style="color: #66cc66;">{</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">}</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://sampwiki.blast.hk/wiki/OnPlayerCommandText"><span style="color: #dc143c">OnPlayerCommandText</span></a><span style="color: #66cc66;">(</span>playerid, cmdtext<span style="color: #66cc66;">[</span><span style="color: #66cc66;">]</span><span style="color: #66cc66;">)</span>
+<span style="color: #66cc66;">{</span>
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">(</span><a href="http://sampwiki.blast.hk/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">(</span><span style="color: #b22222;">"/mycommand"</span>, cmdtext, true, <span style="color: #4169e1;">10</span><span style="color: #66cc66;">)</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">)</span>
+	<span style="color: #66cc66;">{</span>
+		<span style="color: #808080; font-style: italic;">// Do something here</span>
+		<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+	<span style="color: #66cc66;">}</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+<span style="color: #66cc66;">}</span></pre>
+<p>Every server script has modifyed that callbacks to make a fun-playable Server. We'll do the same now.
+</p>
+<a name="Vehicle_spawns"></a><h3>Vehicle spawns</h3>
+<p>Now let's add some vehicles. The vehicle spawn lines are put in the OnGameModeInit callback, aswell as the player classes spawnpoints, the Gamemode name and other stuff. We'll do that later. Most of the commands in PAWN do pretty much exactly as they're named, we want to add a vehicle so lets look for vehicle commands:
+</p>
+<pre class="pawn">CreateVehicle<span style="color: #66cc66;">(</span><span style="color: #66cc66;">)</span>;
+&nbsp;
+<a href="http://sampwiki.blast.hk/wiki/AddStaticVehicle"><span style="color: #006400;">AddStaticVehicle</span></a><span style="color: #66cc66;">(</span><span style="color: #66cc66;">)</span>;</pre>
+<p>If you click on either of these and look in the status bar (the bar at the bottom of the editor) you will see their syntax (what information/parameters you need to give them to work):
+</p>
+<pre>[a_samp.inc] native CreateVehicle(vehicletype, Float:x, Float:y, Float:z, Float:rotation, color1, color2, respawn_time);
+
+[a_samp.inc] native AddStaticVehicle(modelid, Float:spawn_x, Float:spawn_y, Float:spawn_z, Float:z_angle, color1, color2);
+</pre>
+<p>Now they both look equally as good, but this is where prior knowledge comes in, CreateVehicle only places one car ingame, AddStaticVehicle creates a vehicle spawn, so when the car is destroyed or desynched it will reappear back where you placed the spawn.  These need to be created at the start of the game so you would place this in your "<i><b>OnGameModeInit()</b></i>" callback.<br><br>
+</p>
+<div class="thumb tright"><div style="width:302px;"><a href="https://sampwiki.blast.hk/wiki/Image:Car_colors.jpg" class="internal" title="List of available car colors"><img src="./PAWN for Beginners - SA-MP Wiki_files/300px-Car_colors.jpg" alt="List of available car colors" width="300" height="100" longdesc="/wiki/Image:Car_colors.jpg"></a>  <div class="thumbcaption"><div class="magnify" style="float:right"><a href="https://sampwiki.blast.hk/wiki/Image:Car_colors.jpg" class="internal" title="Enlarge"><img src="./PAWN for Beginners - SA-MP Wiki_files/magnify-clip.png" width="15" height="11" alt="Enlarge"></a></div>List of available car colors</div></div></div>The modelid/vehicletype numbers can be found in your vehicles.ide file, the Floats are just non whole numbers, basically co-ordinates and angles, and the color numbers can be found in your carcols.dat file, look for the reference number for the color you want, so "<i><b>black</b></i>" is "<i><b>0</b></i>", "<i><b>taxi yellow</b></i>" is "<i><b>6</b></i>", "<i><b>currant blue poly</b></i>" is "<i><b>32</b></i>" etc, "<i><b>-1</b></i>" means random (from that car's default colors, found lower in the carcols.dat file).  If you want to get the position for a vehicle, go into debug mode, select your vehicle, get in and type "<i><b>/save</b></i>" then open up "<i><b>savedpositions.txt</b></i>" and copy the line.  If you want to spawn a vehicle in debug mode, type "<i><b>/v &lt;vehicleid&gt;</b></i>" ingame and that vehicle will spawn (vehicleid is taken again from vehicles.ide), or type "<i><b>/vsel</b></i>" to bring up the vehicle command screen.<br><br>
+<p>I got these co-ordinates:
+</p>
+<pre>2040.2279, 1344.4127, 11.0, 3.5436
+</pre>
+<p>Note: These are called floats,  11.0 is a float despite being whole, any whole number being used as a float must have a trailing "<i><b>.0</b></i>" to denote it as a float.  These numbers are in the english format of using a decimal point ("<i><b>.</b></i>"), commas are used to separate parameters.  Also remember the 4th number is angle, so if we now add the following line to the game mode in OnGameModeInit, recompile and test, we will get a bright pink infernus outside the casino which is the default spawn position for CJ.  Note: on a car which uses the secondary color (such as a cop car (id 596)) this would be a pink and blue car as that is the secondary color.
+</p>
+<pre class="pawn"><a href="http://sampwiki.blast.hk/wiki/AddStaticVehicle"><span style="color: #006400;">AddStaticVehicle</span></a><span style="color: #66cc66;">(</span><span style="color: #4169e1;">411</span>, <span style="color: #4169e1;">2040.2279</span>, <span style="color: #4169e1;">1344.4127</span>, <span style="color: #4169e1;">10.6719</span>, <span style="color: #4169e1;">3.5436</span>, <span style="color: #4169e1;">126</span>, <span style="color: #4169e1;">54</span><span style="color: #66cc66;">)</span>;</pre>
+<p>Now you can easily go about saving positions and creating as many cars as you want (up to an engine defined limit of 700 individual cars, 70 different types (models) of cars).  The spawns saved to the file will have "<i><b>-1, -1</b></i>" as the colors by default. <a href="https://sampwiki.blast.hk/wiki/PAWN_for_Begginers#References" title="PAWN for Begginers">2</a>
+</p>
+<a name="References"></a><h2>References</h2>
+<ol><li>Took from <a href="https://sampwiki.blast.hk/wiki/PAWN_tutorial" title="PAWN tutorial">PAWN tutorial</a> article. Go there for more info.
+</li></ol>
+
+<!-- Saved in parser cache with key wiki:pcache:idhash:4722-0!1!0!0!!en!2 and timestamp 20190415115905 -->
+<div class="printfooter">
+Retrieved from "<a href="https://sampwiki.blast.hk/wiki/PAWN_for_Beginners">https://sampwiki.blast.hk/wiki/PAWN_for_Beginners</a>"</div>
+			<div id="catlinks"><p class="catlinks"><a href="https://sampwiki.blast.hk/wroot/index.php?title=Special:Categories&amp;article=PAWN_for_Beginners" title="Special:Categories">Category</a>: <span dir="ltr"><a href="https://sampwiki.blast.hk/wiki/Category:Tutorials" title="Category:Tutorials">Tutorials</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="https://sampwiki.blast.hk/wiki/PAWN_for_Beginners" accesskey="c" title="View the content page [alt-c]">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="https://sampwiki.blast.hk/wroot/index.php?title=Talk:PAWN_for_Beginners&amp;action=edit" accesskey="t" title="Discussion about the content page [alt-t]">Discussion</a></li>
+				 
+				 
+		</ul>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				
+				
+				
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo" title="Main Page">
+		<a style="background-image: url(/wroot/skins/common/images/wikilogo.gif);" href="https://sampwiki.blast.hk/wiki/Main_Page" title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class="portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-mainpage"><a href="https://sampwiki.blast.hk/wiki/Main_Page" accesskey="z" title="Visit the Main Page [alt-z]">Main Page</a></li>
+				
+				
+				<li id="n-help1" title="SA-MP Forum"><a href="https://sampforum.blast.hk/">SA-MP Forum</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody"><style>
+td.gsc-search-button {
+	display: none;
+}
+table.gsc-search-box td.gsc-input {
+	padding-right: 0;
+}
+</style>
+<script async="" src="./PAWN for Beginners - SA-MP Wiki_files/f.txt"></script>
+<div class="gcse-searchbox-only"></div></div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				
+				
+
+<li id="t-specialpages"><a href="https://sampwiki.blast.hk/wiki/Special:Specialpages" accesskey="q" title="List of all special pages [alt-q]">Special pages</a></li>
+											</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="./PAWN for Beginners - SA-MP Wiki_files/poweredby_mediawiki_88x31.png" alt="MediaWiki"></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 13:05, 24 March 2017.</li>
+				<li id="viewcount">Powered by <b><a href="https://blast.hk/">BlastHack</a></b></li>
+				<li id="privacy"><a href="https://sampwiki.blast.hk/wiki/SA-MP_Wiki:Privacy_policy" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="https://sampwiki.blast.hk/wiki/SA-MP_Wiki:About" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="https://sampwiki.blast.hk/wiki/SA-MP_Wiki:General_disclaimer" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by kabumby in 0.01 secs. -->
+<script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>

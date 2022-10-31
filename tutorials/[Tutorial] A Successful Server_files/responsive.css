@@ -1,0 +1,285 @@
+@media only screen and (max-width: 768px) {
+	
+.responsive_hide {
+ display:none;
+}
+	
+header, main, .wrapper  { 
+ width: 99%;
+}
+
+header a[href*="index.php"] {
+ display:block;
+ margin:6px 0px;
+}
+
+.menu ul.top_links  {
+ text-align:left;
+ margin:4px 0px;
+}
+
+.menu ul li {
+ display:block;
+ margin:0px;
+ padding:6px 0px;
+}
+
+.menu ul li a {
+ padding-left:32px;
+}
+
+#search {
+ display:none;
+}
+
+#panel .lower ul.user_links { 
+ display:none;
+}
+
+#footer .upper .language, #footer .upper .theme, #footer .lower #current_time  {
+ display:none;
+}
+
+.tcat.rowbit > *:not(.forumbit_main):not(.forumbit_lastpost):not(.threadbit_main):not(.threadbit_lastpost){
+ display:none;
+}
+
+.rowbit {
+ display:block;
+}
+
+.rowbit > *, .rowbit > * [data-width], .threadbit_main[data-rate-thread="1"][data-width="60%"] {
+ width:auto;
+ text-align:left;
+}
+
+*[class*="trow"] > *[class*="bit_stats"] {
+ display:inline-block;
+ margin-right:4px;
+}
+
+*[class*="trow"] > *[class*="bit_stats"] a {
+ pointer-events: none;
+ cursor: default;
+ color: currentColor;
+}
+	
+*[class*="trow"] > .forumbit_posts {
+ margin-left:10px;
+}
+
+*[class*="trow"] > *[class*="bit_lastpost"]  {
+ display:block;
+ float:right;
+}
+
+*[class*="trow"] > *[class*="bit_lastpost"]  *, *[class*="trow"] > *[class*="bit_lastpost"]:not(.pmbit_date)  {
+ text-align:right;
+ font-size:0px;
+}
+
+*[class*="trow"] > *[class*="bit_lastpost"] br {
+ display:none;
+}
+
+*[class*="trow"] > *[class*="bit_lastpost"] a:first-child:before {
+ content: "" attr(data-lastpost-time) "";
+ font-size: 11px;
+ font-size: 0.7857rem;
+ display: inline-block;
+ position: relative;
+}
+
+.threadbit_modbit {
+ text-align:right;
+}
+
+.threadbit_modbit + [data-moderation="1"] {
+ display:inline;
+ float:right;
+ padding-right:4px;
+}
+
+.forumbit_lastpost {
+ float:right;
+}
+
+.forumbit_subforums, .forumbit_moderators, .forumbit_description, .threadbit_rating, .forumdisplay_sorting_options, .pagination > .pages, .thead_links a span {
+ display:none;
+}
+
+.threadbit_title {
+ margin-left:0px;
+}
+
+.threadbit_replies a{
+ margin-left:2px;
+}
+
+*[data-lang]:before {
+ content: "" attr(data-lang) ": ";
+ position:relative;
+ display:inline-block;
+ margin-right:4px;
+}
+
+
+.post.classic .post_author {
+ float:none;
+ margin:4px;
+ padding:6px;
+ width:auto;
+}
+
+.post.classic .post_content { 
+ width:auto;
+ float:none;
+}
+
+.post.classic .post_author div.author_statistics  {
+ display:none;
+}
+
+.post.classic .post_author div.author_avatar  {
+ float:left;
+}
+
+.post.classic .post_author div.author_information {
+ text-align:left;
+}
+
+.postbit_userstars, .postbit_groupimage, .postbit_usergroupimage {
+ display:none;
+}
+
+.post .post_author div.author_avatar img {
+ height:32px !important;
+ width:32px !important;
+}
+
+.post_controls .postbit_buttons[class*="float_"] {
+ float:none;
+ display:inline-block;
+}
+
+.post_controls .postbit_buttons a span {
+ padding-left:0;
+ width:20px;
+ top:-6px;
+ left:2px;
+ font-size:0;
+}
+
+.post_controls { 
+ text-align:center;
+}
+
+.post .post_author div.author_statistics { 
+ display:none;
+}
+
+#quickreply_e *[data-width="25%"] label + br{
+  display:none;
+}
+
+
+.member_profile_content > div:nth-child(2) {
+ padding-left:0px;
+}
+
+
+.member_profile_content > div:first-child  {
+ padding-right:0px;
+}
+
+.member_profile_header {
+ position:relative;
+}
+
+.member_profile_header .profile_avatar {
+ position:absolute;
+ top:6px;
+ right:6px;
+}
+
+.member_profile_header .profile_avatar img {
+ height:42px !Important;
+ width:42px !important;
+}
+
+div[class*="cp_nav"], *[class*="cp_nav"] + div {
+ float:none !important;
+ width:auto !important;
+ padding:0 !important;
+ margin:6px 0px !important;
+}
+
+
+table[data-width="100%"] {
+ width:100% !important;
+}
+
+.tcat *[class*="whosonlinebit_"] {
+ display:inline-block !important;
+ text-align:left;
+}
+
+.tcat .whosonlinebit_user:after {
+ content: " /";
+}
+
+.whosonlinebit_location {
+ float:right;
+}
+
+.tcat .memberlistbit_options {
+ display:none;
+}
+
+.memberlistbit_avatar  {
+ width:58px;
+}
+
+.memberlistbit_avatar img{
+ max-height:54px;
+ max-width:54px;
+}
+
+.memberlistbit_username  {
+ padding-left:60px;
+}
+
+
+*[class*="trow"] .memberlistbit_main {
+ padding-bottom:30px;
+}
+
+.modal {
+ width:88%;
+}
+
+#footer ul.menu li:not(:last-child):not(:nth-child(3)) {
+ display:none;
+}
+
+	div.calendar_sidebar {
+		display:none;
+	}
+
+	div.calendar_container {
+    	padding-right: 0px;
+	}
+
+
+	.container {
+		padding-right: 0px;
+    	padding-left: 0px;
+	}
+
+	.thead {
+		padding: 10px 2px;
+	}
+	
+	
+}
+		

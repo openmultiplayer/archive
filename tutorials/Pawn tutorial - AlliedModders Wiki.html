@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://wiki.alliedmods.net/Pawn_tutorial -->
+<html class="client-js" lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Pawn tutorial - AlliedModders Wiki</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Pawn_tutorial","wgTitle":"Pawn tutorial","wgCurRevisionId":10748,"wgRevisionId":10748,"wgArticleId":1540,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Scripting (AMX Mod X)"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Pawn_tutorial","wgRelevantArticleId":1540,"wgRequestId":"Y1j1HYWx2nzAvWD8iY@wXAAAAQU","wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[]});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","site":"ready","user.options":"ready","user.tokens":"loading","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready","mediawiki.skinning.interface":"ready","skins.vector.styles":"ready"});mw.loader.implement("user.tokens@0jx6ij0",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});mw.loader.load(["mediawiki.page.startup","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.toc","mediawiki.searchSuggest","skins.vector.js"]);});</script>
+<link rel="stylesheet" href="./Pawn tutorial - AlliedModders Wiki_files/load.php">
+<script async="" src="./Pawn tutorial - AlliedModders Wiki_files/load(1).php"></script>
+<style>
+@media screen {
+	.tochidden,.toctoggle{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}.toctoggle{font-size:94%}}
+@media print {
+	.toc.tochidden,.toctoggle{display:none}}
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:0;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:#fff;cursor:pointer;border:1px solid #a2a9b1;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:#fff;cursor:pointer;border:1px solid #a2a9b1;padding:0;margin:0}.suggestions-result{color:#000;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#2a4b8d;color:#fff}.suggestions-special .special-label{color:#72777d;text-align:left}.suggestions-special .special-query{color:#000;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:#c8ccd1}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:#fff}.highlight{font-weight:bold}</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:#000;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:#fff}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;text-overflow:ellipsis;white-space:nowrap}</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="./Pawn tutorial - AlliedModders Wiki_files/load(2).php">
+<meta name="generator" content="MediaWiki 1.31.6">
+<link rel="shortcut icon" href="https://wiki.alliedmods.net/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="https://wiki.alliedmods.net/opensearch_desc.php" title="AlliedModders Wiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.alliedmods.net/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="AlliedModders Wiki Atom feed" href="https://wiki.alliedmods.net/index.php?title=Special:RecentChanges&amp;feed=atom">
+<!--[if lt IE 9]><script src="/load.php?debug=false&amp;lang=en&amp;modules=html5shiv&amp;only=scripts&amp;skin=vector&amp;sync=1"></script><![endif]-->
+<style>undefined</style><script src="./Pawn tutorial - AlliedModders Wiki_files/load(3).php"></script><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./Pawn tutorial - AlliedModders Wiki_files/css2"></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Pawn_tutorial rootpage-Pawn_tutorial skin-vector action-view">		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+			<div class="mw-indicators mw-body-content">
+</div>
+<h1 id="firstHeading" class="firstHeading" lang="en">Pawn tutorial</h1>			<div id="bodyContent" class="mw-body-content">
+				<div id="siteSub" class="noprint">From AlliedModders Wiki</div>				<div id="contentSub"></div>
+								<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="https://wiki.alliedmods.net/Pawn_tutorial#mw-head">navigation</a>, 					<a href="https://wiki.alliedmods.net/Pawn_tutorial#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p><code class="qmsg"><b>Note:</b> This guide is rather hardcoded to <a href="https://wiki.alliedmods.net/AMX_Mod_X" title="AMX Mod X">AMX Mod X</a>.  It needs to be mode generic.</code>
+</p><p>This guide is designed to give you a more in-depth overview of the basics of programming in <a href="https://wiki.alliedmods.net/Pawn" class="mw-redirect" title="Pawn">Pawn</a>.
+</p>
+<div id="toc" class="toc"><div class="toctitle" lang="en" dir="ltr"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a role="button" tabindex="0" class="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="https://wiki.alliedmods.net/Pawn_tutorial#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="https://wiki.alliedmods.net/Pawn_tutorial#Language_Paradigms"><span class="tocnumber">1.1</span> <span class="toctext">Language Paradigms</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="https://wiki.alliedmods.net/Pawn_tutorial#Implementation_Features"><span class="tocnumber">1.2</span> <span class="toctext">Implementation Features</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="https://wiki.alliedmods.net/Pawn_tutorial#License"><span class="tocnumber">1.3</span> <span class="toctext">License</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="https://wiki.alliedmods.net/Pawn_tutorial#Variables"><span class="tocnumber">2</span> <span class="toctext">Variables</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="https://wiki.alliedmods.net/Pawn_tutorial#Types"><span class="tocnumber">2.1</span> <span class="toctext">Types</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="https://wiki.alliedmods.net/Pawn_tutorial#Integers"><span class="tocnumber">2.1.1</span> <span class="toctext">Integers</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="https://wiki.alliedmods.net/Pawn_tutorial#Floats"><span class="tocnumber">2.1.2</span> <span class="toctext">Floats</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="https://wiki.alliedmods.net/Pawn_tutorial#Booleans"><span class="tocnumber">2.1.3</span> <span class="toctext">Booleans</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="https://wiki.alliedmods.net/Pawn_tutorial#Arrays"><span class="tocnumber">3</span> <span class="toctext">Arrays</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="https://wiki.alliedmods.net/Pawn_tutorial#Strings"><span class="tocnumber">4</span> <span class="toctext">Strings</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="https://wiki.alliedmods.net/Pawn_tutorial#Functions"><span class="tocnumber">5</span> <span class="toctext">Functions</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="https://wiki.alliedmods.net/Pawn_tutorial#Expressions"><span class="tocnumber">6</span> <span class="toctext">Expressions</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="https://wiki.alliedmods.net/Pawn_tutorial#Conditionals"><span class="tocnumber">7</span> <span class="toctext">Conditionals</span></a>
+<ul>
+<li class="toclevel-2 tocsection-15"><a href="https://wiki.alliedmods.net/Pawn_tutorial#If_Statements"><span class="tocnumber">7.1</span> <span class="toctext">If Statements</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="https://wiki.alliedmods.net/Pawn_tutorial#Switch_Statements"><span class="tocnumber">7.2</span> <span class="toctext">Switch Statements</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="https://wiki.alliedmods.net/Pawn_tutorial#Looping"><span class="tocnumber">8</span> <span class="toctext">Looping</span></a>
+<ul>
+<li class="toclevel-2 tocsection-18"><a href="https://wiki.alliedmods.net/Pawn_tutorial#For_Loops"><span class="tocnumber">8.1</span> <span class="toctext">For Loops</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="https://wiki.alliedmods.net/Pawn_tutorial#While_Loops"><span class="tocnumber">8.2</span> <span class="toctext">While Loops</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="https://wiki.alliedmods.net/Pawn_tutorial#Two_Dimensional_Arrays"><span class="tocnumber">8.3</span> <span class="toctext">Two Dimensional Arrays</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-21"><a href="https://wiki.alliedmods.net/Pawn_tutorial#Compiler_Pre-processor_Directives"><span class="tocnumber">9</span> <span class="toctext">Compiler Pre-processor Directives</span></a></li>
+<li class="toclevel-1 tocsection-22"><a href="https://wiki.alliedmods.net/Pawn_tutorial#Conclusion"><span class="tocnumber">10</span> <span class="toctext">Conclusion</span></a></li>
+<li class="toclevel-1 tocsection-23"><a href="https://wiki.alliedmods.net/Pawn_tutorial#External_Links"><span class="tocnumber">11</span> <span class="toctext">External Links</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction">Introduction</span></h1>
+<p>Pawn is an embeddable, (almost) typeless, easy to use scripting language that is compiled for a virtual machine. <a href="https://wiki.alliedmods.net/AMX_Mod_X" title="AMX Mod X">AMX Mod X</a> uses Pawn to route scripting functions to the Half-Life engine, using the Pawn <a href="https://wiki.alliedmods.net/index.php?title=Virtual_Machine&amp;action=edit&amp;redlink=1" class="new" title="Virtual Machine (page does not exist)">Virtual Machine</a> and <a href="https://wiki.alliedmods.net/Metamod" title="Metamod">Metamod</a> (<a href="https://wiki.alliedmods.net/Pawn" class="mw-redirect" title="Pawn">Pawn</a> is written in C, Metamod is written in C++). While you write Pawn scripts in a text editor, the scripts must be compiled with a "Compiler", which produces a binary for AMX Mod X. The AMX Mod X team distributes a specially modified Pawn compiler.
+</p><p>Programming scripts in Pawn is relatively easy, and does not have concepts in other languages that are unnecessary for general use, such as pointers, vectors, structs, classes, allocation, et cetera. 
+</p>
+<h2><span class="mw-headline" id="Language_Paradigms">Language Paradigms</span></h2>
+<p>Pawn was originally named "<a href="https://wiki.alliedmods.net/Small" title="Small">Small</a>" to emphasize the size of the language specification.  The language sacrifices many features found in modern languages to achieve simplicity and speed, which are required for embedded uses.
+</p>
+<ul><li>No typing
+<ul><li>Pawn only has one data type -- the "<a href="https://wiki.alliedmods.net/index.php?title=Cell_(Pawn)&amp;action=edit&amp;redlink=1" class="new" title="Cell (Pawn) (page does not exist)">cell</a>".  It is the size of the processor's integral pointer (4 bytes for 32bit processor, 8 bytes for 64bit processors).  This has two major implications - Pawn bytecode is processor specific, and pointers can fit inside a cell.</li>
+<li><a href="https://wiki.alliedmods.net/index.php?title=Tagging_(Pawn)&amp;action=edit&amp;redlink=1" class="new" title="Tagging (Pawn) (page does not exist)">Tagging</a> - Pawn lets you create weakly statically typed "tags", which can be associated with variables for primitive operator overloading.  For example, Pawn has no concept of floating point numbers (only integers).  Instead, operators are overloaded with the Float: tag to redirect computation to new functions.  Tag-checking is only enforced as a warning.  If you're using SourcePawn (for SourceMod), there is actually a second type: String.  In a String, letters are stored as separate bytes... essentially having 4 characters stored in every cell.</li>
+<li>Since Pawn only has one datatype, it does not support structs, records, objects, or anything else.</li>
+<li>Pawn <i>does</i> support arrays of cells, which leads to C-style arrays for strings.</li></ul></li>
+<li>No garbage collection
+<ul><li>Pawn has no "heap" allocation built-in.  All variables are stored on the stack or in the data section.  Therefore, no garbage collection is necessary and memory leaks are not possible from the language specification alone.</li></ul></li>
+<li>Procedural
+<ul><li>Pawn is entirely comprised of single, non-nested subroutines.  There are no lambda functions, member functions, constructors, et cetera.  Functions can either be internal (within the script) or public (exposed to the VM by name, like C's "extern").</li></ul></li>
+<li>No thread-safety
+<ul><li>Pawn is targetted toward single-thread instances.</li></ul></li></ul>
+<h2><span class="mw-headline" id="Implementation_Features">Implementation Features</span></h2>
+<ul><li>Cross-platform compatible compiler, which outputs bytecode and debug browsing information.</li>
+<li>Cross-platform compatible Virtual Machine (VM), with support for debug browsing, halting/stopping execution, and interacting with scripts from C/C++ libraries.</li>
+<li>IA32 JIT Compiler for vastly increasing script execution time.</li></ul>
+<p>Because the footprints of the VM and JIT are so small, Pawn is ideal inside games which need a simple and highly fast event system, embedded devices or applications, and realtime systems.
+</p>
+<h2><span class="mw-headline" id="License">License</span></h2>
+<p>Pawn is licensed under the <a href="https://wiki.alliedmods.net/ZLib/libpng_License" title="ZLib/libpng License">ZLib/libpng_License</a> license.
+</p>
+<h1><span class="mw-headline" id="Variables">Variables</span></h1>
+<p>Variables are simple structures for holding data throughout a period of time in your script.
+</p>
+<h2><span class="mw-headline" id="Types">Types</span></h2>
+<p>Small has just three data types for declaring variables. The default variable type is a regular whole number, or integer. A variable name, for backwards compatibility, should be 19 characters or less, and MUST start with a letter. It can contain the symbols A-Z, a-z, 0-9, and the underscore ("_"). It is important to note that variable names are case sensitive - "myvar", "MyVaR", and "MYVAR" are three separate symbols. 
+</p>
+<h3><span class="mw-headline" id="Integers">Integers</span></h3>
+<p>The simplest data type in Pawn is an "integer".  Integers are whole numbers.  To declare a new integer variable, use the "new" operator like so:
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #007700;">new</span> a            <span style="color: #ff0000;">//Declare empty variable "a"</span>
+<span style="color: #007700;">new</span> b<span style="color: #000000;">=</span><span style="color: #0000dd;">5</span>          <span style="color: #ff0000;">//Declare variable "b" and set it to 5.</span>
+<span style="color: #007700;">new</span> c<span style="color: #000000;">=</span><span style="color: #0000dd;">5.0</span>        <span style="color: #ff0000;">//This is invalid, technically not a whole number!</span>
+<span style="color: #007700;">new</span> d<span style="color: #000000;">=</span><span style="color: #800080;">"hello"</span>    <span style="color: #ff0000;">//"hello" is not a number either, this is invalid.</span>
+&nbsp;
+<span style="color: #ff0000;">//You can also declare multiple variables on one line:</span>
+<span style="color: #007700;">new</span> e,f,g,h
+<span style="color: #007700;">new</span> x<span style="color: #000000;">=</span><span style="color: #0000dd;">7</span>, y<span style="color: #000000;">=</span><span style="color: #0000dd;">3</span>
+<span style="color: #007700;">new</span> z <span style="color: #000000;">=</span> <span style="color: #0000dd;">1</span>_000_000 <span style="color: #ff0000;">// Pawn supports numbers like this. So big values are easier to read.</span></pre>
+<h3><span class="mw-headline" id="Floats">Floats</span></h3>
+<p>You can also declare a variable as a "Float", which means it can store numbers with decimal places. These are called "floating point" numbers:
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #007700;">new</span> <span style="color: #007373;">Float</span><span style="color: #000000;">:</span>a            <span style="color: #ff0000;">//Declare empty floating point variable "a"</span>
+<span style="color: #007700;">new</span> <span style="color: #007373;">Float</span><span style="color: #000000;">:</span>b<span style="color: #000000;">=</span><span style="color: #0000dd;">5.3</span>        <span style="color: #ff0000;">//This will declare a new variable "b" and assign 5.3 to it.</span>
+<span style="color: #007700;">new</span> <span style="color: #007373;">Float</span><span style="color: #000000;">:</span>c<span style="color: #000000;">=</span><span style="color: #0000dd;">5</span>          <span style="color: #ff0000;">//This is valid, but the compiler will give you a warning.</span>
+<span style="color: #007700;">new</span> <span style="color: #007373;">Float</span><span style="color: #000000;">:</span>d<span style="color: #000000;">=</span><span style="color: #800080;">"hello"</span>    <span style="color: #ff0000;">//This is invalid, "hello" is not a decimal number.</span></pre>
+<p>You can also do the following:
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//float(n) is a function that takes a number n and makes it a</span>
+<span style="color: #ff0000;">// floating point number.</span>
+<span style="color: #007700;">new</span> <span style="color: #007373;">Float</span><span style="color: #000000;">:</span>var <span style="color: #000000;">=</span> <span style="color: #007373;">float</span><span style="color: #000000;">(</span><span style="color: #0000dd;">5</span><span style="color: #000000;">)</span>
+<span style="color: #007700;">new</span> <span style="color: #007373;">Float</span><span style="color: #000000;">:</span>var2 <span style="color: #000000;">=</span> <span style="color: #0000dd;">5.0</span>     
+<span style="color: #007700;">new</span> <span style="color: #007373;">Float</span><span style="color: #000000;">:</span>var3 <span style="color: #000000;">=</span> <span style="color: #0000dd;">1.0</span><span style="color: #000000;">*</span><span style="color: #0000dd;">5</span>
+<span style="color: #007700;">new</span> var4 <span style="color: #000000;">=</span> <span style="color: #007373;">floatround</span><span style="color: #000000;">(</span><span style="color: #0000dd;">5.0</span><span style="color: #000000;">)</span>     
+<span style="color: #ff0000;">//Note: floatround(n) is a function that takes a number n and rounds it to a whole number.</span>
+<span style="color: #ff0000;">//  this makes the assignment to a regular integer variable valid.</span></pre>
+<p>Note - Spacing does generally not matter, as long as the compiler can tell symbols apart from each other. If your spacing is REALLY bad, you will get errors or maybe even warnings. For example, "new var = 5" and "new var=5" are the same, but "newvar=5" is totally wrong.
+</p>
+<h3><span class="mw-headline" id="Booleans">Booleans</span></h3>
+<p>The last variable type is "boolean". It is very simple - it is either "true", or "false". Both "true" and "false" are predefined data structures.
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #007700;">new</span> <span style="color: #ff0000;">bool</span><span style="color: #000000;">:</span>IsItOn        <span style="color: #ff0000;">//Declares a new variable "IsItOn" which is automatically false</span>
+<span style="color: #007700;">new</span> <span style="color: #ff0000;">bool</span><span style="color: #000000;">:</span>xyz<span style="color: #000000;">=</span><span style="color: #007700;">true</span>      <span style="color: #ff0000;">//Declares a new variable "xyz" set to true</span></pre>
+<p><br>
+</p>
+<h1><span class="mw-headline" id="Arrays">Arrays</span></h1>
+<p>Pawn features basic "arrays". An array is a simple type of aggregate data. This means you can store multiple values in one variable! An array follows the same rules as a regular variable, and it has the same types. It simply can contain multiple values. You define an array with brackets, and how many values it can hold. For example:
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//This will declare a variable called "Players" which holds 32 numbers. </span>
+<span style="color: #007700;">new</span> Players<span style="color: #000000;">[</span><span style="color: #0000dd;">32</span><span style="color: #000000;">]</span>
+&nbsp;
+<span style="color: #ff0000;">//You can now store values in any of the 32 "slots" this array has.  </span>
+<span style="color: #ff0000;">// The slots are numbered from 0 to n-1, or in this case, 0 to 31.</span>
+<span style="color: #ff0000;">//Every slot starts off as 0.</span>
+&nbsp;
+<span style="color: #ff0000;">//Set slot 0 to 5</span>
+Players<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">5</span>
+&nbsp;
+<span style="color: #ff0000;">//Set slot 1 to whatever is in slot 0, in this case, the number 5</span>
+Players<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> Players<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span>
+&nbsp;
+<span style="color: #ff0000;">//This is invalid! </span>
+<span style="color: #ff0000;">//Although there are 32 slots, they are numbered from 0 to 31.</span>
+<span style="color: #ff0000;">//Doing this results in AMX Native Error 4 - AMX_ERR_BOUNDS</span>
+<span style="color: #ff0000;">// or, it simply won't compile!</span>
+Players<span style="color: #000000;">[</span><span style="color: #0000dd;">32</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">15</span>
+&nbsp;
+<span style="color: #ff0000;">//This is also totally invalid           </span>
+Players<span style="color: #000000;">[</span><span style="color: #000000;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">6</span>
+&nbsp;
+<span style="color: #007700;">new</span> a <span style="color: #000000;">=</span> <span style="color: #0000dd;">3</span>
+<span style="color: #ff0000;">//This is also totally invalid.  </span>
+<span style="color: #ff0000;">//a must be a constant number.</span>
+<span style="color: #007700;">new</span> BadArray<span style="color: #000000;">[</span>a<span style="color: #000000;">]</span>
+&nbsp;
+<span style="color: #ff0000;">//So this is valid:</span>
+<span style="color: #ff0000;">const</span> b <span style="color: #000000;">=</span> <span style="color: #0000dd;">3</span>
+<span style="color: #007700;">new</span> GoodArray<span style="color: #000000;">[</span>b<span style="color: #000000;">]</span>
+&nbsp;
+<span style="color: #ff0000;">//You can also use Compiler Directives (See last section)</span>
+&nbsp;
+<span style="color: #339900;">#define ARRAY_SIZE 3</span>
+<span style="color: #007700;">new</span> Array<span style="color: #000000;">[</span>ARRAY_SIZE<span style="color: #000000;">]</span></pre>
+<p>Arrays can also be declared with groups of data default, such as:
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #007700;">new</span> Numbers<span style="color: #000000;">[</span><span style="color: #0000dd;">4</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">{</span><span style="color: #0000dd;">0</span>,<span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">3</span><span style="color: #000000;">}</span>
+<span style="color: #ff0000;">//Note: it is important that you make sure the amount of numbers</span>
+<span style="color: #ff0000;">// you pass and the size of the array match</span></pre>
+<p><br>
+You can also use any data type with arrays:
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//Array of floating points:</span>
+<span style="color: #007700;">new</span> <span style="color: #007373;">Float</span><span style="color: #000000;">:</span>Numbers<span style="color: #000000;">[</span><span style="color: #0000dd;">4</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">{</span><span style="color: #0000dd;">0.0</span>, <span style="color: #0000dd;">1.2</span>, <span style="color: #0000dd;">2.4</span>, <span style="color: #0000dd;">3.8</span><span style="color: #000000;">}</span>
+<span style="color: #ff0000;">//Array of booleans.  Note this sets every slot to true.</span>
+<span style="color: #007700;">new</span> <span style="color: #ff0000;">bool</span><span style="color: #000000;">:</span>playerHasGun<span style="color: #000000;">[</span><span style="color: #0000dd;">33</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">{</span><span style="color: #007700;">true</span>, ...<span style="color: #000000;">}</span></pre>
+<h1><span class="mw-headline" id="Strings">Strings</span></h1>
+<p>You have probably noticed that an important data type is missing - characters (letters and symbols). These are called "strings", and in Pawn, they are technically numbers! A string   is an array of numbers that translate to ASCII (character) symbols. For example:
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//This will declare a number array "myString" that contains the data "Hello".  </span>
+<span style="color: #ff0000;">//It will have 6 slots, because there are 5 characters.  </span>
+<span style="color: #ff0000;">//The last slot is reserved for the number 0, which tells the Pawn engine that it is a string.</span>
+<span style="color: #007700;">new</span> myString<span style="color: #000000;">[</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #800080;">"Hello"</span>
+<span style="color: #ff0000;">// If you're using SourcePawn, do this instead:</span>
+<span style="color: #007700;">new</span> String<span style="color: #000000;">:</span>myString<span style="color: #000000;">[</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #800080;">"Hello"</span></pre>
+<p>Note: anything in between /* and */ is also a comment.  You cannot use /* */ inside a /* */.  The following set of commands achieves the same purpose, however, it is longer and not recommended.  This works because each character of the string "Hello" is stored in a slot in the array.
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #007700;">new</span> myString<span style="color: #000000;">[</span><span style="color: #0000dd;">6</span><span style="color: #000000;">]</span>
+myString<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #800080;">'H'</span>
+myString<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #800080;">'e'</span>
+myString<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #800080;">'l'</span>
+myString<span style="color: #000000;">[</span><span style="color: #0000dd;">3</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #800080;">'l'</span>
+myString<span style="color: #000000;">[</span><span style="color: #0000dd;">4</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #800080;">'o'</span>
+myString<span style="color: #000000;">[</span><span style="color: #0000dd;">5</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">0</span></pre>
+<p><code class="qmsg"><b>Note:</b> Arrays that are meant to be strings must end in a 0, or the null character.  This is so you know where the string ends.</code>
+</p><p>You CANNOT do this! While it may compile, it is highly dangerous as it might cause overflow errors:
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #007700;">new</span> myString<span style="color: #000000;">[</span><span style="color: #0000dd;">6</span><span style="color: #000000;">]</span>
+myString <span style="color: #000000;">=</span> <span style="color: #800080;">"Hello"</span>     <span style="color: #ff0000;">//INVALID!</span>
+myString<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #800080;">"Hello"</span>  <span style="color: #ff0000;">//INVALID!</span>
+<span style="color: #ff0000;">//To add data to a string, you can do this:</span>
+<span style="color: #007700;">new</span> goodString<span style="color: #000000;">[</span><span style="color: #0000dd;">7</span><span style="color: #000000;">]</span>
+<span style="color: #007373;">copy</span><span style="color: #000000;">(</span>goodString, <span style="color: #0000dd;">6</span>, <span style="color: #800080;">"Hello"</span><span style="color: #000000;">)</span></pre>
+<p><code class="qmsg"><b>Note:</b> In SourcePawn, copy was renamed to strcopy and avoids the issue with copy noted below.</code>
+</p><p>Note that we copied 6 cells of the array into an array that can hold 7.  If we were to copy 7 bytes into this array, copy() could potentially copy an extra byte for the Null character, overflowing the array.  This is called a <a href="https://wiki.alliedmods.net/index.php?title=Buffer_overflow&amp;action=edit&amp;redlink=1" class="new" title="Buffer overflow (page does not exist)">buffer overflow</a> and must be carefully avoided.
+</p><p>More examples:
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//Copy is a function that takes three parameters:</span>
+<span style="color: #007373;">copy</span><span style="color: #000000;">(</span>destination<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, length, source<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>
+<span style="color: #ff0000;">//It copies the string inside the source array and places </span>
+<span style="color: #ff0000;">// it into the destination array, but only copies up to length characters.</span>
+&nbsp;
+<span style="color: #ff0000;">//Lastly, to prove that a string is really an array of numbers, this is completely valid:</span>
+<span style="color: #007700;">new</span> weird<span style="color: #000000;">[</span><span style="color: #0000dd;">6</span><span style="color: #000000;">]</span>
+weird<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">68</span>
+weird<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">65</span>
+weird<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">73</span>
+weird<span style="color: #000000;">[</span><span style="color: #0000dd;">3</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">86</span>
+weird<span style="color: #000000;">[</span><span style="color: #0000dd;">4</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">68</span>
+weird<span style="color: #000000;">[</span><span style="color: #0000dd;">5</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">0</span>
+<span style="color: #ff0000;">//This will set the variable "weird" to the string "DAVID".</span>
+<span style="color: #ff0000;">//To see how letters and symbols translate into numbers, visit www.asciitable.com</span></pre>
+<h1><span class="mw-headline" id="Functions">Functions</span></h1>
+<p>Pawn allows you to define your own functions. This comes in handy for removing code that is used in multiple places. Note that all functions should return a value. To do this, you use the "return" command, which immediately halts the function and returns the value of the expression passed to it. No code is executed in a function once the return is found. Here are some examples:
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//This is a function that takes no parameters and returns 1.</span>
+<span style="color: #ff0000;">//When activated, it uses the (non-existant) print function.</span>
+show<span style="color: #000000;">(</span><span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+   print<span style="color: #000000;">(</span><span style="color: #800080;">"Hello!"</span><span style="color: #000000;">)</span>
+&nbsp;
+   <span style="color: #0000ff;">return</span> <span style="color: #0000dd;">1</span>   <span style="color: #ff0000;">//End, return 1</span>
+<span style="color: #000000;">}</span>
+&nbsp;
+<span style="color: #ff0000;">//Activate like this:</span>
+show<span style="color: #000000;">(</span><span style="color: #000000;">)</span></pre>
+<p>You can also declare functions to take parameters.
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//This declares a function called "add_two_numbers", which takes two numbers and returns the sum.</span>
+add_two_numbers<span style="color: #000000;">(</span>first, second<span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+   <span style="color: #007700;">new</span> sum <span style="color: #000000;">=</span> first <span style="color: #000000;">+</span> second
+&nbsp;
+   <span style="color: #0000ff;">return</span> sum  <span style="color: #ff0000;">//Return the sum</span>
+<span style="color: #000000;">}</span>
+<span style="color: #ff0000;">//Then you can use your new function like this:</span>
+&nbsp;
+<span style="color: #007700;">new</span> a,b
+a <span style="color: #000000;">=</span> <span style="color: #0000dd;">5</span>
+b <span style="color: #000000;">=</span> <span style="color: #0000dd;">12</span>
+<span style="color: #007700;">new</span> c <span style="color: #000000;">=</span> add_two_numbers<span style="color: #000000;">(</span>a,b<span style="color: #000000;">)</span>
+<span style="color: #ff0000;">//c will now be equal to 17.</span></pre>
+<p>You are not limited by what types of data parameters can accept. When you give parameters to a function, it is called "passing". You can pass either data or a variable to a function.
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//This defines a new function called "add_two_floats"</span>
+<span style="color: #ff0000;">// which takes two floating points and returns the sum</span>
+<span style="color: #007373;">Float</span><span style="color: #000000;">:</span>add_two_floats<span style="color: #000000;">(</span><span style="color: #007373;">Float</span><span style="color: #000000;">:</span>first, <span style="color: #007373;">Float</span><span style="color: #000000;">:</span>second<span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+   <span style="color: #007700;">new</span> <span style="color: #007373;">Float</span><span style="color: #000000;">:</span>sum <span style="color: #000000;">=</span> first <span style="color: #000000;">+</span> second
+&nbsp;
+   <span style="color: #0000ff;">return</span> sum
+<span style="color: #000000;">}</span>
+&nbsp;
+<span style="color: #007700;">new</span> <span style="color: #007373;">Float</span><span style="color: #000000;">:</span>a
+<span style="color: #007700;">new</span> <span style="color: #007373;">Float</span><span style="color: #000000;">:</span>b
+a <span style="color: #000000;">=</span> <span style="color: #0000dd;">5.0</span>
+b <span style="color: #000000;">=</span> <span style="color: #0000dd;">6.3</span>
+<span style="color: #007700;">new</span> <span style="color: #007373;">Float</span><span style="color: #000000;">:</span>c
+c <span style="color: #000000;">=</span> add_two_floats<span style="color: #000000;">(</span> a<span style="color: #000000;">+</span>b <span style="color: #000000;">)</span>
+<span style="color: #ff0000;">//c is now equal to 11.3</span></pre>
+<p>You can even pass arrays!  You do not have to specify the size of the array.  If you do, you must make sure you are calling the function with an array of equal size and type.
+</p>
+<pre class="pawn" style="font-family:monospace;">add_two_from_array<span style="color: #000000;">(</span>array<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, a, b<span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+   <span style="color: #007700;">new</span> first <span style="color: #000000;">=</span> array<span style="color: #000000;">[</span>a<span style="color: #000000;">]</span>
+   <span style="color: #007700;">new</span> second <span style="color: #000000;">=</span> array<span style="color: #000000;">[</span>b<span style="color: #000000;">]</span>
+   <span style="color: #007700;">new</span> sum <span style="color: #000000;">=</span> add_two_numbers<span style="color: #000000;">(</span>first, second<span style="color: #000000;">)</span>   <span style="color: #ff0000;">//use our function from earlier</span>
+&nbsp;
+   <span style="color: #0000ff;">return</span> sum
+<span style="color: #000000;">}</span></pre>
+<p>Note, that when you pass arrays through a function they are passed through what is called "by reference". When a normal variable is passed to a function, it is copied in memory, and the copy is sent and then deleted afterwards. This is not the case with an array. Because arrays can be very large, the array is "referenced" instead of copied. This means if you change the array, afterwards it will stay changed. For example:
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//This function will switch slots a and b inside any array passed to this function.</span>
+swap_slots<span style="color: #000000;">(</span>array<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, a, b<span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+   <span style="color: #ff0000;">//Note, you need to temporarily hold one of the slots before swapping them</span>
+   <span style="color: #ff0000;">//Otherwise, you can't swap both values! This is a classic problem.</span>
+   <span style="color: #ff0000;">//If you have a and b, setting b equal to a eliminates the original value in b.</span>
+   <span style="color: #007700;">new</span> temp
+&nbsp;
+   temp <span style="color: #000000;">=</span> array<span style="color: #000000;">[</span>b<span style="color: #000000;">]</span>
+   array<span style="color: #000000;">[</span>b<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> array<span style="color: #000000;">[</span>a<span style="color: #000000;">]</span>
+   array<span style="color: #000000;">[</span>a<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> temp
+<span style="color: #000000;">}</span>
+&nbsp;
+<span style="color: #007700;">new</span> myArray<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span>
+myArray<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">5</span>
+myArray<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">6</span>
+swap_slots<span style="color: #000000;">(</span>myArray, <span style="color: #0000dd;">0</span>, <span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>
+<span style="color: #ff0000;">//myArray[0] is 6, myArray[1] is 5</span></pre>
+<p>You can prevent arrays from being modified by declaring them "constant", like so:
+</p>
+<pre class="pawn" style="font-family:monospace;">add_two_from_array<span style="color: #000000;">(</span><span style="color: #ff0000;">const</span> array<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, a, b<span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+   <span style="color: #007700;">new</span> first <span style="color: #000000;">=</span> array<span style="color: #000000;">[</span>a<span style="color: #000000;">]</span>
+   <span style="color: #007700;">new</span> second <span style="color: #000000;">=</span> array<span style="color: #000000;">[</span>b<span style="color: #000000;">]</span>
+   <span style="color: #007700;">new</span> sum <span style="color: #000000;">=</span> add_two_from_array<span style="color: #000000;">(</span>first, second<span style="color: #000000;">)</span>
+   <span style="color: #0000ff;">return</span> sum
+<span style="color: #000000;">}</span>
+<span style="color: #ff0000;">//Note, now when you use the function, you are guaranteed that the array will not be modified.</span></pre>
+<p>This function modifies an array passed as a constant.  It will not work.
+</p>
+<pre class="pawn" style="font-family:monospace;">bad_function<span style="color: #000000;">(</span><span style="color: #ff0000;">const</span> array<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+   array<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">0</span>
+<span style="color: #000000;">}</span></pre>
+<h1><span class="mw-headline" id="Expressions">Expressions</span></h1>
+<p>Expressions are just what they sound like from mathematics. They are groupings of symbols that return one piece of data. Expressions are normally comprised of parenthetical expressions, and are evaluated in a certain order (from innermost to outermost, parenthesis first, then multiplication, division, addition, subtraction, et cetera). You can put expressions anywhere. You can set variables equal to them or pass them to functions.
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//This is the simplest expression.  It returns the number zero.</span>
+<span style="color: #0000dd;">0</span>
+<span style="color: #ff0000;">//However, to make it easier to read, this is also valid:</span>
+<span style="color: #000000;">(</span><span style="color: #0000dd;">0</span><span style="color: #000000;">)</span></pre>
+<p>If an expression is not zero or it is not false, it not only returns a value, it also returns "true". Otherwise, it will return 0, which is also "false".
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//Here are more mathematical expressions.  The mathematical operators are</span>
+<span style="color: #ff0000;">// + for addition</span>
+<span style="color: #ff0000;">// - for subtraction</span>
+<span style="color: #ff0000;">// * for multiplication</span>
+<span style="color: #ff0000;">// / for division</span>
+<span style="color: #ff0000;">//&nbsp;% for modulus (finding the remainder of one number divided by another (5%2 is 1)</span>
+<span style="color: #000000;">(</span><span style="color: #0000dd;">5</span><span style="color: #000000;">+</span><span style="color: #0000dd;">6</span><span style="color: #000000;">)</span>                       <span style="color: #ff0000;">//returns 11</span>
+<span style="color: #000000;">(</span><span style="color: #000000;">(</span><span style="color: #0000dd;">5</span><span style="color: #000000;">*</span><span style="color: #0000dd;">6</span><span style="color: #000000;">)</span><span style="color: #000000;">+</span><span style="color: #0000dd;">3</span><span style="color: #000000;">)</span>                   <span style="color: #ff0000;">//returns 33</span>
+<span style="color: #000000;">(</span><span style="color: #000000;">(</span><span style="color: #000000;">(</span><span style="color: #000000;">(</span><span style="color: #0000dd;">5</span><span style="color: #000000;">+</span><span style="color: #0000dd;">3</span><span style="color: #000000;">)</span><span style="color: #000000;">/</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000000;">*</span><span style="color: #0000dd;">4</span><span style="color: #000000;">)</span><span style="color: #000000;">-</span><span style="color: #0000dd;">9</span><span style="color: #000000;">)</span>           <span style="color: #ff0000;">//returns 7</span>
+<span style="color: #000000;">(</span><span style="color: #000000;">(</span><span style="color: #0000dd;">5</span><span style="color: #000000;">*</span><span style="color: #0000dd;">6</span><span style="color: #000000;">)</span> <span style="color: #000000;">%</span> <span style="color: #0000dd;">7</span><span style="color: #000000;">)</span>                 <span style="color: #ff0000;">//returns 2</span>
+<span style="color: #ff0000;">//Here are other expressions:</span>
+<span style="color: #000000;">(</span><span style="color: #007700;">true</span><span style="color: #000000;">)</span>                      <span style="color: #ff0000;">//returns true</span>
+<span style="color: #000000;">(</span><span style="color: #0000dd;">5.0</span> <span style="color: #000000;">+</span> <span style="color: #0000dd;">2.3</span><span style="color: #000000;">)</span>                 <span style="color: #ff0000;">//returns 7.3 as a floating point</span></pre>
+<p>There are also extensions of these operators for direct use on variables.
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #007700;">new</span> a <span style="color: #000000;">=</span> <span style="color: #0000dd;">5</span>
+<span style="color: #007700;">new</span> b <span style="color: #000000;">=</span> <span style="color: #0000dd;">6</span>
+<span style="color: #ff0000;">//The first are the post/pre increment and decrement operators.</span>
+a<span style="color: #000000;">++</span>          <span style="color: #ff0000;">//returns a+1, or 6.  This is a post increment.</span>
+<span style="color: #000000;">++</span>a          <span style="color: #ff0000;">//also returns a+1, or 6.  This is a pre increment.</span></pre>
+<p>The difference between the two is subtle but important. a++ is evaluated LAST in an expression, while ++a is evaluated FIRST. This differences comes in handy with code that uses loops in certain ways. It is also important to know that the increment/decrement operators will not only return a+1, but set the variable a to a+1.
+</p>
+<pre class="pawn" style="font-family:monospace;">a<span style="color: #000000;">--</span>          <span style="color: #ff0000;">//returns 4, post decrement</span>
+<span style="color: #000000;">--</span>a          <span style="color: #ff0000;">//returns 4, pre decrement</span></pre>
+<p>Note that a++ essentially trims down this code:
+</p>
+<pre class="pawn" style="font-family:monospace;">a <span style="color: #000000;">=</span> a <span style="color: #000000;">+</span> <span style="color: #0000dd;">1</span></pre>
+<p>However, there is another way to write lines of code of this form:
+</p>
+<pre class="pawn" style="font-family:monospace;">a <span style="color: #000000;">=</span> a OP y</pre>
+<p>Where OP is a math operator.  It can be shortened to:
+</p>
+<pre class="pawn" style="font-family:monospace;">a OP<span style="color: #000000;">=</span> x</pre>
+<p>Observe:
+</p>
+<pre class="pawn" style="font-family:monospace;">a <span style="color: #000000;">+=</span> <span style="color: #0000dd;">1</span>       <span style="color: #ff0000;">//This sets a to a + 1</span>
+a <span style="color: #000000;">-=</span> b       <span style="color: #ff0000;">//This sets a to a - b</span>
+a <span style="color: #000000;">*=</span> <span style="color: #0000dd;">0</span>       <span style="color: #ff0000;">//This multiplies a by 0</span>
+a <span style="color: #000000;">/=</span> <span style="color: #0000dd;">2</span>       <span style="color: #ff0000;">//This divides a by 2.</span></pre>
+<p>However, mathematical operators are not the only operators you are given. There are boolean operators to help you with logical circuits or logical decisions.
+</p><p>The and operator takes in the left expression and right expression.  If both are "true", then it returns true.
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//This is false, because 1 returns true and 0 returns false.  </span>
+<span style="color: #ff0000;">//Since both are not true, &amp;&amp; returns false.</span>
+<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span> <span style="color: #000000;">&amp;&amp;</span> <span style="color: #0000dd;">0</span><span style="color: #000000;">)</span>
+<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span> <span style="color: #000000;">&amp;&amp;</span> <span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>                    <span style="color: #ff0000;">//Both numbers are "true", therefore the expression is true.</span>
+<span style="color: #000000;">(</span><span style="color: #007700;">true</span> <span style="color: #000000;">&amp;&amp;</span> <span style="color: #007700;">false</span><span style="color: #000000;">)</span>             <span style="color: #ff0000;">//false</span>
+<span style="color: #000000;">(</span><span style="color: #007700;">false</span> <span style="color: #000000;">&amp;&amp;</span> <span style="color: #007700;">false</span><span style="color: #000000;">)</span>            <span style="color: #ff0000;">//false</span>
+<span style="color: #000000;">(</span><span style="color: #007700;">true</span> <span style="color: #000000;">&amp;&amp;</span> <span style="color: #007700;">true</span><span style="color: #000000;">)</span>              <span style="color: #ff0000;">//true</span></pre>
+<p>The other important operator is "or".  It returns true if one of two expressions are true.
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span> || <span style="color: #0000dd;">0</span><span style="color: #000000;">)</span>                    <span style="color: #ff0000;">//true, since one of the values is true.</span>
+<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span> || <span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>                    <span style="color: #ff0000;">//true</span>
+<span style="color: #000000;">(</span><span style="color: #007700;">true</span> || <span style="color: #007700;">false</span><span style="color: #000000;">)</span>             <span style="color: #ff0000;">//true</span>
+<span style="color: #000000;">(</span><span style="color: #007700;">false</span> || <span style="color: #007700;">false</span><span style="color: #000000;">)</span>            <span style="color: #ff0000;">//false</span>
+<span style="color: #000000;">(</span><span style="color: #007700;">true</span> || <span style="color: #007700;">true</span><span style="color: #000000;">)</span>              <span style="color: #ff0000;">//true</span></pre>
+<p>There are other operators as well, that you may not use as often. The "bitwise and" operator returns whether a binary bit sequence is contained in another sequence. In the technical terms, it does an "and (&amp;&amp;)" operation on each of the bits in both numbers. For example, say you have the number "9", which is "1001" in binary. If you want to know if that sequence contains the number "8" (1000), you can do:
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//This will return 8, which means 8 is indeed a bit in 9.</span>
+<span style="color: #000000;">(</span><span style="color: #0000dd;">9</span> <span style="color: #000000;">&amp;</span> <span style="color: #0000dd;">8</span><span style="color: #000000;">)</span>
+<span style="color: #ff0000;">//4 (00100) is not a bit inside 16 (10000) and this will return 0.</span>
+<span style="color: #000000;">(</span><span style="color: #0000dd;">16</span> <span style="color: #000000;">&amp;</span> <span style="color: #0000dd;">4</span><span style="color: #000000;">)</span>
+<span style="color: #ff0000;">//The next operator is "bitwise or" </span>
+<span style="color: #ff0000;">//which does an "or (||)' operation on each of the bits in both numbers.</span>
+<span style="color: #ff0000;">//This will take 9 (1001) and match it with 3 (0011), resulting in 1011, or 11.</span>
+<span style="color: #000000;">(</span><span style="color: #0000dd;">9</span> | <span style="color: #0000dd;">3</span><span style="color: #000000;">)</span></pre>
+<p>These two operators are also important, but not used often. They are the bitwise shift operators, &lt;&lt; is a left shift and &gt;&gt; is a right shift. They shift the bits in a number to one direction.
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//This takes the number 3 (00011) and shifts it three places to binary (11000), or 24.</span>
+<span style="color: #000000;">(</span><span style="color: #0000dd;">3</span> &lt;&lt; <span style="color: #0000dd;">3</span><span style="color: #000000;">)</span>
+<span style="color: #ff0000;">//This takes the number 24 (11000) and shifts it three places to binary (00011), or 3.</span>
+<span style="color: #000000;">(</span><span style="color: #0000dd;">24</span> &gt;&gt; <span style="color: #0000dd;">3</span><span style="color: #000000;">)</span></pre>
+<p>The last operator is "bitwise not". It returns the exact opposite of whatever is given to it. When used on a number, it will return each of the bits flipped (1 to 0, 0 to 1).
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//This returns false</span>
+<span style="color: #000000;">(</span><span style="color: #000000;">!</span><span style="color: #007700;">true</span><span style="color: #000000;">)</span>
+<span style="color: #ff0000;">//This returns true</span>
+<span style="color: #000000;">(</span><span style="color: #000000;">!</span><span style="color: #007700;">false</span><span style="color: #000000;">)</span>
+<span style="color: #ff0000;">//This takes 9 (binary 1001) and makes it 6 (binary 0110).</span>
+<span style="color: #ff0000;">//This is the "bitwise complement" operator, which performs a&nbsp;!(not) on each bit.</span>
+<span style="color: #000000;">(</span>~<span style="color: #000000;">(</span><span style="color: #0000dd;">9</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span></pre>
+<h1><span class="mw-headline" id="Conditionals">Conditionals</span></h1>
+<p>Conditionals allow you to test if an expression meets a standard, and to execute code based on that decision. 
+</p>
+<h2><span class="mw-headline" id="If_Statements">If Statements</span></h2>
+<p>The most important conditional is called "if ... then". If evaluates whether a given expression is true or false. It if is true, it executes a block of code. If not, it executes a different block of code. For example:
+</p><p>This is an example of the most basic if ... then statement. The first line checks to see if the expression is true. In this case, if the variable a is equal to 5, then the if statement will execute the block of code underneath it, which sets a to 6.
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>a <span style="color: #000000;">==</span> <span style="color: #0000dd;">5</span><span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+   a <span style="color: #000000;">=</span> <span style="color: #0000dd;">6</span>
+<span style="color: #000000;">}</span></pre>
+<p>However, what happens if a does not equal 5? Then the code will not be executed. However, you can tell it to execute code if the conditions are not met. Now, if a is equal to 5, a will be set to 6. Otherwise, it will be set to 7.
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>a <span style="color: #000000;">==</span> <span style="color: #0000dd;">5</span><span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+   a <span style="color: #000000;">=</span> <span style="color: #0000dd;">6</span>
+<span style="color: #000000;">}</span> <span style="color: #0000ff;">else</span> <span style="color: #000000;">{</span>
+   a <span style="color: #000000;">=</span> <span style="color: #0000dd;">7</span>
+<span style="color: #000000;">}</span></pre>
+<p>There are many different operators you can use inside the if () statement. In fact, you can use any <a href="https://wiki.alliedmods.net/Pawn_tutorial#Expressions">expression</a> that evaluates to true (not zero) or false (zero).
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//This will return true if a does not equal 5</span>
+<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>a <span style="color: #000000;">!=</span> <span style="color: #0000dd;">5</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span><span style="color: #000000;">}</span>
+<span style="color: #ff0000;">//Returns true if a is greater than 5</span>
+<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>a &gt; <span style="color: #0000dd;">5</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span><span style="color: #000000;">}</span>
+<span style="color: #ff0000;">//Returns true if a is less than 5</span>
+<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>a &lt; <span style="color: #0000dd;">5</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span><span style="color: #000000;">}</span>
+<span style="color: #ff0000;">//Returns true if a is greater than or equal to 5</span>
+<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>a &gt;<span style="color: #000000;">=</span> <span style="color: #0000dd;">5</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span><span style="color: #000000;">}</span>
+<span style="color: #ff0000;">//Returns true if a is less than or equal to 5</span>
+<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>a &lt;<span style="color: #000000;">=</span> <span style="color: #0000dd;">5</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span><span style="color: #000000;">}</span>
+<span style="color: #ff0000;">//Returns true because 11 is true</span>
+<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span><span style="color: #0000dd;">5</span><span style="color: #000000;">+</span><span style="color: #0000dd;">6</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span><span style="color: #000000;">}</span>
+<span style="color: #ff0000;">//Returns true of both a and b are true</span>
+<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>a <span style="color: #000000;">&amp;&amp;</span> b<span style="color: #000000;">)</span> <span style="color: #000000;">{</span><span style="color: #000000;">}</span>
+<span style="color: #ff0000;">//Returns true if 7.5 is greater than c</span>
+<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span> <span style="color: #000000;">(</span><span style="color: #000000;">(</span><span style="color: #0000dd;">5</span><span style="color: #000000;">*</span><span style="color: #0000dd;">3</span><span style="color: #000000;">)</span><span style="color: #000000;">/</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span> &gt; c<span style="color: #000000;">)</span> <span style="color: #000000;">{</span><span style="color: #000000;">}</span>
+<span style="color: #ff0000;">//Always returns true no matter what</span>
+<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span><span style="color: #007700;">true</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span><span style="color: #000000;">}</span>
+<span style="color: #ff0000;">//Never returns true</span>
+<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span><span style="color: #007700;">false</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span><span style="color: #000000;">}</span></pre>
+<p>Note that array comparisons have restrictions. This is invalid:
+</p>
+<pre class="pawn" style="font-family:monospace;">my arrayOne<span style="color: #000000;">[</span><span style="color: #0000dd;">3</span><span style="color: #000000;">]</span>
+my arrayTwo<span style="color: #000000;">[</span><span style="color: #0000dd;">3</span><span style="color: #000000;">]</span>
+<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>arrayOne <span style="color: #000000;">==</span> arrayTwo<span style="color: #000000;">)</span> <span style="color: #000000;">{</span></pre>
+<p>You must do:
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span><span style="color: #000000;">(</span>arrayOne<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span> <span style="color: #000000;">==</span> arrayTwo<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span> <span style="color: #000000;">&amp;&amp;</span> 
+    <span style="color: #000000;">(</span>arrayOne<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span> <span style="color: #000000;">==</span> arrayTwo<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span> <span style="color: #000000;">&amp;&amp;</span> 
+    <span style="color: #000000;">(</span>arrayOne<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span> <span style="color: #000000;">==</span> arrayTwo<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span></pre>
+<p>Obviously, this would get very tedious with large arrays. You will see later on how to easily compare strings and arrays.
+</p><p>The if...then model of conditional switching can be brought up to another level. Pawn provides a way for you to provide multiple levels of true and false expressions.
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//Example of "if...else if"</span>
+<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>a <span style="color: #000000;">==</span> <span style="color: #0000dd;">5</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span>
+   <span style="color: #ff0000;">//This code will be run if a is 5.</span>
+<span style="color: #000000;">}</span> <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>a &lt; <span style="color: #0000dd;">6</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span>
+   <span style="color: #ff0000;">//This code will be run if a is less than 6</span>
+<span style="color: #000000;">}</span> <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>a <span style="color: #000000;">==</span> <span style="color: #0000dd;">7</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span>
+   <span style="color: #ff0000;">//This code will be run if a is 7.</span>
+<span style="color: #000000;">}</span> <span style="color: #0000ff;">else</span> <span style="color: #000000;">{</span>
+   <span style="color: #ff0000;">//If none of the above conditions are met, this code will be run.</span>
+<span style="color: #000000;">}</span></pre>
+<p><br>
+It is important to note that in the above example, each code block is not "fall through". That means each of the conditions will be checked in order, and if one is true, the code will be executed and the if statement is done. It will not execute multiple true conditions.
+</p>
+<h2><span class="mw-headline" id="Switch_Statements">Switch Statements</span></h2>
+<p>Lastly, there is one last type of conditional statement. It is called a "switch" statement, and it allows you to make a nicely ordered list of conditions similar to, but not as powerful as, "if...else if".
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//Example of a switch statement</span>
+<span style="color: #0000ff;">switch</span> <span style="color: #000000;">(</span>a<span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+    <span style="color: #0000ff;">case</span> <span style="color: #0000dd;">5</span><span style="color: #000000;">:</span>
+    <span style="color: #000000;">{</span>
+       <span style="color: #ff0000;">//This code will run if a is equal to 5</span>
+    <span style="color: #000000;">}</span>
+&nbsp;
+    <span style="color: #0000ff;">case</span> <span style="color: #0000dd;">6</span><span style="color: #000000;">:</span>
+    <span style="color: #000000;">{</span>
+       <span style="color: #ff0000;">//This code will run if a is equal to 6</span>
+    <span style="color: #000000;">}</span>
+&nbsp;
+    <span style="color: #0000ff;">case</span> <span style="color: #0000dd;">7</span><span style="color: #000000;">:</span>
+    <span style="color: #000000;">{</span>
+       <span style="color: #ff0000;">//This code will run if a is equal to 7</span>
+    <span style="color: #000000;">}</span>
+&nbsp;
+    <span style="color: #0000ff;">default</span><span style="color: #000000;">:</span>
+    <span style="color: #000000;">{</span>
+       <span style="color: #ff0000;">//This code will run if all other cases fail</span>
+    <span style="color: #000000;">}</span>
+<span style="color: #000000;">}</span></pre>
+<p>Multiple conditions are also possible in pawn:
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//Example of an multiple switch statement</span>
+<span style="color: #0000ff;">switch</span> <span style="color: #000000;">(</span>a<span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+    <span style="color: #0000ff;">case</span> <span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">2</span>, <span style="color: #0000dd;">3</span><span style="color: #000000;">:</span>
+    <span style="color: #000000;">{</span>
+       <span style="color: #ff0000;">//This code will run if a is equal to 1 or 2 or 3</span>
+    <span style="color: #000000;">}</span>
+&nbsp;
+    <span style="color: #0000ff;">case</span> <span style="color: #0000dd;">4</span>, <span style="color: #0000dd;">5</span>, <span style="color: #0000dd;">6</span><span style="color: #000000;">:</span>
+    <span style="color: #000000;">{</span>
+       <span style="color: #ff0000;">//This code will run if a is equal to 4 or 5 or6</span>
+    <span style="color: #000000;">}</span>
+&nbsp;
+    <span style="color: #0000ff;">case</span> <span style="color: #0000dd;">7</span>, <span style="color: #0000dd;">8</span>, <span style="color: #0000dd;">9</span><span style="color: #000000;">:</span>
+    <span style="color: #000000;">{</span>
+       <span style="color: #ff0000;">//This code will run if a is equal to 7 or 8 or 9</span>
+    <span style="color: #000000;">}</span>
+&nbsp;
+    <span style="color: #0000ff;">default</span><span style="color: #000000;">:</span>
+    <span style="color: #000000;">{</span>
+       <span style="color: #ff0000;">//This code will run if all other cases fail</span>
+    <span style="color: #000000;">}</span>
+<span style="color: #000000;">}</span></pre>
+<p>Note that switch cases do not "fall-through." If a case is true, no other cases are evaluated.
+</p>
+<h1><span class="mw-headline" id="Looping">Looping</span></h1>
+<p>Looping is essential for any language. It allows you to perform the same block of code over and over, by constructing conditions on which code should be repeated.
+</p>
+<h2><span class="mw-headline" id="For_Loops">For Loops</span></h2>
+<p>The first and most widely used loop is called a "for loop". It takes an initial value, a condition upon which it should stop, and an incremental step. Then it executes code until it the conditions are no longer true. This lets you repeat the same block of code any number of times. Example:
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000; font-style: italic;">/*A for loop has three parameters:
+  for (initial; condition; increment)
+  {
+    //your code here
+  }
+&nbsp;
+  Before the first loop executes, it runs your initial condition.
+  Then it begins looping your code with these steps:
+  1.  Check if the condition is true.  If so, continue.  If not, stop.
+  2.  Run the code.
+  3.  Run the "increment" parameter.
+  4.  Go to step 1.
+*/</span>
+&nbsp;
+<span style="color: #ff0000;">//Example of a for loop</span>
+<span style="color: #007700;">new</span> i
+<span style="color: #007700;">new</span> sum
+<span style="color: #0000ff;">for</span> <span style="color: #000000;">(</span>i<span style="color: #000000;">=</span><span style="color: #0000dd;">1</span>; i&lt;<span style="color: #000000;">=</span><span style="color: #0000dd;">10</span>; i<span style="color: #000000;">++</span><span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+   sum <span style="color: #000000;">+=</span> i
+<span style="color: #000000;">}</span></pre>
+<p>Explanation:
+</p>
+<ol><li>The first parameter, i=1, sets the i variable to one. This happens before the looping starts.</li>
+<li>Next, the "increment" parameter is checked. This parameter is a post-increment operator, so 1 will be added to i after the entire code block is evaluated.</li>
+<li>Then the condition is checked. Is i&lt;=10? It is currently 1, so it is indeed less than or equal to 10.</li>
+<li>Since the condition is true, sum+=i is executed. This means i is added into sum.</li>
+<li>The code block has finished, and i++ increments i to 2.</li>
+<li>Now it repeats.</li>
+<li>Is i&lt;=10? Yes, it is 2. Now sum+=i runs again, and now sum is equal to 3.</li>
+<li>The code block has finished, and i now increments to 3.</li>
+<li>This happens until...</li>
+<li>The increment parameter sets i to 11. The condition is no longer true, and the for loop is finished.</li>
+<li>The sum variable now holds the number 55, which is the sum of 1 through 10.</li></ol>
+<p>This provides a nice way of managing arrays!
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//Note: this provides a nice way to loop through arrays!  Observe this function below.</span>
+sum_of_array<span style="color: #000000;">(</span>myArray<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, size<span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+   <span style="color: #ff0000;">//Note: Make sure the user passes the size of the array, so we don't overflow it.</span>
+   <span style="color: #007700;">new</span> i, sum
+&nbsp;
+   <span style="color: #ff0000;">//This loop will start at 0 and stop right before size is reached.</span>
+   <span style="color: #ff0000;">//If the user passes the correct size of the array, </span>
+   <span style="color: #ff0000;">// the loop will be going from 0 to size-1</span>
+   <span style="color: #ff0000;">// This correctly matches the numbers of slots in the array.</span>
+   <span style="color: #0000ff;">for</span>  <span style="color: #000000;">(</span>i<span style="color: #000000;">=</span><span style="color: #0000dd;">0</span>; i&lt;size; i<span style="color: #000000;">++</span><span style="color: #000000;">)</span>
+   <span style="color: #000000;">{</span>
+      <span style="color: #ff0000;">//For every time this loop executes, </span>
+      <span style="color: #ff0000;">// i will be a number from 0 to size-1</span>
+      <span style="color: #ff0000;">//Add the value of the slot (i) in the array to sum.</span>
+      <span style="color: #ff0000;">//Once this is finished, sum will contain </span>
+      <span style="color: #ff0000;">// the sum of all slots in the array.</span>
+      sum <span style="color: #000000;">+=</span> myArray<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span>
+   <span style="color: #000000;">}</span>
+&nbsp;
+   <span style="color: #0000ff;">return</span> sum
+<span style="color: #000000;">}</span>
+&nbsp;
+<span style="color: #007700;">new</span> NumberArray<span style="color: #000000;">[</span><span style="color: #0000dd;">4</span><span style="color: #000000;">]</span>
+NumberArray<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">3</span>
+NumberArray<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">1</span>
+NumberArray<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">4</span>
+NumberArray<span style="color: #000000;">[</span><span style="color: #0000dd;">3</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">1</span>
+&nbsp;
+<span style="color: #007700;">new</span> answer <span style="color: #000000;">=</span> sum_of_array<span style="color: #000000;">(</span>NumberArray, <span style="color: #0000dd;">4</span><span style="color: #000000;">)</span>
+<span style="color: #ff0000;">//answer will be 3+1+4+1, or 9</span>
+&nbsp;
+<span style="color: #ff0000;">//Here is a function to compare if one array is equal to another (i.e. a string)</span>
+<span style="color: #ff0000;">bool</span><span style="color: #000000;">:</span>compare_arrays<span style="color: #000000;">(</span>array1<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, array2<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, size<span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+   <span style="color: #007700;">new</span> i
+   <span style="color: #0000ff;">for</span> <span style="color: #000000;">(</span>i<span style="color: #000000;">=</span><span style="color: #0000dd;">0</span>; i&lt;size; i<span style="color: #000000;">++</span><span style="color: #000000;">)</span>
+   <span style="color: #000000;">{</span>
+      <span style="color: #ff0000;">//If a slot does not match, halt the function and return false.</span>
+      <span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>array1<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span> <span style="color: #000000;">!=</span> array2<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">)</span>
+      <span style="color: #000000;">{</span>
+         <span style="color: #0000ff;">return</span> <span style="color: #007700;">false</span>
+      <span style="color: #000000;">}</span>
+   <span style="color: #000000;">}</span>
+&nbsp;
+   <span style="color: #ff0000;">//If the function got to this point without returning false, return true.</span>
+   <span style="color: #0000ff;">return</span> <span style="color: #007700;">true</span>
+<span style="color: #000000;">}</span></pre>
+<h2><span class="mw-headline" id="While_Loops">While Loops</span></h2>
+<p>The next kind of loop is also very important, and is simpler than a for loop. Called a "while" loop, it only takes one parameter: a condition. As long as the condition is true, it keeps executing code. See the above examples rewritten with while loops.
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//Basic loop</span>
+<span style="color: #007700;">new</span> i<span style="color: #000000;">=</span><span style="color: #0000dd;">0</span>
+<span style="color: #007700;">new</span> sum
+&nbsp;
+<span style="color: #0000ff;">while</span> <span style="color: #000000;">(</span><span style="color: #000000;">++</span>i &lt;<span style="color: #000000;">=</span> <span style="color: #0000dd;">10</span><span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+   sum<span style="color: #000000;">+=</span>i
+<span style="color: #000000;">}</span>
+&nbsp;
+sum_of_array<span style="color: #000000;">(</span>array<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, size<span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+   <span style="color: #007700;">new</span> i<span style="color: #000000;">=</span><span style="color: #0000dd;">0</span>, sum
+&nbsp;
+   <span style="color: #ff0000;">//Do this loop while i is less than the size.</span>
+   <span style="color: #ff0000;">//i is incremented at the end of every loop.</span>
+   <span style="color: #0000ff;">while</span> <span style="color: #000000;">(</span>i<span style="color: #000000;">++</span> &lt; size<span style="color: #000000;">)</span>
+   <span style="color: #000000;">{</span>
+      sum <span style="color: #000000;">+=</span> array<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span>
+   <span style="color: #000000;">}</span>
+&nbsp;
+   <span style="color: #0000ff;">return</span> sum
+<span style="color: #000000;">}</span>
+&nbsp;
+<span style="color: #ff0000;">bool</span><span style="color: #000000;">:</span>compare_arrays<span style="color: #000000;">(</span>array1<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, array2<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, size<span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+   <span style="color: #007700;">new</span> i
+   <span style="color: #0000ff;">while</span> <span style="color: #000000;">(</span>i<span style="color: #000000;">++</span> &lt; size<span style="color: #000000;">)</span>
+   <span style="color: #000000;">{</span>
+      <span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>array1<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span> <span style="color: #000000;">!=</span> array2<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">)</span>
+      <span style="color: #000000;">{</span>
+         <span style="color: #0000ff;">return</span> <span style="color: #007700;">false</span>
+      <span style="color: #000000;">}</span>
+   <span style="color: #000000;">}</span>
+&nbsp;
+   <span style="color: #0000ff;">return</span> <span style="color: #007700;">true</span>
+<span style="color: #000000;">}</span></pre>
+<p><br>
+</p>
+<h2><span class="mw-headline" id="Two_Dimensional_Arrays">Two Dimensional Arrays</span></h2>
+<p>In Pawn it is possible to have arrays where each slot is another array. This is very useful for storing a table of data, where the first section of slots is a row and the second section of slots is a column. Two dimensional arrays are declared like so:
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//This declares an array with 50 rows and 50 columns.</span>
+<span style="color: #007700;">new</span> BigArray<span style="color: #000000;">[</span><span style="color: #0000dd;">50</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #0000dd;">50</span><span style="color: #000000;">]</span>
+<span style="color: #ff0000;">//this declares a floating point array with 25 rows and 10 columns.</span>
+<span style="color: #007700;">new</span> <span style="color: #007373;">Float</span><span style="color: #000000;">:</span>BigArray<span style="color: #000000;">[</span><span style="color: #0000dd;">25</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #0000dd;">10</span><span style="color: #000000;">]</span></pre>
+<p>Each slot in the first subset of the array becomes its own array.
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #007700;">new</span> BigArray<span style="color: #000000;">[</span><span style="color: #0000dd;">3</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #0000dd;">3</span><span style="color: #000000;">]</span>
+BigArray<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">10</span>
+BigArray<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">20</span>
+BigArray<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">30</span>
+BigArray<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">40</span>
+BigArray<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">50</span>
+BigArray<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">60</span>
+BigArray<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">70</span>
+BigArray<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">80</span>
+BigArray<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #0000dd;">90</span></pre>
+<p>Will result in BigArray looking like this:
+</p>
+<dl><dd><table>
+
+<tbody><tr>
+<td>BigArray
+</td>
+<td>0
+</td>
+<td>1
+</td>
+<td>2
+</td></tr>
+<tr>
+<td>0
+</td>
+<td>10
+</td>
+<td>20
+</td>
+<td>30
+</td></tr>
+<tr>
+<td>1
+</td>
+<td>40
+</td>
+<td>50
+</td>
+<td>60
+</td></tr>
+<tr>
+<td>2
+</td>
+<td>70
+</td>
+<td>80
+</td>
+<td>90
+</td></tr></tbody></table></dd></dl>
+<p>Note that our old sum_of_array() function can still work! We can do:
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #007700;">new</span> sum <span style="color: #000000;">=</span> sum_of_array<span style="color: #000000;">(</span>BigArray<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span>, <span style="color: #0000dd;">3</span><span style="color: #000000;">)</span></pre>
+<p>Because BigArray[2] contains a second, single dimensional array, containing {7,8,9}. However, let's write a 2D sum of array function.
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//This function will tally up a two dimensional array.</span>
+sum_of_table<span style="color: #000000;">(</span>array<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #000000;">]</span>, rows, cols<span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+   <span style="color: #007700;">new</span> i, j, sum
+&nbsp;
+   <span style="color: #ff0000;">//Note, there is a loop inside the loop.  </span>
+   <span style="color: #ff0000;">//This lets you go through each array inside the   </span>
+   <span style="color: #ff0000;">// bigger array. </span>
+   <span style="color: #0000ff;">for</span> <span style="color: #000000;">(</span>i<span style="color: #000000;">=</span><span style="color: #0000dd;">0</span>; i&lt;rows; i<span style="color: #000000;">++</span><span style="color: #000000;">)</span>
+   <span style="color: #000000;">{</span>
+      <span style="color: #0000ff;">for</span> <span style="color: #000000;">(</span>j<span style="color: #000000;">=</span><span style="color: #0000dd;">0</span>; j&lt;cols; j<span style="color: #000000;">++</span><span style="color: #000000;">)</span>
+      <span style="color: #000000;">{</span>
+         sum <span style="color: #000000;">+=</span> array<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>j<span style="color: #000000;">]</span>
+      <span style="color: #000000;">}</span>
+   <span style="color: #000000;">}</span>
+&nbsp;
+   <span style="color: #0000ff;">return</span> sum
+<span style="color: #000000;">}</span></pre>
+<p>Note, it is also possible to store an array of strings using two dimensional arrays.
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #007700;">new</span> StringList<span style="color: #000000;">[</span><span style="color: #0000dd;">3</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">{</span><span style="color: #800080;">"Hello"</span>, <span style="color: #800080;">"my"</span>, <span style="color: #800080;">"friend"</span><span style="color: #000000;">}</span>
+<span style="color: #ff0000; font-style: italic;">/*
+  StringList[0][0] through [0][5] contains "Hello"
+  StringList[1][0] through [1][2] contains "my"
+  StringList[2][0] through [2][6] contains "friend"
+*/</span></pre>
+<p>The table for StringList will look like:
+StringList 	0 	1 	2 	3 	4 	5 	6
+0 	H 	e 	l 	l 	o 	\0 	
+1 	m 	y 	\0 				
+2 	f 	r 	i 	e 	n 	d 	\0
+</p><p>Comparing strings in multidimensional arrays is also similar:
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>StringList<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span> <span style="color: #000000;">==</span> <span style="color: #800080;">"Hello"</span><span style="color: #000000;">)</span>       <span style="color: #ff0000;">//INVALID</span>
+<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>StringList<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span> <span style="color: #000000;">==</span> <span style="color: #800080;">"Hello"</span><span style="color: #000000;">)</span>    <span style="color: #ff0000;">//INVALID</span>
+<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span><span style="color: #007373;">equali</span><span style="color: #000000;">(</span>StringList<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span>, <span style="color: #800080;">"Hello"</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span> <span style="color: #ff0000;">//Valid</span></pre>
+<h1><span class="mw-headline" id="Compiler_Pre-processor_Directives">Compiler Pre-processor Directives</span></h1>
+<p>Compiler directives allow you to change how your code is read. This is rather advanced and will only be run over briefly.
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #ff0000;">//To bind a symbol to a value, you can do this:</span>
+<span style="color: #339900;">#define SYMBOL VALUE</span>
+<span style="color: #ff0000;">//for example:</span>
+&nbsp;
+<span style="color: #339900;">#define MAX_STRING 250</span>
+<span style="color: #007700;">new</span> String<span style="color: #000000;">[</span>MAX_STRING<span style="color: #000000;">]</span>
+&nbsp;
+<span style="color: #339900;">#define HELLO "Hello.  This is a generic greeting."</span>
+<span style="color: #007700;">new</span> Hello<span style="color: #000000;">[</span>MAX_STRING<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> HELLO</pre>
+<p>You can also use #defines to change the flow of code the compiler makes.
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #339900;">#if defined LINUX</span>
+   <span style="color: #ff0000;">//This portion will be compiled if #define LINUX exists</span>
+   execute_command<span style="color: #000000;">(</span><span style="color: #800080;">"ls -l"</span><span style="color: #000000;">)</span>
+<span style="color: #339900;">#else</span>
+   <span style="color: #ff0000;">//This portion will be compiled if #define LINUX does not exist</span>
+   execute_command<span style="color: #000000;">(</span><span style="color: #800080;">"dir"</span><span style="color: #000000;">)</span>
+<span style="color: #339900;">#endif</span></pre>
+<p>You can also change how much memory your script uses.
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #339900;">#pragma dynamic 4096</span>
+<span style="color: #ff0000;">//This creates a 16K stack of memory (default).</span>
+<span style="color: #ff0000;">//It is measured in blocks of 4 byte cells.</span></pre>
+<p>You can also specify whether semicolon usage is required to terminate a line of code (by default it is not required). 
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #339900;">#pragma semicolon 1</span></pre>
+<p>You can also change the control character( amxx std: '^' )
+</p>
+<pre class="pawn" style="font-family:monospace;"><span style="color: #339900;">#pragma ctrlchar '\'</span>
+<span style="color: #ff0000;">//this sets the control character to backslash( c/c++/c#/java/... std )</span>
+<span style="color: #ff0000;">// now you have to use the \ instead of ^</span>
+<span style="color: #ff0000;">// e.g. "this is ^":D^" " must be now " this is \":D\" "</span></pre>
+<h1><span class="mw-headline" id="Conclusion">Conclusion</span></h1>
+<p>This guide should have given you a VERY brief introduction to basic Pawn programming. It is by no means comprehensive and it should not constitute the entirety of one's knowledge of Pawn. To read the official Pawn documentation and language guide, go this website: <a rel="nofollow" class="external free" href="https://github.com/compuphase/pawn/blob/master/doc/Pawn_Language_Guide.pdf">https://github.com/compuphase/pawn/blob/master/doc/Pawn_Language_Guide.pdf</a> (Note, this guide is very long and should be used as a reference. You may want to try the Small forums or the AMX Mod X forums). Continue to the next Section to see how to apply Small programming to the Half-Life and AMX Mod X engine!
+</p>
+<h1><span class="mw-headline" id="External_Links">External Links</span></h1>
+<ul><li><a rel="nofollow" class="external text" href="https://github.com/compuphase/pawn/blob/master/doc/Pawn_Language_Guide.pdf">Pawn Language Reference</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.compuphase.com/pawn/pawn.htm">Pawn Homepage</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.compuphase.com/">ITB CompuPhase</a></li></ul>
+
+<!-- 
+NewPP limit report
+Cached time: 20221026050538
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.109 seconds
+Real time usage: 0.118 seconds
+Preprocessor visited node count: 588/1000000
+Preprocessor generated node count: 1222/1000000
+Post‐expand include size: 397/2097152 bytes
+Template argument size: 283/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 67992/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   15.194      1 -total
+  8.30%    1.261      3 Template:Qnotice
+-->
+</div>
+<!-- Saved in parser cache with key amwiki-cw_:pcache:idhash:1540-0!canonical and timestamp 20221026050538 and revision id 10748
+ -->
+</div>					<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.alliedmods.net/index.php?title=Pawn_tutorial&amp;oldid=10748">https://wiki.alliedmods.net/index.php?title=Pawn_tutorial&amp;oldid=10748</a>"					</div>
+				<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://wiki.alliedmods.net/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="https://wiki.alliedmods.net/Category:Scripting_(AMX_Mod_X)" title="Category:Scripting (AMX Mod X)">Scripting (AMX Mod X)</a></li></ul></div></div>				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.alliedmods.net/index.php?title=Special:UserLogin&amp;returnto=Pawn+tutorial" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+							<li id="ca-nstab-main" class="selected"><span><a href="https://wiki.alliedmods.net/Pawn_tutorial" title="View the content page [alt-shift-c]" accesskey="c">Page</a></span></li><li id="ca-talk" class="new"><span><a href="https://wiki.alliedmods.net/index.php?title=Talk:Pawn_tutorial&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [alt-shift-t]" accesskey="t">Discussion</a></span></li>						</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label">
+						<h3 id="p-variants-label">
+							<span>Variants</span>
+						</h3>
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+							<li id="ca-view" class="collapsible selected"><span><a href="https://wiki.alliedmods.net/Pawn_tutorial">Read</a></span></li><li id="ca-viewsource" class="collapsible"><span><a href="https://wiki.alliedmods.net/index.php?title=Pawn_tutorial&amp;action=edit" title="This page is protected.
+You can view its source [alt-shift-e]" accesskey="e">View source</a></span></li><li id="ca-history" class="collapsible"><span><a href="https://wiki.alliedmods.net/index.php?title=Pawn_tutorial&amp;action=history" title="Past revisions of this page [alt-shift-h]" accesskey="h">View history</a></span></li>						</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label" style="">
+						<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span></h3>
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+						<form action="https://wiki.alliedmods.net/index.php" id="searchform">
+							<div id="simpleSearch">
+								<input type="search" name="search" placeholder="Search AlliedModders Wiki" title="Search AlliedModders Wiki [alt-shift-f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off"><input type="hidden" value="Special:Search" name="title"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton">							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="https://wiki.alliedmods.net/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+			<div class="body">
+								<ul>
+					<li id="n-mainpage"><a href="https://wiki.alliedmods.net/Main_Page" title="Visit the main page [alt-shift-z]" accesskey="z">Main Page</a></li><li id="n-Projects"><a href="https://wiki.alliedmods.net/AlliedModders_Wiki:Community_portal">Projects</a></li><li id="n-currentevents"><a href="https://wiki.alliedmods.net/AlliedModders_Wiki:Current_events" title="Find background information on current events">Current events</a></li><li id="n-recentchanges"><a href="https://wiki.alliedmods.net/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="https://wiki.alliedmods.net/Special:Random" title="Load a random page [alt-shift-x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" rel="nofollow" title="The place to find out">Help</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+			<div class="body">
+								<ul>
+					<li id="t-whatlinkshere"><a href="https://wiki.alliedmods.net/Special:WhatLinksHere/Pawn_tutorial" title="A list of all wiki pages that link here [alt-shift-j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://wiki.alliedmods.net/Special:RecentChangesLinked/Pawn_tutorial" rel="nofollow" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://wiki.alliedmods.net/Special:SpecialPages" title="A list of all special pages [alt-shift-q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="https://wiki.alliedmods.net/index.php?title=Pawn_tutorial&amp;printable=yes" rel="alternate" title="Printable version of this page [alt-shift-p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://wiki.alliedmods.net/index.php?title=Pawn_tutorial&amp;oldid=10748" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://wiki.alliedmods.net/index.php?title=Pawn_tutorial&amp;action=info" title="More information about this page">Page information</a></li>				</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+				<div id="footer" role="contentinfo">
+						<ul id="footer-info">
+								<li id="footer-info-lastmod"> This page was last edited on 10 April 2019, at 06:54.</li>
+							</ul>
+						<ul id="footer-places">
+								<li id="footer-places-privacy"><a href="https://wiki.alliedmods.net/AlliedModders_Wiki:Privacy_policy" title="AlliedModders Wiki:Privacy policy">Privacy policy</a></li>
+								<li id="footer-places-about"><a href="https://wiki.alliedmods.net/AlliedModders_Wiki:About" title="AlliedModders Wiki:About">About AlliedModders Wiki</a></li>
+								<li id="footer-places-disclaimer"><a href="https://wiki.alliedmods.net/AlliedModders_Wiki:General_disclaimer" title="AlliedModders Wiki:General disclaimer">Disclaimers</a></li>
+							</ul>
+										<ul id="footer-icons" class="noprint">
+										<li id="footer-poweredbyico">
+						<a href="https://www.mediawiki.org/"><img src="./Pawn tutorial - AlliedModders Wiki_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>					</li>
+									</ul>
+						<div style="clear: both;"></div>
+		</div>
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.109","walltime":"0.118","ppvisitednodes":{"value":588,"limit":1000000},"ppgeneratednodes":{"value":1222,"limit":1000000},"postexpandincludesize":{"value":397,"limit":2097152},"templateargumentsize":{"value":283,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":67992,"limit":5000000},"timingprofile":["100.00%   15.194      1 -total","  8.30%    1.261      3 Template:Qnotice"]},"cachereport":{"timestamp":"20221026050538","ttl":86400,"transientcontent":false}}});});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":31});});</script>
+	
+
+<script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script><div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

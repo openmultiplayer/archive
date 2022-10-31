@@ -1,0 +1,2304 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://sampforum.blast.hk/showthread.php?tid=482840 -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>[Tutorial] To optimize our GM and our Server improves.</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="https://sampforum.blast.hk/syndication.php">
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="https://sampforum.blast.hk/syndication.php?type=atom1.0">
+<link rel="shortcut icon" href="https://sampforum.blast.hk/favicon.ico">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript" src="./[Tutorial] To optimize our GM and our Server improves._files/jquery.js"></script><style>undefined</style>
+<script type="text/javascript" src="./[Tutorial] To optimize our GM and our Server improves._files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] To optimize our GM and our Server improves._files/jquery.plugins.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] To optimize our GM and our Server improves._files/general.js"></script>
+<script type="text/javascript" src="./[Tutorial] To optimize our GM and our Server improves._files/tooltip.js"></script>
+
+<link rel="stylesheet" href="./[Tutorial] To optimize our GM and our Server improves._files/bootstrap.min.css">
+<link href="./[Tutorial] To optimize our GM and our Server improves._files/css" rel="stylesheet" type="text/css">
+<!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" / -->
+<link rel="stylesheet" href="./[Tutorial] To optimize our GM and our Server improves._files/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+
+<link type="text/css" rel="stylesheet" href="./[Tutorial] To optimize our GM and our Server improves._files/global.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] To optimize our GM and our Server improves._files/css3.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] To optimize our GM and our Server improves._files/responsive.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] To optimize our GM and our Server improves._files/star_ratings.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] To optimize our GM and our Server improves._files/showthread.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] To optimize our GM and our Server improves._files/grey.css">
+
+
+
+
+<script type="text/javascript">
+jQuery(document).on('click', '.panel-heading span.clickable', function(e){
+    var jQuerythis = jQuery(this);
+	if(!jQuerythis.hasClass('panel-collapsed')) {
+		jQuerythis.parents('.panel').find('.panel-body').slideUp();
+		jQuerythis.addClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+	} else {
+		jQuerythis.parents('.panel').find('.panel-body').slideDown();
+		jQuerythis.removeClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+	}
+})
+</script>
+
+
+
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+	lang.confirm_title = "Please Confirm";
+	lang.expcol_collapse = "[-]";
+	lang.expcol_expand = "[+]";
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+	
+	var templates = {
+		modal: '<div class=\"modal\">\
+	<div style=\"overflow-y: auto; max-height: 400px;\">\
+		<table border=\"0\" cellspacing=\"0\" cellpadding=\"5\" class=\"tborder\">\
+			<tr>\
+				<td class=\"thead\"><strong>__title__</strong></td>\
+			</tr>\
+			<tr>\
+				<td class=\"trow1\">__message__</td>\
+			</tr>\
+			<tr>\
+				<td class=\"tfoot\">\
+					<div style=\"text-align: center\" class=\"modal_buttons\">__buttons__</div>\
+				</td>\
+			</tr>\
+		</table>\
+	</div>\
+</div>',
+		modal_button: '<input type=\"submit\" class=\"button\" value=\"__title__\"/>&nbsp;'
+	};
+	
+	var cookieSecureFlag = "0";
+	var cookieDomain = ".sampforum.blast.hk";
+	var cookiePath = "/";
+	var cookiePrefix = "";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "2220ae0a21c853e6459922e7a63ded4d";
+	var rootpath = "https://sampforum.blast.hk";
+	var imagepath = "https://sampforum.blast.hk/images/bootbb";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "https://sampforum.blast.hk/images/bootbb/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+
+<!-- Make videos responsive - https://github.com/davatron5000/FitVids.js (additional video sites added for MyBB) -->
+<script type="text/javascript" src="./[Tutorial] To optimize our GM and our Server improves._files/jquery.fitvids.js"></script>
+<script>
+	$(document).ready(function(){
+		// Target the iframe parent div
+		var bvc = $(".bootbb-video-container");
+		//bvc.css("max-width", "800px");
+		bvc.fitVids();
+	});
+</script>
+<!-- end: headerinclude -->
+<script>
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script src="./[Tutorial] To optimize our GM and our Server improves._files/report.js"></script>
+<script src="./[Tutorial] To optimize our GM and our Server improves._files/jeditable.min.js"></script>
+<script src="./[Tutorial] To optimize our GM and our Server improves._files/thread.js"></script>
+<meta name="description" content="Well, these are some forms that I know to optimize our GM, and clearly, to improve the server. We will begin with the inconveniences that the Users have: Timer&#39;s: Something that always the Ping raises">
+<link rel="canonical" href="https://sampforum.blast.hk/showthread.php?tid=482840">
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./[Tutorial] To optimize our GM and our Server improves._files/css2"></head>
+<body>
+	<!-- start: header -->
+<header>
+<div class="navbar navbar-default">
+     <div class="container">
+          <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="Toggle navigation">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span> 
+               </button>
+			  
+			  <div class="navbar-header scaleimages">
+				  <!--<a class="navbar-brand" href="https://sampforum.blast.hk">BootBB</a>-->
+				  <a class="" href="https://sampforum.blast.hk/"><img src="./[Tutorial] To optimize our GM and our Server improves._files/logo_forum.gif"></a>
+			  
+			  </div>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+			  <ul class="nav navbar-nav navbar-right">
+				  <!--<li id="nav-portal"><a href="https://sampforum.blast.hk/portal.php"><i class="fa fa-bell"></i> Portal</a></li>-->
+               <li id="nav-forums"><a href="https://sampforum.blast.hk/index.php"><i class="fa fa-group"></i> Forum</a></li>
+				<!--<li><a href="https://sampforum.blast.hk/search.php?action=getnew"><i class="fa fa-comment"></i> New Posts</a></li>
+            	<li><a href="https://sampforum.blast.hk/search.php?action=getdaily"><i class="fa fa-comments"></i> Today's Posts</a></li>-->
+               <li id="nav-search"><a href="https://sampforum.blast.hk/search.php"><i class="fa fa-search"></i> Search</a></li>
+               <li id="nav-member"><a href="https://sampforum.blast.hk/memberlist.php"><i class="fa fa-users"></i> Members</a></li>
+               <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+				  
+<!--<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cubes"></i> Misc <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			  <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+			  <li class="divider"></li>
+			  <li id="nav-calendar"><a href="https://sampforum.blast.hk/calendar.php"><i class="fa fa-calendar"></i> Calendar</a></li>
+          </ul>
+</li> -->
+</ul>
+  
+          </div>
+     </div>
+</div>
+</header>
+
+
+<div id="container">
+	<a name="top" id="top"></a>
+		<div id="header">
+			<div id="panel">
+				<div class="upper">
+					<div class="container">
+
+						<!-- start: header_welcomeblock_guest -->
+<!--<span><a href="https://sampforum.blast.hk/member.php?action=login" onclick="$('#quick_login').modal({ fadeDuration: 250, keepelement: true }); return false;" class="login btn btn-danger" style="color: #fff;"><i class="fa fa-sign-in"></i> Login</a> <a href="https://sampforum.blast.hk/member.php?action=register" class="register btn btn-success" style="color: #fff;"><i class="fa fa-user-plus"></i> Register</a></span>-->
+
+<span class="float_right hidden-xs">Hello There, Guest!</span>
+
+<br class="clearfix">
+	
+
+				<div class="modal" id="quick_login" style="display: none;">
+					<form method="post" action="https://sampforum.blast.hk/member.php">
+						<input name="my_post_key" type="hidden" value="2220ae0a21c853e6459922e7a63ded4d">
+						<input name="action" type="hidden" value="do_login">
+						<input name="url" type="hidden" value="https://sampforum.blast.hk/showthread.php?tid=482840">
+						<input name="quick_login" type="hidden" value="1">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tborder">
+							<tbody><tr>
+								<td class="thead" colspan="2"><strong>Login</strong></td>
+							</tr>
+							<tr>
+								<td class="trow1" width="25%"><strong>Username:</strong></td>
+								<td class="trow1"><input name="quick_username" id="quick_login_username" type="text" value="" class="textbox initial_focus"></td>
+							</tr>
+							<tr>
+								<td class="trow2"><strong>Password:</strong></td>
+								<td class="trow2">
+									<input name="quick_password" id="quick_login_password" type="password" value="" class="textbox"> <a href="https://sampforum.blast.hk/member.php?action=lostpw" class="lost_password">Lost Password?</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow1">&nbsp;</td>
+								<td class="trow1 remember_me">
+									<input name="quick_remember" id="quick_login_remember" type="checkbox" value="yes" class="checkbox" checked="checked">
+									<label for="quick_login_remember">Remember me</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow2" colspan="2">
+									<div align="center"><input name="submit" type="submit" class="button" value="Login"></div>
+								</td>
+							</tr>
+						</tbody></table>
+					</form>
+				</div>
+				<script type="text/javascript">
+					$("#quick_login input[name='url']").val($(location).attr('href'));
+				</script>
+<!-- end: header_welcomeblock_guest -->
+					
+					</div>
+			</div>
+			</div>
+	</div>
+			</div>
+               
+				   
+                <main class="container">
+				<br>
+                 <!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=12">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav -->
+				
+				
+				
+				
+				
+				
+<!-- end: header -->
+	
+	
+	<div class="float_left">
+		<!-- start: multipage -->
+<div class="pagination">
+<span class="pages">Pages (2):</span>
+<!-- start: multipage_page_current -->
+ <span class="pagination_current">1</span>
+<!-- end: multipage_page_current --><!-- start: multipage_page -->
+<a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;page=2" class="pagination_page">2</a>
+<!-- end: multipage_page --><!-- start: multipage_nextpage -->
+<a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;page=2" class="pagination_next">Next »</a>
+<!-- end: multipage_nextpage -->
+</div>
+<!-- end: multipage -->
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	<div class="tborder tfixed clear">
+		<div class="thead">
+				<div class="float_right">
+					<span class="smalltext"><a href="https://sampforum.blast.hk/showthread.php?mode=threaded&amp;tid=482840&amp;pid=2830543#pid2830543">Threaded Mode</a></span>
+				</div>
+				
+					[Tutorial] To optimize our GM and our Server improves.
+			</div>
+	</div>
+<div id="posts_container">
+	<div id="posts">
+		<!-- start: postbit_classic -->
+
+<a id="pid2830543"></a>
+<div class="post classic " style="" id="post_2830543">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=205131"><img src="./[Tutorial] To optimize our GM and our Server improves._files/205131.png" alt="" width="55" height="44"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=205131"><s>Swedky</s></a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Banned<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 2,041<br>
+	Threads: 97<br>
+	Joined: Jun 2013
+	<br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;pid=2830543#pid2830543" title="To optimize our GM and our Server improves.">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 1 by Swedky" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 05:37 <span class="post_edit" id="edited_by_2830543"><!-- start: postbit_editedby -->
+<div class="edited_post postbit_edited postbit_editedby postbit_editedpost">(<!-- start: postbit_editedby_editreason -->
+ <em>Last edited by Swedky; 23/12/2013 at 11:47 AM.</em>
+<!-- end: postbit_editedby_editreason -->)</div>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2830543">
+		<i>Well, these are some forms that I know to optimize our GM, and clearly, to improve the server. <br>
+We will begin with the inconveniences that the Users have:</i><br>
+<br>
+<br>
+<br>
+<div align="center"><b><font face="Franklin Gothic Medium"><font size="5">Timer's:</font></font></b></div>
+<i>Something that always the Ping raises in our server. I will give them forms of how solving it.</i><br>
+<br>
+<br>
+<br>
+<font face="Franklin Gothic Medium"><div align="center"><font size="4"><b>Timer for restrictions.</b></font></div></font><br>
+<br>
+<i>If we use Timer's for restrictions, I refer that a user could not use a command for '</i><b>X</b><i>' time, a Timer is the last thing that they should use. One of the best methods is to use the include created by so called DesingMyCry:</i> <b>a_tiempos.inc - he handles your times to whim.</b> <i>It is %100 effective and it will help us very much to remove unnecessary Timer's since it uses the SA-MP's native ones.</i> <b>(</b><i>'</i><b>Gettime</b><i>'</i><b>)</b><i>.<br>
+<br>
+Since the tutorial is in Spanish and his codes also, I it will translate to the Englishman in order that they deal:</i><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:391px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#define SecondsToMinutes(%1) ((%1)*(60))</span><br><span style="color: #2222AA;">#define SecondToHour(%1) (((%1)*(60))*(60))</span><br><span style="color: #2222AA;">#define SecondToDay(%1) ((((%1)*(24))*(60))*(60))</span><br><br><br><span style="color: #2222BB;">stock</span> <span style="color: #000000;">Timer</span><span style="color: #000000;">:</span>operator <span style="color: #000000;">=</span> <span style="color: #000000;">(</span>t<span style="color: #000000;">)</span> <span style="color: #2222BB;">return</span> <span style="color: #000000;">Timer</span><span style="color: #000000;">:</span>t;<br><br><br><span style="color: #2222BB;">stock</span> StartTimer<span style="color: #000000;">(</span><span style="color: #000000;">&amp;</span><span style="color: #000000;">Timer</span><span style="color: #000000;">:</span>timer, <span style="color: #2222BB;">const</span> TimerTime<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; timer <span style="color: #000000;">=</span> <span style="color: #000000;">(</span><span style="color: #000000;">(</span><span style="color: #222222;">gettime</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">+</span><span style="color: #000000;">(</span>TimerTime<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><span style="color: #2222BB;">stock</span> ObtainTimer<span style="color: #000000;">(</span><span style="color: #000000;">Timer</span><span style="color: #000000;">:</span>timer<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span> CurrentTime <span style="color: #000000;">=</span> <span style="color: #222222;">gettime</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">(</span><span style="color: #000000;">_</span><span style="color: #000000;">:</span>timer<span style="color: #000000;">-</span>CurrentTime &nbsp;<span style="color: #000000;">&lt;=</span> <span style="color: #000000;">0</span><span style="color: #000000;">)</span> <span style="color: #000000;">?</span> <span style="color: #000000;">(</span><span style="color: #000000;">0</span><span style="color: #000000;">)</span> <span style="color: #000000;">:</span> <span style="color: #000000;">(</span><span style="color: #000000;">_</span><span style="color: #000000;">:</span>timer<span style="color: #000000;">-</span>CurrentTime<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">stock</span> <span style="color: #000000;">bool</span><span style="color: #000000;">:</span>TimerHasHappened<span style="color: #000000;">(</span><span style="color: #000000;">Timer</span><span style="color: #000000;">:</span>timer<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">(</span>ObtainTimer<span style="color: #000000;">(</span><span style="color: #000000;">_</span><span style="color: #000000;">:</span>timer<span style="color: #000000;">)</span> <span style="color: #000000;">&lt;=</span> <span style="color: #000000;">0</span><span style="color: #000000;">)</span> <span style="color: #000000;">?</span> <span style="color: #000000;">(</span>true<span style="color: #000000;">)</span> <span style="color: #000000;">:</span> <span style="color: #000000;">(</span>false<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+<i>Good, I will leave an example them of since using it:</i><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:359px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><span style="color: #2222AA;">#include &lt;a_timers&gt; // Here the name of the include.</span><br><br><span style="color: #2222BB;">new</span> <span style="color: #000000;">Timer</span><span style="color: #000000;">:</span>RestrictionCMD<span style="color: #000000;">[</span>MAX_PLAYERS<span style="color: #000000;">]</span>;<br><br><span style="color: #2222BB;">public</span> OnPlayerCommandText<span style="color: #000000;">(</span>playerid, cmdtext<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; <span style="color: #228822;">//if(TimerHasHappened(RestrictionCMD[playerid]) == true)</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>TimerHasHappened<span style="color: #000000;">(</span>RestrictionCMD<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; StartTime<span style="color: #000000;">(</span>RestrictionCMD<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span>, SecondsToMinute<span style="color: #000000;">(</span><span style="color: #000000;">5</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">return</span> SendClientMessage<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">-</span><span style="color: #000000;">1</span>, <span style="color: #000066;">"It used the command correctly. Now it waits 5 minutes to return to use any other one."</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">else</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">new</span> string<span style="color: #000000;">[</span><span style="color: #000000;">40</span><span style="color: #000000;">]</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #222222;">format</span><span style="color: #000000;">(</span>strimg, <span style="color: #2222BB;">sizeof</span><span style="color: #000000;">(</span>string<span style="color: #000000;">)</span>, <span style="color: #000066;">"Wait %i seconds before using a command."</span>, ObtainTimer<span style="color: #000000;">(</span>RestrictionCMD<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">-</span><span style="color: #000000;">1</span>, string<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">0</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+<b>StarTimer:</b> <i>It begins the restriction.</i><br>
+<b>ObtainTimer:</b> <i>It obtains the quantity of time that is absent in order that it finishes the timer.</i><br>
+<b>TimerHasHappened:</b> <i>It detects if the Timer already happened.</i><br>
+<br>
+<br>
+<br>
+<b><div align="center"><font size="4"><font face="Franklin Gothic Medium">Gratings.</font></font></div></b><br>
+<i>It is strange that a GM does not use gratings and/or inner doors in movement. Mainly, to close the grating they use a Timer, but there is another method: <a href="https://sampwiki.blast.hk/wiki/OnObjectMoved" target="_blank">https://sampwiki.blast.hk/wiki/OnObjectMoved</a> <b>-</b> It is called when an object stops moving.</i><br>
+<br>
+<br>
+<br>
+<font size="5"><b><div align="center"><font face="Franklin Gothic Medium">Cells.</font></div></b></font><br>
+<i>Probably some persons format many cells unnecessarily, I refer that they put more than it will be formatted.<br>
+<br>
+<br>
+<br>
+Example:</i><br>
+<br>
+<br>
+<b>THIS IS NOT RECOMMENDED:</b><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:71px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> string<span style="color: #000000;">[</span><span style="color: #000000;">144</span><span style="color: #000000;">]</span>;<br><span style="color: #222222;">format</span><span style="color: #000000;">(</span>string, <span style="color: #2222BB;">sizeof</span><span style="color: #000000;">(</span>string<span style="color: #000000;">)</span>, <span style="color: #000066;">"* Your principal information: %s[%d]."</span>, GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, playerid<span style="color: #000000;">)</span>;<br>SendClientMessage<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">-</span><span style="color: #000000;">1</span>, string<span style="color: #000000;">)</span>;</div></div></pre>
+</div>
+<br>
+<b>BUT YES THIS:</b><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:71px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">new</span> string<span style="color: #000000;">[</span><span style="color: #000000;">61</span><span style="color: #000000;">]</span>; <span style="color: #228822;">/* *Thanks to Bark for the notice.* */</span><br><span style="color: #222222;">format</span><span style="color: #000000;">(</span>string, <span style="color: #2222BB;">sizeof</span><span style="color: #000000;">(</span>string<span style="color: #000000;">)</span>, <span style="color: #000066;">"* Your principal information: %s[%d]."</span>, GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, playerid<span style="color: #000000;">)</span>;<br>SendClientMessage<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">-</span><span style="color: #000000;">1</span>, string<span style="color: #000000;">)</span>;</div></div></pre>
+</div>
+<br>
+<i>What did I do there? It was to lower the cells and to use only the necessary ones.</i><br>
+<br>
+<b>Note:</b> <i>Bear in mind that if they format the name of the player, they must add '</i><b>+24</b><i>' cells to the array.</i><br>
+<b>Note 2:</b> <i>The Hexadecimal colors also will store '</i><b>+8</b><i>' cells.</i> <b>(</b><i>Writing the entire hexadecimal</i><b>)</b><i>.</i><br>
+<b>Note 3:</b> <i>Remember '</i><b>+1</b><i>' use cell for the void character.</i><br>
+<br>
+<br>
+<br>
+<br>
+<b><div align="center"><font size="5"><font face="Franklin Gothic Medium">When to use static and when to use new?.</font></font></div></b><br>
+<br>
+<i>What I want to say, is that we must use</i> <b><font color="Blue">static</font></b> <i>only global type, and</i> <b><font color="blue">new</font></b> <i>only local type, and they will wonder: why?. Simply because when the server initiates, in</i> <b><font color="blue">static</font></b> <i>the variable/array is created only once until you close the server, besides whom this one spends fewer resources and there is no need to global type be creating it again and again like in case of</i> <b><font color="blue">new</font></b><i>. <br>
+And we use</i> <b><font color="blue">new</font></b><i> locally, since on having closed the keys it resigns of the memory.</i><br>
+<br>
+<i>Example:</i><br>
+<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:279px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">static</span> Team<span style="color: #000000;">[</span>MAX_PLAYERS<span style="color: #000000;">]</span>; <span style="color: #228822;">// We declare that we will use this array in the whole GM.</span><br><br><span style="color: #2222BB;">public</span> OnPlayerSpawn<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span> string<span style="color: #000000;">[</span><span style="color: #000000;">70</span><span style="color: #000000;">]</span>; <span style="color: #228822;">// We declare that this array will be used in the whole callack.</span><br>&nbsp; &nbsp; <span style="color: #222222;">format</span><span style="color: #000000;">(</span>string, <span style="color: #2222BB;">sizeof</span><span style="color: #000000;">(</span>string<span style="color: #000000;">)</span>, <span style="color: #000066;">"* %s[%d] It appeared and it is ready to play."</span>, GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, playerid<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; SendClientMessageToAll<span style="color: #000000;">(</span>0xF10000FF, string<span style="color: #000000;">)</span>;<br><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>Team<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">&gt;</span> <span style="color: #000000;">0</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">new</span> string2<span style="color: #000000;">[</span><span style="color: #000000;">39</span><span style="color: #000000;">]</span>; <span style="color: #228822;">// We declare that we will use this array only in conditional this one.</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #222222;">format</span><span style="color: #000000;">(</span>string2, <span style="color: #2222BB;">sizeof</span><span style="color: #000000;">(</span>string2<span style="color: #000000;">)</span>, <span style="color: #000066;">"* You are of the Equipment number: %i."</span>, Team<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; SendClientMessageToAll<span style="color: #000000;">(</span>0xF10000FF, string2<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span> <span style="color: #228822;">// We close the keys and erase the array 'string2' of the memory.</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span> <span style="color: #228822;">// We close the keys of the callback and erase the array 'string' of the memory.</span></div></div></pre>
+</div>
+<br>
+<br>
+<br>
+<b><font face="Franklin Gothic Medium"><div align="center"><font size="5">To optimize codes.</font></div></font></b><br>
+<br>
+<i>Some of the examples that it could give, it is of that the persons use often the conditional ones, instead of using</i> <b><font color="Blue">switch</font></b>. <br>
+<i>For example:</i><br>
+<br>
+<b><font color="Red">INCORRECT:</font></b><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:295px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">stock</span> ProvedAtRandom<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span> Random <span style="color: #000000;">=</span> <span style="color: #222222;">random</span><span style="color: #000000;">(</span><span style="color: #000000;">3</span><span style="color: #000000;">)</span>;<br><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span><span style="color: #222222;">random</span> <span style="color: #000000;">==</span> <span style="color: #000000;">0</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; SendRconCommand<span style="color: #000000;">(</span><span style="color: #000066;">"gmx"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">else</span> <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span><span style="color: #222222;">random</span> <span style="color: #000000;">==</span> <span style="color: #000000;">1</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; SendRconCommand<span style="color: #000000;">(</span><span style="color: #000066;">"pasword Tutorial."</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">else</span> <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span><span style="color: #222222;">random</span> <span style="color: #000000;">==</span> <span style="color: #000000;">2</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; SendRconCommand<span style="color: #000000;">(</span><span style="color: #000066;">"reloadfs Tutorial"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+<font color="Lime"><b>CORRECT:</b></font><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:199px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">stock</span> ProvedAtRandom<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span> Random <span style="color: #000000;">=</span> <span style="color: #222222;">random</span><span style="color: #000000;">(</span><span style="color: #000000;">3</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">switch</span><span style="color: #000000;">(</span>Random<span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">case</span> <span style="color: #000000;">0</span><span style="color: #000000;">:</span> SendRconCommand<span style="color: #000000;">(</span><span style="color: #000066;">"gmx"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">case</span> <span style="color: #000000;">1</span><span style="color: #000000;">:</span> SendRconCommand<span style="color: #000000;">(</span><span style="color: #000066;">"password Tutorial."</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">case</span> <span style="color: #000000;">2</span><span style="color: #000000;">:</span> SendRconCommand<span style="color: #000000;">(</span><span style="color: #000066;">"reloadfs Tutorial"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> Random;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+<i>It would return the value '</i><b>Random</b><i>' and our code would be more optimized, besides that switch always reads directly the codes that it uses in of his keys, whereas if verifies one for one.</i> <br>
+<b><font color="Blue">return</font></b> <i>can return binary, entire numbers/decimals, chains of text, etc.<br>
+<br>
+<br>
+Another example is:</i><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:119px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">stock</span> GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span> <span style="color: #228822;">// Code used in previous examples in this tutorial.</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span> Nick<span style="color: #000000;">[</span>MAX_PLAYER_NAME<span style="color: #000000;">]</span>;<br>&nbsp; &nbsp; GetPlayerName<span style="color: #000000;">(</span>playerid, Nick, <span style="color: #2222BB;">sizeof</span><span style="color: #000000;">(</span>Nick<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> Nick; <span style="color: #228822;">// He returns a chain of text.</span><br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+<b>It notices:</b> <i>Some stock's sometimes must not return at least that we put a value.</i> <b>(</b><i>Also the callback's that we create</i><b>)</b><i>.</i><br>
+<br>
+<br>
+<br>
+<div align="center"><b><font size="5"><font face="Franklin Gothic Medium">Processors of Commands.</font></font></b></div>
+<i>Always commands are used in our Server, and a way of optimizing our GM is to use a processor of Commands, more acquaintances it is</i> <b>ZCMD</b><i> for Zeex and</i> <b>Y_Commands</b> <i>for ******.</i><br>
+<br>
+<b>Y_Commands</b> <i>-</i> <a href="https://sampforum.blast.hk/showthread.php?tid=169029" target="_blank">https://sampforum.blast.hk/showthread.php?tid=169029</a><i>.</i><br>
+<b>ZCMD</b> <i>-</i> <a href="https://sampforum.blast.hk/showthread.php?tid=91354" target="_blank">https://sampforum.blast.hk/showthread.php?tid=91354</a><i>.</i><br>
+<br>
+<br>
+<br>
+<b><div align="center"><font size="5"><font face="Franklin Gothic Medium">Others.</font></font></div></b><br>
+<br>
+<i>Some of them use 500 cells for which they use the array with the constant '</i><b>MAX_PLAYERS</b><i>', being that our server not reaches not even 50/70 users. <br>
+We must use the necessary, at the time quantity, what we must do? To go below of the included bookshop '</i><b>a_samp</b><i>' and to re-define the above mentioned constant; therefore, it would be like that:</i><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:71px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><span style="color: #2222AA;">#undef MAX_PLAYERS</span><br><span style="color: #2222AA;">#define MAX_PLAYERS Quantity // We change 'quantity' into the quantity of slot's that you use in your Server.</span></div></div></pre>
+</div>
+<br>
+<br>
+<br>
+<div align="center"><b><font size="5"><font face="Franklin Gothic Medium">Loop's.</font></font></b></div>
+<i>Always we create curls, already be for all the players or to repeat '</i><b>X</b><i>' code. <br>
+When we use a curl for all the players, the best option is to use '</i><b>foreach</b><i>' for ******. What this include does is to create a curl only for the connected players, and is %100 exactly.<br>
+<br>
+I will leave the link them of of the same one:</i> <a href="https://sampforum.blast.hk/showthread.php?tid=92679" target="_blank">[<font color="Cyan">Include</font>] foreach - 0.3 compatible - updated 19/12/12</a><i>.</i><br>
+<br>
+<br>
+<br>
+<br>
+<b>_____________________</b><br>
+<br>
+<br>
+Well, it was the whole tutorial. <br>
+I am new doing tutoriales, if they have some doubt or I was wrong in something, please, warn me. <br>
+Excuse the evil Englishman, I am of the Spanish section and do not remove very well with the Englishman that we say.<br>
+<br>
+Regards.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2830543">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=205131" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482840&amp;replyto=2830543" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2830570"></a>
+<div class="post classic " style="" id="post_2830570">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=63576"><img src="./[Tutorial] To optimize our GM and our Server improves._files/63576.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=63576">nGen.SoNNy</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 929<br>
+	Threads: 135<br>
+	Joined: Sep 2009
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=63576"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;pid=2830570#pid2830570" title="Re: To optimize our GM and our Server improves.">#2</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 2 by nGen.SoNNy" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 06:14 <span class="post_edit" id="edited_by_2830570"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2830570">
+		Thanks for this tutorial. I hope that most of our "scripters" will get from tips from this post.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2830570">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=63576" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482840&amp;replyto=2830570" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2830587"></a>
+<div class="post classic " style="" id="post_2830587">
+<div class="post_author scaleimages">
+	
+	<div class="author_information">
+			<strong><span class="largetext">Emmet_</span></strong> <br>
+			<span class="smalltext">
+				Unregistered<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_guest -->
+&nbsp;
+<!-- end: postbit_author_guest -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;pid=2830587#pid2830587" title="Re: To optimize our GM and our Server improves.">#3</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 3 by Emmet_" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 06:54 <span class="post_edit" id="edited_by_2830587"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2830587">
+		Nice tutorial.<br>
+<br>
+About this:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:199px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">stock</span> ProvedAtRandom<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span> Random <span style="color: #000000;">=</span> <span style="color: #222222;">random</span><span style="color: #000000;">(</span><span style="color: #000000;">3</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">switch</span><span style="color: #000000;">(</span>Random<span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">case</span> <span style="color: #000000;">0</span><span style="color: #000000;">:</span> SendRconCommand<span style="color: #000000;">(</span><span style="color: #000066;">"gmx"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">case</span> <span style="color: #000000;">1</span><span style="color: #000000;">:</span> SendRconCommand<span style="color: #000000;">(</span><span style="color: #000066;">"password Tutorial."</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">case</span> <span style="color: #000000;">2</span><span style="color: #000000;">:</span> SendRconCommand<span style="color: #000000;">(</span><span style="color: #000066;">"reloadfs Tutorial"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> Random;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+I generally tend to do this:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:183px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">stock</span> ProvedAtRandom<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">static</span> <span style="color: #2222BB;">const</span> g_Commands<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">[</span><span style="color: #000000;">]</span> <span style="color: #000000;">=</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><span style="color: #000066;">"gmx"</span><span style="color: #000000;">}</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><span style="color: #000066;">"password Tutorial."</span><span style="color: #000000;">}</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><span style="color: #000066;">"reloadfs Tutorial"</span><span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #000000;">}</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> SendRconCommand<span style="color: #000000;">(</span>g_Commands<span style="color: #000000;">[</span><span style="color: #222222;">random</span><span style="color: #000000;">(</span><span style="color: #2222BB;">sizeof</span><span style="color: #000000;">(</span>g_Commands<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2830587">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482840&amp;replyto=2830587" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2830593"></a>
+<div class="post classic " style="" id="post_2830593">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=201158"><img src="./[Tutorial] To optimize our GM and our Server improves._files/201158.png" alt="" width="55" height="42"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=201158">Ada32</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 295<br>
+	Threads: 6<br>
+	Joined: Apr 2013
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=201158"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;pid=2830593#pid2830593" title="Re: To optimize our GM and our Server improves.">#4</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 4 by Ada32" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 07:02 <span class="post_edit" id="edited_by_2830593"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2830593">
+		what in the heck's a curl??
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2830593">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=201158" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482840&amp;replyto=2830593" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2830603"></a>
+<div class="post classic " style="" id="post_2830603">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=126521"><img src="./[Tutorial] To optimize our GM and our Server improves._files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=126521">Bakr</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 977<br>
+	Threads: 10<br>
+	Joined: Apr 2011
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=126521"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;pid=2830603#pid2830603" title="Re: To optimize our GM and our Server improves.">#5</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 5 by Bakr" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 07:16 <span class="post_edit" id="edited_by_2830603"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2830603">
+		Nice, just a few things I'd like to point out:<br>
+<br>
+1) For your example under "cells", you only need 61. 30 + 24 + 6 + 1. Though I don't think 9 cells has ever killed anyone.<br>
+<br>
+2) Global variables (static or new) are only created once. The use of "static" for global variables is to restrict them to the file they were created in (useful for encapsulating libraries). Note that it can also be used the same for functions<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:55px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// function only accessible in the file it was created in</span><br><span style="color: #2222BB;">static</span> <span style="color: #2222BB;">stock</span> HiddenFunc<span style="color: #000000;">(</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span><span style="color: #000000;">}</span></div></div></pre>
+</div>
+Using "static" for local variables creates them once. They technically ARE global variables, they just don't clutter up the global namespace.<br>
+<br>
+To summarize: Use "static" for functions/global variables to restrict them to the file they were created in. Use "static" for local variables that do not need to be constantly re-created (this is useful as they retain their previous value until overwritten).<br>
+<br>
+3) For using the switch keyword, it should be noted the cases need be constant values.<br>
+<br>
+Just as a note, "curls" are known as "loops".
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2830603">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=126521" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482840&amp;replyto=2830603" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2830796"></a>
+<div class="post classic " style="" id="post_2830796">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=205131"><img src="./[Tutorial] To optimize our GM and our Server improves._files/205131.png" alt="" width="55" height="44"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=205131"><s>Swedky</s></a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Banned<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 2,041<br>
+	Threads: 97<br>
+	Joined: Jun 2013
+	<br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;pid=2830796#pid2830796" title="Respuesta: Re: To optimize our GM and our Server improves.">#6</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 6 by Swedky" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 10:29 <span class="post_edit" id="edited_by_2830796"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2830796">
+		<b>nGen.SoNNy:</b> <i>Thank you friend, I estimate very much the support.</i> <img alt="" border="0" class="inlineimg" src="./[Tutorial] To optimize our GM and our Server improves._files/smile.png" title="Smiley"><br>
+<br>
+<br>
+<b>Emmet_:</b> <i>Excellent example, he had not thought it to use that way. <img alt="" border="0" class="inlineimg" src="./[Tutorial] To optimize our GM and our Server improves._files/eek.png" title="shocked"></i><br>
+<br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Bakr</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2830603#pid2830603" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] To optimize our GM and our Server improves._files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Nice, just a few things I'd like to point out:<br>
+<br>
+<br>
+2) Global variables (static or new) are only created once. The use of "static" for global variables is to restrict them to the file they were created in (useful for encapsulating libraries). Note that it can also be used the same for functions<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:55px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #228822;">// function only accessible in the file it was created in</span><br><span style="color: #2222BB;">static</span> <span style="color: #2222BB;">stock</span> HiddenFunc<span style="color: #000000;">(</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span><span style="color: #000000;">}</span></div></div></pre>
+</div>
+Using "static" for local variables creates them once. They technically ARE global variables, they just don't clutter up the global namespace.<br>
+<br>
+To summarize: Use "static" for functions/global variables to restrict them to the file they were created in. Use "static" for local variables that do not need to be constantly re-created (this is useful as they retain their previous value until overwritten).<br>
+<br>
+3) For using the switch keyword, it should be noted the cases need be constant values.</div>
+</td>
+</tr>
+</tbody></table>
+</div><i>Good information, it is good to know.</i><br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Bakr</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2830603#pid2830603" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] To optimize our GM and our Server improves._files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">1) For your example under "cells", you only need 61. 30 + 24 + 6 + 1. Though I don't think 9 cells has ever killed anyone.</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<i>It had not noticed it. I forgot to use the quantities of cells in English, since they were for the exact quantity with the message in Spanish.</i><br>
+<br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Bakr</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2830603#pid2830603" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] To optimize our GM and our Server improves._files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Just as a note, "curls" are known as "loops".</div>
+</td>
+</tr>
+</tbody></table>
+</div><i>This way me this word appeared on having translated it.</i> <b>(</b><i>In Spanish it is:</i> bucles<b>)</b><i>.</i>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2830796">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=205131" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482840&amp;replyto=2830796" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2830840"></a>
+<div class="post classic " style="" id="post_2830840">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=149753"><img src="./[Tutorial] To optimize our GM and our Server improves._files/149753.png" alt="" width="55" height="42"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=149753">Konstantinos</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Spam Machine<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 11,827<br>
+	Threads: 33<br>
+	Joined: Dec 2011
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=149753"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;pid=2830840#pid2830840" title="Re: To optimize our GM and our Server improves.">#7</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 7 by Konstantinos" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 11:07 <span class="post_edit" id="edited_by_2830840"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2830840">
+		It's a good tutorial.<br>
+<br>
+Although, I'd like to point out that using:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:119px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">stock</span> GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span> <span style="color: #228822;">// Code used in previous examples in this tutorial.</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span> Nick<span style="color: #000000;">[</span>MAX_PLAYER_NAME<span style="color: #000000;">]</span>;<br>&nbsp; &nbsp; GetPlayerName<span style="color: #000000;">(</span>playerid, Nick, <span style="color: #2222BB;">sizeof</span><span style="color: #000000;">(</span>Nick<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> Nick; <span style="color: #228822;">// He returns a chain of text.</span><br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+is a really bad idea. Let's say in a command you want to use a player's name 5 times so you're going to call GetPlayerName 5 times when it could be done only 1 (by getting the name right there). However, the best way (atleast for me) is to get the name only once on connect and store it to a global array (either packed string or not). Then you can use to pass the name as an argument wherever you want.<br>
+<br>
+You also said about foreach instead of for loops for the players and foreach is really great! foreach should be used for the vehicles as well and it's very optimized. Instead of looping 2000 times for vehicles, you can add vehicleid to an Iterator and loop through the valid vehicleids. So let's say you have 2 vehicles in the server, it will only loop 2 times instead of 2000 and imagine if it had to loop many times through the vehicles.<br>
+<br>
+PS: It's y_commands and not Y_CMD. <img alt="" border="0" class="inlineimg" src="./[Tutorial] To optimize our GM and our Server improves._files/smile.png" title="Smiley">
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2830840">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=149753" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482840&amp;replyto=2830840" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2830869"></a>
+<div class="post classic " style="" id="post_2830869">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=205131"><img src="./[Tutorial] To optimize our GM and our Server improves._files/205131.png" alt="" width="55" height="44"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=205131"><s>Swedky</s></a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Banned<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 2,041<br>
+	Threads: 97<br>
+	Joined: Jun 2013
+	<br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;pid=2830869#pid2830869" title="Respuesta: Re: To optimize our GM and our Server improves.">#8</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 8 by Swedky" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 11:38 <span class="post_edit" id="edited_by_2830869"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2830869">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Konstantinos</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2830840#pid2830840" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] To optimize our GM and our Server improves._files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">It's a good tutorial.<br>
+<br>
+Although, I'd like to point out that using:<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:119px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">stock</span> GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span> <span style="color: #228822;">// Code used in previous examples in this tutorial.</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span> Nick<span style="color: #000000;">[</span>MAX_PLAYER_NAME<span style="color: #000000;">]</span>;<br>&nbsp; &nbsp; GetPlayerName<span style="color: #000000;">(</span>playerid, Nick, <span style="color: #2222BB;">sizeof</span><span style="color: #000000;">(</span>Nick<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> Nick; <span style="color: #228822;">// He returns a chain of text.</span><br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+is a really bad idea. Let's say in a command you want to use a player's name 5 times so you're going to call GetPlayerName 5 times when it could be done only 1 (by getting the name right there). However, the best way (atleast for me) is to get the name only once on connect and store it to a global array (either packed string or not). Then you can use to pass the name as an argument wherever you want.<br>
+<br>
+You also said about foreach instead of for loops for the players and foreach is really great! foreach should be used for the vehicles as well and it's very optimized. Instead of looping 2000 times for vehicles, you can add vehicleid to an Iterator and loop through the valid vehicleids. So let's say you have 2 vehicles in the server, it will only loop 2 times instead of 2000 and imagine if it had to loop many times through the vehicles.<br>
+<br>
+PS: It's y_commands and not Y_CMD. <img alt="" border="0" class="inlineimg" src="./[Tutorial] To optimize our GM and our Server improves._files/smile.png" title="Smiley"></div>
+</td>
+</tr>
+</tbody></table>
+</div><i>You refer to that something like that:</i><br>
+<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:135px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #000000;">CMD</span><span style="color: #000000;">:</span>mynick<span style="color: #000000;">(</span>playerid, params<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span> string<span style="color: #000000;">[</span><span style="color: #000000;">126</span><span style="color: #000000;">]</span>;<br>&nbsp; &nbsp; <span style="color: #222222;">format</span><span style="color: #000000;">(</span>string, <span style="color: #2222BB;">sizeof</span><span style="color: #000000;">(</span>string<span style="color: #000000;">)</span>, <span style="color: #000066;">"%s %s %s %s %s."</span>, GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">-</span><span style="color: #000000;">1</span>, string<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+<br>
+<i>Would it be bad?.<br>
+<br>
+No understood eh very well :S.</i>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2830869">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=205131" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482840&amp;replyto=2830869" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2830874"></a>
+<div class="post classic " style="" id="post_2830874">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=194813"><img src="./[Tutorial] To optimize our GM and our Server improves._files/194813.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=194813">xVIP3Rx</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,098<br>
+	Threads: 14<br>
+	Joined: Feb 2013
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=194813"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;pid=2830874#pid2830874" title="Re: To optimize our GM and our Server improves.">#9</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 9 by xVIP3Rx" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 11:43 <span class="post_edit" id="edited_by_2830874"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2830874">
+		Great tutorial <br>
+But I have a question.. <br>
+<br>
+You say that we should use static globally because its created once until the server is closed ? But Isn't that the same as "New" ?<br>
+Also as I knew from the wiki Ithat I can use it <a href="https://sampwiki.blast.hk/wiki/Scripting_Basics#static_local" target="_blank">locally </a>if I don't want it to forget it's value, like declaring a global variable locally..<br>
+And <a href="https://sampwiki.blast.hk/wiki/Scripting_Basics#global_static" target="_blank">globally </a>just If I will only use it in the file I declared it in.. Is there any other reason/something I should use it for ?<br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>EnzoMetlc</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2830869#pid2830869" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] To optimize our GM and our Server improves._files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic"><i>You refer to that something like that:</i><br>
+<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:135px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #000000;">CMD</span><span style="color: #000000;">:</span>mynick<span style="color: #000000;">(</span>playerid, params<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span> string<span style="color: #000000;">[</span><span style="color: #000000;">126</span><span style="color: #000000;">]</span>;<br>&nbsp; &nbsp; <span style="color: #222222;">format</span><span style="color: #000000;">(</span>string, <span style="color: #2222BB;">sizeof</span><span style="color: #000000;">(</span>string<span style="color: #000000;">)</span>, <span style="color: #000066;">"%s %s %s %s %s."</span>, GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">-</span><span style="color: #000000;">1</span>, string<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+<br>
+<i>Would it be bad?.<br>
+<br>
+No understood eh very well :S.</i></div>
+</td>
+</tr>
+</tbody></table>
+</div>Yes, It'll call "GetName" 5 times when you can get the name once.<br>
+<br>
+That actually noticed me, I was using it in a command like 10 times.. Thanks Konstantinos
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2830874">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=194813" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482840&amp;replyto=2830874" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2830882"></a>
+<div class="post classic " style="" id="post_2830882">
+<div class="post_author scaleimages">
+	
+	<div class="author_information">
+			<strong><span class="largetext">Patrick</span></strong> <br>
+			<span class="smalltext">
+				Unregistered<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_guest -->
+&nbsp;
+<!-- end: postbit_author_guest -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;pid=2830882#pid2830882" title="Re: To optimize our GM and our Server improves.">#10</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 10 by Patrick" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 11:50 <span class="post_edit" id="edited_by_2830882"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2830882">
+		<b>@EnzoMetlc</b> - If you do not understand what <b>Konstantinos</b> said, I'll elaborate it, so he means, you could use one (1) <b>variable</b> to get the Players name using <b>OnPlayerConnect</b> then you can just use the variable where ever you want, without using the function <b>GetPlayerName</b> five(5) times or more than that, the example code will be shown below.<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:487px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><span style="color: #2222AA;">#include &lt;YSI\y_va&gt;</span><br><br>main<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br><br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">new</span><br>&nbsp; &nbsp; PlayerName<span style="color: #000000;">[</span>MAX_PLAYERS<span style="color: #000000;">]</span><span style="color: #000000;">[</span>MAX_PLAYER_NAME<span style="color: #000000;">]</span>;<br><br><span style="color: #2222BB;">public</span> OnPlayerConnect<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; GetPlayerName<span style="color: #000000;">(</span>playerid, PlayerName<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span>, <span style="color: #000000;">24</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> true;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerSpawn<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> SendClientMessageToAllEx<span style="color: #000000;">(</span><span style="color: #000000;">-</span><span style="color: #000000;">1</span>, <span style="color: #000066;">"[DEBUG]: GetPlayerName - %s[%i]"</span>, PlayerName<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span>, playerid<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">stock</span> SendClientMessageToAllEx<span style="color: #000000;">(</span>colour, <span style="color: #2222BB;">const</span> fmat<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, va_args<span style="color: #000000;">&lt;&gt;</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span><br>&nbsp; &nbsp; &nbsp; &nbsp; str<span style="color: #000000;">[</span><span style="color: #000000;">145</span><span style="color: #000000;">]</span>;<br>&nbsp; &nbsp; va_format<span style="color: #000000;">(</span>str, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>str<span style="color: #000000;">)</span>, fmat, va_start<span style="color: #000000;">&lt;</span><span style="color: #000000;">2</span><span style="color: #000000;">&gt;</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> SendClientMessageToAll<span style="color: #000000;">(</span>colour, str<span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+<b>Result</b><br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 34px;
+		text-align: left;
+		overflow: auto">[12:55:20] [DEBUG]: GetPlayerName - Matthew_Sixx[0]</pre>
+</div><b>Hope you understand it</b><br>
+<br>
+<b>PS: Matthew_Sixx is my roleplay name :P</b>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2830882">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482840&amp;replyto=2830882" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2830884"></a>
+<div class="post classic " style="" id="post_2830884">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=149753"><img src="./[Tutorial] To optimize our GM and our Server improves._files/149753.png" alt="" width="55" height="42"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=149753">Konstantinos</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Spam Machine<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 11,827<br>
+	Threads: 33<br>
+	Joined: Dec 2011
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=149753"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;pid=2830884#pid2830884" title="Re: To optimize our GM and our Server improves.">#11</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 11 by Konstantinos" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 11:54 <span class="post_edit" id="edited_by_2830884"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2830884">
+		Not exactly in one line. In some cases you need to send more than 2 messages with the name to the player who typed the command or others (to all).<br>
+<br>
+A better example would be:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:503px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #000000;">CMD</span><span style="color: #000000;">:</span>kick<span style="color: #000000;">(</span>playerid, params<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span><br>&nbsp; &nbsp; &nbsp; &nbsp; id,<br>&nbsp; &nbsp; &nbsp; &nbsp; reason<span style="color: #000000;">[</span><span style="color: #000000;">100</span><span style="color: #000000;">]</span>;<br><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span> <span style="color: #000000;">(</span>sscanf<span style="color: #000000;">(</span>params, <span style="color: #000066;">"rs[100]"</span>, id, reason<span style="color: #000000;">)</span><span style="color: #000000;">)</span> <span style="color: #2222BB;">return</span> <span style="color: #228822;">// syntax..</span><br><br>&nbsp; &nbsp; <span style="color: #228822;">// ...</span><br><br>&nbsp; &nbsp; <span style="color: #2222BB;">new</span><br>&nbsp; &nbsp; &nbsp; &nbsp; string<span style="color: #000000;">[</span><span style="color: #000000;">128</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; &nbsp; &nbsp; ip<span style="color: #000000;">[</span><span style="color: #000000;">16</span><span style="color: #000000;">]</span>;<br><br>&nbsp; &nbsp; GetPlayerIp<span style="color: #000000;">(</span>id, ip, <span style="color: #000000;">16</span><span style="color: #000000;">)</span>;<br><br>&nbsp; &nbsp; <span style="color: #222222;">format</span><span style="color: #000000;">(</span>string, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>string<span style="color: #000000;">)</span>, <span style="color: #000066;">"You have been kicked by %s. Reason: %s"</span>, GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, reason<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span>id, <span style="color: #000000;">-</span><span style="color: #000000;">1</span>, string<span style="color: #000000;">)</span>;<br><br>&nbsp; &nbsp; <span style="color: #222222;">format</span><span style="color: #000000;">(</span>string, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>string<span style="color: #000000;">)</span>, <span style="color: #000066;">"You kicked %s. Reason: %s"</span>, GetName<span style="color: #000000;">(</span>id<span style="color: #000000;">)</span>, reason<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">-</span><span style="color: #000000;">1</span>, string<span style="color: #000000;">)</span>;<br><br>&nbsp; &nbsp; <span style="color: #222222;">format</span><span style="color: #000000;">(</span>string, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>string<span style="color: #000000;">)</span>, <span style="color: #000066;">"%s kicked %s. Reason: %s"</span>, GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, GetName<span style="color: #000000;">(</span>id<span style="color: #000000;">)</span>, reason<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; SendClientMessageToAll<span style="color: #000000;">(</span>id, <span style="color: #000000;">-</span><span style="color: #000000;">1</span>, string<span style="color: #000000;">)</span>;<br><br>&nbsp; &nbsp; <span style="color: #222222;">format</span><span style="color: #000000;">(</span>string, <span style="color: #2222BB;">sizeof</span> <span style="color: #000000;">(</span>string<span style="color: #000000;">)</span>, <span style="color: #000066;">"%s kicked %s [IP: %s]. Reason: %s"</span>, GetName<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>, GetName<span style="color: #000000;">(</span>id<span style="color: #000000;">)</span>, ip, reason<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; SendMessageToAdmins<span style="color: #000000;">(</span><span style="color: #000000;">-</span><span style="color: #000000;">1</span>, string<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <br>&nbsp; &nbsp; <span style="color: #228822;">// kick player..</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2830884">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=149753" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482840&amp;replyto=2830884" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2830911"></a>
+<div class="post classic " style="" id="post_2830911">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=126521"><img src="./[Tutorial] To optimize our GM and our Server improves._files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=126521">Bakr</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 977<br>
+	Threads: 10<br>
+	Joined: Apr 2011
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=126521"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;pid=2830911#pid2830911" title="Re: To optimize our GM and our Server improves.">#12</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 12 by Bakr" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 12:11 <span class="post_edit" id="edited_by_2830911"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2830911">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>xVIP3Rx</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2830874#pid2830874" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] To optimize our GM and our Server improves._files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">You say that we should use static globally because its created once until the server is closed ? But Isn't that the same as "New" ?</div>
+</td>
+</tr>
+</tbody></table>
+</div>For global variables, yes. <br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>xVIP3Rx</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2830874#pid2830874" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] To optimize our GM and our Server improves._files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Also as I knew from the wiki Ithat I can use it <a href="https://sampwiki.blast.hk/wiki/Scripting_Basics#static_local" target="_blank">locally </a>if I don't want it to forget it's value, like declaring a global variable locally..<br>
+And <a href="https://sampwiki.blast.hk/wiki/Scripting_Basics#global_static" target="_blank">globally </a>just If I will only use it in the file I declared it in.. Is there any other reason/something I should use it for ?</div>
+</td>
+</tr>
+</tbody></table>
+</div>Not really, but that should be enough. Hiding implementation details and data from the end user is good programming practice. Look up encapsulation.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2830911">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=126521" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482840&amp;replyto=2830911" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2830913"></a>
+<div class="post classic " style="" id="post_2830913">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=201158"><img src="./[Tutorial] To optimize our GM and our Server improves._files/201158.png" alt="" width="55" height="42"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=201158">Ada32</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 295<br>
+	Threads: 6<br>
+	Joined: Apr 2013
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=201158"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;pid=2830913#pid2830913" title="Re: To optimize our GM and our Server improves.">#13</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 13 by Ada32" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 12:14 <span class="post_edit" id="edited_by_2830913"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2830913">
+		oh and these aren't optimizations btw, Slice's tips &amp; tricks and Y_Less' code optimization topics are optimization threads, this is just..well, idk..
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2830913">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=201158" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482840&amp;replyto=2830913" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2830923"></a>
+<div class="post classic " style="" id="post_2830923">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=194813"><img src="./[Tutorial] To optimize our GM and our Server improves._files/194813.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=194813">xVIP3Rx</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,098<br>
+	Threads: 14<br>
+	Joined: Feb 2013
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=194813"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;pid=2830923#pid2830923" title="Re: To optimize our GM and our Server improves.">#14</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 14 by xVIP3Rx" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 12:21 <span class="post_edit" id="edited_by_2830923"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2830923">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Bakr</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2830911#pid2830911" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] To optimize our GM and our Server improves._files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">For global variables, yes. <br>
+<br>
+<br>
+Not really, but that should be enough. Hiding implementation details and data from the end user is good programming practice. Look up encapsulation.</div>
+</td>
+</tr>
+</tbody></table>
+</div>So you say that the end user is able to get the global "New"s in samp ?<br>
+Or you mean for other programs ?
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2830923">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=194813" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482840&amp;replyto=2830923" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2830928"></a>
+<div class="post classic " style="" id="post_2830928">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=85372"><img src="./[Tutorial] To optimize our GM and our Server improves._files/85372.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=85372"><s>Riddick94</s></a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Banned<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,767<br>
+	Threads: 124<br>
+	Joined: Mar 2010
+	<br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;pid=2830928#pid2830928" title="Re: To optimize our GM and our Server improves.">#15</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 15 by Riddick94" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 12:25 <span class="post_edit" id="edited_by_2830928"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2830928">
+		Delete please.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2830928">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=85372" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482840&amp;replyto=2830928" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2830929"></a>
+<div class="post classic " style="" id="post_2830929">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=149753"><img src="./[Tutorial] To optimize our GM and our Server improves._files/149753.png" alt="" width="55" height="42"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=149753">Konstantinos</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Spam Machine<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 11,827<br>
+	Threads: 33<br>
+	Joined: Dec 2011
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=149753"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;pid=2830929#pid2830929" title="Re: To optimize our GM and our Server improves.">#16</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 16 by Konstantinos" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 12:27 <span class="post_edit" id="edited_by_2830929"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2830929">
+		No need to use strmid or any temporary string to store the name. Just:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;">GetPlayerName<span style="color: #000000;">(</span>playerid, PlayerName<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span>, MAX_PLAYER_NAME<span style="color: #000000;">)</span>;</div></div></pre>
+</div>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2830929">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=149753" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482840&amp;replyto=2830929" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2830936"></a>
+<div class="post classic " style="" id="post_2830936">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=85372"><img src="./[Tutorial] To optimize our GM and our Server improves._files/85372.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=85372"><s>Riddick94</s></a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Banned<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,767<br>
+	Threads: 124<br>
+	Joined: Mar 2010
+	<br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;pid=2830936#pid2830936" title="Re: To optimize our GM and our Server improves.">#17</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 17 by Riddick94" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 12:31 <span class="post_edit" id="edited_by_2830936"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2830936">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Konstantinos</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=2830929#pid2830929" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] To optimize our GM and our Server improves._files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">No need to use strmid or any temporary string to store the name. Just:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;">GetPlayerName<span style="color: #000000;">(</span>playerid, PlayerName<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span>, MAX_PLAYER_NAME<span style="color: #000000;">)</span>;</div></div></pre>
+</div></div>
+</td>
+</tr>
+</tbody></table>
+</div>Yeah, noticed that after. Nevermind my message.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2830936">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=85372" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482840&amp;replyto=2830936" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2831065"></a>
+<div class="post classic " style="" id="post_2831065">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=151309"><img src="./[Tutorial] To optimize our GM and our Server improves._files/151309.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=151309">newbienoob</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,534<br>
+	Threads: 129<br>
+	Joined: Jan 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=151309"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;pid=2831065#pid2831065" title="Re: To optimize our GM and our Server improves.">#18</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 18 by newbienoob" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 14:14 <span class="post_edit" id="edited_by_2831065"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2831065">
+		I've learned a lot in this tutorial <img alt="" border="0" class="inlineimg" src="./[Tutorial] To optimize our GM and our Server improves._files/biggrin.png" title="Cheesy"> (not just from the OP but from the posts). Just 1 question. Is it okay to do something like this?<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:503px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OnGameModeInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; Timer <span style="color: #000000;">=</span> SetTimer<span style="color: #000000;">(</span><span style="color: #000066;">"OneSecTimer"</span>, <span style="color: #000000;">1000</span>, true<span style="color: #000000;">)</span>; <br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #000000;">CMD</span><span style="color: #000000;">:</span>healme<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>IsHealed<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">==</span> <span style="color: #000000;">1</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">-</span><span style="color: #000000;">1</span>, <span style="color: #000066;">"Please wait 1 minute before using this command again!"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; HealTimer<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">==</span> <span style="color: #000000;">60</span>; <span style="color: #228822;">// 60 seconds</span><br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">else</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; SetPlayerHealth<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">100</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; IsHealed<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">1</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><br><span style="color: #000000;">CMD</span><span style="color: #000000;">:</span>givearmour<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>Armoured<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">==</span> <span style="color: #000000;">1</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">-</span><span style="color: #000000;">1</span>, <span style="color: #000066;">"Please wait 1 minute before using this command again!"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; ArmourTimer<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">60</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">else</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; SetPlayerArmour<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">100</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; Armoured<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">1</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><br><span style="color: #2222BB;">forward</span> OneSecTimer<span style="color: #000000;">(</span><span style="color: #000000;">)</span>;<br><span style="color: #2222BB;">public</span> OneSecTimer<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">for</span><span style="color: #000000;">(</span><span style="color: #2222BB;">new</span> i <span style="color: #000000;">=</span> <span style="color: #000000;">0</span>; i <span style="color: #000000;">&lt;</span> MAX_PLAYERS; i<span style="color: #000000;">++</span><span style="color: #000000;">)</span> <span style="color: #228822;">//foreach</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>IsPlayerConnected<span style="color: #000000;">(</span>i<span style="color: #000000;">)</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>IsHealed<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span> <span style="color: #000000;">==</span> <span style="color: #000000;">1</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Healtimer<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">--</span>; <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>HealTimer<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span> <span style="color: #000000;">==</span> <span style="color: #000000;">0</span><span style="color: #000000;">)</span> <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; IsHealed<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">0</span>; <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span>i, <span style="color: #000000;">-</span><span style="color: #000000;">1</span>, <span style="color: #000066;">"You can now use /healme command again"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>Armoured<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span> <span style="color: #000000;">==</span> <span style="color: #000000;">1</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Healtimer<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">--</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>HealTimer<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span> <span style="color: #000000;">==</span> <span style="color: #000000;">0</span><span style="color: #000000;">)</span> <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; IsHealed<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">0</span>; <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span>i, <span style="color: #000000;">-</span><span style="color: #000000;">1</span>, <span style="color: #000066;">"You can now use /healme command again"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+Instead of<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:503px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #000000;">CMD</span><span style="color: #000000;">:</span>healme<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>IsHealed<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">==</span> <span style="color: #000000;">1</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">-</span><span style="color: #000000;">1</span>, <span style="color: #000066;">"Please wait 1 minutes before using this command again!"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; HealTimer <span style="color: #000000;">=</span> SetTimerEx<span style="color: #000000;">(</span><span style="color: #000066;">"Heal"</span>, <span style="color: #000000;">60</span> <span style="color: #000000;">*</span> <span style="color: #000000;">1000</span>, false, <span style="color: #000066;">"i"</span>, playerid<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">else</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; SetPlayerHealth<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">100</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; IsHealed<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">1</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">forward</span> Heal<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>;<br><span style="color: #2222BB;">public</span> Heal<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; IsHealed<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">0</span>;<br>&nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">-</span><span style="color: #000000;">1</span>, <span style="color: #000066;">"You can now use /healme command again"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; KillTimer<span style="color: #000000;">(</span>HealTimer<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #000000;">CMD</span><span style="color: #000000;">:</span>givearmour<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>Armoured<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">==</span> <span style="color: #000000;">1</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">-</span><span style="color: #000000;">1</span>, <span style="color: #000066;">"Please wait 1 minutes before using this command again!"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; ArmourTimer <span style="color: #000000;">=</span> SetTimerEx<span style="color: #000000;">(</span><span style="color: #000066;">"Armour"</span>, <span style="color: #000000;">60</span> <span style="color: #000000;">*</span> <span style="color: #000000;">1000</span>, false, <span style="color: #000066;">"i"</span>, playerid<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">else</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; SetPlayerArmour<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">100</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; Armoured<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">1</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">forward</span> Armour<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span>;<br><span style="color: #2222BB;">public</span> Armour<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; Armoured<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">0</span>;<br>&nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">-</span><span style="color: #000000;">1</span>, <span style="color: #000066;">"You can now use /givearmour command again"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; KillTimer<span style="color: #000000;">(</span>ArmourTimer<span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+Using 1 timer instead of many.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2831065">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=151309" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482840&amp;replyto=2831065" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2831095"></a>
+<div class="post classic " style="" id="post_2831095">
+<div class="post_author scaleimages">
+	
+	<div class="author_information">
+			<strong><span class="largetext">Patrick</span></strong> <br>
+			<span class="smalltext">
+				Unregistered<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_guest -->
+&nbsp;
+<!-- end: postbit_author_guest -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;pid=2831095#pid2831095" title="Re: To optimize our GM and our Server improves.">#19</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 19 by Patrick" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 14:29 <span class="post_edit" id="edited_by_2831095"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2831095">
+		<b>newbienoob</b> - There's a method that is much better than that <img alt="" border="0" class="inlineimg" src="./[Tutorial] To optimize our GM and our Server improves._files/biggrin.png" title="Cheesy">, I will share it to you, you could use the function <b>gettime</b>, to create a timer for a command, I used to use the first method, creating a second timer and loop it, but when the callback gets larger, You will <b>experience</b> lag, but the code below is just amazing <img alt="" border="0" class="inlineimg" src="./[Tutorial] To optimize our GM and our Server improves._files/biggrin.png" title="Cheesy"><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:263px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #000000;">CMD</span><span style="color: #000000;">:</span>healme<span style="color: #000000;">(</span>playerid, params<span style="color: #000000;">[</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">static</span> <br>&nbsp; &nbsp; &nbsp; &nbsp; HealTimer<span style="color: #000000;">[</span> MAX_PLAYERS <span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">{</span> <span style="color: #000000;">0</span>, ... <span style="color: #000000;">}</span><br>&nbsp; &nbsp; ;<br><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span> <span style="color: #000000;">(</span><span style="color: #222222;">gettime</span><span style="color: #000000;">(</span> <span style="color: #000000;">)</span> <span style="color: #000000;">-</span> HealTimer<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">)</span> <span style="color: #000000;">&lt;</span> <span style="color: #000000;">60</span><span style="color: #000000;">)</span> <br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">return</span> SendClientMessage<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">-</span><span style="color: #000000;">1</span>, <span style="color: #000066;">"Please wait 1 minute before using this command again!"</span><span style="color: #000000;">)</span>;<br><br>&nbsp; &nbsp; HealTimer<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #222222;">gettime</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;<br><br>&nbsp; &nbsp; SetPlayerHealth<span style="color: #000000;">(</span>playerid, <span style="color: #000000;">100</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; IsHealed<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">1</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2831095">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482840&amp;replyto=2831095" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid2831111"></a>
+<div class="post classic " style="" id="post_2831111">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=151309"><img src="./[Tutorial] To optimize our GM and our Server improves._files/151309.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=151309">newbienoob</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><img src="./[Tutorial] To optimize our GM and our Server improves._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,534<br>
+	Threads: 129<br>
+	Joined: Jan 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=151309"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;pid=2831111#pid2831111" title="Re: To optimize our GM and our Server improves.">#20</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 20 by newbienoob" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">23.12.2013, 14:40 <span class="post_edit" id="edited_by_2831111"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_2831111">
+		The code I posted was just an example. I could use random messages, unmuting/unjailing, updating hour's playing... etc. Something like this<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:503px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">public</span> OneSecTimer<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>foreach<span style="color: #000000;">(</span>...<span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>Player<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>IsLogged<span style="color: #000000;">]</span> <span style="color: #000000;">==</span> <span style="color: #000000;">1</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; Player<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>updatept<span style="color: #000000;">]</span><span style="color: #000000;">++</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>Player<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>updatept<span style="color: #000000;">]</span> <span style="color: #000000;">==</span> <span style="color: #000000;">3600</span><span style="color: #000000;">)</span> <span style="color: #228822;">//1 hour</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pInfo<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>PT<span style="color: #000000;">]</span><span style="color: #000000;">++</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Player<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>updatept<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">0</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span>i,<span style="color: #000000;">-</span><span style="color: #000000;">1</span>,<span style="color: #000066;">""</span>hinfo<span style="color: #000066;">" You have received 1 PlayTime score."</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br><span style="color: #228822;">//....</span><br><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>pInfo<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>Muted<span style="color: #000000;">]</span> <span style="color: #000000;">==</span> <span style="color: #000000;">1</span> <span style="color: #000000;">&amp;&amp;</span> pInfo<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>MuteTime<span style="color: #000000;">]</span> <span style="color: #000000;">&gt;</span> <span style="color: #000000;">0</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pInfo<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>MuteTime<span style="color: #000000;">]</span><span style="color: #000000;">--</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>pInfo<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>MuteTime<span style="color: #000000;">]</span> <span style="color: #000000;">==</span> <span style="color: #000000;">0</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pInfo<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>Muted<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">0</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pInfo<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>MuteTime<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">0</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span>i,<span style="color: #000000;">-</span><span style="color: #000000;">1</span>,<span style="color: #000066;">""</span>hinfo<span style="color: #000066;">" You have been unmuted!"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>pInfo<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>Jailed<span style="color: #000000;">]</span> <span style="color: #000000;">==</span> <span style="color: #000000;">1</span> <span style="color: #000000;">&amp;&amp;</span> pInfo<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>JailTime<span style="color: #000000;">]</span> <span style="color: #000000;">&gt;</span> <span style="color: #000000;">0</span> <span style="color: #000000;">&amp;&amp;</span> Player<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>Spawned<span style="color: #000000;">]</span> <span style="color: #000000;">==</span> <span style="color: #000000;">1</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pInfo<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>JailTime<span style="color: #000000;">]</span><span style="color: #000000;">--</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>pInfo<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>JailTime<span style="color: #000000;">]</span> <span style="color: #000000;">==</span> <span style="color: #000000;">0</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pInfo<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>Jailed<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">0</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pInfo<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>JailTime<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">0</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SetPlayerHealth<span style="color: #000000;">(</span>i,<span style="color: #000000;">0</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SendClientMessage<span style="color: #000000;">(</span>i,<span style="color: #000000;">-</span><span style="color: #000000;">1</span>,<span style="color: #000066;">""</span>hinfo<span style="color: #000066;">" You have been unjailed!"</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">}</span><br><br><span style="color: #228822;">//random messages</span><br>&nbsp; &nbsp; Player<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>MSGTimer<span style="color: #000000;">]</span><span style="color: #000000;">++</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">if</span><span style="color: #000000;">(</span>Player<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>MSGTimer<span style="color: #000000;">]</span> <span style="color: #000000;">==</span> <span style="color: #000000;">7</span><span style="color: #000000;">)</span><br>&nbsp; &nbsp; <span style="color: #000000;">{</span><br>&nbsp; &nbsp; &nbsp; &nbsp; PlayerTextDrawSetString<span style="color: #000000;">(</span>i, RandTD<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span>, RandMSG<span style="color: #000000;">[</span>rand<span style="color: #000000;">]</span><span style="color: #000000;">)</span>; <span style="color: #228822;">//updating textdraw/sending messages(sendclientmessage) every 7 seconds</span><br>&nbsp; &nbsp; &nbsp; &nbsp; Player<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span><span style="color: #000000;">[</span>MSGTimer<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> <span style="color: #000000;">0</span>;<br>&nbsp; &nbsp; <span style="color: #000000;">}</span><br><br><span style="color: #228822;">//from my old script</span></div></div></pre>
+</div>
+Is it a good way?
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_2831111">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=151309" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=482840&amp;replyto=2831111" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic -->
+	</div>
+</div>
+	
+			<div class="tfoot row">
+				<div class="col-sm-6">
+					<strong>« <a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;action=nextoldest">Next Oldest</a> | <a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;action=nextnewest">Next Newest</a> »</strong>
+				</div>
+				<div class="col-sm-6"><!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://sampforum.blast.hk/search.php" method="post">
+			<input type="hidden" name="action" value="thread">
+			<input type="hidden" name="tid" value="482840">
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == &#39;Enter Keywords&#39;) { this.value = &#39;&#39;; }" onblur="if(this.value==&#39;&#39;) { this.value=&#39;Enter Keywords&#39;; }" class="textbox" size="25">
+			<input type="submit" class="button" value="Search Thread">
+		</form>
+	</div>
+<!-- end: showthread_search --></div>
+			</div>
+	<div class="float_left">
+		<!-- start: multipage -->
+<div class="pagination">
+<span class="pages">Pages (2):</span>
+<!-- start: multipage_page_current -->
+ <span class="pagination_current">1</span>
+<!-- end: multipage_page_current --><!-- start: multipage_page -->
+<a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;page=2" class="pagination_page">2</a>
+<!-- end: multipage_page --><!-- start: multipage_nextpage -->
+<a href="https://sampforum.blast.hk/showthread.php?tid=482840&amp;page=2" class="pagination_next">Next »</a>
+<!-- end: multipage_nextpage -->
+</div>
+<!-- end: multipage -->
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	
+	
+	
+	<br>
+	<div class="float_left">
+		<ul class="thread_tools">
+			<!-- start: showthread_printthread -->
+<li class="printable"><a href="https://sampforum.blast.hk/printthread.php?tid=482840">View a Printable Version</a></li>
+<!-- end: showthread_printthread -->
+			
+			
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://sampforum.blast.hk/forumdisplay.php" method="get">
+<span class="smalltext">Forum Jump:</span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="3"> SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="74">-- News and Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13">-- General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="16">-- Client Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20">-- Bug Reports</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21">-- Screenshots and Videos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6"> SA-MP Server</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="19">-- Server Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22">-- Server Advertisements</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="8"> SA-MP Scripting and Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12">-- Scripting Help</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="70" selected="selected">---- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="84">---- Discussion</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="89">---- Help Archive</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="71">-- Gamemode Scripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="17">-- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="83">---- Includes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="82">---- Tools and Files </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="64">---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="18">-- Plugin Development</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="92"> SA-MP DL Edition</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="90">-- SA-MP 0.3.DL</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="94">---- Model Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="7"> Other</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23">-- Everything and Nothing</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9"> Non-English</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33">-- Languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31">---- Nederlands/Dutch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="76">------ Scripting Showroom en Discussie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="87">------ Off topic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29">---- Español/Spanish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="59">------ Lanzamientos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30">---- Français/French</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="81">------ Showroom</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32">---- Русский/Russian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="66">------ Релизы/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34">---- Português/Portuguese</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56">------ Lançamentos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40">---- Română/Romanian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="77">------ Salonul Scripturilor</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="88">---- Archive</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear">
+	<!-- start: showthread_usersbrowsing -->
+<br>
+<span class="smalltext">Users browsing this thread: 1 Guest(s)</span>
+<br>
+<!-- end: showthread_usersbrowsing -->
+	<!-- start: footer -->
+<div style="clear:both"><div style="padding-top: 10px"><!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=12">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav --></div></div>
+</main>
+
+<div class="blankspace"></div>
+
+<footer id="footer">
+	<div class="container">
+    <div class="row">
+		
+        <!--<div class="col-sm-4 foot">
+			<h3>About Our Community</h3>
+			<p>Discuss about various topics in our community and have fun while doing so. Welcome to SA-MP Forums Archive</p>
+			
+		</div>		
+		
+
+		<div class="col-sm-4 foot">
+			<h3>Quick Links</h3>
+			<p>
+
+ 				<a href="https://sampforum.blast.hk" class="btn btn-success" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Forum Home"><i class="fa fa-home"></i></a>
+				
+				<a href="https://sampforum.blast.hk/archive/index.php?thread-482840.html" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Lite (Archive) Mode"><i class="fa fa-archive"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Become a Fan"><i class="fa fa-facebook-square"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-info" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Follow Us"><i class="fa fa-twitter"></i></a>
+				
+				<a href="https://sampforum.blast.hk/misc.php?action=syndication" class="btn btn-warning" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="RSS Syndication"><i class="fa fa-rss"></i></a>
+				<br/>
+				<a href="misc.php?action=markread&amp;my_post_key=2220ae0a21c853e6459922e7a63ded4d" class="btn btn-danger" style="color: #fff; margin-top:10px" data-toggle="tooltip" data-placement="bottom" data-original-title="Mark all forums read"><i class="fa fa-book"></i> Mark all forums read</a><br /><br />
+				
+				
+				</p>
+
+		</div>
+		
+		<div class="col-sm-4 foot">
+			
+			 <h3>Reach Us</h3>
+			 
+<p><a href="contact.php" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Contact Us"><i class="fa fa-envelope"></i> Contact Us</a>&nbsp;
+			
+			<a href="showteam.php" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Meet Our Team"><i class="fa fa-users"></i> Forum Team</a></p>
+		</div>-->
+		
+		
+		
+		<!-- The following piece of code allows MyBB to run scheduled tasks. DO NOT REMOVE --><!-- End task image code -->
+		</div>
+	
+	</div>
+
+	
+<div id="copyright">
+	<div class="container">
+			<div class="pull-right"><!-- start: footer_languageselect -->
+<div class="language">
+<form method="POST" action="https://sampforum.blast.hk/showthread.php" id="lang_select">
+	<input type="hidden" name="tid" value="482840">
+
+	<input type="hidden" name="my_post_key" value="2220ae0a21c853e6459922e7a63ded4d">
+	<select name="language" onchange="MyBB.changeLanguage();">
+		<optgroup label="Quick Language Select">
+			<!-- start: footer_languageselect_option -->
+<option value="english" selected="selected">&nbsp;&nbsp;&nbsp;English (American)</option>
+<!-- end: footer_languageselect_option --><!-- start: footer_languageselect_option -->
+<option value="russian">&nbsp;&nbsp;&nbsp;Russian</option>
+<!-- end: footer_languageselect_option -->
+		</optgroup>
+	</select>
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_languageselect --></div>
+			<div class="pull-left">
+				<!-- MyBB is free software developed and maintained by a volunteer community.
+					It would be much appreciated by the MyBB Group if you left the full copyright and "powered by" notice intact,
+					to show your support for MyBB.  If you choose to remove or modify the copyright below,
+					you may be refused support on the MyBB Community Forums.
+
+					This is free software, support us and we'll support you. -->
+				Powered By <a href="http://www.mybb.com/" target="_blank" rel="noopener" style="color: #fff;">MyBB</a>. <a href="https://eree.in/" title="EREE" target="_blank" rel="noopener" style="color: #fff;">Crafted by EREE</a> and <a href="https://forum.androidbg.com/" title="AndroidBG" target="_blank" rel="noopener" style="color: #fff;">Android BG</a>. Also powered by <a href="https://www.blast.hk/"><b>blast.hk</b></a><!-- End powered by -->
+				
+			</div>
+	</div>
+
+</div>
+
+</footer>
+
+<!-- Fix for MentionMe popup window position -->
+<script type="text/javascript">
+	var MentionMe = (function(m) {
+	m.customSCEditorContainerOffset = {
+		left: 0,
+		top: 2,
+	};
+
+	return m;
+})(MentionMe || {});
+</script>
+<!-- End Fix for MentionMe popup window position -->
+<!-- end: footer -->
+	<script type="text/javascript">
+		var thread_deleted = "0";
+		if(thread_deleted == "1")
+		{
+			$("#quick_reply_form, .new_reply_button, .thread_tools, .inline_rating").hide();
+			$("#moderator_options_selector option.option_mirage").attr("disabled","disabled");
+		}
+	</script>
+
+
+<!-- end: showthread --><script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>

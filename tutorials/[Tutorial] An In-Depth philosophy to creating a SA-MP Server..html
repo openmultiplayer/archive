@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://sampforum.blast.hk/showthread.php?tid=675439 -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>[Tutorial] An In-Depth philosophy to creating a SA-MP Server.</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="https://sampforum.blast.hk/syndication.php">
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="https://sampforum.blast.hk/syndication.php?type=atom1.0">
+<link rel="shortcut icon" href="https://sampforum.blast.hk/favicon.ico">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript" src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/jquery.js"></script>
+<script type="text/javascript" src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/jquery.plugins.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/general.js"></script>
+<script type="text/javascript" src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/tooltip.js"></script>
+
+<link rel="stylesheet" href="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/bootstrap.min.css">
+<link href="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/css" rel="stylesheet" type="text/css">
+<!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" / -->
+<link rel="stylesheet" href="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+
+<link type="text/css" rel="stylesheet" href="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/global.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/css3.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/responsive.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/star_ratings.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/showthread.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/grey.css">
+
+
+
+
+<script type="text/javascript">
+jQuery(document).on('click', '.panel-heading span.clickable', function(e){
+    var jQuerythis = jQuery(this);
+	if(!jQuerythis.hasClass('panel-collapsed')) {
+		jQuerythis.parents('.panel').find('.panel-body').slideUp();
+		jQuerythis.addClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+	} else {
+		jQuerythis.parents('.panel').find('.panel-body').slideDown();
+		jQuerythis.removeClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+	}
+})
+</script><style>undefined</style>
+
+
+
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+	lang.confirm_title = "Please Confirm";
+	lang.expcol_collapse = "[-]";
+	lang.expcol_expand = "[+]";
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+	
+	var templates = {
+		modal: '<div class=\"modal\">\
+	<div style=\"overflow-y: auto; max-height: 400px;\">\
+		<table border=\"0\" cellspacing=\"0\" cellpadding=\"5\" class=\"tborder\">\
+			<tr>\
+				<td class=\"thead\"><strong>__title__</strong></td>\
+			</tr>\
+			<tr>\
+				<td class=\"trow1\">__message__</td>\
+			</tr>\
+			<tr>\
+				<td class=\"tfoot\">\
+					<div style=\"text-align: center\" class=\"modal_buttons\">__buttons__</div>\
+				</td>\
+			</tr>\
+		</table>\
+	</div>\
+</div>',
+		modal_button: '<input type=\"submit\" class=\"button\" value=\"__title__\"/>&nbsp;'
+	};
+	
+	var cookieSecureFlag = "0";
+	var cookieDomain = ".sampforum.blast.hk";
+	var cookiePath = "/";
+	var cookiePrefix = "";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "906b4f4af2a15f55d2b64b776caec649";
+	var rootpath = "https://sampforum.blast.hk";
+	var imagepath = "https://sampforum.blast.hk/images/bootbb";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "https://sampforum.blast.hk/images/bootbb/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+
+<!-- Make videos responsive - https://github.com/davatron5000/FitVids.js (additional video sites added for MyBB) -->
+<script type="text/javascript" src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/jquery.fitvids.js"></script>
+<script>
+	$(document).ready(function(){
+		// Target the iframe parent div
+		var bvc = $(".bootbb-video-container");
+		//bvc.css("max-width", "800px");
+		bvc.fitVids();
+	});
+</script>
+<!-- end: headerinclude -->
+<script>
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/report.js"></script>
+<script src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/jeditable.min.js"></script>
+<script src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/thread.js"></script>
+<meta name="description" content="Introduction Hello, for those of you who do not know me, I&#39;ve been here for quite a while. I have created several gamemodes and scripts, some of them I published here, and some of them had laid waste">
+<link rel="canonical" href="https://sampforum.blast.hk/showthread.php?tid=675439">
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/css2"></head>
+<body>
+	<!-- start: header -->
+<header>
+<div class="navbar navbar-default">
+     <div class="container">
+          <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="Toggle navigation">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span> 
+               </button>
+			  
+			  <div class="navbar-header scaleimages">
+				  <!--<a class="navbar-brand" href="https://sampforum.blast.hk">BootBB</a>-->
+				  <a class="" href="https://sampforum.blast.hk/"><img src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/logo_forum.gif"></a>
+			  
+			  </div>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+			  <ul class="nav navbar-nav navbar-right">
+				  <!--<li id="nav-portal"><a href="https://sampforum.blast.hk/portal.php"><i class="fa fa-bell"></i> Portal</a></li>-->
+               <li id="nav-forums"><a href="https://sampforum.blast.hk/index.php"><i class="fa fa-group"></i> Forum</a></li>
+				<!--<li><a href="https://sampforum.blast.hk/search.php?action=getnew"><i class="fa fa-comment"></i> New Posts</a></li>
+            	<li><a href="https://sampforum.blast.hk/search.php?action=getdaily"><i class="fa fa-comments"></i> Today's Posts</a></li>-->
+               <li id="nav-search"><a href="https://sampforum.blast.hk/search.php"><i class="fa fa-search"></i> Search</a></li>
+               <li id="nav-member"><a href="https://sampforum.blast.hk/memberlist.php"><i class="fa fa-users"></i> Members</a></li>
+               <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+				  
+<!--<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cubes"></i> Misc <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			  <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+			  <li class="divider"></li>
+			  <li id="nav-calendar"><a href="https://sampforum.blast.hk/calendar.php"><i class="fa fa-calendar"></i> Calendar</a></li>
+          </ul>
+</li> -->
+</ul>
+  
+          </div>
+     </div>
+</div>
+</header>
+
+
+<div id="container">
+	<a name="top" id="top"></a>
+		<div id="header">
+			<div id="panel">
+				<div class="upper">
+					<div class="container">
+
+						<!-- start: header_welcomeblock_guest -->
+<!--<span><a href="https://sampforum.blast.hk/member.php?action=login" onclick="$('#quick_login').modal({ fadeDuration: 250, keepelement: true }); return false;" class="login btn btn-danger" style="color: #fff;"><i class="fa fa-sign-in"></i> Login</a> <a href="https://sampforum.blast.hk/member.php?action=register" class="register btn btn-success" style="color: #fff;"><i class="fa fa-user-plus"></i> Register</a></span>-->
+
+<span class="float_right hidden-xs">Hello There, Guest!</span>
+
+<br class="clearfix">
+	
+
+				<div class="modal" id="quick_login" style="display: none;">
+					<form method="post" action="https://sampforum.blast.hk/member.php">
+						<input name="my_post_key" type="hidden" value="906b4f4af2a15f55d2b64b776caec649">
+						<input name="action" type="hidden" value="do_login">
+						<input name="url" type="hidden" value="https://sampforum.blast.hk/showthread.php?tid=675439">
+						<input name="quick_login" type="hidden" value="1">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tborder">
+							<tbody><tr>
+								<td class="thead" colspan="2"><strong>Login</strong></td>
+							</tr>
+							<tr>
+								<td class="trow1" width="25%"><strong>Username:</strong></td>
+								<td class="trow1"><input name="quick_username" id="quick_login_username" type="text" value="" class="textbox initial_focus"></td>
+							</tr>
+							<tr>
+								<td class="trow2"><strong>Password:</strong></td>
+								<td class="trow2">
+									<input name="quick_password" id="quick_login_password" type="password" value="" class="textbox"> <a href="https://sampforum.blast.hk/member.php?action=lostpw" class="lost_password">Lost Password?</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow1">&nbsp;</td>
+								<td class="trow1 remember_me">
+									<input name="quick_remember" id="quick_login_remember" type="checkbox" value="yes" class="checkbox" checked="checked">
+									<label for="quick_login_remember">Remember me</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow2" colspan="2">
+									<div align="center"><input name="submit" type="submit" class="button" value="Login"></div>
+								</td>
+							</tr>
+						</tbody></table>
+					</form>
+				</div>
+				<script type="text/javascript">
+					$("#quick_login input[name='url']").val($(location).attr('href'));
+				</script>
+<!-- end: header_welcomeblock_guest -->
+					
+					</div>
+			</div>
+			</div>
+	</div>
+			</div>
+               
+				   
+                <main class="container">
+				<br>
+                 <!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav -->
+				
+				
+				
+				
+				
+				
+<!-- end: header -->
+	
+	
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	<div class="tborder tfixed clear">
+		<div class="thead">
+				<div class="float_right">
+					<span class="smalltext"><a href="https://sampforum.blast.hk/showthread.php?mode=threaded&amp;tid=675439&amp;pid=4145656#pid4145656">Threaded Mode</a></span>
+				</div>
+				
+					[Tutorial] An In-Depth philosophy to creating a SA-MP Server.
+			</div>
+	</div>
+<div id="posts_container">
+	<div id="posts">
+		<!-- start: postbit_classic -->
+
+<a id="pid4145656"></a>
+<div class="post classic " style="" id="post_4145656">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=167414"><img src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=167414">XStormiest</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/star.png" alt="*"><img src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/star.png" alt="*"><img src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/star.png" alt="*"><img src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 558<br>
+	Threads: 59<br>
+	Joined: Jun 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=167414"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=675439&amp;pid=4145656#pid4145656" title="An In-Depth philosophy to creating a SA-MP Server.">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 1 by XStormiest" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">12.05.2020, 20:15 <span class="post_edit" id="edited_by_4145656"><!-- start: postbit_editedby -->
+<div class="edited_post postbit_edited postbit_editedby postbit_editedpost">(<!-- start: postbit_editedby_editreason -->
+ <em>Last edited by XStormiest; 12/05/2020 at 09:08 PM.</em>
+<!-- end: postbit_editedby_editreason -->)</div>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_4145656">
+		<font face="Arial"><br>
+<font color="Red">Introduction</font><br>
+<font color="Black">Hello, for those of you who do not know me, I've been here for quite a while. I have created several gamemodes and scripts, some of them I published here, and some of them had laid waste in my computer. So far from past years of experience. I have came to the conclusion that I want to share my knowledge with you so you will be able to create a server for your own.<br>
+<br>
+This tutorial is aimed towards an introduction to simple programming scope and learning how to use simple things like methods, events and variables to attain what you want.<br>
+Even though you many deny, most of the time you use only 20% of the programming language to deliver 80%. We use simple things like, ifs, for, while, methods, variable, macros and functions to create that awesome dynamic house system that we so want for our server. While is true that more advanced things like plugins to be able to store data in a database on the internet (MySQL), or be able to use great functions to check if player is colliding with a building (MapAndreeas) or even use simple but powerfull cryptic plugins like Whirlpool. In the end, we still use the same toys but with new power.<br>
+</font><br>
+<br>
+<font color="Red">Content</font><ol style="list-style-type: decimal"><li>Methods</li>
+<li>Events</li>
+<li>Variables</li>
+<li>Redefinitions</li>
+</ol>
+<font color="Red">Methods</font><br>
+<font color="Black">When coming across the internet, you may see a lot of name interpretations, some will those functions, some will call them methods. Methods are just a quick way to deliver a sample of code throughout the code without having to repeat it. We don't want to have to write a 500 line code each time we want to add a new system.<br>
+Methods can be used for simple things like, creating a car at the player's position<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 146px;
+		text-align: left;
+		overflow: auto">CreateCarAtPlayerPosition(playerid, modelid, Float: rotation, color1, color2, siren)
+{
+     new Float: X, Float: Y,  Float: Z;
+     GetPlayerPos(playerid, X, Y, Z);
+     new carid = CreateVehicle(modelid, X, Y, Z, rotation, color1, color2, siren);
+     PutPlayerInVehicle(playerid, carid, 0);
+     return carid;
+}</pre>
+</div>You don't have to worry about what these things mean, as they are simply self-explanatory, we are creating three float variables that store numerical value with decimal points, we are getting the player's position with a method called GetPlayerPoss, that requires the three variables we just declared previously. We then create a new variable that stores the id of a car that we are creating. The variable carid stores informations about a vehicle that has a modelid given by the method, the current position of the player, the colors, rotation and siren properties that are given by the method.  We then proceed at the end by putting the player in the vehicle we just created in the seat of the passenger, seat 0. Afer that, we return the id of the vehicle that we created for later code uses.<br>
+We do this so next time we want to create a new vehicle we will just do this<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">public OnPlayerSpawn(playerid)
+{
+    CreateCarAtPlayerPosition(playerid, 411, 0.0, 0, 0, 0);
+    return 1;
+}</pre>
+</div>What this code does is creating an infernus for the player with a rotation of 0, black and without a siren at it's current position when the player spawns. <br>
+<br>
+Let's say we don't want to specify the rotation each time, or the color, we just want our code to spawn a red vehicle at the player's position that has no sirens and for that we just need to create a new method<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 82px;
+		text-align: left;
+		overflow: auto">CreateRedVehicleAtPlayerPosition(playerid, modelid)
+{
+    return CreateCarAtPlayerPosition(playerid, modelid, 0.0, 3, 0, 0);
+}</pre>
+</div>See how super-simplified this method got? Now with a simple function we can create any red vehicle we want and at the player's position<br>
+The above code and explanation is a philosophy and also a simple guide of how most of the scripts work at their core. Simple methods, that do simple things. It is said, that a method should not do more than just one thing.<br>
+We don't want a method that creates the entirety of the server, we create a method for each thing that we want to do.<br>
+For example, we can have methods like:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 66px;
+		text-align: left;
+		overflow: auto">CreatePlayerVehicleInRangeOf(playerid, Float:range, Float: X, Float: Y, Float: Z);
+CreateShopInRangeOf(Float:range, Float: X, Float: Y, Float: Z, interior, virtual_world);
+CreatePickupBehindPlayer(playerid, pickupid, type);</pre>
+</div>And many more uses as well.  Methods should allow code reuse.<br>
+</font><br>
+<br>
+<font color="red">Events</font><br>
+We describe an event as something that occurs when an entity x is influenced by an exterior force that has some kind of effect on the given entity. Thus, we can see, that sa-mp servers has in fact, many events, for example, we have an event that handles what happens when the player joins a server: OnPlayerConnect or when player types on the main chat: OnPlayerText, when types a command: OnPlayerCommandText, so far and so forth. <br>
+We can also create events of our own by using timers. Timers allow the posibility of calling a method to act as an event every x amount of time, where x can be any amount of time we want, yes, even years (don't know why you would want that). You can use timers to check if something happens: example -&gt; player is using the minigun. In the timer main method you can make so that if the player indeed uses a minigun and the player is not an admin, a new event is called: OnPlayerCheating(cheaterid)<br>
+<br>
+A simple example of the explanation above would be this:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">...bla bla #include... blala
+
+public OnGameModeInit()
+{
+    SetTimer("CheckCheaters", 1000, true);
+    return 0;
+}
+
+forward CheckCheaters();
+public CheckCheaters()
+{
+    for(new i = 0; i &lt; MAX_PLAYERS; i++)
+    {
+         if(IsPlayerConnected(i))
+         {
+              new weapon[13][2];
+              for(j = 0; j &lt;= 12; j++)
+             {
+                  GetPlayerWeaponData(i, j, weapon[j][0], weapon[j][1]);
+             }
+             
+              for(j = 0; j &lt;= 12; j++)
+             { 
+                  if(weapon[j][0] == 46 &amp;&amp; !IsPlayerAdmin(playerid) ) OnPlayerCheating(i);
+             }
+         }
+    }
+    return 1;
+}
+
+forward OnPlayerCheating(cheaterid);
+public OnPlayerCheating(cheaterid)
+{
+    new cheater_name[MAX_PLAYER_NAME];
+    GetPlayerName(cheaterid, cheater_name, sizeof(cheater_name));
+    new message[50];
+    format(message, sizeof(message), "%s has been found cheating. Banned", cheater_name);
+    SendClientMessageToAll(-1,  message);
+    BanEx(cheaterid, "Hacks");
+    return 1;
+}</pre>
+</div>Why use it likes this? Because now you can create multiple checks in the timer for other hacks, example if player is flying and is not in a car or an admin, like this:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">...bla bla #include... blala
+
+public OnGameModeInit()
+{
+    SetTimer("CheckCheaters", 1000, true);
+    return 0;
+}
+
+forward CheckCheaters();
+public CheckCheaters()
+{
+    for(new i = 0; i &lt; MAX_PLAYERS; i++)
+    {
+         if(IsPlayerConnected(i))
+         { 
+              // weapon check, you can also create a method like: CheckHackWeapon(playerid, weaponid) and use that instead of this whole code
+              new weapon[13][2];
+              for(j = 0; j &lt;= 12; j++)
+             {
+                  GetPlayerWeaponData(i, j, weapon[j][0], weapon[j][1]);
+             }
+             
+              for(j = 0; j &lt;= 12; j++)
+             { 
+                  if(weapon[j][0] == 46 &amp;&amp; !IsPlayerAdmin(playerid) ) OnPlayerCheating(i);
+             }
+
+             //flying hack - not in a vehicle check + in a vehicle check
+            new Float: X, Float: Y, Float: Z;
+            GetPlayerPos(playerid, X, Y, Z);
+            new Float: velocityX, Float: velocityY, Float: velocityZ;
+            new Float: vehiclevX, Float: vehiclevY, Float: vehiclevZ;
+            GetVehicleVelocity(GetPlayerVehicleID(i), vehiclevX, vehiclevY, vehiclevZ);
+            GetPlayerVelocity(playerid, X, Y, Z);
+            if(!IsPlayerInAnyVehicle(i)) {
+            new Float: speed = (( velocityX*velocityX ) + (velocityY * velocityY) + (velocityZ*velocityZ));
+                 if(speed &gt; 100) {
+                      if(!IsPlayerAdmin(playerid)) OnPlayerCheating(i);
+                 }
+            }
+           else {
+               new speed = ( (vehiclevX*vehiclevX) + (vehiclevY*vehiclevY) + (vehiclevZ*vehiclevZ) );
+               if(speed &gt; 100) {
+                   if(!IsPlayerAdmin(playerid)) OnPlayerCheating(i);
+               }
+          }
+         }
+    }
+    return 1;
+}
+
+forward OnPlayerCheating(cheaterid);
+public OnPlayerCheating(cheaterid)
+{
+    new cheater_name[MAX_PLAYER_NAME];
+    GetPlayerName(cheaterid, cheater_name, sizeof(cheater_name));
+    new message[50];
+    format(message, sizeof(message), "%s has been found cheating. Banned", cheater_name);
+    SendClientMessageToAll(-1,  message);
+    BanEx(cheaterid, "Hacks");
+    return 1;
+}</pre>
+</div>This is not a tutorial to teach you how to do those things that I just explained and some of the things that I have explained myself, maybe wrong to the ideea that some things may not be precise. There are plenty of great tutorials on this website to teach you on how to create the ideal" anti-flying hack or just direct scripts that let's you add them into your server without much struggle. This is tutorial is not meant to teach you how to do those things, but to give you an ideea about the philosophy of programming language and how to use this philosophy to create great code that can be re-used at any time without having to create a new gamemode just because you forgot what is in your gamemode after not scripting for a while.<br>
+<br>
+As you can see in the code above, both uses the same method as an event. If the player is passing through this checks in this timer, the method will be called each time, if not, it will not be called<br>
+<br>
+This is an excellent example, of how we could create an event to handle something, let's say for instance, we want an event that handles what happens when the player creates a new account, or what happens when the player is doing something that is worth creating an event for.<br>
+<br>
+Yes, some of you may say that timers are not necesarily needed always, that is true, they consume a lot of power and are quite laggy at times. You can also call the method that acts as an event in certain situations. Example, you have an event that handles what happens when the player levels up on an rpg server. In this case you would create for example a method called: AdvancePlayerLevel:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">AdvancePlayerLevel(playerid)
+{
+     PLAYER_ACCOUNT[playerid][pLevel]++;
+     OnPlayerHadLevelUp(playerid, PLAYER_ACCOUNT[playerid][pLevel]);
+}</pre>
+</div>and thus, we can declare the event method like this.<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">Code:</div>
+<pre class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 162px;
+		text-align: left;
+		overflow: auto">forward OnPlayerHadLevelUp(playerid, level);
+public OnPlayerHadLevelUp(playerid, level)
+{
+    new name[MAX_PLAYER_NAME];
+    GetPlayerName(playerid, name, sizeof(name));
+    new message[256];
+    format(message, sizeof(message), "%s has advanced to level %d. Congratiolations!",  name, level);
+    SendClientMessageToAll(-1, message);
+}</pre>
+</div>And now we have an event that handles what happens after the player reaches a new level, you can use this new event in any shape you want it. Why not give him ability to use new commands when he levels up to level 10? Or give him a new car at level 15, your imagination is the sky now.<br>
+<br>
+<font color="Red">[TO-BE-CONTINUED]</font><br>
+<br>
+<font color="Red">Conclusions</font><br>
+Well, as an end, I want to say, I am sorry for any gramatical errors that I may had made in this post, I'll come from time to time to update this post and make it better. Also why I made this post? Well, while it makes perfect sense what I just wrote, it's a great mindset to start with when programming, and not just a sa-mp server. We want to be able to create includes, plugins and scripts that allow us to be able to re-use code without having to write the same thing 500 times over the whole sa-mp server project. We also want code that can handle any situation and events or methods that can come to our aid when want to create a simple method that update's a player's password or deletes or creates an account. <br>
+<br>
+What's your own tips and advice? <br>
+How do you use methods in your script?<br>
+How do you use events in your script?<br>
+How do you use timers in your scripts?<br>
+How do you use variables in your script, or redefinitions?<br>
+<br>
+Those are simple and good questions, because a great way of creating scripts can save up a long time of struggling to get over an ugly, big and unordered chunk of 27.000 lines code gamemode where everything is shuffled randomly everywhere.<br>
+</font>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_4145656">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=167414" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=675439&amp;replyto=4145656" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid4145662"></a>
+<div class="post classic " style="" id="post_4145662">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=336308"><img src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=336308">l0gic</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/star.png" alt="*"><img src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/star.png" alt="*"><img src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 205<br>
+	Threads: 0<br>
+	Joined: Aug 2019
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=336308"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=675439&amp;pid=4145662#pid4145662" title="Re: An In-Depth philosophy to creating a SA-MP Server.">#2</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 2 by l0gic" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">12.05.2020, 20:58 <span class="post_edit" id="edited_by_4145662"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_4145662">
+		new message[256];<br>
+so much string space for such a message?<br>
+<br>
+<br>
+new Float: X, Float: Y, Float: Z;<br>
+            GetPlayerPos(playerid, X, Y, Z);<br>
+            new Float: velocityX, Float: velocityY, Float: velocityZ;<br>
+            new Float: vehiclevX, Float: vehiclevY, Float: vehiclevZ;<br>
+            GetVehicleVelocity(GetPlayerVehicleID(i), vehiclevX, vehiclevY, vehiclevZ);<br>
+            GetPlayerVelocity(playerid, X, Y, Z);<br>
+            if(!IsPlayerInAnyVehicle(i)) {<br>
+            new Float: speed = (( velocityX*velocityX ) + (velocityY * velocityY) + (velocityZ*velocityZ));<br>
+                 if(speed &gt; 100) {<br>
+                      if(!IsPlayerAdmin(playerid)) OnPlayerCheating(i);<br>
+                 }<br>
+            }<br>
+           else {<br>
+               new speed = ( (vehiclevX*vehiclevX) + (vehiclevY*vehiclevY) + (vehiclevZ*vehiclevZ) );<br>
+               if(speed &gt; 100) {<br>
+                   if(!IsPlayerAdmin(playerid)) OnPlayerCheating(i);<br>
+               }<br>
+          }<br>
+<br>
+wtf is this code?
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_4145662">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=336308" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=675439&amp;replyto=4145662" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid4145663"></a>
+<div class="post classic " style="" id="post_4145663">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=167414"><img src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/default_avatar.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=167414">XStormiest</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/star.png" alt="*"><img src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/star.png" alt="*"><img src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/star.png" alt="*"><img src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 558<br>
+	Threads: 59<br>
+	Joined: Jun 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=167414"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=675439&amp;pid=4145663#pid4145663" title="Re: An In-Depth philosophy to creating a SA-MP Server.">#3</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 3 by XStormiest" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">12.05.2020, 21:04 <span class="post_edit" id="edited_by_4145663"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_4145663">
+		As I said, the idea of this tutorial is not the code itself but the concept of how to implement the code. There are many great tutorials out there for a way better code for flying hack check, this is just another way of how to use events in order to have great re-usable code. Although, I will make changes, thanks for the correction.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_4145663">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=167414" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=675439&amp;replyto=4145663" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic -->
+	</div>
+</div>
+	
+			<div class="tfoot row">
+				<div class="col-sm-6">
+					<strong>« <a href="https://sampforum.blast.hk/showthread.php?tid=675439&amp;action=nextoldest">Next Oldest</a> | <a href="https://sampforum.blast.hk/showthread.php?tid=675439&amp;action=nextnewest">Next Newest</a> »</strong>
+				</div>
+				<div class="col-sm-6"><!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://sampforum.blast.hk/search.php" method="post">
+			<input type="hidden" name="action" value="thread">
+			<input type="hidden" name="tid" value="675439">
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == &#39;Enter Keywords&#39;) { this.value = &#39;&#39;; }" onblur="if(this.value==&#39;&#39;) { this.value=&#39;Enter Keywords&#39;; }" class="textbox" size="25">
+			<input type="submit" class="button" value="Search Thread">
+		</form>
+	</div>
+<!-- end: showthread_search --></div>
+			</div>
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	
+	
+	
+	<br>
+	<div class="float_left">
+		<ul class="thread_tools">
+			<!-- start: showthread_printthread -->
+<li class="printable"><a href="https://sampforum.blast.hk/printthread.php?tid=675439">View a Printable Version</a></li>
+<!-- end: showthread_printthread -->
+			
+			
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://sampforum.blast.hk/forumdisplay.php" method="get">
+<span class="smalltext">Forum Jump:</span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="3"> SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="74">-- News and Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13">-- General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="16">-- Client Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20">-- Bug Reports</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21">-- Screenshots and Videos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6"> SA-MP Server</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="19">-- Server Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22">-- Server Advertisements</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="8"> SA-MP Scripting and Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12">-- Scripting Help</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="70" selected="selected">---- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="84">---- Discussion</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="89">---- Help Archive</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="71">-- Gamemode Scripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="17">-- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="83">---- Includes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="82">---- Tools and Files </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="64">---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="18">-- Plugin Development</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="92"> SA-MP DL Edition</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="90">-- SA-MP 0.3.DL</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="94">---- Model Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="7"> Other</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23">-- Everything and Nothing</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9"> Non-English</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33">-- Languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31">---- Nederlands/Dutch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="76">------ Scripting Showroom en Discussie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="87">------ Off topic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29">---- Español/Spanish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="59">------ Lanzamientos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30">---- Français/French</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="81">------ Showroom</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32">---- Русский/Russian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="66">------ Релизы/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34">---- Português/Portuguese</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56">------ Lançamentos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40">---- Română/Romanian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="77">------ Salonul Scripturilor</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="88">---- Archive</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear">
+	<!-- start: showthread_usersbrowsing -->
+<br>
+<span class="smalltext">Users browsing this thread: 1 Guest(s)</span>
+<br>
+<!-- end: showthread_usersbrowsing -->
+	<!-- start: footer -->
+<div style="clear:both"><div style="padding-top: 10px"><!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav --></div></div>
+</main>
+
+<div class="blankspace"></div>
+
+<footer id="footer">
+	<div class="container">
+    <div class="row">
+		
+        <!--<div class="col-sm-4 foot">
+			<h3>About Our Community</h3>
+			<p>Discuss about various topics in our community and have fun while doing so. Welcome to SA-MP Forums Archive</p>
+			
+		</div>		
+		
+
+		<div class="col-sm-4 foot">
+			<h3>Quick Links</h3>
+			<p>
+
+ 				<a href="https://sampforum.blast.hk" class="btn btn-success" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Forum Home"><i class="fa fa-home"></i></a>
+				
+				<a href="https://sampforum.blast.hk/archive/index.php?thread-675439.html" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Lite (Archive) Mode"><i class="fa fa-archive"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Become a Fan"><i class="fa fa-facebook-square"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-info" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Follow Us"><i class="fa fa-twitter"></i></a>
+				
+				<a href="https://sampforum.blast.hk/misc.php?action=syndication" class="btn btn-warning" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="RSS Syndication"><i class="fa fa-rss"></i></a>
+				<br/>
+				<a href="misc.php?action=markread&amp;my_post_key=906b4f4af2a15f55d2b64b776caec649" class="btn btn-danger" style="color: #fff; margin-top:10px" data-toggle="tooltip" data-placement="bottom" data-original-title="Mark all forums read"><i class="fa fa-book"></i> Mark all forums read</a><br /><br />
+				
+				
+				</p>
+
+		</div>
+		
+		<div class="col-sm-4 foot">
+			
+			 <h3>Reach Us</h3>
+			 
+<p><a href="contact.php" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Contact Us"><i class="fa fa-envelope"></i> Contact Us</a>&nbsp;
+			
+			<a href="showteam.php" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Meet Our Team"><i class="fa fa-users"></i> Forum Team</a></p>
+		</div>-->
+		
+		
+		
+		<!-- The following piece of code allows MyBB to run scheduled tasks. DO NOT REMOVE --><!-- start: task_image -->
+<img src="./[Tutorial] An In-Depth philosophy to creating a SA-MP Server._files/task.php" height="1" alt="">
+<!-- end: task_image --><!-- End task image code -->
+		</div>
+	
+	</div>
+
+	
+<div id="copyright">
+	<div class="container">
+			<div class="pull-right"><!-- start: footer_languageselect -->
+<div class="language">
+<form method="POST" action="https://sampforum.blast.hk/showthread.php" id="lang_select">
+	<input type="hidden" name="tid" value="675439">
+
+	<input type="hidden" name="my_post_key" value="906b4f4af2a15f55d2b64b776caec649">
+	<select name="language" onchange="MyBB.changeLanguage();">
+		<optgroup label="Quick Language Select">
+			<!-- start: footer_languageselect_option -->
+<option value="english" selected="selected">&nbsp;&nbsp;&nbsp;English (American)</option>
+<!-- end: footer_languageselect_option --><!-- start: footer_languageselect_option -->
+<option value="russian">&nbsp;&nbsp;&nbsp;Russian</option>
+<!-- end: footer_languageselect_option -->
+		</optgroup>
+	</select>
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_languageselect --></div>
+			<div class="pull-left">
+				<!-- MyBB is free software developed and maintained by a volunteer community.
+					It would be much appreciated by the MyBB Group if you left the full copyright and "powered by" notice intact,
+					to show your support for MyBB.  If you choose to remove or modify the copyright below,
+					you may be refused support on the MyBB Community Forums.
+
+					This is free software, support us and we'll support you. -->
+				Powered By <a href="http://www.mybb.com/" target="_blank" rel="noopener" style="color: #fff;">MyBB</a>. <a href="https://eree.in/" title="EREE" target="_blank" rel="noopener" style="color: #fff;">Crafted by EREE</a> and <a href="https://forum.androidbg.com/" title="AndroidBG" target="_blank" rel="noopener" style="color: #fff;">Android BG</a>. Also powered by <a href="https://www.blast.hk/"><b>blast.hk</b></a><!-- End powered by -->
+				
+			</div>
+	</div>
+
+</div>
+
+</footer>
+
+<!-- Fix for MentionMe popup window position -->
+<script type="text/javascript">
+	var MentionMe = (function(m) {
+	m.customSCEditorContainerOffset = {
+		left: 0,
+		top: 2,
+	};
+
+	return m;
+})(MentionMe || {});
+</script>
+<!-- End Fix for MentionMe popup window position -->
+<!-- end: footer -->
+	<script type="text/javascript">
+		var thread_deleted = "0";
+		if(thread_deleted == "1")
+		{
+			$("#quick_reply_form, .new_reply_button, .thread_tools, .inline_rating").hide();
+			$("#moderator_options_selector option.option_mirage").attr("disabled","disabled");
+		}
+	</script>
+
+
+<!-- end: showthread --><script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>

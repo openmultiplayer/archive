@@ -1,0 +1,2205 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://sampforum.blast.hk/showthread.php?tid=597338 -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>[Tutorial] Modular Programming</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="https://sampforum.blast.hk/syndication.php">
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="https://sampforum.blast.hk/syndication.php?type=atom1.0">
+<link rel="shortcut icon" href="https://sampforum.blast.hk/favicon.ico">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript" src="./[Tutorial] Modular Programming_files/jquery.js"></script><style>undefined</style>
+<script type="text/javascript" src="./[Tutorial] Modular Programming_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] Modular Programming_files/jquery.plugins.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] Modular Programming_files/general.js"></script>
+<script type="text/javascript" src="./[Tutorial] Modular Programming_files/tooltip.js"></script>
+
+<link rel="stylesheet" href="./[Tutorial] Modular Programming_files/bootstrap.min.css">
+<link href="./[Tutorial] Modular Programming_files/css" rel="stylesheet" type="text/css">
+<!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" / -->
+<link rel="stylesheet" href="./[Tutorial] Modular Programming_files/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Modular Programming_files/global.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Modular Programming_files/css3.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Modular Programming_files/responsive.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Modular Programming_files/star_ratings.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Modular Programming_files/showthread.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Modular Programming_files/grey.css">
+
+
+
+
+<script type="text/javascript">
+jQuery(document).on('click', '.panel-heading span.clickable', function(e){
+    var jQuerythis = jQuery(this);
+	if(!jQuerythis.hasClass('panel-collapsed')) {
+		jQuerythis.parents('.panel').find('.panel-body').slideUp();
+		jQuerythis.addClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+	} else {
+		jQuerythis.parents('.panel').find('.panel-body').slideDown();
+		jQuerythis.removeClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+	}
+})
+</script>
+
+
+
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+	lang.confirm_title = "Please Confirm";
+	lang.expcol_collapse = "[-]";
+	lang.expcol_expand = "[+]";
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+	
+	var templates = {
+		modal: '<div class=\"modal\">\
+	<div style=\"overflow-y: auto; max-height: 400px;\">\
+		<table border=\"0\" cellspacing=\"0\" cellpadding=\"5\" class=\"tborder\">\
+			<tr>\
+				<td class=\"thead\"><strong>__title__</strong></td>\
+			</tr>\
+			<tr>\
+				<td class=\"trow1\">__message__</td>\
+			</tr>\
+			<tr>\
+				<td class=\"tfoot\">\
+					<div style=\"text-align: center\" class=\"modal_buttons\">__buttons__</div>\
+				</td>\
+			</tr>\
+		</table>\
+	</div>\
+</div>',
+		modal_button: '<input type=\"submit\" class=\"button\" value=\"__title__\"/>&nbsp;'
+	};
+	
+	var cookieSecureFlag = "0";
+	var cookieDomain = ".sampforum.blast.hk";
+	var cookiePath = "/";
+	var cookiePrefix = "";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "906b4f4af2a15f55d2b64b776caec649";
+	var rootpath = "https://sampforum.blast.hk";
+	var imagepath = "https://sampforum.blast.hk/images/bootbb";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "https://sampforum.blast.hk/images/bootbb/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+
+<!-- Make videos responsive - https://github.com/davatron5000/FitVids.js (additional video sites added for MyBB) -->
+<script type="text/javascript" src="./[Tutorial] Modular Programming_files/jquery.fitvids.js"></script>
+<script>
+	$(document).ready(function(){
+		// Target the iframe parent div
+		var bvc = $(".bootbb-video-container");
+		//bvc.css("max-width", "800px");
+		bvc.fitVids();
+	});
+</script>
+<!-- end: headerinclude -->
+<script>
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script src="./[Tutorial] Modular Programming_files/report.js"></script>
+<script src="./[Tutorial] Modular Programming_files/jeditable.min.js"></script>
+<script src="./[Tutorial] Modular Programming_files/thread.js"></script>
+<meta name="description" content="What is modular programming? Modular programming is a process of breaking down a code depending on its category to make the code reusable for future projects (avoid re-inventing the wheel) as well as">
+<link rel="canonical" href="https://sampforum.blast.hk/showthread.php?tid=597338">
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./[Tutorial] Modular Programming_files/css2"></head>
+<body>
+	<!-- start: header -->
+<header>
+<div class="navbar navbar-default">
+     <div class="container">
+          <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="Toggle navigation">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span> 
+               </button>
+			  
+			  <div class="navbar-header scaleimages">
+				  <!--<a class="navbar-brand" href="https://sampforum.blast.hk">BootBB</a>-->
+				  <a class="" href="https://sampforum.blast.hk/"><img src="./[Tutorial] Modular Programming_files/logo_forum.gif"></a>
+			  
+			  </div>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+			  <ul class="nav navbar-nav navbar-right">
+				  <!--<li id="nav-portal"><a href="https://sampforum.blast.hk/portal.php"><i class="fa fa-bell"></i> Portal</a></li>-->
+               <li id="nav-forums"><a href="https://sampforum.blast.hk/index.php"><i class="fa fa-group"></i> Forum</a></li>
+				<!--<li><a href="https://sampforum.blast.hk/search.php?action=getnew"><i class="fa fa-comment"></i> New Posts</a></li>
+            	<li><a href="https://sampforum.blast.hk/search.php?action=getdaily"><i class="fa fa-comments"></i> Today's Posts</a></li>-->
+               <li id="nav-search"><a href="https://sampforum.blast.hk/search.php"><i class="fa fa-search"></i> Search</a></li>
+               <li id="nav-member"><a href="https://sampforum.blast.hk/memberlist.php"><i class="fa fa-users"></i> Members</a></li>
+               <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+				  
+<!--<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cubes"></i> Misc <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			  <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+			  <li class="divider"></li>
+			  <li id="nav-calendar"><a href="https://sampforum.blast.hk/calendar.php"><i class="fa fa-calendar"></i> Calendar</a></li>
+          </ul>
+</li> -->
+</ul>
+  
+          </div>
+     </div>
+</div>
+</header>
+
+
+<div id="container">
+	<a name="top" id="top"></a>
+		<div id="header">
+			<div id="panel">
+				<div class="upper">
+					<div class="container">
+
+						<!-- start: header_welcomeblock_guest -->
+<!--<span><a href="https://sampforum.blast.hk/member.php?action=login" onclick="$('#quick_login').modal({ fadeDuration: 250, keepelement: true }); return false;" class="login btn btn-danger" style="color: #fff;"><i class="fa fa-sign-in"></i> Login</a> <a href="https://sampforum.blast.hk/member.php?action=register" class="register btn btn-success" style="color: #fff;"><i class="fa fa-user-plus"></i> Register</a></span>-->
+
+<span class="float_right hidden-xs">Hello There, Guest!</span>
+
+<br class="clearfix">
+	
+
+				<div class="modal" id="quick_login" style="display: none;">
+					<form method="post" action="https://sampforum.blast.hk/member.php">
+						<input name="my_post_key" type="hidden" value="906b4f4af2a15f55d2b64b776caec649">
+						<input name="action" type="hidden" value="do_login">
+						<input name="url" type="hidden" value="https://sampforum.blast.hk/showthread.php?tid=597338">
+						<input name="quick_login" type="hidden" value="1">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tborder">
+							<tbody><tr>
+								<td class="thead" colspan="2"><strong>Login</strong></td>
+							</tr>
+							<tr>
+								<td class="trow1" width="25%"><strong>Username:</strong></td>
+								<td class="trow1"><input name="quick_username" id="quick_login_username" type="text" value="" class="textbox initial_focus"></td>
+							</tr>
+							<tr>
+								<td class="trow2"><strong>Password:</strong></td>
+								<td class="trow2">
+									<input name="quick_password" id="quick_login_password" type="password" value="" class="textbox"> <a href="https://sampforum.blast.hk/member.php?action=lostpw" class="lost_password">Lost Password?</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow1">&nbsp;</td>
+								<td class="trow1 remember_me">
+									<input name="quick_remember" id="quick_login_remember" type="checkbox" value="yes" class="checkbox" checked="checked">
+									<label for="quick_login_remember">Remember me</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow2" colspan="2">
+									<div align="center"><input name="submit" type="submit" class="button" value="Login"></div>
+								</td>
+							</tr>
+						</tbody></table>
+					</form>
+				</div>
+				<script type="text/javascript">
+					$("#quick_login input[name='url']").val($(location).attr('href'));
+				</script>
+<!-- end: header_welcomeblock_guest -->
+					
+					</div>
+			</div>
+			</div>
+	</div>
+			</div>
+               
+				   
+                <main class="container">
+				<br>
+                 <!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=2">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav -->
+				
+				
+				
+				
+				
+				
+<!-- end: header -->
+	
+	
+	<div class="float_left">
+		<!-- start: multipage -->
+<div class="pagination">
+<span class="pages">Pages (2):</span>
+<!-- start: multipage_page_current -->
+ <span class="pagination_current">1</span>
+<!-- end: multipage_page_current --><!-- start: multipage_page -->
+<a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;page=2" class="pagination_page">2</a>
+<!-- end: multipage_page --><!-- start: multipage_nextpage -->
+<a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;page=2" class="pagination_next">Next »</a>
+<!-- end: multipage_nextpage -->
+</div>
+<!-- end: multipage -->
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	<div class="tborder tfixed clear">
+		<div class="thead">
+				<div class="float_right">
+					<span class="smalltext"><a href="https://sampforum.blast.hk/showthread.php?mode=threaded&amp;tid=597338&amp;pid=3633767#pid3633767">Threaded Mode</a></span>
+				</div>
+				
+					[Tutorial] Modular Programming
+			</div>
+	</div>
+<div id="posts_container">
+	<div id="posts">
+		<!-- start: postbit_classic -->
+
+<a id="pid3633767"></a>
+<div class="post classic " style="" id="post_3633767">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=104729"><img src="./[Tutorial] Modular Programming_files/104729.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=104729">PatrickGTR</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Little Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 19<br>
+	Threads: 3<br>
+	Joined: Sep 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=104729"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;pid=3633767#pid3633767" title="Modular Programming">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 1 by PatrickGTR" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">29.12.2015, 20:23 <span class="post_edit" id="edited_by_3633767"><!-- start: postbit_editedby -->
+<div class="edited_post postbit_edited postbit_editedby postbit_editedpost">(<!-- start: postbit_editedby_editreason -->
+ <em>Последний раз редактировалось PatrickGTR; 30.12.2015 в 13:14.</em>
+<!-- end: postbit_editedby_editreason -->)</div>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3633767">
+		<font size="4"><font color="Green"><b>What is modular programming?</b></font></font><br>
+Modular programming is a process of breaking down a code depending on its category to make the code reusable  for future projects <i>(avoid re-inventing the wheel)</i> as well as making the code easier to read and track down mistakes. Modular programming comes handy if you are writing big projects, there's no point of modularizing your code if it doesn't consists of <b>5,000</b> lines as this can be done in one file but once again I am not your boss therefore this could be done on short codes but I see no point of doing so (personal opinion).<br>
+<br>
+<div align="center"><img alt="" border="0" src="./[Tutorial] Modular Programming_files/voRKoD5.png"></div>
+<font size="4"><font color="Green"><b>Advantages</b></font></font><ul><li>Code reusability - This makes your life easier, if you're creating a new project that has similar needs your module can come handy and be re-used in this situation and saves you time! <i>(wasting time on creating the code again from scratch)</i>.</li>
+<li>Code readability - Modular programming can make your code much easier to read with few lines in each modules!</li>
+<li>Ease of debugging and modifying - A modularized code are generally easier to debug than a code that has been done in <b>ONE</b> file. <i>Why is it easier to debug?</i> - Codes are isolated in a module and once a faulty code has been identified, fixing can be very easy. Modifying can come handy if a module has to be used once again! simple modification can be done and the module can be re-used again!</li>
+<li>Multiple developers - If you are working as a team, each developer can work on a different module and this leads to faster development!<ul><li>Each developer can use their expertise to work on a module! Maths, GUI, commands, arrays, checkpoints, etc...</li>
+</ul></li>
+</ul><font size="4"><font color="Green"><b>Disadvantages</b></font></font><ul><li>Variable names - each variable name should have a <b>unique</b> name or else it can cause <i>warning 219: local variable "variable_name" shadows a variable at a preceding level</i><ul><li>A fix for this is use <b>static</b> to declare the variable as a local variable yet you still need to use a non-generic variable name to avoid conflicts with other modules and released includes.</li>
+<li>Another fix if a variable is declared locally, you can create a function if it needs to be used throughout the code.</li>
+</ul></li>
+<li>Proper documentation - If you are working as a team, modules should be documented thoroughly for other developers to understand the code as well. (This also goes to codes that are going to be released in forums)</li>
+<li>Hooking a function that is required to be re-used - This can be repetitive and hook should have a <b>unique</b> prefix. Writing the directives can be repetitive but this is why <b>COPY</b> and <b>PASTE</b> exists. Other solution is using <b>y_hooks</b> and including it every <b>module</b>. For y_hooks example see first 2 examples.</li>
+</ul>
+<font size="4"><font color="Green"><b>Examples</b></font></font><ul><li><a href="https://github.com/pds2k12/San-Fierro-Cops-and-Robbers/blob/master/main.pwn" target="_blank">San Fierro Cops and Robbers</a> by me</li>
+<li><a href="https://github.com/Southclaw/ScavengeSurvive/blob/master/gamemodes/ScavengeSurvive.pwn" target="_blank">Scavenge and Survive</a> by Southclaw</li>
+<li><a href="https://github.com/Pottus/Texture-Studio/blob/master/filterscripts/tstudio.pwn" target="_blank">Texture Studio</a> by Pottus</li>
+</ul>
+<font size="4"><font color="Green"><b>Editor that supports multi-tasking</b></font></font><br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=174046" target="_blank">Notepad++ for PAWN</a> - Slice<br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=511195" target="_blank">Sublime Text for PAWN</a> - Southclaw<br>
+<a href="https://sampforum.blast.hk/showthread.php?tid=549547" target="_blank">Atom for PAWN</a> - Kaperstone<br>
+<br>
+<b>NOTE</b><br>
+You have to plan how you want to lay your code out or else it will be a disaster and you will be lost.<br>
+<br>
+<br>
+<font size="4"><font color="Green"><b>Layout</b></font></font><br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:231px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #000000;">-</span> gamemodes <br>&nbsp; &nbsp; <span style="color: #000000;">-</span> main.pwn<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> utils<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> colour.pwn<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> math.pwn<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> string.pwn<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> core<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> player<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> core.pwn<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> account.pwn<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> server<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> core.pwn<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> vehicles.pwn</div></div></pre>
+</div>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:279px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><br><span style="color: #228822;">//Modules</span><br><br><span style="color: #228822;">//Utils</span><br><span style="color: #2222AA;">#include "utils/colour.pwn"</span><br><span style="color: #2222AA;">#include "utils/math.pwn"</span><br><span style="color: #2222AA;">#include "utils/string.pwn"</span><br><br><span style="color: #228822;">//Player</span><br><span style="color: #2222AA;">#include "core/player/core.pwn"</span><br><span style="color: #2222AA;">#include "core/player/account.pwn"</span><br><br><span style="color: #228822;">//Server </span><br><span style="color: #2222AA;">#include "core/server/core.pwn"</span><br><span style="color: #2222AA;">#include "core/server/vehicles.pwn"</span></div></div></pre>
+</div>
+<b>OR</b><br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:231px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #000000;">-</span> includes <br>&nbsp; &nbsp; <span style="color: #000000;">-</span> main.pwn<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> utils<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> colour.pwn<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> math.inc<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> string.inc<br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> core<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> player<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> core.inc<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> account.inc<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> server<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> core.inc<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #000000;">-</span> vehicles.inc</div></div></pre>
+</div>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:247px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><br><span style="color: #228822;">//Utils</span><br><span style="color: #2222AA;">#include &lt;utils/color&gt;</span><br><span style="color: #2222AA;">#include &lt;utils/math&gt;</span><br><span style="color: #2222AA;">#include &lt;utils/string&gt;</span><br><br><span style="color: #228822;">//Player</span><br><span style="color: #2222AA;">#include &lt;core/player/core&gt;</span><br><span style="color: #2222AA;">#include &lt;core/player/account&gt;</span><br><br><span style="color: #228822;">//Server</span><br><span style="color: #2222AA;">#include &lt;core/server/core&gt;</span><br><span style="color: #2222AA;">#include &lt;core/server/vehicles&gt;</span></div></div></pre>
+</div>
+<br>
+<font size="4"><font color="Green"><b>How does it work together?</b></font></font><br>
+<br>
+Include is a directive that binds the contents of the module/second file together and insert it into the original file although the <b>IDE</b> doesn't read it this way but the compiler reads it like the code is in one-file.<br>
+<br>
+<b>enums.pwn</b><br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:151px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222BB;">enum</span> E_PLAYER_DATA <span style="color: #000000;">{</span><br>&nbsp; &nbsp; plyUsername<span style="color: #000000;">[</span>MAX_PLAYER_NAME<span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; plyPassword<span style="color: #000000;">[</span><span style="color: #000000;">65</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; plyKills,<br>&nbsp; &nbsp; plyDeaths<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">new</span> plyData<span style="color: #000000;">[</span>MAX_PLAYERS<span style="color: #000000;">]</span><span style="color: #000000;">[</span>E_PLAYER_DATA<span style="color: #000000;">]</span>;</div></div></pre>
+</div>
+<b>main.pwn</b><br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:375px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><br><span style="color: #2222AA;">#include "core/player/enums.pwn"</span><br><br><span style="color: #2222BB;">new</span> <br>&nbsp; &nbsp; resetPData<span style="color: #000000;">[</span>E_PLAYER_DATA<span style="color: #000000;">]</span>;<br><br><span style="color: #2222BB;">public</span> OnPlayerConnect<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span> <span style="color: #000000;">{</span><br>&nbsp; &nbsp; plyData<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> resetPData; <span style="color: #228822;">//sets all the value to 0.</span><br><br>&nbsp; &nbsp; <span style="color: #228822;">//Load everything here.</span><br><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerDisconnect<span style="color: #000000;">(</span>playerid, reason<span style="color: #000000;">)</span> <span style="color: #000000;">{</span><br>&nbsp; &nbsp; <br>&nbsp; &nbsp; <span style="color: #228822;">//save everything here.</span><br><br>&nbsp; &nbsp; plyData<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> resetPData; <span style="color: #228822;">//sets all the value to 0.</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+<b>What actually happens</b><br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:503px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><br><span style="color: #228822;">//this is enums.pwn</span><br><span style="color: #2222BB;">enum</span> E_PLAYER_DATA <span style="color: #000000;">{</span><br>&nbsp; &nbsp; plyUsername<span style="color: #000000;">[</span>MAX_PLAYER_NAME<span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; plyPassword<span style="color: #000000;">[</span><span style="color: #000000;">65</span><span style="color: #000000;">]</span>,<br>&nbsp; &nbsp; plyKills,<br>&nbsp; &nbsp; plyDeaths<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">new</span> plyData<span style="color: #000000;">[</span>MAX_PLAYERS<span style="color: #000000;">]</span><span style="color: #000000;">[</span>E_PLAYER_DATA<span style="color: #000000;">]</span>;<br><br><span style="color: #2222BB;">new</span> <br>&nbsp; &nbsp; resetPData<span style="color: #000000;">[</span>E_PLAYER_DATA<span style="color: #000000;">]</span>;<br><br><span style="color: #2222BB;">public</span> OnPlayerConnect<span style="color: #000000;">(</span>playerid<span style="color: #000000;">)</span> <span style="color: #000000;">{</span><br>&nbsp; &nbsp; plyData<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> resetPData; <span style="color: #228822;">//sets all the value to 0.</span><br><br>&nbsp; &nbsp; <span style="color: #228822;">//Load everything here.</span><br><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #2222BB;">public</span> OnPlayerDisconnect<span style="color: #000000;">(</span>playerid, reason<span style="color: #000000;">)</span> <span style="color: #000000;">{</span><br>&nbsp; &nbsp; <br>&nbsp; &nbsp; <span style="color: #228822;">//save everything here.</span><br><br>&nbsp; &nbsp; plyData<span style="color: #000000;">[</span>playerid<span style="color: #000000;">]</span> <span style="color: #000000;">=</span> resetPData; <span style="color: #228822;">//sets all the value to 0.</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+<font size="4"><font color="Green"><b>How does hooking work?</b></font></font><br>
+The modules should be done in a sequence in order for it to function properly. For example you are trying to open a database in <b>main.pwn</b> and you want to create a table of <b>accounts</b> in <b>accounts.pwn</b> to be able to do that. You <br>
+have to hook OnGameModeInit before every module and y_hooks (<i>if you're using y_hooks</i>). Example shown below.<br>
+<br>
+<b>main.pwn</b><br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:503px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><br><span style="color: #228822;">/* - <br>&nbsp; &nbsp; How it happens behind the console<br>&nbsp; &nbsp; --------------------------------------<br>&nbsp; &nbsp; * OnGameModeInitEx - first<br>&nbsp; &nbsp; &nbsp; &nbsp; * hooks of OnGameModeInit - second<br>&nbsp; &nbsp; --------------------------------------<br>&nbsp; &nbsp; "OnGameModeInitEx" will be called first to avoid crashes and confusion within the hooks.<br>&nbsp; &nbsp; Everything that you have to do regarding OnGameModeInit<br>&nbsp; &nbsp; You have to place them in "OnGameModeInitEx" to make sure other hooks will not mess up on start up.<br>*/</span><br><br><span style="color: #2222BB;">public</span> OnGameModeInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br><br>&nbsp; &nbsp; OnGameModeInitEx<span style="color: #000000;">(</span><span style="color: #000000;">)</span>;<br><br>&nbsp; &nbsp; <span style="color: #2222AA;">#if defined main_OnGameModeInit</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">return</span> main_OnGameModeInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222AA;">#else</span><br>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br>&nbsp; &nbsp; <span style="color: #2222AA;">#endif</span><br><span style="color: #000000;">}</span><br><span style="color: #2222AA;">#if defined _ALS_OnGameModeInit</span><br>&nbsp; &nbsp; <span style="color: #2222AA;">#undef OnGameModeInit</span><br><span style="color: #2222AA;">#else</span><br>&nbsp; &nbsp; <span style="color: #2222AA;">#define _ALS_OnGameModeInit</span><br><span style="color: #2222AA;">#endif</span><br>&nbsp;<br><span style="color: #2222AA;">#define OnGameModeInit main_OnGameModeInit</span><br><span style="color: #2222AA;">#if defined main_OnGameModeInit</span><br>&nbsp; &nbsp; <span style="color: #2222BB;">forward</span> main_OnGameModeInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span>;<br><span style="color: #2222AA;">#endif</span><br><br><span style="color: #2222AA;">#include &lt;YSI\y_hooks&gt; //The y_hooks hook of OnGameModeInit will be called after the hook in main.pwn is called.</span><br>&nbsp;<br>OnGameModeInitEx<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; db_open<span style="color: #000000;">(</span><span style="color: #000066;">"server.db"</span><span style="color: #000000;">)</span>;<br><span style="color: #000000;">}</span><br><br><span style="color: #228822;">//We don't need to hook this because OnGameModeExit() hooks will be called first therefore the main OnGameModeExit() will be called last and this is what we need.</span><br><span style="color: #2222BB;">public</span> OnGameModeExit<span style="color: #000000;">(</span><span style="color: #000000;">)</span><br><span style="color: #000000;">{</span><br>&nbsp; &nbsp; db_close<span style="color: #000000;">(</span><span style="color: #000000;">DB</span><span style="color: #000000;">:</span><span style="color: #000000;">0</span><span style="color: #000000;">)</span>;<br>&nbsp; &nbsp; <span style="color: #2222BB;">return</span> <span style="color: #000000;">1</span>;<br><span style="color: #000000;">}</span></div></div></pre>
+</div>
+<br>
+<font size="4"><font color="Green"><b>What happens behind?</b></font></font><br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:247px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #000000;">-</span> hook of OnGameModeInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span> calling OnGameModeInitEx<span style="color: #000000;">(</span><span style="color: #000000;">)</span> in main.pwn <span style="color: #000000;">-</span> This will be called first all the time<span style="color: #000000;">!</span><br><span style="color: #000000;">-</span> hook of OnGameModeInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span> in different modules.<br>&nbsp; &nbsp; <span style="color: #000000;">-</span> The hooks are called depending on the suquence of the module.<br><br>&nbsp; &nbsp; For example<br>&nbsp; &nbsp; <span style="color: #000000;">-</span> main.pwn <br>&nbsp; &nbsp; <span style="color: #000000;">-</span> players.pwn <br>&nbsp; &nbsp; <span style="color: #000000;">-</span> servers.pwn<br>&nbsp; &nbsp; <span style="color: #000000;">-</span> checkpoints.pwn <br><br>&nbsp; &nbsp; <span style="color: #000000;">-</span> OnGameModeInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span> hook will be called first in main.pwn <br>&nbsp; &nbsp; <span style="color: #000000;">-</span> OnGameModeInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span> hook will be called second in players after main.pwn<br>&nbsp; &nbsp; <span style="color: #000000;">-</span> OnGameModeInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span> hook will be called third in servers after players.pwn <br>&nbsp; &nbsp; <span style="color: #000000;">-</span> OnGameModeInit<span style="color: #000000;">(</span><span style="color: #000000;">)</span> hook will be called fourth in checkpoints after servers.pwn</div></div></pre>
+</div>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3633767">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=104729" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=597338&amp;replyto=3633767" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3633769"></a>
+<div class="post classic " style="" id="post_3633769">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=156516"><img src="./[Tutorial] Modular Programming_files/156516.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=156516">CrazyChoco</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 895<br>
+	Threads: 106<br>
+	Joined: Feb 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=156516"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;pid=3633769#pid3633769" title="Re: Modular Programming">#2</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 2 by CrazyChoco" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">29.12.2015, 20:27 <span class="post_edit" id="edited_by_3633769"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3633769">
+		This is good. It would suit anyone who is considering the programming industry.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3633769">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=156516" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=597338&amp;replyto=3633769" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3633781"></a>
+<div class="post classic " style="" id="post_3633781">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=111937"><img src="./[Tutorial] Modular Programming_files/111937.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=111937">Sasino97</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,418<br>
+	Threads: 63<br>
+	Joined: Dec 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=111937"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;pid=3633781#pid3633781" title="Re: Modular Programming">#3</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 3 by Sasino97" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">29.12.2015, 21:03 <span class="post_edit" id="edited_by_3633781"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3633781">
+		Good tutorial<br>
+It would be a nice thing if people started to modular program, there are lots of good sа-mp scripters who still don't understand the advantage of dividing their project into modules, аnd thry publish huge gamemodes with 20000 lines of code
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3633781">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=111937" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=597338&amp;replyto=3633781" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3633785"></a>
+<div class="post classic " style="" id="post_3633785">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=169807"><img src="./[Tutorial] Modular Programming_files/169807.png" alt="" width="55" height="53"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=169807">Pottus</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 4,885<br>
+	Threads: 57<br>
+	Joined: Jun 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=169807"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;pid=3633785#pid3633785" title="Re: Modular Programming">#4</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 4 by Pottus" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">29.12.2015, 21:17 <span class="post_edit" id="edited_by_3633785"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3633785">
+		This only explains the concept not the implementation 1-star from me because people will get to the end then ask "okay what do I do now?" it's like you left out 75 percent of the tutorial. It's a great start nice and neat but needs some effort to be useful.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3633785">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=169807" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=597338&amp;replyto=3633785" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3633786"></a>
+<div class="post classic " style="" id="post_3633786">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=218386"><img src="./[Tutorial] Modular Programming_files/218386.png" alt="" width="43" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=218386">Dayvison_</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,308<br>
+	Threads: 47<br>
+	Joined: Nov 2013
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=218386"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;pid=3633786#pid3633786" title="Re: Modular Programming">#5</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 5 by Dayvison_" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">29.12.2015, 21:28 <span class="post_edit" id="edited_by_3633786"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3633786">
+		<a href="https://github.com/oscar-broman/PAWN-Boilerplate" target="_blank">PBP</a> compiler by Slice, is a very good tool for this.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3633786">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=218386" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=597338&amp;replyto=3633786" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3633933"></a>
+<div class="post classic " style="" id="post_3633933">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=234935"><img src="./[Tutorial] Modular Programming_files/234935.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=234935">VincenzoDrift</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Little Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 47<br>
+	Threads: 12<br>
+	Joined: Jun 2014
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=234935"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;pid=3633933#pid3633933" title="Re: Modular Programming">#6</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 6 by VincenzoDrift" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">30.12.2015, 09:13 <span class="post_edit" id="edited_by_3633933"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3633933">
+		Good tutorial +rep
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3633933">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=234935" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=597338&amp;replyto=3633933" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3634009"></a>
+<div class="post classic " style="" id="post_3634009">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=104729"><img src="./[Tutorial] Modular Programming_files/104729.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=104729">PatrickGTR</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Little Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 19<br>
+	Threads: 3<br>
+	Joined: Sep 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=104729"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;pid=3634009#pid3634009" title="Re: Modular Programming">#7</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 7 by PatrickGTR" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">30.12.2015, 13:15 <span class="post_edit" id="edited_by_3634009"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3634009">
+		Updated, explained how the modules binds together and how the hooking works in-order depending on <b>module</b> order.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3634009">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=104729" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=597338&amp;replyto=3634009" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3634012"></a>
+<div class="post classic " style="" id="post_3634012">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=61301"><img src="./[Tutorial] Modular Programming_files/61301.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=61301">[XST]O_x</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,954<br>
+	Threads: 79<br>
+	Joined: Aug 2009
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=61301"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;pid=3634012#pid3634012" title="Re: Modular Programming">#8</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 8 by [XST]O_x" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">30.12.2015, 13:22 <span class="post_edit" id="edited_by_3634012"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3634012">
+		This is great. I've been trying to understand how to break down a gamemode into several filterscripts instead of one large, 20k+ lines script. Thank you very much.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3634012">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=61301" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=597338&amp;replyto=3634012" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3634014"></a>
+<div class="post classic " style="" id="post_3634014">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=181563"><img src="./[Tutorial] Modular Programming_files/181563.png" alt="" width="41" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=181563">PrO.GameR</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 694<br>
+	Threads: 2<br>
+	Joined: Oct 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=181563"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;pid=3634014#pid3634014" title="Re: Modular Programming">#9</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 9 by PrO.GameR" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">30.12.2015, 13:32 <span class="post_edit" id="edited_by_3634014"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3634014">
+		Okay this was actually really great, but I tried it and well ... obviously failed xD<br>
+I got an error not recognizing my main enum (PlayerI), If I move my enums to an include file it will be solved right ? <br>
+Oh and another question, is it better if I break down my enums into different modules or should I just put them all in one big file called header ? (because either way I should include all headers first right ?)
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3634014">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=181563" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=597338&amp;replyto=3634014" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3634054"></a>
+<div class="post classic " style="" id="post_3634054">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=104729"><img src="./[Tutorial] Modular Programming_files/104729.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=104729">PatrickGTR</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Little Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 19<br>
+	Threads: 3<br>
+	Joined: Sep 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=104729"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;pid=3634054#pid3634054" title="Re: Modular Programming">#10</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 10 by PatrickGTR" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">30.12.2015, 14:47 <span class="post_edit" id="edited_by_3634054"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3634054">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>PrO.GameR</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3634014#pid3634014" rel="nofollow"><img alt="Посмотреть сообщение" border="0" class="inlineimg" src="./[Tutorial] Modular Programming_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Okay this was actually really great, but I tried it and well ... obviously failed xD<br>
+I got an error not recognizing my main enum (PlayerI), If I move my enums to an include file it will be solved right ? <br>
+Oh and another question, is it better if I break down my enums into different modules or should I just put them all in one big file called header ? (because either way I should include all headers first right ?)</div>
+</td>
+</tr>
+</tbody></table>
+</div>As I said your modules should be in order and its your choice, your the coder and you choose the layout that's more comfortable to you.<br>
+<br>
+For example<br>
+<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Код:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:135px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #000000;">-</span> declarations <br><span style="color: #000000;">-</span> macros<br><span style="color: #000000;">-</span> functions<br><br><span style="color: #000000;">-</span> server<br><br><span style="color: #000000;">-</span> player</div></div></pre>
+</div>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3634054">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=104729" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=597338&amp;replyto=3634054" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3634697"></a>
+<div class="post classic " style="" id="post_3634697">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=225999"><img src="./[Tutorial] Modular Programming_files/225999.png" alt="" width="55" height="47"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=225999">AndySedeyn</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,206<br>
+	Threads: 39<br>
+	Joined: Feb 2014
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=225999"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;pid=3634697#pid3634697" title="Re: Modular Programming">#11</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 11 by AndySedeyn" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">01.01.2016, 03:14 <span class="post_edit" id="edited_by_3634697"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3634697">
+		I'm relatively new to modular programming. Sometimes an include is not being included for some reason.<br>
+<br>
+Example:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">PHP Code:</div>
+<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 386px;
+		text-align: left;
+		overflow: auto">
+<code style="white-space:nowrap">
+<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #FF8000">#include&nbsp;"./AntiCheat/ac_money.pwn"<br>#include&nbsp;"./AntiCheat/ac_health.pwn"<br><br>//&nbsp;Inside&nbsp;ac_money<br>#if&nbsp;defined&nbsp;_ac_money_included<br>&nbsp;&nbsp;&nbsp;&nbsp;#endinput<br>#endif<br>#define&nbsp;_ac_money_included<br><br>//&nbsp;Inside&nbsp;ac_health<br>#if&nbsp;defined&nbsp;_ac_health_included<br>&nbsp;&nbsp;&nbsp;&nbsp;#endinput<br>#endif<br>#define&nbsp;_ac_health_included<br><br>//&nbsp;Under&nbsp;the&nbsp;#include&nbsp;directives&nbsp;in&nbsp;the&nbsp;main&nbsp;file<br>#if&nbsp;!defined&nbsp;_ac_health_included<br>&nbsp;&nbsp;&nbsp;&nbsp;#error&nbsp;Anti&nbsp;health&nbsp;hack&nbsp;is&nbsp;not&nbsp;included<br>#endif<br><br>#if&nbsp;!defined&nbsp;_ac_money_included<br>&nbsp;&nbsp;&nbsp;&nbsp;#error&nbsp;Anti&nbsp;money&nbsp;hack&nbsp;not&nbsp;included<br>#endif&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+</code>
+</div>
+</div>'ac_money' is included first in the example above and that will show the error: 'Anti health hack not included'.<br>
+<br>
+Changing their position:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">PHP Code:</div>
+<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">
+<code style="white-space:nowrap">
+<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #FF8000">#include&nbsp;"./AntiCheat/ac_health.pwn"<br>#include&nbsp;"./AntiCheat/ac_money.pwn"&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+</code>
+</div>
+</div>Now it will pop the error: "Anti money hack not included'.<br>
+<br>
+Putting them together in one file works, but I don't want that obviously. Any suggestion on why that could happen? The rest of my modules get included perfectly.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3634697">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=225999" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=597338&amp;replyto=3634697" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3634983"></a>
+<div class="post classic " style="" id="post_3634983">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=104729"><img src="./[Tutorial] Modular Programming_files/104729.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=104729">PatrickGTR</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Little Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 19<br>
+	Threads: 3<br>
+	Joined: Sep 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=104729"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;pid=3634983#pid3634983" title="Re: Modular Programming">#12</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 12 by PatrickGTR" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">01.01.2016, 17:54 <span class="post_edit" id="edited_by_3634983"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3634983">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>AndySedeyn</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3634697#pid3634697" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Modular Programming_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">I'm relatively new to modular programming. Sometimes an include is not being included for some reason.<br>
+<br>
+Example:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">PHP Code:</div>
+<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 386px;
+		text-align: left;
+		overflow: auto">
+<code style="white-space:nowrap">
+<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #FF8000">#include&nbsp;"./AntiCheat/ac_money.pwn"
+<br>#include&nbsp;"./AntiCheat/ac_health.pwn"
+
+<br>//&nbsp;Inside&nbsp;ac_money
+<br>#if&nbsp;defined&nbsp;_ac_money_included
+<br>&nbsp;&nbsp;&nbsp;&nbsp;#endinput
+<br>#endif
+<br>#define&nbsp;_ac_money_included
+
+<br>//&nbsp;Inside&nbsp;ac_health
+<br>#if&nbsp;defined&nbsp;_ac_health_included
+<br>&nbsp;&nbsp;&nbsp;&nbsp;#endinput
+<br>#endif
+<br>#define&nbsp;_ac_health_included
+
+<br>//&nbsp;Under&nbsp;the&nbsp;#include&nbsp;directives&nbsp;in&nbsp;the&nbsp;main&nbsp;file
+<br>#if&nbsp;!defined&nbsp;_ac_health_included
+<br>&nbsp;&nbsp;&nbsp;&nbsp;#error&nbsp;Anti&nbsp;health&nbsp;hack&nbsp;is&nbsp;not&nbsp;included
+<br>#endif
+
+<br>#if&nbsp;!defined&nbsp;_ac_money_included
+<br>&nbsp;&nbsp;&nbsp;&nbsp;#error&nbsp;Anti&nbsp;money&nbsp;hack&nbsp;not&nbsp;included
+<br>#endif&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+</code>
+</div>
+</div>'ac_money' is included first in the example above and that will show the error: 'Anti health hack not included'.<br>
+<br>
+Changing their position:<br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">PHP Code:</div>
+<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 50px;
+		text-align: left;
+		overflow: auto">
+<code style="white-space:nowrap">
+<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #FF8000">#include&nbsp;"./AntiCheat/ac_health.pwn"
+<br>#include&nbsp;"./AntiCheat/ac_money.pwn"&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+</code>
+</div>
+</div>Now it will pop the error: "Anti money hack not included'.<br>
+<br>
+Putting them together in one file works, but I don't want that obviously. Any suggestion on why that could happen? The rest of my modules get included perfectly.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Is the folder inside <b>gamemodes</b>? If yes include them this way <b>#include "folder/pwnfile.pwn"</b>. Also make sure you put the anti-cheat first before other modules just to make sure these hooked function functions properly. also its unnecessary to have. <b>if !defined</b> directive.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3634983">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=104729" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=597338&amp;replyto=3634983" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3634993"></a>
+<div class="post classic " style="" id="post_3634993">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=225999"><img src="./[Tutorial] Modular Programming_files/225999.png" alt="" width="55" height="47"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=225999">AndySedeyn</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,206<br>
+	Threads: 39<br>
+	Joined: Feb 2014
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=225999"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;pid=3634993#pid3634993" title="Re: Modular Programming">#13</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 13 by AndySedeyn" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">01.01.2016, 18:05 <span class="post_edit" id="edited_by_3634993"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3634993">
+		It was basically to check whether the include was included or not. They are in my gamemodes folder, yes. Including them like you advised me to gives me the same problem.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3634993">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=225999" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=597338&amp;replyto=3634993" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3635001"></a>
+<div class="post classic " style="" id="post_3635001">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=104729"><img src="./[Tutorial] Modular Programming_files/104729.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=104729">PatrickGTR</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Little Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 19<br>
+	Threads: 3<br>
+	Joined: Sep 2010
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=104729"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;pid=3635001#pid3635001" title="Re: Modular Programming">#14</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 14 by PatrickGTR" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">01.01.2016, 18:21 <span class="post_edit" id="edited_by_3635001"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3635001">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>AndySedeyn</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3634993#pid3634993" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Modular Programming_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">It was basically to check whether the include was included or not. They are in my gamemodes folder, yes. Including them like you advised me to gives me the same problem.</div>
+</td>
+</tr>
+</tbody></table>
+</div>I've tried your code and everything seems to be working fine... I am not sure where you made your mistake but maybe taking a look at my code and you'll realize your own mistake.<br>
+<br>
+<b>ac_health.pwn</b><br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:87px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#if defined _ac_health_included </span><br>&nbsp; &nbsp; <span style="color: #2222AA;">#endinput </span><br><span style="color: #2222AA;">#endif </span><br><span style="color: #2222AA;">#define _ac_health_included</span></div></div></pre>
+</div>
+<b>ac_money.pwn</b><br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:87px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#if defined _ac_money_included </span><br>&nbsp; &nbsp; <span style="color: #2222AA;">#endinput </span><br><span style="color: #2222AA;">#endif </span><br><span style="color: #2222AA;">#define _ac_money_included</span></div></div></pre>
+</div>
+<b>main.pwn</b><br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:215px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;a_samp&gt;</span><br><br><span style="color: #2222AA;">#include "AntiCheat/ac_money.pwn" </span><br><span style="color: #2222AA;">#include "AntiCheat/ac_health.pwn" </span><br><br><span style="color: #2222AA;">#if !defined _ac_money_included </span><br>&nbsp; &nbsp; <span style="color: #2222AA;">#error Anti money hack not included </span><br><span style="color: #2222AA;">#endif </span><br><br><span style="color: #2222AA;">#if !defined _ac_health_included </span><br>&nbsp; &nbsp; <span style="color: #2222AA;">#error Anti health hack is not included </span><br><span style="color: #2222AA;">#endif</span></div></div></pre>
+</div>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3635001">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=104729" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=597338&amp;replyto=3635001" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3635003"></a>
+<div class="post classic " style="" id="post_3635003">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=225999"><img src="./[Tutorial] Modular Programming_files/225999.png" alt="" width="55" height="47"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=225999">AndySedeyn</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,206<br>
+	Threads: 39<br>
+	Joined: Feb 2014
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=225999"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;pid=3635003#pid3635003" title="Re: Modular Programming">#15</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 15 by AndySedeyn" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">01.01.2016, 18:26 <span class="post_edit" id="edited_by_3635003"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3635003">
+		Will look into it. Thank you.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3635003">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=225999" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=597338&amp;replyto=3635003" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3764173"></a>
+<div class="post classic " style="" id="post_3764173">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=270152"><img src="./[Tutorial] Modular Programming_files/270152.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=270152">Kimble</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Big Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 81<br>
+	Threads: 13<br>
+	Joined: Nov 2015
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=270152"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;pid=3764173#pid3764173" title="Re: Modular Programming">#16</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 16 by Kimble" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">06.09.2016, 20:41 <span class="post_edit" id="edited_by_3764173"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3764173">
+		If i include y_hooks in main do i still need to include it in every other module?
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3764173">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=270152" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=597338&amp;replyto=3764173" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3764220"></a>
+<div class="post classic " style="" id="post_3764220">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=181563"><img src="./[Tutorial] Modular Programming_files/181563.png" alt="" width="41" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=181563">PrO.GameR</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 694<br>
+	Threads: 2<br>
+	Joined: Oct 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=181563"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;pid=3764220#pid3764220" title="Re: Modular Programming">#17</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 17 by PrO.GameR" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">06.09.2016, 21:51 <span class="post_edit" id="edited_by_3764220"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3764220">
+		No you don't need to, systems are still part of the same giant structure which y_hooks is already part of it.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3764220">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=181563" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=597338&amp;replyto=3764220" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3764221"></a>
+<div class="post classic " style="" id="post_3764221">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=220781"><img src="./[Tutorial] Modular Programming_files/220781.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=220781">SickAttack</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 4,759<br>
+	Threads: 33<br>
+	Joined: Dec 2013
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=220781"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;pid=3764221#pid3764221" title="Re: Modular Programming">#18</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 18 by SickAttack" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">06.09.2016, 21:52 <span class="post_edit" id="edited_by_3764221"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3764221">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Kimble</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3764173#pid3764173" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Modular Programming_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">If i include y_hooks in main do i still need to include it in every other module?</div>
+</td>
+</tr>
+</tbody></table>
+</div>No, as long as you include it before the other includes.<br>
+<br>
+Includes are copied and pasted into the gamemode.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3764221">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=220781" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=597338&amp;replyto=3764221" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3764546"></a>
+<div class="post classic " style="" id="post_3764546">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=269336"><img src="./[Tutorial] Modular Programming_files/269336.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=269336"><s>K0P</s></a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Banned<br>
+				<span class="postbit_userstars"></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 596<br>
+	Threads: 75<br>
+	Joined: Nov 2015
+	<br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;pid=3764546#pid3764546" title="Re: Modular Programming">#19</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 19 by K0P" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">07.09.2016, 16:55 <span class="post_edit" id="edited_by_3764546"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3764546">
+		Yes it has many advantages as ive seen in many big gamemodes which used this method especially to protect their gamemode to fully be leaked.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3764546">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=269336" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=597338&amp;replyto=3764546" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3764552"></a>
+<div class="post classic " style="" id="post_3764552">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=55934"><img src="./[Tutorial] Modular Programming_files/55934.png" alt="" width="55" height="42"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=55934">Misiur</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><img src="./[Tutorial] Modular Programming_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 2,528<br>
+	Threads: 124<br>
+	Joined: Jul 2009
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=55934"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;pid=3764552#pid3764552" title="Re: Modular Programming">#20</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 20 by Misiur" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">07.09.2016, 17:17 <span class="post_edit" id="edited_by_3764552"><!-- start: postbit_editedby -->
+<div class="edited_post postbit_edited postbit_editedby postbit_editedpost">(<!-- start: postbit_editedby_editreason -->
+ <em>Last edited by Misiur; 07/09/2016 at 06:05 PM.</em>
+<!-- end: postbit_editedby_editreason -->)</div>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3764552">
+		Erm, as for y_hooks, if you are hooking callbacks in every include, then you need to include y_hooks too (in reality this will only load y_unique to make sure your callbacks are, well, unique)
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3764552">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=55934" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=597338&amp;replyto=3764552" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic -->
+	</div>
+</div>
+	
+			<div class="tfoot row">
+				<div class="col-sm-6">
+					<strong>« <a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;action=nextoldest">Next Oldest</a> | <a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;action=nextnewest">Next Newest</a> »</strong>
+				</div>
+				<div class="col-sm-6"><!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://sampforum.blast.hk/search.php" method="post">
+			<input type="hidden" name="action" value="thread">
+			<input type="hidden" name="tid" value="597338">
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == &#39;Enter Keywords&#39;) { this.value = &#39;&#39;; }" onblur="if(this.value==&#39;&#39;) { this.value=&#39;Enter Keywords&#39;; }" class="textbox" size="25">
+			<input type="submit" class="button" value="Search Thread">
+		</form>
+	</div>
+<!-- end: showthread_search --></div>
+			</div>
+	<div class="float_left">
+		<!-- start: multipage -->
+<div class="pagination">
+<span class="pages">Pages (2):</span>
+<!-- start: multipage_page_current -->
+ <span class="pagination_current">1</span>
+<!-- end: multipage_page_current --><!-- start: multipage_page -->
+<a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;page=2" class="pagination_page">2</a>
+<!-- end: multipage_page --><!-- start: multipage_nextpage -->
+<a href="https://sampforum.blast.hk/showthread.php?tid=597338&amp;page=2" class="pagination_next">Next »</a>
+<!-- end: multipage_nextpage -->
+</div>
+<!-- end: multipage -->
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	
+	
+	
+	<br>
+	<div class="float_left">
+		<ul class="thread_tools">
+			<!-- start: showthread_printthread -->
+<li class="printable"><a href="https://sampforum.blast.hk/printthread.php?tid=597338">View a Printable Version</a></li>
+<!-- end: showthread_printthread -->
+			
+			
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://sampforum.blast.hk/forumdisplay.php" method="get">
+<span class="smalltext">Forum Jump:</span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="3"> SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="74">-- News and Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13">-- General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="16">-- Client Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20">-- Bug Reports</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21">-- Screenshots and Videos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6"> SA-MP Server</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="19">-- Server Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22">-- Server Advertisements</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="8"> SA-MP Scripting and Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12">-- Scripting Help</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="70" selected="selected">---- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="84">---- Discussion</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="89">---- Help Archive</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="71">-- Gamemode Scripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="17">-- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="83">---- Includes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="82">---- Tools and Files </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="64">---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="18">-- Plugin Development</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="92"> SA-MP DL Edition</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="90">-- SA-MP 0.3.DL</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="94">---- Model Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="7"> Other</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23">-- Everything and Nothing</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9"> Non-English</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33">-- Languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31">---- Nederlands/Dutch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="76">------ Scripting Showroom en Discussie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="87">------ Off topic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29">---- Español/Spanish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="59">------ Lanzamientos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30">---- Français/French</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="81">------ Showroom</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32">---- Русский/Russian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="66">------ Релизы/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34">---- Português/Portuguese</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56">------ Lançamentos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40">---- Română/Romanian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="77">------ Salonul Scripturilor</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="88">---- Archive</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear">
+	<!-- start: showthread_usersbrowsing -->
+<br>
+<span class="smalltext">Users browsing this thread: </span>
+<br>
+<!-- end: showthread_usersbrowsing -->
+	<!-- start: footer -->
+<div style="clear:both"><div style="padding-top: 10px"><!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=2">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav --></div></div>
+</main>
+
+<div class="blankspace"></div>
+
+<footer id="footer">
+	<div class="container">
+    <div class="row">
+		
+        <!--<div class="col-sm-4 foot">
+			<h3>About Our Community</h3>
+			<p>Discuss about various topics in our community and have fun while doing so. Welcome to SA-MP Forums Archive</p>
+			
+		</div>		
+		
+
+		<div class="col-sm-4 foot">
+			<h3>Quick Links</h3>
+			<p>
+
+ 				<a href="https://sampforum.blast.hk" class="btn btn-success" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Forum Home"><i class="fa fa-home"></i></a>
+				
+				<a href="https://sampforum.blast.hk/archive/index.php?thread-597338.html" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Lite (Archive) Mode"><i class="fa fa-archive"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Become a Fan"><i class="fa fa-facebook-square"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-info" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Follow Us"><i class="fa fa-twitter"></i></a>
+				
+				<a href="https://sampforum.blast.hk/misc.php?action=syndication" class="btn btn-warning" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="RSS Syndication"><i class="fa fa-rss"></i></a>
+				<br/>
+				<a href="misc.php?action=markread&amp;my_post_key=906b4f4af2a15f55d2b64b776caec649" class="btn btn-danger" style="color: #fff; margin-top:10px" data-toggle="tooltip" data-placement="bottom" data-original-title="Mark all forums read"><i class="fa fa-book"></i> Mark all forums read</a><br /><br />
+				
+				
+				</p>
+
+		</div>
+		
+		<div class="col-sm-4 foot">
+			
+			 <h3>Reach Us</h3>
+			 
+<p><a href="contact.php" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Contact Us"><i class="fa fa-envelope"></i> Contact Us</a>&nbsp;
+			
+			<a href="showteam.php" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Meet Our Team"><i class="fa fa-users"></i> Forum Team</a></p>
+		</div>-->
+		
+		
+		
+		<!-- The following piece of code allows MyBB to run scheduled tasks. DO NOT REMOVE --><!-- start: task_image -->
+<img src="./[Tutorial] Modular Programming_files/task.php" height="1" alt="">
+<!-- end: task_image --><!-- End task image code -->
+		</div>
+	
+	</div>
+
+	
+<div id="copyright">
+	<div class="container">
+			<div class="pull-right"><!-- start: footer_languageselect -->
+<div class="language">
+<form method="POST" action="https://sampforum.blast.hk/showthread.php" id="lang_select">
+	<input type="hidden" name="tid" value="597338">
+
+	<input type="hidden" name="my_post_key" value="906b4f4af2a15f55d2b64b776caec649">
+	<select name="language" onchange="MyBB.changeLanguage();">
+		<optgroup label="Quick Language Select">
+			<!-- start: footer_languageselect_option -->
+<option value="english" selected="selected">&nbsp;&nbsp;&nbsp;English (American)</option>
+<!-- end: footer_languageselect_option --><!-- start: footer_languageselect_option -->
+<option value="russian">&nbsp;&nbsp;&nbsp;Russian</option>
+<!-- end: footer_languageselect_option -->
+		</optgroup>
+	</select>
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_languageselect --></div>
+			<div class="pull-left">
+				<!-- MyBB is free software developed and maintained by a volunteer community.
+					It would be much appreciated by the MyBB Group if you left the full copyright and "powered by" notice intact,
+					to show your support for MyBB.  If you choose to remove or modify the copyright below,
+					you may be refused support on the MyBB Community Forums.
+
+					This is free software, support us and we'll support you. -->
+				Powered By <a href="http://www.mybb.com/" target="_blank" rel="noopener" style="color: #fff;">MyBB</a>. <a href="https://eree.in/" title="EREE" target="_blank" rel="noopener" style="color: #fff;">Crafted by EREE</a> and <a href="https://forum.androidbg.com/" title="AndroidBG" target="_blank" rel="noopener" style="color: #fff;">Android BG</a>. Also powered by <a href="https://www.blast.hk/"><b>blast.hk</b></a><!-- End powered by -->
+				
+			</div>
+	</div>
+
+</div>
+
+</footer>
+
+<!-- Fix for MentionMe popup window position -->
+<script type="text/javascript">
+	var MentionMe = (function(m) {
+	m.customSCEditorContainerOffset = {
+		left: 0,
+		top: 2,
+	};
+
+	return m;
+})(MentionMe || {});
+</script>
+<!-- End Fix for MentionMe popup window position -->
+<!-- end: footer -->
+	<script type="text/javascript">
+		var thread_deleted = "0";
+		if(thread_deleted == "1")
+		{
+			$("#quick_reply_form, .new_reply_button, .thread_tools, .inline_rating").hide();
+			$("#moderator_options_selector option.option_mirage").attr("disabled","disabled");
+		}
+	</script>
+
+
+<!-- end: showthread --><script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>

@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://sampforum.blast.hk/showthread.php?tid=578782 -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>[Tutorial] Making And Explaining Dynamic Systems</title>
+<!-- start: headerinclude -->
+<link rel="alternate" type="application/rss+xml" title="Latest Threads (RSS 2.0)" href="https://sampforum.blast.hk/syndication.php">
+<link rel="alternate" type="application/atom+xml" title="Latest Threads (Atom 1.0)" href="https://sampforum.blast.hk/syndication.php?type=atom1.0">
+<link rel="shortcut icon" href="https://sampforum.blast.hk/favicon.ico">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript" src="./[Tutorial] Making And Explaining Dynamic Systems_files/jquery.js"></script><style>undefined</style>
+<script type="text/javascript" src="./[Tutorial] Making And Explaining Dynamic Systems_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] Making And Explaining Dynamic Systems_files/jquery.plugins.min.js"></script>
+<script type="text/javascript" src="./[Tutorial] Making And Explaining Dynamic Systems_files/general.js"></script>
+<script type="text/javascript" src="./[Tutorial] Making And Explaining Dynamic Systems_files/tooltip.js"></script>
+
+<link rel="stylesheet" href="./[Tutorial] Making And Explaining Dynamic Systems_files/bootstrap.min.css">
+<link href="./[Tutorial] Making And Explaining Dynamic Systems_files/css" rel="stylesheet" type="text/css">
+<!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" / -->
+<link rel="stylesheet" href="./[Tutorial] Making And Explaining Dynamic Systems_files/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Making And Explaining Dynamic Systems_files/global.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Making And Explaining Dynamic Systems_files/css3.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Making And Explaining Dynamic Systems_files/responsive.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Making And Explaining Dynamic Systems_files/star_ratings.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Making And Explaining Dynamic Systems_files/showthread.css">
+<link type="text/css" rel="stylesheet" href="./[Tutorial] Making And Explaining Dynamic Systems_files/grey.css">
+
+
+
+
+<script type="text/javascript">
+jQuery(document).on('click', '.panel-heading span.clickable', function(e){
+    var jQuerythis = jQuery(this);
+	if(!jQuerythis.hasClass('panel-collapsed')) {
+		jQuerythis.parents('.panel').find('.panel-body').slideUp();
+		jQuerythis.addClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+	} else {
+		jQuerythis.parents('.panel').find('.panel-body').slideDown();
+		jQuerythis.removeClass('panel-collapsed');
+		jQuerythis.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+	}
+})
+</script>
+
+
+
+
+<script type="text/javascript">
+	lang.unknown_error = "An unknown error has occurred.";
+	lang.confirm_title = "Please Confirm";
+	lang.expcol_collapse = "[-]";
+	lang.expcol_expand = "[+]";
+	lang.select2_match = "One result is available, press enter to select it.";
+	lang.select2_matches = "{1} results are available, use up and down arrow keys to navigate.";
+	lang.select2_nomatches = "No matches found";
+	lang.select2_inputtooshort_single = "Please enter one or more character";
+	lang.select2_inputtooshort_plural = "Please enter {1} or more characters";
+	lang.select2_inputtoolong_single = "Please delete one character";
+	lang.select2_inputtoolong_plural = "Please delete {1} characters";
+	lang.select2_selectiontoobig_single = "You can only select one item";
+	lang.select2_selectiontoobig_plural = "You can only select {1} items";
+	lang.select2_loadmore = "Loading more results&hellip;";
+	lang.select2_searching = "Searching&hellip;";
+	
+	var templates = {
+		modal: '<div class=\"modal\">\
+	<div style=\"overflow-y: auto; max-height: 400px;\">\
+		<table border=\"0\" cellspacing=\"0\" cellpadding=\"5\" class=\"tborder\">\
+			<tr>\
+				<td class=\"thead\"><strong>__title__</strong></td>\
+			</tr>\
+			<tr>\
+				<td class=\"trow1\">__message__</td>\
+			</tr>\
+			<tr>\
+				<td class=\"tfoot\">\
+					<div style=\"text-align: center\" class=\"modal_buttons\">__buttons__</div>\
+				</td>\
+			</tr>\
+		</table>\
+	</div>\
+</div>',
+		modal_button: '<input type=\"submit\" class=\"button\" value=\"__title__\"/>&nbsp;'
+	};
+	
+	var cookieSecureFlag = "0";
+	var cookieDomain = ".sampforum.blast.hk";
+	var cookiePath = "/";
+	var cookiePrefix = "";
+	var deleteevent_confirm = "Are you sure you want to delete this event?";
+	var removeattach_confirm = "Are you sure you want to remove the selected attachment from this post?";
+	var loading_text = 'Loading. <br />Please Wait&hellip;';
+	var saving_changes = 'Saving changes&hellip;';
+	var use_xmlhttprequest = "1";
+	var my_post_key = "906b4f4af2a15f55d2b64b776caec649";
+	var rootpath = "https://sampforum.blast.hk";
+	var imagepath = "https://sampforum.blast.hk/images/bootbb";
+  	var yes_confirm = "Yes";
+	var no_confirm = "No";
+	var MyBBEditor = null;
+	var spinner_image = "https://sampforum.blast.hk/images/bootbb/spinner.gif";
+	var spinner = "<img src='" + spinner_image +"' alt='' />";
+	var modal_zindex = 9999;
+</script>
+
+<!-- Make videos responsive - https://github.com/davatron5000/FitVids.js (additional video sites added for MyBB) -->
+<script type="text/javascript" src="./[Tutorial] Making And Explaining Dynamic Systems_files/jquery.fitvids.js"></script>
+<script>
+	$(document).ready(function(){
+		// Target the iframe parent div
+		var bvc = $(".bootbb-video-container");
+		//bvc.css("max-width", "800px");
+		bvc.fitVids();
+	});
+</script>
+<!-- end: headerinclude -->
+<script>
+<!--
+	var quickdelete_confirm = "Are you sure you want to delete this post?";
+	var quickrestore_confirm = "Are you sure you want to restore this post?";
+	var allowEditReason = "1";
+	lang.save_changes = "Save Changes";
+	lang.cancel_edit = "Cancel Edit";
+	lang.quick_edit_update_error = "There was an error editing your reply:";
+	lang.quick_reply_post_error = "There was an error posting your reply:";
+	lang.quick_delete_error = "There was an error deleting your reply:";
+	lang.quick_delete_success = "The post was deleted successfully.";
+	lang.quick_delete_thread_success = "The thread was deleted successfully.";
+	lang.quick_restore_error = "There was an error restoring your reply:";
+	lang.quick_restore_success = "The post was restored successfully.";
+	lang.editreason = "Edit Reason";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script src="./[Tutorial] Making And Explaining Dynamic Systems_files/report.js"></script>
+<script src="./[Tutorial] Making And Explaining Dynamic Systems_files/jeditable.min.js"></script>
+<script src="./[Tutorial] Making And Explaining Dynamic Systems_files/thread.js"></script>
+<meta name="description" content="Making and explaining Dynamic Systems Introduction Today i&#39;m gonna to release that is, i think pretty useful for those who want to understand how does work dynamic system of loading, saving and creati">
+<link rel="canonical" href="https://sampforum.blast.hk/showthread.php?tid=578782">
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./[Tutorial] Making And Explaining Dynamic Systems_files/css2"></head>
+<body>
+	<!-- start: header -->
+<header>
+<div class="navbar navbar-default">
+     <div class="container">
+          <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="Toggle navigation">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span> 
+               </button>
+			  
+			  <div class="navbar-header scaleimages">
+				  <!--<a class="navbar-brand" href="https://sampforum.blast.hk">BootBB</a>-->
+				  <a class="" href="https://sampforum.blast.hk/"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/logo_forum.gif"></a>
+			  
+			  </div>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+			  <ul class="nav navbar-nav navbar-right">
+				  <!--<li id="nav-portal"><a href="https://sampforum.blast.hk/portal.php"><i class="fa fa-bell"></i> Portal</a></li>-->
+               <li id="nav-forums"><a href="https://sampforum.blast.hk/index.php"><i class="fa fa-group"></i> Forum</a></li>
+				<!--<li><a href="https://sampforum.blast.hk/search.php?action=getnew"><i class="fa fa-comment"></i> New Posts</a></li>
+            	<li><a href="https://sampforum.blast.hk/search.php?action=getdaily"><i class="fa fa-comments"></i> Today's Posts</a></li>-->
+               <li id="nav-search"><a href="https://sampforum.blast.hk/search.php"><i class="fa fa-search"></i> Search</a></li>
+               <li id="nav-member"><a href="https://sampforum.blast.hk/memberlist.php"><i class="fa fa-users"></i> Members</a></li>
+               <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+				  
+<!--<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cubes"></i> Misc <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			  <li id="nav-help"><a href="https://sampforum.blast.hk/misc.php?action=help"><i class="fa fa-life-bouy"></i> Help</a></li>
+			  <li class="divider"></li>
+			  <li id="nav-calendar"><a href="https://sampforum.blast.hk/calendar.php"><i class="fa fa-calendar"></i> Calendar</a></li>
+          </ul>
+</li> -->
+</ul>
+  
+          </div>
+     </div>
+</div>
+</header>
+
+
+<div id="container">
+	<a name="top" id="top"></a>
+		<div id="header">
+			<div id="panel">
+				<div class="upper">
+					<div class="container">
+
+						<!-- start: header_welcomeblock_guest -->
+<!--<span><a href="https://sampforum.blast.hk/member.php?action=login" onclick="$('#quick_login').modal({ fadeDuration: 250, keepelement: true }); return false;" class="login btn btn-danger" style="color: #fff;"><i class="fa fa-sign-in"></i> Login</a> <a href="https://sampforum.blast.hk/member.php?action=register" class="register btn btn-success" style="color: #fff;"><i class="fa fa-user-plus"></i> Register</a></span>-->
+
+<span class="float_right hidden-xs">Hello There, Guest!</span>
+
+<br class="clearfix">
+	
+
+				<div class="modal" id="quick_login" style="display: none;">
+					<form method="post" action="https://sampforum.blast.hk/member.php">
+						<input name="my_post_key" type="hidden" value="906b4f4af2a15f55d2b64b776caec649">
+						<input name="action" type="hidden" value="do_login">
+						<input name="url" type="hidden" value="https://sampforum.blast.hk/showthread.php?tid=578782">
+						<input name="quick_login" type="hidden" value="1">
+						<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tborder">
+							<tbody><tr>
+								<td class="thead" colspan="2"><strong>Login</strong></td>
+							</tr>
+							<tr>
+								<td class="trow1" width="25%"><strong>Username:</strong></td>
+								<td class="trow1"><input name="quick_username" id="quick_login_username" type="text" value="" class="textbox initial_focus"></td>
+							</tr>
+							<tr>
+								<td class="trow2"><strong>Password:</strong></td>
+								<td class="trow2">
+									<input name="quick_password" id="quick_login_password" type="password" value="" class="textbox"> <a href="https://sampforum.blast.hk/member.php?action=lostpw" class="lost_password">Lost Password?</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow1">&nbsp;</td>
+								<td class="trow1 remember_me">
+									<input name="quick_remember" id="quick_login_remember" type="checkbox" value="yes" class="checkbox" checked="checked">
+									<label for="quick_login_remember">Remember me</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="trow2" colspan="2">
+									<div align="center"><input name="submit" type="submit" class="button" value="Login"></div>
+								</td>
+							</tr>
+						</tbody></table>
+					</form>
+				</div>
+				<script type="text/javascript">
+					$("#quick_login input[name='url']").val($(location).attr('href'));
+				</script>
+<!-- end: header_welcomeblock_guest -->
+					
+					</div>
+			</div>
+			</div>
+	</div>
+			</div>
+               
+				   
+                <main class="container">
+				<br>
+                 <!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=21">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav -->
+				
+				
+				
+				
+				
+				
+<!-- end: header -->
+	
+	
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	<div class="tborder tfixed clear">
+		<div class="thead">
+				<div class="float_right">
+					<span class="smalltext"><a href="https://sampforum.blast.hk/showthread.php?mode=threaded&amp;tid=578782&amp;pid=3497516#pid3497516">Threaded Mode</a></span>
+				</div>
+				
+					[Tutorial] Making And Explaining Dynamic Systems
+			</div>
+	</div>
+<div id="posts_container">
+	<div id="posts">
+		<!-- start: postbit_classic -->
+
+<a id="pid3497516"></a>
+<div class="post classic " style="" id="post_3497516">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=132698"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/132698.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=132698">Dusan01</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 484<br>
+	Threads: 131<br>
+	Joined: Jul 2011
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=132698"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=578782&amp;pid=3497516#pid3497516" title="Making And Explaining Dynamic Systems">#1</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 1 by Dusan01" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">22.06.2015, 08:06 <span class="post_edit" id="edited_by_3497516"><!-- start: postbit_editedby -->
+<div class="edited_post postbit_edited postbit_editedby postbit_editedpost">(<!-- start: postbit_editedby_editreason -->
+ <em>Last edited by Dusan01; 22/06/2015 at 10:06 AM.</em>
+<!-- end: postbit_editedby_editreason -->)</div>
+<!-- end: postbit_editedby --></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3497516">
+		<div align="center"><b><font size="6"><font color="SeaGreen">Making and explaining Dynamic Systems</font></font></b></div>
+<b><font size="6"><font color="Black"><font face="Lucida Sans Unicode"><u>Introduction</u></font></font></font></b><br>
+Today i'm gonna to release that is, i think pretty useful for those who want to understand how does work dynamic system of loading, saving and creating and how to make it and use it. On my ******** profile i get lot of messages how to make dynamic system for something. Lot of people thinks that is hard but in fact, it's just way easier than you thought.<br>
+This whole tutorial is made with comments and i think even beginners should understand it!<br>
+<b><font size="4"><font color="DeepSkyBlue"><u>This is my first tutorial so its not so great, but I'll try to improve it as much as possible</u></font></font></b><br>
+<br>
+<b><font size="6"><font color="Black"><font face="Lucida Sans Unicode"><u>Things that you need</u></font></font></font></b><br>
+- <a href="http://files.sa-mp.com/samp037_svr_R1_win32.zip" target="_blank">SA-MP 0.3.7 windows server</a> - download it and extract it to your desktop<br>
+- <a href="https://sampforum.blast.hk/showthread.php?tid=570927" target="_blank">sscanf plugin</a> - Download it and extract the files in your server's directory.<br>
+- <a href="https://sampforum.blast.hk/showthread.php?tid=570883" target="_blank">YSI Files</a> - You will only need folder witch is located in pawno/include/ and its called YSI download it and extract it in that path<br>
+- <a href="https://sampforum.blast.hk/showthread.php?tid=91354" target="_blank">zcmd</a> - Download it and place it in /pawno/includes/<br>
+<br>
+<br>
+<b><font size="6"><font color="Black"><font face="Lucida Sans Unicode"><u>difference between a dynamic and static system</u></font></font></font></b><br>
+<b><font color="SeaGreen">Static:</font></b><ul><li><b><u>How you add it in script and file witch system is saved, u cannot edit it ingame, for each edit you will need to restart server and has only 1 file in witch is all saved</u></b></li>
+</ul><b><font color="SeaGreen">Positive side of static system:</font></b><ul><li><b><u>Cant cause lag because only has 1 file</u></b></li>
+</ul><b><font color="SeaGreen">Negative side of  static system:</font></b><ul><li><b><u>Cannot be manged ingame</u></b></li>
+<li><b><u>For each edit you need to restart server</u></b></li>
+</ul>
+<b><font color="SeaGreen">Dynamic:</font></b><ul><li><b><u>Can be added ingame</u></b></li>
+<li><b><u>Can be removed ingame</u></b></li>
+<li><b><u>Can be edite ingame</u></b></li>
+</ul><b><font color="SeaGreen">Positive side of dynamic system:</font></b><ul><li><u><b>Can be manged ingame</b></u></li>
+<li><b><u>Can be used for lot of things to improve you server and script</u></b></li>
+</ul><b><font color="SeaGreen">Negative side of dynamic system:</font></b><ul><li><b><u>Can cause server lag while trying to save lot of files</u></b></li>
+<li><b><u>If you dont use it properly can cause server crashes, lags...</u></b></li>
+</ul>
+<br>
+<br>
+<b><font size="6"><font color="Black"><font face="Lucida Sans Unicode"><u>Let's start scripting!</u></font></font></font></b><br>
+<b><font size="4"><font color="Red">For example i will make dynamic system of creating vehicle ingame and saving it to files and loading it</font></font></b><br>
+<b><font size="5"><font color="Red"><font size="7">!!!</font> You need to create folder named <u>Vehicles</u> in folder <u>Scriptfiles</u> <font size="7">!!!</font></font></font></b><br>
+<br>
+- <b><font color="SeaGreen">This codes add at top of script:</font></b><br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">PHP Code:</div>
+<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">
+<code style="white-space:nowrap">
+<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #FF8000">//First,&nbsp;of&nbsp;course&nbsp;we&nbsp;need&nbsp;to&nbsp;include&nbsp;these&nbsp;files&nbsp;first
+<br>#include&nbsp;&lt;a_samp&gt;&nbsp;//Without&nbsp;this,&nbsp;we&nbsp;won't&nbsp;be&nbsp;able&nbsp;to&nbsp;use&nbsp;all&nbsp;samp&nbsp;functions/callbacks
+<br>#include&nbsp;&lt;zcm&gt;&nbsp;//Without&nbsp;this,&nbsp;we&nbsp;won't&nbsp;be&nbsp;able&nbsp;to&nbsp;create&nbsp;commands
+<br>#include&nbsp;&lt;sscanf2&gt;&nbsp;//Without&nbsp;this,&nbsp;we&nbsp;won't&nbsp;be&nbsp;able&nbsp;to&nbsp;use&nbsp;creating&nbsp;commands
+<br>#include&nbsp;&lt;YSI\y_ini&gt;&nbsp;&nbsp;//Without&nbsp;this,&nbsp;we&nbsp;won't&nbsp;be&nbsp;able&nbsp;to&nbsp;save&nbsp;and&nbsp;load&nbsp;files&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+</code>
+</div>
+</div><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">PHP Code:</div>
+<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 258px;
+		text-align: left;
+		overflow: auto">
+<code style="white-space:nowrap">
+<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">idoffile</span><span style="color: #007700">[</span><span style="color: #0000BB">MAX_PLAYERS</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//this&nbsp;will&nbsp;be&nbsp;used&nbsp;later&nbsp;in&nbsp;commands&nbsp;for&nbsp;saving&nbsp;Angle&nbsp;of&nbsp;vehicle&nbsp;and&nbsp;saving&nbsp;it
+<br>#define&nbsp;VEHICLE_FOLDER&nbsp;"Vehicles/Vehicle_%d.ini"&nbsp;//This&nbsp;will&nbsp;be&nbsp;path&nbsp;were&nbsp;will&nbsp;be&nbsp;saved&nbsp;files&nbsp;of&nbsp;vehicles
+<br>//Now&nbsp;let's&nbsp;create&nbsp;an&nbsp;enumerator&nbsp;that&nbsp;holds&nbsp;vehicle's&nbsp;information
+<br></span><span style="color: #0000BB">enum&nbsp;vfInfo&nbsp;</span><span style="color: #FF8000">//We&nbsp;name&nbsp;our&nbsp;enumerator&nbsp;as&nbsp;vfInfo.&nbsp;You&nbsp;can&nbsp;name&nbsp;it&nbsp;however&nbsp;you&nbsp;want.
+<br></span><span style="color: #007700">{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">dID</span><span style="color: #007700">,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;This&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;save&nbsp;ID&nbsp;of&nbsp;vehicle
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">dModel</span><span style="color: #007700">,&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//This&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;save&nbsp;model&nbsp;of&nbsp;vehicle
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">dX</span><span style="color: #007700">,&nbsp;</span><span style="color: #FF8000">//This&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;save&nbsp;X&nbsp;cordinate&nbsp;of&nbsp;vehicle
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">dY</span><span style="color: #007700">,&nbsp;</span><span style="color: #FF8000">//This&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;save&nbsp;Y&nbsp;cordinate&nbsp;of&nbsp;vehicle
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">dZ</span><span style="color: #007700">,&nbsp;</span><span style="color: #FF8000">//This&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;save&nbsp;Z&nbsp;cordinate&nbsp;of&nbsp;vehicle
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">dA</span><span style="color: #007700">,&nbsp;</span><span style="color: #FF8000">//This&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;save&nbsp;Angle&nbsp;of&nbsp;vehicle
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">dColor1</span><span style="color: #007700">,&nbsp;&nbsp;</span><span style="color: #FF8000">//This&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;save&nbsp;Vehicle&nbsp;color1
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">dColor2</span><span style="color: #007700">,&nbsp;&nbsp;</span><span style="color: #FF8000">//This&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;save&nbsp;Vehicle&nbsp;color2
+<br></span><span style="color: #007700">};
+<br>new&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">MAX_VEHICLES</span><span style="color: #007700">][</span><span style="color: #0000BB">vfInfo</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//Variable&nbsp;that&nbsp;stores&nbsp;enumerator&nbsp;above&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+</code>
+</div>
+</div>
+- <b><font color="SeaGreen">Now we will make callbacks  for saving and loading files:</font></b><ul><li><b><u>Add this at bottom of script</u></b></li>
+</ul><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">PHP Code:</div>
+<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">
+<code style="white-space:nowrap">
+<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #FF8000">//now&nbsp;lets&nbsp;add&nbsp;callback&nbsp;for&nbsp;saving&nbsp;and&nbsp;loading
+<br></span><span style="color: #0000BB">forward&nbsp;SaveVehicle</span><span style="color: #007700">(</span><span style="color: #0000BB">fileid</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//This&nbsp;will&nbsp;forward&nbsp;for&nbsp;callback&nbsp;SaveVehicle
+<br></span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">SaveVehicle</span><span style="color: #007700">(</span><span style="color: #0000BB">fileid</span><span style="color: #007700">)
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;</span><span style="color: #0000BB">dFile</span><span style="color: #007700">[</span><span style="color: #0000BB">128</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//This&nbsp;is&nbsp;string&nbsp;witch&nbsp;will&nbsp;search&nbsp;for&nbsp;file
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">dFile</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">dFile</span><span style="color: #007700">),</span><span style="color: #0000BB">VEHICLE_FOLDER</span><span style="color: #007700">,</span><span style="color: #0000BB">fileid</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//Formating&nbsp;string
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">INI</span><span style="color: #007700">:</span><span style="color: #0000BB">File&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">INI_Open</span><span style="color: #007700">(</span><span style="color: #0000BB">dFile</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//Opening&nbsp;file
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">INI_WriteInt</span><span style="color: #007700">(</span><span style="color: #0000BB">File</span><span style="color: #007700">,</span><span style="color: #DD0000">"Model"</span><span style="color: #007700">,</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dModel</span><span style="color: #007700">]);&nbsp;</span><span style="color: #FF8000">//Saving&nbsp;Model&nbsp;to&nbsp;file&nbsp;from&nbsp;variable&nbsp;dModel
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">INI_WriteFloat</span><span style="color: #007700">(</span><span style="color: #0000BB">File</span><span style="color: #007700">,</span><span style="color: #DD0000">"X"</span><span style="color: #007700">,</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dX</span><span style="color: #007700">]);&nbsp;&nbsp;</span><span style="color: #FF8000">//Saving&nbsp;Cordinate&nbsp;X&nbsp;to&nbsp;file&nbsp;from&nbsp;variable&nbsp;dX
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">INI_WriteFloat</span><span style="color: #007700">(</span><span style="color: #0000BB">File</span><span style="color: #007700">,</span><span style="color: #DD0000">"Y"</span><span style="color: #007700">,</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dY</span><span style="color: #007700">]);&nbsp;&nbsp;</span><span style="color: #FF8000">//Saving&nbsp;Cordinate&nbsp;Y&nbsp;to&nbsp;file&nbsp;from&nbsp;variable&nbsp;dY
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">INI_WriteFloat</span><span style="color: #007700">(</span><span style="color: #0000BB">File</span><span style="color: #007700">,</span><span style="color: #DD0000">"Z"</span><span style="color: #007700">,</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dZ</span><span style="color: #007700">]);&nbsp;&nbsp;</span><span style="color: #FF8000">//Saving&nbsp;Cordinate&nbsp;Z&nbsp;to&nbsp;file&nbsp;from&nbsp;variable&nbsp;dZ
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">INI_WriteFloat</span><span style="color: #007700">(</span><span style="color: #0000BB">File</span><span style="color: #007700">,</span><span style="color: #DD0000">"A"</span><span style="color: #007700">,</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dA</span><span style="color: #007700">]);&nbsp;&nbsp;</span><span style="color: #FF8000">//Saving&nbsp;Angle&nbsp;to&nbsp;file&nbsp;from&nbsp;variable&nbsp;dA
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">INI_WriteInt</span><span style="color: #007700">(</span><span style="color: #0000BB">File</span><span style="color: #007700">,</span><span style="color: #DD0000">"Color1"</span><span style="color: #007700">,</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dColor1</span><span style="color: #007700">]);&nbsp;</span><span style="color: #FF8000">//Saving&nbsp;Color1&nbsp;to&nbsp;file&nbsp;from&nbsp;variable&nbsp;dColor1
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">INI_WriteInt</span><span style="color: #007700">(</span><span style="color: #0000BB">File</span><span style="color: #007700">,</span><span style="color: #DD0000">"Color2"</span><span style="color: #007700">,</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dColor2</span><span style="color: #007700">]);&nbsp;</span><span style="color: #FF8000">//Saving&nbsp;Color2&nbsp;to&nbsp;file&nbsp;from&nbsp;variable&nbsp;dColor2
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">INI_Close</span><span style="color: #007700">(</span><span style="color: #0000BB">File</span><span style="color: #007700">);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;
+<br>}
+
+
+<br></span><span style="color: #0000BB">forward&nbsp;LoadVehicle</span><span style="color: #007700">(</span><span style="color: #0000BB">fileid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">[],&nbsp;</span><span style="color: #0000BB">value</span><span style="color: #007700">[]);&nbsp;</span><span style="color: #FF8000">//This&nbsp;will&nbsp;forward&nbsp;for&nbsp;callback&nbsp;LoadVehicle
+<br></span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">LoadVehicle</span><span style="color: #007700">(</span><span style="color: #0000BB">fileid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">name</span><span style="color: #007700">[],&nbsp;</span><span style="color: #0000BB">value</span><span style="color: #007700">[])
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">INI_Int</span><span style="color: #007700">(</span><span style="color: #DD0000">"Model"</span><span style="color: #007700">,</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dModel</span><span style="color: #007700">]);&nbsp;</span><span style="color: #FF8000">//This&nbsp;will&nbsp;reard&nbsp;Model&nbsp;from&nbsp;file&nbsp;and&nbsp;store&nbsp;it&nbsp;to&nbsp;dModel
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">INI_Float</span><span style="color: #007700">(</span><span style="color: #DD0000">"X"</span><span style="color: #007700">,</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dX</span><span style="color: #007700">]);&nbsp;</span><span style="color: #FF8000">//This&nbsp;will&nbsp;reard&nbsp;Cordinate&nbsp;X&nbsp;from&nbsp;file&nbsp;and&nbsp;store&nbsp;it&nbsp;to&nbsp;dX
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">INI_Float</span><span style="color: #007700">(</span><span style="color: #DD0000">"Y"</span><span style="color: #007700">,</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dY</span><span style="color: #007700">]);&nbsp;</span><span style="color: #FF8000">//This&nbsp;will&nbsp;reard&nbsp;Cordinate&nbsp;Y&nbsp;from&nbsp;file&nbsp;and&nbsp;store&nbsp;it&nbsp;to&nbsp;dY
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">INI_Float</span><span style="color: #007700">(</span><span style="color: #DD0000">"Z"</span><span style="color: #007700">,</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dZ</span><span style="color: #007700">]);&nbsp;</span><span style="color: #FF8000">//This&nbsp;will&nbsp;reard&nbsp;Cordinate&nbsp;Z&nbsp;from&nbsp;file&nbsp;and&nbsp;store&nbsp;it&nbsp;to&nbsp;dZ
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">INI_Float</span><span style="color: #007700">(</span><span style="color: #DD0000">"A"</span><span style="color: #007700">,</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dA</span><span style="color: #007700">]);&nbsp;</span><span style="color: #FF8000">//This&nbsp;will&nbsp;reard&nbsp;Angle&nbsp;from&nbsp;file&nbsp;and&nbsp;store&nbsp;it&nbsp;to&nbsp;dA
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">INI_Int</span><span style="color: #007700">(</span><span style="color: #DD0000">"Color1"</span><span style="color: #007700">,</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dColor1</span><span style="color: #007700">]);&nbsp;</span><span style="color: #FF8000">//This&nbsp;will&nbsp;reard&nbsp;Color1&nbsp;from&nbsp;file&nbsp;and&nbsp;store&nbsp;it&nbsp;to&nbsp;dColor1
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">INI_Int</span><span style="color: #007700">(</span><span style="color: #DD0000">"Color2"</span><span style="color: #007700">,</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dColor2</span><span style="color: #007700">]);&nbsp;</span><span style="color: #FF8000">//This&nbsp;will&nbsp;reard&nbsp;Color1&nbsp;from&nbsp;file&nbsp;and&nbsp;store&nbsp;it&nbsp;to&nbsp;dColor1
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;
+<br>}&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+</code>
+</div>
+</div>
+<b><font size="6"><font color="Black"><font face="Lucida Sans Unicode"><u>Commands</u></font></font></font></b><br>
+<b><font color="SeaGreen">We will now create two commands witch will be:</font></b><ul><li><b><u>Adding vehicles to server</u></b></li>
+<li><b><u>Removing vehicles from server</u></b></li>
+</ul>- <b><u>Add this commands at bottom of script</u></b><br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">PHP Code:</div>
+<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 498px;
+		text-align: left;
+		overflow: auto">
+<code style="white-space:nowrap">
+<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB">CMD</span><span style="color: #007700">:</span><span style="color: #0000BB">createveh</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])&nbsp;</span><span style="color: #FF8000">//command&nbsp;for&nbsp;create&nbsp;vehicle
+<br></span><span style="color: #007700">{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;</span><span style="color: #0000BB">fileid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//variable&nbsp;for&nbsp;file&nbsp;counting,&nbsp;witch&nbsp;file&nbsp;is&nbsp;not&nbsp;created
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">X</span><span style="color: #007700">,</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">Y</span><span style="color: #007700">,</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">Z</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//Varables&nbsp;for&nbsp;position
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">GetPlayerPos</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">X</span><span style="color: #007700">,</span><span style="color: #0000BB">Y</span><span style="color: #007700">,</span><span style="color: #0000BB">Z</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//Getting&nbsp;player&nbsp;position&nbsp;and&nbsp;storing&nbsp;i&nbsp;to&nbsp;X,Y,Z
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">for(new&nbsp;</span><span style="color: #0000BB">b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">b&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB">b</span><span style="color: #007700">++)&nbsp;</span><span style="color: #FF8000">//this&nbsp;is&nbsp;loop
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">b</span><span style="color: #007700">][</span><span style="color: #0000BB">dModel</span><span style="color: #007700">]&nbsp;!=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;</span><span style="color: #FF8000">//checking&nbsp;witch&nbsp;files&nbsp;are&nbsp;free&nbsp;(not&nbsp;created)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">fileid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">b</span><span style="color: #007700">+</span><span style="color: #0000BB">1</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//Saving&nbsp;file&nbsp;ID&nbsp;to&nbsp;fileid
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">fileid&nbsp;</span><span style="color: #007700">&gt;&nbsp;</span><span style="color: #0000BB">MAX_VEHICLES</span><span style="color: #007700">)&nbsp;return&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"MAX_VEHICLES&nbsp;reached,&nbsp;u&nbsp;cannot&nbsp;create&nbsp;more&nbsp;vehicles"</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//if&nbsp;MAX_VEHICLE&nbsp;reach's&nbsp;you&nbsp;will&nbsp;not&nbsp;be&nbsp;in&nbsp;able&nbsp;to&nbsp;create&nbsp;more&nbsp;vehicles
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">model</span><span style="color: #007700">,</span><span style="color: #0000BB">color1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">color2</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//Againg&nbsp;more&nbsp;variables&nbsp;for&nbsp;parameters
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if(</span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"iii"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">model</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">color1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">color2</span><span style="color: #007700">))&nbsp;</span><span style="color: #FF8000">//In&nbsp;this&nbsp;part&nbsp;we&nbsp;will&nbsp;use&nbsp;sscanf,&nbsp;this&nbsp;is&nbsp;checking&nbsp;are&nbsp;all&nbsp;parameters&nbsp;filled&nbsp;to&nbsp;script&nbsp;can&nbsp;create&nbsp;vehicle
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"/createveh&nbsp;[Model]&nbsp;[Color1]&nbsp;[Color2]"</span><span style="color: #007700">);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dModel</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">model</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//this&nbsp;will&nbsp;save&nbsp;parameters&nbsp;witch&nbsp;we&nbsp;filled&nbsp;in&nbsp;to&nbsp;variables
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dX</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">X</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//this&nbsp;will&nbsp;save&nbsp;parameters&nbsp;witch&nbsp;we&nbsp;filled&nbsp;in&nbsp;to&nbsp;variables
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dY</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">Y</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//this&nbsp;will&nbsp;save&nbsp;parameters&nbsp;witch&nbsp;we&nbsp;filled&nbsp;in&nbsp;to&nbsp;variables
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dZ</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">Z</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//this&nbsp;will&nbsp;save&nbsp;parameters&nbsp;witch&nbsp;we&nbsp;filled&nbsp;in&nbsp;to&nbsp;variables
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dColor1</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">color1</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//this&nbsp;will&nbsp;save&nbsp;parameters&nbsp;witch&nbsp;we&nbsp;filled&nbsp;in&nbsp;to&nbsp;variables
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dColor2</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">color2</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//this&nbsp;will&nbsp;save&nbsp;parameters&nbsp;witch&nbsp;we&nbsp;filled&nbsp;in&nbsp;to&nbsp;variables
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dID</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">CreateVehicle</span><span style="color: #007700">(</span><span style="color: #0000BB">model</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">X</span><span style="color: #007700">,</span><span style="color: #0000BB">Y</span><span style="color: #007700">,</span><span style="color: #0000BB">Z</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">color1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">color2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//creating&nbsp;vehicle
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">PutPlayerInVehicle</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dID</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//Putting&nbsp;player&nbsp;in&nbsp;vehicle&nbsp;witch&nbsp;player&nbsp;created
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">idoffile</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">fileid</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"You&nbsp;have&nbsp;created&nbsp;vehicle,&nbsp;now&nbsp;select&nbsp;angle&nbsp;in&nbsp;witch&nbsp;direction&nbsp;you&nbsp;want&nbsp;and&nbsp;press&nbsp;'Y'&nbsp;to&nbsp;finish&nbsp;and&nbsp;save&nbsp;file."</span><span style="color: #007700">);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;
+<br>}&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+</code>
+</div>
+</div><div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">PHP Code:</div>
+<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 386px;
+		text-align: left;
+		overflow: auto">
+<code style="white-space:nowrap">
+<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB">CMD</span><span style="color: #007700">:</span><span style="color: #0000BB">destroyveh</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">params</span><span style="color: #007700">[])&nbsp;</span><span style="color: #FF8000">//command&nbsp;for&nbsp;destroy&nbsp;vehilce
+<br></span><span style="color: #007700">{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;</span><span style="color: #0000BB">fileid</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//filedd&nbsp;for&nbsp;sscanf
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if(</span><span style="color: #0000BB">sscanf</span><span style="color: #007700">(</span><span style="color: #0000BB">params</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"i"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">fileid</span><span style="color: #007700">))&nbsp;</span><span style="color: #FF8000">//In&nbsp;this&nbsp;part&nbsp;we&nbsp;will&nbsp;use&nbsp;sscanf,&nbsp;this&nbsp;is&nbsp;checking&nbsp;are&nbsp;all&nbsp;parameters&nbsp;filled&nbsp;to&nbsp;script&nbsp;can&nbsp;create&nbsp;vehicle
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"/destroyveh&nbsp;[FILE&nbsp;ID]"</span><span style="color: #007700">);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;</span><span style="color: #0000BB">dFile</span><span style="color: #007700">[</span><span style="color: #0000BB">128</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//This&nbsp;is&nbsp;string&nbsp;witch&nbsp;will&nbsp;search&nbsp;for&nbsp;file
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">dFile</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">dFile</span><span style="color: #007700">),</span><span style="color: #0000BB">VEHICLE_FOLDER</span><span style="color: #007700">,</span><span style="color: #0000BB">fileid</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//Formating&nbsp;string
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if(!</span><span style="color: #0000BB">fexist</span><span style="color: #007700">(</span><span style="color: #0000BB">dFile</span><span style="color: #007700">))&nbsp;return&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"That&nbsp;file&nbsp;does&nbsp;not&nbsp;exist!"</span><span style="color: #007700">);</span><span style="color: #FF8000">//checking&nbsp;does&nbsp;file&nbsp;exist&nbsp;witch&nbsp;is&nbsp;in&nbsp;format
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">fremove</span><span style="color: #007700">(</span><span style="color: #0000BB">dFile</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//Removing&nbsp;file
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DestroyVehicle</span><span style="color: #007700">(</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dID</span><span style="color: #007700">]);&nbsp;</span><span style="color: #FF8000">//Destroying&nbsp;vehicle
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dModel</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//Setting&nbsp;variables&nbsp;to&nbsp;default
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dX</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0.0</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//Setting&nbsp;variables&nbsp;to&nbsp;default
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dY</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0.0</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//Setting&nbsp;variables&nbsp;to&nbsp;default
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dZ</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0.0</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//Setting&nbsp;variables&nbsp;to&nbsp;default
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dA</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0.0</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//Setting&nbsp;variables&nbsp;to&nbsp;default
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dColor1</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//Setting&nbsp;variables&nbsp;to&nbsp;default
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dColor2</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//Setting&nbsp;variables&nbsp;to&nbsp;default
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"You&nbsp;have&nbsp;been&nbsp;destroyed&nbsp;vehicle"</span><span style="color: #007700">);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;
+<br>}&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+</code>
+</div>
+</div>
+<b><font color="SeaGreen">Now, to we can finish creating vehicle, like u saw in command createveh, we will need to use OnPlayerKeyStateChange</font></b><br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">PHP Code:</div>
+<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 434px;
+		text-align: left;
+		overflow: auto">
+<code style="white-space:nowrap">
+<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnPlayerKeyStateChange</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">newkeys</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">oldkeys</span><span style="color: #007700">)
+<br>{
+<br>if(</span><span style="color: #0000BB">newkeys&nbsp;</span><span style="color: #007700">&amp;&nbsp;</span><span style="color: #0000BB">KEY_YES</span><span style="color: #007700">)&nbsp;</span><span style="color: #FF8000">//if&nbsp;player&nbsp;pres&nbsp;KEY_YES&nbsp;that&nbsp;is&nbsp;'Y'
+<br></span><span style="color: #007700">{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">idoffile</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">]&nbsp;&gt;&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;</span><span style="color: #FF8000">//if&nbsp;id&nbsp;of&nbsp;file&nbsp;is&nbsp;bigger&nbsp;then&nbsp;-1
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;</span><span style="color: #0000BB">fileid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">idoffile</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//geting&nbsp;id&nbsp;of&nbsp;file
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">vehz&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">GetPlayerVehicleID</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//geting&nbsp;player&nbsp;vehicle&nbsp;id
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">new&nbsp;</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">X</span><span style="color: #007700">,</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">Y</span><span style="color: #007700">,</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">Z</span><span style="color: #007700">,</span><span style="color: #0000BB">Float</span><span style="color: #007700">:</span><span style="color: #0000BB">A</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//variables&nbsp;for&nbsp;pos&nbsp;of&nbsp;vehicle
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">GetVehicleZAngle</span><span style="color: #007700">(</span><span style="color: #0000BB">vehz</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">A</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//geting&nbsp;vehicle&nbsp;Angle
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">GetPlayerPos</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">X</span><span style="color: #007700">,</span><span style="color: #0000BB">Y</span><span style="color: #007700">,</span><span style="color: #0000BB">Z</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//Getting&nbsp;player&nbsp;position&nbsp;and&nbsp;storing&nbsp;i&nbsp;to&nbsp;X,Y,Z
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dX</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">X</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//setting&nbsp;new&nbsp;cordinate&nbsp;X&nbsp;for&nbsp;vehicle
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dY</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">Y</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//setting&nbsp;new&nbsp;cordinate&nbsp;Y&nbsp;for&nbsp;vehicle
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dZ</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">Z</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//setting&nbsp;new&nbsp;cordinate&nbsp;Z&nbsp;for&nbsp;vehicle
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dA</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">A</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//setting&nbsp;Angle&nbsp;for&nbsp;vehicle
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DestroyVehicle</span><span style="color: #007700">(</span><span style="color: #0000BB">vehz</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//Destronying&nbsp;vehicle
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">CreateVehicle</span><span style="color: #007700">(</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dModel</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dX</span><span style="color: #007700">],</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dY</span><span style="color: #007700">],</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dZ</span><span style="color: #007700">],</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dA</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dColor1</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">fileid</span><span style="color: #007700">][</span><span style="color: #0000BB">dColor2</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//creating&nbsp;new&nbsp;vehicle&nbsp;with&nbsp;saved&nbsp;variables
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">SaveVehicle</span><span style="color: #007700">(</span><span style="color: #0000BB">fileid</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//Now&nbsp;saving&nbsp;vehicle&nbsp;to&nbsp;file
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">idoffile</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">]&nbsp;=&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//seting&nbsp;player&nbsp;variable&nbsp;to&nbsp;-1
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">RemovePlayerFromVehicle</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//Removing&nbsp;player&nbsp;from&nbsp;vehicle
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">SendClientMessage</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">,-</span><span style="color: #0000BB">1</span><span style="color: #007700">,</span><span style="color: #DD0000">"U&nbsp;have&nbsp;cretated&nbsp;vehicle,&nbsp;congratz!"</span><span style="color: #007700">);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>}
+<br>return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;
+<br>}&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+</code>
+</div>
+</div>
+<b><font size="6"><font color="Black"><font face="Lucida Sans Unicode"><u>Loading files and finishing</u></font></font></font></b><br>
+<b><font color="SeaGreen">Now we will add loading loop in Public OnGameModeInit</font></b><br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">PHP Code:</div>
+<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 338px;
+		text-align: left;
+		overflow: auto">
+<code style="white-space:nowrap">
+<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnGameModeInit</span><span style="color: #007700">()
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Don't&nbsp;use&nbsp;these&nbsp;lines&nbsp;if&nbsp;it's&nbsp;a&nbsp;filterscript
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">SetGameModeText</span><span style="color: #007700">(</span><span style="color: #DD0000">"Blank&nbsp;Script"</span><span style="color: #007700">);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">AddPlayerClass</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1958.3783</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1343.1572</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">15.3746</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">269.1425</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;for(new&nbsp;</span><span style="color: #0000BB">b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">b&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">sizeof</span><span style="color: #007700">(</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB">b</span><span style="color: #007700">++)&nbsp;</span><span style="color: #FF8000">//loop
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;</span><span style="color: #0000BB">gFile</span><span style="color: #007700">[</span><span style="color: #0000BB">35</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//string
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #0000BB">gFile</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">50</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">VEHICLE_FOLDER&nbsp;</span><span style="color: #007700">,</span><span style="color: #0000BB">b</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//formating&nbsp;string
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if(</span><span style="color: #0000BB">fexist</span><span style="color: #007700">(</span><span style="color: #0000BB">gFile</span><span style="color: #007700">))&nbsp;</span><span style="color: #FF8000">//checking&nbsp;does&nbsp;file&nbsp;exist&nbsp;witch&nbsp;is&nbsp;in&nbsp;format
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">INI_ParseFile</span><span style="color: #007700">(</span><span style="color: #0000BB">gFile</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"LoadVehicle"</span><span style="color: #007700">,&nbsp;.</span><span style="color: #0000BB">bExtra&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,&nbsp;.</span><span style="color: #0000BB">extra&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">b</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//Y_INI&nbsp;function&nbsp;to&nbsp;load&nbsp;from&nbsp;files
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if(</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">b</span><span style="color: #007700">][</span><span style="color: #0000BB">dModel</span><span style="color: #007700">]&nbsp;!=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;</span><span style="color: #FF8000">//if&nbsp;model&nbsp;is&nbsp;everytning&nbsp;expect&nbsp;0
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">b</span><span style="color: #007700">][</span><span style="color: #0000BB">dID</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">CreateVehicle</span><span style="color: #007700">(</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">b</span><span style="color: #007700">][</span><span style="color: #0000BB">dModel</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">b</span><span style="color: #007700">][</span><span style="color: #0000BB">dX</span><span style="color: #007700">],</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">b</span><span style="color: #007700">][</span><span style="color: #0000BB">dY</span><span style="color: #007700">],</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">b</span><span style="color: #007700">][</span><span style="color: #0000BB">dZ</span><span style="color: #007700">],</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">b</span><span style="color: #007700">][</span><span style="color: #0000BB">dA</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">b</span><span style="color: #007700">][</span><span style="color: #0000BB">dColor1</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">DVehicles</span><span style="color: #007700">[</span><span style="color: #0000BB">b</span><span style="color: #007700">][</span><span style="color: #0000BB">dColor2</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//creating&nbsp;vehicle
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;
+<br>}&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+</code>
+</div>
+</div><b><font color="SeaGreen">We will need to set player variable 'idoffile' to -1 when player connects:</font></b><br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">PHP Code:</div>
+<div class="alt2" dir="ltr" style="
+		margin: 0px;
+		padding: 6px;
+		border: 1px solid #C2C2C2;
+		width: 800px;
+		height: 98px;
+		text-align: left;
+		overflow: auto">
+<code style="white-space:nowrap">
+<!-- php buffer start --><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">OnPlayerConnect</span><span style="color: #007700">(</span><span style="color: #0000BB">playerid</span><span style="color: #007700">)
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">idoffile</span><span style="color: #007700">[</span><span style="color: #0000BB">playerid</span><span style="color: #007700">]&nbsp;=&nbsp;-</span><span style="color: #0000BB">1</span><span style="color: #007700">;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;
+<br>}&nbsp;
+<br></span><span style="color: #0000BB"></span>
+</span>
+</code><!-- php buffer end -->
+</code>
+</div>
+</div>
+<b><font size="6"><font color="Black"><font face="Lucida Sans Unicode"><u>N O T E</u></font></font></font></b><br>
+<b><font color="Red">This tutorial is just made to try teaching you how dynamic systems works and how should you create it. Sure there is defects in commands and other things because this is just example.<br>
+I'm sorry for bad english i hope you will understand it.</font></b><br>
+<br>
+<br>
+<b><font size="6"><font color="Black"><font face="Lucida Sans Unicode"><u>Download and other stuff</u></font></font></font></b><br>
+<b><font color="SeaGreen">Download links:</font></b><ul><li> - <a href="https://www.sendspace.com/file/grypne" target="_blank">Fully working server with all files</a></li>
+<li> - <a href="https://www.sendspace.com/file/s2d5v0" target="_blank">Only .pwn download link</a></li>
+<li> - <a href="http://pastebin.com/YsxSWjtY" target="_blank">Pastebin link of .pwn</a></li>
+</ul>
+<b><font color="SeaGreen">Special thanks to:</font></b><ul><li> - <b><u>******</u></b> for his sscanf and YSI files</li>
+<li> - <b><u>ZEEX</u></b> for his zcmd</li>
+</ul>
+<div align="center"><b><font size="6"><font color="SeaGreen"><font size="7">!!!</font> THANKS FOR WATCHING MY TUTORIAL <font size="7">!!!</font></font></font></b></div>
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3497516">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=132698" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=578782&amp;replyto=3497516" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3497538"></a>
+<div class="post classic " style="" id="post_3497538">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=216977"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/216977.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=216977">AlonzoTorres</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 532<br>
+	Threads: 12<br>
+	Joined: Oct 2013
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=216977"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=578782&amp;pid=3497538#pid3497538" title="Re: Making And Explaining Dynamic Systems">#2</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 2 by AlonzoTorres" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">22.06.2015, 08:56 <span class="post_edit" id="edited_by_3497538"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3497538">
+		This should ve renamed to [Tutorial] Vehicle system
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3497538">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=216977" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=578782&amp;replyto=3497538" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3497549"></a>
+<div class="post classic " style="" id="post_3497549">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=132698"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/132698.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=132698">Dusan01</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 484<br>
+	Threads: 131<br>
+	Joined: Jul 2011
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=132698"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=578782&amp;pid=3497549#pid3497549" title="Re: Making And Explaining Dynamic Systems">#3</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 3 by Dusan01" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">22.06.2015, 09:15 <span class="post_edit" id="edited_by_3497549"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3497549">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>AlonzoTorres</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3497538#pid3497538" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Making And Explaining Dynamic Systems_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">This should ve renamed to [Tutorial] Vehicle system</div>
+</td>
+</tr>
+</tbody></table>
+</div>Why? with this system u can make house system, bizz...<br>
+In this tutorial i just explained how does work dynamic systems and how u should use it, with this u can make whatever you want another dynamic system...
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3497549">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=132698" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=578782&amp;replyto=3497549" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3497555"></a>
+<div class="post classic " style="" id="post_3497555">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=216977"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/216977.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=216977">AlonzoTorres</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 532<br>
+	Threads: 12<br>
+	Joined: Oct 2013
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=216977"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=578782&amp;pid=3497555#pid3497555" title="Re: Making And Explaining Dynamic Systems">#4</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 4 by AlonzoTorres" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">22.06.2015, 09:28 <span class="post_edit" id="edited_by_3497555"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3497555">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Dusan01</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3497549#pid3497549" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Making And Explaining Dynamic Systems_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Why? with this system u can make house system, bizz...<br>
+In this tutorial i just explained how does work dynamic systems and how u should use it, with this u can make whatever you want another dynamic system...</div>
+</td>
+</tr>
+</tbody></table>
+</div>Well you should at least explain the difference between a dynamic and static system. The positive and negative sides of static/dynamic systems. And explain how you can apply the same kind of system for multiple purposes. Otherwise it's fine.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3497555">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=216977" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=578782&amp;replyto=3497555" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3497560"></a>
+<div class="post classic " style="" id="post_3497560">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=132698"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/132698.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=132698">Dusan01</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 484<br>
+	Threads: 131<br>
+	Joined: Jul 2011
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=132698"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=578782&amp;pid=3497560#pid3497560" title="Re: Making And Explaining Dynamic Systems">#5</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 5 by Dusan01" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">22.06.2015, 09:41 <span class="post_edit" id="edited_by_3497560"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3497560">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>AlonzoTorres</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3497555#pid3497555" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Making And Explaining Dynamic Systems_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Well you should at least explain the difference between a dynamic and static system. The positive and negative sides of static/dynamic systems. And explain how you can apply the same kind of system for multiple purposes. Otherwise it's fine.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Ahh thanks, i totally forgot about that, i will edit tut, thanks <img alt="" border="0" class="inlineimg" src="./[Tutorial] Making And Explaining Dynamic Systems_files/smile.png" title="Smiley">
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3497560">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=132698" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=578782&amp;replyto=3497560" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3497706"></a>
+<div class="post classic " style="" id="post_3497706">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=216977"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/216977.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=216977">AlonzoTorres</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Gangsta<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 532<br>
+	Threads: 12<br>
+	Joined: Oct 2013
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=216977"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=578782&amp;pid=3497706#pid3497706" title="Re: Making And Explaining Dynamic Systems">#6</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 6 by AlonzoTorres" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">22.06.2015, 13:39 <span class="post_edit" id="edited_by_3497706"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3497706">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Dusan01</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3497560#pid3497560" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Making And Explaining Dynamic Systems_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">Ahh thanks, i totally forgot about that, i will edit tut, thanks <img alt="" border="0" class="inlineimg" src="./[Tutorial] Making And Explaining Dynamic Systems_files/smile.png" title="Smiley"></div>
+</td>
+</tr>
+</tbody></table>
+</div>Better. <img alt="" border="0" class="inlineimg" src="./[Tutorial] Making And Explaining Dynamic Systems_files/smile.png" title="Smiley">
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3497706">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=216977" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=578782&amp;replyto=3497706" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3503266"></a>
+<div class="post classic " style="" id="post_3503266">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=235955"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/235955.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=235955">Ritzy2K</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 1,547<br>
+	Threads: 122<br>
+	Joined: Jun 2014
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=235955"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=578782&amp;pid=3503266#pid3503266" title="Re: Making And Explaining Dynamic Systems">#7</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 7 by Ritzy2K" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">27.06.2015, 14:06 <span class="post_edit" id="edited_by_3503266"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3503266">
+		One typo... <br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;zcmd&gt;</span></div></div></pre>
+</div>
+use [pawn] tag pls... other then that i like ur tut... +rep.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3503266">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=235955" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=578782&amp;replyto=3503266" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3503807"></a>
+<div class="post classic " style="" id="post_3503807">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=169807"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/169807.png" alt="" width="55" height="53"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=169807">Pottus</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				High-roller<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 4,885<br>
+	Threads: 57<br>
+	Joined: Jun 2012
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=169807"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=578782&amp;pid=3503807#pid3503807" title="Re: Making And Explaining Dynamic Systems">#8</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 8 by Pottus" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">27.06.2015, 23:08 <span class="post_edit" id="edited_by_3503807"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3503807">
+		INI sucks for saving/loading data use sqlite/mysql.
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3503807">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=169807" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=578782&amp;replyto=3503807" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3504115"></a>
+<div class="post classic " style="" id="post_3504115">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=132698"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/132698.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=132698">Dusan01</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 484<br>
+	Threads: 131<br>
+	Joined: Jul 2011
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=132698"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=578782&amp;pid=3504115#pid3504115" title="Re: Making And Explaining Dynamic Systems">#9</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 9 by Dusan01" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">28.06.2015, 07:12 <span class="post_edit" id="edited_by_3504115"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3504115">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>Pottus</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3503807#pid3503807" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Making And Explaining Dynamic Systems_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">INI sucks for saving/loading data use sqlite/mysql.</div>
+</td>
+</tr>
+</tbody></table>
+</div>cmon dude, lot of people dont know how to use sqlite/mysql so if i would do tutorial and they dont use it in they GMode they will need to translate it to INI for what u need to edit loading/saving(2min) and they dont know it...
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3504115">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=132698" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=578782&amp;replyto=3504115" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic --><!-- start: postbit_classic -->
+
+<a id="pid3504116"></a>
+<div class="post classic " style="" id="post_3504116">
+<div class="post_author scaleimages">
+	<!-- start: postbit_avatar -->
+<div class="postbit_avatar author_avatar"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=132698"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/132698.png" alt="" width="55" height="55"></a></div>
+<!-- end: postbit_avatar -->
+	<div class="author_information">
+			<strong><span class="largetext"><a href="https://sampforum.blast.hk/member.php?action=profile&amp;uid=132698">Dusan01</a></span></strong> <!-- start: postbit_offline -->
+<span class="online_status status_offline" title="Offline"></span>
+<!-- end: postbit_offline --><br>
+			<span class="smalltext">
+				Huge Clucker<br>
+				<span class="postbit_userstars"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><img src="./[Tutorial] Making And Explaining Dynamic Systems_files/star.png" alt="*"><br></span>
+				
+			</span>
+	</div>
+	<div class="author_statistics">
+		<!-- start: postbit_author_user -->
+	Posts: 484<br>
+	Threads: 131<br>
+	Joined: Jul 2011
+	<!-- start: postbit_reputation -->
+<br>Reputation: <!-- start: postbit_reputation_formatted_link -->
+<a href="https://sampforum.blast.hk/reputation.php?uid=132698"><strong class="reputation_neutral">0</strong></a>
+<!-- end: postbit_reputation_formatted_link -->
+<!-- end: postbit_reputation --><br>
+<!-- end: postbit_author_user -->
+	</div>
+</div>
+<div class="post_content">
+	<div class="post_head">
+		<!-- start: postbit_posturl -->
+<div class="float_right" style="vertical-align: top">
+<strong><a href="https://sampforum.blast.hk/showthread.php?tid=578782&amp;pid=3504116#pid3504116" title="Re: Making And Explaining Dynamic Systems">#10</a></strong>
+
+</div>
+<!-- end: postbit_posturl -->
+		
+		<h1 aria-label="Post: 10 by Dusan01" style="display:inline;font-size:9px;"><!-- helps navigation for screen readers --></h1>
+		<span class="post_date">28.06.2015, 07:14 <span class="post_edit" id="edited_by_3504116"></span></span>
+	
+	</div>
+	<div class="post_body scaleimages" id="pid_3504116">
+		<div style="margin:20px; margin-top:5px; ">
+<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="alt2" style="border: 1px solid #C2C2C2; font-size: 8pt;">
+<div>
+					Originally Posted by <strong>[ND]xXZeusXx.</strong><br>
+<a href="https://sampforum.blast.hk/showthread.php?pid=3503266#pid3503266" rel="nofollow"><img alt="View Post" border="0" class="inlineimg" src="./[Tutorial] Making And Explaining Dynamic Systems_files/viewpost.gif"></a><br>
+</div>
+<div style="font-style:italic">One typo... <br>
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">pawn Code:</div>
+<pre class="alt2" style="margin:0px; padding:6px; border: 1px solid #C2C2C2; width:800px; height:39px; overflow:auto"><div dir="ltr" style="text-align:left;"><div class="pawn" style="font-family:monospace;"><span style="color: #2222AA;">#include &lt;zcmd&gt;</span></div></div></pre>
+</div>
+use [pawn] tag pls... other then that i like ur tut... +rep.</div>
+</td>
+</tr>
+</tbody></table>
+</div>Thanks, i will <img alt="" border="0" class="inlineimg" src="./[Tutorial] Making And Explaining Dynamic Systems_files/biggrin.png" title="Cheesy">
+	</div>
+	
+	
+	<div class="post_meta" id="post_meta_3504116">
+		
+	</div>
+</div>
+<div class="post_controls">
+	<div class="postbit_buttons author_buttons float_left">
+		<!-- start: postbit_find -->
+<a href="https://sampforum.blast.hk/search.php?action=finduser&amp;uid=132698" title="Find all posts by this user" class="postbit_find"><span>Find</span></a>
+<!-- end: postbit_find -->
+	</div>
+	<div class="postbit_buttons post_management_buttons float_right">
+		<!-- start: postbit_quote -->
+<a href="https://sampforum.blast.hk/newreply.php?tid=578782&amp;replyto=3504116" title="Quote this message in a reply" class="postbit_quote postbit_mirage"><span>Reply</span></a>
+<!-- end: postbit_quote -->
+	</div>
+</div>
+</div>
+<!-- end: postbit_classic -->
+	</div>
+</div>
+	
+			<div class="tfoot row">
+				<div class="col-sm-6">
+					<strong>« <a href="https://sampforum.blast.hk/showthread.php?tid=578782&amp;action=nextoldest">Next Oldest</a> | <a href="https://sampforum.blast.hk/showthread.php?tid=578782&amp;action=nextnewest">Next Newest</a> »</strong>
+				</div>
+				<div class="col-sm-6"><!-- start: showthread_search -->
+	<div class="float_right">
+		<form action="https://sampforum.blast.hk/search.php" method="post">
+			<input type="hidden" name="action" value="thread">
+			<input type="hidden" name="tid" value="578782">
+			<input type="text" name="keywords" value="Enter Keywords" onfocus="if(this.value == &#39;Enter Keywords&#39;) { this.value = &#39;&#39;; }" onblur="if(this.value==&#39;&#39;) { this.value=&#39;Enter Keywords&#39;; }" class="textbox" size="25">
+			<input type="submit" class="button" value="Search Thread">
+		</form>
+	</div>
+<!-- end: showthread_search --></div>
+			</div>
+	<div class="float_left">
+		
+	</div>
+	<div class="float_right">
+		
+	</div>
+	<br class="clear">
+	
+	
+	
+	<br>
+	<div class="float_left">
+		<ul class="thread_tools">
+			<!-- start: showthread_printthread -->
+<li class="printable"><a href="https://sampforum.blast.hk/printthread.php?tid=578782">View a Printable Version</a></li>
+<!-- end: showthread_printthread -->
+			
+			
+			
+		</ul>
+	</div>
+
+	<div class="float_right" style="text-align: right;">
+		
+		<!-- start: forumjump_advanced -->
+<form action="https://sampforum.blast.hk/forumdisplay.php" method="get">
+<span class="smalltext">Forum Jump:</span>
+<select name="fid" class="forumjump">
+<option value="-4">Private Messages</option>
+<option value="-3">User Control Panel</option>
+<option value="-5">Who's Online</option>
+<option value="-2">Search</option>
+<option value="-1">Forum Home</option>
+<!-- start: forumjump_bit -->
+<option value="3"> SA-MP</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="74">-- News and Updates</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="13">-- General</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="16">-- Client Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="20">-- Bug Reports</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="21">-- Screenshots and Videos</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="6"> SA-MP Server</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="19">-- Server Support</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="22">-- Server Advertisements</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="8"> SA-MP Scripting and Plugins</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="12">-- Scripting Help</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="70" selected="selected">---- Tutorials</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="84">---- Discussion</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="89">---- Help Archive</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="71">-- Gamemode Scripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="17">-- Filterscripts</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="83">---- Includes</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="82">---- Tools and Files </option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="64">---- Maps</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="18">-- Plugin Development</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="92"> SA-MP DL Edition</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="90">-- SA-MP 0.3.DL</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="94">---- Model Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="7"> Other</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="23">-- Everything and Nothing</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="9"> Non-English</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="33">-- Languages</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="31">---- Nederlands/Dutch</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="76">------ Scripting Showroom en Discussie</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="87">------ Off topic</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="29">---- Español/Spanish</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="59">------ Lanzamientos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="30">---- Français/French</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="81">------ Showroom</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="32">---- Русский/Russian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="66">------ Релизы/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="34">---- Português/Portuguese</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="56">------ Lançamentos/Releases</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="40">---- Română/Romanian</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="77">------ Salonul Scripturilor</option>
+<!-- end: forumjump_bit --><!-- start: forumjump_bit -->
+<option value="88">---- Archive</option>
+<!-- end: forumjump_bit -->
+</select>
+<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+<script type="text/javascript">
+$(".forumjump").on('change', function() {
+	var option = $(this).val();
+
+	if(option < 0)
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+	else
+	{
+		window.location = 'forumdisplay.php?fid='+option;
+	}
+});
+</script>
+<!-- end: forumjump_advanced -->
+	</div>
+	<br class="clear">
+	<!-- start: showthread_usersbrowsing -->
+<br>
+<span class="smalltext">Users browsing this thread: </span>
+<br>
+<!-- end: showthread_usersbrowsing -->
+	<!-- start: footer -->
+<div style="clear:both"><div style="padding-top: 10px"><!-- start: nav -->
+<ol class="breadcrumb container"><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/index.php">SA-MP Forums Archive</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=8">SA-MP Scripting and Plugins</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=12">Scripting Help</a></li>
+<!-- end: nav_bit --><!-- start: nav_bit -->
+<li><a href="https://sampforum.blast.hk/forumdisplay.php?fid=70&amp;page=21">Tutorials</a></li>
+<!-- end: nav_bit --><!-- start: nav_sep_active -->
+
+<!-- end: nav_sep_active --></ol>
+<!-- end: nav --></div></div>
+</main>
+
+<div class="blankspace"></div>
+
+<footer id="footer">
+	<div class="container">
+    <div class="row">
+		
+        <!--<div class="col-sm-4 foot">
+			<h3>About Our Community</h3>
+			<p>Discuss about various topics in our community and have fun while doing so. Welcome to SA-MP Forums Archive</p>
+			
+		</div>		
+		
+
+		<div class="col-sm-4 foot">
+			<h3>Quick Links</h3>
+			<p>
+
+ 				<a href="https://sampforum.blast.hk" class="btn btn-success" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Forum Home"><i class="fa fa-home"></i></a>
+				
+				<a href="https://sampforum.blast.hk/archive/index.php?thread-578782.html" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Lite (Archive) Mode"><i class="fa fa-archive"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Become a Fan"><i class="fa fa-facebook-square"></i></a>
+				
+				<a href="#" target="_blank"  rel="noopener" class="btn btn-info" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" data-original-title="Follow Us"><i class="fa fa-twitter"></i></a>
+				
+				<a href="https://sampforum.blast.hk/misc.php?action=syndication" class="btn btn-warning" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="RSS Syndication"><i class="fa fa-rss"></i></a>
+				<br/>
+				<a href="misc.php?action=markread&amp;my_post_key=906b4f4af2a15f55d2b64b776caec649" class="btn btn-danger" style="color: #fff; margin-top:10px" data-toggle="tooltip" data-placement="bottom" data-original-title="Mark all forums read"><i class="fa fa-book"></i> Mark all forums read</a><br /><br />
+				
+				
+				</p>
+
+		</div>
+		
+		<div class="col-sm-4 foot">
+			
+			 <h3>Reach Us</h3>
+			 
+<p><a href="contact.php" class="btn btn-primary" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Contact Us"><i class="fa fa-envelope"></i> Contact Us</a>&nbsp;
+			
+			<a href="showteam.php" class="btn btn-danger" style="color: #fff;" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Meet Our Team"><i class="fa fa-users"></i> Forum Team</a></p>
+		</div>-->
+		
+		
+		
+		<!-- The following piece of code allows MyBB to run scheduled tasks. DO NOT REMOVE --><!-- start: task_image -->
+<img src="./[Tutorial] Making And Explaining Dynamic Systems_files/task.php" height="1" alt="">
+<!-- end: task_image --><!-- End task image code -->
+		</div>
+	
+	</div>
+
+	
+<div id="copyright">
+	<div class="container">
+			<div class="pull-right"><!-- start: footer_languageselect -->
+<div class="language">
+<form method="POST" action="https://sampforum.blast.hk/showthread.php" id="lang_select">
+	<input type="hidden" name="tid" value="578782">
+
+	<input type="hidden" name="my_post_key" value="906b4f4af2a15f55d2b64b776caec649">
+	<select name="language" onchange="MyBB.changeLanguage();">
+		<optgroup label="Quick Language Select">
+			<!-- start: footer_languageselect_option -->
+<option value="english" selected="selected">&nbsp;&nbsp;&nbsp;English (American)</option>
+<!-- end: footer_languageselect_option --><!-- start: footer_languageselect_option -->
+<option value="russian">&nbsp;&nbsp;&nbsp;Russian</option>
+<!-- end: footer_languageselect_option -->
+		</optgroup>
+	</select>
+	<!-- start: gobutton -->
+<input type="submit" class="button" value="Go">
+<!-- end: gobutton -->
+</form>
+</div>
+<!-- end: footer_languageselect --></div>
+			<div class="pull-left">
+				<!-- MyBB is free software developed and maintained by a volunteer community.
+					It would be much appreciated by the MyBB Group if you left the full copyright and "powered by" notice intact,
+					to show your support for MyBB.  If you choose to remove or modify the copyright below,
+					you may be refused support on the MyBB Community Forums.
+
+					This is free software, support us and we'll support you. -->
+				Powered By <a href="http://www.mybb.com/" target="_blank" rel="noopener" style="color: #fff;">MyBB</a>. <a href="https://eree.in/" title="EREE" target="_blank" rel="noopener" style="color: #fff;">Crafted by EREE</a> and <a href="https://forum.androidbg.com/" title="AndroidBG" target="_blank" rel="noopener" style="color: #fff;">Android BG</a>. Also powered by <a href="https://www.blast.hk/"><b>blast.hk</b></a><!-- End powered by -->
+				
+			</div>
+	</div>
+
+</div>
+
+</footer>
+
+<!-- Fix for MentionMe popup window position -->
+<script type="text/javascript">
+	var MentionMe = (function(m) {
+	m.customSCEditorContainerOffset = {
+		left: 0,
+		top: 2,
+	};
+
+	return m;
+})(MentionMe || {});
+</script>
+<!-- End Fix for MentionMe popup window position -->
+<!-- end: footer -->
+	<script type="text/javascript">
+		var thread_deleted = "0";
+		if(thread_deleted == "1")
+		{
+			$("#quick_reply_form, .new_reply_button, .thread_tools, .inline_rating").hide();
+			$("#moderator_options_selector option.option_mirage").attr("disabled","disabled");
+		}
+	</script>
+
+
+<!-- end: showthread --><script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>
